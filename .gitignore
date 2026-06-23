@@ -1,4 +1,5 @@
 node_modules/
 .workbuddy/
 *.json
-!qinhuangdao-travel-website.html
+!vercel.json
+!index.html
