@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- SEO 核心 -->
 <title>秦皇岛旅游官网 | 2026最新攻略 - 北戴河、山海关、鸽子窝公园</title>
-<meta name="description" content="秦皇岛旅游官网，提供2026年最新秦皇岛旅游攻略。涵盖北戴河、山海关、鸽子窝公园、黄金海岸等热门景点，附3日行程规划、美食推荐、住宿攻略。免费获取旅游行程！">
-<meta name="keywords" content="秦皇岛旅游,秦皇岛旅游攻略,北戴河旅游,山海关旅游,秦皇岛景点,秦皇岛住宿,秦皇岛美食,秦皇岛三日游,秦皇岛自由行,秦皇岛旅游线路">
+<meta name="description" content="秦皇岛旅游官网，提供2026年最新秦皇岛旅游攻略。涵盖北戴河、山海关、鸽子窝公园、黄金海岸等热门景点，附3日行程规划、美食推荐、住宿攻略。">
+<meta name="keywords" content="秦皇岛旅游,秦皇岛旅游攻略,北戴河旅游,山海关旅游,秦皇岛景点,秦皇岛住宿,秦皇岛美食,秦皇岛三日游,秦皇岛自由行">
 <meta name="author" content="秦皇岛旅游官网">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://qhd-lv.vercel.app/">
@@ -18,21 +18,21 @@
 <meta property="og:url" content="https://qhd-lv.vercel.app/">
 <meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80">
 <meta property="og:site_name" content="秦皇岛旅游官网">
-<meta property="og:locale" content="zh_CN">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="秦皇岛旅游官网 | 2026最新旅游攻略">
-<meta name="twitter:description" content="北戴河看海、山海关登长城——秦皇岛最全旅游攻略，免费规划3日行程！">
+<meta name="twitter:description" content="北戴河看海、山海关登长城——秦皇岛最全旅游攻略！">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80">
 
-<!-- 结构化数据：网站主体 -->
+<!-- Schema.org 结构化数据 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "秦皇岛旅游官网",
   "url": "https://qhd-lv.vercel.app/",
+  "description": "提供秦皇岛旅游攻略、景点推荐、行程规划服务",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://qhd-lv.vercel.app/guide.html?q={search_term_string}",
@@ -40,7 +40,6 @@
   }
 }
 </script>
-<!-- 结构化数据：旅游组织 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,17 +47,117 @@
   "name": "秦皇岛旅游官网",
   "description": "提供秦皇岛旅游攻略、景点推荐、行程规划服务",
   "url": "https://qhd-lv.vercel.app/",
-  "areaServed": {
-    "@type": "City",
-    "name": "秦皇岛"
-  },
+  "areaServed": { "@type": "City", "name": "秦皇岛" },
   "priceRange": "$$"
 }
 </script>
 
-<link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* 首页专属样式 */
+  .hero-full {
+    min-height: 100vh; display: flex; align-items: center;
+    background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 50%, #4a9af5 100%);
+    position: relative; overflow: hidden; padding: 120px 24px 80px;
+  }
+  .hero-full::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  }
+  .hero-grid {
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center; position: relative; z-index: 1;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-img-wrap { max-width: 400px; margin: 0 auto; }
+  }
+  .hero-img-wrap {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.5s;
+  }
+  .hero-img-wrap:hover { transform: perspective(1000px) rotateY(0deg); }
+  .hero-img-wrap img { width: 100%; height: 400px; object-fit: cover; }
+
+  /* 城市介绍 */
+  .city-intro { padding: 100px 24px; background: #fff; }
+  .city-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  @media (max-width: 900px) { .city-grid { grid-template-columns: 1fr; } }
+  .city-stats { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
+  .city-stat { background: rgba(26,115,232,0.05); padding: 16px 24px; border-radius: 12px; text-align: center; flex: 1; min-width: 100px; }
+  .city-stat-num { font-size: 1.8rem; font-weight: 900; color: var(--primary); }
+  .city-stat-label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+
+  /* 景点卡片（首页加强版） */
+  .attractions-preview { padding: 100px 24px; background: var(--bg); }
+  .attractions-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 900px) { .attractions-grid { grid-template-columns: 1fr; } }
+  .att-card {
+    background: #fff; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: all 0.3s; border: 1px solid var(--border);
+  }
+  .att-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+  .att-card-img { width: 100%; height: 220px; object-fit: cover; }
+  .att-card-body { padding: 24px; }
+  .att-card-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+  .att-card-body p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; }
+  .att-card-tag {
+    display: inline-block; background: rgba(26,115,232,0.08); color: var(--primary);
+    padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px;
+  }
+
+  /* 行程预览 */
+  .itinerary-preview { padding: 100px 24px; background: #fff; }
+  .day-tabs { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
+  .day-tab {
+    padding: 12px 28px; border-radius: 12px; font-weight: 700; font-size: 0.95rem;
+    cursor: pointer; transition: all 0.2s; border: 2px solid var(--border); background: #fff; color: var(--text-secondary);
+  }
+  .day-tab.active, .day-tab:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .day-content { max-width: 800px; margin: 0 auto; }
+  .day-panel { display: none; }
+  .day-panel.active { display: block; animation: fadeIn 0.4s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .timeline { border-left: 3px solid var(--primary); padding-left: 28px; }
+  .timeline-item { margin-bottom: 24px; position: relative; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -35px; top: 4px;
+    width: 12px; height: 12px; background: var(--primary); border-radius: 50%;
+    border: 3px solid #fff; box-shadow: 0 0 0 3px var(--primary);
+  }
+  .timeline-time { font-weight: 700; color: var(--primary); font-size: 0.92rem; }
+  .timeline-desc { color: var(--text-secondary); font-size: 0.92rem; margin-top: 4px; line-height: 1.7; }
+
+  /* 美食预览 */
+  .food-preview { padding: 100px 24px; background: var(--bg); }
+  .food-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 900px) { .food-grid { grid-template-columns: 1fr; } }
+
+  /* 贴士 */
+  .tips-preview { padding: 100px 24px; background: #fff; }
+  .tips-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .tips-grid { grid-template-columns: 1fr; } }
+  .tip-card {
+    background: var(--bg); border-radius: 16px; padding: 28px; transition: all 0.3s;
+    border: 1px solid var(--border);
+  }
+  .tip-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .tip-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+
+  /* CTA */
+  .cta-home {
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%); color: #fff;
+    padding: 80px 24px; text-align: center;
+  }
+  .cta-home h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+  .cta-home p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+</style>
 </head>
 <body>
 
@@ -75,65 +174,104 @@
       <li><a href="about.html">关于我们</a></li>
     </ul>
     <a href="itinerary.html" class="nav-cta">免费规划行程</a>
-    <button class="hamburger" id="hamburger" aria-label="菜单">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- Hero 区块 -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <h1>发现秦皇岛<br>最美海岸线</h1>
-      <p>北戴河看海 · 山海关登长城 · 鸽子窝看日出<br>2026年最新旅游攻略，助你玩转秦皇岛</p>
-      <div class="hero-btns">
+<!-- Hero 全屏 -->
+<section class="hero-full">
+  <div class="hero-grid">
+    <div style="color: #fff;">
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 2px 20px rgba(0,0,0,0.2);">
+        发现秦皇岛<br>最美海岸线
+      </h1>
+      <p style="font-size: 1.15rem; opacity: 0.92; line-height: 1.8; margin-bottom: 36px; max-width: 500px;">
+        北戴河看海 · 山海关登长城 · 鸽子窝看日出<br>2026年最新旅游攻略，助你玩转秦皇岛
+      </p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
         <a href="itinerary.html" class="btn-primary">🗓️ 免费规划行程</a>
         <a href="attractions.html" class="btn-outline">📍 探索景点</a>
       </div>
     </div>
-    <div class="hero-img">
+    <div class="hero-img-wrap">
       <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="秦皇岛海滩风景" loading="lazy">
     </div>
   </div>
 </section>
 
-<!-- 热门景点推荐 -->
-<section class="section bg-white">
+<!-- 城市介绍 -->
+<section class="city-intro">
+  <div class="city-grid">
+    <div>
+      <span style="color: var(--primary); font-weight: 700; font-size: 0.9rem;">关于秦皇岛</span>
+      <h2 style="font-size: 2rem; font-weight: 800; margin: 12px 0 16px; line-height: 1.3;">
+        山海相连<br>历史与现代交融
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.9; margin-bottom: 16px;">
+        <strong>秦皇岛</strong>地处河北省东北部，南临渤海，北依燕山，因秦始皇东巡至此而得名。
+        这里是连接华北与东北的咽喉要道，也是中国首批沿海开放城市之一。
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.9; margin-bottom: 24px;">
+        秦皇岛拥有<strong>中国四大避暑胜地之一</strong>的北戴河、<strong>天下第一关</strong>山海关、
+        <strong>长城唯一入海处</strong>老龙头等世界级旅游资源，每年吸引数千万游客前来观光。
+      </p>
+      <div class="city-stats">
+        <div class="city-stat">
+          <div class="city-stat-num">2000万+</div>
+          <div class="city-stat-label">年游客量</div>
+        </div>
+        <div class="city-stat">
+          <div class="city-stat-num">6大</div>
+          <div class="city-stat-label">核心景区</div>
+        </div>
+        <div class="city-stat">
+          <div class="city-stat-num">600年</div>
+          <div class="city-stat-label">山海关历史</div>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&q=80" alt="北戴河海滨" style="width:100%;height:180px;object-fit:cover;border-radius:12px;" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=400&q=80" alt="山海关" style="width:100%;height:180px;object-fit:cover;border-radius:12px;margin-top:20px;" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=400&q=80" alt="鸽子窝日出" style="width:100%;height:180px;object-fit:cover;border-radius:12px;margin-top:-20px;" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=400&q=80" alt="黄金海岸" style="width:100%;height:180px;object-fit:cover;border-radius:12px;" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- 热门景点 -->
+<section class="attractions-preview">
   <div class="section-inner">
     <div class="section-header reveal">
       <h2>必去景点推荐</h2>
       <p>精选秦皇岛最值得一去的景点，每个都值得专程前往</p>
     </div>
-    <div class="grid-3">
-      <!-- 北戴河 -->
-      <div class="card reveal">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="北戴河海滨" class="card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag">🌊 海滨风光</span>
+    <div class="attractions-grid">
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="北戴河海滨" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🌊 海滨风光</span>
           <h3>北戴河海滨风景区</h3>
           <p>中国四大避暑胜地之一，拥有细腻的沙滩和清澈的海水，是秦皇岛最著名的旅游区。</p>
-          <a href="attractions.html#beidaihe" style="margin-top:12px;display:inline-block;font-weight:600;">查看详情 →</a>
+          <a href="attractions.html#beidaihe" style="margin-top:12px;display:inline-block;font-weight:600;color:var(--primary);">查看详情 →</a>
         </div>
       </div>
-      <!-- 山海关 -->
-      <div class="card reveal">
-        <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=600&q=80" alt="山海关长城" class="card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag">🏯 历史文化</span>
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=600&q=80" alt="山海关" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🏯 历史文化</span>
           <h3>山海关·天下第一关</h3>
           <p>明长城的东北关隘之一，"天下第一关"闻名天下，距离老龙头仅15分钟车程。</p>
-          <a href="attractions.html#shanhaiyuan" style="margin-top:12px;display:inline-block;font-weight:600;">查看详情 →</a>
+          <a href="attractions.html#shanhaiyuan" style="margin-top:12px;display:inline-block;font-weight:600;color:var(--primary);">查看详情 →</a>
         </div>
       </div>
-      <!-- 鸽子窝 -->
-      <div class="card reveal">
-        <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=600&q=80" alt="鸽子窝公园日出" class="card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag">🌅 观日出</span>
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=600&q=80" alt="鸽子窝公园" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🌅 观日出</span>
           <h3>鸽子窝公园</h3>
           <p>北戴河最佳日出观赏地，鹰角石矗立海边，每年吸引数百万游客前来观日出。</p>
-          <a href="attractions.html#geziwo" style="margin-top:12px;display:inline-block;font-weight:600;">查看详情 →</a>
+          <a href="attractions.html#geziwo" style="margin-top:12px;display:inline-block;font-weight:600;color:var(--primary);">查看详情 →</a>
         </div>
       </div>
     </div>
@@ -143,40 +281,90 @@
   </div>
 </section>
 
-<!-- 行程规划简介 -->
-<section class="section">
+<!-- 行程规划预览（带Tab切换） -->
+<section class="itinerary-preview">
   <div class="section-inner">
-    <div class="grid-2" style="align-items:center;">
-      <div class="reveal">
-        <span style="color:var(--primary);font-weight:700;font-size:0.9rem;">AI 智能规划</span>
-        <h2 style="font-size:2rem;font-weight:800;margin:12px 0 16px;">3日精华行程<br>免费为你定制</h2>
-        <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:24px;">
-          我们根据秦皇岛最佳旅游路线，为你规划了3天2夜的精华行程。
-          涵盖北戴河、山海关、南戴河等核心区域，每天行程合理不赶路。
-          支持在线查看详细路线、景点介绍、美食推荐。
-        </p>
-        <ul style="list-style:none;padding:0;margin-bottom:32px;">
-          <li style="padding:8px 0;color:var(--text-secondary);">✅ Day 1：北戴河海滨风情</li>
-          <li style="padding:8px 0;color:var(--text-secondary);">✅ Day 2：山海关历史文化</li>
-          <li style="padding:8px 0;color:var(--text-secondary);">✅ Day 3：南戴河休闲娱乐</li>
-        </ul>
-        <a href="itinerary.html" class="btn-primary">查看完整行程 →</a>
+    <div class="section-header reveal">
+      <h2>3日精华行程</h2>
+      <p>我们为你规划了3天2夜的精华路线，每天不赶路，玩得尽兴</p>
+    </div>
+    <div class="day-tabs reveal">
+      <div class="day-tab active" onclick="showDay(0)">Day 1 · 北戴河</div>
+      <div class="day-tab" onclick="showDay(1)">Day 2 · 山海关</div>
+      <div class="day-tab" onclick="showDay(2)">Day 3 · 南戴河</div>
+    </div>
+    <div class="day-content">
+      <!-- Day 1 -->
+      <div class="day-panel active" id="day-0">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">🌅 05:00 - 08:00 | 鸽子窝公园看日出</div>
+            <div class="timeline-desc">夏季日出约4:30-5:00，提前40分钟到达。看完日出在公园内散步，鹰角石、望海长廊都值得一看。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">🏖️ 10:00 - 17:00 | 老虎石海上公园 + 沙滩</div>
+            <div class="timeline-desc">北戴河最著名的海滨浴场，可以游泳、玩沙、拍照。附近有很多海鲜大排档，午餐就在这里解决。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">🌙 18:00 - 21:00 | 碧螺塔海上酒吧公园</div>
+            <div class="timeline-desc">北戴河夜生活地标，有演出、烟花秀、海上酒吧。门票40元，晚上景色非常美。</div>
+          </div>
+        </div>
+        <div style="background:rgba(26,115,232,0.05);border-radius:12px;padding:16px 20px;margin-top:24px;text-align:center;">
+          <strong>Day1 预算参考：</strong>约145-185元/人（门票25+餐饮80-120+碧螺塔40）
+        </div>
       </div>
-      <div class="reveal">
-        <img src="https://images.unsplash.com/photo-1488646953014-df53e021b72d?w=700&q=80" alt="旅游行程规划" style="width:100%;border-radius:16px;box-shadow:var(--shadow-lg);" loading="lazy">
+      <!-- Day 2 -->
+      <div class="day-panel" id="day-1">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">🏯 09:30 - 12:30 | 天下第一关·山海关古城</div>
+            <div class="timeline-desc">游览山海关古城，登镇远楼看"天下第一关"匾额，逛王家大院了解民俗文化。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">🏯 13:30 - 16:30 | 老龙头景区</div>
+            <div class="timeline-desc">看长城入海的壮丽景观。澄海楼、入海石城、海神庙是必看景点。这里是明长城的东起点。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">🍜 17:00 - 19:00 | 山海关美食街</div>
+            <div class="timeline-desc">品尝山海关特色美食：四条包子、饸饹面、山海关焖子。推荐去古城内的小吃街。</div>
+          </div>
+        </div>
+        <div style="background:rgba(13,71,161,0.05);border-radius:12px;padding:16px 20px;margin-top:24px;text-align:center;">
+          <strong>Day2 预算参考：</strong>约190-250元/人（山海关50+老龙头60+餐饮60-100+交通20-40）
+        </div>
       </div>
+      <!-- Day 3 -->
+      <div class="day-panel" id="day-2">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">🏖️ 10:00 - 15:00 | 黄金海岸 + 国际滑沙中心</div>
+            <div class="timeline-desc">黄金海岸沙滩细腻，海水清澈。国际滑沙中心是国内最大的滑沙场，滑沙+滑草套票约120元，非常刺激好玩。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">🦐 16:00 - 18:00 | 海鲜大餐 + 返程准备</div>
+            <div class="timeline-desc">在南戴河海鲜市场买新鲜海鲜，找店加工，性价比极高。餐后返回酒店取行李。</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,109,0,0.05);border-radius:12px;padding:16px 20px;margin-top:24px;text-align:center;">
+          <strong>Day3 预算参考：</strong>约240-310元/人（滑沙120+海鲜100-150+交通20-40）
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="itinerary.html" class="btn-primary">查看完整行程详情 →</a>
     </div>
   </div>
 </section>
 
-<!-- 美食推荐 -->
-<section class="section bg-white">
+<!-- 美食推荐预览 -->
+<section class="food-preview">
   <div class="section-inner">
     <div class="section-header reveal">
       <h2>地道美食推荐</h2>
       <p>来了秦皇岛，这些美食一定要尝一尝</p>
     </div>
-    <div class="grid-3">
+    <div class="food-grid">
       <div class="card reveal">
         <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="海鲜大餐" class="card-img" loading="lazy">
         <div class="card-body">
@@ -208,60 +396,48 @@
   </div>
 </section>
 
-<!-- 旅游攻略入口 -->
-<section class="section">
+<!-- 旅游贴士 -->
+<section class="tips-preview">
   <div class="section-inner">
     <div class="section-header reveal">
-      <h2>实用旅游攻略</h2>
+      <h2>实用旅游贴士</h2>
       <p>出行前必看，让你的秦皇岛之旅更顺畅</p>
     </div>
-    <div class="grid-2">
-      <div class="card reveal" style="display:flex;flex-direction:row;">
-        <div style="width:200px;flex-shrink:0;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=400&q=80" alt="交通指南" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>🚄 如何到达秦皇岛</h3>
-          <p>高铁、飞机、自驾全方位交通指南，附秦皇岛站到各景区详细路线。</p>
-          <a href="guide.html#transport" style="font-weight:600;">阅读全文 →</a>
-        </div>
+    <div class="tips-grid">
+      <div class="tip-card reveal">
+        <h3>🚄 如何到达秦皇岛</h3>
+        <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.8;">
+          高铁首选<strong>北戴河站</strong>（离景区最近）或<strong>秦皇岛站</strong>。北京到秦皇岛高铁仅需2小时。从车站可乘坐34路公交或打车前往各景区。
+        </p>
+        <a href="guide.html#transport" style="font-size:0.9rem;font-weight:600;color:var(--primary);">查看交通详情 →</a>
       </div>
-      <div class="card reveal" style="display:flex;flex-direction:row;">
-        <div style="width:200px;flex-shrink:0;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&q=80" alt="住宿推荐" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>🏨 住宿区域推荐</h3>
-          <p>北戴河区、海港区、山海关区三大住宿区域对比，附性价比酒店推荐。</p>
-          <a href="guide.html#accommodation" style="font-weight:600;">阅读全文 →</a>
-        </div>
+      <div class="tip-card reveal">
+        <h3>🏨 住宿区域推荐</h3>
+        <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.8;">
+          <strong>北戴河区</strong>最方便（靠海）；<strong>海港区</strong>最经济；<strong>山海关区</strong>适合文化游。旺季一定要提前预订酒店！
+        </p>
+        <a href="guide.html#accommodation" style="font-size:0.9rem;font-weight:600;color:var(--primary);">查看住宿详情 →</a>
       </div>
-      <div class="card reveal" style="display:flex;flex-direction:row;">
-        <div style="width:200px;flex-shrink:0;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80" alt="最佳时间" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>📅 最佳旅游时间</h3>
-          <p>秦皇岛四季分明，6-9月是旅游旺季，详细介绍各季节特色和穿衣指南。</p>
-          <a href="guide.html#besttime" style="font-weight:600;">阅读全文 →</a>
-        </div>
+      <div class="tip-card reveal">
+        <h3>📅 最佳旅游时间</h3>
+        <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.8;">
+          <strong>5月/9月</strong>是最佳窗口期（人少价低）。7-8月是旺季，可以下海游泳但人多价高。冬季可看雪景长城。
+        </p>
+        <a href="guide.html#besttime" style="font-size:0.9rem;font-weight:600;color:var(--primary);">查看时间详情 →</a>
       </div>
-      <div class="card reveal" style="display:flex;flex-direction:row;">
-        <div style="width:200px;flex-shrink:0;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=400&q=80" alt="旅行贴士" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3>💡 旅行注意事项</h3>
-          <p>防晒、防坑、防宰客——老游客总结的实用经验，帮你避坑省钱。</p>
-          <a href="guide.html#tips" style="font-weight:600;">阅读全文 →</a>
-        </div>
+      <div class="tip-card reveal">
+        <h3>💡 旅行注意事项</h3>
+        <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.8;">
+          海边紫外线强，SPF50+防晒霜必备。不要相信出租车司机推荐的"好吃不贵"餐厅。买海鲜去正规市场。
+        </p>
+        <a href="guide.html#tips" style="font-size:0.9rem;font-weight:600;color:var(--primary);">查看全部贴士 →</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
+<section class="cta-home">
   <div class="section-inner">
     <h2>开始规划你的秦皇岛之旅</h2>
     <p>免费获取3日精华行程，包含景点、美食、交通全覆盖</p>
@@ -327,6 +503,15 @@ window.addEventListener('scroll', function() {
 document.getElementById('hamburger').addEventListener('click', function() {
   document.getElementById('navLinks').classList.toggle('open');
 });
+// 行程Tab切换
+function showDay(idx) {
+  var tabs = document.querySelectorAll('.day-tab');
+  var panels = document.querySelectorAll('.day-panel');
+  tabs.forEach(function(t) { t.classList.remove('active'); });
+  panels.forEach(function(p) { p.classList.remove('active'); });
+  tabs[idx].classList.add('active');
+  panels[idx].classList.add('active');
+}
 // 滚动显示动画
 var reveals = document.querySelectorAll('.reveal');
 var observer = new IntersectionObserver(function(entries) {
