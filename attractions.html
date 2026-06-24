@@ -3,69 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>秦皇岛景点推荐 | 北戴河·山海关·鸽子窝 - 秦皇岛旅游官网</title>
-<meta name="description" content="秦皇岛最全景点推荐，涵盖北戴河海滨、山海关、鸽子窝公园、黄金海岸、老龙头等热门景点。附门票价格、开放时间、交通路线和游客真实评价。">
-<meta name="keywords" content="秦皇岛景点,北戴河景点,山海关景点,鸽子窝公园,黄金海岸,老龙头,秦皇岛旅游景点推荐,秦皇岛哪里好玩">
+<title>秦皇岛景点推荐 | 北戴河·山海关·鸽子窝 — 秦皇岛旅游官网</title>
+<meta name="description" content="秦皇岛最全景点推荐：北戴河海滨、山海关、鸽子窝公园、老龙头、黄金海岸。附门票价格、开放时间、交通路线和游玩攻略。">
+<meta name="keywords" content="秦皇岛景点,北戴河,山海关,鸽子窝公园,老龙头,黄金海岸,秦皇岛旅游景点推荐">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://qhd-lv.vercel.app/attractions.html">
-
-<!-- Open Graph -->
 <meta property="og:title" content="秦皇岛景点推荐 | 北戴河·山海关·鸽子窝">
-<meta property="og:description" content="秦皇岛最全景点推荐，涵盖北戴河海滨、山海关、鸽子窝公园等热门景点，附详细攻略。">
+<meta property="og:description" content="北戴河海滨、山海关、鸽子窝公园……秦皇岛最值得去的景点全在这里！">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qhd-lv.vercel.app/attractions.html">
 <meta property="og:image" content="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80">
 <meta property="og:site_name" content="秦皇岛旅游官网">
-
-<!-- 结构化数据：景点列表 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "秦皇岛热门景点",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "item": {
-        "@type": "TouristAttraction",
-        "name": "北戴河海滨风景区",
-        "description": "中国四大避暑胜地之一，拥有细腻的沙滩和清澈的海水",
-        "url": "https://qhd-lv.vercel.app/attractions.html#beidaihe"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "TouristAttraction",
-        "name": "山海关天下第一关",
-        "description": "明长城的东北关隘之一，天下第一关闻名天下",
-        "url": "https://qhd-lv.vercel.app/attractions.html#shanhaiyuan"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "TouristAttraction",
-        "name": "鸽子窝公园",
-        "description": "北戴河最佳日出观赏地，鹰角石矗立海边",
-        "url": "https://qhd-lv.vercel.app/attractions.html#geziwo"
-      }
-    }
+    {"@type":"ListItem","position":1,"item":{"@type":"TouristAttraction","name":"北戴河海滨风景区","description":"中国四大避暑胜地之一","url":"https://qhd-lv.vercel.app/attractions.html#beidaihe"}},
+    {"@type":"ListItem","position":2,"item":{"@type":"TouristAttraction","name":"山海关天下第一关","description":"明长城东北关隘","url":"https://qhd-lv.vercel.app/attractions.html#shanhaiyuan"}},
+    {"@type":"ListItem","position":3,"item":{"@type":"TouristAttraction","name":"鸽子窝公园","description":"北戴河最佳日出观赏地","url":"https://qhd-lv.vercel.app/attractions.html#geziwo"}},
+    {"@type":"ListItem","position":4,"item":{"@type":"TouristAttraction","name":"老龙头景区","description":"长城唯一入海处","url":"https://qhd-lv.vercel.app/attractions.html#laolongtou"}},
+    {"@type":"ListItem","position":5,"item":{"@type":"TouristAttraction","name":"黄金海岸","description":"世界罕见的海洋大漠风光","url":"https://qhd-lv.vercel.app/attractions.html#goldcoast"}}
   ]
 }
 </script>
-
 <link rel="stylesheet" href="style.css">
+<style>
+  .attraction-block {
+    margin-bottom: var(--space-12);
+    background: #fff;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+  }
+  .attraction-block-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 320px;
+  }
+  .attraction-img {
+    overflow: hidden;
+    position: relative;
+  }
+  .attraction-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 320px;
+    transition: transform 0.6s var(--ease-out);
+  }
+  .attraction-block:hover .attraction-img img {
+    transform: scale(1.04);
+  }
+  .attraction-info {
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .attraction-meta {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+  .attraction-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+  .rating-stars { color: #F4A460; font-weight: 700; }
+  @media (max-width: 768px) {
+    .attraction-block-grid {
+      grid-template-columns: 1fr;
+    }
+    .attraction-img img {
+      height: 260px;
+      min-height: auto;
+    }
+    .attraction-info {
+      padding: var(--space-6);
+    }
+  }
+</style>
 </head>
 <body>
 
-<!-- 导航栏 -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">🏖️ 秦皇岛<span>旅游官网</span></a>
+    <a href="index.html" class="nav-logo">🌊 秦皇岛<span>旅游官网</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">首页</a></li>
       <li><a href="attractions.html" class="active">景点</a></li>
@@ -81,178 +111,180 @@
 
 <div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 景点推荐</div>
 
-<!-- 页面标题 -->
-<section style="padding:100px 24px 40px;text-align:center;background:var(--gradient-hero);color:#fff;">
-  <div class="section-inner">
-    <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:16px;">秦皇岛热门景点</h1>
-    <p style="font-size:1.1rem;opacity:0.9;max-width:600px;margin:0 auto;">精选秦皇岛最值得一去的景点，附门票、路线、游玩攻略</p>
+<section class="page-hero" style="background:linear-gradient(160deg, #0B3D5C 0%, #1A6B8A 50%, #2E86AB 100%); color:#fff;">
+  <h1>秦皇岛热门景点</h1>
+  <p>从海滨到长城，每一处都值得你停下脚步</p>
+  <div class="page-hero-meta">
+    <span class="page-hero-tag">📍 5大核心景区</span>
+    <span class="page-hero-tag">⭐ 均分4.6+</span>
+    <span class="page-hero-tag">📸 摄影天堂</span>
   </div>
 </section>
 
-<!-- 景点列表 -->
-<section class="section bg-white">
- <div class="section-inner">
+<section class="section bg-cream">
+  <div class="section-inner">
 
-    <!-- 广告位：顶部横幅 -->
-    <div class="ad-banner" style="margin-bottom:40px;">
+    <!-- 广告位 -->
+    <div class="ad-banner">
       <div class="ad-box">
-        💡 <strong>温馨提示：</strong>秦皇岛旅游旺季（7-8月）景点人流量大，建议提前在线预订门票，省时省心。
-        <br>推荐合作平台：<a href="https://www.ctrip.com" target="_blank" rel="sponsored noopener">携程</a> · <a href="https://www.meituan.com" target="_blank" rel="sponsored noopener">美团</a> · <a href="https://www.dianping.com" target="_blank" rel="sponsored noopener">大众点评</a>
+        💡 <strong>温馨提示：</strong>旅游旺季（7-8月）景点人流量大，建议提前在线预订门票。
+        推荐：<a href="https://www.ctrip.com" target="_blank" rel="sponsored noopener">携程</a> · <a href="https://www.meituan.com" target="_blank" rel="sponsored noopener">美团</a> · <a href="https://www.dianping.com" target="_blank" rel="sponsored noopener">大众点评</a>
       </div>
     </div>
 
     <!-- 北戴河 -->
-    <div class="card reveal" id="beidaihe" style="margin-bottom:32px;display:grid;grid-template-columns:1fr 1.5fr;gap:0;">
-      <div style="overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="北戴河海滨风景区" style="width:100%;height:100%;object-fit:cover;min-height:300px;" loading="lazy">
-      </div>
-      <div class="card-body">
-        <span class="card-tag">🌊 海滨风光 · 避暑胜地</span>
-        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;">北戴河海滨风景区</h2>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;font-size:0.88rem;color:var(--text-secondary);">
-          <span>📍 秦皇岛市北戴河区</span>
-          <span>🎫 免费开放</span>
-          <span>⭐ 4.7分 (12,580条评价)</span>
+    <div class="attraction-block reveal" id="beidaihe">
+      <div class="attraction-block-grid">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" alt="北戴河海滨风景区" loading="lazy">
         </div>
-        <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:16px;">
-          <strong>北戴河</strong>是中国四大避暑胜地之一，被誉为"远东罕有其匹"的美景胜地。这里有细腻的黄金沙滩、清澈的海水、宜人的气候。
-          主要景点包括：老虎石海上公园、鸽子窝公园、联峰山公园、怪楼奇园等。
-          <br><br>
-          <strong>最佳游玩时间：</strong>6月-9月，其中7-8月是旺季，建议避开周末高峰期。
-          <br>
-          <strong>交通：</strong>秦皇岛站乘坐34路公交直达北戴河海滨汽车站，约40分钟。
-        </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="itinerary.html#day1" class="btn-primary" style="padding:10px 20px;font-size:0.9rem;">查看行程中的北戴河</a>
-          <a href="guide.html#transport" style="display:inline-flex;align-items:center;padding:10px 20px;font-size:0.9rem;font-weight:600;color:var(--primary);border:2px solid var(--primary);border-radius:8px;">交通攻略 →</a>
+        <div class="attraction-info">
+          <span class="card-tag">🌊 海滨风光 · 避暑胜地</span>
+          <h2 style="font-size:var(--text-2xl);font-weight:800;margin:var(--space-3) 0 var(--space-2);">北戴河海滨风景区</h2>
+          <div class="attraction-meta">
+            <span>📍 北戴河区</span>
+            <span>🎫 免费开放</span>
+            <span class="rating-stars">⭐ 4.7 (12,580条评价)</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:var(--space-4);">
+            <strong>北戴河</strong>是中国四大避暑胜地之一。细腻的黄金沙滩、清澈的海水、宜人的气候，让这里成为京津地区最受欢迎的海滨度假地。
+          </p>
+          <p style="color:var(--text-muted);font-size:var(--text-sm);line-height:1.8;margin-bottom:var(--space-4);">
+            <strong>主要景点：</strong>老虎石海上公园、联峰山公园、怪楼奇园<br>
+            <strong>交通：</strong>34路公交从秦皇岛站直达，约40分钟
+          </p>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
+            <a href="itinerary.html#day1" class="btn btn-primary" style="font-size:var(--text-sm);padding:var(--space-3) var(--space-5);">行程中的北戴河</a>
+            <a href="guide.html#transport" class="btn btn-outline" style="font-size:var(--text-sm);padding:var(--space-3) var(--space-5);">交通攻略</a>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- 山海关 -->
-    <div class="card reveal" id="shanhaiyuan" style="margin-bottom:32px;display:grid;grid-template-columns:1.5fr 1fr;gap:0;">
-      <div class="card-body">
-        <span class="card-tag">🏯 历史文化 · 世界遗产</span>
-        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;">山海关·天下第一关</h2>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;font-size:0.88rem;color:var(--text-secondary);">
-          <span>📍 秦皇岛市山海关区</span>
-          <span>🎫 50元/人</span>
-          <span>⭐ 4.8分 (9,820条评价)</span>
+    <div class="attraction-block reveal" id="shanhaiyuan">
+      <div class="attraction-block-grid" style="direction:rtl;">
+        <div class="attraction-info" style="direction:ltr;">
+          <span class="card-tag">🏯 历史文化 · 世界遗产</span>
+          <h2 style="font-size:var(--text-2xl);font-weight:800;margin:var(--space-3) 0 var(--space-2);">山海关·天下第一关</h2>
+          <div class="attraction-meta">
+            <span>📍 山海关区</span>
+            <span>🎫 50元/人</span>
+            <span class="rating-stars">⭐ 4.8 (9,820条评价)</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:var(--space-4);">
+            <strong>山海关</strong>是明长城东北关隘，中国长城三大奇观之一。"天下第一关"匾额为明代书法家萧显所书，与万里之外的嘉峪关遥相呼应。
+          </p>
+          <p style="color:var(--text-muted);font-size:var(--text-sm);line-height:1.8;margin-bottom:var(--space-4);">
+            <strong>必看：</strong>镇远楼、王家大院、钟鼓楼、古城墙<br>
+            <strong>时间：</strong>建议半天（3-4小时），距老龙头8公里
+          </p>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
+            <a href="itinerary.html#day2" class="btn btn-primary" style="font-size:var(--text-sm);padding:var(--space-3) var(--space-5);">行程中的山海关</a>
+          </div>
         </div>
-        <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:16px;">
-          <strong>山海关</strong>是明长城的东北关隘之一，自古即为中国长城三大奇观之一（东有山海关、中有镇北台、西有嘉峪关），与万里之外的嘉峪关遥相呼应，闻名天下。
-          "天下第一关"匾额为明代书法家萧显所书，苍劲有力，堪称书法瑰宝。
-          <br><br>
-          <strong>必看亮点：</strong>镇远楼（天下第一关城楼）、王家大院、钟鼓楼、古城墙漫步
-          <br>
-          <strong>建议游玩时间：</strong>半天（3-4小时）
-        </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="itinerary.html#day2" class="btn-primary" style="padding:10px 20px;font-size:0.9rem;">查看行程中的山海关</a>
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=800&q=80" alt="山海关天下第一关" loading="lazy">
         </div>
-      </div>
-      <div style="overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=600&q=80" alt="山海关天下第一关" style="width:100%;height:100%;object-fit:cover;min-height:300px;" loading="lazy">
       </div>
     </div>
 
-    <!-- 鸽子窝公园 -->
-    <div class="card reveal" id="geziwo" style="margin-bottom:32px;display:grid;grid-template-columns:1fr 1.5fr;gap:0;">
-      <div style="overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=600&q=80" alt="鸽子窝公园观日出" style="width:100%;height:100%;object-fit:cover;min-height:300px;" loading="lazy">
-      </div>
-      <div class="card-body">
-        <span class="card-tag">🌅 观日出 · 亲子游玩</span>
-        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;">鸽子窝公园</h2>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;font-size:0.88rem;color:var(--text-secondary);">
-          <span>📍 北戴河区东山鸽子窝公园</span>
-          <span>🎫 25元/人</span>
-          <span>⭐ 4.6分 (8,930条评价)</span>
+    <!-- 鸽子窝 -->
+    <div class="attraction-block reveal" id="geziwo">
+      <div class="attraction-block-grid">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=800&q=80" alt="鸽子窝公园" loading="lazy">
         </div>
-        <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:16px;">
-          <strong>鸽子窝公园</strong>是北戴河看日出的最佳地点，公园内的鹰角石高约17米，形似雄鹰屹立海边。
-          每年3-6月，成群的鸽子在此栖息，故得名"鸽子窝"。
-          <br><br>
-          <strong>观日出攻略：</strong>夏季日出时间约4:30-5:00，建议提前40分钟到达。公园5:00开门，需要购买门票。
-          如果预算有限，可以在鸽子窝公园外的海滩免费看日出。
-          <br>
-          <strong>门票优惠：</strong>6:00前入园可享受早鸟价15元。
-        </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="guide.html#besttime" class="btn-primary" style="padding:10px 20px;font-size:0.9rem;">查看日出时间</a>
+        <div class="attraction-info">
+          <span class="card-tag">🌅 日出胜地 · 亲子游玩</span>
+          <h2 style="font-size:var(--text-2xl);font-weight:800;margin:var(--space-3) 0 var(--space-2);">鸽子窝公园</h2>
+          <div class="attraction-meta">
+            <span>📍 北戴河区</span>
+            <span>🎫 25元/人</span>
+            <span class="rating-stars">⭐ 4.6 (8,930条评价)</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:var(--space-4);">
+            <strong>鸽子窝公园</strong>是北戴河看日出的最佳地点。鹰角石高约17米，形似雄鹰屹立海边。每年3-6月，成群鸽子在此栖息。
+          </p>
+          <p style="color:var(--text-muted);font-size:var(--text-sm);line-height:1.8;margin-bottom:var(--space-4);">
+            <strong>日出攻略：</strong>夏季日出约4:30，提前40分钟到达。6:00前入园早鸟价15元。<br>
+            预算有限可在公园外海滩免费看日出。
+          </p>
+          <a href="guide.html#besttime" class="btn btn-outline" style="font-size:var(--text-sm);padding:var(--space-3) var(--space-5);">查看日出时间</a>
         </div>
       </div>
     </div>
 
     <!-- 老龙头 -->
-    <div class="card reveal" style="margin-bottom:32px;display:grid;grid-template-columns:1.5fr 1fr;gap:0;">
-      <div class="card-body">
-        <span class="card-tag">🏯 长城入海 · 世界遗产</span>
-        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;">老龙头景区</h2>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;font-size:0.88rem;color:var(--text-secondary);">
-          <span>📍 山海关区老龙头路1号</span>
-          <span>🎫 60元/人</span>
-          <span>⭐ 4.7分 (7,650条评价)</span>
+    <div class="attraction-block reveal" id="laolongtou">
+      <div class="attraction-block-grid" style="direction:rtl;">
+        <div class="attraction-info" style="direction:ltr;">
+          <span class="card-tag">🏯 长城入海 · 世界遗产</span>
+          <h2 style="font-size:var(--text-2xl);font-weight:800;margin:var(--space-3) 0 var(--space-2);">老龙头景区</h2>
+          <div class="attraction-meta">
+            <span>📍 山海关区</span>
+            <span>🎫 60元/人</span>
+            <span class="rating-stars">⭐ 4.7 (7,650条评价)</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:var(--space-4);">
+            <strong>老龙头</strong>是明长城东起点，也是万里长城唯一集山、海、关、城于一体的海陆军事防御体系。长城犹如巨龙探入渤海。
+          </p>
+          <p style="color:var(--text-muted);font-size:var(--text-sm);line-height:1.8;margin-bottom:var(--space-4);">
+            <strong>必看：</strong>澄海楼、入海石城、海神庙、靖虏台<br>
+            <strong>交通：</strong>距山海关古城8公里，打车约15分钟
+          </p>
         </div>
-        <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:16px;">
-          <strong>老龙头</strong>是明长城的东起点，也是万里长城唯一集山、海、关、城于一体的海陆军事防御体系。
-          长城犹如一条巨龙探入渤海，故名"老龙头"。
-          <br><br>
-          <strong>必看景点：</strong>澄海楼、入海石城、海神庙、靖虏台
-          <br>
-          <strong>距离：</strong>距山海关古城约8公里，打车约15分钟。
-        </p>
-      </div>
-      <div style="overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="老龙头长城入海" style="width:100%;height:100%;object-fit:cover;min-height:300px;" loading="lazy">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80" alt="老龙头长城入海" loading="lazy">
+        </div>
       </div>
     </div>
 
     <!-- 黄金海岸 -->
-    <div class="card reveal" style="margin-bottom:32px;display:grid;grid-template-columns:1fr 1.5fr;gap:0;">
-      <div style="overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&q=80" alt="黄金海岸沙滩" style="width:100%;height:100%;object-fit:cover;min-height:300px;" loading="lazy">
-      </div>
-      <div class="card-body">
-        <span class="card-tag">🏖️ 沙滩 · 水上乐园</span>
-        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;">南戴河·黄金海岸</h2>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;font-size:0.88rem;color:var(--text-secondary);">
-          <span>📍 秦皇岛市昌黎县</span>
-          <span>🎫 沙滩免费 · 游乐设施另收费</span>
-          <span>⭐ 4.5分 (6,420条评价)</span>
+    <div class="attraction-block reveal" id="goldcoast">
+      <div class="attraction-block-grid">
+        <div class="attraction-img">
+          <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800&q=80" alt="黄金海岸" loading="lazy">
         </div>
-        <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:16px;">
-          <strong>黄金海岸</strong>被誉为"沙漠与大海的吻痕"，拥有世界罕见的海洋大漠风光。
-          这里沙细、滩缓、水清、潮平，是天然的浴场和生态旅游区。
-          <br><br>
-          <strong>娱乐项目：</strong>滑沙、滑草、水上摩托、香蕉船、沙滩排球等。
-          国际滑沙活动中心是国内最大的滑沙场，值得一试。
-          <br>
-          <strong>距离：</strong>距北戴河约30公里，可乘坐22路公交或打车前往。
-        </p>
+        <div class="attraction-info">
+          <span class="card-tag card-tag--coral">🏖️ 沙滩 · 水上乐园</span>
+          <h2 style="font-size:var(--text-2xl);font-weight:800;margin:var(--space-3) 0 var(--space-2);">南戴河·黄金海岸</h2>
+          <div class="attraction-meta">
+            <span>📍 昌黎县</span>
+            <span>🎫 沙滩免费</span>
+            <span class="rating-stars">⭐ 4.5 (6,420条评价)</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:var(--space-4);">
+            <strong>黄金海岸</strong>被誉为"沙漠与大海的吻痕"，沙细、滩缓、水清、潮平。国际滑沙中心是国内最大的滑沙场。
+          </p>
+          <p style="color:var(--text-muted);font-size:var(--text-sm);line-height:1.8;margin-bottom:var(--space-4);">
+            <strong>娱乐：</strong>滑沙、滑草、水上摩托、香蕉船、沙滩排球<br>
+            <strong>交通：</strong>距北戴河30公里，22路公交或打车
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- 更多景点简列表 -->
-    <div style="margin-top:48px;">
-      <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:24px;">更多值得一去的景点</h3>
+    <!-- 更多景点 -->
+    <div class="reveal mt-12">
+      <h2 class="heading-lg mb-8">更多值得一去的景点</h2>
       <div class="grid-3">
-        <div class="card reveal">
-          <div class="card-body" style="padding:20px;">
-            <h4 style="font-weight:700;margin-bottom:8px;">🏛️ 秦皇岛野生动物园</h4>
-            <p style="font-size:0.88rem;color:var(--text-secondary);">华北地区最大的野生动物园，可自驾入园观赏，适合亲子游。门票100元。</p>
+        <div class="card">
+          <div class="card-body">
+            <h3>🏛️ 秦皇岛野生动物园</h3>
+            <p style="font-size:var(--text-sm);color:var(--text-secondary);">华北最大野生动物园，可自驾入园。门票100元，适合亲子。</p>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-body" style="padding:20px;">
-            <h4 style="font-weight:700;margin-bottom:8px;">🌊 碧螺塔海上酒吧公园</h4>
-            <p style="font-size:0.88rem;color:var(--text-secondary);">北戴河夜生活地标，海上酒吧+烟花秀+演出，夜景绝佳。门票40元。</p>
+        <div class="card">
+          <div class="card-body">
+            <h3>🌊 碧螺塔海上酒吧公园</h3>
+            <p style="font-size:var(--text-sm);color:var(--text-secondary);">北戴河夜生活地标，海上酒吧+烟花秀+演出。门票40元。</p>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-body" style="padding:20px;">
-            <h4 style="font-weight:700;margin-bottom:8px;">🏔️ 祖山风景区</h4>
-            <p style="font-size:0.88rem;color:var(--text-secondary);">秦皇岛屋脊，原始森林覆盖，常年云雾缭绕，是摄影爱好者的天堂。</p>
+        <div class="card">
+          <div class="card-body">
+            <h3>🏔️ 祖山风景区</h3>
+            <p style="font-size:var(--text-sm);color:var(--text-secondary);">秦皇岛屋脊，原始森林覆盖，常年云雾缭绕，摄影天堂。</p>
           </div>
         </div>
       </div>
@@ -261,21 +293,19 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+<section class="cta-section" style="background:linear-gradient(160deg, var(--ocean-deep), var(--ocean), var(--ocean-light));">
   <div class="section-inner">
-    <h2>规划你的专属行程</h2>
+    <h2>选好景点，开始规划行程吧</h2>
     <p>把以上景点串联起来，我们为你免费规划3日精华路线</p>
-    <a href="itinerary.html" class="btn-primary" style="background:#fff;color:var(--primary);">🗓️ 查看行程规划 →</a>
+    <a href="itinerary.html" class="btn-coral" style="font-size:var(--text-base);padding:var(--space-4) var(--space-8);">查看行程规划 →</a>
   </div>
 </section>
 
-<!-- 页脚 -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3>🏖️ 秦皇岛旅游官网</h3>
+        <h3>🌊 秦皇岛旅游官网</h3>
         <p>提供最全面的秦皇岛旅游攻略、景点推荐、美食指南和行程规划服务。</p>
       </div>
       <div class="footer-col">
@@ -307,19 +337,11 @@
 </footer>
 
 <script>
-window.addEventListener('scroll', function() {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-});
-document.getElementById('hamburger').addEventListener('click', function() {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-var reveals = document.querySelectorAll('.reveal');
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-  });
-}, { threshold: 0.1 });
-reveals.forEach(function(el) { observer.observe(el); });
+window.addEventListener('scroll', function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);});
+document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open');});
+var reveals=document.querySelectorAll('.reveal');
+var observer=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}})},{threshold:0.1});
+reveals.forEach(function(el){observer.observe(el);});
 </script>
 </body>
 </html>

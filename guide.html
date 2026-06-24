@@ -3,42 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>秦皇岛旅游攻略 | 交通·住宿·最佳时间 - 秦皇岛旅游官网</title>
-<meta name="description" content="秦皇岛旅游全攻略：交通指南（高铁/飞机/自驾）、住宿区域推荐、最佳旅游时间、旅行注意事项和防坑指南，助你轻松玩转秦皇岛。">
-<meta name="keywords" content="秦皇岛旅游攻略,秦皇岛交通,秦皇岛住宿,秦皇岛最佳旅游时间,秦皇岛怎么去,秦皇岛防坑指南,秦皇岛旅行注意事项">
+<title>秦皇岛旅游攻略 | 交通·住宿·最佳时间 — 秦皇岛旅游官网</title>
+<meta name="description" content="秦皇岛旅游全攻略：交通指南（高铁/飞机/自驾）、住宿区域推荐、最佳旅游时间、防坑指南。出行前必看，助你轻松玩转秦皇岛。">
+<meta name="keywords" content="秦皇岛旅游攻略,秦皇岛交通,秦皇岛住宿,秦皇岛最佳旅游时间,秦皇岛防坑,秦皇岛注意事项">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://qhd-lv.vercel.app/guide.html">
-
 <meta property="og:title" content="秦皇岛旅游攻略 | 交通·住宿·最佳时间">
 <meta property="og:description" content="秦皇岛旅游全攻略，交通、住宿、最佳时间、防坑指南一网打尽！">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qhd-lv.vercel.app/guide.html">
 <meta property="og:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1200&q=80">
 <meta property="og:site_name" content="秦皇岛旅游官网">
-
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "秦皇岛旅游攻略",
-  "description": "秦皇岛旅游全攻略，涵盖交通、住宿、最佳时间等信息",
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://qhd-lv.vercel.app/"},
-      {"@type": "ListItem", "position": 2, "name": "旅游攻略", "item": "https://qhd-lv.vercel.app/guide.html"}
-    ]
-  }
-}
+{"@context":"https://schema.org","@type":"WebPage","name":"秦皇岛旅游攻略","description":"秦皇岛旅游全攻略，涵盖交通、住宿、最佳时间","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://qhd-lv.vercel.app/"},{"@type":"ListItem","position":2,"name":"旅游攻略","item":"https://qhd-lv.vercel.app/guide.html"}]}}
 </script>
-
 <link rel="stylesheet" href="style.css">
+<style>
+  .guide-nav {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-12);
+  }
+  .guide-nav a {
+    background: #fff;
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    transition: all var(--duration) var(--ease-out);
+  }
+  .guide-nav a:hover {
+    background: var(--ocean);
+    color: #fff;
+    border-color: var(--ocean);
+  }
+  .guide-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: var(--space-6);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-xs);
+  }
+  .guide-card h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--ocean);
+    margin-bottom: var(--space-3);
+  }
+  .season-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-xs);
+  }
+  .season-table thead th {
+    background: var(--ocean);
+    color: #fff;
+    padding: var(--space-4) var(--space-5);
+    text-align: left;
+    font-weight: 600;
+  }
+  .season-table tbody td {
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-secondary);
+  }
+  .season-table tbody tr:nth-child(even) { background: var(--snow); }
+  .season-table tbody tr:nth-child(odd) { background: #fff; }
+</style>
 </head>
 <body>
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">🏖️ 秦皇岛<span>旅游官网</span></a>
+    <a href="index.html" class="nav-logo">🌊 秦皇岛<span>旅游官网</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">首页</a></li>
       <li><a href="attractions.html">景点</a></li>
@@ -48,183 +91,173 @@
       <li><a href="about.html">关于我们</a></li>
     </ul>
     <a href="itinerary.html" class="nav-cta">免费规划行程</a>
-    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 旅游攻略</div>
 
-<section style="padding:100px 24px 40px;text-align:center;background:linear-gradient(135deg,#0d7a4a,#0d904f);color:#fff;">
-  <div class="section-inner">
-    <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:16px;">秦皇岛旅游攻略</h1>
-    <p style="font-size:1.1rem;opacity:0.95;max-width:600px;margin:0 auto;">出行前必看，交通、住宿、防坑指南全在这里</p>
-  </div>
+<section class="page-hero" style="background: linear-gradient(160deg, #0D7A4A 0%, #16965A 40%, #1DB46A 70%, #4ECDC4 100%); color:#fff;">
+  <h1>秦皇岛旅游攻略</h1>
+  <p>出行前必看——交通、住宿、防坑指南全在这里</p>
 </section>
 
-<section class="section bg-white">
- <div class="section-inner">
+<section class="section bg-cream">
+  <div class="section-inner">
 
     <!-- 目录导航 -->
-    <div class="reveal" style="background:var(--bg);border-radius:var(--radius);padding:24px;margin-bottom:48px;">
-      <h3 style="font-weight:700;margin-bottom:16px;">📋 攻略目录</h3>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="#transport" style="background:#fff;padding:8px 16px;border-radius:8px;font-size:0.9rem;font-weight:600;border:1px solid var(--border);">🚄 如何到达</a>
-        <a href="#accommodation" style="background:#fff;padding:8px 16px;border-radius:8px;font-size:0.9rem;font-weight:600;border:1px solid var(--border);">🏨 住宿推荐</a>
-        <a href="#besttime" style="background:#fff;padding:8px 16px;border-radius:8px;font-size:0.9rem;font-weight:600;border:1px solid var(--border);">📅 最佳时间</a>
-        <a href="#food" style="background:#fff;padding:8px 16px;border-radius:8px;font-size:0.9rem;font-weight:600;border:1px solid var(--border);">🦐 吃海鲜攻略</a>
-        <a href="#tips" style="background:#fff;padding:8px 16px;border-radius:8px;font-size:0.9rem;font-weight:600;border:1px solid var(--border);">💡 注意事项</a>
-      </div>
+    <div class="guide-nav reveal">
+      <a href="#transport">🚄 如何到达</a>
+      <a href="#accommodation">🏨 住宿推荐</a>
+      <a href="#besttime">📅 最佳时间</a>
+      <a href="#foodtips">🦐 吃海鲜攻略</a>
+      <a href="#tips">💡 注意事项</a>
     </div>
 
-    <!-- 交通指南 -->
-    <div class="reveal" id="transport" style="margin-bottom:48px;">
-      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:12px;"><span style="font-size:2rem;">🚄</span> 如何到达秦皇岛</h2>
-      <div class="grid-2" style="gap:20px;">
-        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:24px;">
-          <h3 style="font-weight:700;margin-bottom:12px;color:var(--primary);">高铁/火车（推荐）</h3>
-          <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.9;">
-            <strong>秦皇岛站：</strong>主要高铁站，到北戴河区约40分钟车程。<br>
+    <!-- 交通 -->
+    <div class="reveal" id="transport" style="margin-bottom:var(--space-16);">
+      <div class="food-icon-heading" style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-8);">
+        <span style="font-size:2.5rem;">🚄</span> 如何到达秦皇岛
+      </div>
+      <div class="grid-2">
+        <div class="guide-card">
+          <h3>高铁/火车（推荐）</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
+            <strong>秦皇岛站：</strong>主要高铁站，到北戴河区约40分钟。<br>
             <strong>北戴河站：</strong>离景区最近，到海滨约10分钟。<br>
             <strong>山海关站：</strong>离山海关景区最近。<br><br>
-            <strong>从车站到景区：</strong><br>
-            · 34路公交：秦皇岛站→北戴河海滨（2元，约40分钟）<br>
+            <strong>车站→景区：</strong><br>
+            · 34路公交：秦皇岛站→北戴河海滨（2元，40分钟）<br>
             · 打车：秦皇岛站→北戴河约40-60元<br>
-            · 22路公交：北戴河→南戴河（2元，约30分钟）
+            · 22路公交：北戴河→南戴河（2元，30分钟）
           </p>
         </div>
-        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:24px;">
-          <h3 style="font-weight:700;margin-bottom:12px;color:var(--primary);">飞机</h3>
-          <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.9;">
-            <strong>秦皇岛北戴河机场：</strong>距市区约25公里。<br>
-            机场大巴：20元，到海港区约40分钟。<br><br>
-            <strong>更推荐的方式：</strong><br>
-            飞北京/天津/唐山，再转高铁到秦皇岛。北京到秦皇岛高铁仅需2小时，票源更充足，价格也可能更便宜。
+        <div class="guide-card">
+          <h3>飞机</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;margin-bottom:var(--space-4);">
+            <strong>秦皇岛北戴河机场：</strong>距市区约25公里，机场大巴20元到海港区约40分钟。
           </p>
-          <h3 style="font-weight:700;margin-bottom:12px;color:var(--primary);margin-top:20px;">自驾</h3>
-          <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.9;">
-            <strong>京哈高速：</strong>北京→秦皇岛，约300公里，3.5小时。<br>
-            <strong>津蓟高速：</strong>天津→秦皇岛，约250公里，3小时。<br>
-            旺季（7-8月）高速易堵车，建议避开周末出行。
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;margin-bottom:var(--space-4);">
+            <strong>更推荐：</strong>飞北京/天津，再转高铁到秦皇岛。北京→秦皇岛高铁仅2小时，票源更充足。
+          </p>
+          <h3>自驾</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
+            <strong>京哈高速：</strong>北京→秦皇岛约300km，3.5小时。<br>
+            <strong>津蓟高速：</strong>天津→秦皇岛约250km，3小时。<br>
+            旺季（7-8月）高速易堵，建议避开周末出行。
           </p>
         </div>
       </div>
     </div>
 
-    <!-- 住宿推荐 -->
-    <div class="reveal" id="accommodation" style="margin-bottom:48px;">
-      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:12px;"><span style="font-size:2rem;">🏨</span> 住宿区域推荐</h2>
+    <!-- 住宿 -->
+    <div class="reveal" id="accommodation" style="margin-bottom:var(--space-16);">
+      <div class="food-icon-heading" style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-8);">
+        <span style="font-size:2.5rem;">🏨</span> 住宿区域推荐
+      </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-body" style="padding:24px;">
+          <div class="card-body">
             <span class="card-tag">推荐首选</span>
-            <h3 style="font-weight:700;margin-bottom:8px;">北戴河区</h3>
-            <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.8;margin-bottom:12px;">
-              <strong>优势：</strong>靠海，步行到海滩。景点集中，吃饭方便。<br>
-              <strong>适合：</strong>第一次来的游客，家庭出游。<br>
-              <strong>价格：</strong>旺季300-800元/晚，淡季100-300元/晚。<br>
-              <strong>推荐：</strong>刘庄附近家庭旅馆（性价比高），或携程预订海景酒店。
+            <h3>北戴河区</h3>
+            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
+              <strong>优势：</strong>靠海步行到海滩，景点集中<br>
+              <strong>适合：</strong>首次来、家庭出游<br>
+              <strong>价格：</strong>旺季300-800元/晚，淡季100-300元<br>
+              <strong>推荐：</strong>刘庄附近家庭旅馆性价比高
             </p>
           </div>
         </div>
         <div class="card">
-          <div class="card-body" style="padding:24px;">
+          <div class="card-body">
             <span class="card-tag">经济实惠</span>
-            <h3 style="font-weight:700;margin-bottom:8px;">海港区</h3>
-            <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.8;margin-bottom:12px;">
-              <strong>优势：</strong>市区，交通方便，餐饮选择多，价格相对便宜。<br>
-              <strong>适合：</strong>预算有限的游客，商务出行。<br>
-              <strong>价格：</strong>旺季200-500元/晚，淡季80-200元/晚。<br>
-              <strong>缺点：</strong>不靠海，去海滩需坐公交。
+            <h3>海港区</h3>
+            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
+              <strong>优势：</strong>市区交通便利，餐饮选择多<br>
+              <strong>适合：</strong>预算有限、商务出行<br>
+              <strong>价格：</strong>旺季200-500元/晚，淡季80-200元<br>
+              <strong>缺点：</strong>不靠海，去海滩需坐公交
             </p>
           </div>
         </div>
         <div class="card">
-          <div class="card-body" style="padding:24px;">
+          <div class="card-body">
             <span class="card-tag">历史文化</span>
-            <h3 style="font-weight:700;margin-bottom:8px;">山海关区</h3>
-            <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.8;margin-bottom:12px;">
-              <strong>优势：</strong>靠近山海关古城和老龙头，感受历史文化。<br>
-              <strong>适合：</strong>对历史文化感兴趣的游客。<br>
-              <strong>价格：</strong>旺季200-500元/晚。<br>
-              <strong>缺点：</strong>不靠海，去北戴河需40分钟车程。
+            <h3>山海关区</h3>
+            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
+              <strong>优势：</strong>靠近古城和老龙头<br>
+              <strong>适合：</strong>历史文化爱好者<br>
+              <strong>价格：</strong>旺季200-500元/晚<br>
+              <strong>缺点：</strong>不靠海，去北戴河40分钟
             </p>
           </div>
         </div>
       </div>
-      <!-- 广告位：住宿推荐 -->
-      <div class="ad-banner" style="margin-top:24px;">
+      <div class="ad-banner" style="margin-top:var(--space-6);">
         <div class="ad-box">
-          💡 <strong>住宿预订推荐：</strong>
-          <a href="https://www.ctrip.com" target="_blank" rel="sponsored noopener" style="color:var(--primary);font-weight:600;">携程</a> ·
-          <a href="https://www.meituan.com/hotel/" target="_blank" rel="sponsored noopener" style="color:var(--primary);font-weight:600;">美团酒店</a> ·
-          <a href="https://www.booking.com" target="_blank" rel="sponsored noopener" style="color:var(--primary);font-weight:600;">Booking.com</a>
-          —— 提前预订享优惠，旺季一定要提前订！
+          💡 <strong>住宿预订：</strong>
+          <a href="https://www.ctrip.com" target="_blank" rel="sponsored noopener">携程</a> ·
+          <a href="https://www.meituan.com/hotel/" target="_blank" rel="sponsored noopener">美团酒店</a> —— 提前预订享优惠！
         </div>
       </div>
     </div>
 
-    <!-- 最佳旅游时间 -->
-    <div class="reveal" id="besttime" style="margin-bottom:48px;">
-      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:12px;"><span style="font-size:2rem;">📅</span> 最佳旅游时间</h2>
+    <!-- 最佳时间 -->
+    <div class="reveal" id="besttime" style="margin-bottom:var(--space-16);">
+      <div class="food-icon-heading" style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-8);">
+        <span style="font-size:2.5rem;">📅</span> 最佳旅游时间
+      </div>
       <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+        <table class="season-table">
           <thead>
-            <tr style="background:var(--primary);color:#fff;">
-              <th style="padding:12px 16px;text-align:left;border-radius:8px 0 0 0;">季节</th>
-              <th style="padding:12px 16px;text-align:left;">时间</th>
-              <th style="padding:12px 16px;text-align:left;">温度</th>
-              <th style="padding:12px 16px;text-align:left;">推荐指数</th>
-              <th style="padding:12px 16px;text-align:left;border-radius:0 8px 0 0;">特点</th>
+            <tr>
+              <th>季节</th><th>时间</th><th>温度</th><th>推荐指数</th><th>特点</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:12px 16px;font-weight:700;color:var(--accent);">夏季</td>
-              <td style="padding:12px 16px;">6月-8月</td>
-              <td style="padding:12px 16px;">22-30°C</td>
-              <td style="padding:12px 16px;">⭐⭐⭐⭐⭐</td>
-              <td style="padding:12px 16px;color:var(--text-secondary);">旺季，可以下海游泳，但人多价高</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:var(--bg);">
-              <td style="padding:12px 16px;font-weight:700;color:var(--success);">夏初/秋初</td>
-              <td style="padding:12px 16px;">5月/9月</td>
-              <td style="padding:12px 16px;">15-25°C</td>
-              <td style="padding:12px 16px;">⭐⭐⭐⭐⭐</td>
-              <td style="padding:12px 16px;color:var(--text-secondary);">最佳时间！人少价低，天气舒适</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:12px 16px;font-weight:700;">春季</td>
-              <td style="padding:12px 16px;">3月-4月</td>
-              <td style="padding:12px 16px;">5-15°C</td>
-              <td style="padding:12px 16px;">⭐⭐⭐</td>
-              <td style="padding:12px 16px;color:var(--text-secondary);">看候鸟迁徙，鸽子窝公园最佳季节</td>
+            <tr>
+              <td style="font-weight:700;color:var(--coral);">夏季</td>
+              <td>6月-8月</td><td>22-30°C</td>
+              <td>⭐⭐⭐⭐⭐</td>
+              <td>旺季，可下海游泳，但人多价高</td>
             </tr>
             <tr>
-              <td style="padding:12px 16px;font-weight:700;">冬季</td>
-              <td style="padding:12px 16px;">11月-2月</td>
-              <td style="padding:12px 16px;">-10-5°C</td>
-              <td style="padding:12px 16px;">⭐⭐</td>
-              <td style="padding:12px 16px;color:var(--text-secondary);">淡季，海水太冷，但可看雪景长城</td>
+              <td style="font-weight:700;color:#0D7A4A;">夏初/秋初</td>
+              <td>5月/9月</td><td>15-25°C</td>
+              <td>⭐⭐⭐⭐⭐</td>
+              <td>最佳时间！人少价低，天气舒适</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;">春季</td>
+              <td>3月-4月</td><td>5-15°C</td>
+              <td>⭐⭐⭐</td>
+              <td>看候鸟迁徙，鸽子窝最佳季节</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;">冬季</td>
+              <td>11月-2月</td><td>-10-5°C</td>
+              <td>⭐⭐</td>
+              <td>淡季，可看雪景长城</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div style="background:rgba(13,144,79,0.05);border-radius:var(--radius-sm);padding:16px 20px;margin-top:20px;">
-        <div style="font-weight:700;color:#0d904f;margin-bottom:8px;">💡 旅行时间建议</div>
-        <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.8;">
-          <strong>最佳窗口期：</strong>5月中下旬或9月上旬——天气好、人少、酒店便宜，体验最佳。<br>
-          <strong>避开：</strong>7月中旬-8月中旬（暑假高峰），人多、价高、堵车严重。
-        </p>
+      <div style="background:rgba(13,122,74,0.05);border-radius:var(--radius);padding:var(--space-5);margin-top:var(--space-6);font-size:var(--text-sm);color:#0D7A4A;line-height:1.9;">
+        <strong>💡 旅行时间建议：</strong><br>
+        <strong>最佳窗口：</strong>5月中下旬或9月上旬——天气好、人少、酒店便宜。<br>
+        <strong>避开：</strong>7月中旬-8月中旬暑假高峰，人多价高堵车严重。
       </div>
     </div>
 
     <!-- 吃海鲜攻略 -->
-    <div class="reveal" id="food" style="margin-bottom:48px;">
-      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:12px;"><span style="font-size:2rem;">🦐</span> 吃海鲜全攻略</h2>
-      <p style="color:var(--text-secondary);margin-bottom:20px;">详细内容请查看 <a href="food.html" style="font-weight:600;">美食推荐页面 →</a></p>
-      <div style="background:linear-gradient(135deg,#fff3cd,#fff9e6);border:2px solid #ffc107;border-radius:var(--radius-sm);padding:20px;">
-        <div style="font-weight:700;color:#856404;margin-bottom:12px;">⚠️ 防宰客核心要点</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:0.9rem;color:#856404;line-height:1.8;">
+    <div class="reveal" id="foodtips" style="margin-bottom:var(--space-16);">
+      <div class="food-icon-heading" style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-8);">
+        <span style="font-size:2.5rem;">🦐</span> 吃海鲜全攻略
+      </div>
+      <p style="color:var(--text-secondary);margin-bottom:var(--space-6);">详细内容请查看 <a href="food.html" style="font-weight:600;">美食推荐页面 →</a></p>
+      <div class="warning-box" style="background:linear-gradient(135deg,#FFF9E6,#FFF3CC);border:2px solid #F4A460;border-radius:var(--radius);padding:var(--space-6);">
+        <div style="font-weight:700;color:#856404;margin-bottom:var(--space-4);font-size:var(--text-lg);">⚠️ 防宰客核心要点</div>
+        <div class="warning-grid">
           <div>✅ 石塘路市场自购 + 找店加工 = 最划算</div>
           <div>❌ 出租车司机推荐的海鲜店 = 大概率宰客</div>
           <div>✅ 点餐前必须先看价目表</div>
@@ -234,41 +267,43 @@
     </div>
 
     <!-- 注意事项 -->
-    <div class="reveal" id="tips" style="margin-bottom:48px;">
-      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:12px;"><span style="font-size:2rem;">💡</span> 旅行注意事项</h2>
-      <div class="grid-2" style="gap:20px;">
-        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:24px;">
-          <h3 style="font-weight:700;margin-bottom:12px;color:var(--primary);">☀️ 防晒防暑</h3>
-          <ul style="font-size:0.92rem;color:var(--text-secondary);line-height:2;padding-left:20px;">
+    <div class="reveal" id="tips">
+      <div class="food-icon-heading" style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-8);">
+        <span style="font-size:2.5rem;">💡</span> 旅行注意事项
+      </div>
+      <div class="grid-2">
+        <div class="guide-card">
+          <h3>☀️ 防晒防暑</h3>
+          <ul style="font-size:var(--text-sm);color:var(--text-secondary);line-height:2;padding-left:var(--space-5);">
             <li>海边紫外线强，SPF50+防晒霜必备</li>
-            <li>正午12:00-15:00尽量避免暴晒</li>
+            <li>正午12:00-15:00避免暴晒</li>
             <li>戴帽子、墨镜，穿防晒衣</li>
             <li>多喝水，防止中暑</li>
           </ul>
         </div>
-        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:24px;">
-          <h3 style="font-weight:700;margin-bottom:12px;color:var(--primary);">💰 防坑防宰</h3>
-          <ul style="font-size:0.92rem;color:var(--text-secondary);line-height:2;padding-left:20px;">
-            <li>不要相信出租车/三轮车司机的"推荐"</li>
-            <li>买海鲜找正规市场，现场看着称重</li>
-            <li>景区内的餐馆价格偏高，做好心理准备</li>
+        <div class="guide-card">
+          <h3>💰 防坑防宰</h3>
+          <ul style="font-size:var(--text-sm);color:var(--text-secondary);line-height:2;padding-left:var(--space-5);">
+            <li>不信出租车/三轮车司机的"推荐"</li>
+            <li>买海鲜找正规市场，现场看称重</li>
+            <li>景区内餐馆价格偏高，做好心理准备</li>
             <li>骑马、拍照等收费项目先问价</li>
           </ul>
         </div>
-        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:24px;">
-          <h3 style="font-weight:700;margin-bottom:12px;color:var(--primary);">📱 实用APP</h3>
-          <ul style="font-size:0.92rem;color:var(--text-secondary);line-height:2;padding-left:20px;">
+        <div class="guide-card">
+          <h3>📱 实用APP</h3>
+          <ul style="font-size:var(--text-sm);color:var(--text-secondary);line-height:2;padding-left:var(--space-5);">
             <li>高德/百度地图：导航必备</li>
             <li>携程/美团：订票订酒店</li>
             <li>大众点评：找美食</li>
             <li>铁路12306：买火车票</li>
           </ul>
         </div>
-        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:24px;">
-          <h3 style="font-weight:700;margin-bottom:12px;color:var(--primary);">👶 亲子出游</h3>
-          <ul style="font-size:0.92rem;color:var(--text-secondary);line-height:2;padding-left:20px;">
+        <div class="guide-card">
+          <h3>👶 亲子出游</h3>
+          <ul style="font-size:var(--text-sm);color:var(--text-secondary);line-height:2;padding-left:var(--space-5);">
             <li>带儿童推车，景区步行路程长</li>
-            <li>备好常用药：止泻药、感冒药</li>
+            <li>备常用药：止泻药、感冒药</li>
             <li>北戴河野生动物园适合亲子</li>
             <li>海边玩水注意安全，看好孩子</li>
           </ul>
@@ -279,18 +314,18 @@
   </div>
 </section>
 
-<section class="cta-section">
- <div class="section-inner">
-    <h2>攻略看完了，开始规划行程吧！</h2>
+<section class="cta-section" style="background: linear-gradient(160deg, #0D7A4A, #16965A, #1DB46A);">
+  <div class="section-inner">
+    <h2>攻略看完了，开始规划行程吧</h2>
     <p>把攻略中的建议融入你的行程，玩得更顺畅</p>
-    <a href="itinerary.html" class="btn-primary" style="background:#fff;color:var(--primary);">🗓️ 查看行程规划 →</a>
+    <a href="itinerary.html" class="btn-coral" style="background:#fff;color:var(--coral);font-size:var(--text-base);padding:var(--space-4) var(--space-8);">查看行程规划 →</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
-      <div class="footer-brand"><h3>🏖️ 秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略。</p></div>
+      <div class="footer-brand"><h3>🌊 秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略。</p></div>
       <div class="footer-col"><h4>热门页面</h4><a href="index.html">首页</a><a href="attractions.html">景点推荐</a><a href="itinerary.html">行程规划</a><a href="food.html">美食推荐</a></div>
       <div class="footer-col"><h4>旅游攻略</h4><a href="guide.html">出行指南</a><a href="guide.html#transport">交通攻略</a><a href="guide.html#accommodation">住宿推荐</a></div>
       <div class="footer-col"><h4>关于我们</h4><a href="about.html">关于官网</a><a href="about.html#contact">联系我们</a><a href="about.html#cooperation">商务合作</a></div>
@@ -304,13 +339,11 @@
 </footer>
 
 <script>
-window.addEventListener('scroll', function() { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
-document.getElementById('hamburger').addEventListener('click', function() { document.getElementById('navLinks').classList.toggle('open'); });
-var reveals = document.querySelectorAll('.reveal');
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-}, { threshold: 0.1 });
-reveals.forEach(function(el) { observer.observe(el); });
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);});
+document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open');});
+var reveals=document.querySelectorAll('.reveal');
+var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target);}})},{threshold:0.1});
+reveals.forEach(function(el){o.observe(el);});
 </script>
 </body>
 </html>
