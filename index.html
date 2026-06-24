@@ -56,32 +56,61 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-  /* ===== 首页专属 Hero ===== */
+  /* ===== 首页专属 Hero — 全屏沉浸式 ===== */
   .hero-home {
     min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(160deg, #0B3D5C 0%, #1A6B8A 30%, #2E86AB 60%, #4A90D9 100%);
+    background: linear-gradient(170deg, #0284c7 0%, #0369a1 18%, #0e7490 40%, #0891b2 65%, #06b6d4 100%);
     padding: calc(var(--nav-height) + var(--space-8)) var(--space-6) var(--space-16);
   }
+  /* 柔光多层叠加 —— Stripe 风格精髓 */
   .hero-home::before {
     content: '';
     position: absolute;
     inset: 0;
+    pointer-events: none;
     background:
-      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(255,255,255,0.12) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 80% at 80% 60%, rgba(240,101,67,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 40% 40% at 50% 80%, rgba(74,144,217,0.15) 0%, transparent 60%);
+      /* 左上角大柔光 */
+      radial-gradient(ellipse 70% 50% at 15% 25%, rgba(255,255,255,0.18) 0%, transparent 55%),
+      /* 中部暖光 */
+      radial-gradient(ellipse 50% 60% at 60% 40%, rgba(253,230,138,0.10) 0%, transparent 55%),
+      /* 右下角蓝色辉光 */
+      radial-gradient(ellipse 45% 45% at 80% 70%, rgba(56,189,248,0.14) 0%, transparent 55%),
+      /* 底部过渡光 */
+      radial-gradient(ellipse 60% 30% at 50% 90%, rgba(255,251,245,0.12) 0%, transparent 60%);
   }
   .hero-home::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 160px;
-    background: linear-gradient(to top, rgba(255,251,245,0.15), transparent);
+    height: 200px;
+    background: linear-gradient(to top, rgba(255,251,245,0.18), transparent);
     pointer-events: none;
+  }
+  /* 漂浮装饰球 */
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-orb--1 {
+    width: 320px; height: 320px;
+    top: -80px; right: -60px;
+    background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%);
+  }
+  .hero-orb--2 {
+    width: 200px; height: 200px;
+    bottom: 80px; left: -40px;
+    background: radial-gradient(circle, rgba(253,230,138,0.12) 0%, transparent 70%);
+  }
+  .hero-orb--3 {
+    width: 160px; height: 160px;
+    top: 45%; left: 40%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
   }
   .hero-home-content {
     position: relative;
@@ -90,7 +119,7 @@
     margin: 0 auto;
     width: 100%;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: var(--space-12);
     align-items: center;
   }
@@ -99,114 +128,151 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: var(--space-2) var(--space-4);
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: var(--space-2) var(--space-5);
     border-radius: var(--radius-full);
-    font-size: var(--text-sm);
+    font-size: 0.8125rem;
     font-weight: 600;
+    letter-spacing: 0.02em;
     margin-bottom: var(--space-6);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.95);
   }
   .hero-badge-dot {
-    width: 8px; height: 8px;
-    background: #4ECDC4;
+    width: 7px; height: 7px;
+    background: #22d3ee;
     border-radius: 50%;
-    animation: pulse-dot 2s infinite;
+    box-shadow: 0 0 10px rgba(34,211,238,0.6);
+    animation: pulse-dot 2.2s ease-in-out infinite;
   }
   @keyframes pulse-dot {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.5); }
+    50% { opacity: 0.4; transform: scale(1.6); }
   }
   .hero-text h1 {
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3.2rem, 6.5vw, 5.5rem);
     font-weight: 900;
     line-height: 1.05;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     margin-bottom: var(--space-5);
-    text-shadow: 0 4px 60px rgba(0,0,0,0.25);
+    text-shadow: 0 4px 80px rgba(0,0,0,0.2);
   }
-  .hero-text h1 em {
+  .hero-text h1 .hl {
     font-style: normal;
-    background: linear-gradient(135deg, #F4845F, #F49E4C);
+    background: linear-gradient(135deg, #fde68a 0%, #fbbf24 40%, #f59e0b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: none;
   }
   .hero-text p {
-    font-size: var(--text-lg);
-    opacity: 0.9;
-    line-height: 1.9;
+    font-size: 1.125rem;
+    opacity: 0.88;
+    line-height: 1.85;
     margin-bottom: var(--space-8);
-    max-width: 460px;
+    max-width: 480px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
   .hero-btns {
     display: flex;
     gap: var(--space-4);
     flex-wrap: wrap;
   }
-  .hero-btns .btn-coral { font-size: var(--text-base); padding: var(--space-4) var(--space-8); }
-  .hero-btns .btn-outline-white {
-    display: inline-flex; align-items: center; gap: var(--space-2);
-    background: rgba(255,255,255,0.1);
+  .hero-btns .btn-hero-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff;
+    color: #0e7490;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    padding: 15px 32px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hero-btns .btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.16), 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .hero-btns .btn-hero-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.08);
     color: #fff;
     font-weight: 600;
-    padding: var(--space-4) var(--space-8);
+    font-size: 0.9375rem;
+    padding: 15px 32px;
     border-radius: var(--radius-full);
-    border: 2px solid rgba(255,255,255,0.35);
+    border: 1.5px solid rgba(255,255,255,0.35);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    transition: all var(--duration) var(--ease-out);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     text-decoration: none;
-    font-size: var(--text-base);
   }
-  .btn-outline-white:hover {
-    background: rgba(255,255,255,0.2);
-    border-color: rgba(255,255,255,0.6);
+  .hero-btns .btn-hero-ghost:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.55);
     color: #fff;
+    transform: translateY(-2px);
   }
   .hero-visual {
     position: relative;
   }
   .hero-img-main {
     width: 100%;
-    border-radius: var(--radius-xl);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.35);
-    transform: perspective(800px) rotateY(-4deg) rotateX(2deg);
-    transition: transform 0.6s var(--ease-out);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.3), 0 8px 30px rgba(0,0,0,0.15);
+    transform: perspective(900px) rotateY(-5deg) rotateX(3deg);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    border: 3px solid rgba(255,255,255,0.2);
   }
   .hero-img-main:hover {
-    transform: perspective(800px) rotateY(0deg) rotateX(0deg);
+    transform: perspective(900px) rotateY(-1deg) rotateX(1deg);
   }
   .hero-img-main img {
     width: 100%;
-    height: 460px;
+    height: 480px;
     object-fit: cover;
+    display: block;
   }
   .hero-floating-card {
     position: absolute;
-    bottom: -20px;
-    left: -30px;
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: var(--space-4) var(--space-5);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-    font-size: var(--text-sm);
+    bottom: -24px;
+    left: -36px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 18px 24px;
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+    font-size: 0.8125rem;
     font-weight: 600;
-    color: var(--navy);
+    color: #0f172a;
     z-index: 2;
-    border: 1px solid rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.7);
   }
   .hero-floating-card span {
     display: block;
-    font-size: var(--text-2xl);
+    font-size: 1.75rem;
     font-weight: 900;
-    color: var(--coral);
-    line-height: 1;
+    color: #0284c7;
+    line-height: 1.1;
+  }
+  .hero-floating-card--2 {
+    top: 60px;
+    right: -20px;
+    bottom: auto;
+    left: auto;
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 0.75rem;
+  }
+  .hero-floating-card--2 span {
+    font-size: 1.35rem;
+    color: #f59e0b;
   }
 
   /* ===== 首页 City Intro ===== */
@@ -355,6 +421,10 @@
     .hero-visual { max-width: 400px; margin: 0 auto; }
     .hero-img-main img { height: 320px; }
     .hero-floating-card { left: 0; bottom: -10px; }
+    .hero-floating-card--2 { right: 0; top: auto; bottom: -10px; }
+    .hero-orb--1 { width: 200px; height: 200px; top: -40px; right: -30px; }
+    .hero-orb--2 { width: 140px; height: 140px; bottom: 40px; left: -20px; }
+    .hero-orb--3 { display: none; }
     .city-intro-grid { grid-template-columns: 1fr; gap: var(--space-10); }
     .day-panel { max-width: 100%; }
   }
@@ -383,6 +453,9 @@
 
 <!-- ====== Hero 全屏 ====== -->
 <section class="hero-home">
+  <div class="hero-orb hero-orb--1"></div>
+  <div class="hero-orb hero-orb--2"></div>
+  <div class="hero-orb hero-orb--3"></div>
   <div class="hero-home-content">
     <div class="hero-text">
       <div class="hero-badge">
@@ -390,15 +463,15 @@
         2026 · 最新攻略已更新
       </div>
       <h1>
-        发现<em>秦皇岛</em><br>中国最美海岸线
+        发现<span class="hl">秦皇岛</span><br>中国最美海岸线
       </h1>
       <p>
         北戴河看海 · 山海关登长城 · 鸽子窝看日出<br>
         我们为你准备了最完整的3日精华行程
       </p>
       <div class="hero-btns">
-        <a href="itinerary.html" class="btn-coral">免费规划行程 →</a>
-        <a href="attractions.html" class="btn-outline-white">探索所有景点</a>
+        <a href="itinerary.html" class="btn-hero-primary">免费规划行程 →</a>
+        <a href="attractions.html" class="btn-hero-ghost">探索所有景点</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -407,6 +480,9 @@
       </div>
       <div class="hero-floating-card">
         <span>2000万+</span>年接待游客
+      </div>
+      <div class="hero-floating-card hero-floating-card--2">
+        <span>6大</span>核心景区
       </div>
     </div>
   </div>
