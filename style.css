@@ -689,6 +689,33 @@ img { max-width: 100%; height: auto; display: block; }
   text-align: center;
 }
 
+/* ============================================================
+   AFFILIATE BOOKING LINKS — 联盟预订链接
+   ============================================================ */
+.booking-links { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:12px; }
+.booking-link {
+  display:inline-flex; align-items:center; gap:4px;
+  padding:6px 14px; border-radius:20px;
+  font-size:0.82rem; font-weight:600; text-decoration:none;
+  transition:all 0.2s; border:1px solid transparent;
+}
+.booking-link:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+.booking-ctrip { background:#fff5f5; color:#ff6913; border-color:#ffd6c4; }
+.booking-ctrip:hover { background:#ff6913; color:#fff; }
+.booking-meituan { background:#fff4f0; color:#ffc300; border-color:#ffe4b5; }
+.booking-meituan:hover { background:#ffc300; color:#333; }
+.booking-dianping { background:#f0fdf4; color:#07c160; border-color:#bbf7d0; }
+.booking-dianping:hover { background:#07c160; color:#fff; }
+.booking-hotel { background:#eff6ff; color:#1a73e8; border-color:#bfdbfe; }
+.booking-hotel:hover { background:#1a73e8; color:#fff; }
+
+/* Ad banner with booking links */
+.ad-booking {
+  display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+  margin-top:12px;
+}
+.ad-booking .booking-link { font-size:0.88rem; padding:8px 20px; }
+
 
 /* ============================================================
    CTA SECTION

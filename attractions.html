@@ -63,6 +63,19 @@
   .quick-nav{display:flex;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s10);}
   .quick-nav a{padding:var(--s2) var(--s4);background:#f3f4f6;border-radius:20px;font-size:var(--text-sm);font-weight:600;color:#374151;text-decoration:none;transition:all 0.2s;}
   .quick-nav a:hover{background:var(--brand);color:#fff;}
+  /* 联盟预订链接 */
+  .booking-links{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4);align-items:center;}
+  .booking-links .booking-label{font-size:0.8rem;color:var(--text-muted);margin-right:var(--s1);}
+  .booking-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:var(--radius-full);font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid transparent;}
+  .booking-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+  .booking-ctrip{background:#fff5f5;color:#ff6913;border-color:#ffd6c4;}
+  .booking-ctrip:hover{background:#ff6913;color:#fff;}
+  .booking-meituan{background:#fff4f0;color:#ffc300;border-color:#ffe4b5;}
+  .booking-meituan:hover{background:#ffc300;color:#333;}
+  .booking-dianping{background:#f0fdf4;color:#07c160;border-color:#bbf7d0;}
+  .booking-dianping:hover{background:#07c160;color:#fff;}
+  .booking-hotel{background:#eff6ff;color:#1a73e8;border-color:#bfdbfe;}
+  .booking-hotel:hover{background:#1a73e8;color:#fff;}
   /* CTA */
   .cta-section{background:linear-gradient(160deg,#0d47a1,#1a73e8,#4a9af5);color:#fff;text-align:center;padding:var(--s16) var(--s6);}
   .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:var(--s3);}
@@ -146,7 +159,11 @@
         <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 沙滩免费</span><span class="stars">★ 4.7</span><span>🕐 全天开放</span></div>
         <p class="spot-desc"><strong>北戴河</strong>是中国四大避暑胜地之一。绵延20公里的黄金沙滩、清澈海水、宜人气候，让这里成为京津地区最受欢迎的海滨度假地。每年6-9月是最佳游玩季节。</p>
         <p class="spot-info"><strong>主要景点：</strong>老虎石海上公园、联峰山公园、怪楼奇园<br><strong>交通：</strong>34路公交秦皇岛站直达，约40分钟</p>
-        <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的北戴河 →</a>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的北戴河 →</a>
+          <a href="https://hotels.ctrip.com/hotels/list?countryId=1&city=32" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订酒店</a>
+          <a href="https://www.meituan.com/hotel/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团订房</a>
+        </div>
       </div>
     </div>
   </div>
@@ -160,7 +177,11 @@
         <div class="spot-meta"><span>📍 山海关区</span><span>🎫 50元/人</span><span class="stars">★ 4.8</span><span>🕐 08:00-17:30</span></div>
         <p class="spot-desc"><strong>山海关</strong>是明长城东北关隘，中国长城三大奇观之一（东有山海关、中有镇北台、西有嘉峪关）。"天下第一关"巨匾高悬镇远楼之上，气势磅礴。</p>
         <p class="spot-info"><strong>必看：</strong>镇远楼、王家大院、钟鼓楼、古城墙<br><strong>时间：</strong>建议3-4小时，距老龙头仅8公里</p>
-        <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的山海关 →</a>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的山海关 →</a>
+          <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥50</a>
+          <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
+        </div>
       </div>
       <div class="spot-img">
         <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=800&q=80" alt="山海关天下第一关" loading="lazy">
@@ -182,7 +203,11 @@
         <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 25元/人</span><span class="stars">★ 4.6</span><span>🕐 05:00-18:00</span></div>
         <p class="spot-desc"><strong>鸽子窝公园</strong>是北戴河看日出的最佳地点。"鸽子窝日出"被誉为北戴河二十四景之首。鹰角石高约17米，形似雄鹰屹立，毛泽东曾在此写下《浪淘沙·北戴河》。</p>
         <p class="spot-info"><strong>日出攻略：</strong>夏季日出约4:30，提前40分钟到达<br><strong>交通：</strong>34路公交鸽子窝站下车即到</p>
-        <a href="guide.html" class="btn btn-outline btn-sm">查看日出时间表 →</a>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <a href="guide.html" class="btn btn-outline btn-sm">查看日出时间表 →</a>
+          <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥25</a>
+          <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
+        </div>
       </div>
     </div>
   </div>
@@ -196,7 +221,11 @@
         <div class="spot-meta"><span>📍 山海关区</span><span>🎫 60元/人</span><span class="stars">★ 4.7</span><span>🕐 08:00-17:30</span></div>
         <p class="spot-desc"><strong>老龙头</strong>是明长城东端起点，万里长城唯一集山、海、关、城于一体的海陆军事防御体系。长城如巨龙探入渤海，澄海楼上有"雄襟万里"匾额。</p>
         <p class="spot-info"><strong>必看：</strong>澄海楼、入海石城、海神庙、靖虏台<br><strong>交通：</strong>距山海关古城8公里，打车约15分钟</p>
-        <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的老龙头 →</a>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的老龙头 →</a>
+          <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥60</a>
+          <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
+        </div>
       </div>
       <div class="spot-img">
         <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80" alt="老龙头长城入海" loading="lazy">
@@ -218,7 +247,11 @@
         <div class="spot-meta"><span>📍 昌黎县</span><span>🎫 预约制</span><span class="stars">★ 4.8</span><span>🕐 全天开放</span></div>
         <p class="spot-desc"><strong>阿那亚</strong>是中国最具文艺气息的海岸社区。孤独图书馆、海边礼堂（阿那亚礼堂）、沙丘美术馆……每一栋建筑都是艺术品。梵语意为"人间寂静处，找回本我的地方"。</p>
         <p class="spot-info"><strong>必打卡：</strong>孤独图书馆、海边礼堂、沙丘美术馆、海边市集、犬舍酒店<br><strong>注意：</strong>需提前在阿那亚APP预约或预订园区内住宿</p>
-        <a href="guide.html" class="btn btn-outline btn-sm">阿那亚游玩攻略 →</a>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <a href="guide.html" class="btn btn-outline btn-sm">阿那亚游玩攻略 →</a>
+          <a href="https://aranya.com" target="_blank" rel="nofollow sponsored" class="booking-link booking-hotel">阿那亚官网预约</a>
+          <a href="https://hotels.ctrip.com/hotels/list?countryId=1&city=32" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订酒店</a>
+        </div>
       </div>
     </div>
   </div>
