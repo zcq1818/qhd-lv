@@ -18,42 +18,15 @@
 {"@context":"https://schema.org","@type":"WebPage","name":"秦皇岛美食推荐","description":"秦皇岛地道美食推荐","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://qhd-lv.vercel.app/"},{"@type":"ListItem","position":2,"name":"美食推荐","item":"https://qhd-lv.vercel.app/food.html"}]}}
 </script>
 <link rel="stylesheet" href="style.css">
-<style>
-  .food-hero {
-    background: linear-gradient(160deg, #D4522A 0%, #F06543 40%, #F4845F 70%, #F49E4C 100%);
-  }
-  .food-icon-heading {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    font-size: var(--text-2xl);
-    font-weight: 800;
-    margin-bottom: var(--space-8);
-  }
-  .warning-box {
-    background: linear-gradient(135deg, #FFF9E6, #FFF3CC);
-    border: 2px solid #F4A460;
-    border-radius: var(--radius);
-    padding: var(--space-8);
-  }
-  .warning-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
-    font-size: var(--text-sm);
-    color: #856404;
-    line-height: 1.9;
-  }
-  @media (max-width: 768px) {
-    .warning-grid { grid-template-columns: 1fr; }
-  }
-</style>
 </head>
 <body>
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">🌊 秦皇岛<span>旅游官网</span></a>
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      秦皇岛旅游官网
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">首页</a></li>
       <li><a href="attractions.html">景点</a></li>
@@ -62,162 +35,150 @@
       <li><a href="guide.html">旅游攻略</a></li>
       <li><a href="about.html">关于我们</a></li>
     </ul>
-    <a href="itinerary.html" class="nav-cta">免费规划行程</a>
+    <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
     <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 美食推荐</div>
 
-<section class="page-hero food-hero" style="color:#fff;">
+<section class="page-hero" style="background:linear-gradient(160deg, #DC4A1A 0%, #E37400 40%, #F59E0B 70%, #FCD34D 100%);">
   <h1>秦皇岛地道美食</h1>
   <p>靠海吃海——从清晨的第一口包子到深夜的最后一串烤生蚝</p>
   <div class="page-hero-meta">
-    <span class="page-hero-tag">🦐 海鲜当家</span>
-    <span class="page-hero-tag">🥟 百年老字号</span>
-    <span class="page-hero-tag">🌙 夜市小吃</span>
+    <span class="page-hero-tag">海鲜当家</span>
+    <span class="page-hero-tag">百年老字号</span>
+    <span class="page-hero-tag">夜市小吃</span>
   </div>
 </section>
 
-<section class="section bg-cream">
+<section class="section bg-sand">
   <div class="section-inner">
 
     <div class="ad-banner">
-      <div class="ad-box">
-        💡 <strong>觅食建议：</strong>怕被宰？用
-        <a href="https://www.dianping.com" target="_blank" rel="sponsored noopener">大众点评</a> 查附近高评分餐厅，提前避坑。
-      </div>
+      <div class="ad-card">怕被宰？用 大众点评 查附近高评分餐厅，提前避坑。</div>
     </div>
 
     <!-- 海鲜类 -->
-    <div class="reveal" style="margin-bottom:var(--space-16);">
-      <div class="food-icon-heading">
-        <span style="font-size:2.5rem;">🦐</span> 海鲜类 · 必吃榜
-      </div>
+    <div class="reveal" style="margin-bottom:var(--s16);">
+      <h2 style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--s8);display:flex;align-items:center;gap:var(--s3);">
+        <svg class="icon-xl" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" fill="rgba(234,67,53,0.08)"/><path d="M12 22 Q20 10 28 22" stroke="#EA4335" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+        海鲜类 · 必吃榜
+      </h2>
       <div class="grid-2">
         <div class="card">
           <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="海鲜大排档" class="card-img" loading="lazy">
           <div class="card-body">
             <h3>海鲜大排档</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;margin-bottom:var(--space-3);">
+            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s3);">
               <strong>推荐：</strong>石塘路市场（买海鲜）+ 附近加工店<br>
               <strong>必点：</strong>皮皮虾、梭子蟹、花蛤、生蚝<br>
               <strong>人均：</strong>80-150元<br>
               <strong>Tips：</strong>一定要砍价！皮皮虾春季最肥，螃蟹秋季最佳。
             </p>
-            <span style="font-size:var(--text-xs);color:var(--coral);font-weight:600;">⭐ 本地人最推荐</span>
+            <span style="font-size:var(--text-xs);color:var(--accent-coral);font-weight:600;">★ 本地人最推荐</span>
           </div>
         </div>
         <div class="card">
           <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80" alt="烤生蚝" class="card-img" loading="lazy">
           <div class="card-body">
             <h3>烤生蚝 · 烤扇贝</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;margin-bottom:var(--space-3);">
+            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s3);">
               <strong>推荐：</strong>北戴河夜市、刘庄夜市<br>
               <strong>价格：</strong>生蚝5-8元/个，扇贝3-5元/个<br>
               <strong>时间：</strong>18:00后夜市开市<br>
               <strong>Tips：</strong>选人多的摊位，新鲜度有保障。
             </p>
-            <span style="font-size:var(--text-xs);color:var(--coral);font-weight:600;">⭐ 夜市必吃</span>
+            <span style="font-size:var(--text-xs);color:var(--accent-coral);font-weight:600;">★ 夜市必吃</span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- 特色小吃 -->
-    <div class="reveal" style="margin-bottom:var(--space-16);">
-      <div class="food-icon-heading">
-        <span style="font-size:2.5rem;">🥟</span> 特色小吃 · 老字号
-      </div>
+    <div class="reveal" style="margin-bottom:var(--s16);">
+      <h2 style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--s8);display:flex;align-items:center;gap:var(--s3);">
+        <svg class="icon-xl" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" fill="rgba(227,116,0,0.08)"/><rect x="12" y="10" width="16" height="20" rx="4" stroke="#E37400" stroke-width="2.5" fill="none"/></svg>
+        特色小吃 · 老字号
+      </h2>
       <div class="grid-2">
-        <div class="card">
-          <div class="card-body">
-            <h3>🥟 四条包子</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
-              <strong>地点：</strong>山海关区四条包子总店<br>
-              <strong>价格：</strong>2-3元/个，人均15-25元<br>
-              <strong>特色：</strong>百年老字号，皮薄馅大，猪肉大葱馅最经典。搭配饸饹汤是山海关人的标配早餐。
-            </p>
-            <div style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--ocean);font-weight:600;">📍 山海关古城内</div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>🍜 饸饹面</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
-              <strong>地点：</strong>山海关区各小吃店<br>
-              <strong>价格：</strong>10-18元/碗<br>
-              <strong>特色：</strong>饸饹床子压制面条，口感筋道，搭配肉汤卤子。四条包子+饸饹面=完美早餐组合。
-            </p>
-            <div style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--ocean);font-weight:600;">📍 山海关全区</div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>🥙 煎饼果子</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
-              <strong>地点：</strong>全市早餐摊<br>
-              <strong>价格：</strong>5-10元/套<br>
-              <strong>特色：</strong>薄脆香脆，酱料丰富。刘庄附近早餐摊口碑好。加鸡蛋+薄脆是标配。
-            </p>
-            <div style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--ocean);font-weight:600;">📍 全市早餐摊</div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>🍢 烤冷面 · 炸串</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
-              <strong>地点：</strong>北戴河夜市、大学附近<br>
-              <strong>价格：</strong>烤冷面8-12元，炸串1-3元/串<br>
-              <strong>特色：</strong>东北风味烤冷面，酱香浓郁，夜市明星小吃。
-            </p>
-            <div style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--ocean);font-weight:600;">📍 北戴河夜市</div>
-          </div>
-        </div>
+        <div class="card"><div class="card-body">
+          <h3>四条包子</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
+            <strong>地点：</strong>山海关区四条包子总店<br>
+            <strong>价格：</strong>2-3元/个，人均15-25元<br>
+            <strong>特色：</strong>百年老字号，皮薄馅大，猪肉大葱馅最经典。
+          </p>
+          <div style="margin-top:var(--s3);font-size:var(--text-xs);color:var(--brand);font-weight:600;">山海关古城内</div>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>饸饹面</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
+            <strong>地点：</strong>山海关区各小吃店<br>
+            <strong>价格：</strong>10-18元/碗<br>
+            <strong>特色：</strong>饸饹床子压制面条，口感筋道，搭配肉汤卤子。
+          </p>
+          <div style="margin-top:var(--s3);font-size:var(--text-xs);color:var(--brand);font-weight:600;">山海关全区</div>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>煎饼果子</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
+            <strong>地点：</strong>全市早餐摊<br>
+            <strong>价格：</strong>5-10元/套<br>
+            <strong>特色：</strong>薄脆香脆，酱料丰富。加鸡蛋+薄脆是标配。
+          </p>
+          <div style="margin-top:var(--s3);font-size:var(--text-xs);color:var(--brand);font-weight:600;">全市早餐摊</div>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>烤冷面 · 炸串</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
+            <strong>地点：</strong>北戴河夜市、大学附近<br>
+            <strong>价格：</strong>烤冷面8-12元，炸串1-3元/串<br>
+            <strong>特色：</strong>东北风味烤冷面，酱香浓郁，夜市明星小吃。
+          </p>
+          <div style="margin-top:var(--s3);font-size:var(--text-xs);color:var(--brand);font-weight:600;">北戴河夜市</div>
+        </div></div>
       </div>
     </div>
 
     <!-- 美食区域 -->
-    <div class="reveal" style="margin-bottom:var(--space-16);">
-      <div class="food-icon-heading">🗺️ 美食区域指南</div>
+    <div class="reveal" style="margin-bottom:var(--s16);">
+      <h2 style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--s8);">
+        <svg class="icon-xl" viewBox="0 0 40 40" fill="none" style="display:inline-block;vertical-align:middle;margin-right:var(--s3);"><circle cx="20" cy="20" r="18" fill="rgba(26,115,232,0.08)"/><circle cx="20" cy="16" r="5" stroke="#1a73e8" stroke-width="2.5" fill="none"/><path d="M20 21 C14 21 9 25 9 30 L31 30 C31 25 26 21 20 21Z" stroke="#1a73e8" stroke-width="2.5" fill="none"/></svg>
+        美食区域指南
+      </h2>
       <div class="grid-3">
-        <div class="card">
-          <div class="card-body">
-            <h3>📍 北戴河区</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
-              <strong>海鲜：</strong>石塘路市场周边<br>
-              <strong>夜市：</strong>刘庄夜市（18:00-24:00）<br>
-              <strong>人均：</strong>80-150元
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>📍 山海关区</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
-              <strong>老字号：</strong>四条包子总店<br>
-              <strong>小吃街：</strong>山海关古城内<br>
-              <strong>人均：</strong>30-60元
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>📍 海港区</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
-              <strong>综合餐饮：</strong>CBD商圈、太阳城<br>
-              <strong>特色：</strong>连锁品牌集中<br>
-              <strong>人均：</strong>50-200元
-            </p>
-          </div>
-        </div>
+        <div class="card"><div class="card-body">
+          <h3>北戴河区</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
+            <strong>海鲜：</strong>石塘路市场周边<br>
+            <strong>夜市：</strong>刘庄夜市（18:00-24:00）<br>
+            <strong>人均：</strong>80-150元
+          </p>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>山海关区</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
+            <strong>老字号：</strong>四条包子总店<br>
+            <strong>小吃街：</strong>山海关古城内<br>
+            <strong>人均：</strong>30-60元
+          </p>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>海港区</h3>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
+            <strong>综合餐饮：</strong>CBD商圈、太阳城<br>
+            <strong>特色：</strong>连锁品牌集中<br>
+            <strong>人均：</strong>50-200元
+          </p>
+        </div></div>
       </div>
     </div>
 
     <!-- 防宰指南 -->
-    <div class="warning-box reveal">
-      <h3 class="heading-md" style="color:#856404;margin-bottom:var(--space-6);">⚠️ 吃海鲜防宰客指南</h3>
-      <div class="warning-grid">
+    <div class="info-box reveal">
+      <h3 style="font-size:var(--text-lg);font-weight:700;margin-bottom:var(--s4);color:#92400E;">防宰客指南</h3>
+      <div class="grid-2" style="font-size:var(--text-sm);line-height:2;">
         <div>
           ✅ 去石塘路市场自己买海鲜，再找店加工<br>
           ✅ 加工费提前问清楚（一般10-20元/斤）<br>
@@ -236,18 +197,18 @@
   </div>
 </section>
 
-<section class="cta-section food-hero" style="color:#fff;">
+<section class="cta-section" style="background:linear-gradient(160deg, #DC4A1A, #E37400, #F59E0B);">
   <div class="section-inner">
     <h2>逛完景点，去吃美食！</h2>
     <p>把美食点加入行程，吃得开心又划算</p>
-    <a href="itinerary.html" class="btn-coral" style="background:#fff;color:var(--coral);font-size:var(--text-base);padding:var(--space-4) var(--space-8);">查看含美食的行程 →</a>
+    <a href="itinerary.html" class="btn btn-white btn-lg">查看含美食的行程 →</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
-      <div class="footer-brand"><h3>🌊 秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略。</p></div>
+      <div class="footer-brand"><h3>秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略。</p></div>
       <div class="footer-col"><h4>热门页面</h4><a href="index.html">首页</a><a href="attractions.html">景点推荐</a><a href="itinerary.html">行程规划</a><a href="food.html">美食推荐</a></div>
       <div class="footer-col"><h4>旅游攻略</h4><a href="guide.html">出行指南</a><a href="guide.html#transport">交通攻略</a><a href="guide.html#accommodation">住宿推荐</a></div>
       <div class="footer-col"><h4>关于我们</h4><a href="about.html">关于官网</a><a href="about.html#contact">联系我们</a><a href="about.html#cooperation">商务合作</a></div>

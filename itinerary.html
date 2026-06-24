@@ -28,8 +28,8 @@
   .day-header {
     display: flex;
     align-items: center;
-    gap: var(--space-5);
-    margin-bottom: var(--space-8);
+    gap: var(--s5);
+    margin-bottom: var(--s8);
   }
   .day-num {
     width: 72px; height: 72px;
@@ -41,40 +41,46 @@
     font-weight: 900;
     color: #fff;
     flex-shrink: 0;
+    box-shadow: var(--shadow-md);
   }
-  .day-num--1 { background: linear-gradient(135deg, var(--ocean), var(--ocean-light)); }
-  .day-num--2 { background: linear-gradient(135deg, var(--ocean-deep), var(--ocean)); }
-  .day-num--3 { background: linear-gradient(135deg, var(--coral), var(--coral-glow)); }
+  .day-num--1 { background: linear-gradient(135deg, #1a73e8, #4a9af5); }
+  .day-num--2 { background: linear-gradient(135deg, #0d47a1, #1a73e8); }
+  .day-num--3 { background: linear-gradient(135deg, #E37400, #F59E0B); }
   .budget-box {
     border-radius: var(--radius);
-    padding: var(--space-5);
-    margin-top: var(--space-6);
+    padding: var(--s4) var(--s5);
+    margin-top: var(--s6);
     font-size: var(--text-sm);
+    font-weight: 600;
   }
-  .budget-box--blue { background: rgba(26,107,138,0.05); color: var(--ocean); }
-  .budget-box--dark { background: rgba(11,61,92,0.05); color: var(--ocean-deep); }
-  .budget-box--coral { background: rgba(240,101,67,0.05); color: var(--coral); }
+  .budget-box--blue { background: rgba(26,115,232,0.05); border: 1px solid rgba(26,115,232,0.12); color: var(--brand); }
+  .budget-box--dark { background: rgba(13,71,161,0.05); border: 1px solid rgba(13,71,161,0.12); color: var(--brand-dark); }
+  .budget-box--sunset { background: rgba(227,116,0,0.05); border: 1px solid rgba(227,116,0,0.12); color: var(--accent-sunset); }
   .budget-total {
-    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean));
+    background: linear-gradient(135deg, #0d47a1, #1a73e8);
     color: #fff;
     border-radius: var(--radius-lg);
-    padding: var(--space-8);
+    padding: var(--s8);
     text-align: center;
   }
   .budget-total-grid {
     display: flex;
-    gap: var(--space-10);
+    gap: var(--s10);
     justify-content: center;
     flex-wrap: wrap;
-    margin: var(--space-6) 0;
+    margin: var(--s6) 0;
   }
-  .budget-total-item {
-    text-align: center;
-  }
+  .budget-total-item { text-align: center; }
   .budget-total-item .num {
     font-size: var(--text-4xl);
     font-weight: 900;
     display: block;
+    line-height: 1.1;
+  }
+  .budget-total-item .num-label {
+    font-size: var(--text-sm);
+    opacity: 0.7;
+    margin-top: var(--s1);
   }
 </style>
 </head>
@@ -82,7 +88,10 @@
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">🌊 秦皇岛<span>旅游官网</span></a>
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      秦皇岛旅游官网
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">首页</a></li>
       <li><a href="attractions.html">景点</a></li>
@@ -91,141 +100,137 @@
       <li><a href="guide.html">旅游攻略</a></li>
       <li><a href="about.html">关于我们</a></li>
     </ul>
-    <a href="itinerary.html" class="nav-cta">免费规划行程</a>
+    <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
     <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 行程规划</div>
 
-<section class="page-hero" style="background:linear-gradient(160deg, var(--ocean-deep), var(--ocean), var(--ocean-light)); color:#fff;">
+<section class="page-hero" style="background:linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);">
   <h1>秦皇岛3日精华行程</h1>
   <p>北戴河看海 · 山海关登长城 · 南戴河玩沙 — 每天不赶路，玩得尽兴</p>
   <div class="page-hero-meta">
-    <span class="page-hero-tag">📅 3天2夜</span>
-    <span class="page-hero-tag">💰 人均约800元</span>
-    <span class="page-hero-tag">🚶 适合自由行</span>
+    <span class="page-hero-tag">3天2夜</span>
+    <span class="page-hero-tag">人均约800元</span>
+    <span class="page-hero-tag">适合自由行</span>
   </div>
 </section>
 
-<section class="section bg-cream">
+<section class="section bg-sand">
   <div class="section-inner">
 
     <div class="ad-banner">
-      <div class="ad-box">
-        💡 <strong>预订建议：</strong>酒店和门票提前订更划算。
-        推荐 <a href="https://www.ctrip.com" target="_blank" rel="sponsored noopener">携程</a> ·
-        <a href="https://www.meituan.com" target="_blank" rel="sponsored noopener">美团</a>
-      </div>
+      <div class="ad-card">酒店和门票提前订更划算。推荐 携程 · 美团</div>
     </div>
 
     <!-- Day 1 -->
-    <div class="reveal" id="day1" style="margin-bottom:var(--space-16);">
+    <div class="reveal" id="day1" style="margin-bottom:var(--s16);">
       <div class="day-header">
         <div class="day-num day-num--1">1</div>
         <div>
-          <h2 class="heading-lg">Day 1：北戴河海滨风情</h2>
-          <p class="text-lead" style="font-size:var(--text-base);">轻松悠闲的海滨一日，看海、玩沙、吃海鲜</p>
+          <h2 style="font-size:var(--text-2xl);font-weight:800;">Day 1：北戴河海滨风情</h2>
+          <p style="color:var(--text-secondary);font-size:var(--text-base);">轻松悠闲的海滨一日，看海、玩沙、吃海鲜</p>
         </div>
       </div>
       <div class="timeline" style="margin-left:36px;">
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--ocean);">🌅 05:00 - 08:00 | 鸽子窝公园看日出</div>
+          <div class="timeline-time" style="color:var(--brand);"><span class="time-dot"></span>05:00 - 08:00 | 鸽子窝公园看日出</div>
           <div class="timeline-desc">夏季日出约4:30-5:00，提前40分钟到达。看完日出在公园内散步，鹰角石、望海长廊都值得一看。</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--ocean);">🍳 08:00 - 09:30 | 早餐 + 海边漫步</div>
+          <div class="timeline-time" style="color:var(--brand);"><span class="time-dot"></span>08:00 - 09:30 | 早餐 + 海边漫步</div>
           <div class="timeline-desc">在刘庄附近吃早餐，尝尝当地煎饼果子。之后沿海边漫步，中海滩路沿线风景绝佳。</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--ocean);">🏖️ 10:00 - 17:00 | 老虎石海上公园</div>
+          <div class="timeline-time" style="color:var(--brand);"><span class="time-dot"></span>10:00 - 17:00 | 老虎石海上公园</div>
           <div class="timeline-desc">北戴河最著名的海滨浴场，游泳、玩沙、拍照。附近海鲜大排档解决午餐，下午继续在海边休闲。</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--ocean);">🌙 18:00 - 21:00 | 碧螺塔海上酒吧公园</div>
+          <div class="timeline-time" style="color:var(--brand);"><span class="time-dot"></span>18:00 - 21:00 | 碧螺塔海上酒吧公园</div>
           <div class="timeline-desc">北戴河夜生活地标，演出+烟花秀+海上酒吧。门票40元，夜景绝美，拍照打卡好去处。</div>
         </div>
       </div>
       <div class="budget-box budget-box--blue">
-        <strong>💰 Day1 预算参考：人均约 145-185 元</strong><br>
-        <span style="font-size:0.85rem;">鸽子窝门票25 + 餐饮80-120 + 碧螺塔40</span>
+        Day1 预算参考：人均约 145-185 元<br>
+        <span style="font-weight:400;font-size:0.85rem;">鸽子窝25 + 餐饮80-120 + 碧螺塔40</span>
       </div>
     </div>
 
     <!-- Day 2 -->
-    <div class="reveal" id="day2" style="margin-bottom:var(--space-16);">
+    <div class="reveal" id="day2" style="margin-bottom:var(--s16);">
       <div class="day-header">
         <div class="day-num day-num--2">2</div>
         <div>
-          <h2 class="heading-lg">Day 2：山海关历史文化</h2>
-          <p class="text-lead" style="font-size:var(--text-base);">登长城、逛古城，感受六百年历史沧桑</p>
+          <h2 style="font-size:var(--text-2xl);font-weight:800;">Day 2：山海关历史文化</h2>
+          <p style="color:var(--text-secondary);font-size:var(--text-base);">登长城、逛古城，感受六百年历史沧桑</p>
         </div>
       </div>
       <div class="timeline" style="margin-left:36px;">
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--ocean-deep);">🚗 08:00 - 09:30 | 前往山海关</div>
+          <div class="timeline-time" style="color:var(--brand-dark);"><span class="time-dot"></span>08:00 - 09:30 | 前往山海关</div>
           <div class="timeline-desc">北戴河乘坐城际公交或打车前往山海关区，约40分钟。建议早点出发，避开人流高峰。</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--ocean-deep);">🏯 09:30 - 12:30 | 天下第一关·山海关古城</div>
-          <div class="timeline-desc">游览山海关古城，登镇远楼看"天下第一关"匾额，逛王家大院了解民俗文化。古城墙可步行环绕一段。</div>
+          <div class="timeline-time" style="color:var(--brand-dark);"><span class="time-dot"></span>09:30 - 12:30 | 天下第一关·山海关古城</div>
+          <div class="timeline-desc">游览山海关古城，登镇远楼看"天下第一关"匾额，逛王家大院。古城墙可步行环绕一段。</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--ocean-deep);">🏯 13:30 - 16:30 | 老龙头景区</div>
-          <div class="timeline-desc">午餐后前往老龙头，看长城入海的壮丽景观。澄海楼、入海石城、海神庙是必看景点。明长城东起点。</div>
+          <div class="timeline-time" style="color:var(--brand-dark);"><span class="time-dot"></span>13:30 - 16:30 | 老龙头景区</div>
+          <div class="timeline-desc">午餐后前往老龙头，看长城入海的壮丽景观。澄海楼、入海石城、海神庙是必看景点。</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--ocean-deep);">🍜 17:00 - 19:00 | 山海关美食街</div>
+          <div class="timeline-time" style="color:var(--brand-dark);"><span class="time-dot"></span>17:00 - 19:00 | 山海关美食街</div>
           <div class="timeline-desc">四条包子、饸饹面、山海关焖子，人均30元吃正宗味道。推荐古城内小吃街。</div>
         </div>
       </div>
       <div class="budget-box budget-box--dark">
-        <strong>💰 Day2 预算参考：人均约 190-250 元</strong><br>
-        <span style="font-size:0.85rem;">山海关50 + 老龙头60 + 餐饮60-100 + 交通20-40</span>
+        Day2 预算参考：人均约 190-250 元<br>
+        <span style="font-weight:400;font-size:0.85rem;">山海关50 + 老龙头60 + 餐饮60-100 + 交通20-40</span>
       </div>
     </div>
 
     <!-- Day 3 -->
-    <div class="reveal" id="day3" style="margin-bottom:var(--space-16);">
+    <div class="reveal" id="day3" style="margin-bottom:var(--s16);">
       <div class="day-header">
         <div class="day-num day-num--3">3</div>
         <div>
-          <h2 class="heading-lg">Day 3：南戴河休闲娱乐</h2>
-          <p class="text-lead" style="font-size:var(--text-base);">滑沙、玩水、吃海鲜，轻松收尾</p>
+          <h2 style="font-size:var(--text-2xl);font-weight:800;">Day 3：南戴河休闲娱乐</h2>
+          <p style="color:var(--text-secondary);font-size:var(--text-base);">滑沙、玩水、吃海鲜，轻松收尾</p>
         </div>
       </div>
       <div class="timeline" style="margin-left:36px;">
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--coral);">🚗 09:00 - 10:00 | 前往南戴河</div>
+          <div class="timeline-time" style="color:var(--accent-sunset);"><span class="time-dot"></span>09:00 - 10:00 | 前往南戴河</div>
           <div class="timeline-desc">从北戴河乘坐22路公交或打车前往南戴河黄金海岸，约30分钟。</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--coral);">🏖️ 10:00 - 15:00 | 黄金海岸 + 国际滑沙中心</div>
+          <div class="timeline-time" style="color:var(--accent-sunset);"><span class="time-dot"></span>10:00 - 15:00 | 黄金海岸 + 国际滑沙中心</div>
           <div class="timeline-desc">黄金海岸沙滩细腻，海水清澈。国际滑沙中心是国内最大的滑沙场，滑沙+滑草套票约120元。</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time" style="color:var(--coral);">🦐 16:00 - 18:00 | 海鲜大餐 + 返程</div>
+          <div class="timeline-time" style="color:var(--accent-sunset);"><span class="time-dot"></span>16:00 - 18:00 | 海鲜大餐 + 返程</div>
           <div class="timeline-desc">南戴河海鲜市场买鲜货找店加工，性价比极高。餐后取行李准备返程或延住。</div>
         </div>
       </div>
-      <div class="budget-box budget-box--coral">
-        <strong>💰 Day3 预算参考：人均约 240-310 元</strong><br>
-        <span style="font-size:0.85rem;">滑沙120 + 海鲜100-150 + 交通20-40</span>
+      <div class="budget-box budget-box--sunset">
+        Day3 预算参考：人均约 240-310 元<br>
+        <span style="font-weight:400;font-size:0.85rem;">滑沙120 + 海鲜100-150 + 交通20-40</span>
       </div>
     </div>
 
     <!-- 总预算 -->
     <div class="budget-total reveal">
-      <h3 style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-2);">💰 3日游总预算参考</h3>
-      <p style="opacity:0.8;margin-bottom:var(--space-6);">* 不含往返交通和住宿（住宿约200-400元/晚）</p>
+      <h3 style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--s2);">3日游总预算参考</h3>
+      <p style="opacity:0.75;margin-bottom:var(--s6);">* 不含往返交通和住宿（住宿约200-400元/晚）</p>
       <div class="budget-total-grid">
         <div class="budget-total-item">
           <span class="num">¥575</span>
-          <span style="opacity:0.8;font-size:var(--text-sm);">人均最低预算</span>
+          <span class="num-label">人均最低预算</span>
         </div>
         <div class="budget-total-item">
           <span class="num">¥745</span>
-          <span style="opacity:0.8;font-size:var(--text-sm);">人均中等预算</span>
+          <span class="num-label">人均中等预算</span>
         </div>
       </div>
     </div>
@@ -233,18 +238,18 @@
   </div>
 </section>
 
-<section class="cta-section" style="background:linear-gradient(160deg, var(--ocean-deep), var(--ocean-light));">
+<section class="cta-section" style="background:linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);">
   <div class="section-inner">
     <h2>需要定制专属行程？</h2>
     <p>欢迎联系我们，我们会根据你的偏好提供个性化建议</p>
-    <a href="about.html#contact" class="btn-coral" style="font-size:var(--text-base);padding:var(--space-4) var(--space-8);">联系我们 →</a>
+    <a href="about.html#contact" class="btn btn-white btn-lg">联系我们 →</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
-      <div class="footer-brand"><h3>🌊 秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略。</p></div>
+      <div class="footer-brand"><h3>秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略。</p></div>
       <div class="footer-col"><h4>热门页面</h4><a href="index.html">首页</a><a href="attractions.html">景点推荐</a><a href="itinerary.html">行程规划</a><a href="food.html">美食推荐</a></div>
       <div class="footer-col"><h4>旅游攻略</h4><a href="guide.html">出行指南</a><a href="guide.html#transport">交通攻略</a><a href="guide.html#accommodation">住宿推荐</a></div>
       <div class="footer-col"><h4>关于我们</h4><a href="about.html">关于官网</a><a href="about.html#contact">联系我们</a><a href="about.html#cooperation">商务合作</a></div>
