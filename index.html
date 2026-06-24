@@ -47,31 +47,27 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* ===== Hero — 原始 Google Blue 全屏设计（保持不变） ===== */
+  /* ===== Hero — 全屏背景大图 ===== */
   .hero-full {
     min-height: 100vh; display: flex; align-items: center;
-    background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 50%, #4a9af5 100%);
-    position: relative; overflow: hidden; padding: 120px 24px 80px;
+    position: relative; overflow: hidden; padding: 0;
+    background: #0d47a1; /* fallback */
   }
-  .hero-full::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 60%),
-      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  .hero-bg-img {
+    position: absolute; inset: 0; z-index: 0;
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(13,71,161,0.75) 0%, rgba(26,115,232,0.55) 40%, rgba(74,154,245,0.35) 100%);
   }
   .hero-grid {
     max-width: var(--max-width); margin: 0 auto; width: 100%;
+    position: relative; z-index: 2;
+    padding: 120px 24px 80px;
     display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-    align-items: center; position: relative; z-index: 1;
+    align-items: center;
   }
-  .hero-img-wrap {
-    border-radius: 20px; overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-    transform: perspective(1000px) rotateY(-5deg);
-    transition: transform 0.5s;
-  }
-  .hero-img-wrap:hover { transform: perspective(1000px) rotateY(0deg); }
-  .hero-img-wrap img { width: 100%; height: 400px; object-fit: cover; display: block; }
 
   /* ===== 城市介绍 ===== */
   .city-intro { padding: 100px 24px; background: #fff; }
@@ -134,8 +130,9 @@
 
   /* Responsive */
   @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; text-align: center; }
-    .hero-img-wrap { max-width: 400px; margin: 0 auto; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; padding: 100px 20px 60px; }
+    .hero-grid p { margin-left: auto; margin-right: auto; }
+    .hero-grid > div:first-child > div { justify-content: center; }
     .city-grid { grid-template-columns: 1fr; }
     .attractions-grid, .food-grid { grid-template-columns: 1fr; }
     .tips-grid { grid-template-columns: 1fr; }
@@ -165,14 +162,16 @@
   </div>
 </nav>
 
-<!-- ====== Hero 全屏 ====== -->
+<!-- ====== Hero 全屏背景大图 ====== -->
 <section class="hero-full">
+  <img class="hero-bg-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="秦皇岛金色海滩全景" loading="eager">
+  <div class="hero-overlay"></div>
   <div class="hero-grid">
     <div style="color: #fff;">
-      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 2px 20px rgba(0,0,0,0.2);">
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 4px 40px rgba(0,0,0,0.3);">
         发现秦皇岛<br>最美海岸线
       </h1>
-      <p style="font-size: 1.15rem; opacity: 0.92; line-height: 1.8; margin-bottom: 36px; max-width: 500px;">
+      <p style="font-size: 1.15rem; opacity: 0.95; line-height: 1.8; margin-bottom: 36px; max-width: 500px; text-shadow: 0 2px 16px rgba(0,0,0,0.3);">
         北戴河看海 · 山海关登长城 · 鸽子窝看日出<br>2026年最新旅游攻略，助你玩转秦皇岛
       </p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
@@ -186,9 +185,6 @@
           探索景点
         </a>
       </div>
-    </div>
-    <div class="hero-img-wrap">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="秦皇岛海滩风景" loading="lazy">
     </div>
   </div>
 </section>
