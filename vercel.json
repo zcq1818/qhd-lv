@@ -5,6 +5,11 @@
   "installCommand": "",
   "buildCommand": "",
   "framework": null,
+  "functions": {
+    "api/chat.js": {
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" }
   ],

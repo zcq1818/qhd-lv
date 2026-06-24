@@ -15,6 +15,7 @@
 const AGNES_API_BASE = 'https://apihub.agnes-ai.com/v1';
 const AGNES_MODEL = 'agnes-2.0-flash';
 const CHAT_ENDPOINT = '/chat/completions';
+const UPSTREAM_TIMEOUT_MS = 55000; // 上游请求超时 55 秒（略低于 Vercel 60 秒上限）
 
 // ============ 系统提示词 ============
 
@@ -227,6 +228,9 @@ module.exports = async function handler(req) {
 
   // ---- 转发到 Agnes AI（流式） ----
   let upstreamResponse;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
+
   try {
     upstreamResponse = await fetch(upstreamUrl, {
       method: 'POST',
@@ -234,9 +238,16 @@ module.exports = async function handler(req) {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
       },
-      body: upstreamBody
+      body: upstreamBody,
+      signal: controller.signal
     });
+    clearTimeout(timeoutId);
   } catch (e) {
+    clearTimeout(timeoutId);
+    if (e.name === 'AbortError') {
+      console.error('[chat] 上游请求超时');
+      return errorResponse(504, 'AI 响应超时，请换个简短的问题重试');
+    }
     console.error('[chat] 上游请求失败:', e.message);
     return errorResponse(502, 'AI 服务暂时不可用，请稍后再试');
   }

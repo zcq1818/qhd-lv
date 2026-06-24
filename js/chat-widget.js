@@ -19,6 +19,8 @@
   var API_URL = '/api/chat';
   var STORAGE_KEY = 'agnes_chat_history';
   var MAX_HISTORY = 30; // 最多保存 30 条
+  var FIRST_BYTE_TIMEOUT = 15000; // 首字节超时：15秒还没收到第一个字，提示可能网络或网络延迟
+  var IDLE_TIMEOUT = 30000; // 空闲超时：30秒没有新数据，认为连接断开
 
   // 快捷问题（按模式区分）
   var QUICK_QUESTIONS = {
@@ -298,21 +300,72 @@
 
   // ============ 流式请求 ============
 
+  var firstByteTimer = null;
+  var idleTimer = null;
+
+  function clearTimers() {
+    if (firstByteTimer) {
+      clearTimeout(firstByteTimer);
+      firstByteTimer = null;
+    }
+    if (idleTimer) {
+      clearTimeout(idleTimer);
+      idleTimer = null;
+    }
+  }
+
+  function resetIdleTimer() {
+    if (idleTimer) clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () {
+      if (state.abortController) {
+        state.abortController.abort();
+      }
+      showTimeoutError('连接超时，AI 响应时间过长，请重试或换个简短的问题');
+    }, IDLE_TIMEOUT);
+  }
+
+  function showTimeoutError(message) {
+    removeTypingIndicator();
+    if (state.messages.length > 0 && state.messages[state.messages.length - 1].content === '') {
+      state.messages.pop();
+    }
+    showError(message);
+    finishStreaming();
+    renderMessages();
+  }
+
   function streamChat(userText) {
     state.isStreaming = true;
     updateSendButton();
+    clearTimers();
 
-    // 构建发送给 API 的消息（不包含空的 AI 占位）
     var apiMessages = state.messages
       .filter(function (m) { return m.content.trim() !== ''; })
       .map(function (m) {
         return { role: m.role, content: m.content };
       });
 
-    // 支持中断
     if (typeof AbortController !== 'undefined') {
       state.abortController = new AbortController();
     }
+
+    firstByteTimer = setTimeout(function () {
+      var typing = document.getElementById('agnes-typing-wrapper');
+      if (typing) {
+        var hint = document.createElement('div');
+        hint.className = 'agnes-timeout-hint';
+        hint.style.cssText = 'text-align:center;color:#999;font-size:12px;margin-top:8px;';
+        hint.textContent = 'AI 正在思考中，网络可能较慢，请稍候...';
+        typing.appendChild(hint);
+      }
+    }, 8000);
+
+    var hardTimeout = setTimeout(function () {
+      if (state.abortController) {
+        state.abortController.abort();
+      }
+      showTimeoutError('请求超时，请检查网络后重试');
+    }, FIRST_BYTE_TIMEOUT);
 
     fetch(API_URL, {
       method: 'POST',
@@ -321,6 +374,8 @@
       signal: state.abortController ? state.abortController.signal : undefined
     })
       .then(function (response) {
+        clearTimeout(hardTimeout);
+
         if (!response.ok) {
           return response.json().then(function (err) {
             throw new Error(err.message || '请求失败 (' + response.status + ')');
@@ -333,29 +388,28 @@
           throw new Error('浏览器不支持流式响应');
         }
 
-        // 移除打字指示器，开始流式渲染
         removeTypingIndicator();
         startStreamingRender();
+        clearTimeout(firstByteTimer);
+        resetIdleTimer();
 
-        // 读取 SSE 流
         return readSSEStream(response.body);
       })
       .then(function () {
-        // 流完成
+        clearTimers();
         finishStreaming();
       })
       .catch(function (err) {
+        clearTimers();
+        clearTimeout(hardTimeout);
         removeTypingIndicator();
 
         if (err.name === 'AbortError') {
-          // 用户主动中断，保留已有内容
           if (state.messages.length > 0 && state.messages[state.messages.length - 1].content === '') {
             state.messages.pop();
           }
         } else {
-          // 显示错误
           showError(err.message || '网络错误，请稍后重试');
-          // 移除空的 AI 占位消息
           if (state.messages.length > 0 && state.messages[state.messages.length - 1].content === '') {
             state.messages.pop();
           }
@@ -399,9 +453,9 @@
           var delta = parsed.choices && parsed.choices[0] && parsed.choices[0].delta;
 
           if (delta && delta.content) {
-            // 追加内容到 AI 消息
             state.messages[aiMsgIndex].content += delta.content;
             updateStreamingBubble(state.messages[aiMsgIndex].content);
+            resetIdleTimer();
           }
         } catch (e) {
           // 忽略解析错误的行
