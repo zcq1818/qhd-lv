@@ -30,6 +30,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">首页</a></li>
       <li><a href="attractions.html">景点</a></li>
+      <li><a href="map.html">地图</a></li>
       <li><a href="itinerary.html">行程规划</a></li>
       <li><a href="food.html" class="active">美食</a></li>
       <li><a href="guide.html">旅游攻略</a></li>
@@ -234,5 +235,8 @@ var reveals=document.querySelectorAll('.reveal');
 var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target);}})},{threshold:0.1});
 reveals.forEach(function(el){o.observe(el);});
 </script>
+<!-- AI 聊天组件 -->
+<link rel="stylesheet" href="css/chat-widget.css">
+<script src="js/chat-widget.js" defer></script>
 </body>
 </html>

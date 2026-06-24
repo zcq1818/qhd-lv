@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秦皇岛景点地图 — 25个景区交互式地图导航 | 秦皇岛旅游官网</title>
+<meta name="description" content="秦皇岛景点交互式地图：北戴河、山海关、阿那亚、鸽子窝、老龙头等25个景区一目了然。点击左侧景点列表，右侧地图自动定位，轻松规划行程路线。">
+<meta name="keywords" content="秦皇岛景点地图,秦皇岛地图,北戴河地图,山海关地图,秦皇岛旅游地图,景点导航">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://qhd-lv.vercel.app/map.html">
+<meta property="og:title" content="秦皇岛景点地图 — 25个景区交互式导航">
+<meta property="og:description" content="左侧景点列表 + 右侧全屏交互地图，点击联动，轻松规划秦皇岛之旅。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qhd-lv.vercel.app/map.html">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  /* ===== 面包屑 ===== */
+  .breadcrumb {
+    max-width: var(--max-width);
+    margin: calc(var(--nav-height) + 16px) auto 0;
+    padding: 0 var(--s6);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+  .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brand); }
+  .breadcrumb .sep { margin: 0 var(--s2); opacity: 0.4; }
+
+  /* ===== Hero 区（紧凑型） ===== */
+  .map-hero {
+    background: linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);
+    color: #fff;
+    text-align: center;
+    padding: 36px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+  .map-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; left: -50px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .map-hero h1 {
+    position: relative; z-index: 1;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .map-hero p {
+    position: relative; z-index: 1;
+    font-size: var(--text-base);
+    opacity: 0.88;
+    max-width: 520px;
+    margin: 0 auto 16px;
+    line-height: 1.6;
+  }
+  .map-hero-stats {
+    position: relative; z-index: 1;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .map-hero-stat {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* ===== 地图主容器 ===== */
+  .map-page {
+    display: flex;
+    height: 680px;
+    background: var(--gray-100);
+  }
+
+  /* ===== 左侧边栏 ===== */
+  .map-sidebar {
+    width: 360px;
+    flex-shrink: 0;
+    background: #fff;
+    border-right: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* 区域筛选 */
+  .map-filter {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 14px 16px;
+    background: #fff;
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .map-filter-btn {
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--gray-200);
+    background: #fff;
+    color: var(--gray-600);
+    transition: all var(--dur) var(--ease-out);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .map-filter-btn:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+  .map-filter-btn.active {
+    background: var(--brand);
+    color: #fff;
+    border-color: var(--brand);
+    box-shadow: 0 2px 8px rgba(26,115,232,0.3);
+  }
+  .map-filter-btn .filter-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* 景点列表 */
+  .map-list {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .map-list::-webkit-scrollbar { width: 6px; }
+  .map-list::-webkit-scrollbar-track { background: var(--gray-50); }
+  .map-list::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
+  .map-list::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+  .map-spot-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background var(--dur) var(--ease-out);
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .map-spot-item:hover {
+    background: rgba(26,115,232,0.04);
+  }
+  .map-spot-item.active {
+    background: rgba(26,115,232,0.08);
+    border-left-color: var(--brand);
+  }
+
+  .map-spot-thumb {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .map-spot-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .map-spot-thumb-noimg {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .map-spot-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .map-spot-name {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 3px;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .map-spot-top-badge {
+    background: var(--accent-coral);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+  .map-spot-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-bottom: 4px;
+    align-items: center;
+  }
+  .map-spot-meta .stars { color: #f59e0b; font-weight: 700; }
+  .map-spot-meta .price { color: var(--accent-sunset); font-weight: 600; }
+  .map-spot-meta .area-tag {
+    padding: 1px 7px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .map-spot-desc {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ===== 右侧地图容器 ===== */
+  .map-container {
+    flex: 1;
+    position: relative;
+    min-width: 0;
+  }
+  #leafletMap {
+    width: 100%;
+    height: 100%;
+    background: #e8eef5;
+    z-index: 1;
+  }
+
+  /* 图例 */
+  .map-legend {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+  }
+  .map-legend h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-700);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .map-legend-items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .map-legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    flex-shrink: 0;
+    border: 1.5px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+
+  /* 移动端切换按钮 */
+  .map-toggle-sidebar {
+    display: none;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 1000;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-full);
+    padding: 8px 16px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--brand);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--dur) var(--ease-out);
+    align-items: center;
+    gap: 6px;
+  }
+  .map-toggle-sidebar:hover {
+    background: var(--brand);
+    color: #fff;
+    border-color: var(--brand);
+  }
+
+  /* ===== Leaflet 自定义标记 ===== */
+  .spot-marker-wrap { background: transparent; border: none; }
+  .spot-marker {
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    border: 2px solid #fff;
+    transition: transform 0.2s var(--ease-out);
+  }
+  .spot-marker:hover {
+    transform: rotate(-45deg) scale(1.15);
+    z-index: 1000;
+  }
+  .spot-marker span {
+    transform: rotate(45deg);
+    font-size: 14px;
+    line-height: 1;
+  }
+  .spot-marker-top span {
+    font-size: 16px;
+  }
+  .spot-marker-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--accent-coral);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 5px;
+    border-radius: var(--radius-full);
+    transform: rotate(45deg);
+    border: 1.5px solid #fff;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* ===== Leaflet Popup 自定义 ===== */
+  .leaflet-popup-content-wrapper {
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+  .leaflet-popup-content {
+    margin: 0;
+  }
+  .leaflet-popup-tip {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .spot-popup {
+    min-width: 220px;
+    max-width: 260px;
+  }
+  .spot-popup img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0;
+    margin-bottom: 0;
+    display: block;
+  }
+  .spot-popup-body {
+    padding: 12px 14px 14px;
+  }
+  .spot-popup h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--gray-900);
+    line-height: 1.3;
+  }
+  .spot-popup .popup-meta {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .spot-popup .popup-meta .stars { color: #f59e0b; font-weight: 700; }
+  .spot-popup .popup-meta .price { color: var(--accent-sunset); font-weight: 600; }
+  .spot-popup .popup-desc {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .spot-popup .popup-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--brand);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: gap var(--dur) var(--ease-out);
+  }
+  .spot-popup .popup-link:hover {
+    gap: 8px;
+    color: var(--brand-dark);
+  }
+
+  /* Leaflet 控件美化 */
+  .leaflet-control-zoom a {
+    border-radius: var(--radius-sm) !important;
+    color: var(--gray-700) !important;
+    border: 1px solid var(--gray-200) !important;
+  }
+  .leaflet-control-zoom a:hover {
+    background: var(--gray-50) !important;
+    color: var(--brand) !important;
+  }
+  .leaflet-control-attribution {
+    background: rgba(255,255,255,0.8) !important;
+    font-size: 10px !important;
+    border-radius: var(--radius-sm) 0 0 0 !important;
+  }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 768px) {
+    .map-page {
+      flex-direction: column;
+      height: auto;
+    }
+    .map-sidebar {
+      width: 100%;
+      height: 300px;
+      border-right: none;
+      border-bottom: 1px solid var(--gray-200);
+      transition: height var(--dur) var(--ease-out);
+    }
+    .map-sidebar.collapsed {
+      height: 0;
+      border-bottom: none;
+    }
+    .map-container {
+      height: 500px;
+    }
+    .map-toggle-sidebar {
+      display: inline-flex;
+    }
+    .map-legend {
+      bottom: 12px;
+      left: 12px;
+      padding: 10px 12px;
+    }
+    .map-legend h4 { font-size: 11px; }
+    .map-legend-item { font-size: 12px; }
+    .map-filter-btn {
+      padding: 5px 11px;
+      font-size: 12px;
+    }
+    .map-hero {
+      padding: 28px 20px 32px;
+    }
+    .breadcrumb {
+      padding: 0 var(--s4);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .map-sidebar { height: 280px; }
+    .map-container { height: 420px; }
+    .map-spot-thumb { width: 48px; height: 48px; }
+    .map-spot-thumb-noimg { font-size: 20px; }
+    .map-spot-name { font-size: var(--text-sm); }
+    .map-spot-desc { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== 导航栏 ====== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      秦皇岛旅游官网
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="attractions.html">景点</a></li>
+      <li><a href="map.html" class="active">地图</a></li>
+      <li><a href="itinerary.html">行程规划</a></li>
+      <li><a href="food.html">美食</a></li>
+      <li><a href="guide.html">旅游攻略</a></li>
+      <li><a href="about.html">关于我们</a></li>
+    </ul>
+    <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ====== 面包屑 ====== -->
+<div class="breadcrumb">
+  <a href="index.html">首页</a> <span class="sep">/</span> 景点地图
+</div>
+
+<!-- ====== Hero 区 ====== -->
+<section class="map-hero">
+  <h1>秦皇岛景点地图</h1>
+  <p>25个精选景区 · 5大区域 · 点击左侧列表与右侧地图联动，轻松规划行程</p>
+  <div class="map-hero-stats">
+    <span class="map-hero-stat">📍 25个景点</span>
+    <span class="map-hero-stat">🗺 5大区域</span>
+    <span class="map-hero-stat">⭐ TOP5必去</span>
+  </div>
+</section>
+
+<!-- ====== 地图主体 ====== -->
+<div class="map-page" id="mapPage">
+  <!-- 左侧边栏 -->
+  <aside class="map-sidebar" id="mapSidebar">
+    <div class="map-filter" id="mapFilter">
+      <!-- 筛选按钮由 JS 动态生成 -->
+    </div>
+    <div class="map-list" id="mapList">
+      <!-- 景点列表由 JS 动态生成 -->
+    </div>
+  </aside>
+
+  <!-- 右侧地图 -->
+  <div class="map-container">
+    <div id="leafletMap"></div>
+
+    <!-- 移动端切换按钮 -->
+    <button class="map-toggle-sidebar" id="toggleSidebar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <span id="toggleText">景点列表</span>
+    </button>
+
+    <!-- 图例 -->
+    <div class="map-legend">
+      <h4>景点分类</h4>
+      <div class="map-legend-items" id="mapLegend">
+        <!-- 图例由 JS 动态生成 -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 页脚 ====== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>秦皇岛旅游官网</h3>
+        <p>致力于为每一位来秦皇岛的游客，提供最实用、最全面的旅游攻略。</p>
+      </div>
+      <div class="footer-col">
+        <h4>热门页面</h4>
+        <a href="index.html">首页</a>
+        <a href="attractions.html">景点推荐</a>
+        <a href="map.html">景点地图</a>
+        <a href="itinerary.html">行程规划</a>
+        <a href="food.html">美食推荐</a>
+      </div>
+      <div class="footer-col">
+        <h4>旅游攻略</h4>
+        <a href="guide.html">出行指南</a>
+        <a href="guide.html#transport">交通攻略</a>
+        <a href="guide.html#accommodation">住宿推荐</a>
+        <a href="guide.html#besttime">最佳时间</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="about.html">关于官网</a>
+        <a href="about.html#contact">联系我们</a>
+        <a href="about.html#cooperation">商务合作</a>
+        <a href="about.html#privacy">隐私政策</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 秦皇岛旅游官网 qhd-lv.vercel.app</span>
+      <span>冀ICP备16026346号-2</span>
+      <div>
+        <a href="about.html#privacy">隐私政策</a> ·
+        <a href="about.html#disclaimer">免责声明</a> ·
+        <a href="sitemap.xml">网站地图</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  /* ===== 景点数据 ===== */
+  var SPOTS = [
+    // 北戴河区
+    {id:'beidaihe', name:'北戴河海滨风景区', lat:39.8364, lng:119.5264, area:'beidaihe', cat:'beach', rating:'4.7', price:'免费', desc:'中国四大避暑胜地之一，绵延20公里黄金沙滩', img:'images/beidaihe-beach.png'},
+    {id:'geziwo', name:'鸽子窝公园', lat:39.8364, lng:119.5264, area:'beidaihe', cat:'beach', rating:'4.6', price:'25元', desc:'北戴河最佳日出观赏地，鹰角石矗立海边', img:'images/geziwo-sunrise.jpg'},
+    {id:'laohushi', name:'老虎石海上公园', lat:39.8140, lng:119.4882, area:'beidaihe', cat:'beach', rating:'4.5', price:'免费', desc:'北戴河最经典海滨公园，最美日落观赏点', img:'images/laohushi.png'},
+    {id:'liangfengshan', name:'联峰山公园', lat:39.8233, lng:119.4610, area:'beidaihe', cat:'nature', rating:'4.4', price:'25元', desc:'北戴河制高点，中国第一座森林公园', img:''},
+    {id:'biluota', name:'碧螺塔海上酒吧公园', lat:39.8205, lng:119.5353, area:'beidaihe', cat:'culture', rating:'4.3', price:'40元', desc:'北戴河夜生活地标，海上酒吧+烟花秀+篝火晚会', img:'images/biluota.png'},
+    {id:'guailou', name:'怪楼奇园', lat:39.8271, lng:119.4983, area:'beidaihe', cat:'family', rating:'4.2', price:'20元', desc:'999个门999扇窗的奇妙迷宫，亲子探险首选', img:''},
+    {id:'dongwuyuan', name:'秦皇岛野生动物园', lat:39.8560, lng:119.5300, area:'beidaihe', cat:'family', rating:'4.5', price:'100元', desc:'华北最大野生动物园，可自驾穿越猛兽区', img:''},
+
+    // 山海关区
+    {id:'shanhaiguan', name:'山海关·天下第一关', lat:40.0100, lng:119.7576, area:'shanhaiguan', cat:'history', rating:'4.8', price:'50元', desc:'明长城东北关隘，六百年历史巨匾高悬', img:'images/shanhaiguan.png'},
+    {id:'laolongtou', name:'老龙头景区', lat:39.9693, lng:119.7975, area:'shanhaiguan', cat:'history', rating:'4.7', price:'60元', desc:'长城唯一入海处，万里长城东端起点', img:'images/laolongtou.jpg'},
+    {id:'jiaoshan', name:'角山长城', lat:40.0376, lng:119.7403, area:'shanhaiguan', cat:'history', rating:'4.5', price:'40元', desc:'万里长城翻越的第一座山，长城第一山', img:''},
+    {id:'mengjiangnv', name:'孟姜女庙', lat:39.9880, lng:119.7580, area:'shanhaiguan', cat:'history', rating:'4.3', price:'30元', desc:'千古传说孟姜女庙，天下第一奇联', img:''},
+    {id:'ledao', name:'乐岛海洋王国', lat:39.9350, lng:119.7750, area:'shanhaiguan', cat:'family', rating:'4.4', price:'160元', desc:'华北最大海洋主题乐园，海豚表演+水上乐园', img:''},
+    {id:'changshoushan', name:'长寿山景区', lat:40.0450, lng:119.7150, area:'shanhaiguan', cat:'nature', rating:'4.3', price:'30元', desc:'北方最大天然花岗岩石洞，寿字碑林', img:''},
+    {id:'yansaihu', name:'燕塞湖', lat:40.0200, lng:119.7150, area:'shanhaiguan', cat:'nature', rating:'4.4', price:'40元', desc:'北方小桂林，青山环抱一池碧水', img:''},
+
+    // 海港区
+    {id:'qiuxian', name:'秦皇求仙入海处', lat:39.9139, lng:119.6220, area:'haigang', cat:'history', rating:'4.2', price:'45元', desc:'秦始皇东巡求仙入海处，城市名之源', img:''},
+    {id:'xinao', name:'新澳海底世界', lat:39.9062, lng:119.5630, area:'haigang', cat:'family', rating:'4.4', price:'120元', desc:'亚洲最长海底隧道80米，美人鱼表演', img:''},
+
+    // 南戴河·昌黎
+    {id:'aranya', name:'阿那亚·黄金海岸社区', lat:39.6500, lng:119.3139, area:'nandaihe', cat:'culture', rating:'4.8', price:'预约制', desc:'中国最具文艺气息海岸社区，孤独图书馆', img:'images/aranya-library.jpg'},
+    {id:'huangjin', name:'南戴河·黄金海岸', lat:39.7200, lng:119.3700, area:'nandaihe', cat:'beach', rating:'4.5', price:'免费', desc:'中国最优质天然沙质海岸，国际滑沙中心', img:''},
+    {id:'yudao', name:'渔岛海洋温泉景区', lat:39.6900, lng:119.3500, area:'nandaihe', cat:'beach', rating:'4.5', price:'188元', desc:'海水温泉+水上乐园+薰衣草庄园', img:''},
+    {id:'shenglan', name:'圣蓝海洋公园', lat:39.7050, lng:119.3750, area:'nandaihe', cat:'family', rating:'4.3', price:'140元', desc:'海豚剧场+白鲸表演+海底隧道', img:''},
+    {id:'jieshishan', name:'碣石山', lat:39.7250, lng:118.9500, area:'nandaihe', cat:'history', rating:'4.2', price:'20元', desc:'曹操"东临碣石以观沧海"即在此所作', img:''},
+    {id:'weilanhaian', name:'蔚蓝海岸', lat:39.7823, lng:119.3993, area:'nandaihe', cat:'culture', rating:'4.5', price:'免费', desc:'新兴文艺海岸社区，猫的天空之城书店', img:''},
+
+    // 抚宁·青龙
+    {id:'zushan', name:'祖山风景区', lat:40.1750, lng:119.2550, area:'funing', cat:'nature', rating:'4.6', price:'80元', desc:'北方群山之祖，原始森林覆盖率96%，云海日出', img:''},
+    {id:'bingtangyu', name:'冰塘峪大峡谷', lat:40.0950, lng:119.3450, area:'funing', cat:'nature', rating:'4.4', price:'80元', desc:'夏季三伏天仍有残冰，北方罕见地质奇观', img:''},
+    {id:'banchangyu', name:'板厂峪长城景区', lat:40.0450, lng:119.4950, area:'funing', cat:'history', rating:'4.5', price:'50元', desc:'600座明代砖窑遗址，全国唯一', img:''}
+  ];
+
+  /* ===== 区域定义 ===== */
+  var AREAS = [
+    {id:'all', name:'全部', color:'#1a73e8'},
+    {id:'beidaihe', name:'北戴河区', color:'#0369a1'},
+    {id:'shanhaiguan', name:'山海关区', color:'#92400e'},
+    {id:'haigang', name:'海港区', color:'#166534'},
+    {id:'nandaihe', name:'南戴河·昌黎', color:'#6b21a8'},
+    {id:'funing', name:'抚宁·青龙', color:'#EA4335'}
+  ];
+
+  /* ===== 分类定义 ===== */
+  var CATEGORIES = {
+    beach:   {name:'海滨风光', color:'#0369a1', icon:'🏖'},
+    history: {name:'历史文化', color:'#92400e', icon:'🏛'},
+    nature:  {name:'自然风光', color:'#166534', icon:'⛰'},
+    family:  {name:'亲子娱乐', color:'#9d174d', icon:'🎢'},
+    culture: {name:'文艺打卡', color:'#6b21a8', icon:'🎭'}
+  };
+
+  /* TOP5 必去景点 */
+  var TOP5 = ['beidaihe', 'shanhaiguan', 'geziwo', 'laolongtou', 'aranya'];
+
+  /* ===== 全局变量 ===== */
+  var map = null;
+  var markers = {};
+  var currentFilter = 'all';
+  var activeSpotId = null;
+
+  /* ===== 工具函数：根据 area id 获取区域名称 ===== */
+  function getAreaName(areaId) {
+    for (var i = 0; i < AREAS.length; i++) {
+      if (AREAS[i].id === areaId) return AREAS[i].name;
+    }
+    return '';
+  }
+
+  /* ===== 工具函数：根据 area id 获取区域颜色 ===== */
+  function getAreaColor(areaId) {
+    for (var i = 0; i < AREAS.length; i++) {
+      if (AREAS[i].id === areaId) return AREAS[i].color;
+    }
+    return '#1a73e8';
+  }
+
+  /* ===== 检测并处理坐标重复（微偏移防止标记完全重叠） ===== */
+  function resolveCoordinates() {
+    var coordMap = {};
+    SPOTS.forEach(function(spot) {
+      var key = spot.lat + ',' + spot.lng;
+      if (!coordMap[key]) coordMap[key] = [];
+      coordMap[key].push(spot);
+    });
+    // 对有重复坐标的景点做微小偏移
+    SPOTS.forEach(function(spot) {
+      var key = spot.lat + ',' + spot.lng;
+      var dups = coordMap[key];
+      if (dups.length > 1) {
+        var idx = dups.indexOf(spot);
+        var angle = (idx / dups.length) * 2 * Math.PI;
+        spot._lat = spot.lat + 0.004 * Math.cos(angle);
+        spot._lng = spot.lng + 0.004 * Math.sin(angle);
+      } else {
+        spot._lat = spot.lat;
+        spot._lng = spot.lng;
+      }
+    });
+  }
+
+  /* ===== 创建 Popup 内容 ===== */
+  function createPopup(spot) {
+    var imgHtml = spot.img
+      ? '<img src="' + spot.img + '" alt="' + spot.name + '" onerror="this.style.display=\'none\'">'
+      : '';
+    var cat = CATEGORIES[spot.cat] || {name:'', icon:''};
+    return '<div class="spot-popup">' +
+      imgHtml +
+      '<div class="spot-popup-body">' +
+        '<h3>' + cat.icon + ' ' + spot.name + '</h3>' +
+        '<div class="popup-meta">' +
+          '<span class="stars">★ ' + spot.rating + '</span>' +
+          '<span class="price">' + spot.price + '</span>' +
+          '<span>· ' + getAreaName(spot.area) + '</span>' +
+        '</div>' +
+        '<div class="popup-desc">' + spot.desc + '</div>' +
+        '<a class="popup-link" href="attractions.html#' + spot.id + '-spot">查看详情 →</a>' +
+      '</div>' +
+    '</div>';
+  }
+
+  /* ===== 初始化地图 ===== */
+  function initMap() {
+    map = L.map('leafletMap', {
+      center: [39.85, 119.55],
+      zoom: 11,
+      zoomControl: true,
+      scrollWheelZoom: true,
+      attributionControl: true
+    });
+
+    // 高德地图瓦片层
+    L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+      subdomains: ['1', '2', '3', '4'],
+      maxZoom: 18,
+      attribution: '高德地图'
+    }).addTo(map);
+  }
+
+  /* ===== 创建所有标记 ===== */
+  function createMarkers() {
+    resolveCoordinates();
+
+    SPOTS.forEach(function(spot) {
+      var cat = CATEGORIES[spot.cat] || {color:'#1a73e8', icon:'📍'};
+      var isTop = TOP5.indexOf(spot.id) >= 0;
+      var size = isTop ? 38 : 32;
+
+      var badgeHtml = isTop
+        ? '<i class="spot-marker-badge">TOP' + (TOP5.indexOf(spot.id) + 1) + '</i>'
+        : '';
+
+      var html = '<div class="spot-marker' + (isTop ? ' spot-marker-top' : '') + '" ' +
+        'style="background:' + cat.color + ';width:' + size + 'px;height:' + size + 'px;">' +
+        '<span>' + cat.icon + '</span>' +
+        badgeHtml +
+        '</div>';
+
+      var icon = L.divIcon({
+        className: 'spot-marker-wrap',
+        html: html,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size],
+        popupAnchor: [0, -size + 4]
+      });
+
+      var marker = L.marker([spot._lat, spot._lng], { icon: icon }).addTo(map);
+      marker.bindPopup(createPopup(spot), {
+        maxWidth: 280,
+        closeButton: true,
+        autoPan: true
+      });
+
+      // 点击标记 → 高亮列表项并滚动到可见
+      marker.on('click', function() {
+        highlightListItem(spot.id);
+      });
+
+      markers[spot.id] = marker;
+    });
+  }
+
+  /* ===== 渲染筛选按钮 ===== */
+  function renderFilter() {
+    var container = document.getElementById('mapFilter');
+    var html = '';
+    AREAS.forEach(function(area) {
+      var activeClass = area.id === currentFilter ? ' active' : '';
+      html += '<button class="map-filter-btn' + activeClass + '" data-area="' + area.id + '">' +
+        '<span class="filter-dot" style="background:' + area.color + '"></span>' +
+        area.name +
+        '</button>';
+    });
+    container.innerHTML = html;
+
+    // 绑定点击事件
+    var btns = container.querySelectorAll('.map-filter-btn');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var areaId = this.getAttribute('data-area');
+        filterByArea(areaId);
+      });
+    });
+  }
+
+  /* ===== 渲染景点列表 ===== */
+  function renderList() {
+    var container = document.getElementById('mapList');
+    var filtered = currentFilter === 'all'
+      ? SPOTS
+      : SPOTS.filter(function(s) { return s.area === currentFilter; });
+
+    var html = '';
+    filtered.forEach(function(spot) {
+      var cat = CATEGORIES[spot.cat] || {color:'#1a73e8', icon:'📍'};
+      var isTop = TOP5.indexOf(spot.id) >= 0;
+      var areaColor = getAreaColor(spot.area);
+
+      // 缩略图：有图显示图片，无图显示分类色块+图标
+      var thumbHtml = spot.img
+        ? '<div class="map-spot-thumb"><img src="' + spot.img + '" alt="' + spot.name + '" onerror="this.parentNode.innerHTML=\'<div class=&quot;map-spot-thumb-noimg&quot; style=&quot;background:' + cat.color + '&quot;>' + cat.icon + '</div>\'"></div>'
+        : '<div class="map-spot-thumb"><div class="map-spot-thumb-noimg" style="background:' + cat.color + '">' + cat.icon + '</div></div>';
+
+      var topBadge = isTop
+        ? '<span class="map-spot-top-badge">TOP' + (TOP5.indexOf(spot.id) + 1) + '</span>'
+        : '';
+
+      html += '<div class="map-spot-item" data-id="' + spot.id + '">' +
+        thumbHtml +
+        '<div class="map-spot-info">' +
+          '<div class="map-spot-name">' + spot.name + topBadge + '</div>' +
+          '<div class="map-spot-meta">' +
+            '<span class="stars">★ ' + spot.rating + '</span>' +
+            '<span class="price">' + spot.price + '</span>' +
+            '<span class="area-tag" style="background:' + areaColor + '20;color:' + areaColor + '">' + getAreaName(spot.area) + '</span>' +
+          '</div>' +
+          '<div class="map-spot-desc">' + spot.desc + '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    container.innerHTML = html;
+
+    // 绑定点击事件
+    var items = container.querySelectorAll('.map-spot-item');
+    items.forEach(function(item) {
+      item.addEventListener('click', function() {
+        var spotId = this.getAttribute('data-id');
+        selectSpot(spotId);
+      });
+    });
+  }
+
+  /* ===== 渲染图例 ===== */
+  function renderLegend() {
+    var container = document.getElementById('mapLegend');
+    var html = '';
+    Object.keys(CATEGORIES).forEach(function(key) {
+      var cat = CATEGORIES[key];
+      html += '<div class="map-legend-item">' +
+        '<span class="map-legend-dot" style="background:' + cat.color + '"></span>' +
+        '<span>' + cat.icon + ' ' + cat.name + '</span>' +
+      '</div>';
+    });
+    container.innerHTML = html;
+  }
+
+  /* ===== 选择景点（列表点击 → 地图联动） ===== */
+  function selectSpot(spotId) {
+    var marker = markers[spotId];
+    var spot = null;
+    for (var i = 0; i < SPOTS.length; i++) {
+      if (SPOTS[i].id === spotId) { spot = SPOTS[i]; break; }
+    }
+    if (!marker || !spot) return;
+
+    // 地图飞行到标记位置
+    map.flyTo([spot._lat, spot._lng], 15, { duration: 0.8 });
+
+    // 延迟打开 popup（等飞行动画完成）
+    setTimeout(function() {
+      marker.openPopup();
+    }, 850);
+
+    // 高亮列表项
+    highlightListItem(spotId);
+  }
+
+  /* ===== 高亮列表项并滚动到可见区域 ===== */
+  function highlightListItem(spotId) {
+    activeSpotId = spotId;
+    var items = document.querySelectorAll('.map-spot-item');
+    items.forEach(function(item) {
+      item.classList.toggle('active', item.getAttribute('data-id') === spotId);
+    });
+
+    // 滚动列表到该景点
+    var activeItem = document.querySelector('.map-spot-item.active');
+    if (activeItem) {
+      activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  /* ===== 按区域筛选 ===== */
+  function filterByArea(areaId) {
+    currentFilter = areaId;
+
+    // 更新筛选按钮状态
+    var btns = document.querySelectorAll('.map-filter-btn');
+    btns.forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-area') === areaId);
+    });
+
+    // 筛选标记显示/隐藏
+    var visibleBounds = [];
+    SPOTS.forEach(function(spot) {
+      var marker = markers[spot.id];
+      if (!marker) return;
+      var show = (areaId === 'all' || spot.area === areaId);
+      if (show) {
+        if (!map.hasLayer(marker)) marker.addTo(map);
+        visibleBounds.push([spot._lat, spot._lng]);
+      } else {
+        if (map.hasLayer(marker)) map.removeLayer(marker);
+      }
+    });
+
+    // 重新渲染列表
+    renderList();
+    // 保持高亮状态
+    if (activeSpotId) highlightListItem(activeSpotId);
+
+    // 调整地图视野到可见标记范围
+    if (visibleBounds.length > 0) {
+      if (visibleBounds.length === 1) {
+        map.flyTo(visibleBounds[0], 14, { duration: 0.8 });
+      } else {
+        map.flyToBounds(visibleBounds, {
+          padding: [60, 60],
+          maxZoom: 13,
+          duration: 0.8
+        });
+      }
+    }
+  }
+
+  /* ===== 移动端切换侧边栏 ===== */
+  function setupMobileToggle() {
+    var toggleBtn = document.getElementById('toggleSidebar');
+    var toggleText = document.getElementById('toggleText');
+    var sidebar = document.getElementById('mapSidebar');
+    var isCollapsed = false;
+
+    toggleBtn.addEventListener('click', function() {
+      isCollapsed = !isCollapsed;
+      sidebar.classList.toggle('collapsed', isCollapsed);
+      toggleText.textContent = isCollapsed ? '显示列表' : '景点列表';
+      // 地图尺寸变化后需要刷新
+      setTimeout(function() {
+        if (map) map.invalidateSize();
+      }, 300);
+    });
+  }
+
+  /* ===== 导航栏滚动效果 + 汉堡菜单 ===== */
+  function setupNav() {
+    window.addEventListener('scroll', function() {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  }
+
+  /* ===== 入口：DOM 加载完成后初始化 ===== */
+  function init() {
+    initMap();
+    createMarkers();
+    renderFilter();
+    renderList();
+    renderLegend();
+    setupMobileToggle();
+    setupNav();
+
+    // 初始视野适配所有标记
+    var allBounds = SPOTS.map(function(s) { return [s._lat, s._lng]; });
+    map.fitBounds(allBounds, { padding: [50, 50], maxZoom: 12 });
+
+    // 安全措施：延迟刷新地图尺寸
+    setTimeout(function() { map.invalidateSize(); }, 200);
+    setTimeout(function() { map.invalidateSize(); }, 500);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "秦皇岛景点地图",
+  "url": "https://qhd-lv.vercel.app/map.html",
+  "description": "秦皇岛景点交互式地图，25个景区一图掌握，点击联动定位",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "秦皇岛旅游官网",
+    "url": "https://qhd-lv.vercel.app/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "秦皇岛景点地图列表",
+  "description": "秦皇岛25个精选景区地图标注列表",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"北戴河海滨风景区","url":"https://qhd-lv.vercel.app/attractions.html#beidaihe-spot"},
+    {"@type":"ListItem","position":2,"name":"山海关·天下第一关","url":"https://qhd-lv.vercel.app/attractions.html#shanhaiguan-spot"},
+    {"@type":"ListItem","position":3,"name":"鸽子窝公园","url":"https://qhd-lv.vercel.app/attractions.html#geziwo-spot"},
+    {"@type":"ListItem","position":4,"name":"老龙头景区","url":"https://qhd-lv.vercel.app/attractions.html#laolongtou-spot"},
+    {"@type":"ListItem","position":5,"name":"阿那亚·黄金海岸社区","url":"https://qhd-lv.vercel.app/attractions.html#aranya-spot"}
+  ]
+}
+</script>
+<!-- AI 聊天组件 -->
+<link rel="stylesheet" href="css/chat-widget.css">
+<script src="js/chat-widget.js" defer></script>
+</body>
+</html>

@@ -35,6 +35,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- 景点地图 -->
+  <url>
+    <loc>https://qhd-lv.vercel.app/map.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- 关于我们 -->
   <url>
     <loc>https://qhd-lv.vercel.app/about.html</loc>

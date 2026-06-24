@@ -82,6 +82,319 @@
     opacity: 0.7;
     margin-top: var(--s1);
   }
+
+  /* ============================================================
+     AI 智能行程规划器
+     ============================================================ */
+  .ai-planner {
+    padding: var(--s20) var(--s6);
+    background: linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);
+    position: relative;
+    overflow: hidden;
+  }
+  .ai-planner::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    pointer-events: none;
+  }
+  .ai-planner::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+  .ai-planner .section-inner { position: relative; z-index: 1; max-width: 880px; }
+  .ai-planner-head { text-align: center; margin-bottom: var(--s10); }
+  .ai-planner-head h2 {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: var(--s3);
+    letter-spacing: 0.5px;
+  }
+  .ai-planner-head p {
+    font-size: var(--text-lg);
+    color: rgba(255,255,255,0.9);
+  }
+  .ai-planner-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: var(--s10) var(--s8);
+  }
+  /* 表单字段 */
+  .ai-field { margin-bottom: var(--s6); }
+  .ai-field-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--s3);
+  }
+  .ai-field-hint {
+    font-weight: 400;
+    color: var(--gray-500);
+    font-size: var(--text-xs);
+  }
+  /* 药丸按钮组 */
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2);
+  }
+  .pill {
+    appearance: none;
+    border: 1px solid var(--gray-300);
+    background: #fff;
+    color: var(--gray-600);
+    border-radius: var(--radius-full);
+    padding: var(--s2) var(--s5);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease-out);
+    font-family: inherit;
+    line-height: 1.4;
+  }
+  .pill:hover {
+    background: rgba(26,115,232,0.06);
+    border-color: var(--brand-light);
+    color: var(--brand);
+  }
+  .pill.active {
+    background: var(--brand);
+    color: #fff;
+    border-color: var(--brand);
+    box-shadow: 0 4px 12px rgba(26,115,232,0.3);
+  }
+  /* 补充说明输入框 */
+  .ai-notes-input {
+    width: 100%;
+    padding: var(--s3) var(--s4);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius);
+    font-size: var(--text-base);
+    font-family: inherit;
+    color: var(--gray-900);
+    transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  }
+  .ai-notes-input::placeholder { color: var(--gray-500); }
+  .ai-notes-input:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(26,115,232,0.12);
+  }
+  /* 生成按钮 */
+  .ai-form-submit { text-align: center; margin-top: var(--s8); }
+  .ai-generate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s2);
+    padding-left: var(--s8);
+    padding-right: var(--s8);
+  }
+  .ai-generate-btn svg { width: 20px; height: 20px; }
+  .ai-generate-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+  /* 结果区域 */
+  .ai-result {
+    margin-top: var(--s8);
+    border-top: 1px solid var(--gray-200);
+    padding-top: var(--s8);
+  }
+  .ai-result[hidden] { display: none; }
+  /* 加载动画 */
+  .ai-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--s10) var(--s4);
+    text-align: center;
+  }
+  .ai-loading[hidden] { display: none; }
+  .ai-loading-dots {
+    display: flex;
+    gap: var(--s2);
+    margin-bottom: var(--s4);
+  }
+  .ai-loading-dots span {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--brand);
+    animation: aiDotBounce 1.2s infinite ease-in-out;
+  }
+  .ai-loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .ai-loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes aiDotBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-10px); opacity: 1; }
+  }
+  .ai-loading p {
+    color: var(--gray-600);
+    font-size: var(--text-base);
+    font-weight: 600;
+  }
+  /* 结果内容 */
+  .ai-result-content[hidden] { display: none; }
+  .ai-result-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--s5);
+    gap: var(--s4);
+  }
+  .ai-result-title {
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--gray-900);
+  }
+  .ai-result-title .ai-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--brand), var(--brand-light));
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .ai-result-title .ai-icon svg { width: 20px; height: 20px; }
+  .ai-icon-btn {
+    appearance: none;
+    border: 1px solid var(--gray-300);
+    background: #fff;
+    color: var(--gray-600);
+    border-radius: var(--radius-full);
+    padding: var(--s1) var(--s4);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease-out);
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .ai-icon-btn:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+    background: rgba(26,115,232,0.05);
+  }
+  /* Markdown 渲染区 */
+  .ai-md {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: var(--s6);
+    max-height: 640px;
+    overflow-y: auto;
+    line-height: 1.75;
+    font-size: var(--text-base);
+    color: var(--gray-900);
+  }
+  .ai-md h1, .ai-md h2, .ai-md h3 {
+    font-weight: 800;
+    line-height: 1.3;
+    margin: var(--s5) 0 var(--s3);
+    color: var(--brand-dark);
+  }
+  .ai-md h1 { font-size: var(--text-2xl); }
+  .ai-md h2 { font-size: var(--text-xl); }
+  .ai-md h3 { font-size: var(--text-lg); }
+  .ai-md h1:first-child, .ai-md h2:first-child, .ai-md h3:first-child { margin-top: 0; }
+  .ai-md p { margin: var(--s3) 0; color: var(--gray-900); }
+  .ai-md strong { color: var(--brand-dark); font-weight: 700; }
+  .ai-md em { font-style: italic; color: var(--gray-600); }
+  .ai-md ul, .ai-md ol {
+    margin: var(--s3) 0;
+    padding-left: var(--s6);
+  }
+  .ai-md ul { list-style: disc; }
+  .ai-md ol { list-style: decimal; }
+  .ai-md li { margin: var(--s2) 0; }
+  .ai-md code {
+    background: var(--gray-100);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--accent-coral);
+  }
+  .ai-md pre {
+    background: var(--gray-900);
+    color: #f1f5f9;
+    border-radius: var(--radius);
+    padding: var(--s4);
+    overflow-x: auto;
+    margin: var(--s4) 0;
+  }
+  .ai-md pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+  }
+  /* 流式输出光标 */
+  .ai-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.1em;
+    background: var(--brand);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: aiCursorBlink 1s steps(2) infinite;
+    border-radius: 1px;
+  }
+  @keyframes aiCursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  /* 操作栏 */
+  .ai-result-actions {
+    display: flex;
+    gap: var(--s3);
+    flex-wrap: wrap;
+    margin-top: var(--s6);
+    justify-content: center;
+  }
+  .ai-result-actions[hidden] { display: none; }
+  .ai-booking { margin-top: var(--s6); }
+  .ai-booking[hidden] { display: none; }
+  /* 错误状态 */
+  .ai-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius);
+    padding: var(--s6);
+    text-align: center;
+  }
+  .ai-error[hidden] { display: none; }
+  .ai-error p {
+    color: var(--accent-coral);
+    font-weight: 600;
+    margin-bottom: var(--s4);
+  }
+  /* 移动端适配 */
+  @media (max-width: 640px) {
+    .ai-planner-card { padding: var(--s6) var(--s4); }
+    .ai-planner-head h2 { font-size: var(--text-3xl); }
+    .ai-planner-head p { font-size: var(--text-base); }
+    .pill { padding: var(--s2) var(--s4); }
+    .ai-result-head { flex-direction: column; align-items: flex-start; }
+    .ai-md { padding: var(--s4); max-height: 520px; }
+    .ai-result-actions { flex-direction: column; }
+    .ai-result-actions .btn { width: 100%; }
+  }
 </style>
 </head>
 <body>
@@ -95,6 +408,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">首页</a></li>
       <li><a href="attractions.html">景点</a></li>
+      <li><a href="map.html">地图</a></li>
       <li><a href="itinerary.html" class="active">行程规划</a></li>
       <li><a href="food.html">美食</a></li>
       <li><a href="guide.html">旅游攻略</a></li>
@@ -251,11 +565,105 @@
   </div>
 </section>
 
-<section class="cta-section" style="background:linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);">
+<section class="ai-planner" id="aiPlanner">
   <div class="section-inner">
-    <h2>需要定制专属行程？</h2>
-    <p>欢迎联系我们，我们会根据你的偏好提供个性化建议</p>
-    <a href="about.html#contact" class="btn btn-white btn-lg">联系我们 →</a>
+    <div class="ai-planner-head">
+      <h2>AI 智能行程规划</h2>
+      <p>告诉我你的偏好，AI 为你量身定制秦皇岛旅行计划</p>
+    </div>
+    <div class="ai-planner-card">
+      <form class="ai-form" id="aiForm" onsubmit="return false;" autocomplete="off">
+        <!-- 游玩天数 -->
+        <div class="form-group ai-field">
+          <label class="form-label ai-field-label">游玩天数</label>
+          <div class="pill-group" data-name="days" data-type="single">
+            <button type="button" class="pill" data-value="1天">1天</button>
+            <button type="button" class="pill" data-value="2天">2天</button>
+            <button type="button" class="pill active" data-value="3天">3天</button>
+            <button type="button" class="pill" data-value="4天">4天</button>
+            <button type="button" class="pill" data-value="5天及以上">5天+</button>
+          </div>
+        </div>
+        <!-- 预算范围 -->
+        <div class="form-group ai-field">
+          <label class="form-label ai-field-label">预算范围</label>
+          <div class="pill-group" data-name="budget" data-type="single">
+            <button type="button" class="pill" data-value="经济型（＜500元/人）">经济型 ＜500元/人</button>
+            <button type="button" class="pill active" data-value="舒适型（500-1000元/人）">舒适型 500-1000元/人</button>
+            <button type="button" class="pill" data-value="品质型（1000-2000元/人）">品质型 1000-2000元/人</button>
+            <button type="button" class="pill" data-value="不限">不限</button>
+          </div>
+        </div>
+        <!-- 出行方式 -->
+        <div class="form-group ai-field">
+          <label class="form-label ai-field-label">出行方式</label>
+          <div class="pill-group" data-name="travel" data-type="single">
+            <button type="button" class="pill" data-value="独自旅行">独自旅行</button>
+            <button type="button" class="pill" data-value="情侣出游">情侣出游</button>
+            <button type="button" class="pill active" data-value="家庭亲子">家庭亲子</button>
+            <button type="button" class="pill" data-value="朋友结伴">朋友结伴</button>
+          </div>
+        </div>
+        <!-- 兴趣偏好 -->
+        <div class="form-group ai-field">
+          <label class="form-label ai-field-label">兴趣偏好 <span class="ai-field-hint">（可多选）</span></label>
+          <div class="pill-group" data-name="interests" data-type="multi">
+            <button type="button" class="pill active" data-value="海滨休闲">海滨休闲</button>
+            <button type="button" class="pill" data-value="历史文化">历史文化</button>
+            <button type="button" class="pill active" data-value="美食探索">美食探索</button>
+            <button type="button" class="pill" data-value="户外运动">户外运动</button>
+            <button type="button" class="pill" data-value="摄影打卡">摄影打卡</button>
+          </div>
+        </div>
+        <!-- 补充说明 -->
+        <div class="form-group ai-field">
+          <label class="form-label ai-field-label" for="aiNotes">补充说明 <span class="ai-field-hint">（可选）</span></label>
+          <input type="text" id="aiNotes" class="form-input ai-notes-input" placeholder="还有什么需求？比如带老人、孩子年龄、特殊饮食等">
+        </div>
+        <!-- 生成按钮 -->
+        <div class="ai-form-submit">
+          <button type="button" class="btn btn-primary btn-lg ai-generate-btn" id="aiGenerateBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.6 4.8L18 8.4l-4.4 1.6L12 14l-1.6-4L6 8.4l4.4-1.6z"/><path d="M18 14l.9 2.7L21.6 18l-2.7.9L18 21.6l-.9-2.7L14.4 18l2.7-.9z"/></svg>
+            生成我的专属行程
+          </button>
+        </div>
+      </form>
+
+      <!-- 结果区域 -->
+      <div class="ai-result" id="aiResult" hidden>
+        <!-- 加载状态 -->
+        <div class="ai-loading" id="aiLoading" hidden>
+          <div class="ai-loading-dots"><span></span><span></span><span></span></div>
+          <p>AI 正在为你规划行程...</p>
+        </div>
+        <!-- 结果内容 -->
+        <div class="ai-result-content" id="aiResultContent" hidden>
+          <div class="ai-result-head">
+            <div class="ai-result-title">
+              <span class="ai-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.6 4.8L18 8.4l-4.4 1.6L12 14l-1.6-4L6 8.4l4.4-1.6z"/><path d="M18 14l.9 2.7L21.6 18l-2.7.9L18 21.6l-.9-2.7L14.4 18l2.7-.9z"/></svg></span>
+              <span>你的专属行程方案</span>
+            </div>
+            <button type="button" class="ai-icon-btn" id="aiRegenTopBtn" title="重新生成">重新生成</button>
+          </div>
+          <div class="ai-md" id="aiOutput"></div>
+          <div class="ai-result-actions" id="aiActions" hidden>
+            <button type="button" class="btn btn-outline" id="aiRegenBtn">重新生成</button>
+            <button type="button" class="btn btn-outline" id="aiCopyBtn">复制行程</button>
+          </div>
+          <div class="ad-booking ai-booking" id="aiBooking" hidden>
+            <a href="https://hotels.ctrip.com/hotels/list?countryId=1&city=32" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订酒店</a>
+            <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订门票</a>
+            <a href="https://www.meituan.com/hotel/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团订房</a>
+            <a href="https://www.12306.cn/" target="_blank" rel="nofollow sponsored" class="booking-link booking-hotel">12306 订火车票</a>
+          </div>
+        </div>
+        <!-- 错误状态 -->
+        <div class="ai-error" id="aiError" hidden>
+          <p id="aiErrorText">生成失败，请稍后重试</p>
+          <button type="button" class="btn btn-primary" id="aiRetryBtn">重试</button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -282,5 +690,453 @@ var reveals=document.querySelectorAll('.reveal');
 var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target);}})},{threshold:0.1});
 reveals.forEach(function(el){o.observe(el);});
 </script>
+
+<!-- AI 行程规划器逻辑 -->
+<script>
+(function () {
+  'use strict';
+
+  var API_URL = '/api/chat';
+
+  // ============ 状态 ============
+  var state = {
+    isStreaming: false,    // 是否正在流式生成
+    abortController: null, // 用于中断请求
+    lastContent: '',       // 当前已生成的全部文本
+    lastPayload: null,     // 最近一次请求体（用于重试）
+    generateBtnHTML: ''    // 生成按钮原始内容（用于状态恢复）
+  };
+
+  // ============ DOM 引用 ============
+  var dom = {};
+
+  function $(id) { return document.getElementById(id); }
+
+  function init() {
+    dom.result = $('aiResult');
+    dom.loading = $('aiLoading');
+    dom.content = $('aiResultContent');
+    dom.output = $('aiOutput');
+    dom.actions = $('aiActions');
+    dom.booking = $('aiBooking');
+    dom.error = $('aiError');
+    dom.errorText = $('aiErrorText');
+    dom.generateBtn = $('aiGenerateBtn');
+    dom.notesInput = $('aiNotes');
+
+    // 药丸按钮交互（单选 / 多选）
+    var groups = document.querySelectorAll('.pill-group');
+    groups.forEach(function (group) {
+      var type = group.getAttribute('data-type');
+      var pills = group.querySelectorAll('.pill');
+      pills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          if (state.isStreaming) return;
+          if (type === 'single') {
+            // 单选：清除同组其他选中，仅选中当前
+            pills.forEach(function (p) { p.classList.remove('active'); });
+            pill.classList.add('active');
+          } else {
+            // 多选：切换选中状态
+            pill.classList.toggle('active');
+          }
+        });
+      });
+    });
+
+    // 保存生成按钮原始内容，用于状态切换时恢复
+    state.generateBtnHTML = dom.generateBtn.innerHTML;
+
+    // 按钮事件（生成 / 停止）
+    dom.generateBtn.addEventListener('click', function () {
+      if (state.isStreaming) {
+        handleStop();
+      } else {
+        handleGenerate();
+      }
+    });
+    var regenTop = $('aiRegenTopBtn');
+    if (regenTop) regenTop.addEventListener('click', handleGenerate);
+    var regenBtn = $('aiRegenBtn');
+    if (regenBtn) regenBtn.addEventListener('click', handleGenerate);
+    var retryBtn = $('aiRetryBtn');
+    if (retryBtn) retryBtn.addEventListener('click', handleGenerate);
+    var copyBtn = $('aiCopyBtn');
+    if (copyBtn) copyBtn.addEventListener('click', handleCopy);
+  }
+
+  // ============ 收集表单数据 ============
+
+  /**
+   * 获取指定按钮组中已选中的值
+   * @param {string} groupName data-name 属性值
+   * @returns {string[]} 选中的值数组
+   */
+  function getSelected(groupName) {
+    var group = document.querySelector('.pill-group[data-name="' + groupName + '"]');
+    if (!group) return [];
+    var active = group.querySelectorAll('.pill.active');
+    var values = [];
+    active.forEach(function (p) { values.push(p.getAttribute('data-value')); });
+    return values;
+  }
+
+  /**
+   * 根据表单选择构建发送给 AI 的用户消息文本
+   * @returns {string}
+   */
+  function buildMessage() {
+    var days = getSelected('days');
+    var budget = getSelected('budget');
+    var travel = getSelected('travel');
+    var interests = getSelected('interests');
+    var notes = dom.notesInput ? dom.notesInput.value.trim() : '';
+
+    var lines = [];
+    lines.push('请帮我规划一次秦皇岛旅行：');
+    lines.push('- 游玩天数：' + (days[0] || '3天'));
+    lines.push('- 预算范围：' + (budget[0] || '不限'));
+    lines.push('- 出行方式：' + (travel[0] || '家庭亲子'));
+    lines.push('- 兴趣偏好：' + (interests.length ? interests.join('、') : '海滨休闲'));
+    if (notes) {
+      lines.push('- 补充说明：' + notes);
+    }
+    lines.push('');
+    lines.push('请提供详细的每日行程安排，包括景点、用餐建议、交通方式和预算参考。');
+    return lines.join('\n');
+  }
+
+  // ============ 提交生成 ============
+
+  function handleGenerate() {
+    if (state.isStreaming) return;
+
+    // 表单验证：至少选择游玩天数
+    var days = getSelected('days');
+    if (days.length === 0) {
+      showError('请至少选择游玩天数');
+      return;
+    }
+
+    var message = buildMessage();
+    state.lastPayload = { messages: [{ role: 'user', content: message }], mode: 'plan' };
+    state.lastContent = '';
+
+    // 提前标记流式状态，使按钮在加载阶段即可中断
+    state.isStreaming = true;
+    // 切换到加载状态（按钮变为「停止生成」可点击）
+    showLoading();
+    streamPlan();
+  }
+
+  // ============ 状态切换 ============
+
+  function showLoading() {
+    dom.result.hidden = false;
+    dom.loading.hidden = false;
+    dom.content.hidden = true;
+    dom.error.hidden = true;
+    dom.actions.hidden = true;
+    dom.booking.hidden = true;
+    dom.output.innerHTML = '';
+    // 加载阶段即显示「停止生成」按钮，允许用户随时中断
+    setStopButton();
+    // 平滑滚动到结果区
+    try { dom.result.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) {}
+  }
+
+  function showContent() {
+    dom.loading.hidden = true;
+    dom.content.hidden = false;
+    dom.error.hidden = true;
+    // 流式输出阶段：生成按钮变为「停止生成」，可中断请求
+    setStopButton();
+  }
+
+  function showError(msg) {
+    dom.result.hidden = false;
+    dom.loading.hidden = true;
+    dom.content.hidden = true;
+    dom.error.hidden = false;
+    if (dom.errorText) dom.errorText.textContent = msg || '生成失败，请稍后重试';
+    restoreGenerateButton();
+  }
+
+  function finishContent() {
+    dom.loading.hidden = true;
+    dom.content.hidden = false;
+    dom.actions.hidden = false;
+    dom.booking.hidden = false;
+    restoreGenerateButton();
+    removeCursor();
+  }
+
+  // 停止按钮内容
+  var STOP_BTN_HTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/></svg> 停止生成';
+
+  /** 中断正在进行的流式请求 */
+  function handleStop() {
+    if (state.abortController) {
+      state.abortController.abort();
+    }
+  }
+
+  /** 流式输出阶段：生成按钮变为「停止生成」并可点击中断 */
+  function setStopButton() {
+    dom.generateBtn.innerHTML = STOP_BTN_HTML;
+    dom.generateBtn.disabled = false;
+  }
+
+  /** 恢复生成按钮为初始状态 */
+  function restoreGenerateButton() {
+    dom.generateBtn.innerHTML = state.generateBtnHTML;
+    dom.generateBtn.disabled = false;
+  }
+
+  // ============ 流式请求 ============
+
+  function streamPlan() {
+    state.isStreaming = true;
+    state.lastContent = '';
+
+    // 支持中断
+    if (typeof AbortController !== 'undefined') {
+      state.abortController = new AbortController();
+    }
+
+    fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(state.lastPayload),
+      signal: state.abortController ? state.abortController.signal : undefined
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          return response.text().then(function (txt) {
+            var msg = '请求失败 (' + response.status + ')';
+            try {
+              var err = JSON.parse(txt);
+              if (err.message) msg = err.message;
+            } catch (e) { /* 忽略解析错误 */ }
+            throw new Error(msg);
+          });
+        }
+        if (!response.body) {
+          throw new Error('浏览器不支持流式响应');
+        }
+        // 进入内容展示状态，开始流式渲染
+        showContent();
+        return readSSEStream(response.body);
+      })
+      .then(function () {
+        state.isStreaming = false;
+        state.abortController = null;
+        if (!state.lastContent) {
+          // 没有收到任何内容
+          showError('AI 暂未返回内容，请重试');
+        } else {
+          finishContent();
+        }
+      })
+      .catch(function (err) {
+        state.isStreaming = false;
+        state.abortController = null;
+        if (err && err.name === 'AbortError') {
+          // 用户主动中断，保留已生成内容
+          if (state.lastContent) {
+            finishContent();
+          } else {
+            showError('已取消生成');
+          }
+        } else {
+          showError((err && err.message) || '网络错误，请稍后重试');
+        }
+      });
+  }
+
+  /**
+   * 读取 SSE 流并逐块更新结果
+   * @param {ReadableStream} stream
+   * @returns {Promise<void>}
+   */
+  function readSSEStream(stream) {
+    var reader = stream.getReader();
+    var decoder = new TextDecoder('utf-8');
+    var buffer = '';
+
+    function processBuffer() {
+      var lines = buffer.split('\n');
+      buffer = lines.pop() || ''; // 保留最后不完整的行
+      var done = false;
+
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (!line || line.startsWith(':')) continue; // 空行或注释
+        if (!line.startsWith('data:')) continue;
+
+        var data = line.slice(5).trim();
+        if (data === '[DONE]') { done = true; break; }
+
+        try {
+          var parsed = JSON.parse(data);
+          var delta = parsed.choices && parsed.choices[0] && parsed.choices[0].delta;
+          if (delta && delta.content) {
+            state.lastContent += delta.content;
+            renderStreaming();
+          }
+        } catch (e) { /* 忽略解析错误的行 */ }
+      }
+      return done;
+    }
+
+    function pump() {
+      return reader.read().then(function (result) {
+        if (result.done) {
+          // 处理剩余缓冲
+          if (buffer.trim()) processBuffer();
+          return;
+        }
+        buffer += decoder.decode(result.value, { stream: true });
+        if (processBuffer()) return; // 收到 [DONE]
+        return pump();
+      });
+    }
+
+    return pump();
+  }
+
+  // ============ 流式渲染（节流） ============
+
+  var renderTimer = null;
+
+  function renderStreaming() {
+    // 使用 requestAnimationFrame 节流，避免频繁重排
+    if (renderTimer) return;
+    renderTimer = requestAnimationFrame(function () {
+      renderTimer = null;
+      dom.output.innerHTML = renderMarkdown(state.lastContent) + '<span class="ai-cursor"></span>';
+      // 自动滚动到底部
+      dom.output.scrollTop = dom.output.scrollHeight;
+    });
+  }
+
+  function removeCursor() {
+    if (renderTimer) {
+      cancelAnimationFrame(renderTimer);
+      renderTimer = null;
+    }
+    dom.output.innerHTML = renderMarkdown(state.lastContent);
+  }
+
+  // ============ Markdown 渲染 ============
+
+  function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  /**
+   * 简单 Markdown 渲染
+   * 支持：代码块、标题、加粗、斜体、行内代码、无序/有序列表、段落
+   * @param {string} text
+   * @returns {string} HTML
+   */
+  function renderMarkdown(text) {
+    if (!text) return '';
+
+    var html = escapeHtml(text);
+
+    // 代码块 ```lang\ncode\n```
+    html = html.replace(/```(\w*)\n?([\s\S]*?)```/g, function (m, lang, code) {
+      return '<pre><code>' + code.replace(/^\n/, '').replace(/\s+$/, '') + '</code></pre>';
+    });
+
+    // 标题
+    html = html.replace(/^####\s+(.+)$/gm, '<h3>$1</h3>');
+    html = html.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
+    html = html.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
+    html = html.replace(/^#\s+(.+)$/gm, '<h1>$1</h1>');
+
+    // 加粗 **text**
+    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    // 斜体 *text*
+    html = html.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+
+    // 行内代码 `code`
+    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+    // 无序列表项 - 或 *
+    html = html.replace(/^[\-\*]\s+(.+)$/gm, '<li data-list="ul">$1</li>');
+    // 有序列表项 1. 2. 3.
+    html = html.replace(/^\d+\.\s+(.+)$/gm, '<li data-list="ol">$1</li>');
+    // 将连续的同类 <li> 包裹在对应的列表标签中
+    html = html.replace(/(<li data-list="ul">[\s\S]*?<\/li>)(?!\s*<li data-list="ul">)/g, function (m) {
+      return '<ul>' + m.replace(/ data-list="ul"/g, '') + '</ul>';
+    });
+    html = html.replace(/(<li data-list="ol">[\s\S]*?<\/li>)(?!\s*<li data-list="ol">)/g, function (m) {
+      return '<ol>' + m.replace(/ data-list="ol"/g, '') + '</ol>';
+    });
+
+    // 段落处理：将连续非标签行包裹在 <p> 中
+    html = html.replace(/^(?!<[hupol])(.+)$/gm, function (m, line) {
+      return line.trim() ? '<p>' + line + '</p>' : '';
+    });
+
+    return html;
+  }
+
+  // ============ 复制行程 ============
+
+  function handleCopy() {
+    if (!state.lastContent) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(state.lastContent).then(function () {
+        flashCopy();
+      }).catch(function () {
+        fallbackCopy();
+      });
+    } else {
+      fallbackCopy();
+    }
+  }
+
+  function fallbackCopy() {
+    var ta = document.createElement('textarea');
+    ta.value = state.lastContent;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); flashCopy(); } catch (e) { /* 忽略 */ }
+    document.body.removeChild(ta);
+  }
+
+  function flashCopy() {
+    var btn = $('aiCopyBtn');
+    if (!btn) return;
+    var orig = btn.textContent;
+    btn.textContent = '已复制 ✓';
+    btn.style.color = 'var(--accent-green)';
+    btn.style.borderColor = 'var(--accent-green)';
+    setTimeout(function () {
+      btn.textContent = orig;
+      btn.style.color = '';
+      btn.style.borderColor = '';
+    }, 1800);
+  }
+
+  // ============ 启动 ============
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- AI 聊天组件 -->
+<link rel="stylesheet" href="css/chat-widget.css">
+<script src="js/chat-widget.js" defer></script>
 </body>
 </html>

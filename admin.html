@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>景点管理后台 | 秦皇岛旅游官网</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ===== 管理后台页面样式 ===== */
+  .admin-breadcrumb {
+    max-width: var(--max-width);
+    margin: calc(var(--nav-height) + 16px) auto 0;
+    padding: 0 var(--s6);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+  .admin-breadcrumb a { color: var(--text-muted); text-decoration: none; }
+  .admin-breadcrumb a:hover { color: var(--brand); }
+  .admin-breadcrumb .sep { margin: 0 var(--s2); opacity: 0.4; }
+
+  /* ===== 管理后台头部 ===== */
+  .admin-hero {
+    background: linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);
+    color: #fff;
+    padding: 32px 24px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .admin-hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+  .admin-hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .admin-hero h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 900;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .admin-hero .admin-badge {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 2px 12px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+  .admin-hero p {
+    font-size: var(--text-base);
+    opacity: 0.88;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 16px;
+  }
+  .admin-hero-stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .admin-hero-stat {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* ===== 提示条 ===== */
+  .admin-notice {
+    max-width: var(--max-width);
+    margin: 16px auto 0;
+    padding: 0 var(--s6);
+  }
+  .admin-notice-inner {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-left: 4px solid #f59e0b;
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    font-size: var(--text-sm);
+    color: #92400e;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .admin-notice-inner strong { color: #78350f; }
+
+  /* ===== 工具栏 ===== */
+  .admin-toolbar {
+    max-width: var(--max-width);
+    margin: 20px auto 0;
+    padding: 0 var(--s6);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .admin-toolbar-left {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .admin-toolbar-right {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .admin-search-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-full);
+    padding: 6px 16px;
+    transition: border-color 0.2s;
+  }
+  .admin-search-box:focus-within {
+    border-color: var(--brand);
+  }
+  .admin-search-box input {
+    border: none;
+    outline: none;
+    font-size: var(--text-sm);
+    width: 180px;
+    background: transparent;
+    font-family: inherit;
+  }
+  .admin-search-box select {
+    border: none;
+    outline: none;
+    font-size: var(--text-sm);
+    background: var(--gray-100);
+    border-radius: var(--radius-full);
+    padding: 3px 10px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .admin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 16px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--gray-200);
+    background: #fff;
+    color: var(--gray-600);
+    transition: all 0.2s;
+    font-family: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .admin-btn:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+  .admin-btn-primary {
+    background: var(--brand);
+    color: #fff;
+    border-color: var(--brand);
+  }
+  .admin-btn-primary:hover {
+    background: var(--brand-dark);
+    color: #fff;
+    border-color: var(--brand-dark);
+  }
+  .admin-btn-danger {
+    color: var(--accent-coral);
+    border-color: #fecaca;
+  }
+  .admin-btn-danger:hover {
+    background: var(--accent-coral);
+    color: #fff;
+    border-color: var(--accent-coral);
+  }
+  .admin-btn-sm {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* ===== 数据表格 ===== */
+  .admin-table-wrap {
+    max-width: var(--max-width);
+    margin: 16px auto 40px;
+    padding: 0 var(--s6);
+    overflow-x: auto;
+  }
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    min-width: 900px;
+  }
+  .admin-table thead {
+    background: var(--gray-50);
+  }
+  .admin-table th {
+    text-align: left;
+    padding: 12px 14px;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--gray-600);
+    border-bottom: 2px solid var(--gray-200);
+    white-space: nowrap;
+  }
+  .admin-table td {
+    padding: 10px 14px;
+    font-size: var(--text-sm);
+    color: var(--gray-900);
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: middle;
+  }
+  .admin-table tbody tr:hover {
+    background: rgba(26,115,232,0.03);
+  }
+  .admin-table .col-id {
+    font-family: monospace;
+    font-size: 0.78rem;
+    color: var(--gray-500);
+  }
+  .admin-table .col-name {
+    font-weight: 600;
+  }
+  .admin-table .col-level {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .level-5a { background: #fef3c7; color: #92400e; }
+  .level-4a { background: #dbeafe; color: #1e40af; }
+  .level-3a { background: #d1fae5; color: #065f46; }
+  .level-2a { background: #fce7f3; color: #9d174d; }
+  .level-none { background: var(--gray-100); color: var(--gray-500); }
+  .cat-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .cat-dot::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .visible-yes { color: var(--accent-green); font-weight: 600; }
+  .visible-no { color: var(--gray-400); }
+  .top-yes { color: var(--accent-coral); font-weight: 700; }
+
+  /* ===== 模态框 ===== */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow-y: auto;
+  }
+  .modal-overlay.show {
+    display: flex;
+  }
+  .modal {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 720px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+  .modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .modal-header h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: var(--gray-100);
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--gray-500);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-close:hover {
+    background: var(--accent-coral);
+    color: #fff;
+  }
+  .modal-body {
+    padding: 24px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: var(--gray-50);
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .form-group.full {
+    grid-column: 1 / -1;
+  }
+  .form-group label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--gray-600);
+  }
+  .form-group label .req {
+    color: var(--accent-coral);
+    margin-left: 2px;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    font-size: var(--text-sm);
+    font-family: inherit;
+    transition: border-color 0.2s;
+    outline: none;
+    background: #fff;
+    color: var(--gray-900);
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(26,115,232,0.1);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+    line-height: 1.5;
+  }
+  .form-group .hint {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+  }
+  .form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+  }
+  .form-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--brand);
+  }
+  .form-check label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--gray-600);
+    cursor: pointer;
+  }
+
+  /* ===== Toast 提示 ===== */
+  .toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .toast {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 12px 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-left: 4px solid var(--brand);
+    animation: toastSlide 0.3s ease;
+    max-width: 360px;
+  }
+  .toast.success { border-left-color: var(--accent-green); }
+  .toast.error { border-left-color: var(--accent-coral); }
+  .toast.warning { border-left-color: #f59e0b; }
+  @keyframes toastSlide {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  .toast.hide {
+    animation: toastHide 0.3s ease forwards;
+  }
+  @keyframes toastHide {
+    to { transform: translateX(120%); opacity: 0; }
+  }
+
+  /* ===== 确认对话框 ===== */
+  .confirm-dialog {
+    max-width: 400px;
+  }
+  .confirm-dialog .modal-body {
+    text-align: center;
+    padding: 32px 24px;
+  }
+  .confirm-dialog .confirm-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+  .confirm-dialog .confirm-text {
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ===== 空状态 ===== */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray-500);
+  }
+  .empty-state .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+  }
+  .empty-state p {
+    font-size: var(--text-base);
+    margin-bottom: 16px;
+  }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 768px) {
+    .admin-toolbar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .admin-search-box input {
+      width: 120px;
+    }
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    .admin-hero {
+      padding: 24px 20px 28px;
+    }
+    .admin-breadcrumb,
+    .admin-notice,
+    .admin-toolbar,
+    .admin-table-wrap {
+      padding-left: var(--s4);
+      padding-right: var(--s4);
+    }
+  }
+
+  /* 隐藏文件上传 input */
+  #importInput { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ====== 导航栏 ====== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      秦皇岛旅游官网
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="attractions.html">景点</a></li>
+      <li><a href="map.html">地图</a></li>
+      <li><a href="itinerary.html">行程规划</a></li>
+      <li><a href="food.html">美食</a></li>
+      <li><a href="guide.html">旅游攻略</a></li>
+      <li><a href="about.html">关于我们</a></li>
+    </ul>
+    <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ====== 面包屑 ====== -->
+<div class="admin-breadcrumb">
+  <a href="index.html">首页</a> <span class="sep">/</span> <a href="attractions.html">景点</a> <span class="sep">/</span> 管理后台
+</div>
+
+<!-- ====== 管理后台头部 ====== -->
+<section class="admin-hero">
+  <div class="admin-hero-inner">
+    <h1>景点管理后台 <span class="admin-badge">管理</span></h1>
+    <p>管理秦皇岛旅游网站的景点数据。支持新增、编辑、删除、导入导出 JSON。所有修改保存在浏览器本地存储中。</p>
+    <div class="admin-hero-stats">
+      <span class="admin-hero-stat" id="statTotal">📍 景点总数：--</span>
+      <span class="admin-hero-stat" id="statVisible">👁 可见：--</span>
+      <span class="admin-hero-stat" id="statTop">⭐ TOP5：--</span>
+      <span class="admin-hero-stat" id="statAreas">🗺 区域：5</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 使用说明提示 ====== -->
+<div class="admin-notice">
+  <div class="admin-notice-inner">
+    <span>💡</span>
+    <div>
+      <strong>使用说明：</strong>本后台为纯前端实现，数据存储在浏览器 localStorage 中。修改后请点击"导出 JSON"下载文件，然后手动替换服务器上的 <code>data/attractions.json</code> 文件，全站（景点页/地图页）即可同步更新。点击"恢复默认"可重新从服务器加载初始数据。
+    </div>
+  </div>
+</div>
+
+<!-- ====== 工具栏 ====== -->
+<div class="admin-toolbar">
+  <div class="admin-toolbar-left">
+    <div class="admin-search-box">
+      <span>🔍</span>
+      <input type="text" id="searchInput" placeholder="搜索景点名称…" autocomplete="off">
+      <select id="filterArea">
+        <option value="">全部区域</option>
+      </select>
+      <select id="filterCat">
+        <option value="">全部分类</option>
+        <option value="beach">🏖 海滨风光</option>
+        <option value="history">🏛 历史文化</option>
+        <option value="nature">⛰ 自然风光</option>
+        <option value="family">🎢 亲子娱乐</option>
+        <option value="culture">🎭 文艺打卡</option>
+      </select>
+    </div>
+  </div>
+  <div class="admin-toolbar-right">
+    <button class="admin-btn admin-btn-primary" onclick="openAddModal()">＋ 新增景点</button>
+    <button class="admin-btn" onclick="exportJSON()">⬇ 导出 JSON</button>
+    <button class="admin-btn" onclick="document.getElementById('importInput').click()">⬆ 导入 JSON</button>
+    <input type="file" id="importInput" accept=".json,application/json">
+    <button class="admin-btn admin-btn-danger" onclick="confirmReset()">↻ 恢复默认</button>
+  </div>
+</div>
+
+<!-- ====== 数据表格 ====== -->
+<div class="admin-table-wrap">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>景点名称</th>
+        <th>区域</th>
+        <th>分类</th>
+        <th>等级</th>
+        <th>评分</th>
+        <th>门票</th>
+        <th>TOP</th>
+        <th>可见</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- 表格行由 JS 动态生成 -->
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== 新增/编辑模态框 ====== -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">新增景点</h2>
+      <button class="modal-close" onclick="closeModal('editModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>景点 ID <span class="req">*</span></label>
+          <input type="text" id="f_id" placeholder="如：beidaihe（英文唯一）">
+        </div>
+        <div class="form-group">
+          <label>景点名称 <span class="req">*</span></label>
+          <input type="text" id="f_name" placeholder="如：北戴河海滨风景区">
+        </div>
+        <div class="form-group">
+          <label>所属区域 <span class="req">*</span></label>
+          <select id="f_area">
+            <option value="beidaihe">北戴河区</option>
+            <option value="shanhaiguan">山海关区</option>
+            <option value="haigang">海港区</option>
+            <option value="nandaihe">南戴河·昌黎</option>
+            <option value="funing">抚宁·青龙</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>分类 <span class="req">*</span></label>
+          <select id="f_cat">
+            <option value="beach">🏖 海滨风光</option>
+            <option value="history">🏛 历史文化</option>
+            <option value="nature">⛰ 自然风光</option>
+            <option value="family">🎢 亲子娱乐</option>
+            <option value="culture">🎭 文艺打卡</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>景区等级</label>
+          <input type="text" id="f_level" placeholder="如：5A / 4A / 3A / 无">
+        </div>
+        <div class="form-group">
+          <label>评分</label>
+          <input type="text" id="f_rating" placeholder="如：4.7">
+        </div>
+        <div class="form-group">
+          <label>门票价格</label>
+          <input type="text" id="f_price" placeholder="如：50元 / 免费 / 预约制">
+        </div>
+        <div class="form-group">
+          <label>门票数字（用于排序，0=免费）</label>
+          <input type="number" id="f_priceNum" placeholder="0" value="0">
+        </div>
+        <div class="form-group">
+          <label>开放时间</label>
+          <input type="text" id="f_openTime" placeholder="如：08:00-17:30 / 全天开放">
+        </div>
+        <div class="form-group">
+          <label>地址</label>
+          <input type="text" id="f_address" placeholder="如：河北省秦皇岛市北戴河区">
+        </div>
+        <div class="form-group">
+          <label>纬度 lat</label>
+          <input type="number" id="f_lat" step="0.0001" placeholder="如：39.8364">
+        </div>
+        <div class="form-group">
+          <label>经度 lng</label>
+          <input type="number" id="f_lng" step="0.0001" placeholder="如：119.5264">
+        </div>
+        <div class="form-group full">
+          <label>图片路径</label>
+          <input type="text" id="f_img" placeholder="如：images/beidaihe-beach.png（无图留空）">
+          <span class="hint">本地图片路径或留空使用分类色块占位</span>
+        </div>
+        <div class="form-group full">
+          <label>描述</label>
+          <textarea id="f_desc" rows="3" placeholder="景点详细描述…"></textarea>
+        </div>
+        <div class="form-group full">
+          <label>主要看点（每行一个）</label>
+          <textarea id="f_highlights" rows="4" placeholder="老虎石海上公园&#10;联峰山公园&#10;鸽子窝公园"></textarea>
+          <span class="hint">每行一个亮点</span>
+        </div>
+        <div class="form-group">
+          <label>最佳季节</label>
+          <input type="text" id="f_bestSeason" placeholder="如：6-9月（海水浴）">
+        </div>
+        <div class="form-group">
+          <label>建议游玩时长</label>
+          <input type="text" id="f_duration" placeholder="如：一整天 / 2-3小时">
+        </div>
+        <div class="form-group">
+          <label>适合人群</label>
+          <input type="text" id="f_suitableFor" placeholder="如：全家出游、情侣、摄影爱好者">
+        </div>
+        <div class="form-group">
+          <label>交通方式</label>
+          <input type="text" id="f_transport" placeholder="如：34路公交约40分钟">
+        </div>
+        <div class="form-group full">
+          <label>游玩贴士</label>
+          <textarea id="f_tips" rows="3" placeholder="游玩建议和注意事项…"></textarea>
+        </div>
+        <div class="form-group">
+          <label>TOP 排名（0=非TOP）</label>
+          <input type="number" id="f_topRank" value="0" min="0" max="5">
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <div class="form-check">
+            <input type="checkbox" id="f_isTop">
+            <label for="f_isTop">设为 TOP5 必去</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="f_visible" checked>
+            <label for="f_visible">在前台显示</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="admin-btn" onclick="closeModal('editModal')">取消</button>
+      <button class="admin-btn admin-btn-primary" id="saveBtn" onclick="saveSpot()">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 确认删除对话框 ====== -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal confirm-dialog">
+    <div class="modal-body">
+      <div class="confirm-icon" id="confirmIcon">⚠️</div>
+      <div class="confirm-text" id="confirmText">确定要执行此操作吗？</div>
+    </div>
+    <div class="modal-footer">
+      <button class="admin-btn" onclick="closeModal('confirmModal')">取消</button>
+      <button class="admin-btn admin-btn-danger" id="confirmOkBtn">确定</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Toast 容器 ====== -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ====== 页脚 ====== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>秦皇岛旅游官网</h3>
+        <p>致力于为每一位来秦皇岛的游客，提供最实用、最全面的旅游攻略。</p>
+      </div>
+      <div class="footer-col">
+        <h4>热门页面</h4>
+        <a href="index.html">首页</a>
+        <a href="attractions.html">景点推荐</a>
+        <a href="map.html">景点地图</a>
+        <a href="itinerary.html">行程规划</a>
+      </div>
+      <div class="footer-col">
+        <h4>旅游攻略</h4>
+        <a href="guide.html">出行指南</a>
+        <a href="guide.html#transport">交通攻略</a>
+        <a href="guide.html#accommodation">住宿推荐</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="about.html">关于官网</a>
+        <a href="about.html#contact">联系我们</a>
+        <a href="sitemap.xml">网站地图</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 秦皇岛旅游官网</span>
+      <span>冀ICP备16026346号-2</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ===== 常量 ===== */
+  var STORAGE_KEY = 'qhd_attractions_data';
+  var DEFAULT_JSON_URL = 'data/attractions.json';
+
+  /* ===== 全局数据 ===== */
+  var appData = null;
+  var editingId = null;
+  var confirmCallback = null;
+
+  /* ===== 区域与分类映射 ===== */
+  var AREA_MAP = {};
+  var CAT_MAP = {
+    beach:   { name: '海滨风光', color: '#0369a1' },
+    history: { name: '历史文化', color: '#92400e' },
+    nature:  { name: '自然风光', color: '#166534' },
+    family:  { name: '亲子娱乐', color: '#9d174d' },
+    culture: { name: '文艺打卡', color: '#6b21a8' }
+  };
+
+  /* ===== 数据加载 ===== */
+  async function loadData() {
+    // 先尝试 localStorage
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        var parsed = JSON.parse(stored);
+        if (parsed && parsed.spots) {
+          return parsed;
+        }
+      } catch(e) {
+        console.warn('localStorage 数据解析失败，降级到 fetch', e);
+      }
+    }
+    // 降级到 fetch
+    try {
+      var resp = await fetch(DEFAULT_JSON_URL);
+      var data = await resp.json();
+      saveToStorage(data);
+      return data;
+    } catch(e) {
+      console.error('加载默认数据失败', e);
+      showToast('数据加载失败，请检查网络连接', 'error');
+      return { meta: { version: '2.0', lastUpdated: '', totalCount: 0 }, areas: [], categories: CAT_MAP, top5: [], spots: [] };
+    }
+  }
+
+  /* ===== 保存到 localStorage ===== */
+  function saveToStorage(data) {
+    // 更新 meta
+    data.meta = data.meta || {};
+    data.meta.lastUpdated = new Date().toISOString().slice(0, 10);
+    data.meta.totalCount = (data.spots || []).length;
+    data.meta.version = data.meta.version || '2.0';
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data, null, 2));
+  }
+
+  /* ===== 初始化 ===== */
+  async function init() {
+    appData = await loadData();
+
+    // 构建 AREA_MAP
+    (appData.areas || []).forEach(function(a) {
+      AREA_MAP[a.id] = a;
+    });
+
+    // 如果 categories 存在则更新 CAT_MAP
+    if (appData.categories) {
+      Object.keys(appData.categories).forEach(function(k) {
+        if (CAT_MAP[k]) {
+          CAT_MAP[k].name = appData.categories[k].name;
+          CAT_MAP[k].color = appData.categories[k].color;
+        }
+      });
+    }
+
+    // 填充区域筛选下拉
+    var filterArea = document.getElementById('filterArea');
+    (appData.areas || []).forEach(function(a) {
+      var opt = document.createElement('option');
+      opt.value = a.id;
+      opt.textContent = a.name;
+      filterArea.appendChild(opt);
+    });
+
+    // 绑定搜索/筛选事件
+    document.getElementById('searchInput').addEventListener('input', renderTable);
+    filterArea.addEventListener('change', renderTable);
+    document.getElementById('filterCat').addEventListener('change', renderTable);
+
+    // 绑定导入文件
+    document.getElementById('importInput').addEventListener('change', handleImport);
+
+    // 绑定导航
+    setupNav();
+
+    // 渲染
+    renderTable();
+    updateStats();
+  }
+
+  /* ===== 更新统计 ===== */
+  function updateStats() {
+    var spots = appData.spots || [];
+    document.getElementById('statTotal').textContent = '📍 景点总数：' + spots.length;
+    document.getElementById('statVisible').textContent = '👁 可见：' + spots.filter(function(s) { return s.visible !== false; }).length;
+    document.getElementById('statTop').textContent = '⭐ TOP5：' + spots.filter(function(s) { return s.isTop === true; }).length;
+  }
+
+  /* ===== 获取等级样式类 ===== */
+  function getLevelClass(level) {
+    if (level === '5A') return 'level-5a';
+    if (level === '4A') return 'level-4a';
+    if (level === '3A') return 'level-3a';
+    if (level === '2A') return 'level-2a';
+    return 'level-none';
+  }
+
+  /* ===== 渲染表格 ===== */
+  function renderTable() {
+    var tbody = document.getElementById('tableBody');
+    var keyword = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+    var areaFilter = document.getElementById('filterArea').value;
+    var catFilter = document.getElementById('filterCat').value;
+
+    var filtered = (appData.spots || []).filter(function(s) {
+      var matchName = !keyword || (s.name || '').toLowerCase().indexOf(keyword) >= 0 || (s.id || '').toLowerCase().indexOf(keyword) >= 0;
+      var matchArea = !areaFilter || s.area === areaFilter;
+      var matchCat = !catFilter || s.cat === catFilter;
+      return matchName && matchArea && matchCat;
+    });
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="10"><div class="empty-state"><div class="empty-icon">📭</div><p>没有找到匹配的景点</p></div></td></tr>';
+      return;
+    }
+
+    var html = '';
+    filtered.forEach(function(s) {
+      var areaInfo = AREA_MAP[s.area] || { name: s.area, color: '#999' };
+      var catInfo = CAT_MAP[s.cat] || { name: s.cat, color: '#999' };
+      var level = s.level || '无';
+      var isTop = s.isTop === true;
+      var visible = s.visible !== false;
+
+      html += '<tr>' +
+        '<td class="col-id">' + escHtml(s.id) + '</td>' +
+        '<td class="col-name">' + escHtml(s.name) + '</td>' +
+        '<td><span style="color:' + areaInfo.color + ';font-weight:600;">' + escHtml(areaInfo.name) + '</span></td>' +
+        '<td><span class="cat-dot" style="--dot-color:' + catInfo.color + '"><span style="width:8px;height:8px;border-radius:50%;background:' + catInfo.color + ';display:inline-block;margin-right:4px;"></span>' + escHtml(catInfo.name) + '</span></td>' +
+        '<td><span class="col-level ' + getLevelClass(level) + '">' + escHtml(level) + '</span></td>' +
+        '<td>★ ' + escHtml(s.rating || '-') + '</td>' +
+        '<td>' + escHtml(s.price || '-') + '</td>' +
+        '<td>' + (isTop ? '<span class="top-yes">TOP' + (s.topRank || '') + '</span>' : '<span class="visible-no">—</span>') + '</td>' +
+        '<td>' + (visible ? '<span class="visible-yes">✓ 显示</span>' : '<span class="visible-no">✕ 隐藏</span>') + '</td>' +
+        '<td>' +
+          '<button class="admin-btn admin-btn-sm" onclick="openEditModal(\'' + s.id + '\')">编辑</button> ' +
+          '<button class="admin-btn admin-btn-sm admin-btn-danger" onclick="confirmDelete(\'' + s.id + '\')">删除</button>' +
+        '</td>' +
+      '</tr>';
+    });
+    tbody.innerHTML = html;
+  }
+
+  /* ===== HTML 转义 ===== */
+  function escHtml(str) {
+    if (str == null) return '';
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /* ===== 打开新增模态框 ===== */
+  window.openAddModal = function() {
+    editingId = null;
+    document.getElementById('modalTitle').textContent = '新增景点';
+    clearForm();
+    document.getElementById('f_visible').checked = true;
+    openModal('editModal');
+  };
+
+  /* ===== 打开编辑模态框 ===== */
+  window.openEditModal = function(id) {
+    var spot = findSpot(id);
+    if (!spot) {
+      showToast('未找到该景点', 'error');
+      return;
+    }
+    editingId = id;
+    document.getElementById('modalTitle').textContent = '编辑景点：' + spot.name;
+    fillForm(spot);
+    openModal('editModal');
+  };
+
+  /* ===== 填充表单 ===== */
+  function fillForm(s) {
+    document.getElementById('f_id').value = s.id || '';
+    document.getElementById('f_id').disabled = true; // 编辑时不可改 ID
+    document.getElementById('f_name').value = s.name || '';
+    document.getElementById('f_area').value = s.area || 'beidaihe';
+    document.getElementById('f_cat').value = s.cat || 'beach';
+    document.getElementById('f_level').value = s.level || '';
+    document.getElementById('f_rating').value = s.rating || '';
+    document.getElementById('f_price').value = s.price || '';
+    document.getElementById('f_priceNum').value = s.priceNum != null ? s.priceNum : 0;
+    document.getElementById('f_openTime').value = s.openTime || '';
+    document.getElementById('f_address').value = s.address || '';
+    document.getElementById('f_lat').value = s.lat || '';
+    document.getElementById('f_lng').value = s.lng || '';
+    document.getElementById('f_img').value = s.img || '';
+    document.getElementById('f_desc').value = s.desc || '';
+    document.getElementById('f_highlights').value = (s.highlights || []).join('\n');
+    document.getElementById('f_bestSeason').value = s.bestSeason || '';
+    document.getElementById('f_duration').value = s.duration || '';
+    document.getElementById('f_suitableFor').value = s.suitableFor || '';
+    document.getElementById('f_transport').value = s.transport || '';
+    document.getElementById('f_tips').value = s.tips || '';
+    document.getElementById('f_topRank').value = s.topRank || 0;
+    document.getElementById('f_isTop').checked = s.isTop === true;
+    document.getElementById('f_visible').checked = s.visible !== false;
+  }
+
+  /* ===== 清空表单 ===== */
+  function clearForm() {
+    var inputs = document.querySelectorAll('#editModal input, #editModal textarea, #editModal select');
+    inputs.forEach(function(el) {
+      if (el.type === 'checkbox') {
+        el.checked = false;
+      } else {
+        el.value = '';
+      }
+      el.disabled = false;
+    });
+    document.getElementById('f_priceNum').value = '0';
+    document.getElementById('f_topRank').value = '0';
+  }
+
+  /* ===== 保存景点 ===== */
+  window.saveSpot = function() {
+    var id = document.getElementById('f_id').value.trim();
+    var name = document.getElementById('f_name').value.trim();
+
+    if (!id) {
+      showToast('请填写景点 ID', 'error');
+      return;
+    }
+    if (!name) {
+      showToast('请填写景点名称', 'error');
+      return;
+    }
+
+    // 检查 ID 唯一性（新增时）
+    if (!editingId) {
+      var exists = findSpot(id);
+      if (exists) {
+        showToast('ID 已存在，请使用其他 ID', 'error');
+        return;
+      }
+    }
+
+    var highlights = document.getElementById('f_highlights').value
+      .split('\n')
+      .map(function(l) { return l.trim(); })
+      .filter(function(l) { return l.length > 0; });
+
+    var spot = {
+      id: id,
+      name: name,
+      area: document.getElementById('f_area').value,
+      cat: document.getElementById('f_cat').value,
+      level: document.getElementById('f_level').value.trim(),
+      rating: document.getElementById('f_rating').value.trim(),
+      price: document.getElementById('f_price').value.trim(),
+      priceNum: parseInt(document.getElementById('f_priceNum').value, 10) || 0,
+      openTime: document.getElementById('f_openTime').value.trim(),
+      address: document.getElementById('f_address').value.trim(),
+      lat: parseFloat(document.getElementById('f_lat').value) || 0,
+      lng: parseFloat(document.getElementById('f_lng').value) || 0,
+      img: document.getElementById('f_img').value.trim(),
+      desc: document.getElementById('f_desc').value.trim(),
+      highlights: highlights,
+      bestSeason: document.getElementById('f_bestSeason').value.trim(),
+      duration: document.getElementById('f_duration').value.trim(),
+      suitableFor: document.getElementById('f_suitableFor').value.trim(),
+      tips: document.getElementById('f_tips').value.trim(),
+      transport: document.getElementById('f_transport').value.trim(),
+      booking: editingId ? (findSpot(editingId).booking || []) : [],
+      isTop: document.getElementById('f_isTop').checked,
+      topRank: parseInt(document.getElementById('f_topRank').value, 10) || 0,
+      visible: document.getElementById('f_visible').checked
+    };
+
+    if (editingId) {
+      // 编辑
+      var idx = appData.spots.findIndex(function(s) { return s.id === editingId; });
+      if (idx >= 0) {
+        spot.booking = appData.spots[idx].booking || [];
+        appData.spots[idx] = spot;
+      }
+      showToast('景点「' + name + '」已更新', 'success');
+    } else {
+      // 新增
+      appData.spots.push(spot);
+      showToast('景点「' + name + '」已添加', 'success');
+    }
+
+    // 更新 top5 数组
+    updateTop5Array();
+
+    saveToStorage(appData);
+    renderTable();
+    updateStats();
+    closeModal('editModal');
+  };
+
+  /* ===== 更新 top5 数组 ===== */
+  function updateTop5Array() {
+    var topSpots = appData.spots
+      .filter(function(s) { return s.isTop === true; })
+      .sort(function(a, b) { return (a.topRank || 99) - (b.topRank || 99); })
+      .map(function(s) { return s.id; });
+    appData.top5 = topSpots.slice(0, 5);
+  }
+
+  /* ===== 确认删除 ===== */
+  window.confirmDelete = function(id) {
+    var spot = findSpot(id);
+    if (!spot) return;
+    showConfirm('🗑️', '确定要删除景点「' + spot.name + '」吗？此操作不可撤销。', function() {
+      appData.spots = appData.spots.filter(function(s) { return s.id !== id; });
+      updateTop5Array();
+      saveToStorage(appData);
+      renderTable();
+      updateStats();
+      showToast('景点「' + spot.name + '」已删除', 'success');
+    });
+  };
+
+  /* ===== 确认恢复默认 ===== */
+  window.confirmReset = function() {
+    showConfirm('↻', '确定要恢复默认数据吗？当前所有修改将丢失，从服务器重新加载初始数据。', async function() {
+      try {
+        var resp = await fetch(DEFAULT_JSON_URL + '?t=' + Date.now());
+        var data = await resp.json();
+        appData = data;
+        AREA_MAP = {};
+        (appData.areas || []).forEach(function(a) { AREA_MAP[a.id] = a; });
+        saveToStorage(appData);
+        renderTable();
+        updateStats();
+        showToast('已恢复默认数据', 'success');
+      } catch(e) {
+        showToast('恢复默认数据失败，请检查网络', 'error');
+      }
+    });
+  };
+
+  /* ===== 导出 JSON ===== */
+  window.exportJSON = function() {
+    // 更新 meta
+    appData.meta = appData.meta || {};
+    appData.meta.lastUpdated = new Date().toISOString().slice(0, 10);
+    appData.meta.totalCount = (appData.spots || []).length;
+    appData.meta.version = appData.meta.version || '2.0';
+
+    var jsonStr = JSON.stringify(appData, null, 2);
+    var blob = new Blob([jsonStr], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'attractions.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('JSON 文件已下载，请替换服务器上的 data/attractions.json', 'success');
+  };
+
+  /* ===== 导入 JSON ===== */
+  function handleImport(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        var data = JSON.parse(ev.target.result);
+        if (!data.spots || !Array.isArray(data.spots)) {
+          showToast('JSON 格式错误：缺少 spots 数组', 'error');
+          return;
+        }
+        appData = data;
+        AREA_MAP = {};
+        (appData.areas || []).forEach(function(a) { AREA_MAP[a.id] = a; });
+        if (appData.categories) {
+          Object.keys(appData.categories).forEach(function(k) {
+            if (CAT_MAP[k]) {
+              CAT_MAP[k].name = appData.categories[k].name;
+              CAT_MAP[k].color = appData.categories[k].color;
+            }
+          });
+        }
+        saveToStorage(appData);
+        renderTable();
+        updateStats();
+        showToast('已导入 ' + data.spots.length + ' 个景点', 'success');
+      } catch(err) {
+        showToast('JSON 解析失败：' + err.message, 'error');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = ''; // 重置以便重复导入同一文件
+  }
+
+  /* ===== 查找景点 ===== */
+  function findSpot(id) {
+    return appData.spots.find(function(s) { return s.id === id; });
+  }
+
+  /* ===== 模态框控制 ===== */
+  function openModal(id) {
+    document.getElementById(id).classList.add('show');
+  }
+  window.closeModal = function(id) {
+    document.getElementById(id).classList.remove('show');
+  };
+
+  /* ===== 确认对话框 ===== */
+  function showConfirm(icon, text, callback) {
+    document.getElementById('confirmIcon').textContent = icon;
+    document.getElementById('confirmText').textContent = text;
+    confirmCallback = callback;
+    var okBtn = document.getElementById('confirmOkBtn');
+    okBtn.onclick = function() {
+      closeModal('confirmModal');
+      if (confirmCallback) {
+        confirmCallback();
+        confirmCallback = null;
+      }
+    };
+    openModal('confirmModal');
+  }
+
+  /* ===== Toast 提示 ===== */
+  function showToast(msg, type) {
+    type = type || 'info';
+    var container = document.getElementById('toastContainer');
+    var toast = document.createElement('div');
+    toast.className = 'toast ' + type;
+    var icon = type === 'success' ? '✅' : type === 'error' ? '❌' : type === 'warning' ? '⚠️' : 'ℹ️';
+    toast.innerHTML = '<span>' + icon + '</span><span>' + escHtml(msg) + '</span>';
+    container.appendChild(toast);
+    setTimeout(function() {
+      toast.classList.add('hide');
+      setTimeout(function() {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 300);
+    }, 3500);
+  }
+
+  /* ===== 导航栏 ===== */
+  function setupNav() {
+    window.addEventListener('scroll', function() {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  }
+
+  /* ===== 点击遮罩关闭模态框 ===== */
+  document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        overlay.classList.remove('show');
+      }
+    });
+  });
+
+  /* ===== ESC 关闭模态框 ===== */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.show').forEach(function(m) {
+        m.classList.remove('show');
+      });
+    }
+  });
+
+  /* ===== 启动 ===== */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- AI 聊天组件 -->
+<link rel="stylesheet" href="css/chat-widget.css">
+<script src="js/chat-widget.js" defer></script>
+</body>
+</html>
