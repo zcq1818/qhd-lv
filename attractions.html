@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://qhd-lv.vercel.app/attractions.html">
 <meta property="og:title" content="秦皇岛景点大全 | 30+景区推荐">
 <meta property="og:description" content="北戴河、山海关、阿那亚……秦皇岛30+景区全收录。">
-<meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80">
+<meta property="og:image" content="https://qhd-lv.vercel.app/images/qhd-panorama.jpg">
 <link rel="stylesheet" href="style.css">
 <style>
   :root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-muted:#6b7280;--ease-out:cubic-bezier(0.34,1.56,0.64,1);--dur:0.35s;--smooth:cubic-bezier(0.4,0,0.2,1);}
@@ -18,18 +18,17 @@
   .section-label{font-size:var(--text-sm);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand,#1a73e8);margin-bottom:var(--s2);}
   .section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin:0 0 var(--s3);line-height:1.25;}
   .section-desc{color:var(--text-muted);line-height:1.8;margin-bottom:var(--s10);max-width:600px;}
-  /* 面包屑 */
   .breadcrumb{max-width:var(--max-width);margin:0 auto;padding:var(--s4) var(--s6);font-size:var(--text-sm);color:var(--text-muted);}
   .breadcrumb a{color:var(--brand);text-decoration:none;}
   .breadcrumb .sep{margin:0 var(--s2);}
   /* 景点大卡片 */
   .spot{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.06);border:1px solid #e5e7eb;margin-bottom:var(--s8);transition:box-shadow var(--dur) var(--smooth);}
   .spot:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1);}
-  .spot-inner{display:grid;grid-template-columns:1.1fr 1fr;min-height:360px;}
+  .spot-inner{display:grid;grid-template-columns:1.1fr 1fr;min-height:380px;}
   .spot-img{overflow:hidden;position:relative;}
-  .spot-img img{width:100%;height:100%;min-height:360px;object-fit:cover;transition:transform 0.6s var(--smooth);}
+  .spot-img img{width:100%;height:100%;min-height:380px;object-fit:cover;transition:transform 0.6s var(--smooth);}
   .spot:hover .spot-img img{transform:scale(1.06);}
-  .spot-img .spot-badge{position:absolute;top:var(--s4);left:var(--s4);background:rgba(0,0,0,0.6);color:#fff;font-size:var(--text-sm);font-weight:600;padding:var(--s1) var(--s3);border-radius:20px;backdrop-filter:blur(8px);}
+  .spot-img .spot-badge{position:absolute;top:var(--s4);left:var(--s4);background:rgba(0,0,0,0.65);color:#fff;font-size:var(--text-sm);font-weight:700;padding:var(--s1) var(--s3);border-radius:20px;backdrop-filter:blur(8px);}
   .spot-body{padding:var(--s8);display:flex;flex-direction:column;justify-content:center;}
   .spot-tag{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.04em;padding:var(--s1) var(--s3);border-radius:20px;margin-bottom:var(--s3);}
   .tag-beach{background:#e0f2fe;color:#0369a1;}
@@ -41,8 +40,11 @@
   .spot-meta{display:flex;gap:var(--s4);flex-wrap:wrap;font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--s4);}
   .spot-meta .stars{color:#f59e0b;font-weight:700;}
   .spot-desc{color:#4b5563;line-height:1.85;margin-bottom:var(--s4);}
-  .spot-info{font-size:var(--text-sm);color:var(--text-muted);line-height:1.75;margin-bottom:var(--s4);}
+  .spot-desc strong{color:#1f2937;}
+  .spot-info{font-size:var(--text-sm);color:var(--text-muted);line-height:1.8;margin-bottom:var(--s4);}
   .spot-info strong{color:#374151;}
+  .spot-tips{background:#f0f9ff;border-left:3px solid #1a73e8;padding:var(--s3) var(--s4);border-radius:0 8px 8px 0;font-size:var(--text-sm);color:#0369a1;line-height:1.7;margin-bottom:var(--s4);}
+  .spot-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
   /* 小卡片网格 */
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);}
   .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5);}
@@ -55,18 +57,13 @@
   .mini-spot-body h3{font-size:var(--text-base);font-weight:700;margin:0 0 var(--s1);}
   .mini-spot-body .mini-meta{font-size:0.8rem;color:var(--text-muted);margin-bottom:var(--s2);}
   .mini-spot-body p{font-size:0.85rem;color:#6b7280;line-height:1.6;margin:0;}
-  /* 景区分区标题 */
   .zone-header{margin:var(--s12) 0 var(--s8);padding-bottom:var(--s4);border-bottom:2px solid #e5e7eb;}
   .zone-header h2{font-size:var(--text-2xl);font-weight:800;margin:0 0 var(--s1);}
   .zone-header .zone-count{font-size:var(--text-sm);color:var(--text-muted);}
-  /* 导航锚点 */
   .quick-nav{display:flex;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s10);}
   .quick-nav a{padding:var(--s2) var(--s4);background:#f3f4f6;border-radius:20px;font-size:var(--text-sm);font-weight:600;color:#374151;text-decoration:none;transition:all 0.2s;}
   .quick-nav a:hover{background:var(--brand);color:#fff;}
-  /* 联盟预订链接 */
-  .booking-links{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4);align-items:center;}
-  .booking-links .booking-label{font-size:0.8rem;color:var(--text-muted);margin-right:var(--s1);}
-  .booking-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:var(--radius-full);font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid transparent;}
+  .booking-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:50px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid transparent;}
   .booking-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
   .booking-ctrip{background:#fff5f5;color:#ff6913;border-color:#ffd6c4;}
   .booking-ctrip:hover{background:#ff6913;color:#fff;}
@@ -76,11 +73,9 @@
   .booking-dianping:hover{background:#07c160;color:#fff;}
   .booking-hotel{background:#eff6ff;color:#1a73e8;border-color:#bfdbfe;}
   .booking-hotel:hover{background:#1a73e8;color:#fff;}
-  /* CTA */
   .cta-section{background:linear-gradient(160deg,#0d47a1,#1a73e8,#4a9af5);color:#fff;text-align:center;padding:var(--s16) var(--s6);}
   .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:var(--s3);}
   .cta-section p{opacity:0.9;margin-bottom:var(--s8);}
-  /* 返回顶部 */
   .back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--brand);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,0.15);cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:100;border:none;}
   .back-top.show{opacity:1;}
   @media(max-width:768px){
@@ -130,36 +125,42 @@
 </section>
 
 <div class="section">
-  <!-- 快速导航 -->
   <div class="quick-nav">
-    <a href="#top5">🔝 必去TOP5</a>
-    <a href="#beidaihe">🏖️ 北戴河区</a>
-    <a href="#shanhaiguan">🏯 山海关区</a>
-    <a href="#haigang">🏙️ 海港区</a>
-    <a href="#nandaihe">🌊 南戴河·昌黎</a>
-    <a href="#funing">⛰️ 抚宁·青龙</a>
+    <a href="#top5">必去TOP5</a>
+    <a href="#beidaihe">北戴河区</a>
+    <a href="#shanhaiguan">山海关区</a>
+    <a href="#haigang">海港区</a>
+    <a href="#nandaihe">南戴河·昌黎</a>
+    <a href="#funing">抚宁·青龙</a>
   </div>
 
-  <!-- ====== TOP 5 必去 ====== -->
+  <!-- ====== TOP 5 ====== -->
   <div id="top5">
     <div class="section-label">TOP 5 必去</div>
     <h2 class="section-title">第一次来秦皇岛，先去这5个</h2>
+    <p class="section-desc">从海滨度假到长城入海，从日出圣地到文艺海岸——这5个景点串起了秦皇岛的精华。</p>
   </div>
 
-  <!-- 北戴河 -->
+  <!-- TOP 1: 北戴河海滨 -->
   <div class="spot reveal" id="beidaihe-spot">
     <div class="spot-inner">
       <div class="spot-img">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="北戴河海滨" loading="eager">
+        <img src="images/beidaihe-beach.png" alt="北戴河海滨风景区" loading="eager">
         <span class="spot-badge">TOP 1</span>
       </div>
       <div class="spot-body">
         <span class="spot-tag tag-beach">海滨风光 · 避暑胜地</span>
         <h3 class="spot-title">北戴河海滨风景区</h3>
-        <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 沙滩免费</span><span class="stars">★ 4.7</span><span>🕐 全天开放</span></div>
-        <p class="spot-desc"><strong>北戴河</strong>是中国四大避暑胜地之一。绵延20公里的黄金沙滩、清澈海水、宜人气候，让这里成为京津地区最受欢迎的海滨度假地。每年6-9月是最佳游玩季节。</p>
-        <p class="spot-info"><strong>主要景点：</strong>老虎石海上公园、联峰山公园、怪楼奇园<br><strong>交通：</strong>34路公交秦皇岛站直达，约40分钟</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <div class="spot-meta"><span>北戴河区</span><span>沙滩免费</span><span class="stars">★ 4.7</span><span>全天开放</span></div>
+        <p class="spot-desc"><strong>北戴河</strong>是中国四大避暑胜地之一，绵延20公里的黄金沙滩、清澈海水、宜人气候，让这里成为京津地区最受欢迎的海滨度假地。从清末就是皇家避暑地，至今保留着大量近代建筑群。</p>
+        <p class="spot-info">
+          <strong>主要景点：</strong>老虎石海上公园、联峰山公园、怪楼奇园、鸽子窝公园<br>
+          <strong>最佳季节：</strong>6-9月（海水浴），5月和10月人少景美<br>
+          <strong>交通：</strong>秦皇岛站乘34路公交约40分钟；北戴河站打车约10分钟<br>
+          <strong>住宿：</strong>北戴河区民宿/酒店密集，淡季150-300元，旺季400-800元
+        </p>
+        <div class="spot-tips">游玩建议：至少安排一整天。上午鸽子窝看日出→白天老虎石玩沙→傍晚碧螺塔看日落夜景→晚上海鲜大排档。</div>
+        <div class="spot-actions">
           <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的北戴河 →</a>
           <a href="https://hotels.ctrip.com/hotels/list?countryId=1&city=32" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订酒店</a>
           <a href="https://www.meituan.com/hotel/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团订房</a>
@@ -168,42 +169,54 @@
     </div>
   </div>
 
-  <!-- 山海关 -->
+  <!-- TOP 2: 山海关 -->
   <div class="spot reveal" id="shanhaiguan-spot">
     <div class="spot-inner" style="direction:rtl;">
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-history">世界遗产 · 历史文化</span>
         <h3 class="spot-title">山海关 · 天下第一关</h3>
-        <div class="spot-meta"><span>📍 山海关区</span><span>🎫 50元/人</span><span class="stars">★ 4.8</span><span>🕐 08:00-17:30</span></div>
-        <p class="spot-desc"><strong>山海关</strong>是明长城东北关隘，中国长城三大奇观之一（东有山海关、中有镇北台、西有嘉峪关）。"天下第一关"巨匾高悬镇远楼之上，气势磅礴。</p>
-        <p class="spot-info"><strong>必看：</strong>镇远楼、王家大院、钟鼓楼、古城墙<br><strong>时间：</strong>建议3-4小时，距老龙头仅8公里</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <div class="spot-meta"><span>山海关区</span><span>50元/人</span><span class="stars">★ 4.8</span><span>08:00-17:30</span></div>
+        <p class="spot-desc"><strong>山海关</strong>是明长城东北关隘，中国长城三大奇观之一（东有山海关、中有镇北台、西有嘉峪关）。"天下第一关"巨匾高悬镇远楼之上，每个字1米见方，据传为明代书法家萧显所书，600年未换。</p>
+        <p class="spot-info">
+          <strong>必看：</strong>镇远楼（登楼俯瞰古城全貌）、王家大院、钟鼓楼、古城墙<br>
+          <strong>建议游玩：</strong>3-4小时，可与老龙头打包一日游（仅8公里）<br>
+          <strong>交通：</strong>山海关火车站步行15分钟到古城东门<br>
+          <strong>适合人群：</strong>历史爱好者、亲子研学、摄影爱好者
+        </p>
+        <div class="spot-tips">登城楼记得抬头看匾额——"天下第一关"五个大字，笔力遒劲。城墙上有箭楼、敌楼可参观，走一圈约40分钟。</div>
+        <div class="spot-actions">
           <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的山海关 →</a>
           <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥50</a>
           <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
         </div>
       </div>
       <div class="spot-img">
-        <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=800&q=80" alt="山海关天下第一关" loading="lazy">
+        <img src="images/shanhaiguan.png" alt="山海关天下第一关城楼" loading="lazy">
         <span class="spot-badge">TOP 2</span>
       </div>
     </div>
   </div>
 
-  <!-- 鸽子窝 -->
+  <!-- TOP 3: 鸽子窝 -->
   <div class="spot reveal" id="geziwo-spot">
     <div class="spot-inner">
       <div class="spot-img">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="鸽子窝公园日出" loading="lazy">
+        <img src="images/geziwo-sunrise.jpg" alt="鸽子窝公园日出" loading="lazy">
         <span class="spot-badge">TOP 3</span>
       </div>
       <div class="spot-body">
         <span class="spot-tag tag-beach">日出胜地 · 亲子游玩</span>
         <h3 class="spot-title">鸽子窝公园</h3>
-        <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 25元/人</span><span class="stars">★ 4.6</span><span>🕐 05:00-18:00</span></div>
-        <p class="spot-desc"><strong>鸽子窝公园</strong>是北戴河看日出的最佳地点。"鸽子窝日出"被誉为北戴河二十四景之首。鹰角石高约17米，形似雄鹰屹立，毛泽东曾在此写下《浪淘沙·北戴河》。</p>
-        <p class="spot-info"><strong>日出攻略：</strong>夏季日出约4:30，提前40分钟到达<br><strong>交通：</strong>34路公交鸽子窝站下车即到</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <div class="spot-meta"><span>北戴河区</span><span>25元/人</span><span class="stars">★ 4.6</span><span>05:00-18:00</span></div>
+        <p class="spot-desc"><strong>鸽子窝公园</strong>是北戴河看日出的最佳地点。"鸽子窝日出"被誉为北戴河二十四景之首。鹰角石高约17米，形似雄鹰屹立。毛泽东曾在此写下《浪淘沙·北戴河》："大雨落幽燕，白浪滔天，秦皇岛外打鱼船……"</p>
+        <p class="spot-info">
+          <strong>日出时间：</strong>夏季 4:50-5:20 / 春秋 5:30-6:10（建议提前30分钟到场占位）<br>
+          <strong>建议游玩：</strong>1.5-2小时（日出后可逛公园）<br>
+          <strong>交通：</strong>34路公交鸽子窝站下车即到<br>
+          <strong>适合人群：</strong>摄影爱好者、情侣、亲子（公园内有鸽子）
+        </p>
+        <div class="spot-tips">海边凌晨体感温度比白天低8-10℃，一定要穿外套！想拍大片建议带三脚架。日出后公园内的湿地栈道也很美，值得多留半小时。</div>
+        <div class="spot-actions">
           <a href="guide.html" class="btn btn-outline btn-sm">查看日出时间表 →</a>
           <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥25</a>
           <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
@@ -212,42 +225,54 @@
     </div>
   </div>
 
-  <!-- 老龙头 -->
+  <!-- TOP 4: 老龙头 -->
   <div class="spot reveal" id="laolongtou-spot">
     <div class="spot-inner" style="direction:rtl;">
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-history">长城入海 · 世界遗产</span>
         <h3 class="spot-title">老龙头景区</h3>
-        <div class="spot-meta"><span>📍 山海关区</span><span>🎫 60元/人</span><span class="stars">★ 4.7</span><span>🕐 08:00-17:30</span></div>
-        <p class="spot-desc"><strong>老龙头</strong>是明长城东端起点，万里长城唯一集山、海、关、城于一体的海陆军事防御体系。长城如巨龙探入渤海，澄海楼上有"雄襟万里"匾额。</p>
-        <p class="spot-info"><strong>必看：</strong>澄海楼、入海石城、海神庙、靖虏台<br><strong>交通：</strong>距山海关古城8公里，打车约15分钟</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <div class="spot-meta"><span>山海关区</span><span>60元/人</span><span class="stars">★ 4.7</span><span>08:00-17:30</span></div>
+        <p class="spot-desc"><strong>老龙头</strong>是明长城东端起点，万里长城唯一集山、海、关、城于一体的海陆军事防御体系。长城如巨龙探入渤海，澄海楼上有"雄襟万里"匾额。用铁水浇筑基础、糯米石灰砌墙，几万劳工干了十年——六百年后，潮起潮落，纹丝不动。</p>
+        <p class="spot-info">
+          <strong>必看：</strong>澄海楼、入海石城、海神庙、靖虏台、南海口关<br>
+          <strong>建议游玩：</strong>1.5-2小时<br>
+          <strong>交通：</strong>距山海关古城8公里，打车约15分钟；或乘25路公交<br>
+          <strong>适合人群：</strong>历史爱好者、全家出游、摄影爱好者
+        </p>
+        <div class="spot-tips">涨潮时去最壮观，海水拍打城墙的场面震撼。退潮可以走到城墙根下，能摸到600年前的石条。与山海关古城打包半日游最佳。</div>
+        <div class="spot-actions">
           <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的老龙头 →</a>
           <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥60</a>
           <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
         </div>
       </div>
       <div class="spot-img">
-        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80" alt="老龙头长城入海" loading="lazy">
+        <img src="images/laolongtou.jpg" alt="老龙头长城入海处" loading="lazy">
         <span class="spot-badge">TOP 4</span>
       </div>
     </div>
   </div>
 
-  <!-- 阿那亚 -->
+  <!-- TOP 5: 阿那亚 -->
   <div class="spot reveal" id="aranya-spot">
     <div class="spot-inner">
       <div class="spot-img">
-        <img src="https://images.unsplash.com/photo-1566079861251-eeb9e39a26bb?w=800&q=80" alt="阿那亚海边建筑" loading="lazy">
+        <img src="images/aranya-library.jpg" alt="阿那亚孤独图书馆" loading="lazy">
         <span class="spot-badge">TOP 5</span>
       </div>
       <div class="spot-body">
         <span class="spot-tag tag-culture">文艺地标 · 网红打卡</span>
         <h3 class="spot-title">阿那亚 · 黄金海岸社区</h3>
-        <div class="spot-meta"><span>📍 昌黎县</span><span>🎫 预约制</span><span class="stars">★ 4.8</span><span>🕐 全天开放</span></div>
-        <p class="spot-desc"><strong>阿那亚</strong>是中国最具文艺气息的海岸社区。孤独图书馆、海边礼堂（阿那亚礼堂）、沙丘美术馆……每一栋建筑都是艺术品。梵语意为"人间寂静处，找回本我的地方"。</p>
-        <p class="spot-info"><strong>必打卡：</strong>孤独图书馆、海边礼堂、沙丘美术馆、海边市集、犬舍酒店<br><strong>注意：</strong>需提前在阿那亚APP预约或预订园区内住宿</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <div class="spot-meta"><span>昌黎县</span><span>预约制</span><span class="stars">★ 4.8</span><span>全天开放</span></div>
+        <p class="spot-desc"><strong>阿那亚</strong>是中国最具文艺气息的海岸社区。孤独图书馆、海边礼堂（阿那亚礼堂）、沙丘美术馆……每一栋建筑都是艺术品。梵语"阿那亚"意为"人间寂静处，找回本我的地方"。由建筑师董功设计的孤独图书馆，落地窗正对大海，是中国第一座海边公益图书馆。</p>
+        <p class="spot-info">
+          <strong>必打卡：</strong>孤独图书馆、海边礼堂、沙丘美术馆、海边市集、犬舍酒店<br>
+          <strong>预约方式：</strong>关注"阿那亚"微信公众号 → 社区服务 → 图书馆预约（旺季需提前3-5天）<br>
+          <strong>交通：</strong>北戴河站打车约30分钟；社区有接驳车需提前预约<br>
+          <strong>注意：</strong>封闭社区，不预约/不消费可能进不去
+        </p>
+        <div class="spot-tips">图书馆内禁止拍照（拍照请到馆外），保持安静。海边礼堂日出和黄昏最美，白色建筑会染上金色或粉色。穿浅色衣服拍照更出片。</div>
+        <div class="spot-actions">
           <a href="guide.html" class="btn btn-outline btn-sm">阿那亚游玩攻略 →</a>
           <a href="https://aranya.com" target="_blank" rel="nofollow sponsored" class="booking-link booking-hotel">阿那亚官网预约</a>
           <a href="https://hotels.ctrip.com/hotels/list?countryId=1&city=32" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订酒店</a>
@@ -258,7 +283,7 @@
 
   <!-- ====== 北戴河区 ====== -->
   <div class="zone-header reveal" id="beidaihe">
-    <h2>🏖️ 北戴河区 · 7大景区</h2>
+    <h2>北戴河区 · 7大景区</h2>
     <p class="zone-count">中国四大避暑胜地 · 最美海滨度假区</p>
   </div>
 
@@ -266,14 +291,20 @@
   <div class="spot reveal">
     <div class="spot-inner">
       <div class="spot-img">
-        <img src="https://images.unsplash.com/photo-1540100789-4a0eb2e2c998?w=800&q=80" alt="老虎石海上公园" loading="lazy">
+        <img src="images/laohushi.png" alt="老虎石海上公园日落" loading="lazy">
       </div>
       <div class="spot-body">
         <span class="spot-tag tag-beach">经典地标 · 免费开放</span>
         <h3 class="spot-title">老虎石海上公园</h3>
-        <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 免费</span><span class="stars">★ 4.5</span><span>🕐 全天开放</span></div>
+        <div class="spot-meta"><span>北戴河区</span><span>免费</span><span class="stars">★ 4.5</span><span>全天开放</span></div>
         <p class="spot-desc">北戴河最经典的海滨公园，因海边一块形似老虎的巨石而得名。沙滩细腻平缓，适合游泳、赶海。夕阳西下时，金色阳光洒在巨石上，是北戴河最美日落观赏点。</p>
-        <p class="spot-info"><strong>适合：</strong>游泳、赶海、拍照、遛娃<br><strong>交通：</strong>34路/5路老虎石站</p>
+        <p class="spot-info">
+          <strong>适合：</strong>游泳、赶海、拍照、遛娃<br>
+          <strong>最佳时间：</strong>下午4-6点看日落，退潮时赶海<br>
+          <strong>交通：</strong>34路/5路老虎石站<br>
+          <strong>费用：</strong>公园免费，更衣/淋浴约10元
+        </p>
+        <div class="spot-tips">退潮时可以在礁石区赶海捡贝壳小蟹，记得带小桶和拖鞋。日落时分巨石剪影非常出片。</div>
       </div>
     </div>
   </div>
@@ -284,24 +315,36 @@
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-nature">森林公园 · 登高望远</span>
         <h3 class="spot-title">联峰山公园</h3>
-        <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 25元/人</span><span class="stars">★ 4.4</span><span>🕐 07:00-18:00</span></div>
-        <p class="spot-desc"><strong>联峰山</strong>是北戴河制高点，也是中国第一座森林公园。望海亭可俯瞰整个北戴河海滨全景，秦皇岛港、鸽子窝尽收眼底。山中松柏苍翠，负氧离子极高。</p>
-        <p class="spot-info"><strong>必看：</strong>望海亭、莲花石、仙人洞、神山<br><strong>交通：</strong>5路/15路联峰山公园站</p>
+        <div class="spot-meta"><span>北戴河区</span><span>25元/人</span><span class="stars">★ 4.4</span><span>07:00-18:00</span></div>
+        <p class="spot-desc"><strong>联峰山</strong>是北戴河制高点，也是中国第一座森林公园。望海亭可俯瞰整个北戴河海滨全景，秦皇岛港、鸽子窝尽收眼底。山中松柏苍翠，负氧离子极高，是天然氧吧。</p>
+        <p class="spot-info">
+          <strong>必看：</strong>望海亭（最佳观景点）、莲花石、仙人洞、神山<br>
+          <strong>建议游玩：</strong>2-3小时<br>
+          <strong>交通：</strong>5路/15路联峰山公园站<br>
+          <strong>适合人群：</strong>登山爱好者、摄影爱好者、避暑纳凉
+        </p>
+        <div class="spot-tips">山不高（海拔153米），但林木茂密，夏天比山下凉快5℃左右。建议早上或傍晚去，避开正午暴晒。</div>
       </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&q=80" alt="联峰山森林" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&q=80" alt="联峰山森林公园" loading="lazy"></div>
     </div>
   </div>
 
   <!-- 碧螺塔 -->
   <div class="spot reveal">
     <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1513097417638-c450a4e02f6c?w=800&q=80" alt="碧螺塔海上酒吧" loading="lazy"></div>
+      <div class="spot-img"><img src="images/biluota.png" alt="碧螺塔海上酒吧公园夜景" loading="lazy"></div>
       <div class="spot-body">
         <span class="spot-tag tag-culture">夜生活 · 网红打卡</span>
         <h3 class="spot-title">碧螺塔海上酒吧公园</h3>
-        <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 40元/人</span><span class="stars">★ 4.3</span><span>🕐 09:00-24:00</span></div>
+        <div class="spot-meta"><span>北戴河区</span><span>40元/人</span><span class="stars">★ 4.3</span><span>09:00-24:00</span></div>
         <p class="spot-desc">北戴河夜生活地标！海上酒吧+烟花秀+篝火晚会+乐队演出。碧螺塔三面环海，塔顶是绝佳的日落和星空拍摄点。"圣托里尼"风的白墙蓝顶建筑让这里成为拍照圣地。</p>
-        <p class="spot-info"><strong>亮点：</strong>夜间篝火晚会、海上酒吧、热气球装置<br><strong>交通：</strong>15路碧螺塔站</p>
+        <p class="spot-info">
+          <strong>亮点：</strong>夜间篝火晚会（19:30开始）、海上酒吧、热气球装置、栈道夜景<br>
+          <strong>最佳时间：</strong>下午4点到晚上10点（看日落+夜景+表演）<br>
+          <strong>交通：</strong>15路碧螺塔站<br>
+          <strong>适合人群：</strong>情侣、年轻人、夜生活爱好者
+        </p>
+        <div class="spot-tips">建议下午4点入园，先拍白天的圣托里尼风建筑，等日落，再看晚上篝火晚会和乐队演出，一站搞定日落+夜景。</div>
       </div>
     </div>
   </div>
@@ -312,9 +355,14 @@
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-family">奇趣建筑 · 亲子</span>
         <h3 class="spot-title">怪楼奇园</h3>
-        <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 20元/人</span><span class="stars">★ 4.2</span><span>🕐 08:00-17:30</span></div>
-        <p class="spot-desc">一座充满奇思妙想的建筑群，内部结构错综复杂，有999个门、999扇窗，像个巨大的迷宫。每个房间都有不同的主题，特别适合带孩子探险。</p>
-        <p class="spot-info"><strong>适合：</strong>亲子探险、建筑爱好者、好奇心玩家<br><strong>交通：</strong>5路怪楼站</p>
+        <div class="spot-meta"><span>北戴河区</span><span>20元/人</span><span class="stars">★ 4.2</span><span>08:00-17:30</span></div>
+        <p class="spot-desc">一座充满奇思妙想的建筑群，内部结构错综复杂，有999个门、999扇窗，像个巨大的迷宫。每个房间都有不同的主题——有的地板是斜的，有的镜子无限反射，特别适合带孩子探险。</p>
+        <p class="spot-info">
+          <strong>适合：</strong>亲子探险、建筑爱好者、好奇心玩家<br>
+          <strong>建议游玩：</strong>1-1.5小时<br>
+          <strong>交通：</strong>5路怪楼站<br>
+          <strong>注意：</strong>迷宫较复杂，带好小孩别走散
+        </p>
       </div>
       <div class="spot-img"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80" alt="怪楼奇园建筑" loading="lazy"></div>
     </div>
@@ -327,29 +375,41 @@
       <div class="spot-body">
         <span class="spot-tag tag-family">亲子必去 · 自驾游览</span>
         <h3 class="spot-title">秦皇岛野生动物园</h3>
-        <div class="spot-meta"><span>📍 北戴河区</span><span>🎫 100元/人</span><span class="stars">★ 4.5</span><span>🕐 08:30-17:00</span></div>
-        <p class="spot-desc">华北地区最大的野生动物园之一，占地5000余亩。可自驾入园穿越猛兽区，近距离观赏老虎、狮子、黑熊等。温顺区可步行投喂长颈鹿、羊驼等动物。</p>
-        <p class="spot-info"><strong>游玩方式：</strong>自驾（推荐）/ 园区小火车<br><strong>交通：</strong>34路野生动物园站</p>
+        <div class="spot-meta"><span>北戴河区</span><span>100元/人</span><span class="stars">★ 4.5</span><span>08:30-17:00</span></div>
+        <p class="spot-desc">华北地区最大的野生动物园之一，占地5000余亩。可自驾入园穿越猛兽区，近距离观赏老虎、狮子、黑熊。温顺区可步行投喂长颈鹿、羊驼等动物。</p>
+        <p class="spot-info">
+          <strong>游玩方式：</strong>自驾（推荐，约2小时）/ 园区小火车<br>
+          <strong>必看：</strong>猛兽区（虎/狮/熊）、草食区（长颈鹿/斑马）、鸟林<br>
+          <strong>交通：</strong>34路野生动物园站<br>
+          <strong>适合人群：</strong>亲子家庭、动物爱好者
+        </p>
+        <div class="spot-tips">自驾游览时不要开窗！猛兽区有铁丝网但距离很近。建议上午去，动物比较活跃。带孩子的可以在温顺区买饲料投喂。</div>
       </div>
     </div>
   </div>
 
   <!-- ====== 山海关区 ====== -->
   <div class="zone-header reveal" id="shanhaiguan">
-    <h2>🏯 山海关区 · 6大景区</h2>
+    <h2>山海关区 · 6大景区</h2>
     <p class="zone-count">万里长城第一关 · 世界文化遗产核心区</p>
   </div>
 
   <!-- 角山长城 -->
   <div class="spot reveal">
     <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="角山长城" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=800&q=80" alt="角山长城" loading="lazy"></div>
       <div class="spot-body">
         <span class="spot-tag tag-history">长城登山 · 壮美山景</span>
         <h3 class="spot-title">角山长城</h3>
-        <div class="spot-meta"><span>📍 山海关区</span><span>🎫 40元/人</span><span class="stars">★ 4.5</span><span>🕐 08:00-17:00</span></div>
+        <div class="spot-meta"><span>山海关区</span><span>40元/人</span><span class="stars">★ 4.5</span><span>08:00-17:00</span></div>
         <p class="spot-desc"><strong>角山</strong>是万里长城翻越的第一座山，素有"万里长城第一山"之称。长城沿山脊蜿蜒而上，登顶可远眺山海关全景和渤海湾。秋季红叶似火，是摄影爱好者的天堂。</p>
-        <p class="spot-info"><strong>游玩时间：</strong>建议2-3小时，需一定体力<br><strong>交通：</strong>山海关古城打车约15分钟</p>
+        <p class="spot-info">
+          <strong>海拔：</strong>519米，登山约1.5-2小时<br>
+          <strong>建议游玩：</strong>2-3小时，需一定体力<br>
+          <strong>交通：</strong>山海关古城打车约15分钟<br>
+          <strong>最佳季节：</strong>秋季（9-10月）红叶最美
+        </p>
+        <div class="spot-tips">爬上去回望，长城像一条灰色的脊梁从山脊蜿蜒而下，穿过田野，直插大海——从山到海，一条龙。体力一般可坐缆车。</div>
       </div>
     </div>
   </div>
@@ -360,11 +420,16 @@
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-history">千古传说 · 文化遗址</span>
         <h3 class="spot-title">孟姜女庙（贞女祠）</h3>
-        <div class="spot-meta"><span>📍 山海关区</span><span>🎫 30元/人</span><span class="stars">★ 4.3</span><span>🕐 08:00-17:00</span></div>
+        <div class="spot-meta"><span>山海关区</span><span>30元/人</span><span class="stars">★ 4.3</span><span>08:00-17:00</span></div>
         <p class="spot-desc">又称贞女祠，位于山海关城东凤凰山上，始建于宋代。供奉着中国四大民间传说之一的孟姜女。庙内有"望夫石"和108级台阶，每级代表一种苦难。正殿楹联"秦皇安在哉，万里长城筑怨；姜女未亡也，千秋片石铭贞"被誉为天下第一奇联。</p>
-        <p class="spot-info"><strong>交通：</strong>山海关古城打车约10分钟<br><strong>游玩时间：</strong>约1小时</p>
+        <p class="spot-info">
+          <strong>必看：</strong>望夫石、108级台阶、天下第一奇联<br>
+          <strong>建议游玩：</strong>约1小时<br>
+          <strong>交通：</strong>山海关古城打车约10分钟<br>
+          <strong>适合人群：</strong>文化爱好者、亲子研学
+        </p>
       </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb85fa5f?w=800&q=80" alt="孟姜女庙" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1603406953725-80f5e0b75f67?w=800&q=80" alt="孟姜女庙" loading="lazy"></div>
     </div>
   </div>
 
@@ -375,9 +440,15 @@
       <div class="spot-body">
         <span class="spot-tag tag-family">水上乐园 · 海洋动物</span>
         <h3 class="spot-title">乐岛海洋王国</h3>
-        <div class="spot-meta"><span>📍 山海关区</span><span>🎫 160元/人</span><span class="stars">★ 4.4</span><span>🕐 09:00-17:30</span></div>
+        <div class="spot-meta"><span>山海关区</span><span>160元/人</span><span class="stars">★ 4.4</span><span>09:00-17:30</span></div>
         <p class="spot-desc">华北地区最大的海洋主题乐园之一。集海洋动物表演、水上乐园、游乐设施于一体。海豚、海狮、白鲸表演每日多场，夏季水上乐园开放，是家庭出游首选。</p>
-        <p class="spot-info"><strong>适合：</strong>亲子家庭、情侣、水上项目爱好者<br><strong>交通：</strong>25路/35路乐岛站</p>
+        <p class="spot-info">
+          <strong>必看：</strong>海豚表演、海狮秀、白鲸互动、水上乐园（夏季）<br>
+          <strong>建议游玩：</strong>一整天<br>
+          <strong>交通：</strong>25路/35路乐岛站<br>
+          <strong>适合人群：</strong>亲子家庭、情侣、水上项目爱好者
+        </p>
+        <div class="spot-tips">夏季去记得带泳衣！水上乐园是最大亮点。表演场次有限，入园后先看演出时间表规划路线。门票较贵，建议提前在携程/美团买折扣票。</div>
       </div>
     </div>
   </div>
@@ -388,9 +459,14 @@
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-nature">养生胜地 · 自然奇观</span>
         <h3 class="spot-title">长寿山景区</h3>
-        <div class="spot-meta"><span>📍 山海关区</span><span>🎫 30元/人</span><span class="stars">★ 4.3</span><span>🕐 08:00-17:00</span></div>
+        <div class="spot-meta"><span>山海关区</span><span>30元/人</span><span class="stars">★ 4.3</span><span>08:00-17:00</span></div>
         <p class="spot-desc">以"寿"文化为主题的自然风景区。悬阳洞是中国北方最大的天然花岗岩石洞，洞中有洞。山中摩崖石刻以历代名家书写的"寿"字为主题，是祈福延寿的打卡胜地。</p>
-        <p class="spot-info"><strong>必看：</strong>悬阳洞、寿字碑林、神医石窟<br><strong>交通：</strong>山海关打车约25分钟</p>
+        <p class="spot-info">
+          <strong>必看：</strong>悬阳洞（北方最大天然花岗岩石洞）、寿字碑林、神医石窟<br>
+          <strong>建议游玩：</strong>2-3小时<br>
+          <strong>交通：</strong>山海关打车约25分钟<br>
+          <strong>适合人群：</strong>中老年游客、文化爱好者、登山爱好者
+        </p>
       </div>
       <div class="spot-img"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7c220?w=800&q=80" alt="长寿山自然风光" loading="lazy"></div>
     </div>
@@ -403,16 +479,21 @@
       <div class="spot-body">
         <span class="spot-tag tag-nature">山水画卷 · 鸟语林</span>
         <h3 class="spot-title">燕塞湖（石河水库）</h3>
-        <div class="spot-meta"><span>📍 山海关区</span><span>🎫 40元/人</span><span class="stars">★ 4.4</span><span>🕐 08:00-17:00</span></div>
+        <div class="spot-meta"><span>山海关区</span><span>40元/人</span><span class="stars">★ 4.4</span><span>08:00-17:00</span></div>
         <p class="spot-desc">被誉为"北方小桂林"，青山环抱一池碧水。湖中有鸟语林，栖息着百余种珍禽。可乘船游湖，两岸奇峰怪石倒映水中，是北方难得的山水画卷。</p>
-        <p class="spot-info"><strong>游玩方式：</strong>乘船游湖+鸟语林<br><strong>交通：</strong>山海关打车约20分钟</p>
+        <p class="spot-info">
+          <strong>游玩方式：</strong>乘船游湖（约40分钟）+ 鸟语林步行<br>
+          <strong>建议游玩：</strong>2-3小时<br>
+          <strong>交通：</strong>山海关打车约20分钟<br>
+          <strong>适合人群：</strong>全家出游、摄影爱好者、自然爱好者
+        </p>
       </div>
     </div>
   </div>
 
   <!-- ====== 海港区 ====== -->
   <div class="zone-header reveal" id="haigang">
-    <h2>🏙️ 海港区 · 4大景区</h2>
+    <h2>海港区 · 4大景区</h2>
     <p class="zone-count">城市中心 · 港口文化与海洋探索</p>
   </div>
 
@@ -422,44 +503,61 @@
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-history">秦朝历史 · 城市起源</span>
         <h3 class="spot-title">秦皇求仙入海处</h3>
-        <div class="spot-meta"><span>📍 海港区</span><span>🎫 45元/人</span><span class="stars">★ 4.2</span><span>🕐 08:00-17:30</span></div>
+        <div class="spot-meta"><span>海港区</span><span>45元/人</span><span class="stars">★ 4.2</span><span>08:00-17:30</span></div>
         <p class="spot-desc">据传是秦始皇东巡求仙的入海处，秦皇岛市名即源于此。景区内有巨型秦始皇雕像、求仙殿、战国风情园。临海而立，可感受两千年前帝王求仙问道的历史情境。</p>
-        <p class="spot-info"><strong>看点：</strong>秦始皇像、求仙殿、祈福广场<br><strong>交通：</strong>8路求仙入海处站</p>
+        <p class="spot-info">
+          <strong>看点：</strong>秦始皇雕像（高6米）、求仙殿、祈福广场、战国风情园<br>
+          <strong>建议游玩：</strong>1.5-2小时<br>
+          <strong>交通：</strong>8路求仙入海处站<br>
+          <strong>适合人群：</strong>历史爱好者、亲子研学
+        </p>
       </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" alt="秦皇求仙入海处" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80" alt="秦皇求仙入海处" loading="lazy"></div>
     </div>
   </div>
 
   <!-- 新澳海底世界 -->
   <div class="spot reveal">
     <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1559825485511-1912eef33b65?w=800&q=80" alt="新澳海底世界" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1559825485511-1912eef33b65?w=800&q=80" alt="新澳海底世界海底隧道" loading="lazy"></div>
       <div class="spot-body">
         <span class="spot-tag tag-family">海洋科普 · 亲子教育</span>
         <h3 class="spot-title">新澳海底世界</h3>
-        <div class="spot-meta"><span>📍 海港区</span><span>🎫 120元/人</span><span class="stars">★ 4.4</span><span>🕐 09:00-17:30</span></div>
+        <div class="spot-meta"><span>海港区</span><span>120元/人</span><span class="stars">★ 4.4</span><span>09:00-17:30</span></div>
         <p class="spot-desc">拥有亚洲最长的海底观光隧道（全长80米），鲨鱼、鳐鱼、海龟从头顶游过。还有海豹、企鹅等极地动物馆。每天有美人鱼表演和海狮表演，是亲子科普的绝佳去处。</p>
-        <p class="spot-info"><strong>必看：</strong>海底隧道、美人鱼表演、海狮秀<br><strong>交通：</strong>19路/32路新澳海底世界站</p>
+        <p class="spot-info">
+          <strong>必看：</strong>80米海底隧道、美人鱼表演（每日3场）、海狮秀、企鹅馆<br>
+          <strong>建议游玩：</strong>2-3小时<br>
+          <strong>交通：</strong>19路/32路新澳海底世界站<br>
+          <strong>适合人群：</strong>亲子家庭、海洋爱好者
+        </p>
+        <div class="spot-tips">雨天或太热天的最佳选择——全室内空调。海底隧道拍照建议用视频模式。表演场次有限，入园先看时间表。</div>
       </div>
     </div>
   </div>
 
   <!-- ====== 南戴河 & 昌黎 ====== -->
   <div class="zone-header reveal" id="nandaihe">
-    <h2>🌊 南戴河 · 昌黎 · 北戴河新区</h2>
+    <h2>南戴河 · 昌黎 · 北戴河新区</h2>
     <p class="zone-count">文艺海岸 · 黄金沙滩 · 温泉度假</p>
   </div>
 
   <!-- 黄金海岸 -->
   <div class="spot reveal">
     <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800&q=80" alt="黄金海岸沙滩" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800&q=80" alt="南戴河黄金海岸" loading="lazy"></div>
       <div class="spot-body">
         <span class="spot-tag tag-beach">世界级沙滩 · 滑沙运动</span>
         <h3 class="spot-title">南戴河 · 黄金海岸</h3>
-        <div class="spot-meta"><span>📍 昌黎县</span><span>🎫 沙滩免费</span><span class="stars">★ 4.5</span><span>🕐 全天开放</span></div>
+        <div class="spot-meta"><span>昌黎县</span><span>沙滩免费</span><span class="stars">★ 4.5</span><span>全天开放</span></div>
         <p class="spot-desc">被誉为"沙漠与大海的吻痕"，拥有中国最优质的天然沙质海岸之一。沙细、滩缓、水清、潮平。国际滑沙中心是国内最大的滑沙场，从沙丘滑下直冲大海的体验独一无二。</p>
-        <p class="spot-info"><strong>娱乐：</strong>滑沙、滑草、水上摩托、香蕉船<br><strong>交通：</strong>22路公交或打车，距北戴河30公里</p>
+        <p class="spot-info">
+          <strong>娱乐：</strong>滑沙（必玩！）、滑草、水上摩托、香蕉船<br>
+          <strong>建议游玩：</strong>半天到一天<br>
+          <strong>交通：</strong>22路公交或打车，距北戴河30公里<br>
+          <strong>适合人群：</strong>年轻人、亲子、水上运动爱好者
+        </p>
+        <div class="spot-tips">滑沙是这里的招牌项目，坐滑沙板从沙丘俯冲而下直冲大海，超刺激！沙子很烫，记得穿凉鞋。防晒一定要做好。</div>
       </div>
     </div>
   </div>
@@ -470,11 +568,16 @@
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-beach">温泉 · 水上乐园 · 薰衣草</span>
         <h3 class="spot-title">渔岛海洋温泉景区</h3>
-        <div class="spot-meta"><span>📍 北戴河新区</span><span>🎫 188元/人</span><span class="stars">★ 4.5</span><span>🕐 09:00-20:00</span></div>
+        <div class="spot-meta"><span>北戴河新区</span><span>188元/人</span><span class="stars">★ 4.5</span><span>09:00-20:00</span></div>
         <p class="spot-desc">集温泉、水上乐园、海洋娱乐于一体的大型综合度假区。室内外温泉池数十个，夏有水上乐园，冬有温泉暖浴。薰衣草庄园花季（6-8月）美如普罗旺斯。</p>
-        <p class="spot-info"><strong>特色：</strong>海水温泉、水上乐园、薰衣草庄园、滑沙<br><strong>交通：</strong>北戴河打车约40分钟</p>
+        <p class="spot-info">
+          <strong>特色：</strong>海水温泉（含多种矿物质）、水上乐园、薰衣草庄园（6-8月）、滑沙<br>
+          <strong>建议游玩：</strong>一整天<br>
+          <strong>交通：</strong>北戴河打车约40分钟<br>
+          <strong>适合人群：</strong>全家度假、情侣、温泉爱好者
+        </p>
       </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1445264918150-66a2371142a2?w=800&q=80" alt="渔岛温泉" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1445264918150-66a2371142a2?w=800&q=80" alt="渔岛海洋温泉" loading="lazy"></div>
     </div>
   </div>
 
@@ -485,9 +588,14 @@
       <div class="spot-body">
         <span class="spot-tag tag-family">海洋世界 · 欢乐亲子</span>
         <h3 class="spot-title">圣蓝海洋公园</h3>
-        <div class="spot-meta"><span>📍 北戴河新区</span><span>🎫 140元/人</span><span class="stars">★ 4.3</span><span>🕐 09:00-17:30</span></div>
+        <div class="spot-meta"><span>北戴河新区</span><span>140元/人</span><span class="stars">★ 4.3</span><span>09:00-17:30</span></div>
         <p class="spot-desc">综合性海洋主题公园，拥有海底观光、海洋动物表演、4D影院、游乐设施等。海豚剧场和白鲸表演是最大亮点，与海洋动物零距离接触的互动体验深受孩子喜爱。</p>
-        <p class="spot-info"><strong>交通：</strong>北戴河新区打车约30分钟</p>
+        <p class="spot-info">
+          <strong>必看：</strong>海豚剧场、白鲸表演、海底隧道、4D影院<br>
+          <strong>建议游玩：</strong>3-4小时<br>
+          <strong>交通：</strong>北戴河新区打车约30分钟<br>
+          <strong>适合人群：</strong>亲子家庭、海洋爱好者
+        </p>
       </div>
     </div>
   </div>
@@ -498,30 +606,41 @@
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-history">名山古迹 · 曹操观海处</span>
         <h3 class="spot-title">碣石山</h3>
-        <div class="spot-meta"><span>📍 昌黎县</span><span>🎫 20元/人</span><span class="stars">★ 4.2</span><span>🕐 08:00-17:00</span></div>
+        <div class="spot-meta"><span>昌黎县</span><span>20元/人</span><span class="stars">★ 4.2</span><span>08:00-17:00</span></div>
         <p class="spot-desc">千古名山！曹操"东临碣石，以观沧海"即在此所作。主峰仙台顶海拔695米，登顶可俯瞰渤海。秦始皇、汉武帝、唐太宗等帝王均曾登临碣石，是中国古代帝王祭海的名山。</p>
-        <p class="spot-info"><strong>海拔：</strong>695米，登山约2小时<br><strong>交通：</strong>昌黎县城打车约30分钟</p>
+        <p class="spot-info">
+          <strong>海拔：</strong>695米，登山约2小时<br>
+          <strong>必看：</strong>仙台顶（观海最佳点）、水岩寺、碣石门<br>
+          <strong>交通：</strong>昌黎县城打车约30分钟<br>
+          <strong>适合人群：</strong>登山爱好者、历史文化爱好者
+        </p>
       </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="碣石山" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="碣石山远眺渤海" loading="lazy"></div>
     </div>
   </div>
 
   <!-- ====== 抚宁 & 青龙 ====== -->
   <div class="zone-header reveal" id="funing">
-    <h2>⛰️ 抚宁区 · 青龙县 · 自然秘境</h2>
+    <h2>抚宁区 · 青龙县 · 自然秘境</h2>
     <p class="zone-count">原始森林 · 长城峡谷 · 北方名山</p>
   </div>
 
   <!-- 祖山 -->
   <div class="spot reveal">
     <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1536617305729-4cf28028d637?w=800&q=80" alt="祖山风景区" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1536617305729-4cf28028d637?w=800&q=80" alt="祖山风景区云海" loading="lazy"></div>
       <div class="spot-body">
         <span class="spot-tag tag-nature">北方群山之祖 · 云海奇观</span>
         <h3 class="spot-title">祖山风景区</h3>
-        <div class="spot-meta"><span>📍 青龙县</span><span>🎫 80元/人</span><span class="stars">★ 4.6</span><span>🕐 08:00-17:00</span></div>
+        <div class="spot-meta"><span>青龙县</span><span>80元/人</span><span class="stars">★ 4.6</span><span>08:00-17:00</span></div>
         <p class="spot-desc">素有"北方群山之祖"之称，主峰天女峰海拔1428米。原始森林覆盖率达96%，负氧离子浓度极高。春有杜鹃花海，夏可避暑纳凉，秋赏红叶满山，冬观雾凇冰挂。云海日出堪称一绝。</p>
-        <p class="spot-info"><strong>交通：</strong>秦皇岛市区打车约1小时<br><strong>建议：</strong>全天游玩，可乘坐缆车</p>
+        <p class="spot-info">
+          <strong>必看：</strong>天女峰（云海日出）、十里画廊、画廊谷、情人谷<br>
+          <strong>建议游玩：</strong>一整天（可乘缆车节省体力）<br>
+          <strong>交通：</strong>秦皇岛市区打车约1小时<br>
+          <strong>适合人群：</strong>登山爱好者、摄影爱好者、避暑度假
+        </p>
+        <div class="spot-tips">想看云海日出需前一天住山脚民宿，凌晨4点出发登顶。体力一般建议坐缆车上山（单程60元），步行下山。秋季红叶最美。</div>
       </div>
     </div>
   </div>
@@ -532,40 +651,51 @@
       <div class="spot-body" style="direction:ltr;">
         <span class="spot-tag tag-nature">峡谷奇观 · 夏季冰瀑</span>
         <h3 class="spot-title">冰塘峪长城风情大峡谷</h3>
-        <div class="spot-meta"><span>📍 抚宁区</span><span>🎫 80元/人</span><span class="stars">★ 4.4</span><span>🕐 08:00-17:00</span></div>
+        <div class="spot-meta"><span>抚宁区</span><span>80元/人</span><span class="stars">★ 4.4</span><span>08:00-17:00</span></div>
         <p class="spot-desc">因峡谷中夏季仍有冰瀑而得名——夏季三伏天谷内仍有残冰，是北方罕见的地质奇观。峡谷两侧长城蜿蜒，溪流潺潺，玻璃栈道悬于峭壁之上，惊险刺激。</p>
-        <p class="spot-info"><strong>亮点：</strong>夏季冰瀑、玻璃栈道、峡谷漂流<br><strong>交通：</strong>秦皇岛市区打车约1小时</p>
+        <p class="spot-info">
+          <strong>亮点：</strong>夏季冰瀑奇观、玻璃栈道（长200米）、峡谷漂流、长城遗迹<br>
+          <strong>建议游玩：</strong>3-4小时<br>
+          <strong>交通：</strong>秦皇岛市区打车约1小时<br>
+          <strong>适合人群：</strong>探险爱好者、亲子、避暑纳凉
+        </p>
+        <div class="spot-tips">夏天去最合适，峡谷内比外面凉快10℃。玻璃栈道恐高慎入。带一套换洗衣物，峡谷漂流会湿身。</div>
       </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" alt="冰塘峪峡谷" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="冰塘峪峡谷" loading="lazy"></div>
     </div>
   </div>
 
   <!-- 板厂峪 -->
   <div class="spot reveal">
     <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=800&q=80" alt="板厂峪长城" loading="lazy"></div>
+      <div class="spot-img"><img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=800&q=80" alt="板厂峪长城遗址" loading="lazy"></div>
       <div class="spot-body">
         <span class="spot-tag tag-history">考古长城 · 砖窑遗址</span>
         <h3 class="spot-title">板厂峪长城景区</h3>
-        <div class="spot-meta"><span>📍 抚宁区</span><span>🎫 50元/人</span><span class="stars">★ 4.5</span><span>🕐 08:00-17:00</span></div>
+        <div class="spot-meta"><span>抚宁区</span><span>50元/人</span><span class="stars">★ 4.5</span><span>08:00-17:00</span></div>
         <p class="spot-desc">明朝修筑长城的"后勤基地"。2002年出土了600座明代砖窑遗址和世界唯一的"斑鬣狗"化石。倒挂长城段险峻壮丽，是长城摄影的宝藏取景地。秋季红叶与长城交织如画。</p>
-        <p class="spot-info"><strong>必看：</strong>砖窑遗址、倒挂长城、倒挂长城观景台<br><strong>交通：</strong>秦皇岛市区打车约50分钟</p>
+        <p class="spot-info">
+          <strong>必看：</strong>明代砖窑遗址群（全国唯一）、倒挂长城、斑鬣狗化石展览<br>
+          <strong>建议游玩：</strong>3-4小时<br>
+          <strong>交通：</strong>秦皇岛市区打车约50分钟<br>
+          <strong>适合人群：</strong>长城爱好者、摄影爱好者、考古迷
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- ====== 更多小景点卡片 ====== -->
+  <!-- ====== 更多小景点 ====== -->
   <div class="zone-header reveal">
-    <h2>🗺️ 更多值得探索</h2>
+    <h2>更多值得探索</h2>
     <p class="zone-count">分布在各区的特色小景点</p>
   </div>
 
   <div class="grid-3">
     <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1559825485511-1912eef33b65?w=400&q=80" alt="集发农业梦想王国" loading="lazy"></div>
+      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=400&q=80" alt="集发农业梦想王国" loading="lazy"></div>
       <div class="mini-spot-body">
         <h3>集发农业梦想王国</h3>
-        <div class="mini-meta">📍 北戴河区 · 🎫 100元 · ★4.3</div>
+        <div class="mini-meta">北戴河区 · 100元 · ★4.3</div>
         <p>农业主题乐园，温室花园+萌宠+游乐设施，亲子研学首选。</p>
       </div>
     </div>
@@ -573,31 +703,31 @@
       <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&q=80" alt="北戴河湿地公园" loading="lazy"></div>
       <div class="mini-spot-body">
         <h3>北戴河湿地公园</h3>
-        <div class="mini-meta">📍 北戴河区 · 🎫 免费 · ★4.4</div>
+        <div class="mini-meta">北戴河区 · 免费 · ★4.4</div>
         <p>中国城市最大湿地之一，400+种鸟类栖息，观鸟、摄影胜地。</p>
       </div>
     </div>
     <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb85fa5f?w=400&q=80" alt="秦皇岛港口工业旅游区" loading="lazy"></div>
+      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1574391884720-bbc049ec09ad?w=400&q=80" alt="秦皇岛港口博物馆" loading="lazy"></div>
       <div class="mini-spot-body">
-        <h3>秦皇岛港口工业旅游区</h3>
-        <div class="mini-meta">📍 海港区 · 🎫 免费 · ★4.2</div>
+        <h3>秦皇岛港口博物馆</h3>
+        <div class="mini-meta">海港区 · 免费 · ★4.2</div>
         <p>百年港口历史，工业遗址改造的文创园区，拍照出片。</p>
       </div>
     </div>
     <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=400&q=80" alt="蔚蓝海岸" loading="lazy"></div>
+      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1513097417638-c450a4e02f6c?w=400&q=80" alt="蔚蓝海岸" loading="lazy"></div>
       <div class="mini-spot-body">
         <h3>蔚蓝海岸</h3>
-        <div class="mini-meta">📍 北戴河新区 · 🎫 免费 · ★4.5</div>
+        <div class="mini-meta">北戴河新区 · 免费 · ★4.5</div>
         <p>新兴文艺海岸社区。猫的天空之城书店+海边秋千+冲浪。</p>
       </div>
     </div>
     <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1513097417638-c450a4e02f6c?w=400&q=80" alt="南戴河国际娱乐中心" loading="lazy"></div>
+      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?w=400&q=80" alt="南戴河国际娱乐中心" loading="lazy"></div>
       <div class="mini-spot-body">
         <h3>南戴河国际娱乐中心</h3>
-        <div class="mini-meta">📍 抚宁区 · 🎫 120元 · ★4.3</div>
+        <div class="mini-meta">抚宁区 · 120元 · ★4.3</div>
         <p>大型综合游乐场，过山车+摩天轮+水上世界，适合年轻人。</p>
       </div>
     </div>
@@ -605,7 +735,7 @@
       <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1482938289607-e9573b41be43?w=400&q=80" alt="戴河生态园" loading="lazy"></div>
       <div class="mini-spot-body">
         <h3>戴河生态园</h3>
-        <div class="mini-meta">📍 北戴河区 · 🎫 免费 · ★4.1</div>
+        <div class="mini-meta">北戴河区 · 免费 · ★4.1</div>
         <p>沿戴河而建的湿地公园，木栈道+荷花池+垂钓，悠闲半日。</p>
       </div>
     </div>
@@ -652,6 +782,21 @@ var o=new IntersectionObserver(function(e){
   });
 },{threshold:0.1});
 reveals.forEach(function(el){o.observe(el);});
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"秦皇岛景点大全",
+  "description":"秦皇岛30+精选景区完整推荐",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"北戴河海滨风景区","url":"https://qhd-lv.vercel.app/attractions.html#beidaihe-spot"},
+    {"@type":"ListItem","position":2,"name":"山海关·天下第一关","url":"https://qhd-lv.vercel.app/attractions.html#shanhaiguan-spot"},
+    {"@type":"ListItem","position":3,"name":"鸽子窝公园","url":"https://qhd-lv.vercel.app/attractions.html#geziwo-spot"},
+    {"@type":"ListItem","position":4,"name":"老龙头景区","url":"https://qhd-lv.vercel.app/attractions.html#laolongtou-spot"},
+    {"@type":"ListItem","position":5,"name":"阿那亚·黄金海岸社区","url":"https://qhd-lv.vercel.app/attractions.html#aranya-spot"}
+  ]
+}
 </script>
 </body>
 </html>
