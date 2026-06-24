@@ -56,378 +56,114 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-  /* ===== 首页专属 Hero — 全屏沉浸式 ===== */
-  .hero-home {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(170deg, #0284c7 0%, #0369a1 18%, #0e7490 40%, #0891b2 65%, #06b6d4 100%);
-    padding: calc(var(--nav-height) + var(--space-8)) var(--space-6) var(--space-16);
+  /* ===== 首页专属 Hero — 原始 Google Blue 全屏设计 ===== */
+  .hero-full {
+    min-height: 100vh; display: flex; align-items: center;
+    background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 50%, #4a9af5 100%);
+    position: relative; overflow: hidden; padding: 120px 24px 80px;
   }
-  /* 柔光多层叠加 —— Stripe 风格精髓 */
-  .hero-home::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+  .hero-full::before {
+    content: ''; position: absolute; inset: 0;
     background:
-      /* 左上角大柔光 */
-      radial-gradient(ellipse 70% 50% at 15% 25%, rgba(255,255,255,0.18) 0%, transparent 55%),
-      /* 中部暖光 */
-      radial-gradient(ellipse 50% 60% at 60% 40%, rgba(253,230,138,0.10) 0%, transparent 55%),
-      /* 右下角蓝色辉光 */
-      radial-gradient(ellipse 45% 45% at 80% 70%, rgba(56,189,248,0.14) 0%, transparent 55%),
-      /* 底部过渡光 */
-      radial-gradient(ellipse 60% 30% at 50% 90%, rgba(255,251,245,0.12) 0%, transparent 60%);
+      radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
   }
-  .hero-home::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 200px;
-    background: linear-gradient(to top, rgba(255,251,245,0.18), transparent);
-    pointer-events: none;
+  .hero-grid {
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center; position: relative; z-index: 1;
   }
-  /* 漂浮装饰球 */
-  .hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero-orb--1 {
-    width: 320px; height: 320px;
-    top: -80px; right: -60px;
-    background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%);
-  }
-  .hero-orb--2 {
-    width: 200px; height: 200px;
-    bottom: 80px; left: -40px;
-    background: radial-gradient(circle, rgba(253,230,138,0.12) 0%, transparent 70%);
-  }
-  .hero-orb--3 {
-    width: 160px; height: 160px;
-    top: 45%; left: 40%;
-    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-  }
-  .hero-home-content {
-    position: relative;
-    z-index: 1;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: var(--space-12);
-    align-items: center;
-  }
-  .hero-text { color: #fff; }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    padding: var(--space-2) var(--space-5);
-    border-radius: var(--radius-full);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    margin-bottom: var(--space-6);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: rgba(255,255,255,0.95);
-  }
-  .hero-badge-dot {
-    width: 7px; height: 7px;
-    background: #22d3ee;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(34,211,238,0.6);
-    animation: pulse-dot 2.2s ease-in-out infinite;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(1.6); }
-  }
-  .hero-text h1 {
-    font-size: clamp(3.2rem, 6.5vw, 5.5rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.035em;
-    margin-bottom: var(--space-5);
-    text-shadow: 0 4px 80px rgba(0,0,0,0.2);
-  }
-  .hero-text h1 .hl {
-    font-style: normal;
-    background: linear-gradient(135deg, #fde68a 0%, #fbbf24 40%, #f59e0b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: none;
-  }
-  .hero-text p {
-    font-size: 1.125rem;
-    opacity: 0.88;
-    line-height: 1.85;
-    margin-bottom: var(--space-8);
-    max-width: 480px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-  }
-  .hero-btns {
-    display: flex;
-    gap: var(--space-4);
-    flex-wrap: wrap;
-  }
-  .hero-btns .btn-hero-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #fff;
-    color: #0e7490;
-    font-weight: 700;
-    font-size: 0.9375rem;
-    padding: 15px 32px;
-    border-radius: var(--radius-full);
-    text-decoration: none;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .hero-btns .btn-hero-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.16), 0 2px 8px rgba(0,0,0,0.08);
-  }
-  .hero-btns .btn-hero-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.9375rem;
-    padding: 15px 32px;
-    border-radius: var(--radius-full);
-    border: 1.5px solid rgba(255,255,255,0.35);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    text-decoration: none;
-  }
-  .hero-btns .btn-hero-ghost:hover {
-    background: rgba(255,255,255,0.18);
-    border-color: rgba(255,255,255,0.55);
-    color: #fff;
-    transform: translateY(-2px);
-  }
-  .hero-visual {
-    position: relative;
-  }
-  .hero-img-main {
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.3), 0 8px 30px rgba(0,0,0,0.15);
-    transform: perspective(900px) rotateY(-5deg) rotateX(3deg);
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    border: 3px solid rgba(255,255,255,0.2);
-  }
-  .hero-img-main:hover {
-    transform: perspective(900px) rotateY(-1deg) rotateX(1deg);
-  }
-  .hero-img-main img {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    display: block;
-  }
-  .hero-floating-card {
-    position: absolute;
-    bottom: -24px;
-    left: -36px;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 18px 24px;
-    border-radius: 16px;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: #0f172a;
-    z-index: 2;
-    border: 1px solid rgba(255,255,255,0.7);
-  }
-  .hero-floating-card span {
-    display: block;
-    font-size: 1.75rem;
-    font-weight: 900;
-    color: #0284c7;
-    line-height: 1.1;
-  }
-  .hero-floating-card--2 {
-    top: 60px;
-    right: -20px;
-    bottom: auto;
-    left: auto;
-    padding: 14px 20px;
-    border-radius: 14px;
-    font-size: 0.75rem;
-  }
-  .hero-floating-card--2 span {
-    font-size: 1.35rem;
-    color: #f59e0b;
-  }
-
-  /* ===== 首页 City Intro ===== */
-  .city-intro {
-    padding: var(--space-24) var(--space-6);
-    background: var(--cream);
-    position: relative;
-  }
-  .city-intro-grid {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
-    align-items: center;
-  }
-  .city-intro-text .text-caption { margin-bottom: var(--space-3); }
-  .city-intro-text h2 {
-    font-size: var(--text-4xl);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: var(--space-5);
-    letter-spacing: -0.02em;
-  }
-  .city-intro-text p {
-    color: var(--text-secondary);
-    line-height: 1.9;
-    margin-bottom: var(--space-4);
-  }
-  .city-intro-image {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
-  }
-  .city-intro-image img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
-  }
-  .city-intro-image img:first-child {
-    grid-column: 1 / -1;
-    height: 240px;
-  }
-
-  /* ===== 首页 Attractions Preview ===== */
-  .attractions-preview {
-    padding: var(--space-24) var(--space-6);
-    background: #fff;
-  }
-  .attraction-hero-card {
-    background: #fff;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: all var(--duration-slow) var(--ease-out);
-    border: 1px solid var(--border-light);
-    position: relative;
-  }
-  .attraction-hero-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-xl);
-  }
-  .attraction-hero-card-img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    transition: transform 0.6s var(--ease-out);
-  }
-  .attraction-hero-card:hover .attraction-hero-card-img { transform: scale(1.05); }
-
-  /* ===== 首页 Itinerary Tabs ===== */
-  .itinerary-preview {
-    padding: var(--space-24) var(--space-6);
-    background: var(--sand-light);
-  }
-  .day-tabs {
-    display: flex;
-    gap: var(--space-3);
-    margin-bottom: var(--space-8);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .day-tab {
-    padding: var(--space-3) var(--space-6);
-    border-radius: var(--radius-full);
-    font-weight: 700;
-    font-size: var(--text-sm);
-    cursor: pointer;
-    transition: all var(--duration) var(--ease-out);
-    border: 2px solid transparent;
-    background: #fff;
-    color: var(--text-secondary);
-    box-shadow: var(--shadow-xs);
-  }
-  .day-tab:hover { color: var(--ocean); border-color: var(--ocean-light); }
-  .day-tab.active {
-    background: var(--ocean);
-    color: #fff;
-    box-shadow: 0 4px 16px rgba(26,107,138,0.3);
-  }
-  .day-panel { display: none; }
-  .day-panel.active { display: block; animation: panelIn 0.45s var(--ease-out); }
-  @keyframes panelIn {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ===== 首页 Tips ===== */
-  .tips-preview {
-    padding: var(--space-24) var(--space-6);
-    background: var(--cream);
-  }
-  .tip-card-home {
-    background: #fff;
-    border-radius: var(--radius);
-    padding: var(--space-6);
-    transition: all var(--duration) var(--ease-out);
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-xs);
-  }
-  .tip-card-home:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
-  }
-  .tip-card-home .tip-icon {
-    width: 48px; height: 48px;
-    background: rgba(26,107,138,0.06);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: var(--space-4);
-  }
-  .tip-card-home h3 { font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--space-3); }
-  .tip-card-home p { color: var(--text-secondary); font-size: var(--text-sm); line-height: 1.8; margin-bottom: var(--space-4); }
-  .tip-card-home a { font-size: var(--text-sm); font-weight: 600; color: var(--ocean); }
-
-  /* ===== Responsive ===== */
   @media (max-width: 900px) {
-    .hero-home-content { grid-template-columns: 1fr; text-align: center; }
-    .hero-text p { margin-left: auto; margin-right: auto; }
-    .hero-btns { justify-content: center; }
-    .hero-visual { max-width: 400px; margin: 0 auto; }
-    .hero-img-main img { height: 320px; }
-    .hero-floating-card { left: 0; bottom: -10px; }
-    .hero-floating-card--2 { right: 0; top: auto; bottom: -10px; }
-    .hero-orb--1 { width: 200px; height: 200px; top: -40px; right: -30px; }
-    .hero-orb--2 { width: 140px; height: 140px; bottom: 40px; left: -20px; }
-    .hero-orb--3 { display: none; }
-    .city-intro-grid { grid-template-columns: 1fr; gap: var(--space-10); }
-    .day-panel { max-width: 100%; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-img-wrap { max-width: 400px; margin: 0 auto; }
   }
+  .hero-img-wrap {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.5s;
+  }
+  .hero-img-wrap:hover { transform: perspective(1000px) rotateY(0deg); }
+  .hero-img-wrap img { width: 100%; height: 400px; object-fit: cover; display: block; }
+
+  /* ===== 城市介绍 ===== */
+  .city-intro { padding: 100px 24px; background: #fff; }
+  .city-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  @media (max-width: 900px) { .city-grid { grid-template-columns: 1fr; } }
+  .city-stats { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
+  .city-stat {
+    background: rgba(26,115,232,0.05); padding: 16px 24px; border-radius: 12px;
+    text-align: center; flex: 1; min-width: 100px;
+  }
+  .city-stat-num { font-size: 1.8rem; font-weight: 900; color: #1a73e8; }
+  .city-stat-label { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+
+  /* ===== 景点卡片 ===== */
+  .attractions-preview { padding: 100px 24px; background: #f8fafc; }
+  .attractions-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 900px) { .attractions-grid { grid-template-columns: 1fr; } }
+  .att-card {
+    background: #fff; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: all 0.3s; border: 1px solid #e2e8f0;
+  }
+  .att-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+  .att-card-img { width: 100%; height: 220px; object-fit: cover; }
+  .att-card-body { padding: 24px; }
+  .att-card-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+  .att-card-body p { color: #64748b; font-size: 0.92rem; line-height: 1.7; }
+  .att-card-tag {
+    display: inline-block; background: rgba(26,115,232,0.08); color: #1a73e8;
+    padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px;
+  }
+
+  /* ===== 行程 Tab ===== */
+  .itinerary-preview { padding: 100px 24px; background: #fff; }
+  .day-tabs { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
+  .day-tab {
+    padding: 12px 28px; border-radius: 12px; font-weight: 700; font-size: 0.95rem;
+    cursor: pointer; transition: all 0.2s; border: 2px solid #e2e8f0; background: #fff; color: #64748b;
+  }
+  .day-tab:hover { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+  .day-tab.active { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+  .day-content { max-width: 800px; margin: 0 auto; }
+  .day-panel { display: none; }
+  .day-panel.active { display: block; animation: fadeIn 0.4s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .timeline { border-left: 3px solid #1a73e8; padding-left: 28px; }
+  .timeline-item { margin-bottom: 24px; position: relative; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -35px; top: 4px;
+    width: 12px; height: 12px; background: #1a73e8; border-radius: 50%;
+    border: 3px solid #fff; box-shadow: 0 0 0 3px rgba(26,115,232,0.2);
+  }
+  .timeline-time { font-weight: 700; color: #1a73e8; font-size: 0.92rem; }
+  .timeline-desc { color: #64748b; font-size: 0.92rem; margin-top: 4px; line-height: 1.7; }
+
+  /* ===== 美食 ===== */
+  .food-preview { padding: 100px 24px; background: #f8fafc; }
+  .food-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 900px) { .food-grid { grid-template-columns: 1fr; } }
+
+  /* ===== 贴士 ===== */
+  .tips-preview { padding: 100px 24px; background: #fff; }
+  .tips-grid {
+    max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+  @media (max-width: 900px) { .tips-grid { grid-template-columns: 1fr; } }
+  .tip-card {
+    background: #f8fafc; border-radius: 16px; padding: 28px;
+    transition: all 0.3s; border: 1px solid #e2e8f0;
+  }
+  .tip-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .tip-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+
+  /* ===== CTA ===== */
+  .cta-home {
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%); color: #fff;
+    padding: 80px 24px; text-align: center;
+  }
+  .cta-home h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+  .cta-home p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
 </style>
 </head>
 <body>
@@ -435,7 +171,7 @@
 <!-- ====== 导航栏 ====== -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">🌊 秦皇岛<span>旅游官网</span></a>
+    <a href="index.html" class="nav-logo">🏖️ 秦皇岛<span>旅游官网</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">首页</a></li>
       <li><a href="attractions.html">景点</a></li>
@@ -452,73 +188,62 @@
 </nav>
 
 <!-- ====== Hero 全屏 ====== -->
-<section class="hero-home">
-  <div class="hero-orb hero-orb--1"></div>
-  <div class="hero-orb hero-orb--2"></div>
-  <div class="hero-orb hero-orb--3"></div>
-  <div class="hero-home-content">
-    <div class="hero-text">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        2026 · 最新攻略已更新
-      </div>
-      <h1>
-        发现<span class="hl">秦皇岛</span><br>中国最美海岸线
+<section class="hero-full">
+  <div class="hero-grid">
+    <div style="color: #fff;">
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 2px 20px rgba(0,0,0,0.2);">
+        发现秦皇岛<br>最美海岸线
       </h1>
-      <p>
-        北戴河看海 · 山海关登长城 · 鸽子窝看日出<br>
-        我们为你准备了最完整的3日精华行程
+      <p style="font-size: 1.15rem; opacity: 0.92; line-height: 1.8; margin-bottom: 36px; max-width: 500px;">
+        北戴河看海 · 山海关登长城 · 鸽子窝看日出<br>2026年最新旅游攻略，助你玩转秦皇岛
       </p>
-      <div class="hero-btns">
-        <a href="itinerary.html" class="btn-hero-primary">免费规划行程 →</a>
-        <a href="attractions.html" class="btn-hero-ghost">探索所有景点</a>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="itinerary.html" class="btn-primary">🗓️ 免费规划行程</a>
+        <a href="attractions.html" class="btn-outline">📍 探索景点</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-img-main">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="秦皇岛金色海滩" loading="eager">
-      </div>
-      <div class="hero-floating-card">
-        <span>2000万+</span>年接待游客
-      </div>
-      <div class="hero-floating-card hero-floating-card--2">
-        <span>6大</span>核心景区
-      </div>
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="秦皇岛海滩风景" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- ====== 城市介绍 ====== -->
 <section class="city-intro">
-  <div class="city-intro-grid">
-    <div class="city-intro-text reveal">
-      <div class="text-caption">▸ 关于秦皇岛</div>
-      <h2>山海相连<br>历史与现代交融</h2>
-      <p>
-        <strong>秦皇岛</strong>地处河北省东北部，南临渤海，北依燕山，因秦始皇东巡至此而得名。作为中国首批沿海开放城市之一，这里是连接华北与东北的咽喉要道。
+  <div class="city-grid">
+    <div>
+      <span style="color: #1a73e8; font-weight: 700; font-size: 0.9rem;">关于秦皇岛</span>
+      <h2 style="font-size: 2rem; font-weight: 800; margin: 12px 0 16px; line-height: 1.3;">
+        山海相连<br>历史与现代交融
+      </h2>
+      <p style="color: #64748b; line-height: 1.9; margin-bottom: 16px;">
+        <strong>秦皇岛</strong>地处河北省东北部，南临渤海，北依燕山，因秦始皇东巡至此而得名。
+        这里是连接华北与东北的咽喉要道，也是中国首批沿海开放城市之一。
       </p>
-      <p>
-        拥有<strong>中国四大避暑胜地之一</strong>的北戴河、<strong>天下第一关</strong>山海关、<strong>长城唯一入海处</strong>老龙头等世界级旅游资源。
+      <p style="color: #64748b; line-height: 1.9; margin-bottom: 24px;">
+        秦皇岛拥有<strong>中国四大避暑胜地之一</strong>的北戴河、<strong>天下第一关</strong>山海关、
+        <strong>长城唯一入海处</strong>老龙头等世界级旅游资源，每年吸引数千万游客前来观光。
       </p>
-      <div class="stats-row" style="justify-content:flex-start;margin-top:var(--space-6);">
-        <div class="stat-card" style="background:rgba(26,107,138,0.06);border-color:rgba(26,107,138,0.1);">
-          <div class="stat-num" style="color:var(--ocean);">2000万+</div>
-          <div class="stat-label" style="color:var(--text-secondary);">年游客量</div>
+      <div class="city-stats">
+        <div class="city-stat">
+          <div class="city-stat-num">2000万+</div>
+          <div class="city-stat-label">年游客量</div>
         </div>
-        <div class="stat-card" style="background:rgba(26,107,138,0.06);border-color:rgba(26,107,138,0.1);">
-          <div class="stat-num" style="color:var(--ocean);">6大</div>
-          <div class="stat-label" style="color:var(--text-secondary);">核心景区</div>
+        <div class="city-stat">
+          <div class="city-stat-num">6大</div>
+          <div class="city-stat-label">核心景区</div>
         </div>
-        <div class="stat-card" style="background:rgba(26,107,138,0.06);border-color:rgba(26,107,138,0.1);">
-          <div class="stat-num" style="color:var(--ocean);">600年</div>
-          <div class="stat-label" style="color:var(--text-secondary);">山海关历史</div>
+        <div class="city-stat">
+          <div class="city-stat-num">600年</div>
+          <div class="city-stat-label">山海关历史</div>
         </div>
       </div>
     </div>
-    <div class="city-intro-image reveal">
-      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="北戴河海滨" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=400&q=80" alt="山海关" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=400&q=80" alt="鸽子窝日出" loading="lazy">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&q=80" alt="北戴河海滨" style="width:100%;height:180px;object-fit:cover;border-radius:12px;" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=400&q=80" alt="山海关" style="width:100%;height:180px;object-fit:cover;border-radius:12px;margin-top:20px;" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=400&q=80" alt="鸽子窝日出" style="width:100%;height:180px;object-fit:cover;border-radius:12px;margin-top:-20px;" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=400&q=80" alt="黄金海岸" style="width:100%;height:180px;object-fit:cover;border-radius:12px;" loading="lazy">
     </div>
   </div>
 </section>
@@ -526,42 +251,41 @@
 <!-- ====== 热门景点 ====== -->
 <section class="attractions-preview">
   <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="text-caption">▸ 必去景点</div>
-      <h2>精选三大核心体验</h2>
-      <p>每个都值得你专程前往，我们已为你标注了最佳游玩方式</p>
+    <div class="section-header">
+      <h2>必去景点推荐</h2>
+      <p>精选秦皇岛最值得一去的景点，每个都值得专程前往</p>
     </div>
-    <div class="grid-3">
-      <div class="attraction-hero-card reveal">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="北戴河海滨" class="attraction-hero-card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag">🌊 海滨风光</span>
+    <div class="attractions-grid">
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="北戴河海滨" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🌊 海滨风光</span>
           <h3>北戴河海滨风景区</h3>
-          <p>中国四大避暑胜地之一，细腻沙滩与清澈海水，是秦皇岛最著名的旅游名片。</p>
-          <a href="attractions.html#beidaihe" style="margin-top:var(--space-3);display:inline-flex;align-items:center;gap:var(--space-1);font-weight:600;color:var(--ocean);font-size:var(--text-sm);">查看详情 →</a>
+          <p>中国四大避暑胜地之一，拥有细腻的沙滩和清澈的海水，是秦皇岛最著名的旅游区。</p>
+          <a href="attractions.html#beidaihe" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#1a73e8;font-size:0.9rem;text-decoration:none;">查看详情 →</a>
         </div>
       </div>
-      <div class="attraction-hero-card reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=600&q=80" alt="山海关" class="attraction-hero-card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag">🏯 历史文化</span>
-          <h3>山海关·天下第一关</h3>
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=600&q=80" alt="山海关" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🏯 历史文化</span>
+          <h3>山海关 · 天下第一关</h3>
           <p>明长城东北关隘，"天下第一关"匾额闻名天下，六百年沧桑尽在古城墙间。</p>
-          <a href="attractions.html#shanhaiyuan" style="margin-top:var(--space-3);display:inline-flex;align-items:center;gap:var(--space-1);font-weight:600;color:var(--ocean);font-size:var(--text-sm);">查看详情 →</a>
+          <a href="attractions.html#shanhaiyuan" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#1a73e8;font-size:0.9rem;text-decoration:none;">查看详情 →</a>
         </div>
       </div>
-      <div class="attraction-hero-card reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=600&q=80" alt="鸽子窝公园" class="attraction-hero-card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag">🌅 日出胜地</span>
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=600&q=80" alt="鸽子窝公园" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🌅 日出胜地</span>
           <h3>鸽子窝公园</h3>
           <p>北戴河最佳日出观赏地，鹰角石矗立海边，每年数百万游客在此迎接第一缕晨光。</p>
-          <a href="attractions.html#geziwo" style="margin-top:var(--space-3);display:inline-flex;align-items:center;gap:var(--space-1);font-weight:600;color:var(--ocean);font-size:var(--text-sm);">查看详情 →</a>
+          <a href="attractions.html#geziwo" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#1a73e8;font-size:0.9rem;text-decoration:none;">查看详情 →</a>
         </div>
       </div>
     </div>
-    <div class="text-center mt-12">
-      <a href="attractions.html" class="btn btn-outline">查看全部景点 →</a>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="attractions.html" class="btn-outline">查看全部景点 →</a>
     </div>
   </div>
 </section>
@@ -569,34 +293,33 @@
 <!-- ====== 行程规划预览 ====== -->
 <section class="itinerary-preview">
   <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="text-caption">▸ 行程规划</div>
+    <div class="section-header">
       <h2>3日精华路线</h2>
-      <p>每天不赶路，玩得尽兴——我们为你精心设计的经典路线</p>
+      <p>精心设计的经典路线，每天不赶路，玩得尽兴</p>
     </div>
-    <div class="day-tabs reveal">
+    <div class="day-tabs">
       <div class="day-tab active" onclick="showDay(0)">Day 1 · 北戴河</div>
       <div class="day-tab" onclick="showDay(1)">Day 2 · 山海关</div>
       <div class="day-tab" onclick="showDay(2)">Day 3 · 南戴河</div>
     </div>
-    <div class="reveal" style="max-width:760px;margin:0 auto;">
+    <div class="day-content">
       <!-- Day 1 -->
       <div class="day-panel active" id="day-0">
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-time" style="color:var(--ocean);">🌅 05:00 - 08:00</div>
+            <div class="timeline-time">🌅 05:00 - 08:00</div>
             <div class="timeline-desc"><strong>鸽子窝公园看日出</strong> — 夏季日出约4:30，提前40分钟到达。鹰角石、望海长廊都不容错过。</div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-time" style="color:var(--ocean);">🏖️ 10:00 - 17:00</div>
+            <div class="timeline-time">🏖️ 10:00 - 17:00</div>
             <div class="timeline-desc"><strong>老虎石海上公园 + 沙滩休闲</strong> — 北戴河最著名的海滨浴场，游泳、玩沙、拍照。附近海鲜大排档解决午餐。</div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-time" style="color:var(--ocean);">🌙 18:00 - 21:00</div>
+            <div class="timeline-time">🌙 18:00 - 21:00</div>
             <div class="timeline-desc"><strong>碧螺塔海上酒吧公园</strong> — 北戴河夜生活地标，演出+烟花秀+海上酒吧。门票40元，夜景绝美。</div>
           </div>
         </div>
-        <div style="background:rgba(26,107,138,0.05);border-radius:var(--radius);padding:var(--space-4) var(--space-5);margin-top:var(--space-4);text-align:center;font-size:var(--text-sm);color:var(--ocean);font-weight:600;">
+        <div style="background:rgba(26,115,232,0.05);border-radius:12px;padding:16px 24px;margin-top:20px;text-align:center;font-size:0.9rem;color:#1a73e8;font-weight:600;">
           💰 Day1 预算参考：人均约 145-185 元
         </div>
       </div>
@@ -604,19 +327,19 @@
       <div class="day-panel" id="day-1">
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-time" style="color:var(--ocean-deep);">🏯 09:30 - 12:30</div>
+            <div class="timeline-time">🏯 09:30 - 12:30</div>
             <div class="timeline-desc"><strong>天下第一关·山海关古城</strong> — 登镇远楼看"天下第一关"匾额，逛王家大院，城墙漫步。</div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-time" style="color:var(--ocean-deep);">🏯 13:30 - 16:30</div>
+            <div class="timeline-time">🏯 13:30 - 16:30</div>
             <div class="timeline-desc"><strong>老龙头景区</strong> — 长城入海的壮丽景观。澄海楼、入海石城、海神庙是必看景点。</div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-time" style="color:var(--ocean-deep);">🍜 17:00 - 19:00</div>
+            <div class="timeline-time">🍜 17:00 - 19:00</div>
             <div class="timeline-desc"><strong>山海关美食街</strong> — 四条包子、饸饹面、山海关焖子，人均30元吃到正宗味道。</div>
           </div>
         </div>
-        <div style="background:rgba(11,61,92,0.05);border-radius:var(--radius);padding:var(--space-4) var(--space-5);margin-top:var(--space-4);text-align:center;font-size:var(--text-sm);color:var(--ocean-deep);font-weight:600;">
+        <div style="background:rgba(13,71,161,0.05);border-radius:12px;padding:16px 24px;margin-top:20px;text-align:center;font-size:0.9rem;color:#0d47a1;font-weight:600;">
           💰 Day2 预算参考：人均约 190-250 元
         </div>
       </div>
@@ -624,64 +347,63 @@
       <div class="day-panel" id="day-2">
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-time" style="color:var(--coral);">🏖️ 10:00 - 15:00</div>
+            <div class="timeline-time">🏖️ 10:00 - 15:00</div>
             <div class="timeline-desc"><strong>黄金海岸 + 国际滑沙中心</strong> — 黄金海岸沙滩细腻。滑沙+滑草套票约120元，秦皇岛独有体验。</div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-time" style="color:var(--coral);">🦐 16:00 - 18:00</div>
+            <div class="timeline-time">🦐 16:00 - 18:00</div>
             <div class="timeline-desc"><strong>海鲜大餐 + 返程准备</strong> — 南戴河海鲜市场买鲜货找店加工，性价比极高。餐后取行李准备返程。</div>
           </div>
         </div>
-        <div style="background:rgba(240,101,67,0.05);border-radius:var(--radius);padding:var(--space-4) var(--space-5);margin-top:var(--space-4);text-align:center;font-size:var(--text-sm);color:var(--coral);font-weight:600;">
+        <div style="background:rgba(74,154,245,0.08);border-radius:12px;padding:16px 24px;margin-top:20px;text-align:center;font-size:0.9rem;color:#1a73e8;font-weight:600;">
           💰 Day3 预算参考：人均约 240-310 元
         </div>
       </div>
     </div>
-    <div class="text-center mt-8">
-      <a href="itinerary.html" class="btn btn-primary">查看完整行程详情 →</a>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="itinerary.html" class="btn-primary">查看完整行程详情 →</a>
     </div>
   </div>
 </section>
 
 <!-- ====== 美食推荐 ====== -->
-<section class="section bg-cream">
+<section class="food-preview">
   <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="text-caption">▸ 地道美食</div>
-      <h2>来了秦皇岛<br>这些一定要尝</h2>
-      <p>海鲜、老字号、夜市小吃——从早吃到晚不重样</p>
+    <div class="section-header">
+      <h2>地道秦皇岛美食</h2>
+      <p>海鲜、老字号、夜市小吃 — 从早吃到晚不重样</p>
     </div>
-    <div class="grid-3">
-      <div class="card reveal">
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="海鲜大餐" class="card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag">🦐 海鲜</span>
+    <div class="food-grid">
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="海鲜大餐" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🦐 海鲜</span>
           <h3>海鲜大排档</h3>
           <p>石塘路市场自购+附近加工，人均80-150元吃到撑，比大餐厅划算太多。</p>
-          <a href="food.html" style="margin-top:var(--space-2);display:inline-flex;align-items:center;gap:var(--space-1);font-weight:600;color:var(--ocean);font-size:var(--text-sm);">查看美食攻略 →</a>
+          <a href="food.html" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#1a73e8;font-size:0.9rem;text-decoration:none;">查看美食攻略 →</a>
         </div>
       </div>
-      <div class="card reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80" alt="烤生蚝" class="card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag card-tag--coral">🦪 夜市小吃</span>
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80" alt="烤生蚝" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🦪 夜市小吃</span>
           <h3>烤生蚝 · 烤扇贝</h3>
           <p>北戴河夜市必吃，蒜蓉烤生蚝5-8元/个，人间烟火气就在这一串串之间。</p>
-          <a href="food.html" style="margin-top:var(--space-2);display:inline-flex;align-items:center;gap:var(--space-1);font-weight:600;color:var(--ocean);font-size:var(--text-sm);">查看美食攻略 →</a>
+          <a href="food.html" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#1a73e8;font-size:0.9rem;text-decoration:none;">查看美食攻略 →</a>
         </div>
       </div>
-      <div class="card reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80" alt="四条包子" class="card-img" loading="lazy">
-        <div class="card-body">
-          <span class="card-tag">🥟 百年老字号</span>
+      <div class="att-card reveal">
+        <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80" alt="四条包子" class="att-card-img" loading="lazy">
+        <div class="att-card-body">
+          <span class="att-card-tag">🥟 百年老字号</span>
           <h3>四条包子</h3>
           <p>山海关百年老店，皮薄馅大，猪肉大葱馅最经典，人均15元吃到满足。</p>
-          <a href="food.html" style="margin-top:var(--space-2);display:inline-flex;align-items:center;gap:var(--space-1);font-weight:600;color:var(--ocean);font-size:var(--text-sm);">查看美食攻略 →</a>
+          <a href="food.html" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#1a73e8;font-size:0.9rem;text-decoration:none;">查看美食攻略 →</a>
         </div>
       </div>
     </div>
-    <div class="text-center mt-12">
-      <a href="food.html" class="btn btn-outline">查看全部美食 →</a>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="food.html" class="btn-outline">查看全部美食 →</a>
     </div>
   </div>
 </section>
@@ -689,49 +411,42 @@
 <!-- ====== 旅游贴士 ====== -->
 <section class="tips-preview">
   <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="text-caption">▸ 出行贴士</div>
-      <h2>让你的旅程更顺畅</h2>
-      <p>出发前看一眼，省心又省钱</p>
+    <div class="section-header">
+      <h2>出行贴士</h2>
+      <p>出发前看一眼，让你的旅程更顺畅</p>
     </div>
-    <div class="grid-2">
-      <div class="tip-card-home reveal">
-        <div class="tip-icon">🚄</div>
-        <h3>如何到达秦皇岛</h3>
-        <p>高铁首选<strong>北戴河站</strong>（离景区最近），北京出发仅2小时。34路公交直达海滨，2元搞定。</p>
-        <a href="guide.html#transport">查看交通详情 →</a>
+    <div class="tips-grid">
+      <div class="tip-card reveal">
+        <h3>🚄 如何到达秦皇岛</h3>
+        <p style="color:#64748b;line-height:1.8;">高铁首选<strong>北戴河站</strong>（离景区最近），北京出发仅2小时。34路公交直达海滨，2元搞定。</p>
+        <a href="guide.html#transport" style="display:inline-block;margin-top:12px;font-weight:600;color:#1a73e8;text-decoration:none;">查看交通详情 →</a>
       </div>
-      <div class="tip-card-home reveal">
-        <div class="tip-icon">🏨</div>
-        <h3>住宿区域推荐</h3>
-        <p><strong>北戴河区</strong>最方便（靠海）；<strong>海港区</strong>最经济；<strong>山海关区</strong>适合文化游。旺季务必提前订！</p>
-        <a href="guide.html#accommodation">查看住宿详情 →</a>
+      <div class="tip-card reveal">
+        <h3>🏨 住宿区域推荐</h3>
+        <p style="color:#64748b;line-height:1.8;"><strong>北戴河区</strong>最方便（靠海）；<strong>海港区</strong>最经济；<strong>山海关区</strong>适合文化游。旺季务必提前订！</p>
+        <a href="guide.html#accommodation" style="display:inline-block;margin-top:12px;font-weight:600;color:#1a73e8;text-decoration:none;">查看住宿详情 →</a>
       </div>
-      <div class="tip-card-home reveal">
-        <div class="tip-icon">📅</div>
-        <h3>最佳旅游时间</h3>
-        <p><strong>5月中-6月初 / 9月</strong>是最佳窗口——天气好、人少、酒店便宜。避开7月中-8月暑假高峰。</p>
-        <a href="guide.html#besttime">查看时间详情 →</a>
+      <div class="tip-card reveal">
+        <h3>📅 最佳旅游时间</h3>
+        <p style="color:#64748b;line-height:1.8;"><strong>5月中-6月初 / 9月</strong>是最佳窗口 — 天气好、人少、酒店便宜。避开7月中-8月暑假高峰。</p>
+        <a href="guide.html#besttime" style="display:inline-block;margin-top:12px;font-weight:600;color:#1a73e8;text-decoration:none;">查看时间详情 →</a>
       </div>
-      <div class="tip-card-home reveal">
-        <div class="tip-icon">💡</div>
-        <h3>防坑注意事项</h3>
-        <p>海边紫外线强，SPF50+必备。别信出租车司机推荐的餐馆。买海鲜去正规市场，开发票防宰。</p>
-        <a href="guide.html#tips">查看全部贴士 →</a>
+      <div class="tip-card reveal">
+        <h3>💡 防坑注意事项</h3>
+        <p style="color:#64748b;line-height:1.8;">海边紫外线强，SPF50+必备。别信出租车司机推荐的餐馆。买海鲜去正规市场，开发票防宰。</p>
+        <a href="guide.html#tips" style="display:inline-block;margin-top:12px;font-weight:600;color:#1a73e8;text-decoration:none;">查看全部贴士 →</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ====== CTA ====== -->
-<section class="cta-section" style="background:linear-gradient(160deg, var(--ocean-deep), var(--ocean), var(--ocean-light));">
-  <div class="section-inner">
-    <h2>开始规划你的秦皇岛之旅</h2>
-    <p>免费获取3日精华行程，景点·美食·交通全覆盖</p>
-    <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="itinerary.html" class="btn-coral" style="font-size:var(--text-base);padding:var(--space-4) var(--space-8);">查看行程规划</a>
-      <a href="attractions.html" class="btn-outline-white">浏览所有景点</a>
-    </div>
+<section class="cta-home">
+  <h2>开始规划你的秦皇岛之旅</h2>
+  <p>免费获取3日精华行程，景点·美食·交通全覆盖，助你轻松玩转秦皇岛！</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="itinerary.html" class="btn-primary" style="background:#fff;color:#1a73e8;">🗓️ 查看行程规划</a>
+    <a href="attractions.html" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5);">📍 浏览所有景点</a>
   </div>
 </section>
 
@@ -740,10 +455,10 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3>🌊 秦皇岛旅游官网</h3>
+        <h3>🏖️ 秦皇岛旅游官网</h3>
         <p>致力于为每一位来秦皇岛的游客，提供最实用、最全面的旅游攻略。</p>
-        <p style="margin-top:var(--space-4);">
-          <span style="color:var(--coral-glow);font-weight:700;">商务合作 / 广告投放</span><br>
+        <p style="margin-top:16px;">
+          <span style="color:#1a73e8;font-weight:700;">商务合作 / 广告投放</span><br>
           酒店·景区·餐饮 — 欢迎洽谈合作
         </p>
       </div>
