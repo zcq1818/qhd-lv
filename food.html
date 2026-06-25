@@ -3,21 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>秦皇岛美食推荐 | 海鲜·特色小吃 — 秦皇岛旅游官网</title>
-<meta name="description" content="秦皇岛美食全攻略：海鲜大排档、烤生蚝、四条包子、饸饹面等地道美食推荐，附价格和最佳就餐地点，吃得开心又划算。">
-<meta name="keywords" content="秦皇岛美食,秦皇岛海鲜,北戴河美食,山海关美食,秦皇岛烤生蚝,秦皇岛四条包子">
+<title>秦皇岛美食攻略 | 夜市·特产·海鲜市场 — 秦皇岛旅游官网</title>
+<meta name="description" content="秦皇岛美食全攻略：6大夜市推荐、15+特产伴手礼、7个海鲜市场位置、防宰指南。从烤生蚝到四条包子，从刘庄夜市到石塘路市场，吃得开心又划算。">
+<meta name="keywords" content="秦皇岛美食,秦皇岛夜市,刘庄夜市,秦皇小巷,秦皇岛特产,秦皇岛海鲜市场,石塘路市场,四条包子,昌黎葡萄酒">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://qhd-lv.vercel.app/food.html">
-<meta property="og:title" content="秦皇岛美食推荐 | 海鲜·特色小吃">
-<meta property="og:description" content="海鲜大排档、烤生蚝、四条包子——秦皇岛地道美食全攻略！">
+<meta property="og:title" content="秦皇岛美食攻略 | 夜市·特产·海鲜市场">
+<meta property="og:description" content="6大夜市、15+特产、7个海鲜市场——秦皇岛地道美食全攻略！">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qhd-lv.vercel.app/food.html">
 <meta property="og:image" content="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80">
 <meta property="og:site_name" content="秦皇岛旅游官网">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"秦皇岛美食推荐","description":"秦皇岛地道美食推荐","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://qhd-lv.vercel.app/"},{"@type":"ListItem","position":2,"name":"美食推荐","item":"https://qhd-lv.vercel.app/food.html"}]}}
+{"@context":"https://schema.org","@type":"WebPage","name":"秦皇岛美食攻略","description":"秦皇岛夜市、特产、海鲜市场推荐","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://qhd-lv.vercel.app/"},{"@type":"ListItem","position":2,"name":"美食攻略","item":"https://qhd-lv.vercel.app/food.html"}]}}
 </script>
 <link rel="stylesheet" href="style.css">
+<style>
+  :root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-muted:#6b7280;--ease-out:cubic-bezier(0.34,1.56,0.64,1);--dur:0.35s;--smooth:cubic-bezier(0.4,0,0.2,1);--food-orange:#E37400;--food-red:#DC4A1A;}
+
+  .section{max-width:var(--max-width);margin:0 auto;padding:var(--s12) var(--s6);}
+  .section-label{font-size:var(--text-sm);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--food-orange);margin-bottom:var(--s2);}
+  .section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin:0 0 var(--s3);line-height:1.25;}
+  .section-desc{color:var(--text-muted);line-height:1.8;margin-bottom:var(--s6);max-width:600px;}
+  .breadcrumb{max-width:var(--max-width);margin:0 auto;padding:var(--s4) var(--s6);font-size:var(--text-sm);color:var(--text-muted);}
+  .breadcrumb a{color:var(--brand);text-decoration:none;}
+  .breadcrumb .sep{margin:0 var(--s2);}
+
+  /* ===== Hero 区域 ===== */
+  .page-hero{position:relative;overflow:hidden;padding:80px var(--s6) 60px;text-align:center;color:#fff;background:linear-gradient(135deg,#DC4A1A 0%,#E37400 30%,#F59E0B 60%,#FCD34D 100%);}
+  .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.15) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,255,255,0.1) 0%,transparent 50%);pointer-events:none;}
+  .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;margin:0 0 var(--s3);letter-spacing:-0.02em;position:relative;}
+  .page-hero p{font-size:clamp(1rem,2vw,1.2rem);opacity:0.92;margin:0 0 var(--s6);position:relative;}
+  .page-hero-meta{display:flex;gap:var(--s3);flex-wrap:wrap;justify-content:center;position:relative;}
+  .page-hero-tag{background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.25);padding:var(--s2) var(--s4);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;}
+  .hero-stats{display:flex;gap:var(--s6);justify-content:center;margin-top:var(--s8);flex-wrap:wrap;position:relative;}
+  .hero-stat{text-align:center;}
+  .hero-stat-num{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#fff,#fef3c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero-stat-label{font-size:var(--text-sm);opacity:0.85;margin-top:var(--s1);}
+
+  /* ===== Sticky 筛选栏 ===== */
+  .filter-bar{position:sticky;top:var(--nav-height);z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+  .filter-bar-inner{max-width:var(--max-width);margin:0 auto;padding:var(--s3) var(--s6);display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;}
+  .filter-group{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;}
+  .filter-label{font-size:var(--text-sm);font-weight:700;color:var(--gray-600);margin-right:var(--s1);}
+  .filter-chip{padding:6px 14px;border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;cursor:pointer;border:1.5px solid var(--gray-200);background:#fff;color:var(--gray-600);transition:all var(--dur) var(--smooth);white-space:nowrap;}
+  .filter-chip:hover{border-color:var(--food-orange);color:var(--food-orange);}
+  .filter-chip.active{background:var(--food-orange);color:#fff;border-color:var(--food-orange);box-shadow:0 2px 8px rgba(227,116,0,0.3);}
+  .filter-chip .chip-icon{margin-right:4px;}
+
+  /* ===== 夜市卡片 ===== */
+  .night-market-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6);}
+  .night-market-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--gray-200);transition:all var(--dur) var(--smooth);}
+  .night-market-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl);border-color:var(--food-orange);}
+  .night-market-img{height:180px;overflow:hidden;background:linear-gradient(135deg,#fef3c7,#fde68a);}
+  .night-market-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--smooth);}
+  .night-market-card:hover .night-market-img img{transform:scale(1.08);}
+  .night-market-body{padding:var(--s5);}
+  .night-market-name{font-size:1.15rem;font-weight:800;margin:0 0 var(--s2);color:var(--gray-900);}
+  .night-market-meta{display:flex;gap:var(--s3);flex-wrap:wrap;font-size:0.82rem;color:var(--gray-500);margin-bottom:var(--s3);align-items:center;}
+  .night-market-meta .time{color:var(--food-orange);font-weight:600;}
+  .night-market-meta .price{color:var(--accent-green);font-weight:600;}
+  .night-market-desc{font-size:0.88rem;color:var(--gray-600);line-height:1.7;margin-bottom:var(--s3);}
+  .night-market-foods{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:var(--s3);}
+  .food-pill{font-size:0.72rem;padding:3px 10px;border-radius:var(--radius-sm);background:#fef3c7;color:#92400e;font-weight:500;}
+  .night-market-footer{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;padding-top:var(--s3);border-top:1px solid var(--gray-100);}
+  .night-market-location{font-size:0.78rem;color:var(--gray-500);flex:1;min-width:0;}
+  .night-market-actions{display:flex;gap:6px;}
+
+  /* ===== 特产卡片 ===== */
+  .specialty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);}
+  .specialty-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--gray-200);transition:all var(--dur) var(--smooth);display:flex;flex-direction:column;}
+  .specialty-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--food-orange);}
+  .specialty-img{height:120px;overflow:hidden;background:linear-gradient(135deg,#fef3c7,#fde68a);display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+  .specialty-body{padding:var(--s4);display:flex;flex-direction:column;flex:1;}
+  .specialty-name{font-size:1rem;font-weight:700;margin:0 0 var(--s1);color:var(--gray-900);}
+  .specialty-origin{font-size:0.75rem;color:var(--food-orange);font-weight:600;margin-bottom:var(--s2);}
+  .specialty-desc{font-size:0.82rem;color:var(--gray-600);line-height:1.6;margin-bottom:var(--s2);flex:1;}
+  .specialty-meta{display:flex;gap:var(--s2);font-size:0.78rem;color:var(--gray-500);margin-bottom:var(--s2);}
+  .specialty-rating{display:inline-flex;align-items:center;gap:2px;font-size:0.78rem;color:#f59e0b;font-weight:600;}
+  .specialty-footer{display:flex;gap:var(--s2);flex-wrap:wrap;padding-top:var(--s2);border-top:1px solid var(--gray-100);}
+  .buy-btn{font-size:0.78rem;padding:4px 12px;border-radius:var(--radius-full);background:#fef3c7;color:#92400e;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;}
+  .buy-btn:hover{background:#fde68a;}
+
+  /* ===== 海鲜市场卡片 ===== */
+  .seafood-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6);}
+  .seafood-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--gray-200);transition:all var(--dur) var(--smooth);}
+  .seafood-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+  .seafood-header{padding:var(--s5);background:linear-gradient(135deg,#e0f2fe,#bae6fd);border-bottom:1px solid var(--gray-100);}
+  .seafood-name{font-size:1.2rem;font-weight:800;margin:0 0 var(--s2);color:#0369a1;}
+  .seafood-badge{display:inline-flex;align-items:center;gap:4px;font-size:0.78rem;padding:3px 10px;border-radius:var(--radius-full);background:#0369a1;color:#fff;font-weight:600;}
+  .seafood-body{padding:var(--s5);}
+  .seafood-info{font-size:0.88rem;color:var(--gray-600);line-height:1.8;margin-bottom:var(--s3);}
+  .seafood-info strong{color:var(--gray-700);}
+  .seafood-prices{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s2);margin-bottom:var(--s3);background:var(--gray-50);padding:var(--s3);border-radius:var(--radius);}
+  .price-item{font-size:0.82rem;color:var(--gray-600);}
+  .price-item .name{font-weight:600;color:var(--gray-700);}
+  .price-item .price{color:var(--food-red);font-weight:700;}
+  .seafood-tip{font-size:0.82rem;color:#0369a1;background:#e0f2fe;padding:var(--s2) var(--s3);border-radius:var(--radius);margin-bottom:var(--s3);}
+
+  /* ===== 防宰指南 ===== */
+  .anti-scam-box{background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:var(--radius-lg);padding:var(--s8);margin:var(--s8) 0;}
+  .anti-scam-title{font-size:var(--text-xl);font-weight:800;color:#92400e;margin-bottom:var(--s4);display:flex;align-items:center;gap:var(--s3);}
+  .anti-scam-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6);}
+  .anti-scam-col h4{font-size:var(--text-base);font-weight:700;margin-bottom:var(--s3);color:#92400e;}
+  .anti-scam-col ul{list-style:none;padding:0;margin:0;}
+  .anti-scam-col li{font-size:var(--text-sm);color:#78350f;line-height:2;padding-left:var(--s3);position:relative;}
+  .anti-scam-col li::before{content:'✓';position:absolute;left:0;color:#059669;font-weight:700;}
+  .anti-scam-col.danger li::before{content:'✗';color:#DC4A1A;}
+  .anti-scam-col.danger h4{color:#DC4A1A;}
+
+  /* ===== CTA 区域 ===== */
+  .cta-section{background:linear-gradient(135deg,#DC4A1A,#E37400,#F59E0B);color:#fff;text-align:center;padding:var(--s16) var(--s6);position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.1) 0%,transparent 50%);}
+  .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:var(--s3);position:relative;}
+  .cta-section p{opacity:0.9;margin-bottom:var(--s8);position:relative;}
+  .btn-white{background:#fff;color:var(--food-orange);border:none;padding:12px 32px;border-radius:var(--radius-full);font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;position:relative;}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+  .btn-lg{padding:14px 36px;font-size:1.05rem;}
+
+  /* ===== 预订按钮 ===== */
+  .booking-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:var(--radius-full);font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid transparent;}
+  .booking-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+  .booking-dianping{background:#f0fdf4;color:#07c160;border-color:#bbf7d0;}
+  .booking-dianping:hover{background:#07c160;color:#fff;}
+  .booking-meituan{background:#fff4f0;color:#ffc300;border-color:#ffe4b5;}
+  .booking-meituan:hover{background:#ffc300;color:#333;}
+
+  /* ===== 区域标题 ===== */
+  .zone-header{margin:var(--s12) 0 var(--s6);display:flex;align-items:center;gap:var(--s4);}
+  .zone-header-bar{width:5px;height:40px;border-radius:var(--radius-full);flex-shrink:0;background:var(--food-orange);}
+  .zone-header-text h2{font-size:var(--text-2xl);font-weight:800;margin:0 0 2px;line-height:1.2;}
+  .zone-header-text .zone-count{font-size:var(--text-sm);color:var(--gray-500);}
+
+  /* ===== 滚动揭示 ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s var(--smooth),transform 0.6s var(--smooth);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* ===== 响应式 ===== */
+  @media(max-width:768px){
+    .night-market-grid,.seafood-grid,.anti-scam-grid{grid-template-columns:1fr;}
+    .specialty-grid{grid-template-columns:repeat(2,1fr);}
+    .section{padding:var(--s8) var(--s4);}
+    .filter-bar-inner{padding:var(--s2) var(--s4);gap:var(--s2);}
+    .filter-label{display:none;}
+    .hero-stats{gap:var(--s4);}
+  }
+  @media(min-width:769px) and (max-width:1024px){
+    .night-market-grid{grid-template-columns:repeat(2,1fr);}
+    .specialty-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
 </head>
 <body>
 
@@ -41,175 +176,572 @@
   </div>
 </nav>
 
-<div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 美食推荐</div>
+<div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 美食攻略</div>
 
-<section class="page-hero" style="background:linear-gradient(160deg, #DC4A1A 0%, #E37400 40%, #F59E0B 70%, #FCD34D 100%);">
-  <h1>秦皇岛地道美食</h1>
+<!-- Hero 区域 -->
+<section class="page-hero">
+  <h1>秦皇岛美食攻略</h1>
   <p>靠海吃海——从清晨的第一口包子到深夜的最后一串烤生蚝</p>
   <div class="page-hero-meta">
-    <span class="page-hero-tag">海鲜当家</span>
-    <span class="page-hero-tag">百年老字号</span>
-    <span class="page-hero-tag">夜市小吃</span>
+    <span class="page-hero-tag">6大夜市</span>
+    <span class="page-hero-tag">15+特产</span>
+    <span class="page-hero-tag">7个海鲜市场</span>
+    <span class="page-hero-tag">防宰指南</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">热门夜市</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">15+</div><div class="hero-stat-label">特产伴手礼</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">海鲜市场</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">30+</div><div class="hero-stat-label">特色小吃</div></div>
   </div>
 </section>
 
-<section class="section bg-sand">
-  <div class="section-inner">
-
-    <div class="ad-banner">
-      <div class="ad-card">
-        怕被宰？提前查好高评分餐厅，到了直接去！
-        <div class="ad-booking">
-          <a href="https://www.dianping.com/qinhuangdao/food" target="_blank" rel="nofollow sponsored" class="booking-link booking-dianping">大众点评查餐厅</a>
-          <a href="https://www.meituan.com/qinhuangdao/food/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团找美食</a>
-        </div>
-      </div>
+<!-- Sticky 筛选栏 -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <div class="filter-group">
+      <span class="filter-label">分类</span>
+      <button class="filter-chip active" data-filter="all">全部</button>
+      <button class="filter-chip" data-filter="night"><span class="chip-icon">🌙</span>夜市</button>
+      <button class="filter-chip" data-filter="specialty"><span class="chip-icon">🎁</span>特产</button>
+      <button class="filter-chip" data-filter="seafood"><span class="chip-icon">🦐</span>海鲜市场</button>
+      <button class="filter-chip" data-filter="snack"><span class="chip-icon">🍜</span>小吃</button>
     </div>
+    <div class="filter-group" style="margin-left:auto;">
+      <a href="https://www.dianping.com/qinhuangdao/food" target="_blank" rel="nofollow sponsored" class="booking-link booking-dianping">大众点评查餐厅</a>
+      <a href="https://www.meituan.com/qinhuangdao/food/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团找美食</a>
+    </div>
+  </div>
+</div>
 
-    <!-- 海鲜类 -->
-    <div class="reveal" style="margin-bottom:var(--s16);">
-      <h2 style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--s8);display:flex;align-items:center;gap:var(--s3);">
-        <svg class="icon-xl" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" fill="rgba(234,67,53,0.08)"/><path d="M12 22 Q20 10 28 22" stroke="#EA4335" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
-        海鲜类 · 必吃榜
-      </h2>
-      <div class="grid-2">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="海鲜大排档" class="card-img" loading="lazy">
-          <div class="card-body">
-            <h3>海鲜大排档</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s3);">
-              <strong>推荐：</strong>石塘路市场（买海鲜）+ 附近加工店<br>
-              <strong>必点：</strong>皮皮虾、梭子蟹、花蛤、生蚝<br>
-              <strong>人均：</strong>80-150元<br>
-              <strong>Tips：</strong>一定要砍价！皮皮虾春季最肥，螃蟹秋季最佳。
-            </p>
-            <span style="font-size:var(--text-xs);color:var(--accent-coral);font-weight:600;">★ 本地人最推荐</span>
+<div class="section" id="foodSection">
+
+  <!-- ===== 夜市推荐 ===== -->
+  <div class="zone-header reveal" id="night">
+    <div class="zone-header-bar"></div>
+    <div class="zone-header-text">
+      <h2>秦皇岛夜市推荐</h2>
+      <p class="zone-count">华灯初上，烟火气最浓的6个夜市</p>
+    </div>
+  </div>
+
+  <div class="night-market-grid">
+    <!-- 刘庄夜市 -->
+    <div class="night-market-card reveal">
+      <div class="night-market-img">
+        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80" alt="刘庄夜市烤生蚝" loading="lazy">
+      </div>
+      <div class="night-market-body">
+        <h3 class="night-market-name">刘庄夜市</h3>
+        <div class="night-market-meta">
+          <span class="time">🕐 18:00-深夜</span>
+          <span class="price">💰 人均30-60元</span>
+        </div>
+        <p class="night-market-desc">北戴河最热闹的夜市！华灯初上时霓虹闪烁，烤生蚝、铁板鱿鱼、烤冷面是招牌。住在刘庄附近步行即达，夏季最火爆。</p>
+        <div class="night-market-foods">
+          <span class="food-pill">烤生蚝</span>
+          <span class="food-pill">铁板鱿鱼</span>
+          <span class="food-pill">烤冷面</span>
+          <span class="food-pill">炒酸奶</span>
+          <span class="food-pill">冰粉</span>
+        </div>
+        <div class="night-market-footer">
+          <span class="night-market-location">📍 北戴河区红石路刘庄夜市</span>
+          <div class="night-market-actions">
+            <a href="https://www.dianping.com/search/keyword/4/10_%E5%88%98%E5%BA%84%E5%A4%9C%E5%B8%82" target="_blank" rel="nofollow sponsored" class="booking-link booking-dianping">点评查看</a>
           </div>
         </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80" alt="烤生蚝" class="card-img" loading="lazy">
-          <div class="card-body">
-            <h3>烤生蚝 · 烤扇贝</h3>
-            <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s3);">
-              <strong>推荐：</strong>北戴河夜市、刘庄夜市<br>
-              <strong>价格：</strong>生蚝5-8元/个，扇贝3-5元/个<br>
-              <strong>时间：</strong>18:00后夜市开市<br>
-              <strong>Tips：</strong>选人多的摊位，新鲜度有保障。
-            </p>
-            <span style="font-size:var(--text-xs);color:var(--accent-coral);font-weight:600;">★ 夜市必吃</span>
+      </div>
+    </div>
+
+    <!-- 秦皇小巷 -->
+    <div class="night-market-card reveal">
+      <div class="night-market-img">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="秦皇小巷美食街" loading="lazy">
+      </div>
+      <div class="night-market-body">
+        <h3 class="night-market-name">秦皇小巷</h3>
+        <div class="night-market-meta">
+          <span class="time">🕐 18:00-深夜</span>
+          <span class="price">💰 人均40-80元</span>
+        </div>
+        <p class="night-market-desc">占地20000㎡的古风艺术街区！总长680米，分东西南北四巷。国风街头演出（汉服、魔术、唐舞、相声），美食长廊休憩品饮。</p>
+        <div class="night-market-foods">
+          <span class="food-pill">老字号美食</span>
+          <span class="food-pill">非遗小吃</span>
+          <span class="food-pill">网红名吃</span>
+          <span class="food-pill">连锁品牌</span>
+        </div>
+        <div class="night-market-footer">
+          <span class="night-market-location">📍 海港区奥体路66号（建材学院对面）</span>
+          <div class="night-market-actions">
+            <span style="font-size:0.78rem;color:var(--gray-500);">📞 0335-5879777</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 特色小吃 -->
-    <div class="reveal" style="margin-bottom:var(--s16);">
-      <h2 style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--s8);display:flex;align-items:center;gap:var(--s3);">
-        <svg class="icon-xl" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" fill="rgba(227,116,0,0.08)"/><rect x="12" y="10" width="16" height="20" rx="4" stroke="#E37400" stroke-width="2.5" fill="none"/></svg>
-        特色小吃 · 老字号
-      </h2>
-      <div class="grid-2">
-        <div class="card"><div class="card-body">
-          <h3>四条包子</h3>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
-            <strong>地点：</strong>山海关区四条包子总店<br>
-            <strong>价格：</strong>2-3元/个，人均15-25元<br>
-            <strong>特色：</strong>百年老字号，皮薄馅大，猪肉大葱馅最经典。
-          </p>
-          <div style="margin-top:var(--s3);font-size:var(--text-xs);color:var(--brand);font-weight:600;">山海关古城内</div>
-        </div></div>
-        <div class="card"><div class="card-body">
-          <h3>饸饹面</h3>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
-            <strong>地点：</strong>山海关区各小吃店<br>
-            <strong>价格：</strong>10-18元/碗<br>
-            <strong>特色：</strong>饸饹床子压制面条，口感筋道，搭配肉汤卤子。
-          </p>
-          <div style="margin-top:var(--s3);font-size:var(--text-xs);color:var(--brand);font-weight:600;">山海关全区</div>
-        </div></div>
-        <div class="card"><div class="card-body">
-          <h3>煎饼果子</h3>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
-            <strong>地点：</strong>全市早餐摊<br>
-            <strong>价格：</strong>5-10元/套<br>
-            <strong>特色：</strong>薄脆香脆，酱料丰富。加鸡蛋+薄脆是标配。
-          </p>
-          <div style="margin-top:var(--s3);font-size:var(--text-xs);color:var(--brand);font-weight:600;">全市早餐摊</div>
-        </div></div>
-        <div class="card"><div class="card-body">
-          <h3>烤冷面 · 炸串</h3>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.8;">
-            <strong>地点：</strong>北戴河夜市、大学附近<br>
-            <strong>价格：</strong>烤冷面8-12元，炸串1-3元/串<br>
-            <strong>特色：</strong>东北风味烤冷面，酱香浓郁，夜市明星小吃。
-          </p>
-          <div style="margin-top:var(--s3);font-size:var(--text-xs);color:var(--brand);font-weight:600;">北戴河夜市</div>
-        </div></div>
+    <!-- 燕山夜市 -->
+    <div class="night-market-card reveal">
+      <div class="night-market-img">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="燕山夜市海鲜烧烤" loading="lazy">
       </div>
-    </div>
-
-    <!-- 美食区域 -->
-    <div class="reveal" style="margin-bottom:var(--s16);">
-      <h2 style="font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--s8);">
-        <svg class="icon-xl" viewBox="0 0 40 40" fill="none" style="display:inline-block;vertical-align:middle;margin-right:var(--s3);"><circle cx="20" cy="20" r="18" fill="rgba(26,115,232,0.08)"/><circle cx="20" cy="16" r="5" stroke="#1a73e8" stroke-width="2.5" fill="none"/><path d="M20 21 C14 21 9 25 9 30 L31 30 C31 25 26 21 20 21Z" stroke="#1a73e8" stroke-width="2.5" fill="none"/></svg>
-        美食区域指南
-      </h2>
-      <div class="grid-3">
-        <div class="card"><div class="card-body">
-          <h3>北戴河区</h3>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
-            <strong>海鲜：</strong>石塘路市场周边<br>
-            <strong>夜市：</strong>刘庄夜市（18:00-24:00）<br>
-            <strong>人均：</strong>80-150元
-          </p>
-        </div></div>
-        <div class="card"><div class="card-body">
-          <h3>山海关区</h3>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
-            <strong>老字号：</strong>四条包子总店<br>
-            <strong>小吃街：</strong>山海关古城内<br>
-            <strong>人均：</strong>30-60元
-          </p>
-        </div></div>
-        <div class="card"><div class="card-body">
-          <h3>海港区</h3>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.9;">
-            <strong>综合餐饮：</strong>CBD商圈、太阳城<br>
-            <strong>特色：</strong>连锁品牌集中<br>
-            <strong>人均：</strong>50-200元
-          </p>
-        </div></div>
-      </div>
-    </div>
-
-    <!-- 防宰指南 -->
-    <div class="info-box reveal">
-      <h3 style="font-size:var(--text-lg);font-weight:700;margin-bottom:var(--s4);color:#92400E;">防宰客指南</h3>
-      <div class="grid-2" style="font-size:var(--text-sm);line-height:2;">
-        <div>
-          ✅ 去石塘路市场自己买海鲜，再找店加工<br>
-          ✅ 加工费提前问清楚（一般10-20元/斤）<br>
-          ✅ 点餐前先看价目表，避免"时价"陷阱<br>
-          ✅ 秤海鲜时盯着看，防止"八两秤"
+      <div class="night-market-body">
+        <h3 class="night-market-name">燕山夜市</h3>
+        <div class="night-market-meta">
+          <span class="time">🕐 18:00-深夜</span>
+          <span class="price">💰 人均30-50元</span>
         </div>
-        <div>
-          ❌ 不要相信出租车司机推荐的"好吃不贵"<br>
-          ❌ 海边大排档先问价再坐<br>
-          ❌ 野生海鲜基本是冻货，别被忽悠<br>
-          ❌ 开发票可以防止被宰后维权
+        <p class="night-market-desc">港城老牌人气夜市，最接地气！本地老饕和游客都爱扎堆。白天是普通街道，傍晚变身夜市，碳烤羊腿、现烤生蚝是招牌。</p>
+        <div class="night-market-foods">
+          <span class="food-pill">碳烤羊腿</span>
+          <span class="food-pill">现烤生蚝</span>
+          <span class="food-pill">铁板鱿鱼</span>
+          <span class="food-pill">各类烧烤</span>
+        </div>
+        <div class="night-market-footer">
+          <span class="night-market-location">📍 海港区建国路</span>
         </div>
       </div>
     </div>
 
-  </div>
-</section>
+    <!-- 山海关关市 -->
+    <div class="night-market-card reveal">
+      <div class="night-market-img">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="山海关古城美食" loading="lazy">
+      </div>
+      <div class="night-market-body">
+        <h3 class="night-market-name">山海关关市美食街区</h3>
+        <div class="night-market-meta">
+          <span class="time">🕐 18:00-深夜</span>
+          <span class="price">💰 人均40-70元</span>
+        </div>
+        <p class="night-market-desc">天下第一关景区内的美食街区！复兴明朝至民国年间古城繁荣市集景象。四条包子、桲椤叶饼、山海关浑锅是必吃。</p>
+        <div class="night-market-foods">
+          <span class="food-pill">四条包子</span>
+          <span class="food-pill">桲椤叶饼</span>
+          <span class="food-pill">山海关浑锅</span>
+          <span class="food-pill">回记绿豆糕</span>
+        </div>
+        <div class="night-market-footer">
+          <span class="night-market-location">📍 山海关古城东大街1号（天下第一关内）</span>
+          <div class="night-market-actions">
+            <span style="font-size:0.78rem;color:var(--gray-500);">📞 0335-5258000</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<section class="cta-section" style="background:linear-gradient(160deg, #DC4A1A, #E37400, #F59E0B);">
-  <div class="section-inner">
-    <h2>逛完景点，去吃美食！</h2>
-    <p>把美食点加入行程，吃得开心又划算</p>
-    <a href="itinerary.html" class="btn btn-white btn-lg">查看含美食的行程 →</a>
+    <!-- 石塘in巷 -->
+    <div class="night-market-card reveal">
+      <div class="night-market-img">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c6?w=600&q=80" alt="石塘in巷文创市集" loading="lazy">
+      </div>
+      <div class="night-market-body">
+        <h3 class="night-market-name">石塘in巷</h3>
+        <div class="night-market-meta">
+          <span class="time">🕐 18:00-深夜</span>
+          <span class="price">💰 人均35-60元</span>
+        </div>
+        <p class="night-market-desc">北戴河最早夜市升级文创烟火市集！全新打造光影乐队秀、建筑光影艺术表演，超大无动力游乐设施，适合亲子遛娃。</p>
+        <div class="night-market-foods">
+          <span class="food-pill">海鲜小吃</span>
+          <span class="food-pill">烧烤</span>
+          <span class="food-pill">露营酒吧</span>
+          <span class="food-pill">冷饮甜品</span>
+        </div>
+        <div class="night-market-footer">
+          <span class="night-market-location">📍 北戴河区石塘路步行街附近</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 黄金海岸市集 -->
+    <div class="night-market-card reveal">
+      <div class="night-market-img">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="黄金海岸海边夜市" loading="lazy">
+      </div>
+      <div class="night-market-body">
+        <h3 class="night-market-name">黄金海岸市集</h3>
+        <div class="night-market-meta">
+          <span class="time">🕐 18:00-深夜（夏季）</span>
+          <span class="price">💰 人均30-50元</span>
+        </div>
+        <p class="night-market-desc">一半大海，一半烟火！海边夜市享受海风与美食，灯火辉煌热闹非凡。煎铁板鱿鱼、烤面包、炒酸奶是招牌。</p>
+        <div class="night-market-foods">
+          <span class="food-pill">铁板鱿鱼</span>
+          <span class="food-pill">烤面包</span>
+          <span class="food-pill">炒酸奶</span>
+          <span class="food-pill">冰粉奶茶</span>
+        </div>
+        <div class="night-market-footer">
+          <span class="night-market-location">📍 昌黎县黄金海岸</span>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- ===== 特产伴手礼 ===== -->
+  <div class="zone-header reveal" id="specialty">
+    <div class="zone-header-bar" style="background:#92400e;"></div>
+    <div class="zone-header-text">
+      <h2>秦皇岛特产伴手礼</h2>
+      <p class="zone-count">15+特产，送礼自用两相宜</p>
+    </div>
+  </div>
+
+  <div class="specialty-grid">
+    <!-- 海鲜干货 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🦐</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">海鲜干货礼盒</h3>
+        <span class="specialty-origin">秦皇岛全域</span>
+        <p class="specialty-desc">鱿鱼丝、烤鱼片、海米、干贝等，便于携带保存。</p>
+        <div class="specialty-meta"><span>💰 60-180元/礼盒</span></div>
+        <div class="specialty-rating">⭐⭐⭐⭐⭐ 送礼首选</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">石塘路市场购买</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 昌黎葡萄酒 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🍷</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">昌黎葡萄酒</h3>
+        <span class="specialty-origin">昌黎县 · 中国干红之乡</span>
+        <p class="specialty-desc">赤霞珠、品丽珠、梅鹿辄等，酒体澄清果香浓郁。长城、茅台、朗格斯等品牌。</p>
+        <div class="specialty-meta"><span>💰 50-300元/瓶</span></div>
+        <div class="specialty-rating">⭐⭐⭐⭐⭐ 档次高</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">酒庄/超市购买</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 回记绿豆糕 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🥮</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">回记绿豆糕</h3>
+        <span class="specialty-origin">山海关 · 1945年创立</span>
+        <p class="specialty-desc">入口即化，口感细腻，咸鲜口味独特，近80年历史。</p>
+        <div class="specialty-meta"><span>💰 27-40元/盒</span></div>
+        <div class="specialty-rating">⭐⭐⭐⭐⭐ 百年老店</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">古城东大街3-10号</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 杨肠子火腿 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🥓</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">杨肠子火腿</h3>
+        <span class="specialty-origin">北戴河</span>
+        <p class="specialty-desc">传统工艺熏制，肉质紧实香味浓郁，真空包装便于携带。</p>
+        <div class="specialty-meta"><span>💰 35-50元/根</span></div>
+        <div class="specialty-rating">⭐⭐⭐⭐ 地方特色</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">特产店/超市</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 山海关花生糕 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🥜</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">山海关花生糕</h3>
+        <span class="specialty-origin">山海关 · 源于宋朝宫廷</span>
+        <p class="specialty-desc">香脆可口，甜而不腻，老少皆宜的传统糕点。</p>
+        <div class="specialty-meta"><span>💰 27-40元/包</span></div>
+        <div class="specialty-rating">⭐⭐⭐⭐ 传统糕点</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">关源昌老店</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 桲椤叶饼 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🍃</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">桲椤叶饼</h3>
+        <span class="specialty-origin">山海关 · 明朝戚继光时期</span>
+        <p class="specialty-desc">饽椤树叶包裹淀粉皮，内馅三鲜，带有树叶清香。</p>
+        <div class="specialty-meta"><span>💰 2-5元/个</span></div>
+        <div class="specialty-rating">⭐⭐⭐ 现买现吃</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">山海关古城</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 燕山板栗 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🌰</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">燕山板栗</h3>
+        <span class="specialty-origin">秦皇岛 · 燕山山脉</span>
+        <p class="specialty-desc">个大皮薄肉甜，健康食品便于携带。</p>
+        <div class="specialty-meta"><span>💰 20-40元/袋</span></div>
+        <div class="specialty-rating">⭐⭐⭐⭐ 健康食品</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">特产店/超市</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 扇贝干 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🐚</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">扇贝干/即食扇贝</h3>
+        <span class="specialty-origin">秦皇岛海域</span>
+        <p class="specialty-desc">肉质鲜美营养丰富，真空包装便于携带。</p>
+        <div class="specialty-meta"><span>💰 20-65元/包</span></div>
+        <div class="specialty-rating">⭐⭐⭐⭐ 适合送礼</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">海鲜市场</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 徐氏风干肠 -->
+    <div class="specialty-card reveal">
+      <div class="specialty-img">🥩</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">徐氏风干肠</h3>
+        <span class="specialty-origin">山海关</span>
+        <p class="specialty-desc">传统工艺风干制作，风味独特。</p>
+        <div class="specialty-meta"><span>💰 40-60元/斤</span></div>
+        <div class="specialty-rating">⭐⭐⭐⭐ 传统肉制品</div>
+        <div class="specialty-footer">
+          <span class="buy-btn">古城特产店</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 海鲜市场 ===== -->
+  <div class="zone-header reveal" id="seafood">
+    <div class="zone-header-bar" style="background:#0369a1;"></div>
+    <div class="zone-header-text">
+      <h2>秦皇岛海鲜市场</h2>
+      <p class="zone-count">7个市场，买海鲜加工一条龙</p>
+    </div>
+  </div>
+
+  <div class="seafood-grid">
+    <!-- 石塘路市场 -->
+    <div class="seafood-card reveal">
+      <div class="seafood-header">
+        <h3 class="seafood-name">石塘路海鲜市场</h3>
+        <span class="seafood-badge">⭐ 北戴河最大</span>
+      </div>
+      <div class="seafood-body">
+        <p class="seafood-info">
+          <strong>地址：</strong>北戴河区石塘路16号（近联峰路）<br>
+          <strong>时间：</strong>7:30-20:00<br>
+          <strong>品种：</strong>皮皮虾、梭子蟹、扇贝、生蚝、蛤蜊、八带、海螺、蛏子等<br>
+          <strong>加工：</strong>小谢加工店等，清蒸加工费10-15元/份
+        </p>
+        <div class="seafood-prices">
+          <div class="price-item"><span class="name">皮皮虾</span> <span class="price">30-60元/斤</span></div>
+          <div class="price-item"><span class="name">扇贝</span> <span class="price">10-20元/斤</span></div>
+          <div class="price-item"><span class="name">生蚝</span> <span class="price">5-15元/斤</span></div>
+          <div class="price-item"><span class="name">蛤蜊</span> <span class="price">5-10元/斤</span></div>
+        </div>
+        <div class="seafood-tip">💡 一早去，九点前挑活的最新鲜。看秤看皮筋，明码标价再动手。</div>
+      </div>
+    </div>
+
+    <!-- 新开口渔港 -->
+    <div class="seafood-card reveal">
+      <div class="seafood-header">
+        <h3 class="seafood-name">新开口渔港</h3>
+        <span class="seafood-badge">⭐ 渔民直销</span>
+      </div>
+      <div class="seafood-body">
+        <p class="seafood-info">
+          <strong>地址：</strong>北戴河新区大蒲河管理处<br>
+          <strong>时间：</strong>渔船回港时间（下午4-5点最热闹）<br>
+          <strong>品种：</strong>镜鱼、鲆鱼、比目鱼、带鱼、对虾、皮皮虾、八爪鱼、海蜇等50多种<br>
+          <strong>特色：</strong>100多年历史渔港，渔民直销最新鲜
+        </p>
+        <div class="seafood-tip">💡 渔船刚回港时最新鲜，直接从渔民手中购买价格最实惠。</div>
+      </div>
+    </div>
+
+    <!-- 马坊市场 -->
+    <div class="seafood-card reveal">
+      <div class="seafood-header">
+        <h3 class="seafood-name">马坊市场</h3>
+        <span class="seafood-badge">⭐ 本地人常去</span>
+      </div>
+      <div class="seafood-body">
+        <p class="seafood-info">
+          <strong>地址：</strong>海港区民族路中段<br>
+          <strong>时间：</strong>早市为主，建议上午前往<br>
+          <strong>品种：</strong>螃蟹、虾类、贝类、各种鱼类<br>
+          <strong>特色：</strong>综合性市场，本地人常去，价格公道
+        </p>
+        <div class="seafood-tip">💡 价格比旅游区市场便宜，可买果蔬等食品一站式采购。</div>
+      </div>
+    </div>
+
+    <!-- 山海关囤金海鲜市场 -->
+    <div class="seafood-card reveal">
+      <div class="seafood-header">
+        <h3 class="seafood-name">山海关囤金海鲜市场</h3>
+        <span class="seafood-badge">⭐ 景区附近</span>
+      </div>
+      <div class="seafood-body">
+        <p class="seafood-info">
+          <strong>地址：</strong>山海关区老龙头路（路南综合市场北侧）<br>
+          <strong>时间：</strong>全天营业<br>
+          <strong>品种：</strong>各种新鲜海鲜<br>
+          <strong>加工：</strong>海天一色海鲜坊（清蒸多宝鱼、蒜蓉粉丝扇贝）
+        </p>
+        <div class="seafood-tip">💡 老龙头景区附近，游览后可顺路购买。</div>
+      </div>
+    </div>
+
+    <!-- 刘庄海鲜市场 -->
+    <div class="seafood-card reveal">
+      <div class="seafood-header">
+        <h3 class="seafood-name">刘庄海鲜市场</h3>
+        <span class="seafood-badge">⭐ 夜市配套</span>
+      </div>
+      <div class="seafood-body">
+        <p class="seafood-info">
+          <strong>地址：</strong>北戴河刘庄区域<br>
+          <strong>时间：</strong>晚间为主<br>
+          <strong>品种：</strong>海鲜烧烤、海鲜大咖、海肠捞饭<br>
+          <strong>加工：</strong>吉吉海鲜等餐厅
+        </p>
+        <div class="seafood-tip">💡 夜市氛围好，适合晚餐。买海鲜找附近餐厅加工。</div>
+      </div>
+    </div>
+
+    <!-- 河东桥头市场 -->
+    <div class="seafood-card reveal">
+      <div class="seafood-header">
+        <h3 class="seafood-name">河东桥头市场</h3>
+        <span class="seafood-badge">⭐ 下午最热闹</span>
+      </div>
+      <div class="seafood-body">
+        <p class="seafood-info">
+          <strong>地址：</strong>北戴河区河东寨村附近<br>
+          <strong>时间：</strong>下午4-5点最热闹<br>
+          <strong>品种：</strong>当地渔民捕捞的海产品<br>
+          <strong>特色：</strong>价格实惠，下午渔民回港后去最新鲜
+        </p>
+      </div>
+    </div>
+
+    <!-- 道南海鲜市场 -->
+    <div class="seafood-card reveal">
+      <div class="seafood-header">
+        <h3 class="seafood-name">道南海鲜市场</h3>
+        <span class="seafood-badge">⭐ 加工方便</span>
+      </div>
+      <div class="seafood-body">
+        <p class="seafood-info">
+          <strong>地址：</strong>北戴河区<br>
+          <strong>时间：</strong>全天<br>
+          <strong>品种：</strong>各种新鲜海鲜<br>
+          <strong>加工：</strong>旁边有餐馆可加工，加工费十几元
+        </p>
+        <div class="seafood-tip">💡 自己挑鲜活海鲜，找旁边餐馆加工，一站式搞定。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 防宰指南 ===== -->
+  <div class="anti-scam-box reveal">
+    <h3 class="anti-scam-title">⚠️ 防宰客指南</h3>
+    <div class="anti-scam-grid">
+      <div class="anti-scam-col">
+        <h4>✅ 正确做法</h4>
+        <ul>
+          <li>去石塘路市场自己买海鲜，再找店加工</li>
+          <li>加工费提前问清楚（一般10-20元/斤）</li>
+          <li>点餐前先看价目表，避免"时价"陷阱</li>
+          <li>秤海鲜时盯着看，防止"八两秤"</li>
+          <li>进厨房看着自己买的海鲜下锅</li>
+          <li>清蒸最稳，比红烧更能保持原味</li>
+          <li>货比三家，多问几家价格再决定</li>
+          <li>开发票可以防止被宰后维权</li>
+        </ul>
+      </div>
+      <div class="anti-scam-col danger">
+        <h4>❌ 避坑指南</h4>
+        <ul>
+          <li>不要相信出租车司机推荐的"好吃不贵"</li>
+          <li>海边大排档先问价再坐</li>
+          <li>野生海鲜基本是冻货，别被忽悠</li>
+          <li>螃蟹腿上皮筋可能很重，要求去掉再称</li>
+          <li>不要被"特价""优惠"忽悠冲动消费</li>
+          <li>旺季人多，注意保管财物</li>
+          <li>部分夜市冬季可能休业或缩短营业时间</li>
+          <li>网上查好高评分餐厅，到了直接去</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 海鲜季节指南 ===== -->
+  <div class="zone-header reveal">
+    <div class="zone-header-bar" style="background:#10b981;"></div>
+    <div class="zone-header-text">
+      <h2>海鲜季节指南</h2>
+      <p class="zone-count">什么时候吃什么海鲜</p>
+    </div>
+  </div>
+
+  <div class="specialty-grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="specialty-card reveal" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);">
+      <div class="specialty-img" style="font-size:2rem;">🌸</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">春季（3-5月）</h3>
+        <p class="specialty-desc" style="font-size:0.85rem;">皮皮虾最肥、带鱼鲜美</p>
+      </div>
+    </div>
+    <div class="specialty-card reveal" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">
+      <div class="specialty-img" style="font-size:2rem;">☀️</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">夏季（6-8月）</h3>
+        <p class="specialty-desc" style="font-size:0.85rem;">蛤蜊、扇贝最丰富</p>
+      </div>
+    </div>
+    <div class="specialty-card reveal" style="background:linear-gradient(135deg,#fed7aa,#fdba74);">
+      <div class="specialty-img" style="font-size:2rem;">🍂</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">秋季（9-11月）</h3>
+        <p class="specialty-desc" style="font-size:0.85rem;">梭子蟹、大虾最佳</p>
+      </div>
+    </div>
+    <div class="specialty-card reveal" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd);">
+      <div class="specialty-img" style="font-size:2rem;">❄️</div>
+      <div class="specialty-body">
+        <h3 class="specialty-name">冬季（12-2月）</h3>
+        <p class="specialty-desc" style="font-size:0.85rem;">海蛎子、花盖蟹</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA 区域 -->
+<section class="cta-section">
+  <h2>逛完景点，去吃美食！</h2>
+  <p>把美食点加入行程，吃得开心又划算</p>
+  <a href="itinerary.html" class="btn-white btn-lg">查看含美食的行程 →</a>
 </section>
 
 <footer class="footer">
@@ -218,7 +750,7 @@
       <div class="footer-brand"><h3>秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略。</p></div>
       <div class="footer-col"><h4>热门页面</h4><a href="index.html">首页</a><a href="attractions.html">景点推荐</a><a href="itinerary.html">行程规划</a><a href="food.html">美食推荐</a></div>
       <div class="footer-col"><h4>旅游攻略</h4><a href="guide.html">出行指南</a><a href="guide.html#transport">交通攻略</a><a href="guide.html#accommodation">住宿推荐</a></div>
-      <div class="footer-col"><h4>关于我们</h4><a href="about.html">关于官网</a><a href="about.html#contact">联系我们</a><a href="about.html#cooperation">商务合作</a></div>
+      <div class="footer-col"><h4>关于我们</h4><a href="about.html">关于官网</a><a href="about.html#cooperation">商务合作</a></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 秦皇岛旅游官网</span>
@@ -234,6 +766,34 @@ document.getElementById('hamburger').addEventListener('click',function(){documen
 var reveals=document.querySelectorAll('.reveal');
 var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target);}})},{threshold:0.1});
 reveals.forEach(function(el){o.observe(el);});
+
+// 筛选功能
+document.querySelectorAll('.filter-chip[data-filter]').forEach(function(chip){
+  chip.addEventListener('click',function(){
+    document.querySelectorAll('.filter-chip[data-filter]').forEach(function(c){c.classList.remove('active');});
+    this.classList.add('active');
+    var filter=this.getAttribute('data-filter');
+    var sections={night:'#night',specialty:'#specialty',seafood:'#seafood',snack:'#night'};
+    if(filter==='all'){
+      document.querySelectorAll('.zone-header, .night-market-grid, .specialty-grid, .seafood-grid, .anti-scam-box').forEach(function(el){el.style.display='';});
+    }else{
+      document.querySelectorAll('.zone-header, .night-market-grid, .specialty-grid, .seafood-grid, .anti-scam-box').forEach(function(el){el.style.display='none';});
+      var target=sections[filter];
+      if(target){
+        document.querySelector(target).style.display='';
+        var next=target+'-grid';
+        if(document.querySelector(next))document.querySelector(next).style.display='';
+        else{
+          var parent=document.querySelector(target).parentElement;
+          var grids=parent.querySelectorAll('.night-market-grid, .specialty-grid, .seafood-grid');
+          if(filter==='night')grids[0].style.display='';
+          else if(filter==='specialty')grids[1].style.display='';
+          else if(filter==='seafood')grids[2].style.display='';
+        }
+      }
+    }
+  });
+});
 </script>
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">
