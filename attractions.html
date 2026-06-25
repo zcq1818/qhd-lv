@@ -14,56 +14,107 @@
 <link rel="stylesheet" href="style.css">
 <style>
   :root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-muted:#6b7280;--ease-out:cubic-bezier(0.34,1.56,0.64,1);--dur:0.35s;--smooth:cubic-bezier(0.4,0,0.2,1);}
-  .section{max-width:var(--max-width);margin:0 auto;padding:var(--s16) var(--s6);}
+  .section{max-width:var(--max-width);margin:0 auto;padding:var(--s12) var(--s6);}
   .section-label{font-size:var(--text-sm);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand,#1a73e8);margin-bottom:var(--s2);}
   .section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin:0 0 var(--s3);line-height:1.25;}
   .section-desc{color:var(--text-muted);line-height:1.8;margin-bottom:var(--s10);max-width:600px;}
   .breadcrumb{max-width:var(--max-width);margin:0 auto;padding:var(--s4) var(--s6);font-size:var(--text-sm);color:var(--text-muted);}
   .breadcrumb a{color:var(--brand);text-decoration:none;}
   .breadcrumb .sep{margin:0 var(--s2);}
-  /* 景点大卡片 */
-  .spot{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.06);border:1px solid #e5e7eb;margin-bottom:var(--s8);transition:box-shadow var(--dur) var(--smooth);}
-  .spot:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1);}
-  .spot-inner{display:grid;grid-template-columns:1.1fr 1fr;min-height:380px;}
-  .spot-img{overflow:hidden;position:relative;}
-  .spot-img img{width:100%;height:100%;min-height:380px;object-fit:cover;transition:transform 0.6s var(--smooth);}
-  .spot:hover .spot-img img{transform:scale(1.06);}
-  .spot-img .spot-badge{position:absolute;top:var(--s4);left:var(--s4);background:rgba(0,0,0,0.65);color:#fff;font-size:var(--text-sm);font-weight:700;padding:var(--s1) var(--s3);border-radius:20px;backdrop-filter:blur(8px);}
-  .spot-body{padding:var(--s8);display:flex;flex-direction:column;justify-content:center;}
-  .spot-tag{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.04em;padding:var(--s1) var(--s3);border-radius:20px;margin-bottom:var(--s3);}
+
+  /* ===== Hero 区域 ===== */
+  .page-hero{position:relative;overflow:hidden;padding:80px var(--s6) 60px;text-align:center;color:#fff;background:linear-gradient(135deg,#0d47a1 0%,#1565c0 40%,#1a73e8 70%,#4a9af5 100%);}
+  .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.15) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,255,255,0.1) 0%,transparent 50%);pointer-events:none;}
+  .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;margin:0 0 var(--s3);letter-spacing:-0.02em;position:relative;}
+  .page-hero p{font-size:clamp(1rem,2vw,1.2rem);opacity:0.92;margin:0 0 var(--s6);position:relative;}
+  .page-hero-meta{display:flex;gap:var(--s3);flex-wrap:wrap;justify-content:center;position:relative;}
+  .page-hero-tag{background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.25);padding:var(--s2) var(--s4);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;}
+  .hero-stats{display:flex;gap:var(--s6);justify-content:center;margin-top:var(--s8);flex-wrap:wrap;position:relative;}
+  .hero-stat{text-align:center;}
+  .hero-stat-num{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#fff,#e3f2fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero-stat-label{font-size:var(--text-sm);opacity:0.85;margin-top:var(--s1);}
+
+  /* ===== Sticky 筛选栏 ===== */
+  .filter-bar{position:sticky;top:var(--nav-height);z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+  .filter-bar-inner{max-width:var(--max-width);margin:0 auto;padding:var(--s3) var(--s6);display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;}
+  .filter-group{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;}
+  .filter-label{font-size:var(--text-sm);font-weight:700;color:var(--gray-600);margin-right:var(--s1);}
+  .filter-chip{padding:6px 14px;border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;cursor:pointer;border:1.5px solid var(--gray-200);background:#fff;color:var(--gray-600);transition:all var(--dur) var(--smooth);white-space:nowrap;}
+  .filter-chip:hover{border-color:var(--brand);color:var(--brand);}
+  .filter-chip.active{background:var(--brand);color:#fff;border-color:var(--brand);box-shadow:0 2px 8px rgba(26,115,232,0.3);}
+  .filter-chip .chip-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+
+  /* ===== TOP5 大卡片 ===== */
+  .spot-top{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:var(--s6);transition:all var(--dur) var(--smooth);border:1px solid var(--gray-200);}
+  .spot-top:hover{box-shadow:var(--shadow-xl);transform:translateY(-2px);}
+  .spot-top-inner{display:grid;grid-template-columns:1.2fr 1fr;min-height:340px;}
+  .spot-top-img{position:relative;overflow:hidden;}
+  .spot-top-img img{width:100%;height:100%;min-height:340px;object-fit:cover;transition:transform 0.7s var(--smooth);}
+  .spot-top:hover .spot-top-img img{transform:scale(1.05);}
+  .spot-top-body{padding:var(--s8);display:flex;flex-direction:column;justify-content:center;}
+  .spot-top-rank{position:absolute;top:0;left:0;background:linear-gradient(135deg,#f59e0b,#ea4335);color:#fff;font-size:0.8rem;font-weight:800;padding:var(--s2) var(--s4);border-radius:0 0 var(--radius) 0;letter-spacing:0.05em;}
+  .spot-top-name{font-size:var(--text-2xl);font-weight:800;margin:var(--s2) 0 var(--s3);line-height:1.3;}
+
+  /* ===== 景点卡片（网格） ===== */
+  .spots-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6);}
+  .spot-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--gray-200);transition:all var(--dur) var(--smooth);display:flex;flex-direction:column;}
+  .spot-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl);border-color:var(--brand-glow);}
+  .spot-card-img{position:relative;height:220px;overflow:hidden;background:var(--gray-100);}
+  .spot-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--smooth);}
+  .spot-card:hover .spot-card-img img{transform:scale(1.08);}
+  .spot-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.3) 0%,transparent 40%);pointer-events:none;}
+
+  /* 等级徽章 */
+  .level-badge{position:absolute;top:var(--s3);left:var(--s3);padding:4px 10px;border-radius:var(--radius-full);font-size:0.75rem;font-weight:800;letter-spacing:0.03em;backdrop-filter:blur(8px);z-index:2;}
+  .level-5A{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;box-shadow:0 2px 8px rgba(245,158,11,0.4);}
+  .level-4A{background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;box-shadow:0 2px 8px rgba(59,130,246,0.4);}
+  .level-3A{background:linear-gradient(135deg,#10b981,#059669);color:#fff;box-shadow:0 2px 8px rgba(16,185,129,0.4);}
+  .level-2A{background:linear-gradient(135deg,#6b7280,#4b5563);color:#fff;box-shadow:0 2px 8px rgba(107,114,128,0.4);}
+  .level-none{background:rgba(0,0,0,0.6);color:#fff;backdrop-filter:blur(8px);}
+
+  /* 价格标签 */
+  .price-tag{position:absolute;bottom:var(--s3);right:var(--s3);background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:4px 12px;border-radius:var(--radius-full);font-size:0.85rem;font-weight:800;color:var(--accent-sunset);box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:2;}
+  .price-tag.free{color:var(--accent-green);}
+
+  /* 卡片内容 */
+  .spot-card-body{padding:var(--s5);display:flex;flex-direction:column;flex:1;}
+  .spot-card-tag{display:inline-flex;align-items:center;gap:4px;font-size:0.72rem;font-weight:700;letter-spacing:0.03em;padding:3px 10px;border-radius:var(--radius-full);margin-bottom:var(--s2);align-self:flex-start;}
   .tag-beach{background:#e0f2fe;color:#0369a1;}
   .tag-history{background:#fef3c7;color:#92400e;}
   .tag-nature{background:#dcfce7;color:#166534;}
   .tag-family{background:#fce7f3;color:#9d174d;}
   .tag-culture{background:#ede9fe;color:#6b21a8;}
-  .spot-title{font-size:var(--text-2xl);font-weight:800;margin:0 0 var(--s2);}
-  .spot-meta{display:flex;gap:var(--s4);flex-wrap:wrap;font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--s4);}
-  .spot-meta .stars{color:#f59e0b;font-weight:700;}
-  .spot-desc{color:#4b5563;line-height:1.85;margin-bottom:var(--s4);}
-  .spot-desc strong{color:#1f2937;}
-  .spot-info{font-size:var(--text-sm);color:var(--text-muted);line-height:1.8;margin-bottom:var(--s4);}
-  .spot-info strong{color:#374151;}
-  .spot-tips{background:#f0f9ff;border-left:3px solid #1a73e8;padding:var(--s3) var(--s4);border-radius:0 8px 8px 0;font-size:var(--text-sm);color:#0369a1;line-height:1.7;margin-bottom:var(--s4);}
-  .spot-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
-  /* 小卡片网格 */
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);}
-  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5);}
-  .mini-spot{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.05);border:1px solid #e5e7eb;transition:all var(--dur) var(--smooth);}
-  .mini-spot:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.1);}
-  .mini-spot-img{height:160px;overflow:hidden;}
-  .mini-spot-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s var(--smooth);}
-  .mini-spot:hover .mini-spot-img img{transform:scale(1.08);}
-  .mini-spot-body{padding:var(--s4);}
-  .mini-spot-body h3{font-size:var(--text-base);font-weight:700;margin:0 0 var(--s1);}
-  .mini-spot-body .mini-meta{font-size:0.8rem;color:var(--text-muted);margin-bottom:var(--s2);}
-  .mini-spot-body p{font-size:0.85rem;color:#6b7280;line-height:1.6;margin:0;}
-  .zone-header{margin:var(--s12) 0 var(--s8);padding-bottom:var(--s4);border-bottom:2px solid #e5e7eb;}
-  .zone-header h2{font-size:var(--text-2xl);font-weight:800;margin:0 0 var(--s1);}
-  .zone-header .zone-count{font-size:var(--text-sm);color:var(--text-muted);}
-  .quick-nav{display:flex;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s10);}
-  .quick-nav a{padding:var(--s2) var(--s4);background:#f3f4f6;border-radius:20px;font-size:var(--text-sm);font-weight:600;color:#374151;text-decoration:none;transition:all 0.2s;}
-  .quick-nav a:hover{background:var(--brand);color:#fff;}
-  .booking-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:50px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid transparent;}
+  .spot-card-name{font-size:1.15rem;font-weight:800;margin:0 0 var(--s2);color:var(--gray-900);line-height:1.3;}
+  .spot-card-meta{display:flex;gap:var(--s3);flex-wrap:wrap;font-size:0.82rem;color:var(--gray-500);margin-bottom:var(--s3);align-items:center;}
+  .spot-card-meta .stars{color:#f59e0b;font-weight:700;display:inline-flex;align-items:center;gap:2px;}
+  .spot-card-meta .area{color:var(--gray-600);font-weight:600;}
+  .spot-card-meta .sep{color:var(--gray-300);}
+  .spot-card-desc{font-size:0.88rem;color:var(--gray-600);line-height:1.7;margin-bottom:var(--s3);flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  .spot-card-highlights{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:var(--s3);}
+  .highlight-pill{font-size:0.72rem;padding:2px 8px;border-radius:var(--radius-sm);background:var(--gray-100);color:var(--gray-600);font-weight:500;}
+  .spot-card-footer{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;padding-top:var(--s3);border-top:1px solid var(--gray-100);}
+  .spot-card-time{font-size:0.78rem;color:var(--gray-500);display:inline-flex;align-items:center;gap:4px;flex:1;min-width:0;}
+  .spot-card-actions{display:flex;gap:6px;flex-wrap:wrap;}
+
+  /* TOP5 卡片内部样式 */
+  .spot-top-meta{display:flex;gap:var(--s4);flex-wrap:wrap;font-size:var(--text-sm);color:var(--gray-500);margin-bottom:var(--s4);align-items:center;}
+  .spot-top-meta .stars{color:#f59e0b;font-weight:700;}
+  .spot-top-meta .price{color:var(--accent-sunset);font-weight:700;font-size:1.1rem;}
+  .spot-top-desc{color:var(--gray-600);line-height:1.8;margin-bottom:var(--s4);}
+  .spot-top-info{font-size:var(--text-sm);color:var(--gray-500);line-height:1.8;margin-bottom:var(--s4);}
+  .spot-top-info strong{color:var(--gray-700);}
+  .spot-top-tips{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-left:4px solid var(--brand);padding:var(--s3) var(--s4);border-radius:0 var(--radius) var(--radius) 0;font-size:var(--text-sm);color:#0369a1;line-height:1.7;margin-bottom:var(--s4);}
+  .spot-top-actions{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;}
+
+  /* 区域标题 */
+  .zone-header{margin:var(--s12) 0 var(--s6);display:flex;align-items:center;gap:var(--s4);}
+  .zone-header-bar{width:5px;height:40px;border-radius:var(--radius-full);flex-shrink:0;}
+  .zone-header-text h2{font-size:var(--text-2xl);font-weight:800;margin:0 0 2px;line-height:1.2;}
+  .zone-header-text .zone-count{font-size:var(--text-sm);color:var(--gray-500);}
+  .zone-header-count{margin-left:auto;background:var(--gray-100);color:var(--gray-600);padding:4px 12px;border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:700;}
+
+  /* 预订按钮 */
+  .booking-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:var(--radius-full);font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid transparent;cursor:pointer;}
   .booking-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
   .booking-ctrip{background:#fff5f5;color:#ff6913;border-color:#ffd6c4;}
   .booking-ctrip:hover{background:#ff6913;color:#fff;}
@@ -73,21 +124,46 @@
   .booking-dianping:hover{background:#07c160;color:#fff;}
   .booking-hotel{background:#eff6ff;color:#1a73e8;border-color:#bfdbfe;}
   .booking-hotel:hover{background:#1a73e8;color:#fff;}
-  .cta-section{background:linear-gradient(160deg,#0d47a1,#1a73e8,#4a9af5);color:#fff;text-align:center;padding:var(--s16) var(--s6);}
-  .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:var(--s3);}
-  .cta-section p{opacity:0.9;margin-bottom:var(--s8);}
-  .back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--brand);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,0.15);cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:100;border:none;}
+
+  /* 按钮样式 */
+  .btn-sm{padding:6px 14px;font-size:0.82rem;}
+  .btn-primary{background:var(--brand);color:#fff;border:none;border-radius:var(--radius-full);font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:all 0.2s;}
+  .btn-primary:hover{background:var(--brand-dark);transform:translateY(-1px);box-shadow:var(--shadow-brand);}
+  .btn-outline{background:transparent;color:var(--brand);border:1.5px solid var(--brand);border-radius:var(--radius-full);font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:all 0.2s;}
+  .btn-outline:hover{background:var(--brand);color:#fff;}
+
+  /* CTA 区域 */
+  .cta-section{background:linear-gradient(135deg,#0d47a1,#1a73e8,#4a9af5);color:#fff;text-align:center;padding:var(--s16) var(--s6);position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.1) 0%,transparent 50%);}
+  .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:var(--s3);position:relative;}
+  .cta-section p{opacity:0.9;margin-bottom:var(--s8);position:relative;}
+  .btn-white{background:#fff;color:var(--brand);border:none;padding:12px 32px;border-radius:var(--radius-full);font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;position:relative;}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+  .btn-lg{padding:14px 36px;font-size:1.05rem;}
+
+  /* 返回顶部 */
+  .back-top{position:fixed;bottom:24px;right:24px;width:48px;height:48px;background:var(--brand);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:var(--shadow-lg);cursor:pointer;opacity:0;transition:all 0.3s;z-index:100;border:none;}
   .back-top.show{opacity:1;}
+  .back-top:hover{transform:translateY(-3px);background:var(--brand-dark);}
+
+  /* 滚动揭示动画 */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s var(--smooth),transform 0.6s var(--smooth);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* 响应式 */
   @media(max-width:768px){
-    .spot-inner{grid-template-columns:1fr;}
-    .spot-img img{height:240px;min-height:auto;}
-    .spot-body{padding:var(--s6);}
-    .grid-3,.grid-4{grid-template-columns:1fr;}
+    .spot-top-inner{grid-template-columns:1fr;}
+    .spot-top-img img{height:220px;min-height:auto;}
+    .spot-top-body{padding:var(--s5);}
+    .spots-grid{grid-template-columns:1fr;}
     .section{padding:var(--s8) var(--s4);}
+    .filter-bar-inner{padding:var(--s2) var(--s4);gap:var(--s2);}
+    .filter-label{display:none;}
+    .hero-stats{gap:var(--s4);}
+    .zone-header-count{display:none;}
   }
   @media(min-width:769px) and (max-width:1024px){
-    .grid-3{grid-template-columns:repeat(2,1fr);}
-    .grid-4{grid-template-columns:repeat(2,1fr);}
+    .spots-grid{grid-template-columns:repeat(2,1fr);}
   }
 </style>
 </head>
@@ -115,633 +191,49 @@
 
 <div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 景点大全</div>
 
-<section class="page-hero" style="background:linear-gradient(160deg,#0d47a1,#1a73e8,#4a9af5);">
+<section class="page-hero">
   <h1>秦皇岛景点大全</h1>
-  <p>30+精选景区 · 从长城入海到文艺海岸，每一处都值得探索</p>
+  <p>48精选景区 · 从长城入海到文艺海岸，每一处都值得探索</p>
   <div class="page-hero-meta">
     <span class="page-hero-tag">5A景区 1家</span>
     <span class="page-hero-tag">4A景区 19家</span>
-    <span class="page-hero-tag">滨海·长城·山岳全收录</span>
+    <span class="page-hero-tag">3A景区 7家</span>
+    <span class="page-hero-tag">2A景区 5家</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">48</div><div class="hero-stat-label">精选景区</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">区域分布</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">必去TOP</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">15+</div><div class="hero-stat-label">免费景点</div></div>
   </div>
 </section>
 
-<div class="section">
-  <div class="quick-nav">
-    <a href="#top5">必去TOP5</a>
-    <a href="#beidaihe">北戴河区</a>
-    <a href="#shanhaiguan">山海关区</a>
-    <a href="#haigang">海港区</a>
-    <a href="#nandaihe">南戴河·昌黎</a>
-    <a href="#funing">抚宁·青龙</a>
-  </div>
-
-  <!-- ====== TOP 5 ====== -->
-  <div id="top5">
-    <div class="section-label">TOP 5 必去</div>
-    <h2 class="section-title">第一次来秦皇岛，先去这5个</h2>
-    <p class="section-desc">从海滨度假到长城入海，从日出圣地到文艺海岸——这5个景点串起了秦皇岛的精华。</p>
-  </div>
-
-  <!-- TOP 1: 北戴河海滨 -->
-  <div class="spot reveal" id="beidaihe-spot">
-    <div class="spot-inner">
-      <div class="spot-img">
-        <img src="images/beidaihe-beach.png" alt="北戴河海滨风景区" loading="eager">
-        <span class="spot-badge">TOP 1</span>
-      </div>
-      <div class="spot-body">
-        <span class="spot-tag tag-beach">海滨风光 · 避暑胜地</span>
-        <h3 class="spot-title">北戴河海滨风景区</h3>
-        <div class="spot-meta"><span>北戴河区</span><span>沙滩免费</span><span class="stars">★ 4.7</span><span>全天开放</span></div>
-        <p class="spot-desc"><strong>北戴河</strong>是中国四大避暑胜地之一，绵延20公里的黄金沙滩、清澈海水、宜人气候，让这里成为京津地区最受欢迎的海滨度假地。从清末就是皇家避暑地，至今保留着大量近代建筑群。</p>
-        <p class="spot-info">
-          <strong>主要景点：</strong>老虎石海上公园、联峰山公园、怪楼奇园、鸽子窝公园<br>
-          <strong>最佳季节：</strong>6-9月（海水浴），5月和10月人少景美<br>
-          <strong>交通：</strong>秦皇岛站乘34路公交约40分钟；北戴河站打车约10分钟<br>
-          <strong>住宿：</strong>北戴河区民宿/酒店密集，淡季150-300元，旺季400-800元
-        </p>
-        <div class="spot-tips">游玩建议：至少安排一整天。上午鸽子窝看日出→白天老虎石玩沙→傍晚碧螺塔看日落夜景→晚上海鲜大排档。</div>
-        <div class="spot-actions">
-          <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的北戴河 →</a>
-          <a href="https://hotels.ctrip.com/hotels/list?countryId=1&city=32" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订酒店</a>
-          <a href="https://www.meituan.com/hotel/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团订房</a>
-        </div>
-      </div>
+<!-- Sticky 筛选栏 -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <div class="filter-group">
+      <span class="filter-label">区域</span>
+      <button class="filter-chip active" data-filter="area" data-value="all">全部</button>
+    </div>
+    <div class="filter-group" id="areaFilters"></div>
+    <div class="filter-group" style="margin-left:auto;">
+      <span class="filter-label">类别</span>
+      <button class="filter-chip active" data-filter="cat" data-value="all">全部</button>
+      <button class="filter-chip" data-filter="cat" data-value="beach"><span class="chip-dot" style="background:#0369a1;"></span>海滨</button>
+      <button class="filter-chip" data-filter="cat" data-value="history"><span class="chip-dot" style="background:#92400e;"></span>历史</button>
+      <button class="filter-chip" data-filter="cat" data-value="nature"><span class="chip-dot" style="background:#166534;"></span>自然</button>
+      <button class="filter-chip" data-filter="cat" data-value="family"><span class="chip-dot" style="background:#9d174d;"></span>亲子</button>
+      <button class="filter-chip" data-filter="cat" data-value="culture"><span class="chip-dot" style="background:#6b21a8;"></span>文艺</button>
     </div>
   </div>
+</div>
 
-  <!-- TOP 2: 山海关 -->
-  <div class="spot reveal" id="shanhaiguan-spot">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-history">世界遗产 · 历史文化</span>
-        <h3 class="spot-title">山海关 · 天下第一关</h3>
-        <div class="spot-meta"><span>山海关区</span><span>50元/人</span><span class="stars">★ 4.8</span><span>08:00-17:30</span></div>
-        <p class="spot-desc"><strong>山海关</strong>是明长城东北关隘，中国长城三大奇观之一（东有山海关、中有镇北台、西有嘉峪关）。"天下第一关"巨匾高悬镇远楼之上，每个字1米见方，据传为明代书法家萧显所书，600年未换。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>镇远楼（登楼俯瞰古城全貌）、王家大院、钟鼓楼、古城墙<br>
-          <strong>建议游玩：</strong>3-4小时，可与老龙头打包一日游（仅8公里）<br>
-          <strong>交通：</strong>山海关火车站步行15分钟到古城东门<br>
-          <strong>适合人群：</strong>历史爱好者、亲子研学、摄影爱好者
-        </p>
-        <div class="spot-tips">登城楼记得抬头看匾额——"天下第一关"五个大字，笔力遒劲。城墙上有箭楼、敌楼可参观，走一圈约40分钟。</div>
-        <div class="spot-actions">
-          <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的山海关 →</a>
-          <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥50</a>
-          <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
-        </div>
-      </div>
-      <div class="spot-img">
-        <img src="images/shanhaiguan.png" alt="山海关天下第一关城楼" loading="lazy">
-        <span class="spot-badge">TOP 2</span>
-      </div>
-    </div>
+<div class="section" id="spotsSection">
+  <!-- 动态渲染内容 -->
+  <div style="text-align:center;padding:60px 20px;color:var(--gray-400);">
+    <div style="font-size:2rem;margin-bottom:12px;">⏳</div>
+    <p>正在加载景点数据...</p>
   </div>
-
-  <!-- TOP 3: 鸽子窝 -->
-  <div class="spot reveal" id="geziwo-spot">
-    <div class="spot-inner">
-      <div class="spot-img">
-        <img src="images/geziwo-sunrise.jpg" alt="鸽子窝公园日出" loading="lazy">
-        <span class="spot-badge">TOP 3</span>
-      </div>
-      <div class="spot-body">
-        <span class="spot-tag tag-beach">日出胜地 · 亲子游玩</span>
-        <h3 class="spot-title">鸽子窝公园</h3>
-        <div class="spot-meta"><span>北戴河区</span><span>25元/人</span><span class="stars">★ 4.6</span><span>05:00-18:00</span></div>
-        <p class="spot-desc"><strong>鸽子窝公园</strong>是北戴河看日出的最佳地点。"鸽子窝日出"被誉为北戴河二十四景之首。鹰角石高约17米，形似雄鹰屹立。毛泽东曾在此写下《浪淘沙·北戴河》："大雨落幽燕，白浪滔天，秦皇岛外打鱼船……"</p>
-        <p class="spot-info">
-          <strong>日出时间：</strong>夏季 4:50-5:20 / 春秋 5:30-6:10（建议提前30分钟到场占位）<br>
-          <strong>建议游玩：</strong>1.5-2小时（日出后可逛公园）<br>
-          <strong>交通：</strong>34路公交鸽子窝站下车即到<br>
-          <strong>适合人群：</strong>摄影爱好者、情侣、亲子（公园内有鸽子）
-        </p>
-        <div class="spot-tips">海边凌晨体感温度比白天低8-10℃，一定要穿外套！想拍大片建议带三脚架。日出后公园内的湿地栈道也很美，值得多留半小时。</div>
-        <div class="spot-actions">
-          <a href="guide.html" class="btn btn-outline btn-sm">查看日出时间表 →</a>
-          <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥25</a>
-          <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOP 4: 老龙头 -->
-  <div class="spot reveal" id="laolongtou-spot">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-history">长城入海 · 世界遗产</span>
-        <h3 class="spot-title">老龙头景区</h3>
-        <div class="spot-meta"><span>山海关区</span><span>60元/人</span><span class="stars">★ 4.7</span><span>08:00-17:30</span></div>
-        <p class="spot-desc"><strong>老龙头</strong>是明长城东端起点，万里长城唯一集山、海、关、城于一体的海陆军事防御体系。长城如巨龙探入渤海，澄海楼上有"雄襟万里"匾额。用铁水浇筑基础、糯米石灰砌墙，几万劳工干了十年——六百年后，潮起潮落，纹丝不动。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>澄海楼、入海石城、海神庙、靖虏台、南海口关<br>
-          <strong>建议游玩：</strong>1.5-2小时<br>
-          <strong>交通：</strong>距山海关古城8公里，打车约15分钟；或乘25路公交<br>
-          <strong>适合人群：</strong>历史爱好者、全家出游、摄影爱好者
-        </p>
-        <div class="spot-tips">涨潮时去最壮观，海水拍打城墙的场面震撼。退潮可以走到城墙根下，能摸到600年前的石条。与山海关古城打包半日游最佳。</div>
-        <div class="spot-actions">
-          <a href="itinerary.html" class="btn btn-primary btn-sm">行程中的老龙头 →</a>
-          <a href="https://p.ctrip.com/ticket/dest/t228.html" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订票 ¥60</a>
-          <a href="https://www.meituan.com/" target="_blank" rel="nofollow sponsored" class="booking-link booking-meituan">美团购票</a>
-        </div>
-      </div>
-      <div class="spot-img">
-        <img src="images/laolongtou.jpg" alt="老龙头长城入海处" loading="lazy">
-        <span class="spot-badge">TOP 4</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOP 5: 阿那亚 -->
-  <div class="spot reveal" id="aranya-spot">
-    <div class="spot-inner">
-      <div class="spot-img">
-        <img src="images/aranya-library.jpg" alt="阿那亚孤独图书馆" loading="lazy">
-        <span class="spot-badge">TOP 5</span>
-      </div>
-      <div class="spot-body">
-        <span class="spot-tag tag-culture">文艺地标 · 网红打卡</span>
-        <h3 class="spot-title">阿那亚 · 黄金海岸社区</h3>
-        <div class="spot-meta"><span>昌黎县</span><span>预约制</span><span class="stars">★ 4.8</span><span>全天开放</span></div>
-        <p class="spot-desc"><strong>阿那亚</strong>是中国最具文艺气息的海岸社区。孤独图书馆、海边礼堂（阿那亚礼堂）、沙丘美术馆……每一栋建筑都是艺术品。梵语"阿那亚"意为"人间寂静处，找回本我的地方"。由建筑师董功设计的孤独图书馆，落地窗正对大海，是中国第一座海边公益图书馆。</p>
-        <p class="spot-info">
-          <strong>必打卡：</strong>孤独图书馆、海边礼堂、沙丘美术馆、海边市集、犬舍酒店<br>
-          <strong>预约方式：</strong>关注"阿那亚"微信公众号 → 社区服务 → 图书馆预约（旺季需提前3-5天）<br>
-          <strong>交通：</strong>北戴河站打车约30分钟；社区有接驳车需提前预约<br>
-          <strong>注意：</strong>封闭社区，不预约/不消费可能进不去
-        </p>
-        <div class="spot-tips">图书馆内禁止拍照（拍照请到馆外），保持安静。海边礼堂日出和黄昏最美，白色建筑会染上金色或粉色。穿浅色衣服拍照更出片。</div>
-        <div class="spot-actions">
-          <a href="guide.html" class="btn btn-outline btn-sm">阿那亚游玩攻略 →</a>
-          <a href="https://aranya.com" target="_blank" rel="nofollow sponsored" class="booking-link booking-hotel">阿那亚官网预约</a>
-          <a href="https://hotels.ctrip.com/hotels/list?countryId=1&city=32" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订酒店</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====== 北戴河区 ====== -->
-  <div class="zone-header reveal" id="beidaihe">
-    <h2>北戴河区 · 7大景区</h2>
-    <p class="zone-count">中国四大避暑胜地 · 最美海滨度假区</p>
-  </div>
-
-  <!-- 老虎石 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img">
-        <img src="images/laohushi.png" alt="老虎石海上公园日落" loading="lazy">
-      </div>
-      <div class="spot-body">
-        <span class="spot-tag tag-beach">经典地标 · 免费开放</span>
-        <h3 class="spot-title">老虎石海上公园</h3>
-        <div class="spot-meta"><span>北戴河区</span><span>免费</span><span class="stars">★ 4.5</span><span>全天开放</span></div>
-        <p class="spot-desc">北戴河最经典的海滨公园，因海边一块形似老虎的巨石而得名。沙滩细腻平缓，适合游泳、赶海。夕阳西下时，金色阳光洒在巨石上，是北戴河最美日落观赏点。</p>
-        <p class="spot-info">
-          <strong>适合：</strong>游泳、赶海、拍照、遛娃<br>
-          <strong>最佳时间：</strong>下午4-6点看日落，退潮时赶海<br>
-          <strong>交通：</strong>34路/5路老虎石站<br>
-          <strong>费用：</strong>公园免费，更衣/淋浴约10元
-        </p>
-        <div class="spot-tips">退潮时可以在礁石区赶海捡贝壳小蟹，记得带小桶和拖鞋。日落时分巨石剪影非常出片。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 联峰山 -->
-  <div class="spot reveal">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-nature">森林公园 · 登高望远</span>
-        <h3 class="spot-title">联峰山公园</h3>
-        <div class="spot-meta"><span>北戴河区</span><span>25元/人</span><span class="stars">★ 4.4</span><span>07:00-18:00</span></div>
-        <p class="spot-desc"><strong>联峰山</strong>是北戴河制高点，也是中国第一座森林公园。望海亭可俯瞰整个北戴河海滨全景，秦皇岛港、鸽子窝尽收眼底。山中松柏苍翠，负氧离子极高，是天然氧吧。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>望海亭（最佳观景点）、莲花石、仙人洞、神山<br>
-          <strong>建议游玩：</strong>2-3小时<br>
-          <strong>交通：</strong>5路/15路联峰山公园站<br>
-          <strong>适合人群：</strong>登山爱好者、摄影爱好者、避暑纳凉
-        </p>
-        <div class="spot-tips">山不高（海拔153米），但林木茂密，夏天比山下凉快5℃左右。建议早上或傍晚去，避开正午暴晒。</div>
-      </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&q=80" alt="联峰山森林公园" loading="lazy"></div>
-    </div>
-  </div>
-
-  <!-- 碧螺塔 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="images/biluota.png" alt="碧螺塔海上酒吧公园夜景" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-culture">夜生活 · 网红打卡</span>
-        <h3 class="spot-title">碧螺塔海上酒吧公园</h3>
-        <div class="spot-meta"><span>北戴河区</span><span>40元/人</span><span class="stars">★ 4.3</span><span>09:00-24:00</span></div>
-        <p class="spot-desc">北戴河夜生活地标！海上酒吧+烟花秀+篝火晚会+乐队演出。碧螺塔三面环海，塔顶是绝佳的日落和星空拍摄点。"圣托里尼"风的白墙蓝顶建筑让这里成为拍照圣地。</p>
-        <p class="spot-info">
-          <strong>亮点：</strong>夜间篝火晚会（19:30开始）、海上酒吧、热气球装置、栈道夜景<br>
-          <strong>最佳时间：</strong>下午4点到晚上10点（看日落+夜景+表演）<br>
-          <strong>交通：</strong>15路碧螺塔站<br>
-          <strong>适合人群：</strong>情侣、年轻人、夜生活爱好者
-        </p>
-        <div class="spot-tips">建议下午4点入园，先拍白天的圣托里尼风建筑，等日落，再看晚上篝火晚会和乐队演出，一站搞定日落+夜景。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 怪楼奇园 -->
-  <div class="spot reveal">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-family">奇趣建筑 · 亲子</span>
-        <h3 class="spot-title">怪楼奇园</h3>
-        <div class="spot-meta"><span>北戴河区</span><span>20元/人</span><span class="stars">★ 4.2</span><span>08:00-17:30</span></div>
-        <p class="spot-desc">一座充满奇思妙想的建筑群，内部结构错综复杂，有999个门、999扇窗，像个巨大的迷宫。每个房间都有不同的主题——有的地板是斜的，有的镜子无限反射，特别适合带孩子探险。</p>
-        <p class="spot-info">
-          <strong>适合：</strong>亲子探险、建筑爱好者、好奇心玩家<br>
-          <strong>建议游玩：</strong>1-1.5小时<br>
-          <strong>交通：</strong>5路怪楼站<br>
-          <strong>注意：</strong>迷宫较复杂，带好小孩别走散
-        </p>
-      </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80" alt="怪楼奇园建筑" loading="lazy"></div>
-    </div>
-  </div>
-
-  <!-- 野生动物园 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1534567153573-4cb3da9283a1?w=800&q=80" alt="秦皇岛野生动物园" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-family">亲子必去 · 自驾游览</span>
-        <h3 class="spot-title">秦皇岛野生动物园</h3>
-        <div class="spot-meta"><span>北戴河区</span><span>100元/人</span><span class="stars">★ 4.5</span><span>08:30-17:00</span></div>
-        <p class="spot-desc">华北地区最大的野生动物园之一，占地5000余亩。可自驾入园穿越猛兽区，近距离观赏老虎、狮子、黑熊。温顺区可步行投喂长颈鹿、羊驼等动物。</p>
-        <p class="spot-info">
-          <strong>游玩方式：</strong>自驾（推荐，约2小时）/ 园区小火车<br>
-          <strong>必看：</strong>猛兽区（虎/狮/熊）、草食区（长颈鹿/斑马）、鸟林<br>
-          <strong>交通：</strong>34路野生动物园站<br>
-          <strong>适合人群：</strong>亲子家庭、动物爱好者
-        </p>
-        <div class="spot-tips">自驾游览时不要开窗！猛兽区有铁丝网但距离很近。建议上午去，动物比较活跃。带孩子的可以在温顺区买饲料投喂。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====== 山海关区 ====== -->
-  <div class="zone-header reveal" id="shanhaiguan">
-    <h2>山海关区 · 6大景区</h2>
-    <p class="zone-count">万里长城第一关 · 世界文化遗产核心区</p>
-  </div>
-
-  <!-- 角山长城 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=800&q=80" alt="角山长城" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-history">长城登山 · 壮美山景</span>
-        <h3 class="spot-title">角山长城</h3>
-        <div class="spot-meta"><span>山海关区</span><span>40元/人</span><span class="stars">★ 4.5</span><span>08:00-17:00</span></div>
-        <p class="spot-desc"><strong>角山</strong>是万里长城翻越的第一座山，素有"万里长城第一山"之称。长城沿山脊蜿蜒而上，登顶可远眺山海关全景和渤海湾。秋季红叶似火，是摄影爱好者的天堂。</p>
-        <p class="spot-info">
-          <strong>海拔：</strong>519米，登山约1.5-2小时<br>
-          <strong>建议游玩：</strong>2-3小时，需一定体力<br>
-          <strong>交通：</strong>山海关古城打车约15分钟<br>
-          <strong>最佳季节：</strong>秋季（9-10月）红叶最美
-        </p>
-        <div class="spot-tips">爬上去回望，长城像一条灰色的脊梁从山脊蜿蜒而下，穿过田野，直插大海——从山到海，一条龙。体力一般可坐缆车。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 孟姜女庙 -->
-  <div class="spot reveal">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-history">千古传说 · 文化遗址</span>
-        <h3 class="spot-title">孟姜女庙（贞女祠）</h3>
-        <div class="spot-meta"><span>山海关区</span><span>30元/人</span><span class="stars">★ 4.3</span><span>08:00-17:00</span></div>
-        <p class="spot-desc">又称贞女祠，位于山海关城东凤凰山上，始建于宋代。供奉着中国四大民间传说之一的孟姜女。庙内有"望夫石"和108级台阶，每级代表一种苦难。正殿楹联"秦皇安在哉，万里长城筑怨；姜女未亡也，千秋片石铭贞"被誉为天下第一奇联。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>望夫石、108级台阶、天下第一奇联<br>
-          <strong>建议游玩：</strong>约1小时<br>
-          <strong>交通：</strong>山海关古城打车约10分钟<br>
-          <strong>适合人群：</strong>文化爱好者、亲子研学
-        </p>
-      </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1603406953725-80f5e0b75f67?w=800&q=80" alt="孟姜女庙" loading="lazy"></div>
-    </div>
-  </div>
-
-  <!-- 乐岛海洋王国 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1524702497131-9e939c8c2717?w=800&q=80" alt="乐岛海洋王国" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-family">水上乐园 · 海洋动物</span>
-        <h3 class="spot-title">乐岛海洋王国</h3>
-        <div class="spot-meta"><span>山海关区</span><span>160元/人</span><span class="stars">★ 4.4</span><span>09:00-17:30</span></div>
-        <p class="spot-desc">华北地区最大的海洋主题乐园之一。集海洋动物表演、水上乐园、游乐设施于一体。海豚、海狮、白鲸表演每日多场，夏季水上乐园开放，是家庭出游首选。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>海豚表演、海狮秀、白鲸互动、水上乐园（夏季）<br>
-          <strong>建议游玩：</strong>一整天<br>
-          <strong>交通：</strong>25路/35路乐岛站<br>
-          <strong>适合人群：</strong>亲子家庭、情侣、水上项目爱好者
-        </p>
-        <div class="spot-tips">夏季去记得带泳衣！水上乐园是最大亮点。表演场次有限，入园后先看演出时间表规划路线。门票较贵，建议提前在携程/美团买折扣票。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 长寿山 -->
-  <div class="spot reveal">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-nature">养生胜地 · 自然奇观</span>
-        <h3 class="spot-title">长寿山景区</h3>
-        <div class="spot-meta"><span>山海关区</span><span>30元/人</span><span class="stars">★ 4.3</span><span>08:00-17:00</span></div>
-        <p class="spot-desc">以"寿"文化为主题的自然风景区。悬阳洞是中国北方最大的天然花岗岩石洞，洞中有洞。山中摩崖石刻以历代名家书写的"寿"字为主题，是祈福延寿的打卡胜地。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>悬阳洞（北方最大天然花岗岩石洞）、寿字碑林、神医石窟<br>
-          <strong>建议游玩：</strong>2-3小时<br>
-          <strong>交通：</strong>山海关打车约25分钟<br>
-          <strong>适合人群：</strong>中老年游客、文化爱好者、登山爱好者
-        </p>
-      </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7c220?w=800&q=80" alt="长寿山自然风光" loading="lazy"></div>
-    </div>
-  </div>
-
-  <!-- 燕塞湖 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1482938289607-e9573b41be43?w=800&q=80" alt="燕塞湖风光" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-nature">山水画卷 · 鸟语林</span>
-        <h3 class="spot-title">燕塞湖（石河水库）</h3>
-        <div class="spot-meta"><span>山海关区</span><span>40元/人</span><span class="stars">★ 4.4</span><span>08:00-17:00</span></div>
-        <p class="spot-desc">被誉为"北方小桂林"，青山环抱一池碧水。湖中有鸟语林，栖息着百余种珍禽。可乘船游湖，两岸奇峰怪石倒映水中，是北方难得的山水画卷。</p>
-        <p class="spot-info">
-          <strong>游玩方式：</strong>乘船游湖（约40分钟）+ 鸟语林步行<br>
-          <strong>建议游玩：</strong>2-3小时<br>
-          <strong>交通：</strong>山海关打车约20分钟<br>
-          <strong>适合人群：</strong>全家出游、摄影爱好者、自然爱好者
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====== 海港区 ====== -->
-  <div class="zone-header reveal" id="haigang">
-    <h2>海港区 · 4大景区</h2>
-    <p class="zone-count">城市中心 · 港口文化与海洋探索</p>
-  </div>
-
-  <!-- 秦皇求仙入海处 -->
-  <div class="spot reveal">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-history">秦朝历史 · 城市起源</span>
-        <h3 class="spot-title">秦皇求仙入海处</h3>
-        <div class="spot-meta"><span>海港区</span><span>45元/人</span><span class="stars">★ 4.2</span><span>08:00-17:30</span></div>
-        <p class="spot-desc">据传是秦始皇东巡求仙的入海处，秦皇岛市名即源于此。景区内有巨型秦始皇雕像、求仙殿、战国风情园。临海而立，可感受两千年前帝王求仙问道的历史情境。</p>
-        <p class="spot-info">
-          <strong>看点：</strong>秦始皇雕像（高6米）、求仙殿、祈福广场、战国风情园<br>
-          <strong>建议游玩：</strong>1.5-2小时<br>
-          <strong>交通：</strong>8路求仙入海处站<br>
-          <strong>适合人群：</strong>历史爱好者、亲子研学
-        </p>
-      </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80" alt="秦皇求仙入海处" loading="lazy"></div>
-    </div>
-  </div>
-
-  <!-- 新澳海底世界 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1559825485511-1912eef33b65?w=800&q=80" alt="新澳海底世界海底隧道" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-family">海洋科普 · 亲子教育</span>
-        <h3 class="spot-title">新澳海底世界</h3>
-        <div class="spot-meta"><span>海港区</span><span>120元/人</span><span class="stars">★ 4.4</span><span>09:00-17:30</span></div>
-        <p class="spot-desc">拥有亚洲最长的海底观光隧道（全长80米），鲨鱼、鳐鱼、海龟从头顶游过。还有海豹、企鹅等极地动物馆。每天有美人鱼表演和海狮表演，是亲子科普的绝佳去处。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>80米海底隧道、美人鱼表演（每日3场）、海狮秀、企鹅馆<br>
-          <strong>建议游玩：</strong>2-3小时<br>
-          <strong>交通：</strong>19路/32路新澳海底世界站<br>
-          <strong>适合人群：</strong>亲子家庭、海洋爱好者
-        </p>
-        <div class="spot-tips">雨天或太热天的最佳选择——全室内空调。海底隧道拍照建议用视频模式。表演场次有限，入园先看时间表。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====== 南戴河 & 昌黎 ====== -->
-  <div class="zone-header reveal" id="nandaihe">
-    <h2>南戴河 · 昌黎 · 北戴河新区</h2>
-    <p class="zone-count">文艺海岸 · 黄金沙滩 · 温泉度假</p>
-  </div>
-
-  <!-- 黄金海岸 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800&q=80" alt="南戴河黄金海岸" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-beach">世界级沙滩 · 滑沙运动</span>
-        <h3 class="spot-title">南戴河 · 黄金海岸</h3>
-        <div class="spot-meta"><span>昌黎县</span><span>沙滩免费</span><span class="stars">★ 4.5</span><span>全天开放</span></div>
-        <p class="spot-desc">被誉为"沙漠与大海的吻痕"，拥有中国最优质的天然沙质海岸之一。沙细、滩缓、水清、潮平。国际滑沙中心是国内最大的滑沙场，从沙丘滑下直冲大海的体验独一无二。</p>
-        <p class="spot-info">
-          <strong>娱乐：</strong>滑沙（必玩！）、滑草、水上摩托、香蕉船<br>
-          <strong>建议游玩：</strong>半天到一天<br>
-          <strong>交通：</strong>22路公交或打车，距北戴河30公里<br>
-          <strong>适合人群：</strong>年轻人、亲子、水上运动爱好者
-        </p>
-        <div class="spot-tips">滑沙是这里的招牌项目，坐滑沙板从沙丘俯冲而下直冲大海，超刺激！沙子很烫，记得穿凉鞋。防晒一定要做好。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 渔岛 -->
-  <div class="spot reveal">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-beach">温泉 · 水上乐园 · 薰衣草</span>
-        <h3 class="spot-title">渔岛海洋温泉景区</h3>
-        <div class="spot-meta"><span>北戴河新区</span><span>188元/人</span><span class="stars">★ 4.5</span><span>09:00-20:00</span></div>
-        <p class="spot-desc">集温泉、水上乐园、海洋娱乐于一体的大型综合度假区。室内外温泉池数十个，夏有水上乐园，冬有温泉暖浴。薰衣草庄园花季（6-8月）美如普罗旺斯。</p>
-        <p class="spot-info">
-          <strong>特色：</strong>海水温泉（含多种矿物质）、水上乐园、薰衣草庄园（6-8月）、滑沙<br>
-          <strong>建议游玩：</strong>一整天<br>
-          <strong>交通：</strong>北戴河打车约40分钟<br>
-          <strong>适合人群：</strong>全家度假、情侣、温泉爱好者
-        </p>
-      </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1445264918150-66a2371142a2?w=800&q=80" alt="渔岛海洋温泉" loading="lazy"></div>
-    </div>
-  </div>
-
-  <!-- 圣蓝海洋公园 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80" alt="圣蓝海洋公园" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-family">海洋世界 · 欢乐亲子</span>
-        <h3 class="spot-title">圣蓝海洋公园</h3>
-        <div class="spot-meta"><span>北戴河新区</span><span>140元/人</span><span class="stars">★ 4.3</span><span>09:00-17:30</span></div>
-        <p class="spot-desc">综合性海洋主题公园，拥有海底观光、海洋动物表演、4D影院、游乐设施等。海豚剧场和白鲸表演是最大亮点，与海洋动物零距离接触的互动体验深受孩子喜爱。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>海豚剧场、白鲸表演、海底隧道、4D影院<br>
-          <strong>建议游玩：</strong>3-4小时<br>
-          <strong>交通：</strong>北戴河新区打车约30分钟<br>
-          <strong>适合人群：</strong>亲子家庭、海洋爱好者
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 碣石山 -->
-  <div class="spot reveal">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-history">名山古迹 · 曹操观海处</span>
-        <h3 class="spot-title">碣石山</h3>
-        <div class="spot-meta"><span>昌黎县</span><span>20元/人</span><span class="stars">★ 4.2</span><span>08:00-17:00</span></div>
-        <p class="spot-desc">千古名山！曹操"东临碣石，以观沧海"即在此所作。主峰仙台顶海拔695米，登顶可俯瞰渤海。秦始皇、汉武帝、唐太宗等帝王均曾登临碣石，是中国古代帝王祭海的名山。</p>
-        <p class="spot-info">
-          <strong>海拔：</strong>695米，登山约2小时<br>
-          <strong>必看：</strong>仙台顶（观海最佳点）、水岩寺、碣石门<br>
-          <strong>交通：</strong>昌黎县城打车约30分钟<br>
-          <strong>适合人群：</strong>登山爱好者、历史文化爱好者
-        </p>
-      </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="碣石山远眺渤海" loading="lazy"></div>
-    </div>
-  </div>
-
-  <!-- ====== 抚宁 & 青龙 ====== -->
-  <div class="zone-header reveal" id="funing">
-    <h2>抚宁区 · 青龙县 · 自然秘境</h2>
-    <p class="zone-count">原始森林 · 长城峡谷 · 北方名山</p>
-  </div>
-
-  <!-- 祖山 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1536617305729-4cf28028d637?w=800&q=80" alt="祖山风景区云海" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-nature">北方群山之祖 · 云海奇观</span>
-        <h3 class="spot-title">祖山风景区</h3>
-        <div class="spot-meta"><span>青龙县</span><span>80元/人</span><span class="stars">★ 4.6</span><span>08:00-17:00</span></div>
-        <p class="spot-desc">素有"北方群山之祖"之称，主峰天女峰海拔1428米。原始森林覆盖率达96%，负氧离子浓度极高。春有杜鹃花海，夏可避暑纳凉，秋赏红叶满山，冬观雾凇冰挂。云海日出堪称一绝。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>天女峰（云海日出）、十里画廊、画廊谷、情人谷<br>
-          <strong>建议游玩：</strong>一整天（可乘缆车节省体力）<br>
-          <strong>交通：</strong>秦皇岛市区打车约1小时<br>
-          <strong>适合人群：</strong>登山爱好者、摄影爱好者、避暑度假
-        </p>
-        <div class="spot-tips">想看云海日出需前一天住山脚民宿，凌晨4点出发登顶。体力一般建议坐缆车上山（单程60元），步行下山。秋季红叶最美。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 冰塘峪 -->
-  <div class="spot reveal">
-    <div class="spot-inner" style="direction:rtl;">
-      <div class="spot-body" style="direction:ltr;">
-        <span class="spot-tag tag-nature">峡谷奇观 · 夏季冰瀑</span>
-        <h3 class="spot-title">冰塘峪长城风情大峡谷</h3>
-        <div class="spot-meta"><span>抚宁区</span><span>80元/人</span><span class="stars">★ 4.4</span><span>08:00-17:00</span></div>
-        <p class="spot-desc">因峡谷中夏季仍有冰瀑而得名——夏季三伏天谷内仍有残冰，是北方罕见的地质奇观。峡谷两侧长城蜿蜒，溪流潺潺，玻璃栈道悬于峭壁之上，惊险刺激。</p>
-        <p class="spot-info">
-          <strong>亮点：</strong>夏季冰瀑奇观、玻璃栈道（长200米）、峡谷漂流、长城遗迹<br>
-          <strong>建议游玩：</strong>3-4小时<br>
-          <strong>交通：</strong>秦皇岛市区打车约1小时<br>
-          <strong>适合人群：</strong>探险爱好者、亲子、避暑纳凉
-        </p>
-        <div class="spot-tips">夏天去最合适，峡谷内比外面凉快10℃。玻璃栈道恐高慎入。带一套换洗衣物，峡谷漂流会湿身。</div>
-      </div>
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="冰塘峪峡谷" loading="lazy"></div>
-    </div>
-  </div>
-
-  <!-- 板厂峪 -->
-  <div class="spot reveal">
-    <div class="spot-inner">
-      <div class="spot-img"><img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=800&q=80" alt="板厂峪长城遗址" loading="lazy"></div>
-      <div class="spot-body">
-        <span class="spot-tag tag-history">考古长城 · 砖窑遗址</span>
-        <h3 class="spot-title">板厂峪长城景区</h3>
-        <div class="spot-meta"><span>抚宁区</span><span>50元/人</span><span class="stars">★ 4.5</span><span>08:00-17:00</span></div>
-        <p class="spot-desc">明朝修筑长城的"后勤基地"。2002年出土了600座明代砖窑遗址和世界唯一的"斑鬣狗"化石。倒挂长城段险峻壮丽，是长城摄影的宝藏取景地。秋季红叶与长城交织如画。</p>
-        <p class="spot-info">
-          <strong>必看：</strong>明代砖窑遗址群（全国唯一）、倒挂长城、斑鬣狗化石展览<br>
-          <strong>建议游玩：</strong>3-4小时<br>
-          <strong>交通：</strong>秦皇岛市区打车约50分钟<br>
-          <strong>适合人群：</strong>长城爱好者、摄影爱好者、考古迷
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====== 更多小景点 ====== -->
-  <div class="zone-header reveal">
-    <h2>更多值得探索</h2>
-    <p class="zone-count">分布在各区的特色小景点</p>
-  </div>
-
-  <div class="grid-3">
-    <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=400&q=80" alt="集发农业梦想王国" loading="lazy"></div>
-      <div class="mini-spot-body">
-        <h3>集发农业梦想王国</h3>
-        <div class="mini-meta">北戴河区 · 100元 · ★4.3</div>
-        <p>农业主题乐园，温室花园+萌宠+游乐设施，亲子研学首选。</p>
-      </div>
-    </div>
-    <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&q=80" alt="北戴河湿地公园" loading="lazy"></div>
-      <div class="mini-spot-body">
-        <h3>北戴河湿地公园</h3>
-        <div class="mini-meta">北戴河区 · 免费 · ★4.4</div>
-        <p>中国城市最大湿地之一，400+种鸟类栖息，观鸟、摄影胜地。</p>
-      </div>
-    </div>
-    <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1574391884720-bbc049ec09ad?w=400&q=80" alt="秦皇岛港口博物馆" loading="lazy"></div>
-      <div class="mini-spot-body">
-        <h3>秦皇岛港口博物馆</h3>
-        <div class="mini-meta">海港区 · 免费 · ★4.2</div>
-        <p>百年港口历史，工业遗址改造的文创园区，拍照出片。</p>
-      </div>
-    </div>
-    <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1513097417638-c450a4e02f6c?w=400&q=80" alt="蔚蓝海岸" loading="lazy"></div>
-      <div class="mini-spot-body">
-        <h3>蔚蓝海岸</h3>
-        <div class="mini-meta">北戴河新区 · 免费 · ★4.5</div>
-        <p>新兴文艺海岸社区。猫的天空之城书店+海边秋千+冲浪。</p>
-      </div>
-    </div>
-    <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?w=400&q=80" alt="南戴河国际娱乐中心" loading="lazy"></div>
-      <div class="mini-spot-body">
-        <h3>南戴河国际娱乐中心</h3>
-        <div class="mini-meta">抚宁区 · 120元 · ★4.3</div>
-        <p>大型综合游乐场，过山车+摩天轮+水上世界，适合年轻人。</p>
-      </div>
-    </div>
-    <div class="mini-spot reveal">
-      <div class="mini-spot-img"><img src="https://images.unsplash.com/photo-1482938289607-e9573b41be43?w=400&q=80" alt="戴河生态园" loading="lazy"></div>
-      <div class="mini-spot-body">
-        <h3>戴河生态园</h3>
-        <div class="mini-meta">北戴河区 · 免费 · ★4.1</div>
-        <p>沿戴河而建的湿地公园，木栈道+荷花池+垂钓，悠闲半日。</p>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <section class="cta-section">
@@ -798,6 +290,296 @@ reveals.forEach(function(el){o.observe(el);});
     {"@type":"ListItem","position":5,"name":"阿那亚·黄金海岸社区","url":"https://qhd-lv.vercel.app/attractions.html#aranya-spot"}
   ]
 }
+</script>
+<script>
+/* 动态加载景点数据：fetch 成功则用 JSON 重新渲染；失败则显示错误提示 */
+(function() {
+  'use strict';
+
+  var allSpots = [];
+  var areas = [];
+  var categories = {};
+  var currentAreaFilter = 'all';
+  var currentCatFilter = 'all';
+
+  fetch('data/attractions.json', { cache: 'no-store' })
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(data) {
+      allSpots = (data.spots || []).filter(function(s) { return s.visible !== false; });
+      areas = data.areas || [];
+      categories = data.categories || {};
+      renderAreaFilters();
+      renderSpots();
+      setupFilterEvents();
+    })
+    .catch(function(err) {
+      console.warn('[attractions] 加载 attractions.json 失败:', err);
+      var section = document.getElementById('spotsSection');
+      if (section) {
+        section.innerHTML = '<div style="text-align:center;padding:60px 20px;color:var(--gray-400);"><div style="font-size:2rem;margin-bottom:12px;">⚠️</div><p>景点数据加载失败，请刷新页面重试</p></div>';
+      }
+    });
+
+  function getAreaName(id) {
+    for (var i = 0; i < areas.length; i++) {
+      if (areas[i].id === id) return areas[i].name;
+    }
+    return '';
+  }
+
+  function getAreaColor(id) {
+    for (var i = 0; i < areas.length; i++) {
+      if (areas[i].id === id) return areas[i].color || '#1a73e8';
+    }
+    return '#1a73e8';
+  }
+
+  function getLevelClass(level) {
+    if (level === '5A') return 'level-5A';
+    if (level === '4A') return 'level-4A';
+    if (level === '3A') return 'level-3A';
+    if (level === '2A') return 'level-2A';
+    return 'level-none';
+  }
+
+  function isFreeSpot(spot) {
+    return spot.priceNum === 0 || spot.price === '免费' || spot.price === '预约制';
+  }
+
+  function renderAreaFilters() {
+    var container = document.getElementById('areaFilters');
+    if (!container) return;
+    var html = '';
+    areas.forEach(function(a) {
+      html += '<button class="filter-chip" data-filter="area" data-value="' + a.id + '"><span class="chip-dot" style="background:' + (a.color || '#1a73e8') + ';"></span>' + a.name + '</button>';
+    });
+    container.innerHTML = html;
+  }
+
+  function setupFilterEvents() {
+    document.querySelectorAll('.filter-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var filterType = this.getAttribute('data-filter');
+        var value = this.getAttribute('data-value');
+        // 更新激活状态
+        document.querySelectorAll('.filter-chip[data-filter="' + filterType + '"]').forEach(function(c) {
+          c.classList.remove('active');
+        });
+        this.classList.add('active');
+        if (filterType === 'area') currentAreaFilter = value;
+        else currentCatFilter = value;
+        renderSpots();
+      });
+    });
+  }
+
+  function getFilteredSpots() {
+    return allSpots.filter(function(s) {
+      var areaMatch = currentAreaFilter === 'all' || s.area === currentAreaFilter;
+      var catMatch = currentCatFilter === 'all' || s.cat === currentCatFilter;
+      return areaMatch && catMatch;
+    });
+  }
+
+  function renderSpots() {
+    var section = document.getElementById('spotsSection');
+    if (!section) return;
+
+    var spots = getFilteredSpots();
+    var topSpots = spots.filter(function(s) { return s.isTop; })
+      .sort(function(a, b) { return (a.topRank || 99) - (b.topRank || 99); });
+    var normalSpots = spots.filter(function(s) { return !s.isTop; });
+
+    // 按 area 分组
+    var grouped = {};
+    areas.forEach(function(a) { grouped[a.id] = []; });
+    normalSpots.forEach(function(s) {
+      if (grouped[s.area]) grouped[s.area].push(s);
+    });
+
+    var html = '';
+
+    // TOP5 区域
+    if (topSpots.length > 0) {
+      html += '<div id="top5">' +
+        '<div class="section-label">TOP 5 必去</div>' +
+        '<h2 class="section-title">第一次来秦皇岛，先去这5个</h2>' +
+        '<p class="section-desc">从海滨度假到长城入海，从日出圣地到文艺海岸——这5个景点串起了秦皇岛的精华。</p>' +
+      '</div>';
+      topSpots.forEach(function(spot, idx) {
+        html += buildTopSpot(spot, idx + 1);
+      });
+    }
+
+    // 各区域
+    areas.forEach(function(area) {
+      var areaSpots = grouped[area.id] || [];
+      if (!areaSpots.length) return;
+
+      var color = area.color || '#1a73e8';
+      html += '<div class="zone-header reveal" id="' + area.id + '">' +
+        '<div class="zone-header-bar" style="background:' + color + ';"></div>' +
+        '<div class="zone-header-text">' +
+          '<h2>' + area.name + '</h2>' +
+          '<p class="zone-count">' + (area.desc || '') + '</p>' +
+        '</div>' +
+        '<span class="zone-header-count">' + areaSpots.length + ' 个景区</span>' +
+      '</div>';
+
+      html += '<div class="spots-grid">';
+      areaSpots.forEach(function(spot) {
+        html += buildSpotCard(spot);
+      });
+      html += '</div>';
+    });
+
+    // 无结果提示
+    if (spots.length === 0) {
+      html += '<div style="text-align:center;padding:80px 20px;color:var(--gray-400);">' +
+        '<div style="font-size:3rem;margin-bottom:16px;">🔍</div>' +
+        '<p style="font-size:1.1rem;">没有找到符合条件的景点</p>' +
+        '<p style="font-size:0.9rem;margin-top:8px;">试试切换区域或类别筛选</p>' +
+      '</div>';
+    }
+
+    section.innerHTML = html;
+    setupReveal();
+  }
+
+  function buildTopSpot(spot, rank) {
+    var cat = categories[spot.cat] || { name: '', icon: '', color: '#1a73e8' };
+    var img = spot.img || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80';
+    var loading = rank <= 2 ? 'eager' : 'lazy';
+    var isReverse = rank % 2 === 0;
+
+    var levelBadge = spot.level && spot.level !== '无'
+      ? '<span class="level-badge ' + getLevelClass(spot.level) + '">' + spot.level + '</span>'
+      : '';
+
+    var priceClass = isFreeSpot(spot) ? 'price-tag free' : 'price-tag';
+    var priceBadge = '<span class="' + priceClass + '">' + spot.price + '</span>';
+
+    var meta = '<div class="spot-top-meta">' +
+      '<span class="stars">★ ' + spot.rating + '</span>' +
+      '<span class="sep">·</span>' +
+      '<span>' + getAreaName(spot.area) + '</span>' +
+      '<span class="sep">·</span>' +
+      '<span class="price">' + spot.price + '</span>' +
+      '<span class="sep">·</span>' +
+      '<span>' + (spot.openTime || '') + '</span>' +
+    '</div>';
+
+    var highlights = (spot.highlights || []).slice(0, 4).join('、');
+    var info = '<p class="spot-top-info">';
+    if (highlights) info += '<strong>主要景点：</strong>' + highlights + '<br>';
+    if (spot.bestSeason) info += '<strong>最佳季节：</strong>' + spot.bestSeason + '<br>';
+    if (spot.transport) info += '<strong>交通：</strong>' + spot.transport + '<br>';
+    if (spot.suitableFor) info += '<strong>适合人群：</strong>' + spot.suitableFor;
+    info += '</p>';
+
+    var tips = spot.tips ? '<div class="spot-top-tips">💡 ' + spot.tips + '</div>' : '';
+
+    var actions = '<div class="spot-top-actions">' +
+      '<a href="itinerary.html" class="btn btn-primary btn-sm">查看行程 →</a>';
+    (spot.booking || []).forEach(function(b) {
+      actions += '<a href="' + b.url + '" target="_blank" rel="nofollow sponsored" class="booking-link booking-' + b.type + '">' + b.name + '</a>';
+    });
+    actions += '</div>';
+
+    var bodyContent =
+      '<span class="spot-card-tag tag-' + spot.cat + '">' + (cat.icon || '') + ' ' + cat.name + '</span>' +
+      '<h3 class="spot-top-name">' + spot.name + '</h3>' +
+      meta +
+      '<p class="spot-top-desc">' + spot.desc + '</p>' +
+      info + tips + actions;
+
+    var imgBlock = '<div class="spot-top-img">' +
+      '<img src="' + img + '" alt="' + spot.name + '" loading="' + loading + '">' +
+      '<span class="spot-top-rank">TOP ' + rank + '</span>' +
+      levelBadge + priceBadge +
+    '</div>';
+
+    var inner;
+    if (isReverse) {
+      inner = '<div class="spot-top-inner" style="direction:rtl;">' +
+        '<div class="spot-top-body" style="direction:ltr;">' + bodyContent + '</div>' +
+        imgBlock +
+      '</div>';
+    } else {
+      inner = '<div class="spot-top-inner">' + imgBlock +
+        '<div class="spot-top-body">' + bodyContent + '</div>' +
+      '</div>';
+    }
+
+    return '<div class="spot-top reveal" id="' + spot.id + '-spot">' + inner + '</div>';
+  }
+
+  function buildSpotCard(spot) {
+    var cat = categories[spot.cat] || { name: '', icon: '', color: '#1a73e8' };
+    var img = spot.img || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80';
+
+    var levelBadge = spot.level && spot.level !== '无'
+      ? '<span class="level-badge ' + getLevelClass(spot.level) + '">' + spot.level + '</span>'
+      : '';
+
+    var priceClass = isFreeSpot(spot) ? 'price-tag free' : 'price-tag';
+    var priceBadge = '<span class="' + priceClass + '">' + spot.price + '</span>';
+
+    var meta = '<div class="spot-card-meta">' +
+      '<span class="stars">★ ' + spot.rating + '</span>' +
+      '<span class="sep">·</span>' +
+      '<span class="area">' + getAreaName(spot.area) + '</span>' +
+    '</div>';
+
+    var highlights = (spot.highlights || []).slice(0, 3).map(function(h) {
+      return '<span class="highlight-pill">' + h + '</span>';
+    }).join('');
+
+    var actions = '<div class="spot-card-actions">' +
+      '<a href="itinerary.html" class="btn btn-primary btn-sm">行程</a>';
+    (spot.booking || []).slice(0, 2).forEach(function(b) {
+      actions += '<a href="' + b.url + '" target="_blank" rel="nofollow sponsored" class="booking-link booking-' + b.type + '">' + b.name + '</a>';
+    });
+    actions += '</div>';
+
+    var footer = '<div class="spot-card-footer">' +
+      '<span class="spot-card-time">🕐 ' + (spot.openTime || '全天') + '</span>' +
+      actions +
+    '</div>';
+
+    var imgBlock = '<div class="spot-card-img">' +
+      '<img src="' + img + '" alt="' + spot.name + '" loading="lazy">' +
+      levelBadge + priceBadge +
+    '</div>';
+
+    var body = '<div class="spot-card-body">' +
+      '<span class="spot-card-tag tag-' + spot.cat + '">' + (cat.icon || '') + ' ' + cat.name + '</span>' +
+      '<h3 class="spot-card-name">' + spot.name + '</h3>' +
+      meta +
+      '<p class="spot-card-desc">' + spot.desc + '</p>' +
+      (highlights ? '<div class="spot-card-highlights">' + highlights + '</div>' : '') +
+      footer +
+    '</div>';
+
+    return '<div class="spot-card reveal" id="' + spot.id + '-spot">' + imgBlock + body + '</div>';
+  }
+
+  function setupReveal() {
+    var reveals = document.querySelectorAll('.reveal');
+    var o = new IntersectionObserver(function(entries) {
+      entries.forEach(function(x) {
+        if (x.isIntersecting) {
+          x.target.classList.add('visible');
+          o.unobserve(x.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { o.observe(el); });
+  }
+})();
 </script>
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">

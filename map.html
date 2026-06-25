@@ -27,127 +27,162 @@
   .breadcrumb a:hover { color: var(--brand); }
   .breadcrumb .sep { margin: 0 var(--s2); opacity: 0.4; }
 
-  /* ===== Hero 区（紧凑型） ===== */
-  .map-hero {
-    background: linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);
+  /* ===== 顶部工具栏（标题+统计+筛选一体化） ===== */
+  .map-toolbar {
+    background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 100%);
     color: #fff;
-    text-align: center;
-    padding: 36px 24px 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  .map-hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 220px; height: 220px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-    pointer-events: none;
-  }
-  .map-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -50px; left: -50px;
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-    pointer-events: none;
-  }
-  .map-hero h1 {
-    position: relative; z-index: 1;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
-  .map-hero p {
-    position: relative; z-index: 1;
-    font-size: var(--text-base);
-    opacity: 0.88;
-    max-width: 520px;
-    margin: 0 auto 16px;
-    line-height: 1.6;
-  }
-  .map-hero-stats {
-    position: relative; z-index: 1;
+    padding: 14px 20px;
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .map-hero-stat {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 6px 16px;
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    border: 1px solid rgba(255,255,255,0.15);
-    display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 16px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 12px rgba(13,71,161,0.2);
+    position: relative;
+    z-index: 5;
+  }
+  .map-toolbar-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .map-toolbar-title h1 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .map-toolbar-stats {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .map-toolbar-stat {
+    background: rgba(255,255,255,0.15);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.2);
+    white-space: nowrap;
   }
 
-  /* ===== 地图主容器 ===== */
+  /* ===== 地图主体（全屏） ===== */
   .map-page {
-    display: flex;
-    height: 680px;
+    position: relative;
+    height: calc(100vh - var(--nav-height) - 100px);
+    min-height: 500px;
     background: var(--gray-100);
   }
+  #leafletMap {
+    width: 100%;
+    height: 100%;
+    background: #e8eef5;
+    z-index: 1;
+  }
 
-  /* ===== 左侧边栏 ===== */
+  /* ===== 浮动侧边栏（悬浮在地图上） ===== */
   .map-sidebar {
-    width: 360px;
-    flex-shrink: 0;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 320px;
+    max-height: calc(100% - 32px);
     background: #fff;
-    border-right: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    z-index: 1000;
+    transition: transform var(--dur) var(--ease-out), opacity var(--dur) var(--ease-out);
+  }
+  .map-sidebar.collapsed {
+    transform: translateX(-340px);
+    opacity: 0;
+    pointer-events: none;
   }
 
-  /* 区域筛选 */
-  .map-filter {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    padding: 14px 16px;
-    background: #fff;
+  /* 侧边栏头部 */
+  .map-sidebar-header {
+    padding: 12px 16px;
     border-bottom: 1px solid var(--gray-200);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--gray-50);
+  }
+  .map-sidebar-header h3 {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--gray-700);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .map-sidebar-count {
+    background: var(--brand);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+  }
+  .map-sidebar-close {
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--dur) var(--ease-out);
+  }
+  .map-sidebar-close:hover {
+    background: var(--gray-100);
+    color: var(--gray-700);
+  }
+
+  /* 筛选按钮组（嵌入工具栏） */
+  .map-filter {
+    display: flex;
+    gap: 6px;
     flex-wrap: wrap;
-    gap: 8px;
+    margin-left: auto;
+    align-items: center;
   }
   .map-filter-btn {
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: var(--radius-full);
-    font-size: var(--text-sm);
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    border: 1.5px solid var(--gray-200);
-    background: #fff;
-    color: var(--gray-600);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
     transition: all var(--dur) var(--ease-out);
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
     gap: 4px;
+    backdrop-filter: blur(4px);
   }
   .map-filter-btn:hover {
-    border-color: var(--brand);
-    color: var(--brand);
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
   }
   .map-filter-btn.active {
-    background: var(--brand);
-    color: #fff;
-    border-color: var(--brand);
-    box-shadow: 0 2px 8px rgba(26,115,232,0.3);
+    background: #fff;
+    color: var(--brand);
+    border-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
   .map-filter-btn .filter-dot {
-    width: 8px; height: 8px;
+    width: 7px; height: 7px;
     border-radius: 50%;
     flex-shrink: 0;
   }
@@ -250,28 +285,44 @@
     white-space: nowrap;
   }
 
-  /* ===== 右侧地图容器 ===== */
-  .map-container {
-    flex: 1;
-    position: relative;
-    min-width: 0;
+  /* ===== 浮动控制按钮（展开侧边栏） ===== */
+  .map-toggle-sidebar {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 999;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-full);
+    padding: 8px 16px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--brand);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--dur) var(--ease-out);
+    display: none;
+    align-items: center;
+    gap: 6px;
   }
-  #leafletMap {
-    width: 100%;
-    height: 100%;
-    background: #e8eef5;
-    z-index: 1;
+  .map-sidebar.collapsed ~ .map-toggle-sidebar {
+    display: inline-flex;
+  }
+  .map-toggle-sidebar:hover {
+    background: var(--brand);
+    color: #fff;
+    border-color: var(--brand);
   }
 
-  /* 图例 */
+  /* ===== 图例（浮动右下角） ===== */
   .map-legend {
     position: absolute;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     z-index: 1000;
     background: #fff;
     border-radius: var(--radius);
-    padding: 14px 16px;
+    padding: 12px 14px;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--gray-200);
   }
@@ -302,32 +353,6 @@
     flex-shrink: 0;
     border: 1.5px solid #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  }
-
-  /* 移动端切换按钮 */
-  .map-toggle-sidebar {
-    display: none;
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    z-index: 1000;
-    background: #fff;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-full);
-    padding: 8px 16px;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--brand);
-    cursor: pointer;
-    box-shadow: var(--shadow-md);
-    transition: all var(--dur) var(--ease-out);
-    align-items: center;
-    gap: 6px;
-  }
-  .map-toggle-sidebar:hover {
-    background: var(--brand);
-    color: #fff;
-    border-color: var(--brand);
   }
 
   /* ===== Leaflet 自定义标记 ===== */
@@ -454,53 +479,53 @@
 
   /* ===== 响应式 ===== */
   @media (max-width: 768px) {
+    .map-toolbar {
+      padding: 10px 12px;
+      gap: 8px;
+    }
+    .map-toolbar-title h1 { font-size: 1.05rem; }
+    .map-toolbar-stat { font-size: 10px; padding: 2px 8px; }
+    .map-filter {
+      width: 100%;
+      margin-left: 0;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+    }
+    .map-filter::-webkit-scrollbar { height: 0; }
+    .map-filter-btn { padding: 4px 10px; font-size: 11px; flex-shrink: 0; }
+
     .map-page {
-      flex-direction: column;
-      height: auto;
+      height: calc(100vh - var(--nav-height) - 130px);
+      min-height: 450px;
     }
     .map-sidebar {
-      width: 100%;
-      height: 300px;
-      border-right: none;
-      border-bottom: 1px solid var(--gray-200);
-      transition: height var(--dur) var(--ease-out);
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      width: auto;
+      max-height: 45%;
     }
     .map-sidebar.collapsed {
-      height: 0;
-      border-bottom: none;
-    }
-    .map-container {
-      height: 500px;
+      transform: translateY(-120%);
     }
     .map-toggle-sidebar {
-      display: inline-flex;
+      top: 10px;
+      left: 10px;
     }
-    .map-legend {
-      bottom: 12px;
-      left: 12px;
-      padding: 10px 12px;
-    }
-    .map-legend h4 { font-size: 11px; }
-    .map-legend-item { font-size: 12px; }
-    .map-filter-btn {
-      padding: 5px 11px;
-      font-size: 12px;
-    }
-    .map-hero {
-      padding: 28px 20px 32px;
-    }
-    .breadcrumb {
-      padding: 0 var(--s4);
-    }
+    .map-legend { display: none; }
+    .map-list { -webkit-overflow-scrolling: touch; }
+    .breadcrumb { padding: 0 var(--s4); margin-top: calc(var(--nav-height) + 4px); }
   }
 
   @media (max-width: 480px) {
-    .map-sidebar { height: 280px; }
-    .map-container { height: 420px; }
-    .map-spot-thumb { width: 48px; height: 48px; }
-    .map-spot-thumb-noimg { font-size: 20px; }
-    .map-spot-name { font-size: var(--text-sm); }
-    .map-spot-desc { font-size: 11px; }
+    .map-toolbar-title h1 { font-size: 1rem; }
+    .map-toolbar-stats { display: none; }
+    .map-sidebar { max-height: 50%; }
+    .map-spot-desc { display: none; }
+    .map-spot-thumb { width: 44px; height: 44px; }
+    .map-spot-thumb-noimg { font-size: 18px; }
   }
 </style>
 </head>
@@ -532,45 +557,48 @@
   <a href="index.html">首页</a> <span class="sep">/</span> 景点地图
 </div>
 
-<!-- ====== Hero 区 ====== -->
-<section class="map-hero">
-  <h1>秦皇岛景点地图</h1>
-  <p>25个精选景区 · 5大区域 · 点击左侧列表与右侧地图联动，轻松规划行程</p>
-  <div class="map-hero-stats">
-    <span class="map-hero-stat">📍 25个景点</span>
-    <span class="map-hero-stat">🗺 5大区域</span>
-    <span class="map-hero-stat">⭐ TOP5必去</span>
+<!-- ====== 顶部工具栏（标题+统计+筛选一体化） ====== -->
+<section class="map-toolbar">
+  <div class="map-toolbar-title">
+    <h1>🗺 秦皇岛景点地图</h1>
+  </div>
+  <div class="map-toolbar-stats">
+    <span class="map-toolbar-stat">📍 35个景点</span>
+    <span class="map-toolbar-stat">⭐ TOP5必去</span>
+  </div>
+  <div class="map-filter" id="mapFilter">
+    <!-- 筛选按钮由 JS 动态生成 -->
   </div>
 </section>
 
-<!-- ====== 地图主体 ====== -->
+<!-- ====== 地图主体（全屏） ====== -->
 <div class="map-page" id="mapPage">
-  <!-- 左侧边栏 -->
+  <div id="leafletMap"></div>
+
+  <!-- 浮动侧边栏 -->
   <aside class="map-sidebar" id="mapSidebar">
-    <div class="map-filter" id="mapFilter">
-      <!-- 筛选按钮由 JS 动态生成 -->
+    <div class="map-sidebar-header">
+      <h3>📋 景点列表 <span class="map-sidebar-count" id="spotCount">0</span></h3>
+      <button class="map-sidebar-close" id="closeSidebar" aria-label="收起列表">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
     <div class="map-list" id="mapList">
       <!-- 景点列表由 JS 动态生成 -->
     </div>
   </aside>
 
-  <!-- 右侧地图 -->
-  <div class="map-container">
-    <div id="leafletMap"></div>
+  <!-- 展开侧边栏按钮（侧边栏收起时显示） -->
+  <button class="map-toggle-sidebar" id="toggleSidebar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <span>景点列表</span>
+  </button>
 
-    <!-- 移动端切换按钮 -->
-    <button class="map-toggle-sidebar" id="toggleSidebar">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      <span id="toggleText">景点列表</span>
-    </button>
-
-    <!-- 图例 -->
-    <div class="map-legend">
-      <h4>景点分类</h4>
-      <div class="map-legend-items" id="mapLegend">
-        <!-- 图例由 JS 动态生成 -->
-      </div>
+  <!-- 图例 -->
+  <div class="map-legend">
+    <h4>景点分类</h4>
+    <div class="map-legend-items" id="mapLegend">
+      <!-- 图例由 JS 动态生成 -->
     </div>
   </div>
 </div>
@@ -618,6 +646,12 @@
   </div>
 </footer>
 
+<!-- 高德 JS SDK（用于 POI 搜索 + 地理编码获取准确 GCJ-02 坐标） -->
+<script type="text/javascript">
+  window._AMapSecurityConfig = { securityJsCode: '24a3a4784cc4ec33ea5693daccc0aacb' };
+</script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=e0d13b1fc206156d61926d1158a2dd16&plugin=AMap.PlaceSearch,AMap.Geocoder"></script>
+
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -627,8 +661,8 @@
   /* ===== 景点数据 ===== */
   var SPOTS = [
     // 北戴河区
-    {id:'beidaihe', name:'北戴河海滨风景区', lat:39.8364, lng:119.5264, area:'beidaihe', cat:'beach', rating:'4.7', price:'免费', desc:'中国四大避暑胜地之一，绵延20公里黄金沙滩', img:'images/beidaihe-beach.png'},
-    {id:'geziwo', name:'鸽子窝公园', lat:39.8364, lng:119.5264, area:'beidaihe', cat:'beach', rating:'4.6', price:'25元', desc:'北戴河最佳日出观赏地，鹰角石矗立海边', img:'images/geziwo-sunrise.jpg'},
+    {id:'beidaihe', name:'北戴河海滨风景区', lat:39.8200, lng:119.4900, area:'beidaihe', cat:'beach', rating:'4.7', price:'免费', desc:'中国四大避暑胜地之一，绵延20公里黄金沙滩', img:'images/beidaihe-beach.png'},
+    {id:'geziwo', name:'鸽子窝公园', lat:39.8364, lng:119.5285, area:'beidaihe', cat:'beach', rating:'4.6', price:'25元', desc:'北戴河最佳日出观赏地，鹰角石矗立海边', img:'images/geziwo-sunrise.jpg'},
     {id:'laohushi', name:'老虎石海上公园', lat:39.8140, lng:119.4882, area:'beidaihe', cat:'beach', rating:'4.5', price:'免费', desc:'北戴河最经典海滨公园，最美日落观赏点', img:'images/laohushi.png'},
     {id:'liangfengshan', name:'联峰山公园', lat:39.8233, lng:119.4610, area:'beidaihe', cat:'nature', rating:'4.4', price:'25元', desc:'北戴河制高点，中国第一座森林公园', img:''},
     {id:'biluota', name:'碧螺塔海上酒吧公园', lat:39.8205, lng:119.5353, area:'beidaihe', cat:'culture', rating:'4.3', price:'40元', desc:'北戴河夜生活地标，海上酒吧+烟花秀+篝火晚会', img:'images/biluota.png'},
@@ -653,7 +687,7 @@
     {id:'huangjin', name:'南戴河·黄金海岸', lat:39.7200, lng:119.3700, area:'nandaihe', cat:'beach', rating:'4.5', price:'免费', desc:'中国最优质天然沙质海岸，国际滑沙中心', img:''},
     {id:'yudao', name:'渔岛海洋温泉景区', lat:39.6900, lng:119.3500, area:'nandaihe', cat:'beach', rating:'4.5', price:'188元', desc:'海水温泉+水上乐园+薰衣草庄园', img:''},
     {id:'shenglan', name:'圣蓝海洋公园', lat:39.7050, lng:119.3750, area:'nandaihe', cat:'family', rating:'4.3', price:'140元', desc:'海豚剧场+白鲸表演+海底隧道', img:''},
-    {id:'jieshishan', name:'碣石山', lat:39.7250, lng:118.9500, area:'nandaihe', cat:'history', rating:'4.2', price:'20元', desc:'曹操"东临碣石以观沧海"即在此所作', img:''},
+    {id:'jieshishan', name:'碣石山', lat:39.7428, lng:119.1502, area:'nandaihe', cat:'history', rating:'4.2', price:'20元', desc:'曹操"东临碣石以观沧海"即在此所作', img:''},
     {id:'weilanhaian', name:'蔚蓝海岸', lat:39.7823, lng:119.3993, area:'nandaihe', cat:'culture', rating:'4.5', price:'免费', desc:'新兴文艺海岸社区，猫的天空之城书店', img:''},
 
     // 抚宁·青龙
@@ -706,7 +740,8 @@
     return '#1a73e8';
   }
 
-  /* ===== 检测并处理坐标重复（微偏移防止标记完全重叠） ===== */
+  /* ===== 初始化坐标：先用 JSON 原始坐标渲染，后续高德搜索会修正 =====
+     高德 POI 搜索返回的坐标本身就是 GCJ-02，与高德瓦片对齐 */
   function resolveCoordinates() {
     var coordMap = {};
     SPOTS.forEach(function(spot) {
@@ -714,19 +749,231 @@
       if (!coordMap[key]) coordMap[key] = [];
       coordMap[key].push(spot);
     });
-    // 对有重复坐标的景点做微小偏移
+    // 对有重复坐标的景点做微小偏移，防止标记完全重叠
     SPOTS.forEach(function(spot) {
       var key = spot.lat + ',' + spot.lng;
       var dups = coordMap[key];
+      spot._lat = spot.lat;
+      spot._lng = spot.lng;
       if (dups.length > 1) {
         var idx = dups.indexOf(spot);
         var angle = (idx / dups.length) * 2 * Math.PI;
-        spot._lat = spot.lat + 0.004 * Math.cos(angle);
-        spot._lng = spot.lng + 0.004 * Math.sin(angle);
-      } else {
-        spot._lat = spot.lat;
-        spot._lng = spot.lng;
+        spot._lat += 0.004 * Math.cos(angle);
+        spot._lng += 0.004 * Math.sin(angle);
       }
+    });
+  }
+
+  /* ===== 高德 POI 搜索：获取景点准确 GCJ-02 坐标 =====
+     搜索结果缓存到 localStorage，避免每次加载都请求 */
+  var AMAP_CACHE_KEY = 'qhd_amap_coords_v6';
+  var AMAP_CACHE_TTL = 30 * 24 * 60 * 60 * 1000; // 30 天
+
+  function loadAmapCache() {
+    try {
+      var raw = localStorage.getItem(AMAP_CACHE_KEY);
+      if (!raw) return {};
+      var data = JSON.parse(raw);
+      // 清理过期缓存
+      var now = Date.now();
+      var valid = {};
+      for (var k in data) {
+        if (data[k] && data[k].ts && now - data[k].ts < AMAP_CACHE_TTL) {
+          valid[k] = data[k];
+        }
+      }
+      return valid;
+    } catch (e) { return {}; }
+  }
+
+  function saveAmapCache(cache) {
+    try { localStorage.setItem(AMAP_CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
+  }
+
+  /* 计算两点间距离（米），用于校验搜索结果是否合理 */
+  function distanceM(lng1, lat1, lng2, lat2) {
+    var dLng = (lng2 - lng1) * 85000;   // 北纬40度 1度经度约85km
+    var dLat = (lat2 - lat1) * 111000;  // 1度纬度约111km
+    return Math.sqrt(dLng * dLng + dLat * dLat);
+  }
+
+  /* 清理搜索关键词：去掉特殊字符，提高匹配率 */
+  function cleanSearchKeyword(name) {
+    // "山海关·天下第一关" → "天下第一关"（取"·"后面的部分，更精确）
+    // "阿那亚·黄金海岸社区" → "阿那亚"
+    // "南戴河·黄金海岸" → "南戴河黄金海岸"
+    if (name.indexOf('·') >= 0) {
+      var parts = name.split('·');
+      // 如果"·"前是区域名（如南戴河、山海关），用后面的具体名
+      var prefix = parts[0];
+      var suffix = parts.slice(1).join('');
+      // 区域名较短（<=4字）时用后缀，否则用全名去"·"
+      if (prefix.length <= 4) return suffix;
+      return name.replace(/·/g, '');
+    }
+    return name;
+  }
+
+  /* 生成关键词候选列表（按优先级排序）
+     全名 → 去掉"景区/公园/风景区"后缀 → 去掉"·"后的简化名 */
+  function getKeywordCandidates(name) {
+    var candidates = [name];
+    var cleaned = cleanSearchKeyword(name);
+    if (cleaned !== name) candidates.push(cleaned);
+    // 去掉常见后缀
+    var suffixes = ['景区', '风景区', '公园', '海洋公园', '大峡谷', '长城景区'];
+    suffixes.forEach(function(suffix) {
+      if (name.endsWith(suffix) && name.length > suffix.length + 2) {
+        candidates.push(name.slice(0, name.length - suffix.length));
+      }
+    });
+    // 去重
+    return candidates.filter(function(v, i, arr) { return arr.indexOf(v) === i; });
+  }
+
+  /* 名称相似度校验：搜索结果名称必须与关键词有一定关联
+     避免匹配到完全不相关的 POI（如搜"黄金海岸"匹配到某小区名） */
+  function isNameMatched(poiName, keyword) {
+    if (!poiName || !keyword) return false;
+    var cleanPoi = poiName.replace(/[(（].*?[)）]/g, '').trim();
+    var cleanKw = keyword.replace(/[(（].*?[)）]/g, '').trim();
+    if (cleanPoi.indexOf(cleanKw) >= 0 || cleanKw.indexOf(cleanPoi) >= 0) return true;
+    if (cleanKw.length >= 2 && cleanPoi.indexOf(cleanKw.substring(0, 2)) >= 0) return true;
+    if (cleanPoi.length >= 2 && cleanKw.indexOf(cleanPoi.substring(0, 2)) >= 0) return true;
+    return false;
+  }
+
+  /* 用高德 PlaceSearch 搜索单个景点，带名称校验 + 距离校验 + 关键词回退
+     - 不限制 POI 类型（避免主题乐园/娱乐场所被过滤）
+     - 优先选名称匹配 + 距离最近的 */
+  function searchSpotCoord(spot, placeSearch) {
+    var candidates = getKeywordCandidates(spot.name);
+    var keywordsTried = [];
+
+    function trySearch(keywordIdx) {
+      if (keywordIdx >= candidates.length) {
+        if (keywordsTried.length) {
+          console.warn('[map] ✗ ' + spot.name + ' 所有关键词均无合理结果，尝试过: ' + keywordsTried.join(' | '));
+        }
+        return Promise.resolve(null);
+      }
+      var keyword = candidates[keywordIdx];
+      keywordsTried.push(keyword);
+      return new Promise(function(resolve) {
+        placeSearch.search(keyword, function(status, result) {
+          if (status !== 'complete' || !result.poiList || !result.poiList.pois.length) {
+            return resolve(trySearch(keywordIdx + 1));
+          }
+          var pois = result.poiList.pois;
+          var best = null;
+          var bestDist = Infinity;
+          var bestNameMatch = false;
+          for (var i = 0; i < pois.length; i++) {
+            var poi = pois[i];
+            var lng = poi.location.getLng();
+            var lat = poi.location.getLat();
+            var dist = distanceM(spot.lng, spot.lat, lng, lat);
+            var nameMatch = isNameMatched(poi.name, keyword);
+            // 名称匹配的优先级更高（即使距离稍远）
+            if (nameMatch && (!bestNameMatch || dist < bestDist)) {
+              bestNameMatch = true;
+              bestDist = dist;
+              best = { lng: lng, lat: lat, name: poi.name, dist: dist };
+            } else if (!bestNameMatch && dist < bestDist) {
+              bestDist = dist;
+              best = { lng: lng, lat: lat, name: poi.name, dist: dist };
+            }
+          }
+          if (best && bestDist < 30000) {
+            console.log('[map] ✓ ' + spot.name + ' → "' + best.name + '" (关键词: "' + keyword + '"' + (bestNameMatch ? ', 名称匹配' : '') + ') 偏移 ' + Math.round(bestDist) + 'm');
+            resolve([best.lng, best.lat]);
+          } else {
+            return resolve(trySearch(keywordIdx + 1));
+          }
+        });
+      });
+    }
+
+    return trySearch(0);
+  }
+
+  /* 用高德 Geocoder 通过地址获取坐标（PlaceSearch 失败时的补充） */
+  function searchCoordByGeocoder(spot, geocoder) {
+    if (!spot.address) return Promise.resolve(null);
+    return new Promise(function(resolve) {
+      geocoder.getLocation(spot.address, function(status, result) {
+        if (status === 'complete' && result.geocodes && result.geocodes.length) {
+          var geo = result.geocodes[0];
+          var lng = geo.location.getLng();
+          var lat = geo.location.getLat();
+          var dist = distanceM(spot.lng, spot.lat, lng, lat);
+          if (dist < 30000) {
+            console.log('[map] ✓ ' + spot.name + ' → 地理编码 (地址: "' + spot.address + '") 偏移 ' + Math.round(dist) + 'm');
+            resolve([lng, lat]);
+          } else {
+            resolve(null);
+          }
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  }
+
+  /* 批量搜索所有景点坐标：先 PlaceSearch，失败再用 Geocoder 补充 */
+  function refreshCoordsFromAmap(onProgress) {
+    if (typeof AMap === 'undefined' || !AMap.PlaceSearch) {
+      console.warn('[map] 高德 SDK 未加载，使用 JSON 原始坐标');
+      return Promise.resolve(0);
+    }
+    // 不限制 types，让所有类型的 POI 都能被搜到（主题乐园/娱乐场所等）
+    var placeSearch = new AMap.PlaceSearch({
+      city: '秦皇岛',
+      citylimit: true,
+      pageSize: 10,
+      extensions: 'base'
+    });
+    var geocoder = AMap.Geocoder ? new AMap.Geocoder({ city: '秦皇岛' }) : null;
+    var cache = loadAmapCache();
+    var toSearch = SPOTS.filter(function(s) { return !cache[s.id]; });
+    var updated = 0;
+
+    var BATCH = 3;
+    function searchBatch(idx) {
+      if (idx >= toSearch.length) return Promise.resolve();
+      var batch = toSearch.slice(idx, idx + BATCH);
+      return Promise.all(batch.map(function(spot) {
+        return searchSpotCoord(spot, placeSearch).then(function(coord) {
+          if (coord) {
+            cache[spot.id] = { lng: coord[0], lat: coord[1], ts: Date.now() };
+            spot._lng = coord[0];
+            spot._lat = coord[1];
+            updated++;
+            if (onProgress) onProgress(updated, toSearch.length);
+            return;
+          }
+          // PlaceSearch 失败，尝试 Geocoder
+          if (geocoder) {
+            return searchCoordByGeocoder(spot, geocoder).then(function(geoCoord) {
+              if (geoCoord) {
+                cache[spot.id] = { lng: geoCoord[0], lat: geoCoord[1], ts: Date.now() };
+                spot._lng = geoCoord[0];
+                spot._lat = geoCoord[1];
+                updated++;
+                if (onProgress) onProgress(updated, toSearch.length);
+              }
+            });
+          }
+        });
+      })).then(function() { return searchBatch(idx + BATCH); });
+    }
+
+    return searchBatch(0).then(function() {
+      SPOTS.forEach(function(s) {
+        if (cache[s.id]) { s._lng = cache[s.id].lng; s._lat = cache[s.id].lat; }
+      });
+      saveAmapCache(cache);
+      return updated;
     });
   }
 
@@ -753,6 +1000,7 @@
 
   /* ===== 初始化地图 ===== */
   function initMap() {
+    // 中心点秦皇岛（GCJ-02 近似值，高德搜索后会修正各景点）
     map = L.map('leafletMap', {
       center: [39.85, 119.55],
       zoom: 11,
@@ -761,7 +1009,7 @@
       attributionControl: true
     });
 
-    // 高德地图瓦片层
+    // 高德地图瓦片层（GCJ-02 坐标系）
     L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
       subdomains: ['1', '2', '3', '4'],
       maxZoom: 18,
@@ -872,6 +1120,10 @@
     });
     container.innerHTML = html;
 
+    // 更新景点计数
+    var countEl = document.getElementById('spotCount');
+    if (countEl) countEl.textContent = filtered.length;
+
     // 绑定点击事件
     var items = container.querySelectorAll('.map-spot-item');
     items.forEach(function(item) {
@@ -975,22 +1227,26 @@
     }
   }
 
-  /* ===== 移动端切换侧边栏 ===== */
+  /* ===== 侧边栏切换（展开/收起） ===== */
   function setupMobileToggle() {
     var toggleBtn = document.getElementById('toggleSidebar');
-    var toggleText = document.getElementById('toggleText');
+    var closeBtn = document.getElementById('closeSidebar');
     var sidebar = document.getElementById('mapSidebar');
     var isCollapsed = false;
 
-    toggleBtn.addEventListener('click', function() {
-      isCollapsed = !isCollapsed;
+    function setCollapsed(collapsed) {
+      isCollapsed = collapsed;
       sidebar.classList.toggle('collapsed', isCollapsed);
-      toggleText.textContent = isCollapsed ? '显示列表' : '景点列表';
-      // 地图尺寸变化后需要刷新
+      // 地图尺寸变化后需要刷新（transition 250ms + 缓冲）
       setTimeout(function() {
         if (map) map.invalidateSize();
-      }, 300);
-    });
+      }, 350);
+    }
+
+    // 展开按钮
+    if (toggleBtn) toggleBtn.addEventListener('click', function() { setCollapsed(false); });
+    // 关闭按钮
+    if (closeBtn) closeBtn.addEventListener('click', function() { setCollapsed(true); });
   }
 
   /* ===== 导航栏滚动效果 + 汉堡菜单 ===== */
@@ -1003,8 +1259,36 @@
     });
   }
 
+  /* ===== 从 JSON 加载景点数据（失败则使用上方默认硬编码数据） ===== */
+  function loadDataFromJSON(callback) {
+    fetch('data/attractions.json', { cache: 'no-store' })
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        if (data.spots && data.spots.length) SPOTS = data.spots;
+        if (data.areas && data.areas.length) {
+          AREAS = [{id:'all', name:'全部', color:'#1a73e8'}].concat(data.areas);
+        }
+        if (data.categories) CATEGORIES = data.categories;
+        if (data.top5) TOP5 = data.top5;
+        callback(true);
+      })
+      .catch(function(err) {
+        console.warn('[map] 加载 attractions.json 失败，使用默认数据:', err);
+        callback(false);
+      });
+  }
+
   /* ===== 入口：DOM 加载完成后初始化 ===== */
   function init() {
+    // 先应用 localStorage 缓存的高德坐标（秒级渲染，无需等待搜索）
+    var cache = loadAmapCache();
+    SPOTS.forEach(function(s) {
+      if (cache[s.id]) { s._lng = cache[s.id].lng; s._lat = cache[s.id].lat; }
+    });
+
     initMap();
     createMarkers();
     renderFilter();
@@ -1020,12 +1304,29 @@
     // 安全措施：延迟刷新地图尺寸
     setTimeout(function() { map.invalidateSize(); }, 200);
     setTimeout(function() { map.invalidateSize(); }, 500);
+
+    // 后台用高德 POI 搜索修正坐标（有缓存时秒过，无缓存时逐批搜索）
+    refreshCoordsFromAmap(function(done, total) {
+      console.log('[map] 高德坐标搜索进度: ' + done + '/' + total);
+    }).then(function(updated) {
+      if (updated > 0) {
+        // 更新所有标记到准确坐标
+        SPOTS.forEach(function(s) {
+          if (markers[s.id]) markers[s.id].setLatLng([s._lat, s._lng]);
+        });
+        console.log('[map] 高德坐标已更新 ' + updated + ' 个景点');
+      }
+    });
+  }
+
+  function bootstrap() {
+    loadDataFromJSON(function() { init(); });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', bootstrap);
   } else {
-    init();
+    bootstrap();
   }
 })();
 </script>
