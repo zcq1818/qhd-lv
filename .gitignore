@@ -2,4 +2,5 @@ node_modules/
 .workbuddy/
 *.json
 !vercel.json
+!data/attractions.json
 !index.html
