@@ -301,6 +301,8 @@ reveals.forEach(function(el){o.observe(el);});
   var categories = {};
   var currentAreaFilter = 'all';
   var currentCatFilter = 'all';
+  /* 图片加载失败时的统一兜底图（秦皇岛主题：太阳+海浪 SVG），挂到 window 供内联 onerror 调用 */
+  window.FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23e3f2fd'/%3E%3Ccircle cx='300' cy='160' r='40' fill='%23ffd54f' opacity='0.6'/%3E%3Cpath d='M0 280 Q150 250 300 280 T600 280 L600 400 L0 400 Z' fill='%2342a5f5' opacity='0.3'/%3E%3Cpath d='M0 320 Q150 290 300 320 T600 320 L600 400 L0 400 Z' fill='%231a73e8' opacity='0.4'/%3E%3Ctext x='300' y='380' font-size='16' fill='%231565c0' text-anchor='middle' font-family='sans-serif' opacity='0.5'%3E秦皇岛旅游%3C/text%3E%3C/svg%3E";
 
   fetch('data/attractions.json', { cache: 'no-store' })
     .then(function(res) {
@@ -497,7 +499,7 @@ reveals.forEach(function(el){o.observe(el);});
       info + tips + actions;
 
     var imgBlock = '<div class="spot-top-img">' +
-      '<img src="' + img + '" alt="' + spot.name + '" loading="' + loading + '">' +
+      '<img src="' + img + '" alt="' + spot.name + '" loading="' + loading + '" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">' +
       '<span class="spot-top-rank">TOP ' + rank + '</span>' +
       levelBadge + priceBadge +
     '</div>';
@@ -551,7 +553,7 @@ reveals.forEach(function(el){o.observe(el);});
     '</div>';
 
     var imgBlock = '<div class="spot-card-img">' +
-      '<img src="' + img + '" alt="' + spot.name + '" loading="lazy">' +
+      '<img src="' + img + '" alt="' + spot.name + '" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">' +
       levelBadge + priceBadge +
     '</div>';
 

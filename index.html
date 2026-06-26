@@ -139,6 +139,10 @@
     .day-panel { max-width: 100%; }
   }
 </style>
+<script>
+/* 图片加载失败时的统一兜底图（秦皇岛主题：太阳+海浪 SVG） */
+window.FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23e3f2fd'/%3E%3Ccircle cx='300' cy='160' r='40' fill='%23ffd54f' opacity='0.6'/%3E%3Cpath d='M0 280 Q150 250 300 280 T600 280 L600 400 L0 400 Z' fill='%2342a5f5' opacity='0.3'/%3E%3Cpath d='M0 320 Q150 290 300 320 T600 320 L600 400 L0 400 Z' fill='%231a73e8' opacity='0.4'/%3E%3Ctext x='300' y='380' font-size='16' fill='%231565c0' text-anchor='middle' font-family='sans-serif' opacity='0.5'%3E秦皇岛旅游%3C/text%3E%3C/svg%3E";
+</script>
 </head>
 <body>
 
@@ -165,7 +169,7 @@
 
 <!-- ====== Hero 全屏背景大图 ====== -->
 <section class="hero-full">
-  <img class="hero-bg-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="秦皇岛金色海滩全景" loading="eager">
+  <img class="hero-bg-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="秦皇岛金色海滩全景" loading="eager" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
   <div class="hero-overlay"></div>
   <div class="hero-grid">
     <div style="color: #fff;">
@@ -222,10 +226,10 @@
       </div>
     </div>
     <div class="city-photos">
-      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&q=80" alt="北戴河海滨" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=400&q=80" alt="山海关" loading="lazy" style="margin-top:20px;">
-      <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=400&q=80" alt="鸽子窝日出" loading="lazy" style="margin-top:-20px;">
-      <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=400&q=80" alt="黄金海岸" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&q=80" alt="北戴河海滨" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
+      <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=400&q=80" alt="山海关" loading="lazy" style="margin-top:20px;" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
+      <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=400&q=80" alt="鸽子窝日出" loading="lazy" style="margin-top:-20px;" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
+      <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=400&q=80" alt="黄金海岸" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
     </div>
   </div>
 </section>
@@ -239,7 +243,7 @@
     </div>
     <div class="attractions-grid">
       <div class="card reveal">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="北戴河海滨" class="card-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="北戴河海滨" class="card-img" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
         <div class="card-body">
           <span class="card-tag">海滨风光</span>
           <h3>北戴河海滨风景区</h3>
@@ -250,7 +254,7 @@
         </div>
       </div>
       <div class="card reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=600&q=80" alt="山海关" class="card-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1508804185872-d7badadbcf05?w=600&q=80" alt="山海关" class="card-img" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
         <div class="card-body">
           <span class="card-tag card-tag--warm">历史文化</span>
           <h3>山海关 · 天下第一关</h3>
@@ -261,7 +265,7 @@
         </div>
       </div>
       <div class="card reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=600&q=80" alt="鸽子窝公园" class="card-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1418065460487-3e77d44848f8?w=600&q=80" alt="鸽子窝公园" class="card-img" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
         <div class="card-body">
           <span class="card-tag card-tag--sunset">日出胜地</span>
           <h3>鸽子窝公园</h3>
@@ -357,7 +361,7 @@
     </div>
     <div class="food-grid">
       <div class="card reveal">
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="海鲜大餐" class="card-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="海鲜大餐" class="card-img" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
         <div class="card-body">
           <span class="card-tag card-tag--warm">海鲜</span>
           <h3>海鲜大排档</h3>
@@ -366,7 +370,7 @@
         </div>
       </div>
       <div class="card reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80" alt="烤生蚝" class="card-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80" alt="烤生蚝" class="card-img" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
         <div class="card-body">
           <span class="card-tag card-tag--sunset">夜市小吃</span>
           <h3>烤生蚝 · 烤扇贝</h3>
@@ -375,7 +379,7 @@
         </div>
       </div>
       <div class="card reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80" alt="四条包子" class="card-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80" alt="四条包子" class="card-img" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">
         <div class="card-body">
           <span class="card-tag card-tag--green">百年老字号</span>
           <h3>四条包子</h3>
