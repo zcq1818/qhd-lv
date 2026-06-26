@@ -453,7 +453,7 @@ reveals.forEach(function(el){o.observe(el);});
 
   function buildTopSpot(spot, rank) {
     var cat = categories[spot.cat] || { name: '', icon: '', color: '#1a73e8' };
-    var img = spot.img || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80';
+    var img = spot.img || 'images/qhd-panorama.jpg';
     var loading = rank <= 2 ? 'eager' : 'lazy';
     var isReverse = rank % 2 === 0;
 
@@ -521,7 +521,7 @@ reveals.forEach(function(el){o.observe(el);});
 
   function buildSpotCard(spot) {
     var cat = categories[spot.cat] || { name: '', icon: '', color: '#1a73e8' };
-    var img = spot.img || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80';
+    var img = spot.img || 'images/qhd-panorama.jpg';
 
     var levelBadge = spot.level && spot.level !== '无'
       ? '<span class="level-badge ' + getLevelClass(spot.level) + '">' + spot.level + '</span>'
