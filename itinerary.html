@@ -76,7 +76,76 @@
     font-weight: 900;
     display: block;
     line-height: 1.1;
+  .budget-total-item .num-label {
+    font-size: var(--text-sm);
+    opacity: 0.7;
   }
+  /* 行程保存/分享 */
+  .ai-saved-list {
+    margin-top: var(--s6); padding-top: var(--s6);
+    border-top: 1px solid var(--gray-100);
+  }
+  .ai-saved-list h4 { font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--s4); }
+  .ai-saved-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--s3) var(--s4); border-radius: var(--radius);
+    background: var(--gray-50); margin-bottom: var(--s2);
+    transition: background 0.15s;
+  }
+  .ai-saved-item:hover { background: var(--gray-100); }
+  .ai-saved-item-info { display: flex; flex-direction: column; gap: 2px; }
+  .ai-saved-item-title { font-weight: 600; font-size: var(--text-sm); }
+  .ai-saved-item-date { font-size: var(--text-xs); color: var(--gray-400); }
+  .ai-saved-item-actions { display: flex; gap: var(--s2); }
+  .ai-saved-btn {
+    padding: 4px 12px; border-radius: 6px; border: 1px solid var(--gray-200);
+    background: #fff; cursor: pointer; font-size: var(--text-xs); font-family: inherit;
+    transition: all 0.15s;
+  }
+  .ai-saved-btn:hover { border-color: var(--brand); color: var(--brand); }
+  .ai-saved-del:hover { border-color: #ef4444; color: #ef4444; }
+  .ai-share-notice {
+    padding: var(--s3) var(--s4); border-radius: var(--radius);
+    background: rgba(26,115,232,0.06); color: var(--brand);
+    font-weight: 600; font-size: var(--text-sm); margin-bottom: var(--s4);
+  }
+  .ai-share-modal {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(15,23,42,0.6); backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .ai-share-modal.open { opacity: 1; }
+  .ai-share-modal-content {
+    background: #fff; border-radius: 16px; padding: 32px;
+    max-width: 500px; width: 90%; position: relative;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+  }
+  .ai-share-modal-content h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+  .ai-share-modal-content p { font-size: 0.85rem; color: var(--gray-500); margin-bottom: 12px; }
+  .ai-share-url {
+    width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200);
+    border-radius: 8px; font-size: 0.8rem; font-family: monospace;
+    background: var(--gray-50); margin-bottom: 16px;
+  }
+  .ai-share-buttons { display: flex; gap: 12px; margin-bottom: 12px; }
+  .ai-share-btn {
+    flex: 1; padding: 10px; border-radius: 8px; border: none; cursor: pointer;
+    font-size: 0.85rem; font-weight: 600; font-family: inherit; text-align: center;
+    text-decoration: none; display: inline-block; transition: all 0.15s;
+  }
+  .ai-share-weibo { background: #e6162d; color: #fff; }
+  .ai-share-weibo:hover { background: #c4121f; }
+  .ai-share-copy { background: var(--gray-100); color: var(--gray-700); }
+  .ai-share-copy:hover { background: var(--gray-200); }
+  .ai-share-tip { font-size: 0.75rem !important; color: var(--gray-400); }
+  .ai-share-close {
+    position: absolute; top: 12px; right: 12px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+    color: var(--gray-400); border-radius: 8px;
+  }
+  .ai-share-close:hover { background: var(--gray-100); }
+  .ai-share-close svg { width: 20px; height: 20px; }
   .budget-total-item .num-label {
     font-size: var(--text-sm);
     opacity: 0.7;
@@ -412,9 +481,15 @@
       <li><a href="itinerary.html" class="active">行程规划</a></li>
       <li><a href="food.html">美食</a></li>
       <li><a href="guide.html">旅游攻略</a></li>
+      <li><a href="blog.html">博客</a></li>
+      <li><a href="favorites.html">收藏<span class="qhd-fav-count"></span></a></li>
       <li><a href="about.html">关于我们</a></li>
     </ul>
     <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="nav-search-trigger" aria-label="搜索">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="search-kbd">⌘K</span>
+    </button>
     <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -649,6 +724,14 @@
           <div class="ai-result-actions" id="aiActions" hidden>
             <button type="button" class="btn btn-outline" id="aiRegenBtn">重新生成</button>
             <button type="button" class="btn btn-outline" id="aiCopyBtn">复制行程</button>
+            <button type="button" class="btn btn-outline" id="aiSaveBtn">保存行程</button>
+            <button type="button" class="btn btn-primary" id="aiShareBtn">分享行程</button>
+            <button type="button" class="btn btn-outline" id="aiExportImgBtn">导出图片</button>
+          </div>
+          <!-- 已保存行程列表 -->
+          <div class="ai-saved-list" id="aiSavedList" hidden>
+            <h4>我的已保存行程</h4>
+            <div id="aiSavedItems"></div>
           </div>
           <div class="ad-booking ai-booking" id="aiBooking" hidden>
             <a href="https://hotels.ctrip.com/hotels/list?countryId=1&city=32" target="_blank" rel="nofollow sponsored" class="booking-link booking-ctrip">携程订酒店</a>
@@ -763,6 +846,235 @@ reveals.forEach(function(el){o.observe(el);});
     if (retryBtn) retryBtn.addEventListener('click', handleGenerate);
     var copyBtn = $('aiCopyBtn');
     if (copyBtn) copyBtn.addEventListener('click', handleCopy);
+    var saveBtn = $('aiSaveBtn');
+    if (saveBtn) saveBtn.addEventListener('click', handleSave);
+    var shareBtn = $('aiShareBtn');
+    if (shareBtn) shareBtn.addEventListener('click', handleShare);
+    var exportBtn = $('aiExportImgBtn');
+    if (exportBtn) exportBtn.addEventListener('click', handleExportImage);
+    // 渲染已保存行程列表
+    renderSavedList();
+    // 检查 URL 中是否有分享的行程
+    checkSharedItinerary();
+  }
+
+  // ============ 保存行程 ============
+
+  function handleSave() {
+    if (!state.lastContent) return;
+    var saved = getSavedItineraries();
+    var summary = getSelected('days')[0] || '3天';
+    var budget = getSelected('budget')[0] || '';
+    var travel = getSelected('travel')[0] || '';
+    var item = {
+      id: Date.now(),
+      title: '秦皇岛' + summary + '行程 (' + new Date().toLocaleDateString('zh-CN') + ')',
+      content: state.lastContent,
+      meta: { days: summary, budget: budget, travel: travel },
+      date: new Date().toISOString()
+    };
+    saved.unshift(item);
+    if (saved.length > 20) saved = saved.slice(0, 20); // 最多保存20条
+    try { localStorage.setItem('qhd_saved_itineraries', JSON.stringify(saved)); } catch (e) {}
+    renderSavedList();
+    var btn = $('aiSaveBtn');
+    if (btn) { var orig = btn.textContent; btn.textContent = '已保存 ✓'; btn.style.color = 'var(--accent-green)'; setTimeout(function () { btn.textContent = orig; btn.style.color = ''; }, 1800); }
+  }
+
+  function getSavedItineraries() {
+    try { return JSON.parse(localStorage.getItem('qhd_saved_itineraries')) || []; } catch (e) { return []; }
+  }
+
+  function renderSavedList() {
+    var saved = getSavedItineraries();
+    var listEl = $('aiSavedList');
+    var itemsEl = $('aiSavedItems');
+    if (!listEl || !itemsEl) return;
+    if (!saved.length) { listEl.hidden = true; return; }
+    listEl.hidden = false;
+    itemsEl.innerHTML = saved.map(function (item) {
+      return '<div class="ai-saved-item">' +
+        '<div class="ai-saved-item-info">' +
+          '<span class="ai-saved-item-title">' + escapeHtml(item.title) + '</span>' +
+          '<span class="ai-saved-item-date">' + new Date(item.date).toLocaleString('zh-CN') + '</span>' +
+        '</div>' +
+        '<div class="ai-saved-item-actions">' +
+          '<button class="ai-saved-btn" data-load-id="' + item.id + '">查看</button>' +
+          '<button class="ai-saved-btn ai-saved-del" data-del-id="' + item.id + '">删除</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    itemsEl.querySelectorAll('[data-load-id]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = parseInt(btn.getAttribute('data-load-id'));
+        var item = saved.find(function (s) { return s.id === id; });
+        if (item) {
+          state.lastContent = item.content;
+          dom.result.hidden = false;
+          dom.loading.hidden = true;
+          dom.content.hidden = false;
+          dom.output.innerHTML = renderMarkdown(item.content);
+          dom.actions.hidden = false;
+          dom.error.hidden = true;
+          try { dom.result.scrollIntoView({ behavior: 'smooth' }); } catch (e) {}
+        }
+      });
+    });
+    itemsEl.querySelectorAll('[data-del-id]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = parseInt(btn.getAttribute('data-del-id'));
+        var filtered = saved.filter(function (s) { return s.id !== id; });
+        try { localStorage.setItem('qhd_saved_itineraries', JSON.stringify(filtered)); } catch (e) {}
+        renderSavedList();
+      });
+    });
+  }
+
+  // ============ 分享行程（生成链接） ============
+
+  function handleShare() {
+    if (!state.lastContent) return;
+    // 将行程内容压缩后编码到 URL 中
+    try {
+      var data = { content: state.lastContent, title: '秦皇岛行程', date: new Date().toISOString() };
+      var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+      var shareUrl = window.location.origin + window.location.pathname + '?share=' + encoded;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(function () {
+          showShareModal(shareUrl);
+        }).catch(function () { showShareModal(shareUrl); });
+      } else {
+        showShareModal(shareUrl);
+      }
+    } catch (e) {
+      alert('分享链接生成失败，请使用复制行程功能');
+    }
+  }
+
+  function showShareModal(url) {
+    var existing = document.querySelector('.ai-share-modal');
+    if (existing) existing.remove();
+    var modal = document.createElement('div');
+    modal.className = 'ai-share-modal';
+    modal.innerHTML =
+      '<div class="ai-share-modal-content">' +
+        '<button class="ai-share-close" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
+        '<h3>分享行程</h3>' +
+        '<p>分享链接已复制到剪贴板，发送给好友即可查看：</p>' +
+        '<input type="text" class="ai-share-url" value="' + url.replace(/"/g, '&quot;') + '" readonly onclick="this.select()"/>' +
+        '<div class="ai-share-buttons">' +
+          '<a href="https://service.weibo.com/share/share.php?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent('我的秦皇岛旅行行程，快来看看！') + '" target="_blank" class="ai-share-btn ai-share-weibo">微博分享</a>' +
+          '<button class="ai-share-btn ai-share-copy">复制链接</button>' +
+        '</div>' +
+        '<p class="ai-share-tip">提示：链接有效期永久，任何人打开即可查看行程内容</p>' +
+      '</div>';
+    document.body.appendChild(modal);
+    modal.classList.add('open');
+    modal.querySelector('.ai-share-close').addEventListener('click', function () { modal.remove(); });
+    modal.querySelector('.ai-share-copy').addEventListener('click', function () {
+      var input = modal.querySelector('.ai-share-url');
+      input.select();
+      try { document.execCommand('copy'); flashShareCopy(modal.querySelector('.ai-share-copy')); } catch (e) {}
+    });
+    modal.addEventListener('click', function (e) { if (e.target === modal) modal.remove(); });
+  }
+
+  function flashShareCopy(btn) {
+    var orig = btn.textContent;
+    btn.textContent = '已复制 ✓';
+    setTimeout(function () { btn.textContent = orig; }, 1800);
+  }
+
+  function checkSharedItinerary() {
+    var params = new URLSearchParams(window.location.search);
+    var shareData = params.get('share');
+    if (!shareData) return;
+    try {
+      var decoded = decodeURIComponent(escape(atob(shareData)));
+      var data = JSON.parse(decoded);
+      if (data.content) {
+        state.lastContent = data.content;
+        dom.result.hidden = false;
+        dom.loading.hidden = true;
+        dom.content.hidden = false;
+        var titleEl = document.querySelector('.ai-result-title span:last-child');
+        if (titleEl) titleEl.textContent = '分享的行程方案';
+        dom.output.innerHTML = '<div class="ai-share-notice">以下行程由好友分享给你</div>' + renderMarkdown(data.content);
+        dom.actions.hidden = false;
+        dom.error.hidden = true;
+        try { dom.result.scrollIntoView({ behavior: 'smooth' }); } catch (e) {}
+      }
+    } catch (e) {}
+  }
+
+  // ============ 导出图片 ============
+
+  function handleExportImage() {
+    if (!state.lastContent) return;
+    var canvas = document.createElement('canvas');
+    canvas.width = 750; canvas.height = 1400;
+    var ctx = canvas.getContext('2d');
+
+    // 背景
+    var grad = ctx.createLinearGradient(0, 0, 0, 1400);
+    grad.addColorStop(0, '#0d47a1');
+    grad.addColorStop(1, '#4a9af5');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 750, 1400);
+
+    // 标题
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 36px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('我的秦皇岛旅行行程', 375, 80);
+
+    // 分割线
+    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(100, 110); ctx.lineTo(650, 110); ctx.stroke();
+
+    // 行程内容
+    ctx.font = '22px sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.textAlign = 'left';
+    var lines = state.lastContent.split('\n').filter(function (l) { return l.trim(); });
+    var y = 160;
+    var maxWidth = 630;
+    lines.forEach(function (line) {
+      if (y > 1250) return;
+      var tempLine = '';
+      for (var i = 0; i < line.length; i++) {
+        if (ctx.measureText(tempLine + line[i]).width > maxWidth) {
+          ctx.fillText(tempLine, 60, y);
+          y += 32;
+          tempLine = line[i];
+        } else {
+          tempLine += line[i];
+        }
+      }
+      if (tempLine) { ctx.fillText(tempLine, 60, y); y += 32; }
+      y += 8;
+    });
+
+    // 底部品牌
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.font = '18px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('秦皇岛旅游官网 · qhd-lv.vercel.app', 375, 1340);
+
+    // 下载
+    var link = document.createElement('a');
+    link.download = '秦皇岛旅行行程.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
+  // ============ HTML 转义 ============
+
+  function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.textContent = text || '';
+    return div.innerHTML;
   }
 
   // ============ 收集表单数据 ============
@@ -1135,6 +1447,15 @@ reveals.forEach(function(el){o.observe(el);});
   }
 })();
 </script>
+<!-- 全站搜索组件 -->
+<link rel="stylesheet" href="css/search.css">
+<script src="js/search.js" defer></script>
+<!-- 社交分享组件 -->
+<link rel="stylesheet" href="css/share.css">
+<script src="js/share.js" defer></script>
+<!-- 用户互动组件（收藏+评价） -->
+<link rel="stylesheet" href="css/user-features.css">
+<script src="js/user-features.js" defer></script>
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">
 <script src="js/chat-widget.js" defer></script>

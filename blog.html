@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秦皇岛旅游博客 — 实用攻略与游记</title>
+<meta name="description" content="秦皇岛旅游博客：真实游记、实用攻略、避坑指南。北戴河旺季避坑、山海关一日游实测路线、赶海攻略等本地达人原创内容，帮你少花冤枉钱。">
+<meta name="keywords" content="秦皇岛旅游博客,北戴河游记,山海关攻略,秦皇岛赶海,秦皇岛避坑,秦皇岛旅游攻略">
+<meta name="author" content="秦皇岛旅游官网">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://qhd-lv.vercel.app/blog.html">
+<meta property="og:title" content="秦皇岛旅游博客 — 实用攻略与游记">
+<meta property="og:description" content="真实游记 · 实用攻略 · 避坑指南。本地达人原创，帮你玩转秦皇岛。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qhd-lv.vercel.app/blog.html">
+<meta property="og:site_name" content="秦皇岛旅游官网">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="秦皇岛旅游博客 — 实用攻略与游记">
+<meta name="twitter:description" content="真实游记 · 实用攻略 · 避坑指南">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "秦皇岛旅游博客",
+  "url": "https://qhd-lv.vercel.app/blog.html",
+  "description": "真实游记 · 实用攻略 · 避坑指南",
+  "publisher": {
+    "@type": "Organization",
+    "name": "秦皇岛旅游官网",
+    "url": "https://qhd-lv.vercel.app/"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "北戴河7月避坑指南：旺季人挤人？这样玩才聪明",
+      "url": "https://qhd-lv.vercel.app/blog/beidaihe-july-tips.html",
+      "datePublished": "2024-12-10",
+      "dateModified": "2024-12-01",
+      "author": { "@type": "Organization", "name": "秦皇岛旅游官网 · 编辑团队" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "山海关一日游实测路线：跟着当地人走，不花冤枉钱",
+      "url": "https://qhd-lv.vercel.app/blog/shanhaiguan-one-day.html",
+      "datePublished": "2024-12-15",
+      "dateModified": "2024-12-01",
+      "author": { "@type": "Organization", "name": "秦皇岛旅游官网 · 编辑团队" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "秦皇岛赶海攻略：潮汐时间表+工具+最佳地点",
+      "url": "https://qhd-lv.vercel.app/blog/qhd-ganhai-guide.html",
+      "datePublished": "2024-12-20",
+      "dateModified": "2024-12-01",
+      "author": { "@type": "Organization", "name": "秦皇岛旅游官网 · 编辑团队" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://qhd-lv.vercel.app/" },
+    { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://qhd-lv.vercel.app/blog.html" }
+  ]
+}
+</script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/search.css">
+<link rel="stylesheet" href="css/share.css">
+<link rel="stylesheet" href="css/user-features.css">
+<style>
+  /* ===== 新版导航栏（博客板块统一） ===== */
+  .nav-container {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--s6);
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--s1);
+  }
+  .nav-menu a {
+    padding: var(--s2) var(--s4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all var(--dur) var(--ease-out);
+  }
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    background: rgba(26,115,232,0.06);
+    color: var(--brand);
+  }
+  .nav-toggle {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    padding: var(--s2); z-index: 101;
+  }
+  .nav-toggle span {
+    display: block; width: 22px; height: 2px; background: var(--text);
+    margin: 5px 0; border-radius: 2px; transition: all var(--dur) var(--ease-out);
+  }
+
+  /* ===== 博客列表页 ===== */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s8);
+  }
+  .blog-card {
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+    height: 100%;
+  }
+  .blog-card .card-body { display: flex; flex-direction: column; flex: 1; }
+  .blog-card h3 { font-size: var(--text-lg); font-weight: 700; line-height: 1.4; margin-bottom: var(--s3); }
+  .blog-card:hover h3 { color: var(--brand); }
+  .blog-card-excerpt {
+    color: var(--text-secondary); font-size: var(--text-sm); line-height: 1.7;
+    margin-bottom: var(--s4); flex: 1;
+  }
+  .blog-card-tags { display: flex; flex-wrap: wrap; gap: var(--s2); margin-bottom: var(--s3); }
+  .blog-card-tags span {
+    font-size: var(--text-xs); color: var(--brand);
+    background: rgba(26,115,232,0.06); padding: 2px var(--s3);
+    border-radius: var(--radius-full); font-weight: 600;
+  }
+  .blog-card-meta {
+    display: flex; align-items: center; gap: var(--s2);
+    font-size: var(--text-xs); color: var(--text-muted);
+    padding-top: var(--s3); border-top: 1px solid var(--border-light);
+  }
+  .blog-card-meta svg { width: 14px; height: 14px; }
+  .blog-card-meta .sep { opacity: 0.4; }
+
+  .blog-foot {
+    max-width: var(--max-width); margin: 0 auto;
+    padding: var(--s8) var(--s6) var(--s4);
+    text-align: center;
+    font-size: var(--text-sm); color: var(--text-muted);
+    border-top: 1px solid var(--border-light);
+  }
+  .blog-foot .blog-author { font-weight: 600; color: var(--text-secondary); margin-bottom: var(--s1); }
+
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+      position: absolute; top: var(--nav-height); left: 0; right: 0;
+      flex-direction: column; align-items: stretch;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      padding: var(--s4); border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-md); gap: var(--s1);
+    }
+    .nav-menu.open { display: flex; }
+    .nav-menu a { padding: var(--s3) var(--s4); }
+    .nav-menu .nav-search-trigger { align-self: flex-start; }
+    .nav-toggle { display: block; }
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== 导航栏 ====== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">秦皇岛旅游</a>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html">首页</a>
+      <a href="attractions.html">景点</a>
+      <a href="food.html">美食</a>
+      <a href="guide.html">攻略</a>
+      <a href="itinerary.html">行程</a>
+      <a href="map.html">地图</a>
+      <a href="blog.html" class="active">博客</a>
+      <a href="about.html">关于</a>
+      <button class="nav-search-trigger" aria-label="搜索">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="search-kbd">⌘K</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ====== 面包屑 ====== -->
+<div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 博客</div>
+
+<!-- ====== Hero ====== -->
+<section class="page-hero" style="background:linear-gradient(160deg, #0d47a1 0%, #1a73e8 50%, #4a9af5 100%);">
+  <h1>秦皇岛旅游博客</h1>
+  <p>真实游记 · 实用攻略 · 避坑指南</p>
+</section>
+
+<!-- ====== 博客文章列表 ====== -->
+<section class="section bg-sand">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>最新文章</h2>
+      <p>本地达人原创 — 每一篇都来自实地踩线，帮你少花冤枉钱、多看真风景</p>
+    </div>
+    <div class="blog-grid">
+
+      <!-- 文章 1 -->
+      <a class="card blog-card reveal" href="blog/beidaihe-july-tips.html">
+        <img class="card-img" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=%E5%8C%97%E6%88%B4%E6%B2%B3%E5%A4%8F%E5%AD%A3%E4%B8%83%E6%9C%88%E6%97%BA%E5%AD%A3%E6%B5%B7%E6%BB%A9%EF%BC%8C%E9%87%91%E8%89%B2%E6%B2%99%E6%BB%A9%E4%B8%8A%E5%AF%86%E5%B8%83%E5%BD%A9%E8%89%B2%E9%81%AE%E9%98%B3%E4%BC%9E%E5%92%8C%E6%88%8F%E6%B0%B4%E4%BA%BA%E7%BE%A4%EF%BC%8C%E8%BF%9C%E5%A4%84%E7%A2%A7%E8%93%9D%E5%A4%A7%E6%B5%B7%E4%B8%8E%E8%93%9D%E5%A4%A9%E7%99%BD%E4%BA%91%E7%9B%B8%E6%8E%A5%EF%BC%8C%E5%A4%8F%E6%97%A5%E9%98%B3%E5%85%89%E6%98%8E%E5%AA%9A%E7%9A%84%E7%9C%9F%E5%AE%9E%E6%B5%B7%E6%BB%A8%E5%9C%BA%E6%99%AF&image_size=landscape_4_3" alt="北戴河七月旺季海滩" loading="lazy">
+        <div class="card-body">
+          <span class="card-tag">避坑指南</span>
+          <h3>北戴河7月避坑指南：旺季人挤人？这样玩才聪明</h3>
+          <p class="blog-card-excerpt">7月的北戴河是一年中最热闹也最容易踩坑的时段。这篇从人流量、错峰时间、替代景点、住宿省钱、避堵路线到防宰餐饮，把旺季该知道的坑一次性讲透。</p>
+          <div class="blog-card-tags">
+            <span>#北戴河</span><span>#旺季</span><span>#避坑</span>
+          </div>
+          <div class="blog-card-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>2024年12月10日</span>
+            <span class="sep">·</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>8 分钟阅读</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 文章 2 -->
+      <a class="card blog-card reveal reveal-delay-1" href="blog/shanhaiguan-one-day.html">
+        <img class="card-img" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=%E5%B1%B1%E6%B5%B7%E5%85%B3%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80%E5%85%B3%E5%9F%8E%E6%A5%BC%E5%85%A8%E6%99%AF%EF%BC%8C%E6%98%8E%E4%BB%A3%E9%95%BF%E5%9F%8E%E5%85%B3%E9%9A%98%E9%9B%84%E4%BC%9F%E5%8F%A4%E5%9F%8E%E5%A2%99%E4%B8%8E%E7%AE%AD%E6%A5%BC%EF%BC%8C%E8%93%9D%E5%A4%A9%E7%99%BD%E4%BA%91%E4%B8%8B%E7%9A%84%E5%8E%86%E5%8F%B2%E5%8F%A4%E8%BF%B9%EF%BC%8C%E5%9F%8E%E7%A0%96%E7%BA%B9%E7%90%86%E6%B8%85%E6%99%B0&image_size=landscape_4_3" alt="山海关天下第一关城楼" loading="lazy">
+        <div class="card-body">
+          <span class="card-tag card-tag--warm">实测路线</span>
+          <h3>山海关一日游实测路线：跟着当地人走，不花冤枉钱</h3>
+          <p class="blog-card-excerpt">天下第一关、老龙头、孟姜女庙一天怎么串？这篇给出实测路线、交通方式、门票明细、午餐推荐和完整时间表，照着走人均不到200元玩满一天。</p>
+          <div class="blog-card-tags">
+            <span>#山海关</span><span>#一日游</span><span>#省钱</span>
+          </div>
+          <div class="blog-card-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>2024年12月15日</span>
+            <span class="sep">·</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>10 分钟阅读</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 文章 3 -->
+      <a class="card blog-card reveal reveal-delay-2" href="blog/qhd-ganhai-guide.html">
+        <img class="card-img" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=%E8%B5%B6%E6%B5%B7%E4%BA%BA%E5%9C%A8%E9%80%80%E6%BD%AE%E7%9A%84%E6%B5%B7%E8%BE%B9%E6%BB%A9%E6%B6%82%E4%B8%8A%E5%BC%AF%E8%85%B0%E6%8D%A1%E6%8B%BE%E8%B4%9D%E5%A3%B3%E8%9B%A4%E8%9C%8A%EF%BC%8C%E6%89%8B%E6%8C%81%E5%B0%8F%E6%B0%B4%E6%A1%B6%E5%92%8C%E9%93%81%E8%80%99%EF%BC%8C%E5%A4%95%E9%98%B3%E4%BD%99%E6%99%96%E6%B4%92%E5%9C%A8%E6%B5%85%E6%BB%A9%E4%B8%8A%EF%BC%8C%E8%BF%9C%E5%A4%84%E6%B5%B7%E5%A4%A9%E4%B8%80%E8%89%B2&image_size=landscape_4_3" alt="退潮滩涂上赶海捡贝壳" loading="lazy">
+        <div class="card-body">
+          <span class="card-tag card-tag--green">赶海攻略</span>
+          <h3>秦皇岛赶海攻略：潮汐时间表+工具+最佳地点</h3>
+          <p class="blog-card-excerpt">赶海是秦皇岛最治愈的免费玩法。这篇讲清什么是赶海、鸽子窝/黄金海岸/老龙头海滩哪个适合、潮汐怎么查、带什么工具、安全注意和收获怎么处理。</p>
+          <div class="blog-card-tags">
+            <span>#赶海</span><span>#潮汐</span><span>#亲子</span>
+          </div>
+          <div class="blog-card-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>2024年12月20日</span>
+            <span class="sep">·</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>7 分钟阅读</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== 列表底部：作者署名 + 最后更新 ====== -->
+<div class="blog-foot">
+  <p class="blog-author">秦皇岛旅游官网 · 编辑团队</p>
+  <p>最后更新：2024年12月</p>
+</div>
+
+<!-- ====== 页脚 ====== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>秦皇岛旅游官网</h4>
+      <p>靠谱的秦皇岛旅游信息平台</p>
+    </div>
+    <div class="footer-col">
+      <h4>快速导航</h4>
+      <a href="index.html">首页</a>
+      <a href="attractions.html">景点</a>
+      <a href="food.html">美食</a>
+      <a href="guide.html">攻略</a>
+    </div>
+    <div class="footer-col">
+      <h4>更多</h4>
+      <a href="itinerary.html">行程规划</a>
+      <a href="map.html">旅游地图</a>
+      <a href="blog.html">旅游博客</a>
+      <a href="about.html">关于我们</a>
+    </div>
+    <div class="footer-col">
+      <h4>联系</h4>
+      <p>合作邮箱：cooperation@qhd-lv.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 秦皇岛旅游官网 | 冀ICP备16026346号-2</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function () {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+document.getElementById('navToggle').addEventListener('click', function () {
+  document.getElementById('navMenu').classList.toggle('open');
+});
+var reveals = document.querySelectorAll('.reveal');
+var o = new IntersectionObserver(function (e) {
+  e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('visible'); o.unobserve(x.target); } });
+}, { threshold: 0.1 });
+reveals.forEach(function (el) { o.observe(el); });
+</script>
+<script src="js/search.js" defer></script>
+<script src="js/share.js" defer></script>
+<script src="js/user-features.js" defer></script>
+</body>
+</html>

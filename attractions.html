@@ -95,6 +95,12 @@
   .spot-card-footer{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;padding-top:var(--s3);border-top:1px solid var(--gray-100);}
   .spot-card-time{font-size:0.78rem;color:var(--gray-500);display:inline-flex;align-items:center;gap:4px;flex:1;min-width:0;}
   .spot-card-actions{display:flex;gap:6px;flex-wrap:wrap;}
+  .review-spot-select{
+    width:100%;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--gray-200);
+    font-size:var(--text-base);font-family:inherit;background:#fff;outline:none;cursor:pointer;
+    transition:border-color 0.15s;
+  }
+  .review-spot-select:focus{border-color:var(--brand);}
 
   /* TOP5 卡片内部样式 */
   .spot-top-meta{display:flex;gap:var(--s4);flex-wrap:wrap;font-size:var(--text-sm);color:var(--gray-500);margin-bottom:var(--s4);align-items:center;}
@@ -182,9 +188,15 @@
       <li><a href="itinerary.html">行程规划</a></li>
       <li><a href="food.html">美食</a></li>
       <li><a href="guide.html">旅游攻略</a></li>
+      <li><a href="blog.html">博客</a></li>
+      <li><a href="favorites.html">收藏<span class="qhd-fav-count"></span></a></li>
       <li><a href="about.html">关于我们</a></li>
     </ul>
     <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="nav-search-trigger" aria-label="搜索">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="search-kbd">⌘K</span>
+    </button>
     <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -240,6 +252,20 @@
   <h2>选好心仪的景点了吗？</h2>
   <p>把以上景点串联起来，我们帮你免费规划3日精华路线</p>
   <a href="itinerary.html" class="btn btn-white btn-lg">查看行程规划 →</a>
+</section>
+
+<!-- 游客评价区 -->
+<section class="section" id="reviewsSection">
+  <div class="container">
+    <h2 class="section-title">游客真实评价</h2>
+    <p class="section-subtitle">选择景点，分享你的游玩体验，帮助其他游客</p>
+    <div style="max-width:600px;margin:0 auto var(--s8);">
+      <select id="reviewSpotSelect" class="review-spot-select" onchange="loadReviewForSpot()">
+        <option value="">— 选择景点查看/发表评价 —</option>
+      </select>
+    </div>
+    <div id="reviewSpotContainer" style="max-width:700px;margin:0 auto;"></div>
+  </div>
 </section>
 
 <footer class="footer">
@@ -316,6 +342,7 @@ reveals.forEach(function(el){o.observe(el);});
       renderAreaFilters();
       renderSpots();
       setupFilterEvents();
+      populateReviewSelect();
     })
     .catch(function(err) {
       console.warn('[attractions] 加载 attractions.json 失败:', err);
@@ -566,8 +593,34 @@ reveals.forEach(function(el){o.observe(el);});
       footer +
     '</div>';
 
-    return '<div class="spot-card reveal" id="' + spot.id + '-spot">' + imgBlock + body + '</div>';
+    return '<div class="spot-card reveal" id="' + spot.id + '-spot" data-spot-id="' + spot.id + '" data-spot-name="' + spot.name.replace(/"/g, '&quot;') + '">' + imgBlock + body + '</div>';
   }
+
+  function populateReviewSelect() {
+    var select = document.getElementById('reviewSpotSelect');
+    if (!select) return;
+    allSpots.forEach(function(spot) {
+      var opt = document.createElement('option');
+      opt.value = spot.id;
+      opt.textContent = spot.name;
+      select.appendChild(opt);
+    });
+  }
+
+  window.loadReviewForSpot = function() {
+    var select = document.getElementById('reviewSpotSelect');
+    var container = document.getElementById('reviewSpotContainer');
+    if (!select || !container) return;
+    var spotId = select.value;
+    if (!spotId) { container.innerHTML = ''; return; }
+    var spotName = select.options[select.selectedIndex].textContent;
+    container.innerHTML = '';
+    container.setAttribute('data-review-container', spotId);
+    container.setAttribute('data-review-name', spotName);
+    if (window.QHDUser) {
+      window.QHDUser.injectReviewSection(container, spotId, spotName);
+    }
+  };
 
   function setupReveal() {
     var reveals = document.querySelectorAll('.reveal');
@@ -583,6 +636,15 @@ reveals.forEach(function(el){o.observe(el);});
   }
 })();
 </script>
+<!-- 全站搜索组件 -->
+<link rel="stylesheet" href="css/search.css">
+<script src="js/search.js" defer></script>
+<!-- 社交分享组件 -->
+<link rel="stylesheet" href="css/share.css">
+<script src="js/share.js" defer></script>
+<!-- 用户互动组件（收藏+评价） -->
+<link rel="stylesheet" href="css/user-features.css">
+<script src="js/user-features.js" defer></script>
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">
 <script src="js/chat-widget.js" defer></script>

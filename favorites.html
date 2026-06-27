@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的收藏 — 秦皇岛旅游官网</title>
+<meta name="description" content="查看你在秦皇岛旅游官网收藏的景点，方便随时规划行程。">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://qhd-lv.vercel.app/favorites.html">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/search.css">
+<link rel="stylesheet" href="css/share.css">
+<link rel="stylesheet" href="css/user-features.css">
+<style>
+  .fav-page-hero {
+    background: linear-gradient(160deg, #0d47a1 0%, #1a73e8 50%, #4a9af5 100%);
+    color: #fff; text-align: center;
+    padding: var(--s20) var(--s6) var(--s12);
+  }
+  .fav-page-hero h1 { font-size: var(--text-4xl); font-weight: 900; margin-bottom: var(--s3); }
+  .fav-page-hero p { font-size: var(--text-lg); opacity: 0.85; }
+  .fav-page-body { max-width: 1000px; margin: 0 auto; padding: var(--s12) var(--s6) var(--s20); }
+  .fav-clear-all {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 16px; border-radius: 8px; border: 1px solid var(--gray-200);
+    background: #fff; cursor: pointer; font-size: var(--text-sm); font-family: inherit;
+    color: var(--gray-500); margin-bottom: var(--s6); transition: all 0.15s;
+  }
+  .fav-clear-all:hover { border-color: #ef4444; color: #ef4444; }
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">秦皇岛旅游官网</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="attractions.html">景点</a></li>
+      <li><a href="map.html">地图</a></li>
+      <li><a href="itinerary.html">行程规划</a></li>
+      <li><a href="food.html">美食</a></li>
+      <li><a href="guide.html">旅游攻略</a></li>
+      <li><a href="blog.html">博客</a></li>
+      <li><a href="favorites.html" class="active">收藏<span class="qhd-fav-count"></span></a></li>
+      <li><a href="about.html">关于我们</a></li>
+    </ul>
+    <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="nav-search-trigger" aria-label="搜索">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="search-kbd">⌘K</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 我的收藏</div>
+
+<section class="fav-page-hero">
+  <h1>我的收藏</h1>
+  <p>收藏的景点都在这里，方便随时查看和规划行程</p>
+</section>
+
+<section class="fav-page-body">
+  <button class="fav-clear-all" id="favClearAll" onclick="clearAllFavorites()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+    清空全部收藏
+  </button>
+  <div id="favoritesList"></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略。</p></div>
+      <div class="footer-col"><h4>热门页面</h4><a href="index.html">首页</a><a href="attractions.html">景点推荐</a><a href="itinerary.html">行程规划</a><a href="food.html">美食推荐</a></div>
+      <div class="footer-col"><h4>旅游攻略</h4><a href="guide.html">出行指南</a><a href="blog.html">旅游博客</a><a href="guide.html#transport">交通攻略</a><a href="guide.html#accommodation">住宿推荐</a></div>
+      <div class="footer-col"><h4>关于我们</h4><a href="about.html">关于官网</a><a href="about.html#cooperation">商务合作</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 秦皇岛旅游官网</span>
+      <span>冀ICP备16026346号-2</span>
+      <div><a href="sitemap.xml">网站地图</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);});
+document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open');});
+
+function clearAllFavorites() {
+  if (!confirm('确定要清空所有收藏吗？此操作不可撤销。')) return;
+  try {
+    localStorage.removeItem('qhd_favorites');
+    localStorage.removeItem('qhd_fav_names');
+  } catch (e) {}
+  if (window.QHDUser) {
+    window.QHDUser.renderFavoritesPage();
+    window.QHDUser.flashToast('已清空所有收藏');
+  }
+}
+</script>
+<!-- 全站搜索组件 -->
+<script src="js/search.js" defer></script>
+<!-- 社交分享组件 -->
+<script src="js/share.js" defer></script>
+<!-- 用户互动组件（收藏+评价） -->
+<script src="js/user-features.js" defer></script>
+<!-- AI 聊天组件 -->
+<link rel="stylesheet" href="css/chat-widget.css">
+<script src="js/chat-widget.js" defer></script>
+</body>
+</html>

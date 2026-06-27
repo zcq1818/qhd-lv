@@ -160,9 +160,15 @@ window.FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
       <li><a href="itinerary.html">行程规划</a></li>
       <li><a href="food.html">美食</a></li>
       <li><a href="guide.html">旅游攻略</a></li>
+      <li><a href="blog.html">博客</a></li>
+      <li><a href="favorites.html">收藏<span class="qhd-fav-count"></span></a></li>
       <li><a href="about.html">关于我们</a></li>
     </ul>
     <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="nav-search-trigger" aria-label="搜索">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="search-kbd">⌘K</span>
+    </button>
     <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -191,6 +197,13 @@ window.FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         </a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 实时天气与潮汐 -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="container">
+    <div class="weather-widget" id="weatherWidget"></div>
   </div>
 </section>
 
@@ -473,9 +486,9 @@ window.FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
       <div class="footer-col">
         <h4>旅游攻略</h4>
         <a href="guide.html">出行指南</a>
+        <a href="blog.html">旅游博客</a>
         <a href="guide.html#transport">交通攻略</a>
         <a href="guide.html#accommodation">住宿推荐</a>
-        <a href="guide.html#besttime">最佳时间</a>
       </div>
       <div class="footer-col">
         <h4>关于我们</h4>
@@ -522,6 +535,18 @@ function showDay(idx) {
   reveals.forEach(function(el) { observer.observe(el); });
 })();
 </script>
+<!-- 全站搜索组件 -->
+<link rel="stylesheet" href="css/search.css">
+<script src="js/search.js" defer></script>
+<!-- 社交分享组件 -->
+<link rel="stylesheet" href="css/share.css">
+<script src="js/share.js" defer></script>
+<!-- 用户互动组件（收藏+评价） -->
+<link rel="stylesheet" href="css/user-features.css">
+<script src="js/user-features.js" defer></script>
+<!-- 实时天气与潮汐 -->
+<link rel="stylesheet" href="css/weather.css">
+<script src="js/weather.js" defer></script>
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">
 <script src="js/chat-widget.js" defer></script>
