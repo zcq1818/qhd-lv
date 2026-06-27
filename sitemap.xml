@@ -58,6 +58,42 @@
   </url>
   <!-- 博客文章 -->
   <url>
+    <loc>https://qhd-lv.vercel.app/blog/qhd-winter-travel.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qhd-lv.vercel.app/blog/qhd-family-travel.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qhd-lv.vercel.app/blog/geziwo-sunrise-guide.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qhd-lv.vercel.app/blog/qhd-transport-guide.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qhd-lv.vercel.app/blog/beidaihe-stay-guide.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qhd-lv.vercel.app/blog/qhd-food-guide.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://qhd-lv.vercel.app/blog/beidaihe-july-tips.html</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
