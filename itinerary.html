@@ -1093,14 +1093,6 @@ reveals.forEach(function(el){o.observe(el);});
     link.click();
   }
 
-  // ============ HTML 转义 ============
-
-  function escapeHtml(text) {
-    var div = document.createElement('div');
-    div.textContent = text || '';
-    return div.innerHTML;
-  }
-
   // ============ 收集表单数据 ============
 
   /**

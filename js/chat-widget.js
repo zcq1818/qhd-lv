@@ -677,12 +677,6 @@
     }
   }
 
-  function clearHistory() {
-    state.messages = [];
-    saveHistory();
-    renderMessages();
-  }
-
   // ============ 启动 ============
 
   // DOM 就绪后初始化

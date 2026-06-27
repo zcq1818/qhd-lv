@@ -23,23 +23,16 @@
 </script>
 <link rel="stylesheet" href="style.css">
 <style>
-  :root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-muted:#6b7280;--ease-out:cubic-bezier(0.34,1.56,0.64,1);--dur:0.35s;--smooth:cubic-bezier(0.4,0,0.2,1);--food-orange:#E37400;--food-red:#DC4A1A;}
+  /* ===== 页面专属变量（不覆盖全局 :root） ===== */
+  :root{--smooth:cubic-bezier(0.4,0,0.2,1);--food-orange:#E37400;--food-red:#DC4A1A;}
 
-  .section{max-width:var(--max-width);margin:0 auto;padding:var(--s12) var(--s6);}
+  /* ===== 页面专属：section-label/title/desc ===== */
   .section-label{font-size:var(--text-sm);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--food-orange);margin-bottom:var(--s2);}
   .section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin:0 0 var(--s3);line-height:1.25;}
   .section-desc{color:var(--text-muted);line-height:1.8;margin-bottom:var(--s6);max-width:600px;}
-  .breadcrumb{max-width:var(--max-width);margin:0 auto;padding:var(--s4) var(--s6);font-size:var(--text-sm);color:var(--text-muted);}
-  .breadcrumb a{color:var(--brand);text-decoration:none;}
-  .breadcrumb .sep{margin:0 var(--s2);}
 
-  /* ===== Hero 区域 ===== */
-  .page-hero{position:relative;overflow:hidden;padding:80px var(--s6) 60px;text-align:center;color:#fff;background:linear-gradient(135deg,#DC4A1A 0%,#E37400 30%,#F59E0B 60%,#FCD34D 100%);}
-  .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.15) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,255,255,0.1) 0%,transparent 50%);pointer-events:none;}
-  .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;margin:0 0 var(--s3);letter-spacing:-0.02em;position:relative;}
-  .page-hero p{font-size:clamp(1rem,2vw,1.2rem);opacity:0.92;margin:0 0 var(--s6);position:relative;}
-  .page-hero-meta{display:flex;gap:var(--s3);flex-wrap:wrap;justify-content:center;position:relative;}
-  .page-hero-tag{background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.25);padding:var(--s2) var(--s4);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;}
+  /* ===== 页面专属：Hero 背景 + 统计 ===== */
+  .page-hero{background:linear-gradient(135deg,#DC4A1A 0%,#E37400 30%,#F59E0B 60%,#FCD34D 100%);}
   .hero-stats{display:flex;gap:var(--s6);justify-content:center;margin-top:var(--s8);flex-wrap:wrap;position:relative;}
   .hero-stat{text-align:center;}
   .hero-stat-num{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#fff,#fef3c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -116,22 +109,8 @@
   .anti-scam-col.danger li::before{content:'✗';color:#DC4A1A;}
   .anti-scam-col.danger h4{color:#DC4A1A;}
 
-  /* ===== CTA 区域 ===== */
-  .cta-section{background:linear-gradient(135deg,#DC4A1A,#E37400,#F59E0B);color:#fff;text-align:center;padding:var(--s16) var(--s6);position:relative;overflow:hidden;}
-  .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.1) 0%,transparent 50%);}
-  .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:var(--s3);position:relative;}
-  .cta-section p{opacity:0.9;margin-bottom:var(--s8);position:relative;}
-  .btn-white{background:#fff;color:var(--food-orange);border:none;padding:12px 32px;border-radius:var(--radius-full);font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;position:relative;}
-  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
-  .btn-lg{padding:14px 36px;font-size:1.05rem;}
-
-  /* ===== 预订按钮 ===== */
-  .booking-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:var(--radius-full);font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid transparent;}
-  .booking-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-  .booking-dianping{background:#f0fdf4;color:#07c160;border-color:#bbf7d0;}
-  .booking-dianping:hover{background:#07c160;color:#fff;}
-  .booking-meituan{background:#fff4f0;color:#ffc300;border-color:#ffe4b5;}
-  .booking-meituan:hover{background:#ffc300;color:#333;}
+  /* ===== 页面专属：CTA 背景 ===== */
+  .cta-section{background:linear-gradient(135deg,#DC4A1A,#E37400,#F59E0B);}
 
   /* ===== 区域标题 ===== */
   .zone-header{margin:var(--s12) 0 var(--s6);display:flex;align-items:center;gap:var(--s4);}
@@ -139,15 +118,10 @@
   .zone-header-text h2{font-size:var(--text-2xl);font-weight:800;margin:0 0 2px;line-height:1.2;}
   .zone-header-text .zone-count{font-size:var(--text-sm);color:var(--gray-500);}
 
-  /* ===== 滚动揭示 ===== */
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s var(--smooth),transform 0.6s var(--smooth);}
-  .reveal.visible{opacity:1;transform:translateY(0);}
-
   /* ===== 响应式 ===== */
   @media(max-width:768px){
     .night-market-grid,.seafood-grid,.anti-scam-grid{grid-template-columns:1fr;}
     .specialty-grid{grid-template-columns:repeat(2,1fr);}
-    .section{padding:var(--s8) var(--s4);}
     .filter-bar-inner{padding:var(--s2) var(--s4);gap:var(--s2);}
     .filter-label{display:none;}
     .hero-stats{gap:var(--s4);}

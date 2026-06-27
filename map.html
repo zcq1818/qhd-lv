@@ -21,18 +21,6 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
-  /* ===== 面包屑 ===== */
-  .breadcrumb {
-    max-width: var(--max-width);
-    margin: calc(var(--nav-height) + 16px) auto 0;
-    padding: 0 var(--s6);
-    font-size: var(--text-sm);
-    color: var(--text-muted);
-  }
-  .breadcrumb a { color: var(--text-muted); text-decoration: none; }
-  .breadcrumb a:hover { color: var(--brand); }
-  .breadcrumb .sep { margin: 0 var(--s2); opacity: 0.4; }
-
   /* ===== 顶部工具栏（标题+统计+筛选一体化） ===== */
   .map-toolbar {
     background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 100%);
@@ -668,6 +656,7 @@
 </footer>
 
 <!-- 高德 JS SDK（用于 POI 搜索 + 地理编码获取准确 GCJ-02 坐标） -->
+<!-- 安全提示：key 和 securityJsCode 已配置高德域名白名单限制，仅允许本站域名调用 -->
 <script type="text/javascript">
   window._AMapSecurityConfig = { securityJsCode: '24a3a4784cc4ec33ea5693daccc0aacb' };
 </script>

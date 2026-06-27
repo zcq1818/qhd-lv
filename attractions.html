@@ -20,22 +20,15 @@
 <meta property="og:description" content="北戴河、山海关、阿那亚……秦皇岛30+景区全收录。">
 <link rel="stylesheet" href="style.css">
 <style>
-  :root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-muted:#6b7280;--ease-out:cubic-bezier(0.34,1.56,0.64,1);--dur:0.35s;--smooth:cubic-bezier(0.4,0,0.2,1);}
-  .section{max-width:var(--max-width);margin:0 auto;padding:var(--s12) var(--s6);}
+  /* ===== 页面专属变量（不覆盖全局 :root） ===== */
+  :root{--smooth:cubic-bezier(0.4,0,0.2,1);}
+
+  /* ===== 页面专属：section-label/title/desc ===== */
   .section-label{font-size:var(--text-sm);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand,#1a73e8);margin-bottom:var(--s2);}
   .section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin:0 0 var(--s3);line-height:1.25;}
   .section-desc{color:var(--text-muted);line-height:1.8;margin-bottom:var(--s10);max-width:600px;}
-  .breadcrumb{max-width:var(--max-width);margin:0 auto;padding:var(--s4) var(--s6);font-size:var(--text-sm);color:var(--text-muted);}
-  .breadcrumb a{color:var(--brand);text-decoration:none;}
-  .breadcrumb .sep{margin:0 var(--s2);}
 
-  /* ===== Hero 区域 ===== */
-  .page-hero{position:relative;overflow:hidden;padding:80px var(--s6) 60px;text-align:center;color:#fff;background:linear-gradient(135deg,#0d47a1 0%,#1565c0 40%,#1a73e8 70%,#4a9af5 100%);}
-  .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.15) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,255,255,0.1) 0%,transparent 50%);pointer-events:none;}
-  .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;margin:0 0 var(--s3);letter-spacing:-0.02em;position:relative;}
-  .page-hero p{font-size:clamp(1rem,2vw,1.2rem);opacity:0.92;margin:0 0 var(--s6);position:relative;}
-  .page-hero-meta{display:flex;gap:var(--s3);flex-wrap:wrap;justify-content:center;position:relative;}
-  .page-hero-tag{background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.25);padding:var(--s2) var(--s4);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;}
+  /* ===== 页面专属：Hero 统计 ===== */
   .hero-stats{display:flex;gap:var(--s6);justify-content:center;margin-top:var(--s8);flex-wrap:wrap;position:relative;}
   .hero-stat{text-align:center;}
   .hero-stat-num{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#fff,#e3f2fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -61,6 +54,14 @@
   .spot-top-body{padding:var(--s8);display:flex;flex-direction:column;justify-content:center;}
   .spot-top-rank{position:absolute;top:0;left:0;background:linear-gradient(135deg,#f59e0b,#ea4335);color:#fff;font-size:0.8rem;font-weight:800;padding:var(--s2) var(--s4);border-radius:0 0 var(--radius) 0;letter-spacing:0.05em;}
   .spot-top-name{font-size:var(--text-2xl);font-weight:800;margin:var(--s2) 0 var(--s3);line-height:1.3;}
+  .spot-top-meta{display:flex;gap:var(--s4);flex-wrap:wrap;font-size:var(--text-sm);color:var(--gray-500);margin-bottom:var(--s4);align-items:center;}
+  .spot-top-meta .stars{color:#f59e0b;font-weight:700;}
+  .spot-top-meta .price{color:var(--accent-sunset);font-weight:700;font-size:1.1rem;}
+  .spot-top-desc{color:var(--gray-600);line-height:1.8;margin-bottom:var(--s4);}
+  .spot-top-info{font-size:var(--text-sm);color:var(--gray-500);line-height:1.8;margin-bottom:var(--s4);}
+  .spot-top-info strong{color:var(--gray-700);}
+  .spot-top-tips{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-left:4px solid var(--brand);padding:var(--s3) var(--s4);border-radius:0 var(--radius) var(--radius) 0;font-size:var(--text-sm);color:#0369a1;line-height:1.7;margin-bottom:var(--s4);}
+  .spot-top-actions{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;}
 
   /* ===== 景点卡片（网格） ===== */
   .spots-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6);}
@@ -102,22 +103,8 @@
   .spot-card-footer{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;padding-top:var(--s3);border-top:1px solid var(--gray-100);}
   .spot-card-time{font-size:0.78rem;color:var(--gray-500);display:inline-flex;align-items:center;gap:4px;flex:1;min-width:0;}
   .spot-card-actions{display:flex;gap:6px;flex-wrap:wrap;}
-  .review-spot-select{
-    width:100%;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--gray-200);
-    font-size:var(--text-base);font-family:inherit;background:#fff;outline:none;cursor:pointer;
-    transition:border-color 0.15s;
-  }
+  .review-spot-select{width:100%;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--gray-200);font-size:var(--text-base);font-family:inherit;background:#fff;outline:none;cursor:pointer;transition:border-color 0.15s;}
   .review-spot-select:focus{border-color:var(--brand);}
-
-  /* TOP5 卡片内部样式 */
-  .spot-top-meta{display:flex;gap:var(--s4);flex-wrap:wrap;font-size:var(--text-sm);color:var(--gray-500);margin-bottom:var(--s4);align-items:center;}
-  .spot-top-meta .stars{color:#f59e0b;font-weight:700;}
-  .spot-top-meta .price{color:var(--accent-sunset);font-weight:700;font-size:1.1rem;}
-  .spot-top-desc{color:var(--gray-600);line-height:1.8;margin-bottom:var(--s4);}
-  .spot-top-info{font-size:var(--text-sm);color:var(--gray-500);line-height:1.8;margin-bottom:var(--s4);}
-  .spot-top-info strong{color:var(--gray-700);}
-  .spot-top-tips{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-left:4px solid var(--brand);padding:var(--s3) var(--s4);border-radius:0 var(--radius) var(--radius) 0;font-size:var(--text-sm);color:#0369a1;line-height:1.7;margin-bottom:var(--s4);}
-  .spot-top-actions{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;}
 
   /* 区域标题 */
   .zone-header{margin:var(--s12) 0 var(--s6);display:flex;align-items:center;gap:var(--s4);}
@@ -126,50 +113,12 @@
   .zone-header-text .zone-count{font-size:var(--text-sm);color:var(--gray-500);}
   .zone-header-count{margin-left:auto;background:var(--gray-100);color:var(--gray-600);padding:4px 12px;border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:700;}
 
-  /* 预订按钮 */
-  .booking-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:var(--radius-full);font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid transparent;cursor:pointer;}
-  .booking-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-  .booking-ctrip{background:#fff5f5;color:#ff6913;border-color:#ffd6c4;}
-  .booking-ctrip:hover{background:#ff6913;color:#fff;}
-  .booking-meituan{background:#fff4f0;color:#ffc300;border-color:#ffe4b5;}
-  .booking-meituan:hover{background:#ffc300;color:#333;}
-  .booking-dianping{background:#f0fdf4;color:#07c160;border-color:#bbf7d0;}
-  .booking-dianping:hover{background:#07c160;color:#fff;}
-  .booking-hotel{background:#eff6ff;color:#1a73e8;border-color:#bfdbfe;}
-  .booking-hotel:hover{background:#1a73e8;color:#fff;}
-
-  /* 按钮样式 */
-  .btn-sm{padding:6px 14px;font-size:0.82rem;}
-  .btn-primary{background:var(--brand);color:#fff;border:none;border-radius:var(--radius-full);font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:all 0.2s;}
-  .btn-primary:hover{background:var(--brand-dark);transform:translateY(-1px);box-shadow:var(--shadow-brand);}
-  .btn-outline{background:transparent;color:var(--brand);border:1.5px solid var(--brand);border-radius:var(--radius-full);font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:all 0.2s;}
-  .btn-outline:hover{background:var(--brand);color:#fff;}
-
-  /* CTA 区域 */
-  .cta-section{background:linear-gradient(135deg,#0d47a1,#1a73e8,#4a9af5);color:#fff;text-align:center;padding:var(--s16) var(--s6);position:relative;overflow:hidden;}
-  .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.1) 0%,transparent 50%);}
-  .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:var(--s3);position:relative;}
-  .cta-section p{opacity:0.9;margin-bottom:var(--s8);position:relative;}
-  .btn-white{background:#fff;color:var(--brand);border:none;padding:12px 32px;border-radius:var(--radius-full);font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;position:relative;}
-  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
-  .btn-lg{padding:14px 36px;font-size:1.05rem;}
-
-  /* 返回顶部 */
-  .back-top{position:fixed;bottom:24px;right:24px;width:48px;height:48px;background:var(--brand);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:var(--shadow-lg);cursor:pointer;opacity:0;transition:all 0.3s;z-index:100;border:none;}
-  .back-top.show{opacity:1;}
-  .back-top:hover{transform:translateY(-3px);background:var(--brand-dark);}
-
-  /* 滚动揭示动画 */
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s var(--smooth),transform 0.6s var(--smooth);}
-  .reveal.visible{opacity:1;transform:translateY(0);}
-
   /* 响应式 */
   @media(max-width:768px){
     .spot-top-inner{grid-template-columns:1fr;}
     .spot-top-img img{height:220px;min-height:auto;}
     .spot-top-body{padding:var(--s5);}
     .spots-grid{grid-template-columns:1fr;}
-    .section{padding:var(--s8) var(--s4);}
     .filter-bar-inner{padding:var(--s2) var(--s4);gap:var(--s2);}
     .filter-label{display:none;}
     .hero-stats{gap:var(--s4);}

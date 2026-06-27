@@ -267,12 +267,12 @@
       html += '<div class="qhd-result-group"><div class="qhd-result-group-label">' + typeLabels[type] + '</div>';
       groups[type].forEach(function (r) {
         html +=
-          '<a class="qhd-result-item" data-href="' + r.url + '">' +
+          '<a class="qhd-result-item" data-href="' + escapeHtml(r.url) + '">' +
             '<div class="qhd-result-info">' +
               '<div class="qhd-result-title">' + highlight(r.title, state.query) + '</div>' +
               '<div class="qhd-result-desc">' + highlight(r.desc, state.query) + '</div>' +
             '</div>' +
-            '<span class="qhd-result-tag">' + r.tag + '</span>' +
+            '<span class="qhd-result-tag">' + escapeHtml(r.tag) + '</span>' +
           '</a>';
       });
       html += '</div>';
