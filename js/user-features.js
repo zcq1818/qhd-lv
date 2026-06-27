@@ -351,9 +351,14 @@
     init();
   }
 
-  // 动态加载的景点卡片也需要注入收藏按钮（MutationObserver）
+  // 动态加载的景点卡片也需要注入收藏按钮（MutationObserver + 防抖）
+  var debounceTimer = null;
   var observer = new MutationObserver(function () {
-    injectFavButtons();
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function () {
+      injectFavButtons();
+      debounceTimer = null;
+    }, 200);
   });
   if (document.body) {
     observer.observe(document.body, { childList: true, subtree: true });

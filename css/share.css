@@ -89,3 +89,9 @@
   .qhd-share-toggle { width: 48px; height: 48px; }
   .qhd-share-btn { padding: 8px 14px; font-size: 0.85rem; }
 }
+@media (max-width: 480px) {
+  .qhd-share-bar { left: 16px; right: 16px; bottom: 12px; }
+  .qhd-share-toggle { width: 44px; height: 44px; }
+  .qhd-share-btn { padding: 6px 10px; font-size: 0.8rem; gap: 4px; }
+  .qhd-share-btn svg { width: 16px; height: 16px; }
+}

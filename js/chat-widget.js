@@ -60,6 +60,11 @@
     // 缓存 DOM 引用
     cacheDom();
 
+    // 同步 Tab 激活状态与恢复的 mode
+    dom.tabs.forEach(function (tab) {
+      tab.classList.toggle('agnes-active', tab.getAttribute('data-mode') === state.mode);
+    });
+
     // 绑定事件
     bindEvents();
 
@@ -496,14 +501,10 @@
   function startStreamingRender() {
     // 移除欢迎消息（如果存在）
     var welcome = dom.messages.querySelector('.agnes-chat-welcome');
-    if (welcome) welcome.remove();
+    if (welcome) dom.messages.innerHTML = '';
 
     // 创建 AI 消息元素
     var msgEl = createMessageEl({ role: 'assistant', content: '' });
-    // 如果之前没有消息，先清空欢迎消息
-    if (dom.messages.querySelector('.agnes-chat-welcome')) {
-      dom.messages.innerHTML = '';
-    }
     dom.messages.appendChild(msgEl);
     streamingBubble = msgEl.querySelector('.agnes-msg-bubble');
     scrollToBottom();
@@ -623,14 +624,18 @@
     html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
 
     // 无序列表项 - 或 *
-    html = html.replace(/^[\-\*]\s+(.+)$/gm, '<li>$1</li>');
-    // 将连续的 <li> 包裹在 <ul> 中
-    html = html.replace(/(<li>[\s\S]*?<\/li>)(?!\s*<li>)/g, function (match) {
-      return '<ul>' + match + '</ul>';
+    html = html.replace(/^[\-\*]\s+(.+)$/gm, '<li data-ul>$1</li>');
+    // 将连续的 <li data-ul> 包裹在 <ul> 中
+    html = html.replace(/(<li data-ul>[\s\S]*?<\/li>)(?!\s*<li data-ul>)/g, function (match) {
+      return '<ul>' + match.replace(/ data-ul/g, '') + '</ul>';
     });
 
     // 有序列表项 1. 2. 3.
-    html = html.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+    html = html.replace(/^\d+\.\s+(.+)$/gm, '<li data-ol>$1</li>');
+    // 将连续的 <li data-ol> 包裹在 <ol> 中
+    html = html.replace(/(<li data-ol>[\s\S]*?<\/li>)(?!\s*<li data-ol>)/g, function (match) {
+      return '<ol>' + match.replace(/ data-ol/g, '') + '</ol>';
+    });
 
     // 段落处理：将连续非标签行包裹在 <p> 中
     html = html.replace(/^(?!<[hupol])(.+)$/gm, function (match, line) {

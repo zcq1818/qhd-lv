@@ -202,7 +202,9 @@
     var link = document.createElement('a');
     link.download = '秦皇岛旅游分享卡片.png';
     link.href = canvas.toDataURL('image/png');
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
     flashToast();
   }
 

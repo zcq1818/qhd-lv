@@ -80,3 +80,12 @@
   .weather-forecast { flex-wrap: wrap; }
   .weather-forecast-day { min-width: 100px; }
 }
+@media (max-width: 480px) {
+  .weather-widget { padding: 12px; border-radius: 12px; }
+  .weather-current { flex-direction: column; gap: 8px; text-align: center; }
+  .weather-temp { font-size: 2.5rem; }
+  .weather-extra { flex-direction: column; gap: 6px; }
+  .weather-forecast-day { min-width: 80px; padding: 6px 4px; }
+  .weather-forecast-day .day-name { font-size: 0.75rem; }
+  .weather-forecast-day .day-temp { font-size: 0.8rem; }
+}

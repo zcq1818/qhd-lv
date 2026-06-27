@@ -742,6 +742,13 @@
     return '';
   }
 
+  /* ===== 工具函数：HTML 转义 ===== */
+  function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.textContent = text == null ? '' : String(text);
+    return div.innerHTML;
+  }
+
   /* ===== 工具函数：根据 area id 获取区域颜色 ===== */
   function getAreaColor(areaId) {
     for (var i = 0; i < AREAS.length; i++) {
@@ -989,21 +996,21 @@
 
   /* ===== 创建 Popup 内容 ===== */
   function createPopup(spot) {
-    var imgHtml = spot.img
-      ? '<img src="' + spot.img + '" alt="' + spot.name + '" onerror="this.style.display=\'none\'">'
-      : '';
+    var sName = escapeHtml(spot.name);
+    var sDesc = escapeHtml(spot.desc);
+    var sImg = spot.img ? '<img src="' + escapeHtml(spot.img) + '" alt="' + sName + '" onerror="this.style.display=\'none\'">' : '';
     var cat = CATEGORIES[spot.cat] || {name:'', icon:''};
     return '<div class="spot-popup">' +
-      imgHtml +
+      sImg +
       '<div class="spot-popup-body">' +
-        '<h3>' + cat.icon + ' ' + spot.name + '</h3>' +
+        '<h3>' + escapeHtml(cat.icon) + ' ' + sName + '</h3>' +
         '<div class="popup-meta">' +
-          '<span class="stars">★ ' + spot.rating + '</span>' +
-          '<span class="price">' + spot.price + '</span>' +
-          '<span>· ' + getAreaName(spot.area) + '</span>' +
+          '<span class="stars">★ ' + escapeHtml(String(spot.rating)) + '</span>' +
+          '<span class="price">' + escapeHtml(spot.price) + '</span>' +
+          '<span>· ' + escapeHtml(getAreaName(spot.area)) + '</span>' +
         '</div>' +
-        '<div class="popup-desc">' + spot.desc + '</div>' +
-        '<a class="popup-link" href="attractions.html#' + spot.id + '-spot">查看详情 →</a>' +
+        '<div class="popup-desc">' + sDesc + '</div>' +
+        '<a class="popup-link" href="attractions.html#' + escapeHtml(spot.id) + '-spot">查看详情 →</a>' +
       '</div>' +
     '</div>';
   }
