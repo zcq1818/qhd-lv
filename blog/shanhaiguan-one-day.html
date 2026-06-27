@@ -48,14 +48,6 @@
 <link rel="stylesheet" href="../css/share.css">
 <link rel="stylesheet" href="../css/user-features.css">
 <style>
-  /* ===== 新版导航栏（博客板块统一） ===== */
-  .nav-container { position: relative; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--s6); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; }
-  .nav-menu { display: flex; align-items: center; gap: var(--s1); }
-  .nav-menu a { padding: var(--s2) var(--s4); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 500; color: var(--text-secondary); transition: all var(--dur) var(--ease-out); }
-  .nav-menu a:hover, .nav-menu a.active { background: rgba(26,115,232,0.06); color: var(--brand); }
-  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: var(--s2); z-index: 101; }
-  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; transition: all var(--dur) var(--ease-out); }
-
   /* ===== 文章页 ===== */
   .article-wrap { max-width: 800px; margin: 0 auto; padding: 0 var(--s6) var(--s12); }
   .article-header { padding: var(--s6) 0 var(--s6); border-bottom: 1px solid var(--border-light); margin-bottom: var(--s8); }
@@ -89,11 +81,6 @@
   .article-back { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--s4); font-weight: 600; color: var(--brand); }
 
   @media (max-width: 768px) {
-    .nav-menu { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; flex-direction: column; align-items: stretch; background: rgba(255,255,255,0.96); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); padding: var(--s4); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); gap: var(--s1); }
-    .nav-menu.open { display: flex; }
-    .nav-menu a { padding: var(--s3) var(--s4); }
-    .nav-menu .nav-search-trigger { align-self: flex-start; }
-    .nav-toggle { display: block; }
     .article-body { font-size: 1rem; line-height: 1.85; }
   }
 </style>
@@ -102,23 +89,25 @@
 
 <!-- ====== 导航栏 ====== -->
 <nav class="navbar" id="navbar">
-  <div class="nav-container">
-    <a href="../index.html" class="nav-logo">秦皇岛旅游</a>
-    <button class="nav-toggle" id="navToggle" aria-label="菜单"><span></span><span></span><span></span></button>
-    <div class="nav-menu" id="navMenu">
-      <a href="../index.html">首页</a>
-      <a href="../attractions.html">景点</a>
-      <a href="../food.html">美食</a>
-      <a href="../guide.html">攻略</a>
-      <a href="../itinerary.html">行程</a>
-      <a href="../map.html">地图</a>
-      <a href="../blog.html" class="active">博客</a>
-      <a href="../about.html">关于</a>
-      <button class="nav-search-trigger" aria-label="搜索">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span class="search-kbd">⌘K</span>
-      </button>
-    </div>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">秦皇岛旅游官网</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="../attractions.html">景点</a></li>
+      <li><a href="../map.html">地图</a></li>
+      <li><a href="../itinerary.html">行程规划</a></li>
+      <li><a href="../food.html">美食</a></li>
+      <li><a href="../guide.html">旅游攻略</a></li>
+      <li><a href="../blog.html" class="active">博客</a></li>
+      <li><a href="../favorites.html">收藏<span class="qhd-fav-count"></span></a></li>
+      <li><a href="../about.html">关于我们</a></li>
+    </ul>
+    <a href="../itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="nav-search-trigger" aria-label="搜索">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="search-kbd">⌘K</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -274,8 +263,8 @@
 window.addEventListener('scroll', function () {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
 });
-document.getElementById('navToggle').addEventListener('click', function () {
-  document.getElementById('navMenu').classList.toggle('open');
+document.getElementById('hamburger').addEventListener('click', function () {
+  document.getElementById('navLinks').classList.toggle('open');
 });
 // 底部分享按钮 → 委托给浮动分享栏（share.js 注入），复用其微信二维码/复制/卡片逻辑
 document.querySelector('.article-share-buttons').addEventListener('click', function (e) {

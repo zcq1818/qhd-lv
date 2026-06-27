@@ -943,6 +943,33 @@ select.form-input {
   }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  /* 导航栏在 1024px 以下折叠为汉堡菜单（链接过多，避免溢出） */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    padding: var(--s4);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links .qhd-fav-count {
+    display: inline-block; min-width: 18px; height: 18px; line-height: 18px;
+    text-align: center; font-size: 0.7rem; font-weight: 700;
+    background: var(--brand); color: #fff; border-radius: 999px;
+    margin-left: 4px; padding: 0 5px;
+  }
+  .hamburger { display: block; }
+  .nav-cta { display: none; }
+  /* 折叠后只剩 logo + 搜索 + 汉堡，用 margin-left:auto 把搜索按钮推到右侧与汉堡按钮成组 */
+  .nav-search-trigger { margin-left: auto; }
+  .nav-search-trigger .search-kbd { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -967,23 +994,6 @@ select.form-input {
 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--s8); }
   .footer-bottom { flex-direction: column; text-align: center; }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: var(--nav-height);
-    left: 0; right: 0;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    flex-direction: column;
-    padding: var(--s4);
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
-  }
-  .nav-links.open { display: flex; }
-  .hamburger { display: block; }
-  .nav-cta { display: none; }
 
   .stat-group { flex-direction: column; }
 }
