@@ -144,9 +144,12 @@
     container.innerHTML =
       '<div class="weather-card weather-error">' +
         '<span>天气数据加载失败</span>' +
-        '<button class="weather-retry" onclick="this.closest(\'.weather-widget, #weatherWidget\').innerHTML=\'\';window.dispatchEvent(new Event(\'DOMContentLoaded\'))">重试</button>' +
+        '<button class="weather-retry" onclick="window.__weatherInit()">重试</button>' +
       '</div>';
   }
+
+  // 暴露 init 供重试按钮调用
+  window.__weatherInit = init;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
