@@ -257,6 +257,16 @@
   }
   .wiki-refresh-btn svg { width: 16px; height: 16px; }
   .wiki-refresh-btn.loading svg { animation: spin 1s linear infinite; }
+
+  @media (max-width: 768px) {
+    .wiki-grid { grid-template-columns: 1fr; }
+    .wiki-card-content { -webkit-line-clamp: 3; }
+    .wiki-section .section-header { flex-direction: column; align-items: flex-start; gap: var(--s2); }
+  }
+  @media (max-width: 480px) {
+    .wiki-card { padding: var(--s4); }
+    .wiki-card-icon { width: 32px; height: 32px; font-size: 16px; }
+  }
 </style>
 </head>
 <body>
@@ -398,32 +408,36 @@
 
 <!-- ====== 页脚 ====== -->
 <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-col">
-      <h4>秦皇岛旅游官网</h4>
-      <p>靠谱的秦皇岛旅游信息平台</p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>秦皇岛旅游官网</h3>
+        <p>致力于为每一位来秦皇岛的游客，提供最实用、最全面的旅游攻略。</p>
+      </div>
+      <div class="footer-col">
+        <h4>热门页面</h4>
+        <a href="index.html">首页</a>
+        <a href="attractions.html">景点推荐</a>
+        <a href="itinerary.html">行程规划</a>
+        <a href="food.html">美食推荐</a>
+      </div>
+      <div class="footer-col">
+        <h4>旅游攻略</h4>
+        <a href="guide.html">出行指南</a>
+        <a href="map.html">旅游地图</a>
+        <a href="blog.html">旅游博客</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="about.html">关于官网</a>
+        <a href="favorites.html">我的收藏</a>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>快速导航</h4>
-      <a href="index.html">首页</a>
-      <a href="attractions.html">景点</a>
-      <a href="food.html">美食</a>
-      <a href="guide.html">攻略</a>
+    <div class="footer-bottom">
+      <span>© 2026 秦皇岛旅游官网</span>
+      <span>冀ICP备16026346号-2</span>
+      <div><a href="sitemap.xml">网站地图</a></div>
     </div>
-    <div class="footer-col">
-      <h4>更多</h4>
-      <a href="itinerary.html">行程规划</a>
-      <a href="map.html">旅游地图</a>
-      <a href="blog.html">旅游博客</a>
-      <a href="about.html">关于我们</a>
-    </div>
-    <div class="footer-col">
-      <h4>联系</h4>
-      <p>合作邮箱：cooperation@qhd-lv.com</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2024 秦皇岛旅游官网 | 冀ICP备16026346号-2</p>
   </div>
 </footer>
 
@@ -434,6 +448,15 @@ window.addEventListener('scroll', function () {
 document.getElementById('hamburger').addEventListener('click', function () {
   document.getElementById('navLinks').classList.toggle('open');
 });
+// 移动端：点击导航链接后自动关闭菜单
+var _navLinksEl = document.getElementById('navLinks');
+if (_navLinksEl) {
+  _navLinksEl.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' || e.target.closest('a')) {
+      this.classList.remove('open');
+    }
+  });
+}
 var reveals = document.querySelectorAll('.reveal');
 var o = new IntersectionObserver(function (e) {
   e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('visible'); o.unobserve(x.target); } });

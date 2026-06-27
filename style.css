@@ -959,6 +959,15 @@ select.form-input {
     box-shadow: var(--shadow-md);
   }
   .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: var(--s3) var(--s4);
+    font-size: var(--text-base);
+    border-radius: var(--radius-md);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-links li:last-child a { border-bottom: none; }
   .nav-links .qhd-fav-count {
     display: inline-block; min-width: 18px; height: 18px; line-height: 18px;
     text-align: center; font-size: 0.7rem; font-weight: 700;
@@ -996,6 +1005,10 @@ select.form-input {
   .footer-bottom { flex-direction: column; text-align: center; }
 
   .stat-group { flex-direction: column; }
+
+  /* 表格在移动端可水平滚动 */
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+  .data-table thead, .data-table tbody { display: table; width: auto; min-width: 100%; }
 }
 
 @media (max-width: 480px) {

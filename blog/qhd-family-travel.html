@@ -473,6 +473,15 @@ window.addEventListener('scroll', function () {
 document.getElementById('hamburger').addEventListener('click', function () {
   document.getElementById('navLinks').classList.toggle('open');
 });
+// 移动端：点击导航链接后自动关闭菜单
+var _navLinksEl = document.getElementById('navLinks');
+if (_navLinksEl) {
+  _navLinksEl.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' || e.target.closest('a')) {
+      this.classList.remove('open');
+    }
+  });
+}
 document.querySelector('.article-share-buttons').addEventListener('click', function (e) {
   var btn = e.target.closest('.share-pill');
   if (!btn) return;
