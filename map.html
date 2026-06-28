@@ -672,39 +672,39 @@
   /* ===== 景点数据 ===== */
   var SPOTS = [
     // 北戴河区
-    {id:'beidaihe', name:'北戴河海滨风景区', lat:39.8200, lng:119.4900, area:'beidaihe', cat:'beach', rating:'4.7', price:'免费', desc:'中国四大避暑胜地之一，绵延20公里黄金沙滩', img:'images/beidaihe-beach.png'},
-    {id:'geziwo', name:'鸽子窝公园', lat:39.8364, lng:119.5285, area:'beidaihe', cat:'beach', rating:'4.6', price:'25元', desc:'北戴河最佳日出观赏地，鹰角石矗立海边', img:'images/geziwo-sunrise.jpg'},
-    {id:'laohushi', name:'老虎石海上公园', lat:39.8140, lng:119.4882, area:'beidaihe', cat:'beach', rating:'4.5', price:'免费', desc:'北戴河最经典海滨公园，最美日落观赏点', img:'images/laohushi.png'},
-    {id:'liangfengshan', name:'联峰山公园', lat:39.8233, lng:119.4610, area:'beidaihe', cat:'nature', rating:'4.4', price:'25元', desc:'北戴河制高点，中国第一座森林公园', img:''},
-    {id:'biluota', name:'碧螺塔海上酒吧公园', lat:39.8205, lng:119.5353, area:'beidaihe', cat:'culture', rating:'4.3', price:'40元', desc:'北戴河夜生活地标，海上酒吧+烟花秀+篝火晚会', img:'images/biluota.png'},
-    {id:'guailou', name:'怪楼奇园', lat:39.8271, lng:119.4983, area:'beidaihe', cat:'family', rating:'4.2', price:'20元', desc:'999个门999扇窗的奇妙迷宫，亲子探险首选', img:''},
-    {id:'dongwuyuan', name:'秦皇岛野生动物园', lat:39.8560, lng:119.5300, area:'beidaihe', cat:'family', rating:'4.5', price:'100元', desc:'华北最大野生动物园，可自驾穿越猛兽区', img:''},
+    {id:'beidaihe', name:'北戴河海滨风景区', lat:39.8200, lng:119.4900, area:'beidaihe', cat:'beach', rating:'4.7', price:'免费', desc:'中国四大避暑胜地之一，绵延20公里黄金沙滩', img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=500&fit=crop&q=80'},
+    {id:'geziwo', name:'鸽子窝公园', lat:39.8364, lng:119.5285, area:'beidaihe', cat:'beach', rating:'4.6', price:'25元', desc:'北戴河最佳日出观赏地，鹰角石矗立海边', img:'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=500&fit=crop&q=80'},
+    {id:'laohushi', name:'老虎石海上公园', lat:39.8140, lng:119.4882, area:'beidaihe', cat:'beach', rating:'4.5', price:'免费', desc:'北戴河最经典海滨公园，最美日落观赏点', img:'https://images.unsplash.com/photo-1505144808419-1957a94ca61e?w=800&h=500&fit=crop&q=80'},
+    {id:'liangfengshan', name:'联峰山公园', lat:39.8233, lng:119.4610, area:'beidaihe', cat:'nature', rating:'4.4', price:'25元', desc:'北戴河制高点，中国第一座森林公园', img:'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=500&fit=crop&q=80'},
+    {id:'biluota', name:'碧螺塔海上酒吧公园', lat:39.8205, lng:119.5353, area:'beidaihe', cat:'culture', rating:'4.3', price:'40元', desc:'北戴河夜生活地标，海上酒吧+烟花秀+篝火晚会', img:'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&h=500&fit=crop&q=80'},
+    {id:'guailou', name:'怪楼奇园', lat:39.8271, lng:119.4983, area:'beidaihe', cat:'family', rating:'4.2', price:'20元', desc:'999个门999扇窗的奇妙迷宫，亲子探险首选', img:'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&h=500&fit=crop&q=80'},
+    {id:'dongwuyuan', name:'秦皇岛野生动物园', lat:39.8560, lng:119.5300, area:'beidaihe', cat:'family', rating:'4.5', price:'100元', desc:'华北最大野生动物园，可自驾穿越猛兽区', img:'https://picsum.photos/id/1062/800/500'},
 
     // 山海关区
-    {id:'shanhaiguan', name:'山海关·天下第一关', lat:40.0100, lng:119.7576, area:'shanhaiguan', cat:'history', rating:'4.8', price:'50元', desc:'明长城东北关隘，六百年历史巨匾高悬', img:'images/shanhaiguan.png'},
-    {id:'laolongtou', name:'老龙头景区', lat:39.9693, lng:119.7975, area:'shanhaiguan', cat:'history', rating:'4.7', price:'60元', desc:'长城唯一入海处，万里长城东端起点', img:'images/laolongtou.jpg'},
-    {id:'jiaoshan', name:'角山长城', lat:40.0376, lng:119.7403, area:'shanhaiguan', cat:'history', rating:'4.5', price:'40元', desc:'万里长城翻越的第一座山，长城第一山', img:''},
-    {id:'mengjiangnv', name:'孟姜女庙', lat:39.9880, lng:119.7580, area:'shanhaiguan', cat:'history', rating:'4.3', price:'30元', desc:'千古传说孟姜女庙，天下第一奇联', img:''},
-    {id:'ledao', name:'乐岛海洋王国', lat:39.9350, lng:119.7750, area:'shanhaiguan', cat:'family', rating:'4.4', price:'160元', desc:'华北最大海洋主题乐园，海豚表演+水上乐园', img:''},
-    {id:'changshoushan', name:'长寿山景区', lat:40.0450, lng:119.7150, area:'shanhaiguan', cat:'nature', rating:'4.3', price:'30元', desc:'北方最大天然花岗岩石洞，寿字碑林', img:''},
-    {id:'yansaihu', name:'燕塞湖', lat:40.0200, lng:119.7150, area:'shanhaiguan', cat:'nature', rating:'4.4', price:'40元', desc:'北方小桂林，青山环抱一池碧水', img:''},
+    {id:'shanhaiguan', name:'山海关·天下第一关', lat:40.0100, lng:119.7576, area:'shanhaiguan', cat:'history', rating:'4.8', price:'50元', desc:'明长城东北关隘，六百年历史巨匾高悬', img:'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&h=500&fit=crop&q=80'},
+    {id:'laolongtou', name:'老龙头景区', lat:39.9693, lng:119.7975, area:'shanhaiguan', cat:'history', rating:'4.7', price:'60元', desc:'长城唯一入海处，万里长城东端起点', img:'https://picsum.photos/id/1015/800/500'},
+    {id:'jiaoshan', name:'角山长城', lat:40.0376, lng:119.7403, area:'shanhaiguan', cat:'history', rating:'4.5', price:'40元', desc:'万里长城翻越的第一座山，长城第一山', img:'https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=500&fit=crop&q=80'},
+    {id:'mengjiangnv', name:'孟姜女庙', lat:39.9880, lng:119.7580, area:'shanhaiguan', cat:'history', rating:'4.3', price:'30元', desc:'千古传说孟姜女庙，天下第一奇联', img:'https://picsum.photos/id/165/800/500'},
+    {id:'ledao', name:'乐岛海洋王国', lat:39.9350, lng:119.7750, area:'shanhaiguan', cat:'family', rating:'4.4', price:'160元', desc:'华北最大海洋主题乐园，海豚表演+水上乐园', img:'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=500&fit=crop&q=80'},
+    {id:'changshoushan', name:'长寿山景区', lat:40.0450, lng:119.7150, area:'shanhaiguan', cat:'nature', rating:'4.3', price:'30元', desc:'北方最大天然花岗岩石洞，寿字碑林', img:'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=500&fit=crop&q=80'},
+    {id:'yansaihu', name:'燕塞湖', lat:40.0200, lng:119.7150, area:'shanhaiguan', cat:'nature', rating:'4.4', price:'40元', desc:'北方小桂林，青山环抱一池碧水', img:'https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?w=800&h=500&fit=crop&q=80'},
 
     // 海港区
-    {id:'qiuxian', name:'秦皇求仙入海处', lat:39.9139, lng:119.6220, area:'haigang', cat:'history', rating:'4.2', price:'45元', desc:'秦始皇东巡求仙入海处，城市名之源', img:''},
-    {id:'xinao', name:'新澳海底世界', lat:39.9062, lng:119.5630, area:'haigang', cat:'family', rating:'4.4', price:'120元', desc:'亚洲最长海底隧道80米，美人鱼表演', img:''},
+    {id:'qiuxian', name:'秦皇求仙入海处', lat:39.9139, lng:119.6220, area:'haigang', cat:'history', rating:'4.2', price:'45元', desc:'秦始皇东巡求仙入海处，城市名之源', img:'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&h=500&fit=crop&q=80'},
+    {id:'xinao', name:'新澳海底世界', lat:39.9062, lng:119.5630, area:'haigang', cat:'family', rating:'4.4', price:'120元', desc:'亚洲最长海底隧道80米，美人鱼表演', img:'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=800&h=500&fit=crop&q=80'},
 
     // 南戴河·昌黎
-    {id:'aranya', name:'阿那亚·黄金海岸社区', lat:39.6500, lng:119.3139, area:'nandaihe', cat:'culture', rating:'4.8', price:'预约制', desc:'中国最具文艺气息海岸社区，孤独图书馆', img:'images/aranya-library.jpg'},
-    {id:'huangjin', name:'南戴河·黄金海岸', lat:39.7200, lng:119.3700, area:'nandaihe', cat:'beach', rating:'4.5', price:'免费', desc:'中国最优质天然沙质海岸，国际滑沙中心', img:''},
-    {id:'yudao', name:'渔岛海洋温泉景区', lat:39.6900, lng:119.3500, area:'nandaihe', cat:'beach', rating:'4.5', price:'188元', desc:'海水温泉+水上乐园+薰衣草庄园', img:''},
-    {id:'shenglan', name:'圣蓝海洋公园', lat:39.7050, lng:119.3750, area:'nandaihe', cat:'family', rating:'4.3', price:'140元', desc:'海豚剧场+白鲸表演+海底隧道', img:''},
-    {id:'jieshishan', name:'碣石山', lat:39.7428, lng:119.1502, area:'nandaihe', cat:'history', rating:'4.2', price:'20元', desc:'曹操"东临碣石以观沧海"即在此所作', img:''},
-    {id:'weilanhaian', name:'蔚蓝海岸', lat:39.7823, lng:119.3993, area:'nandaihe', cat:'culture', rating:'4.5', price:'免费', desc:'新兴文艺海岸社区，猫的天空之城书店', img:''},
+    {id:'aranya', name:'阿那亚·黄金海岸社区', lat:39.6500, lng:119.3139, area:'nandaihe', cat:'culture', rating:'4.8', price:'预约制', desc:'中国最具文艺气息海岸社区，孤独图书馆', img:'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&h=500&fit=crop&q=80'},
+    {id:'huangjin', name:'南戴河·黄金海岸', lat:39.7200, lng:119.3700, area:'nandaihe', cat:'beach', rating:'4.5', price:'免费', desc:'中国最优质天然沙质海岸，国际滑沙中心', img:'https://images.unsplash.com/photo-1454944338482-a69bb95894af?w=800&h=500&fit=crop&q=80'},
+    {id:'yudao', name:'渔岛海洋温泉景区', lat:39.6900, lng:119.3500, area:'nandaihe', cat:'beach', rating:'4.5', price:'188元', desc:'海水温泉+水上乐园+薰衣草庄园', img:'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=500&fit=crop&q=80'},
+    {id:'shenglan', name:'圣蓝海洋公园', lat:39.7050, lng:119.3750, area:'nandaihe', cat:'family', rating:'4.3', price:'140元', desc:'海豚剧场+白鲸表演+海底隧道', img:'https://picsum.photos/id/1022/800/500'},
+    {id:'jieshishan', name:'碣石山', lat:39.7428, lng:119.1502, area:'nandaihe', cat:'history', rating:'4.2', price:'20元', desc:'曹操"东临碣石以观沧海"即在此所作', img:'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=500&fit=crop&q=80'},
+    {id:'weilanhaian', name:'蔚蓝海岸', lat:39.7823, lng:119.3993, area:'nandaihe', cat:'culture', rating:'4.5', price:'免费', desc:'新兴文艺海岸社区，猫的天空之城书店', img:'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800&h=500&fit=crop&q=80'},
 
     // 抚宁·青龙
-    {id:'zushan', name:'祖山风景区', lat:40.1750, lng:119.2550, area:'funing', cat:'nature', rating:'4.6', price:'80元', desc:'北方群山之祖，原始森林覆盖率96%，云海日出', img:''},
-    {id:'bingtangyu', name:'冰塘峪大峡谷', lat:40.0950, lng:119.3450, area:'funing', cat:'nature', rating:'4.4', price:'80元', desc:'夏季三伏天仍有残冰，北方罕见地质奇观', img:''},
-    {id:'banchangyu', name:'板厂峪长城景区', lat:40.0450, lng:119.4950, area:'funing', cat:'history', rating:'4.5', price:'50元', desc:'600座明代砖窑遗址，全国唯一', img:''}
+    {id:'zushan', name:'祖山风景区', lat:40.1750, lng:119.2550, area:'funing', cat:'nature', rating:'4.6', price:'80元', desc:'北方群山之祖，原始森林覆盖率96%，云海日出', img:'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=500&fit=crop&q=80'},
+    {id:'bingtangyu', name:'冰塘峪大峡谷', lat:40.0950, lng:119.3450, area:'funing', cat:'nature', rating:'4.4', price:'80元', desc:'夏季三伏天仍有残冰，北方罕见地质奇观', img:'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=500&fit=crop&q=80'},
+    {id:'banchangyu', name:'板厂峪长城景区', lat:40.0450, lng:119.4950, area:'funing', cat:'history', rating:'4.5', price:'50元', desc:'600座明代砖窑遗址，全国唯一', img:'https://picsum.photos/id/1016/800/500'}
   ];
 
   /* ===== 区域定义 ===== */
