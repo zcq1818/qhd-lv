@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d47a1"/>
+      <stop offset="100%" stop-color="#1a73e8"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#favBg)"/>
+  <!-- 长城轮廓 -->
+  <path d="M12 22 L12 18 L15 18 L15 15 L18 15 L18 18 L22 18 L22 15 L26 15 L26 18 L30 18 L30 15 L33 15 L33 18 L36 18 L36 22 Z" fill="#fff"/>
+  <rect x="22" y="11" width="5" height="4" rx="0.5" fill="#fff"/>
+  <!-- 海浪 -->
+  <path d="M8 30 Q14 27 20 30 T32 30 T40 30" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path d="M6 36 Q14 33 22 36 T38 36 T42 36" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.9"/>
+</svg>

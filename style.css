@@ -176,7 +176,7 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: space-between;
 }
 
-/* Nav logo — clean SVG icon */
+/* Nav logo — 长城与海 logo */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -185,11 +185,16 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 800;
   color: var(--brand-dark);
   letter-spacing: -0.01em;
+  transition: opacity var(--dur) var(--ease-out);
 }
+.nav-logo:hover { opacity: 0.85; }
 .nav-logo-icon {
-  width: 28px; height: 28px;
+  width: 32px; height: 32px;
   flex-shrink: 0;
+  filter: drop-shadow(0 1px 3px rgba(26,115,232,0.25));
+  transition: transform var(--dur) var(--ease-out);
 }
+.nav-logo:hover .nav-logo-icon { transform: scale(1.05); }
 
 .nav-links {
   display: flex;
