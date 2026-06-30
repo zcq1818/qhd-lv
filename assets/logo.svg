@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 外圈金环 -->
+  <circle cx="60" cy="60" r="58" fill="none" stroke="url(#ringGrad)" stroke-width="3"/>
+  <circle cx="60" cy="60" r="54" fill="url(#badgeBg)"/>
+  <circle cx="60" cy="60" r="51" fill="none" stroke="#fcd34d" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- 顶部弧形文字：秦皇岛 -->
+  <defs>
+    <path id="topArc" d="M 22 60 A 38 38 0 0 1 98 60"/>
+    <path id="bottomArc" d="M 26 62 A 34 34 0 0 0 94 62"/>
+  </defs>
+  <text font-size="9" font-weight="700" fill="#fcd34d" letter-spacing="3" font-family="sans-serif">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">秦 皇 岛</textPath>
+  </text>
+  <text font-size="6.5" font-weight="500" fill="#93c5fd" letter-spacing="2.5" font-family="sans-serif">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">QINHUANGDAO · LV</textPath>
+  </text>
+
+  <!-- 中心分隔点 -->
+  <circle cx="20" cy="60" r="1.5" fill="#fcd34d"/>
+  <circle cx="100" cy="60" r="1.5" fill="#fcd34d"/>
+
+  <!-- 中央图案区域 -->
+  <!-- 长城（精简几何线条） -->
+  <g>
+    <path d="M36 52 L36 46 L40 46 L40 42 L44 42 L44 46 L48 46 L48 42 L52 42 L52 46 L56 46 L56 42 L60 42 L60 46 L64 46 L64 42 L68 42 L68 46 L72 46 L72 42 L76 42 L76 46 L80 46 L80 52 Z"
+          fill="url(#wallGrad)"/>
+    <rect x="56" y="36" width="8" height="6" rx="0.5" fill="url(#wallGrad)"/>
+  </g>
+
+  <!-- 海浪（流畅曲线） -->
+  <path d="M34 54 Q44 50 54 54 T74 54 T84 54 L84 62 L34 62 Z" fill="url(#waveGrad)" opacity="0.9"/>
+  <path d="M34 62 Q44 58 54 62 T74 62 T84 62 L84 70 L34 70 Z" fill="url(#waveGrad)"/>
+  <!-- 浪花线 -->
+  <g fill="none" stroke="#fff" stroke-linecap="round" opacity="0.5" stroke-width="1.2">
+    <path d="M38 54 Q44 51 50 54 T62 54 T74 54 T80 54"/>
+  </g>
+
+  <!-- 底部金色沙滩线 -->
+  <path d="M34 70 Q48 68 60 70 T84 70" stroke="url(#ringGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>

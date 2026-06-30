@@ -1,0 +1,91 @@
+/* ============================================================
+   天气与潮汐组件样式
+   ============================================================ */
+.weather-widget, #weatherWidget {
+  width: 100%;
+}
+
+.weather-loading {
+  text-align: center; padding: 40px;
+  color: var(--gray-400, #94a3b8); font-size: 0.9rem;
+}
+
+.weather-card {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1a73e8 100%);
+  border-radius: 16px; padding: 24px; color: #fff;
+  box-shadow: 0 8px 32px rgba(13,71,161,0.2);
+}
+
+.weather-current {
+  display: flex; align-items: center; gap: 20px; margin-bottom: 20px;
+}
+.weather-icon { font-size: 3rem; line-height: 1; }
+.weather-main { flex: 1; }
+.weather-temp { font-size: 2.5rem; font-weight: 800; line-height: 1; }
+.weather-desc { font-size: 0.85rem; opacity: 0.85; margin-top: 4px; }
+
+.weather-extra {
+  display: flex; flex-direction: column; gap: 8px;
+  background: rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 16px;
+}
+.weather-extra-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.weather-extra-item span { font-size: 0.7rem; opacity: 0.7; }
+.weather-extra-item strong { font-size: 0.9rem; }
+
+.weather-sun {
+  display: flex; gap: 24px; margin-bottom: 16px; padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.weather-sun-item { font-size: 0.85rem; opacity: 0.9; }
+
+.weather-forecast {
+  display: flex; gap: 12px; margin-bottom: 16px;
+}
+.weather-forecast-day {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 8px;
+}
+.weather-forecast-label { font-size: 0.75rem; opacity: 0.8; }
+.weather-forecast-icon { font-size: 1.5rem; }
+.weather-forecast-temp { font-size: 0.8rem; font-weight: 600; }
+
+.weather-tide {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.weather-tide-icon { font-size: 1.2rem; }
+.weather-tide span:last-child { font-size: 0.82rem; opacity: 0.9; }
+
+.weather-tip {
+  font-size: 0.85rem; font-weight: 600; padding: 10px 14px;
+  background: rgba(255,255,255,0.15); border-radius: 10px; text-align: center;
+}
+
+.weather-error {
+  background: var(--gray-50, #f8fafc); color: var(--gray-500, #64748b);
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  box-shadow: none; border: 1px solid var(--gray-100, #f1f5f9);
+}
+.weather-retry {
+  padding: 6px 16px; border-radius: 8px; border: 1px solid var(--gray-200, #e2e8f0);
+  background: #fff; cursor: pointer; font-size: 0.8rem; font-family: inherit;
+  color: var(--gray-700, #334155); transition: all 0.15s;
+}
+.weather-retry:hover { border-color: var(--brand, #1a73e8); color: var(--brand, #1a73e8); }
+
+@media (max-width: 768px) {
+  .weather-current { flex-wrap: wrap; }
+  .weather-extra { flex-direction: row; justify-content: space-around; width: 100%; }
+  .weather-forecast { flex-wrap: wrap; }
+  .weather-forecast-day { min-width: 100px; }
+}
+@media (max-width: 480px) {
+  .weather-widget { padding: 12px; border-radius: 12px; }
+  .weather-current { flex-direction: column; gap: 8px; text-align: center; }
+  .weather-temp { font-size: 2.5rem; }
+  .weather-extra { flex-direction: column; gap: 6px; }
+  .weather-forecast-day { min-width: 80px; padding: 6px 4px; }
+  .weather-forecast-day .day-name { font-size: 0.75rem; }
+  .weather-forecast-day .day-temp { font-size: 0.8rem; }
+}

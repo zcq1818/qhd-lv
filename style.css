@@ -52,6 +52,7 @@
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius: 12px;
+  --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 999px;
@@ -116,6 +117,18 @@ body {
 a { color: var(--brand); text-decoration: none; transition: color var(--dur) var(--ease-out); }
 a:hover { color: var(--brand-dark); }
 
+/* === 无障碍：键盘焦点样式 === */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
 img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Typography ---------- */
@@ -163,7 +176,7 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: space-between;
 }
 
-/* Nav logo — clean SVG icon */
+/* Nav logo — 长城与海 logo */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -172,11 +185,16 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 800;
   color: var(--brand-dark);
   letter-spacing: -0.01em;
+  transition: opacity var(--dur) var(--ease-out);
 }
+.nav-logo:hover { opacity: 0.85; }
 .nav-logo-icon {
-  width: 28px; height: 28px;
+  width: 32px; height: 32px;
   flex-shrink: 0;
+  filter: drop-shadow(0 1px 3px rgba(26,115,232,0.25));
+  transition: transform var(--dur) var(--ease-out);
 }
+.nav-logo:hover .nav-logo-icon { transform: scale(1.05); }
 
 .nav-links {
   display: flex;
@@ -374,7 +392,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* Backgrounds */
-.bg-cream { background: var(--bg-page); }
 .bg-sand { background: var(--gray-50); }
 .bg-alt { background: var(--gray-50); }
 .bg-dark { background: var(--gray-900); color: #fff; }
@@ -943,6 +960,42 @@ select.form-input {
   }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  /* 导航栏在 1024px 以下折叠为汉堡菜单（链接过多，避免溢出） */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    padding: var(--s4);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: var(--s3) var(--s4);
+    font-size: var(--text-base);
+    border-radius: var(--radius-md);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-links li:last-child a { border-bottom: none; }
+  .nav-links .qhd-fav-count {
+    display: inline-block; min-width: 18px; height: 18px; line-height: 18px;
+    text-align: center; font-size: 0.7rem; font-weight: 700;
+    background: var(--brand); color: #fff; border-radius: 999px;
+    margin-left: 4px; padding: 0 5px;
+  }
+  .hamburger { display: block; }
+  .nav-cta { display: none; }
+  /* 折叠后只剩 logo + 搜索 + 汉堡，用 margin-left:auto 把搜索按钮推到右侧与汉堡按钮成组 */
+  .nav-search-trigger { margin-left: auto; }
+  .nav-search-trigger .search-kbd { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -968,24 +1021,11 @@ select.form-input {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--s8); }
   .footer-bottom { flex-direction: column; text-align: center; }
 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: var(--nav-height);
-    left: 0; right: 0;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    flex-direction: column;
-    padding: var(--s4);
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
-  }
-  .nav-links.open { display: flex; }
-  .hamburger { display: block; }
-  .nav-cta { display: none; }
-
   .stat-group { flex-direction: column; }
+
+  /* 表格在移动端可水平滚动 */
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+  .data-table thead, .data-table tbody { display: table; width: auto; min-width: 100%; }
 }
 
 @media (max-width: 480px) {
