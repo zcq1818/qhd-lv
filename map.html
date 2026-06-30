@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -8,12 +8,19 @@
 <meta name="keywords" content="秦皇岛景点地图,秦皇岛地图,北戴河地图,山海关地图,秦皇岛旅游地图,景点导航">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://qhd-lv.vercel.app/map.html">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1a73e8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="秦皇岛旅游">
 <meta property="og:title" content="秦皇岛景点地图 — 25个景区交互式导航">
 <meta property="og:description" content="左侧景点列表 + 右侧全屏交互地图，点击联动，轻松规划秦皇岛之旅。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qhd-lv.vercel.app/map.html">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+  integrity="sha384-Lfoa0XZx0Fqj1FFJ3vEcKHZk5/B8ZfO5x7V8H/PH/Fo9gKI1K4kS0Q1MQvWm3fFN" 
+  crossorigin="anonymous">
 <style>
   /* ===== 面包屑 ===== */
   .breadcrumb {
@@ -528,8 +535,18 @@
     .map-spot-thumb-noimg { font-size: 18px; }
   }
 </style>
-</head>
+
+<!-- ====== Web Analytics 分析 ====== -->
+<script defer src=https://cdn.vercel-insights.com/v1/vitals.js></script>
+<script defer src=/_vercel/insights/script.js></script>
 <body>
+
+<!-- ====== 无障碍：跳过导航链接 ====== -->
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#1a73e8;color:#fff;padding:8px 16px;text-decoration:none;z-index:9999;border-radius:0 0 4px 0;">跳到主要内容</a>
+<script>
+  document.querySelector('.skip-link').addEventListener('focus', function() { this.style.top = '0'; });
+  document.querySelector('.skip-link').addEventListener('blur', function() { this.style.top = '-40px'; });
+</script>
 
 <!-- ====== 导航栏 ====== -->
 <nav class="navbar" id="navbar">
@@ -558,7 +575,7 @@
 </div>
 
 <!-- ====== 顶部工具栏（标题+统计+筛选一体化） ====== -->
-<section class="map-toolbar">
+<section class="map-toolbar" id="main-content" role="main">
   <div class="map-toolbar-title">
     <h1>🗺 秦皇岛景点地图</h1>
   </div>
@@ -652,13 +669,68 @@
 <script src="https://webapi.amap.com/maps?v=2.0&key=e0d13b1fc206156d61926d1158a2dd16&plugin=AMap.PlaceSearch,AMap.Geocoder"></script>
 
 <!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+  integrity="sha384-WBkoVAjwNVjUL4UHj+knTWN6P3b4Z9BSrP3yBZlY2cJ3S3qTlk6RXGvdHH/yPqrKA" 
+  crossorigin="anonymous"></script>
 <script>
 (function() {
   'use strict';
 
-  /* ===== 景点数据 ===== */
-  var SPOTS = [
+  /* ===== 数据驱动初始化：从 data/attractions.json 加载景点数据 ===== */
+  var SPOTS, AREAS, CATEGORIES, TOP5;
+  var dataLoaded = false;
+
+  async function initDataFromJSON() {
+    try {
+      const res = await fetch('data/attractions.json');
+      if (!res.ok) throw new Error('加载 attractions.json 失败');
+      const data = await res.json();
+      
+      // 提取 spots 数组（已包含所有需要的字段：id, name, lat, lng, area, cat, rating, price, img）
+      SPOTS = (data.spots || []).map(spot => ({
+        id: spot.id,
+        name: spot.name,
+        lat: spot.lat,
+        lng: spot.lng,
+        area: spot.area,
+        cat: spot.cat,
+        rating: spot.rating,
+        price: spot.price,
+        desc: spot.desc || '',
+        img: spot.img || ''
+      }));
+
+      // 构建 AREAS：从 JSON 的 areas 中提取，加上"全部"
+      AREAS = [{id:'all', name:'全部', color:'#1a73e8'}, ...data.areas.map(a => ({
+        id: a.id,
+        name: a.name,
+        color: a.color
+      }))];
+
+      // 构建 CATEGORIES：直接使用 JSON 的 categories（键值对）
+      CATEGORIES = {};
+      for (var cat in data.categories) {
+        var c = data.categories[cat];
+        CATEGORIES[cat] = {
+          name: c.name,
+          color: c.color,
+          icon: c.icon || '📌'
+        };
+      }
+
+      // TOP5 必去景点
+      TOP5 = data.top5 || [];
+
+      dataLoaded = true;
+      console.log('[map] ✓ 数据已从 attractions.json 加载，景点总数: ' + SPOTS.length);
+    } catch (e) {
+      console.warn('[map] ⚠ attractions.json 加载失败，改用备份硬编码数据:', e.message);
+      // 如果加载失败，保持硬编码数据，见下面的备份定义
+    }
+  }
+
+  /* ===== 景点数据（硬编码备份，用于 JSON 加载失败时的回退） ===== */
+  var SPOTS_BACKUP = [
     // 北戴河区
     {id:'beidaihe', name:'北戴河海滨风景区', lat:39.8200, lng:119.4900, area:'beidaihe', cat:'beach', rating:'4.7', price:'免费', desc:'中国四大避暑胜地之一，绵延20公里黄金沙滩', img:'images/beidaihe-beach.png'},
     {id:'geziwo', name:'鸽子窝公园', lat:39.8364, lng:119.5285, area:'beidaihe', cat:'beach', rating:'4.6', price:'25元', desc:'北戴河最佳日出观赏地，鹰角石矗立海边', img:'images/geziwo-sunrise.jpg'},
@@ -695,8 +767,8 @@
     {id:'banchangyu', name:'板厂峪长城景区', lat:40.0450, lng:119.4950, area:'funing', cat:'history', rating:'4.5', price:'50元', desc:'600座明代砖窑遗址，全国唯一', img:''}
   ];
 
-  /* ===== 区域定义 ===== */
-  var AREAS = [
+  /* ===== 区域定义（硬编码备份） ===== */
+  var AREAS_BACKUP = [
     {id:'all', name:'全部', color:'#1a73e8'},
     {id:'beidaihe', name:'北戴河区', color:'#0369a1'},
     {id:'shanhaiguan', name:'山海关区', color:'#92400e'},
@@ -705,8 +777,8 @@
     {id:'funing', name:'抚宁·青龙', color:'#EA4335'}
   ];
 
-  /* ===== 分类定义 ===== */
-  var CATEGORIES = {
+  /* ===== 分类定义（硬编码备份） ===== */
+  var CATEGORIES_BACKUP = {
     beach:   {name:'海滨风光', color:'#0369a1', icon:'🏖'},
     history: {name:'历史文化', color:'#92400e', icon:'🏛'},
     nature:  {name:'自然风光', color:'#166534', icon:'⛰'},
@@ -714,8 +786,18 @@
     culture: {name:'文艺打卡', color:'#6b21a8', icon:'🎭'}
   };
 
-  /* TOP5 必去景点 */
-  var TOP5 = ['beidaihe', 'shanhaiguan', 'geziwo', 'laolongtou', 'aranya'];
+  /* TOP5 必去景点（硬编码备份） */
+  var TOP5_BACKUP = ['beidaihe', 'shanhaiguan', 'geziwo', 'laolongtou', 'aranya'];
+
+  /* 数据加载失败时回退 */
+  function useFallbackData() {
+    if (!dataLoaded) {
+      SPOTS = SPOTS_BACKUP;
+      AREAS = AREAS_BACKUP;
+      CATEGORIES = CATEGORIES_BACKUP;
+      TOP5 = TOP5_BACKUP;
+    }
+  }
 
   /* ===== 全局变量 ===== */
   var map = null;
@@ -1319,7 +1401,11 @@
   }
 
   function bootstrap() {
-    loadDataFromJSON(function() { init(); });
+    (async function() {
+      await initDataFromJSON();  // 从 JSON 加载数据，失败时 dataLoaded 保持 false
+      useFallbackData();         // 如果加载失败，使用硬编码备份
+      init();                    // 初始化地图与 UI
+    })();
   }
 
   if (document.readyState === 'loading') {
@@ -1361,5 +1447,5 @@
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">
 <script src="js/chat-widget.js" defer></script>
-</body>
+<script src=js/accessibility.js defer></script>
 </html>

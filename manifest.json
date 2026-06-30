@@ -1,0 +1,74 @@
+{
+  "name": "秦皇岛旅游官网",
+  "short_name": "秦皇岛旅游",
+  "description": "秦皇岛旅游攻略、景点推荐、行程规划服务",
+  "start_url": "https://qhd-lv.vercel.app/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1a73e8",
+  "background_color": "#ffffff",
+  "categories": ["travel", "tourism"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231a73e8' width='192' height='192'/><circle cx='96' cy='96' r='85' fill='%23fff'/><path d='M60 120 Q96 60 132 120' stroke='%231a73e8' stroke-width='6' fill='none' stroke-linecap='round'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%231a73e8' width='512' height='512'/><circle cx='256' cy='256' r='220' fill='%23fff'/><path d='M150 310 Q256 150 362 310' stroke='%231a73e8' stroke-width='16' fill='none' stroke-linecap='round'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%231a73e8' width='180' height='180' rx='30'/><circle cx='90' cy='90' r='75' fill='%23fff'/><path d='M56 110 Q90 50 124 110' stroke='%231a73e8' stroke-width='5' fill='none' stroke-linecap='round'/></svg>",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/qhd-panorama.jpg",
+      "sizes": "540x720",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "images/qhd-panorama.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "景点地图",
+      "short_name": "地图",
+      "description": "查看秦皇岛景点交互式地图",
+      "url": "/map.html",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%231a73e8' width='96' height='96'/><path d='M48 16 L68 28 L68 68 L48 80 L28 68 L28 28 Z' fill='%23fff'/><circle cx='48' cy='48' r='8' fill='%231a73e8'/></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "行程规划",
+      "short_name": "规划",
+      "description": "AI 智能行程规划助手",
+      "url": "/itinerary.html",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%231a73e8' width='96' height='96'/><path d='M30 24 L66 24 L66 72 L30 72 Z' stroke='%23fff' stroke-width='3' fill='none'/><line x1='36' y1='36' x2='60' y2='36' stroke='%23fff' stroke-width='2'/><line x1='36' y1='48' x2='60' y2='48' stroke='%23fff' stroke-width='2'/><line x1='36' y1='60' x2='60' y2='60' stroke='%23fff' stroke-width='2'/></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

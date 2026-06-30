@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="cultureGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#DDA0DD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B008B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#cultureGrad)"/>
+  <rect x="100" y="60" width="200" height="160" fill="#DA70D6" stroke="#8B008B" stroke-width="2" rx="10"/>
+  <circle cx="160" cy="100" r="20" fill="#FFD700"/>
+  <circle cx="200" cy="90" r="18" fill="#FF69B4"/>
+  <circle cx="240" cy="105" r="22" fill="#FFD700"/>
+  <path d="M 130 140 Q 200 180 270 140" stroke="#FFD700" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="140" cy="150" r="12" fill="#FFD700" opacity="0.8"/>
+  <circle cx="200" cy="160" r="14" fill="#FF69B4" opacity="0.8"/>
+  <circle cx="260" cy="155" r="13" fill="#FFD700" opacity="0.8"/>
+  <line x1="120" y1="220" x2="280" y2="220" stroke="#FFD700" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="200" y="280" text-anchor="middle" font-size="20" font-weight="bold" fill="#6b21a8">🎭 文艺打卡</text>
+</svg>

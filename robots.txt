@@ -7,6 +7,5 @@ Allow: /
 # 网站地图位置
 Sitemap: https://qhd-lv.vercel.app/sitemap.xml
 
-# 禁止爬取无用路径（如有后台或测试页面可在此添加）
-# Disallow: /admin/
-# Disallow: /test/
+# 禁止爬取后台/管理页面
+Disallow: /admin.html

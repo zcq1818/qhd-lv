@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +8,11 @@
 <meta name="keywords" content="秦皇岛旅游官网,秦皇岛旅游合作,酒店推广,景区推广,旅游网站合作">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://qhd-lv.vercel.app/about.html">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1a73e8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="秦皇岛旅游">
 <meta property="og:title" content="关于我们 | 秦皇岛旅游官网">
 <meta property="og:description" content="致力于提供最全面的秦皇岛旅游攻略，欢迎商务合作洽谈。">
 <meta property="og:type" content="website">
@@ -36,8 +41,11 @@
   .coop-card h3 { font-weight: 700; margin-bottom: var(--s2); font-size: var(--text-lg); color: #fff; }
   .coop-card p { font-size: var(--text-sm); opacity: 0.8; line-height: 1.7; color: #fff; }
 </style>
-</head>
-<body>
+
+<!-- ====== Web Analytics 分析 ====== -->
+<script defer src=https://cdn.vercel-insights.com/v1/vitals.js></script>
+<script defer src=/_vercel/insights/script.js></script>
+
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
@@ -61,7 +69,7 @@
 
 <div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 关于我们</div>
 
-<section class="page-hero" style="background:linear-gradient(160deg, #0D1B2A 0%, #1E293B 50%, #334155 100%);">
+<section class="page-hero" id="main-content" role="main" style="background:linear-gradient(160deg, #0D1B2A 0%, #1E293B 50%, #334155 100%);">
   <h1>关于秦皇岛旅游官网</h1>
   <p>致力于为每一位来秦皇岛的游客，提供最实用、最全面的旅游攻略</p>
 </section>
@@ -200,5 +208,5 @@ reveals.forEach(function(el){o.observe(el);});
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">
 <script src="js/chat-widget.js" defer></script>
-</body>
+<script src=js/accessibility.js defer></script>
 </html>

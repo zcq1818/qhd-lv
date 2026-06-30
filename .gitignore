@@ -1,6 +1,10 @@
 node_modules/
 .workbuddy/
-*.json
-!vercel.json
-!data/attractions.json
-!index.html
+
+# 环境变量与密钥（切勿提交）
+.env
+.env.local
+.env.*.local
+
+# 日志
+*.log

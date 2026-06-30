@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -509,10 +509,54 @@
   /* 隐藏文件上传 input */
   #importInput { display: none; }
 </style>
-</head>
-<body>
 
-<!-- ====== 导航栏 ====== -->
+<!-- ====== Web Analytics 分析 ====== -->
+<script defer src=https://cdn.vercel-insights.com/v1/vitals.js></script>
+<script defer src=/_vercel/insights/script.js></script>
+
+
+<!-- ====== 管理后台访问认证（简单口令） ====== -->
+<div id="authModal" style="display:flex; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.9); flex-direction:column; justify-content:center; align-items:center; z-index:9999; font-family:inherit;">
+  <div style="background:#fff; padding:40px; border-radius:12px; text-align:center; max-width:360px; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <h2 style="margin:0 0 12px 0; font-size:24px; color:#0d47a1;">🔐 访问认证</h2>
+    <p style="margin:0 0 24px 0; color:#666; font-size:14px;">请输入管理口令访问后台</p>
+    <input type="password" id="authPass" placeholder="输入口令…" aria-label="管理员口令" aria-required="true" style="width:100%; padding:12px; font-size:14px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box; margin-bottom:12px;" onkeypress="if(event.key==='Enter') verifyAuth()">
+    <button onclick="verifyAuth()" aria-label="验证口令" style="width:100%; padding:12px; font-size:14px; font-weight:600; background:#1a73e8; color:#fff; border:none; border-radius:6px; cursor:pointer;">验证</button>
+    <p style="margin:16px 0 0 0; font-size:12px; color:#999;">默认口令: admin</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  const AUTH_PASS = 'admin';
+  const AUTH_KEY = 'qhd_admin_auth';
+  
+  function verifyAuth() {
+    const pass = document.getElementById('authPass').value;
+    if (pass === AUTH_PASS) {
+      sessionStorage.setItem(AUTH_KEY, '1');
+      document.getElementById('authModal').style.display = 'none';
+    } else {
+      alert('口令错误，请重试');
+      document.getElementById('authPass').value = '';
+      document.getElementById('authPass').focus();
+    }
+  }
+  
+  // 页面加载时检查认证状态
+  if (sessionStorage.getItem(AUTH_KEY) !== '1') {
+    document.body.style.overflow = 'hidden';
+    document.getElementById('authPass').focus();
+  } else {
+    document.getElementById('authModal').style.display = 'none';
+  }
+  
+  // 暴露到全局作用域供 onclick 调用
+  window.verifyAuth = verifyAuth;
+})();
+</script>
+
+<!-- ====== 导航栏 ====== --> -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -539,7 +583,7 @@
 </div>
 
 <!-- ====== 管理后台头部 ====== -->
-<section class="admin-hero">
+<section class="admin-hero" id="main-content" role="main">
   <div class="admin-hero-inner">
     <h1>景点管理后台 <span class="admin-badge">管理</span></h1>
     <p>管理秦皇岛旅游网站的景点数据。支持新增、编辑、删除、导入导出 JSON。所有修改保存在浏览器本地存储中。</p>
@@ -567,11 +611,11 @@
   <div class="admin-toolbar-left">
     <div class="admin-search-box">
       <span>🔍</span>
-      <input type="text" id="searchInput" placeholder="搜索景点名称…" autocomplete="off">
-      <select id="filterArea">
+      <input type="text" id="searchInput" placeholder="搜索景点名称…" aria-label="搜索景点" autocomplete="off">
+      <select id="filterArea" aria-label="按区域筛选景点">
         <option value="">全部区域</option>
       </select>
-      <select id="filterCat">
+      <select id="filterCat" aria-label="按分类筛选景点">
         <option value="">全部分类</option>
         <option value="beach">🏖 海滨风光</option>
         <option value="history">🏛 历史文化</option>
@@ -582,11 +626,11 @@
     </div>
   </div>
   <div class="admin-toolbar-right">
-    <button class="admin-btn admin-btn-primary" onclick="openAddModal()">＋ 新增景点</button>
-    <button class="admin-btn" onclick="exportJSON()">⬇ 导出 JSON</button>
-    <button class="admin-btn" onclick="document.getElementById('importInput').click()">⬆ 导入 JSON</button>
-    <input type="file" id="importInput" accept=".json,application/json">
-    <button class="admin-btn admin-btn-danger" onclick="confirmReset()">↻ 恢复默认</button>
+    <button class="admin-btn admin-btn-primary" onclick="openAddModal()" aria-label="新增景点">＋ 新增景点</button>
+    <button class="admin-btn" onclick="exportJSON()" aria-label="导出JSON数据">⬇ 导出 JSON</button>
+    <button class="admin-btn" onclick="document.getElementById('importInput').click()" aria-label="导入JSON数据">⬆ 导入 JSON</button>
+    <input type="file" id="importInput" accept=".json,application/json" aria-label="选择要导入的JSON文件">
+    <button class="admin-btn admin-btn-danger" onclick="confirmReset()" aria-label="恢复初始数据">↻ 恢复默认</button>
   </div>
 </div>
 
@@ -618,21 +662,22 @@
   <div class="modal">
     <div class="modal-header">
       <h2 id="modalTitle">新增景点</h2>
-      <button class="modal-close" onclick="closeModal('editModal')">×</button>
+      <button class="modal-close" onclick="closeModal('editModal')" aria-label="关闭对话框">×</button>
     </div>
     <div class="modal-body">
       <div class="form-grid">
         <div class="form-group">
-          <label>景点 ID <span class="req">*</span></label>
-          <input type="text" id="f_id" placeholder="如：beidaihe（英文唯一）">
+          <label for="f_id">景点 ID <span class="req">*</span></label>
+          <input type="text" id="f_id" placeholder="如：beidaihe（英文唯一）" aria-required="true" aria-describedby="f_id_help">
+          <small id="f_id_help" style="display:block;color:var(--gray-500);font-size:var(--text-xs);margin-top:4px;">英文标识符，全网唯一，不可修改</small>
         </div>
         <div class="form-group">
-          <label>景点名称 <span class="req">*</span></label>
-          <input type="text" id="f_name" placeholder="如：北戴河海滨风景区">
+          <label for="f_name">景点名称 <span class="req">*</span></label>
+          <input type="text" id="f_name" placeholder="如：北戴河海滨风景区" aria-required="true">
         </div>
         <div class="form-group">
-          <label>所属区域 <span class="req">*</span></label>
-          <select id="f_area">
+          <label for="f_area">所属区域 <span class="req">*</span></label>
+          <select id="f_area" aria-required="true">
             <option value="beidaihe">北戴河区</option>
             <option value="shanhaiguan">山海关区</option>
             <option value="haigang">海港区</option>
@@ -641,8 +686,8 @@
           </select>
         </div>
         <div class="form-group">
-          <label>分类 <span class="req">*</span></label>
-          <select id="f_cat">
+          <label for="f_cat">分类 <span class="req">*</span></label>
+          <select id="f_cat" aria-required="true">
             <option value="beach">🏖 海滨风光</option>
             <option value="history">🏛 历史文化</option>
             <option value="nature">⛰ 自然风光</option>
@@ -651,8 +696,9 @@
           </select>
         </div>
         <div class="form-group">
-          <label>景区等级</label>
-          <input type="text" id="f_level" placeholder="如：5A / 4A / 3A / 无">
+          <label for="f_level">景区等级</label>
+          <input type="text" id="f_level" placeholder="如：5A / 4A / 3A / 无" aria-describedby="f_level_help">
+          <small id="f_level_help" style="display:block;color:var(--gray-500);font-size:var(--text-xs);margin-top:4px;">AAAAA、AAAA、AAA 等级或留空</small>
         </div>
         <div class="form-group">
           <label>评分</label>
@@ -1290,5 +1336,5 @@
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">
 <script src="js/chat-widget.js" defer></script>
-</body>
+<script src=js/accessibility.js defer></script>
 </html>

@@ -12,10 +12,14 @@
  * 环境变量：AGNES_API_KEY
  */
 
+// 运行时声明：本函数全程使用 Web 标准 API（Request/Response/TransformStream/
+// ReadableStream/req.json()/req.headers.get()），必须运行在 Vercel Edge Runtime。
+export const config = { runtime: 'edge' };
+
 const AGNES_API_BASE = 'https://apihub.agnes-ai.com/v1';
 const AGNES_MODEL = 'agnes-2.0-flash';
 const CHAT_ENDPOINT = '/chat/completions';
-const UPSTREAM_TIMEOUT_MS = 55000; // 上游请求超时 55 秒（略低于 Vercel 60 秒上限）
+const UPSTREAM_TIMEOUT_MS = 25000; // 上游请求超时 25 秒（Edge 流式响应需尽快开始返回）
 
 // ============ 系统提示词 ============
 
@@ -150,23 +154,37 @@ function validateMessages(messages) {
 // ============ 主处理函数 ============
 
 /**
- * Vercel Serverless Function 入口
+ * Vercel Edge Function 入口
  * @param {Request} req - 请求对象
  * @returns {Promise<Response>}
  */
-// 使用 CommonJS 格式（项目无 package.json，Vercel 默认 CommonJS）
-module.exports = async function handler(req) {
+export default async function handler(req) {
+  // ---- 来源校验（仅允许自己的域名调用） ----
+  const origin = req.headers.get('origin');
+  const allowedOrigins = [
+    'https://qhd-lv.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:5500',
+    'http://127.0.0.1:5500'
+  ];
+  const isAllowedOrigin = !origin || allowedOrigins.includes(origin);
+  
   // ---- CORS 预检 ----
   if (req.method === 'OPTIONS') {
     return new Response(null, {
       status: 204,
       headers: {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': isAllowedOrigin ? (origin || '*') : '',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Max-Age': '86400'
       }
     });
+  }
+
+  // ---- 拒绝非预期来源的请求 ----
+  if (!isAllowedOrigin) {
+    return errorResponse(403, '请求来源不被允许（CORS 限制）');
   }
 
   // ---- 仅允许 POST ----

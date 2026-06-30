@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面未找到 | 秦皇岛旅游官网</title>
+  <meta name="description" content="抱歉，您访问的页面不存在。返回首页或浏览其他页面。">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><circle cx='14' cy='14' r='13' fill='%231a73e8'/><path d='M8 18 Q11 10 14 8 Q17 10 20 18' stroke='%23fff' stroke-width='2' fill='none' stroke-linecap='round'/></svg>">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#1a73e8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="秦皇岛旅游">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --brand: #1a73e8;
+      --brand-dark: #1665d8;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --radius: 8px;
+      --s2: 8px;
+      --s3: 12px;
+      --s4: 16px;
+      --s5: 20px;
+      --s6: 24px;
+      --s7: 28px;
+      --s8: 32px;
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+      --max-width: 1200px;
+      --nav-height: 64px;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f7 100%);
+      color: var(--gray-700);
+    }
+    
+    /* 导航栏 */
+    .navbar {
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-height);
+    }
+    
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 var(--s6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      font-weight: 800;
+      font-size: var(--text-lg);
+      color: var(--gray-900);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    
+    .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: var(--s6);
+      list-style: none;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--brand);
+    }
+    
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s2);
+      padding: var(--s2) var(--s4);
+      background: var(--brand);
+      color: #fff;
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: var(--text-sm);
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+    
+    .nav-cta:hover {
+      background: var(--brand-dark);
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta {
+        display: none;
+      }
+    }
+    
+    /* 主内容区域 */
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - var(--nav-height));
+      padding: var(--s6);
+    }
+    
+    .error-container {
+      text-align: center;
+      max-width: 500px;
+      background: #fff;
+      padding: var(--s8);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .error-code {
+      font-size: clamp(3rem, 10vw, 5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--brand) 0%, #4a9af5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: var(--s3);
+      line-height: 1;
+    }
+    
+    .error-title {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: var(--s3);
+    }
+    
+    .error-description {
+      font-size: var(--text-base);
+      color: var(--gray-600);
+      line-height: 1.8;
+      margin-bottom: var(--s6);
+    }
+    
+    .error-icon {
+      font-size: 3rem;
+      margin-bottom: var(--s4);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    /* 按钮组 */
+    .button-group {
+      display: flex;
+      gap: var(--s4);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--s6);
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s2);
+      padding: var(--s3) var(--s5);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: var(--text-base);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+    
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+    }
+    
+    .btn-primary:hover {
+      background: var(--brand-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+    }
+    
+    .btn-secondary {
+      background: var(--gray-200);
+      color: var(--gray-700);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--gray-300);
+      transform: translateY(-2px);
+    }
+    
+    /* 建议链接 */
+    .suggestions {
+      margin-top: var(--s8);
+      padding-top: var(--s6);
+      border-top: 1px solid var(--gray-200);
+    }
+    
+    .suggestions h3 {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: var(--s3);
+      letter-spacing: 0.05em;
+    }
+    
+    .suggestion-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s2);
+    }
+    
+    .suggestion-link {
+      display: inline-block;
+      padding: var(--s2) var(--s3);
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: var(--text-sm);
+      transition: all 0.3s;
+      border-radius: 4px;
+    }
+    
+    .suggestion-link:hover {
+      background: rgba(26, 115, 232, 0.1);
+      padding-left: var(--s4);
+    }
+    
+    /* 响应式 */
+    @media (max-width: 480px) {
+      .error-container {
+        padding: var(--s5);
+      }
+      
+      .button-group {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="13" fill="#1a73e8"/>
+          <path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        秦皇岛旅游官网
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="attractions.html">景点</a></li>
+        <li><a href="map.html">地图</a></li>
+        <li><a href="itinerary.html">行程规划</a></li>
+        <li><a href="food.html">美食</a></li>
+        <li><a href="guide.html">旅游攻略</a></li>
+        <li><a href="about.html">关于我们</a></li>
+      </ul>
+      <a href="itinerary.html" class="nav-cta">免费规划行程 <span>→</span></a>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main id="main-content" role="main">
+    <div class="error-container">
+      <div class="error-icon">🌊</div>
+      
+      <div class="error-code">404</div>
+      
+      <h1 class="error-title">页面未找到</h1>
+      
+      <p class="error-description">
+        抱歉，您访问的页面已随浪花飘远了～ 
+        <br>请检查网址是否正确，或返回首页继续游览。
+      </p>
+      
+      <div class="button-group">
+        <button onclick="window.history.back()" class="btn btn-secondary">
+          ← 返回上一页
+        </button>
+        <a href="index.html" class="btn btn-primary">
+          🏠 返回首页
+        </a>
+      </div>
+      
+      <div class="suggestions">
+        <h3>🗺 快速导航</h3>
+        <div class="suggestion-links">
+          <a href="attractions.html" class="suggestion-link">→ 浏览景点大全</a>
+          <a href="map.html" class="suggestion-link">→ 查看地图</a>
+          <a href="itinerary.html" class="suggestion-link">→ 行程规划</a>
+          <a href="guide.html" class="suggestion-link">→ 旅游攻略</a>
+          <a href="food.html" class="suggestion-link">→ 美食特产</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 无障碍脚本 -->
+  <script src="js/accessibility.js" defer></script>
+  
+  <!-- Web Analytics -->
+  <script defer src="https://cdn.vercel-insights.com/v1/vitals.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+
+</html>

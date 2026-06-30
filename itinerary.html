@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +8,11 @@
 <meta name="keywords" content="秦皇岛3日游,秦皇岛三日游,秦皇岛行程规划,秦皇岛自由行攻略,秦皇岛旅游路线">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://qhd-lv.vercel.app/itinerary.html">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1a73e8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="秦皇岛旅游">
 <meta property="og:title" content="秦皇岛3日游行程规划 | 2026最新路线">
 <meta property="og:description" content="Day1北戴河·Day2山海关·Day3南戴河——免费获取完整行程！">
 <meta property="og:type" content="website">
@@ -396,8 +401,11 @@
     .ai-result-actions .btn { width: 100%; }
   }
 </style>
-</head>
-<body>
+
+<!-- ====== Web Analytics 分析 ====== -->
+<script defer src=https://cdn.vercel-insights.com/v1/vitals.js></script>
+<script defer src=/_vercel/insights/script.js></script>
+
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
@@ -421,7 +429,7 @@
 
 <div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 行程规划</div>
 
-<section class="page-hero" style="background:linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);">
+<section class="page-hero" id="main-content" role="main" style="background:linear-gradient(160deg, #0d47a1, #1a73e8, #4a9af5);">
   <h1>秦皇岛3日精华行程</h1>
   <p>北戴河看海 · 山海关登长城 · 南戴河玩沙 — 每天不赶路，玩得尽兴</p>
   <div class="page-hero-meta">
@@ -572,11 +580,11 @@
       <p>告诉我你的偏好，AI 为你量身定制秦皇岛旅行计划</p>
     </div>
     <div class="ai-planner-card">
-      <form class="ai-form" id="aiForm" onsubmit="return false;" autocomplete="off">
+      <form class="ai-form" id="aiForm" onsubmit="return false;" autocomplete="off" aria-label="个性化行程特下技工">
         <!-- 游玩天数 -->
-        <div class="form-group ai-field">
-          <label class="form-label ai-field-label">游玩天数</label>
-          <div class="pill-group" data-name="days" data-type="single">
+        <div class="form-group ai-field" role="group" aria-labelledby="daysLabel">
+          <label class="form-label ai-field-label" id="daysLabel">游玩天数</label>
+          <div class="pill-group" data-name="days" data-type="single" role="radiogroup" aria-label="选择游玩天数">
             <button type="button" class="pill" data-value="1天">1天</button>
             <button type="button" class="pill" data-value="2天">2天</button>
             <button type="button" class="pill active" data-value="3天">3天</button>
@@ -585,9 +593,9 @@
           </div>
         </div>
         <!-- 预算范围 -->
-        <div class="form-group ai-field">
-          <label class="form-label ai-field-label">预算范围</label>
-          <div class="pill-group" data-name="budget" data-type="single">
+        <div class="form-group ai-field" role="group" aria-labelledby="budgetLabel">
+          <label class="form-label ai-field-label" id="budgetLabel">预算范围</label>
+          <div class="pill-group" data-name="budget" data-type="single" role="radiogroup" aria-label="选择预算范围">
             <button type="button" class="pill" data-value="经济型（＜500元/人）">经济型 ＜500元/人</button>
             <button type="button" class="pill active" data-value="舒适型（500-1000元/人）">舒适型 500-1000元/人</button>
             <button type="button" class="pill" data-value="品质型（1000-2000元/人）">品质型 1000-2000元/人</button>
@@ -595,9 +603,9 @@
           </div>
         </div>
         <!-- 出行方式 -->
-        <div class="form-group ai-field">
-          <label class="form-label ai-field-label">出行方式</label>
-          <div class="pill-group" data-name="travel" data-type="single">
+        <div class="form-group ai-field" role="group" aria-labelledby="travelLabel">
+          <label class="form-label ai-field-label" id="travelLabel">出行方式</label>
+          <div class="pill-group" data-name="travel" data-type="single" role="radiogroup" aria-label="选择出行方式">
             <button type="button" class="pill" data-value="独自旅行">独自旅行</button>
             <button type="button" class="pill" data-value="情侣出游">情侣出游</button>
             <button type="button" class="pill active" data-value="家庭亲子">家庭亲子</button>
@@ -622,8 +630,8 @@
         </div>
         <!-- 生成按钮 -->
         <div class="ai-form-submit">
-          <button type="button" class="btn btn-primary btn-lg ai-generate-btn" id="aiGenerateBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.6 4.8L18 8.4l-4.4 1.6L12 14l-1.6-4L6 8.4l4.4-1.6z"/><path d="M18 14l.9 2.7L21.6 18l-2.7.9L18 21.6l-.9-2.7L14.4 18l2.7-.9z"/></svg>
+          <button type="button" class="btn btn-primary btn-lg ai-generate-btn" id="aiGenerateBtn" aria-label="基于表单设置生成个性化行程">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 4.8L18 8.4l-4.4 1.6L12 14l-1.6-4L6 8.4l4.4-1.6z"/><path d="M18 14l.9 2.7L21.6 18l-2.7.9L18 21.6l-.9-2.7L14.4 18l2.7-.9z"/></svg>
             生成我的专属行程
           </button>
         </div>
@@ -1138,5 +1146,5 @@ reveals.forEach(function(el){o.observe(el);});
 <!-- AI 聊天组件 -->
 <link rel="stylesheet" href="css/chat-widget.css">
 <script src="js/chat-widget.js" defer></script>
-</body>
+<script src=js/accessibility.js defer></script>
 </html>

@@ -1,0 +1,36 @@
+{
+  "name": "qhd-lv",
+  "version": "2.1.0",
+  "description": "秦皇岛旅游官网 — 最全旅游攻略、景点推荐、行程规划服务",
+  "main": "index.html",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "preview": "python -m http.server 5000 --directory .",
+    "preview:alt": "npx serve .",
+    "deploy": "vercel"
+  },
+  "keywords": [
+    "秦皇岛",
+    "旅游",
+    "攻略",
+    "景点",
+    "北戴河",
+    "山海关",
+    "行程规划"
+  ],
+  "author": "秦皇岛旅游官网",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zcq1818/qhd-lv.git"
+  },
+  "homepage": "https://qhd-lv.vercel.app"
+}

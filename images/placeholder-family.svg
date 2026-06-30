@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="familyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB6C1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF69B4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#familyGrad)"/>
+  <circle cx="120" cy="100" r="30" fill="#FFD700"/>
+  <circle cx="120" cy="100" r="20" fill="#FFA500" opacity="0.7"/>
+  <circle cx="280" cy="120" r="35" fill="#FF1493"/>
+  <circle cx="280" cy="120" r="25" fill="#FFB6C1" opacity="0.8"/>
+  <polygon points="200,180 220,220 180,220" fill="#98FB98"/>
+  <polygon points="200,200 212,235 188,235" fill="#3CB371"/>
+  <circle cx="80" cy="200" r="25" fill="#87CEEB"/>
+  <circle cx="80" cy="200" r="15" fill="#4169E1" opacity="0.6"/>
+  <circle cx="320" cy="200" r="28" fill="#FFD700"/>
+  <circle cx="320" cy="200" r="18" fill="#FFA500" opacity="0.6"/>
+  <text x="200" y="280" text-anchor="middle" font-size="20" font-weight="bold" fill="#9d174d">🎢 亲子娱乐</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="historyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#B8860B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#historyGrad)"/>
+  <rect x="120" y="80" width="160" height="120" fill="#D2691E" stroke="#8B4513" stroke-width="3"/>
+  <line x1="140" y1="80" x2="140" y2="200" stroke="#8B4513" stroke-width="2"/>
+  <line x1="200" y1="80" x2="200" y2="200" stroke="#8B4513" stroke-width="2"/>
+  <line x1="260" y1="80" x2="260" y2="200" stroke="#8B4513" stroke-width="2"/>
+  <rect x="100" y="50" width="200" height="30" fill="#DAA520" stroke="#8B4513" stroke-width="2"/>
+  <circle cx="130" cy="65" r="8" fill="#8B4513"/>
+  <circle cx="200" cy="65" r="8" fill="#8B4513"/>
+  <circle cx="270" cy="65" r="8" fill="#8B4513"/>
+  <polygon points="200,40 210,50 190,50" fill="#FFD700"/>
+  <text x="200" y="280" text-anchor="middle" font-size="20" font-weight="bold" fill="#92400e">🏛 历史文化</text>
+</svg>
