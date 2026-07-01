@@ -7,7 +7,7 @@
 <meta name="description" content="秦皇岛最全景点推荐：北戴河、山海关、阿那亚、鸽子窝、老龙头、黄金海岸、祖山……30+景区一网打尽。附门票、评分、交通、攻略。">
 <meta name="keywords" content="秦皇岛景点,秦皇岛景点大全,北戴河景点,山海关景点,阿那亚,鸽子窝公园,老虎石,老龙头,黄金海岸,祖山">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://qhd-lv.vercel.app/attractions.html">
+<link rel="canonical" href="https://qhd-lv.vercel.app/attractions">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1a73e8">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -193,25 +193,25 @@
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
+    <a href="index" class="nav-logo">
       <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
       秦皇岛旅游官网
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">首页</a></li>
-      <li><a href="attractions.html" class="active">景点</a></li>
-      <li><a href="map.html">地图</a></li>
-      <li><a href="itinerary.html">行程规划</a></li>
-      <li><a href="food.html">美食</a></li>
-      <li><a href="guide.html">旅游攻略</a></li>
-      <li><a href="about.html">关于我们</a></li>
+      <li><a href="index">首页</a></li>
+      <li><a href="attractions" class="active">景点</a></li>
+      <li><a href="map">地图</a></li>
+      <li><a href="itinerary">行程规划</a></li>
+      <li><a href="food">美食</a></li>
+      <li><a href="guide">旅游攻略</a></li>
+      <li><a href="about">关于我们</a></li>
     </ul>
-    <a href="itinerary.html" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <a href="itinerary" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
     <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<div class="breadcrumb"><a href="index.html">首页</a> <span class="sep">/</span> 景点大全</div>
+<div class="breadcrumb"><a href="index">首页</a> <span class="sep">/</span> 景点大全</div>
 
 <section class="page-hero" id="main-content" role="main">
   <h1>秦皇岛景点大全</h1>
@@ -261,16 +261,16 @@
 <section class="cta-section">
   <h2>选好心仪的景点了吗？</h2>
   <p>把以上景点串联起来，我们帮你免费规划3日精华路线</p>
-  <a href="itinerary.html" class="btn btn-white btn-lg">查看行程规划 →</a>
+  <a href="itinerary" class="btn btn-white btn-lg">查看行程规划 →</a>
 </section>
 
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand"><h3>秦皇岛旅游官网</h3><p>提供最全面的秦皇岛旅游攻略、景点推荐、美食指南。</p></div>
-      <div class="footer-col"><h4>热门页面</h4><a href="index.html">首页</a><a href="attractions.html">景点推荐</a><a href="itinerary.html">行程规划</a><a href="food.html">美食推荐</a></div>
-      <div class="footer-col"><h4>旅游攻略</h4><a href="guide.html">出行指南</a><a href="guide.html">交通攻略</a><a href="guide.html">住宿推荐</a></div>
-      <div class="footer-col"><h4>关于我们</h4><a href="about.html">关于官网</a><a href="about.html#cooperation">商务合作</a></div>
+      <div class="footer-col"><h4>热门页面</h4><a href="index">首页</a><a href="attractions">景点推荐</a><a href="itinerary">行程规划</a><a href="food">美食推荐</a></div>
+      <div class="footer-col"><h4>旅游攻略</h4><a href="guide">出行指南</a><a href="guide">交通攻略</a><a href="guide">住宿推荐</a></div>
+      <div class="footer-col"><h4>关于我们</h4><a href="about">关于官网</a><a href="about#cooperation">商务合作</a></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 秦皇岛旅游官网</span>
@@ -507,7 +507,7 @@ reveals.forEach(function(el){o.observe(el);});
     var tips = spot.tips ? '<div class="spot-top-tips">💡 ' + spot.tips + '</div>' : '';
 
     var actions = '<div class="spot-top-actions">' +
-      '<a href="itinerary.html" class="btn btn-primary btn-sm">查看行程 →</a>';
+      '<a href="itinerary" class="btn btn-primary btn-sm">查看行程 →</a>';
     (spot.booking || []).forEach(function(b) {
       actions += '<a href="' + b.url + '" target="_blank" rel="nofollow sponsored" class="booking-link booking-' + b.type + '">' + b.name + '</a>';
     });
@@ -563,7 +563,7 @@ reveals.forEach(function(el){o.observe(el);});
     }).join('');
 
     var actions = '<div class="spot-card-actions">' +
-      '<a href="itinerary.html" class="btn btn-primary btn-sm">行程</a>';
+      '<a href="itinerary" class="btn btn-primary btn-sm">行程</a>';
     (spot.booking || []).slice(0, 2).forEach(function(b) {
       actions += '<a href="' + b.url + '" target="_blank" rel="nofollow sponsored" class="booking-link booking-' + b.type + '">' + b.name + '</a>';
     });
