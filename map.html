@@ -19,9 +19,7 @@
 <meta property="og:url" content="https://qhd-lv.vercel.app/map">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-  integrity="sha384-Lfoa0XZx0Fqj1FFJ3vEcKHZk5/B8ZfO5x7V8H/PH/Fo9gKI1K4kS0Q1MQvWm3fFN" 
-  crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
   /* ===== 面包屑 ===== */
   .breadcrumb {
@@ -671,9 +669,13 @@
 <script src="https://webapi.amap.com/maps?v=2.0&key=e0d13b1fc206156d61926d1158a2dd16&plugin=AMap.PlaceSearch,AMap.Geocoder"></script>
 
 <!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
-  integrity="sha384-WBkoVAjwNVjUL4UHj+knTWN6P3b4Z9BSrP3yBZlY2cJ3S3qTlk6RXGvdHH/yPqrKA" 
-  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// Leaflet CDN fallback
+if (typeof L === 'undefined') {
+  document.write('<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"><\/script>');
+}
+</script>
 <script>
 (function() {
   'use strict';
@@ -1406,7 +1408,25 @@
     (async function() {
       await initDataFromJSON();  // 从 JSON 加载数据，失败时 dataLoaded 保持 false
       useFallbackData();         // 如果加载失败，使用硬编码备份
-      init();                    // 初始化地图与 UI
+      // 确保 Leaflet 已加载后再初始化
+      if (typeof L === 'undefined') {
+        console.warn('[map] Leaflet 未加载，等待重试...');
+        var retries = 0;
+        var waitL = setInterval(function() {
+          retries++;
+          if (typeof L !== 'undefined') {
+            clearInterval(waitL);
+            console.log('[map] Leaflet 已加载，初始化地图');
+            init();
+          } else if (retries > 20) {
+            clearInterval(waitL);
+            console.error('[map] Leaflet 加载超时，地图无法显示');
+            document.getElementById('leafletMap').innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:14px;">地图库加载失败，请刷新页面重试</div>';
+          }
+        }, 200);
+      } else {
+        init();
+      }
     })();
   }
 
