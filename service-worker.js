@@ -1,15 +1,14 @@
 // Service Worker for 秦皇岛旅游官网 - PWA offline support
-const CACHE_NAME = 'qhd-lv-v1';
-const RUNTIME_CACHE = 'qhd-lv-runtime-v1';
+const CACHE_NAME = 'qhd-lv-v2';
+const RUNTIME_CACHE = 'qhd-lv-runtime-v2';
 const STATIC_ASSETS = [
   '/',
-  '/index.html',
-  '/attractions.html',
-  '/map.html',
-  '/itinerary.html',
-  '/food.html',
-  '/guide.html',
-  '/about.html',
+  '/attractions',
+  '/map',
+  '/itinerary',
+  '/food',
+  '/guide',
+  '/about',
   '/style.css',
   '/css/chat-widget.css',
   '/js/chat-widget.js',
@@ -145,9 +144,9 @@ self.addEventListener('fetch', (event) => {
                 .catch(() => {});
               return response;
             }
-            return caches.match('/index.html');
+            return caches.match('/');
           })
-          .catch(() => caches.match('/index.html'));
+          .catch(() => caches.match('/'));
       })
   );
 });

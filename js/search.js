@@ -12,30 +12,30 @@
   // 内置美食与攻略索引（无需后端）
   var BUILT_IN_INDEX = [
     // 美食
-    { type: 'food', title: '刘庄夜市', desc: '北戴河最热闹夜市，烤生蚝、铁板鱿鱼', url: 'food.html#night', tag: '夜市' },
-    { type: 'food', title: '秦皇小巷', desc: '20000㎡古风艺术街区，国风演出', url: 'food.html#night', tag: '夜市' },
-    { type: 'food', title: '燕山夜市', desc: '港城老牌人气夜市，碳烤羊腿', url: 'food.html#night', tag: '夜市' },
-    { type: 'food', title: '山海关关市美食街区', desc: '四条包子、桲椤叶饼、山海关浑锅', url: 'food.html#night', tag: '夜市' },
-    { type: 'food', title: '石塘in巷', desc: '北戴河文创烟火市集，亲子遛娃', url: 'food.html#night', tag: '夜市' },
-    { type: 'food', title: '石塘路海鲜市场', desc: '北戴河最大海鲜市场，自购加工', url: 'food.html#seafood', tag: '海鲜市场' },
-    { type: 'food', title: '新开口渔港', desc: '渔民直销，下午4-5点最热闹', url: 'food.html#seafood', tag: '海鲜市场' },
-    { type: 'food', title: '马坊市场', desc: '本地人常去的综合市场', url: 'food.html#seafood', tag: '海鲜市场' },
-    { type: 'food', title: '昌黎葡萄酒', desc: '中国干红之乡，长城/茅台/朗格斯', url: 'food.html#specialty', tag: '特产' },
-    { type: 'food', title: '回记绿豆糕', desc: '山海关1945年老店，入口即化', url: 'food.html#specialty', tag: '特产' },
-    { type: 'food', title: '四条包子', desc: '山海关百年老店，皮薄馅大', url: 'food.html#night', tag: '美食' },
-    { type: 'food', title: '杨肠子火腿', desc: '北戴河传统工艺熏制', url: 'food.html#specialty', tag: '特产' },
+    { type: 'food', title: '刘庄夜市', desc: '北戴河最热闹夜市，烤生蚝、铁板鱿鱼', url: 'food#night', tag: '夜市' },
+    { type: 'food', title: '秦皇小巷', desc: '20000㎡古风艺术街区，国风演出', url: 'food#night', tag: '夜市' },
+    { type: 'food', title: '燕山夜市', desc: '港城老牌人气夜市，碳烤羊腿', url: 'food#night', tag: '夜市' },
+    { type: 'food', title: '山海关关市美食街区', desc: '四条包子、桲椤叶饼、山海关浑锅', url: 'food#night', tag: '夜市' },
+    { type: 'food', title: '石塘in巷', desc: '北戴河文创烟火市集，亲子遛娃', url: 'food#night', tag: '夜市' },
+    { type: 'food', title: '石塘路海鲜市场', desc: '北戴河最大海鲜市场，自购加工', url: 'food#seafood', tag: '海鲜市场' },
+    { type: 'food', title: '新开口渔港', desc: '渔民直销，下午4-5点最热闹', url: 'food#seafood', tag: '海鲜市场' },
+    { type: 'food', title: '马坊市场', desc: '本地人常去的综合市场', url: 'food#seafood', tag: '海鲜市场' },
+    { type: 'food', title: '昌黎葡萄酒', desc: '中国干红之乡，长城/茅台/朗格斯', url: 'food#specialty', tag: '特产' },
+    { type: 'food', title: '回记绿豆糕', desc: '山海关1945年老店，入口即化', url: 'food#specialty', tag: '特产' },
+    { type: 'food', title: '四条包子', desc: '山海关百年老店，皮薄馅大', url: 'food#night', tag: '美食' },
+    { type: 'food', title: '杨肠子火腿', desc: '北戴河传统工艺熏制', url: 'food#specialty', tag: '特产' },
     // 攻略
-    { type: 'guide', title: '如何到达秦皇岛', desc: '高铁/火车/飞机/自驾全指南', url: 'guide.html#transport', tag: '交通' },
-    { type: 'guide', title: '住宿区域推荐', desc: '北戴河/海港区/山海关区对比', url: 'guide.html#accommodation', tag: '住宿' },
-    { type: 'guide', title: '最佳旅游时间', desc: '四季特点与推荐窗口', url: 'guide.html#besttime', tag: '时间' },
-    { type: 'guide', title: '吃海鲜全攻略', desc: '防宰客核心要点', url: 'guide.html#foodtips', tag: '美食' },
-    { type: 'guide', title: '旅行注意事项', desc: '防晒防暑、防坑防宰、实用APP', url: 'guide.html#tips', tag: '贴士' },
-    { type: 'guide', title: '3日精华行程', desc: '北戴河+山海关+南戴河经典路线', url: 'itinerary.html', tag: '行程' },
-    { type: 'guide', title: 'AI智能行程规划', desc: '根据偏好AI生成专属行程', url: 'itinerary.html#aiPlanner', tag: '行程' },
+    { type: 'guide', title: '如何到达秦皇岛', desc: '高铁/火车/飞机/自驾全指南', url: 'guide#transport', tag: '交通' },
+    { type: 'guide', title: '住宿区域推荐', desc: '北戴河/海港区/山海关区对比', url: 'guide#accommodation', tag: '住宿' },
+    { type: 'guide', title: '最佳旅游时间', desc: '四季特点与推荐窗口', url: 'guide#besttime', tag: '时间' },
+    { type: 'guide', title: '吃海鲜全攻略', desc: '防宰客核心要点', url: 'guide#foodtips', tag: '美食' },
+    { type: 'guide', title: '旅行注意事项', desc: '防晒防暑、防坑防宰、实用APP', url: 'guide#tips', tag: '贴士' },
+    { type: 'guide', title: '3日精华行程', desc: '北戴河+山海关+南戴河经典路线', url: 'itinerary', tag: '行程' },
+    { type: 'guide', title: 'AI智能行程规划', desc: '根据偏好AI生成专属行程', url: 'itinerary#aiPlanner', tag: '行程' },
     // 博客
-    { type: 'blog', title: '北戴河7月避坑指南', desc: '旺季人挤人？这样玩才聪明', url: 'blog/beidaihe-july-tips.html', tag: '避坑' },
-    { type: 'blog', title: '山海关一日游实测路线', desc: '跟着当地人走，不花冤枉钱', url: 'blog/shanhaiguan-one-day.html', tag: '实测' },
-    { type: 'blog', title: '秦皇岛赶海攻略', desc: '潮汐时间表+工具+最佳地点', url: 'blog/qhd-ganhai-guide.html', tag: '赶海' }
+    { type: 'blog', title: '北戴河7月避坑指南', desc: '旺季人挤人？这样玩才聪明', url: 'blog/beidaihe-july-tips', tag: '避坑' },
+    { type: 'blog', title: '山海关一日游实测路线', desc: '跟着当地人走，不花冤枉钱', url: 'blog/shanhaiguan-one-day', tag: '实测' },
+    { type: 'blog', title: '秦皇岛赶海攻略', desc: '潮汐时间表+工具+最佳地点', url: 'blog/qhd-ganhai-guide', tag: '赶海' }
   ];
 
   var dom = {};
@@ -197,7 +197,7 @@
             type: 'attraction',
             title: spot.name,
             desc: spot.desc,
-            url: 'attractions.html#' + spot.id + '-spot',
+            url: 'attractions#' + spot.id + '-spot',
             tag: spot.level || '景点',
             score: score
           });
@@ -243,7 +243,7 @@
         '<div class="qhd-search-empty">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
           '<p>没有找到「' + escapeHtml(state.query) + '」的相关内容</p>' +
-          '<span>试试换个关键词，或浏览<a href="attractions.html">全部景点</a></span>' +
+          '<span>试试换个关键词，或浏览<a href="`attractions">全部景点</a></span>' +
         '</div>';
       return;
     }

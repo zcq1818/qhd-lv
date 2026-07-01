@@ -32,7 +32,7 @@
   "description": "提供秦皇岛旅游攻略、景点推荐、行程规划服务",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://qhd-lv.vercel.app/guide.html?q={search_term_string}",
+    "target": "https://qhd-lv.vercel.app/guide?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -171,12 +171,12 @@ window.FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 <!-- ====== 导航栏 ====== -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="index" class="nav-logo">
+    <a href="/" class="nav-logo">
       <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
       秦皇岛旅游官网
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index" class="active">首页</a></li>
+      <li><a href="/" class="active">首页</a></li>
       <li><a href="attractions">景点</a></li>
       <li><a href="map">地图</a></li>
       <li><a href="itinerary">行程规划</a></li>
@@ -487,7 +487,7 @@ window.FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
       </div>
       <div class="footer-col">
         <h4>热门页面</h4>
-        <a href="index">首页</a>
+        <a href="/">首页</a>
         <a href="attractions">景点推荐</a>
         <a href="itinerary">行程规划</a>
         <a href="food">美食推荐</a>

@@ -237,7 +237,7 @@
         '<div class="qhd-fav-empty">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>' +
           '<p>还没有收藏任何景点</p>' +
-          '<a href="attractions.html" class="qhd-fav-go">去逛逛景点 →</a>' +
+          '<a href="`attractions" class="qhd-fav-go">去逛逛景点 →</a>' +
         '</div>';
       return;
     }
@@ -254,7 +254,7 @@
           var spot = spotsMap[id];
           var name = spot ? spot.name : (nameMap[id] || id);
           var desc = spot ? spot.desc : '点击查看详情';
-          var url = 'attractions.html#' + id + '-spot';
+          var url = 'attractions#' + id + '-spot';
           var img = spot && spot.img ? spot.img : '';
           var area = spot ? spot.area : '';
           return '<a class="qhd-fav-card" href="' + url + '">' +
