@@ -3,6 +3,7 @@
 
 import json
 import os
+import math
 import html as html_module
 
 BASE_URL = "https://qhd-lv.vercel.app"
@@ -58,6 +59,54 @@ def build_booking_buttons(booking):
             icon = "🔗"
         btns.append(f'<a href="{burl}" target="_blank" rel="noopener" class="booking-btn {cls}">{icon} {bname}</a>')
     return "\n".join(btns)
+
+
+def haversine_km(lat1, lng1, lat2, lng2):
+    """Calculate distance between two points using Haversine formula. Returns km."""
+    R = 6371.0
+    dlat = math.radians(lat2 - lat1)
+    dlng = math.radians(lng2 - lng1)
+    a = math.sin(dlat / 2) ** 2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlng / 2) ** 2
+    return R * 2 * math.asin(math.sqrt(a))
+
+
+def build_nearby(all_spots, current):
+    """Find 4 nearest spots and build HTML cards."""
+    cur_lat = current.get("lat", 0)
+    cur_lng = current.get("lng", 0)
+    if not cur_lat or not cur_lng:
+        return ""
+    distances = []
+    for s in all_spots:
+        if s["id"] == current["id"]:
+            continue
+        d = haversine_km(cur_lat, cur_lng, s.get("lat", 0), s.get("lng", 0))
+        distances.append((d, s))
+    distances.sort(key=lambda x: x[0])
+    nearest = distances[:4]
+    if not nearest:
+        return ""
+    cards = []
+    for dist, s in nearest:
+        dist_str = f"{dist:.1f}"
+        rating = s.get("rating", "0")
+        img = esc(s.get("img", ""))
+        cards.append(f'''
+    <a href="{s['id']}.html" class="nearby-card">
+      <img src="../{img}" alt="{esc(s['name'])}" loading="lazy" onerror="this.onerror=null;this.src='{FALLBACK_IMG}';">
+      <div class="nearby-info">
+        <h4>{esc(s['name'])}</h4>
+        <span class="nearby-dist">{dist_str}km</span>
+        <span class="nearby-rating">★ {esc(rating)}</span>
+      </div>
+    </a>''')
+    return f'''
+  <section class="nearby-section">
+    <h2>📍 附近景点推荐</h2>
+    <div class="nearby-grid">
+      {"".join(cards)}
+    </div>
+  </section>'''
 
 
 def build_related(all_spots, current):
@@ -125,6 +174,7 @@ def generate_page(spot, all_spots):
     booking_html = build_booking_buttons(spot.get("booking", []))
     highlights_html = build_highlights(spot.get("highlights", []))
     related_html = build_related(all_spots, spot)
+    nearby_html = build_nearby(all_spots, spot)
 
     # Rating stars display
     rating = spot.get("rating", "0")
@@ -489,6 +539,21 @@ img {{ max-width: 100%; height: auto; display: block; }}
 }}
 .booking-hotel:hover {{ box-shadow: 0 8px 28px rgba(26,115,232,0.4); color: #fff; }}
 
+/* ===== Nearby ===== */
+.nearby-section {{ margin: 40px 0; }}
+.nearby-section h2 {{ font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; }}
+.nearby-grid {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }}
+.nearby-card {{ background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.3s; text-decoration: none; color: inherit; }}
+.nearby-card:hover {{ transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); color: inherit; }}
+.nearby-card img {{ width: 100%; height: 120px; object-fit: cover; }}
+.nearby-info {{ padding: 10px 12px; }}
+.nearby-info h4 {{ font-size: 0.9rem; font-weight: 700; margin: 0 0 4px; color: #1f2937; }}
+.nearby-dist {{ font-size: 0.75rem; color: #6b7280; background: #f3f4f6; padding: 2px 8px; border-radius: 12px; }}
+.nearby-rating {{ font-size: 0.75rem; color: #f59e0b; font-weight: 600; margin-left: 6px; }}
+@media (max-width: 768px) {{
+  .nearby-grid {{ grid-template-columns: repeat(2, 1fr); gap: 12px; }}
+}}
+
 /* ===== Related ===== */
 .related-section {{
   margin-top: var(--s12); padding-top: var(--s8);
@@ -696,6 +761,8 @@ img {{ max-width: 100%; height: auto; display: block; }}
   {transport_section}
 
   {booking_section}
+
+{nearby_html}
 
   <!-- Related -->
   <div class="related-section">
