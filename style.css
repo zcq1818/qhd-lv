@@ -409,9 +409,20 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: var(--text-sm);
   color: var(--text-muted);
 }
-.breadcrumb a { color: var(--text-muted); }
-.breadcrumb a:hover { color: var(--brand); }
+.breadcrumb a {
+  color: var(--brand);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.breadcrumb a:hover {
+  background: var(--brand);
+  color: #fff;
+}
 .breadcrumb .sep { margin: 0 var(--s2); opacity: 0.4; }
+.breadcrumb .current { font-weight: 600; color: var(--gray-900); }
 
 /* ============================================================
    CARD v3 — Elevated with refined hover

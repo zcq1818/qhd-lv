@@ -30,8 +30,10 @@
   .section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin:0 0 var(--s3);line-height:1.25;}
   .section-desc{color:var(--text-muted);line-height:1.8;margin-bottom:var(--s10);max-width:600px;}
   .breadcrumb{max-width:var(--max-width);margin:0 auto;padding:var(--s4) var(--s6);font-size:var(--text-sm);color:var(--text-muted);}
-  .breadcrumb a{color:var(--brand);text-decoration:none;}
-  .breadcrumb .sep{margin:0 var(--s2);}
+  .breadcrumb a{color:var(--brand);text-decoration:none;padding:4px 8px;border-radius:var(--radius);transition:background 0.2s;}
+  .breadcrumb a:hover{background:var(--brand);color:#fff;}
+  .breadcrumb .sep{margin:0 var(--s2);opacity:0.4;}
+  .breadcrumb .current{font-weight:600;color:var(--gray-900);}
 
   /* ===== Hero 区域 ===== */
   .page-hero{position:relative;overflow:hidden;padding:80px var(--s6) 60px;text-align:center;color:#fff;background:linear-gradient(135deg,#0d47a1 0%,#1565c0 40%,#1a73e8 70%,#4a9af5 100%);}
@@ -168,10 +170,13 @@
     .spot-top-body{padding:var(--s5);}
     .spots-grid{grid-template-columns:1fr;}
     .section{padding:var(--s8) var(--s4);}
-    .filter-bar-inner{padding:var(--s2) var(--s4);gap:var(--s2);}
+    .filter-bar-inner{padding:var(--s2) var(--s4);gap:var(--s2);flex-direction:column;align-items:stretch;}
     .filter-label{display:none;}
     .hero-stats{gap:var(--s4);}
     .zone-header-count{display:none;}
+    .filter-group{display:none;}
+    .filter-mobile-row{display:flex !important;gap:var(--s2);}
+    .filter-mobile-row select{flex:1;padding:8px 12px;border:1.5px solid var(--gray-200);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;background:#fff;color:var(--gray-700);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;}
   }
   @media(min-width:769px) and (max-width:1024px){
     .spots-grid{grid-template-columns:repeat(2,1fr);}
@@ -220,7 +225,7 @@ var _hmt = _hmt || [];
   </div>
 </nav>
 
-<div class="breadcrumb"><a href="/">首页</a> <span class="sep">/</span> 景点大全</div>
+<div class="breadcrumb"><a href="/">首页</a> <span class="sep">/</span> <span class="current">景点大全</span></div>
 
 <section class="page-hero" id="main-content" role="main">
   <h1>秦皇岛景点大全</h1>
@@ -242,6 +247,21 @@ var _hmt = _hmt || [];
 <!-- Sticky 筛选栏 -->
 <div class="filter-bar">
   <div class="filter-bar-inner">
+    <!-- 手机端下拉选择器 -->
+    <div class="filter-mobile-row" style="display:none;">
+      <select id="mobileAreaFilter" aria-label="选择区域">
+        <option value="all">全部区域</option>
+      </select>
+      <select id="mobileCatFilter" aria-label="选择类别">
+        <option value="all">全部类别</option>
+        <option value="beach">🏖 海滨</option>
+        <option value="history">🏛 历史</option>
+        <option value="nature">🌿 自然</option>
+        <option value="family">👨‍👩‍👧 亲子</option>
+        <option value="culture">🎨 文艺</option>
+      </select>
+    </div>
+    <!-- 桌面端筛选按钮 -->
     <div class="filter-group">
       <span class="filter-label">区域</span>
       <button class="filter-chip active" data-filter="area" data-value="all">全部</button>
@@ -396,10 +416,14 @@ reveals.forEach(function(el){o.observe(el);});
     var container = document.getElementById('areaFilters');
     if (!container) return;
     var html = '';
+    var mobileSelect = document.getElementById('mobileAreaFilter');
+    var mobileHtml = '<option value="all">全部区域</option>';
     areas.forEach(function(a) {
       html += '<button class="filter-chip" data-filter="area" data-value="' + a.id + '"><span class="chip-dot" style="background:' + (a.color || '#1a73e8') + ';"></span>' + a.name + '</button>';
+      mobileHtml += '<option value="' + a.id + '">' + a.name + '</option>';
     });
     container.innerHTML = html;
+    if (mobileSelect) mobileSelect.innerHTML = mobileHtml;
   }
 
   function setupFilterEvents() {
@@ -407,7 +431,6 @@ reveals.forEach(function(el){o.observe(el);});
       chip.addEventListener('click', function() {
         var filterType = this.getAttribute('data-filter');
         var value = this.getAttribute('data-value');
-        // 更新激活状态
         document.querySelectorAll('.filter-chip[data-filter="' + filterType + '"]').forEach(function(c) {
           c.classList.remove('active');
         });
@@ -416,6 +439,30 @@ reveals.forEach(function(el){o.observe(el);});
         else currentCatFilter = value;
         renderSpots();
       });
+    });
+    // 手机端下拉事件
+    var mobileArea = document.getElementById('mobileAreaFilter');
+    var mobileCat = document.getElementById('mobileCatFilter');
+    if (mobileArea) {
+      mobileArea.addEventListener('change', function() {
+        currentAreaFilter = this.value;
+        // 同步桌面端
+        document.querySelectorAll('.filter-chip[data-filter="area"]').forEach(function(c) {
+          c.classList.toggle('active', c.getAttribute('data-value') === currentAreaFilter);
+        });
+        renderSpots();
+      });
+    }
+    if (mobileCat) {
+      mobileCat.addEventListener('change', function() {
+        currentCatFilter = this.value;
+        document.querySelectorAll('.filter-chip[data-filter="cat"]').forEach(function(c) {
+          c.classList.toggle('active', c.getAttribute('data-value') === currentCatFilter);
+        });
+        renderSpots();
+      });
+    }
+  }
     });
   }
 
