@@ -526,7 +526,8 @@ reveals.forEach(function(el){o.observe(el);});
     var tips = spot.tips ? '<div class="spot-top-tips">💡 ' + spot.tips + '</div>' : '';
 
     var actions = '<div class="spot-top-actions">' +
-      '<a href="itinerary" class="btn btn-primary btn-sm">查看行程 →</a>';
+      '<a href="attraction/' + spot.id + '" class="btn btn-primary btn-sm">查看详情 →</a>' +
+      '<a href="itinerary" class="btn btn-outline btn-sm">查看行程</a>';
     (spot.booking || []).forEach(function(b) {
       actions += '<a href="' + b.url + '" target="_blank" rel="nofollow sponsored" class="booking-link booking-' + b.type + '">' + b.name + '</a>';
     });
@@ -534,13 +535,15 @@ reveals.forEach(function(el){o.observe(el);});
 
     var bodyContent =
       '<span class="spot-card-tag tag-' + spot.cat + '">' + (cat.icon || '') + ' ' + cat.name + '</span>' +
-      '<h3 class="spot-top-name">' + spot.name + '</h3>' +
+      '<h3 class="spot-top-name"><a href="attraction/' + spot.id + '" style="color:inherit;text-decoration:none;">' + spot.name + '</a></h3>' +
       meta +
       '<p class="spot-top-desc">' + spot.desc + '</p>' +
       info + tips + actions;
 
     var imgBlock = '<div class="spot-top-img">' +
+      '<a href="attraction/' + spot.id + '">' +
       '<img src="' + img + '" alt="' + spot.name + '" loading="' + loading + '" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">' +
+      '</a>' +
       '<span class="spot-top-rank">TOP ' + rank + '</span>' +
       levelBadge + priceBadge +
     '</div>';
@@ -582,7 +585,8 @@ reveals.forEach(function(el){o.observe(el);});
     }).join('');
 
     var actions = '<div class="spot-card-actions">' +
-      '<a href="itinerary" class="btn btn-primary btn-sm">行程</a>';
+      '<a href="attraction/' + spot.id + '" class="btn btn-primary btn-sm">详情</a>' +
+      '<a href="itinerary" class="btn btn-outline btn-sm">行程</a>';
     (spot.booking || []).slice(0, 2).forEach(function(b) {
       actions += '<a href="' + b.url + '" target="_blank" rel="nofollow sponsored" class="booking-link booking-' + b.type + '">' + b.name + '</a>';
     });
@@ -594,13 +598,15 @@ reveals.forEach(function(el){o.observe(el);});
     '</div>';
 
     var imgBlock = '<div class="spot-card-img">' +
+      '<a href="attraction/' + spot.id + '">' +
       '<img src="' + img + '" alt="' + spot.name + '" loading="lazy" onerror="this.onerror=null;this.src=window.FALLBACK_IMG;">' +
+      '</a>' +
       levelBadge + priceBadge +
     '</div>';
 
     var body = '<div class="spot-card-body">' +
       '<span class="spot-card-tag tag-' + spot.cat + '">' + (cat.icon || '') + ' ' + cat.name + '</span>' +
-      '<h3 class="spot-card-name">' + spot.name + '</h3>' +
+      '<h3 class="spot-card-name"><a href="attraction/' + spot.id + '" style="color:inherit;text-decoration:none;">' + spot.name + '</a></h3>' +
       meta +
       '<p class="spot-card-desc">' + spot.desc + '</p>' +
       (highlights ? '<div class="spot-card-highlights">' + highlights + '</div>' : '') +
