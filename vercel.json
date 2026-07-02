@@ -6,7 +6,8 @@
   "buildCommand": "",
   "framework": null,
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/attraction/:id", "destination": "/attraction/:id.html" }
   ],
   "redirects": [
     { "source": "/index", "destination": "/", "permanent": true },

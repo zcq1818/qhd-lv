@@ -245,6 +245,16 @@ var _hmt = _hmt || [];
   </div>
 </section>
 
+<!-- 加入旅行群 -->
+<div style="max-width:1200px;margin:0 auto 40px;padding:40px 24px;background:linear-gradient(135deg,#e0f7fa,#e8f5e9);border-radius:16px;text-align:center;border:1px solid #b2dfdb;">
+  <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;color:#00695c;">🌴 加入秦皇岛旅行交流群</h3>
+  <p style="color:#00796b;margin-bottom:24px;font-size:1rem;">获取最新攻略、实时天气、本地人推荐、同行拼车</p>
+  <div style="display:inline-block;background:#fff;padding:20px;border-radius:12px;border:2px dashed #80cbc4;min-width:160px;">
+    <div style="width:120px;height:120px;background:#e0f2f1;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:0.85rem;color:#00897b;">扫码加微信入群</div>
+    <p style="font-size:0.8rem;color:#80cbc4;margin:0;">微信扫码</p>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -272,4 +282,11 @@ reveals.forEach(function(el){o.observe(el);});
 <link rel="stylesheet" href="css/chat-widget.css">
 <script src="js/chat-widget.js" defer></script>
 <script src=js/accessibility.js defer></script>
+<!-- 浮动加群按钮 -->
+<div id="communityFloat" style="position:fixed;bottom:80px;right:24px;z-index:99;cursor:pointer;">
+  <div style="background:linear-gradient(135deg,#07c160,#06ae56);color:#fff;padding:12px 20px;border-radius:24px;box-shadow:0 4px 16px rgba(7,193,96,0.4);font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+    💬 加入旅行群
+  </div>
+</div>
+
 </html>
