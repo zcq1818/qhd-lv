@@ -163,6 +163,8 @@ export default async function handler(req) {
   const origin = req.headers.get('origin');
   const allowedOrigins = [
     'https://qhd-lv.vercel.app',
+    'https://divdu.com',
+    'https://www.divdu.com',
     'http://localhost:3000',
     'http://localhost:5500',
     'http://127.0.0.1:5500'
