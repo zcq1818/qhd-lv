@@ -484,7 +484,7 @@
   }
 
   /* ===== 响应式 ===== */
-  @media (max-width: 768px) {
+  @media(max-width:768px){
     .map-toolbar {
       padding: 10px 12px;
       gap: 8px;
@@ -505,33 +505,83 @@
     .map-page {
       height: calc(100vh - var(--nav-height) - 130px);
       min-height: 450px;
+      position: relative;
     }
+
+    /* 手机端：侧边栏改为底部抽屉 */
     .map-sidebar {
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      width: auto;
-      max-height: 45%;
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-height: 55vh;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
+      z-index: 1000;
+      transition: transform 0.3s var(--ease-out);
     }
     .map-sidebar.collapsed {
-      transform: translateY(-120%);
+      transform: translateY(calc(100% - 48px));
+      max-height: 55vh;
     }
+
+    /* 抽屉顶部拖拽条 */
+    .map-sidebar-header {
+      padding: 10px 16px;
+      cursor: pointer;
+      position: relative;
+    }
+    .map-sidebar-header::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--gray-300);
+    }
+    .map-sidebar-close { display: none; }
+
+    /* 底部抽屉展开时的地图高度 */
+    .map-sidebar:not(.collapsed) ~ #leafletMap {
+      height: 45vh !important;
+    }
+
+    /* 浮动按钮改为底部居中 */
     .map-toggle-sidebar {
-      top: 10px;
-      left: 10px;
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      top: auto;
+      transform: translateX(-50%);
+      z-index: 999;
+      border-radius: var(--radius-full);
+      padding: 8px 20px;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      display: none;
     }
+    .map-sidebar.collapsed ~ .map-toggle-sidebar {
+      display: inline-flex;
+    }
+
     .map-legend { display: none; }
     .map-list { -webkit-overflow-scrolling: touch; }
     .breadcrumb { padding: 0 var(--s4); margin-top: calc(var(--nav-height) + 4px); }
+
+    /* 景点列表项更大点击区域 */
+    .map-spot-item { padding: 14px 16px; }
+    .map-spot-thumb { width: 50px; height: 50px; }
   }
 
   @media (max-width: 480px) {
-    .map-toolbar-title h1 { font-size: 1rem; }
     .map-toolbar-stats { display: none; }
-    .map-sidebar { max-height: 50%; }
     .map-spot-desc { display: none; }
-    .map-spot-thumb { width: 44px; height: 44px; }
-    .map-spot-thumb-noimg { font-size: 18px; }
   }
 </style>
 
@@ -1326,21 +1376,45 @@ if (typeof L === 'undefined') {
     var toggleBtn = document.getElementById('toggleSidebar');
     var closeBtn = document.getElementById('closeSidebar');
     var sidebar = document.getElementById('mapSidebar');
-    var isCollapsed = false;
+    var header = sidebar ? sidebar.querySelector('.map-sidebar-header') : null;
+    var isMobile = window.innerWidth <= 768;
+    var isCollapsed = isMobile; // 手机端默认收起
 
     function setCollapsed(collapsed) {
       isCollapsed = collapsed;
       sidebar.classList.toggle('collapsed', isCollapsed);
-      // 地图尺寸变化后需要刷新（transition 250ms + 缓冲）
       setTimeout(function() {
         if (map) map.invalidateSize();
       }, 350);
     }
 
+    // 初始状态
+    if (isMobile && sidebar) setCollapsed(true);
+
     // 展开按钮
     if (toggleBtn) toggleBtn.addEventListener('click', function() { setCollapsed(false); });
-    // 关闭按钮
+    // 关闭按钮（桌面端）
     if (closeBtn) closeBtn.addEventListener('click', function() { setCollapsed(true); });
+    // 手机端：点击抽屉头部切换
+    if (header) {
+      header.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          // 如果点击的是关闭按钮，不处理
+          if (e.target.closest('.map-sidebar-close')) return;
+          setCollapsed(!isCollapsed);
+        }
+      });
+    }
+
+    // 窗口大小变化时重置
+    window.addEventListener('resize', function() {
+      var nowMobile = window.innerWidth <= 768;
+      if (nowMobile !== isMobile) {
+        isMobile = nowMobile;
+        if (isMobile) setCollapsed(true);
+        else setCollapsed(false);
+      }
+    });
   }
 
   /* ===== 导航栏滚动效果 + 汉堡菜单 ===== */
