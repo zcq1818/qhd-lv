@@ -795,17 +795,17 @@ if (typeof L === 'undefined') {
   /* ===== 景点数据（硬编码备份，用于 JSON 加载失败时的回退） ===== */
   var SPOTS_BACKUP = [
     // 北戴河区
-    {id:'beidaihe', name:'北戴河海滨风景区', lat:39.8200, lng:119.4900, area:'beidaihe', cat:'beach', rating:'4.7', price:'免费', desc:'中国四大避暑胜地之一，绵延20公里黄金沙滩', img:'images/beidaihe-beach.png'},
-    {id:'geziwo', name:'鸽子窝公园', lat:39.8364, lng:119.5285, area:'beidaihe', cat:'beach', rating:'4.6', price:'25元', desc:'北戴河最佳日出观赏地，鹰角石矗立海边', img:'images/geziwo-sunrise.jpg'},
-    {id:'laohushi', name:'老虎石海上公园', lat:39.8140, lng:119.4882, area:'beidaihe', cat:'beach', rating:'4.5', price:'免费', desc:'北戴河最经典海滨公园，最美日落观赏点', img:'images/laohushi.png'},
+    {id:'beidaihe', name:'北戴河海滨风景区', lat:39.8200, lng:119.4900, area:'beidaihe', cat:'beach', rating:'4.7', price:'免费', desc:'中国四大避暑胜地之一，绵延20公里黄金沙滩', img:'images/beidaihe-beach.webp'},
+    {id:'geziwo', name:'鸽子窝公园', lat:39.8364, lng:119.5285, area:'beidaihe', cat:'beach', rating:'4.6', price:'25元', desc:'北戴河最佳日出观赏地，鹰角石矗立海边', img:'images/geziwo-sunrise.webp'},
+    {id:'laohushi', name:'老虎石海上公园', lat:39.8140, lng:119.4882, area:'beidaihe', cat:'beach', rating:'4.5', price:'免费', desc:'北戴河最经典海滨公园，最美日落观赏点', img:'images/laohushi.webp'},
     {id:'liangfengshan', name:'联峰山公园', lat:39.8233, lng:119.4610, area:'beidaihe', cat:'nature', rating:'4.4', price:'25元', desc:'北戴河制高点，中国第一座森林公园', img:''},
-    {id:'biluota', name:'碧螺塔海上酒吧公园', lat:39.8205, lng:119.5353, area:'beidaihe', cat:'culture', rating:'4.3', price:'40元', desc:'北戴河夜生活地标，海上酒吧+烟花秀+篝火晚会', img:'images/biluota.png'},
+    {id:'biluota', name:'碧螺塔海上酒吧公园', lat:39.8205, lng:119.5353, area:'beidaihe', cat:'culture', rating:'4.3', price:'40元', desc:'北戴河夜生活地标，海上酒吧+烟花秀+篝火晚会', img:'images/biluota.webp'},
     {id:'guailou', name:'怪楼奇园', lat:39.8271, lng:119.4983, area:'beidaihe', cat:'family', rating:'4.2', price:'20元', desc:'999个门999扇窗的奇妙迷宫，亲子探险首选', img:''},
     {id:'dongwuyuan', name:'秦皇岛野生动物园', lat:39.8560, lng:119.5300, area:'beidaihe', cat:'family', rating:'4.5', price:'100元', desc:'华北最大野生动物园，可自驾穿越猛兽区', img:''},
 
     // 山海关区
-    {id:'shanhaiguan', name:'山海关·天下第一关', lat:40.0100, lng:119.7576, area:'shanhaiguan', cat:'history', rating:'4.8', price:'50元', desc:'明长城东北关隘，六百年历史巨匾高悬', img:'images/shanhaiguan.png'},
-    {id:'laolongtou', name:'老龙头景区', lat:39.9693, lng:119.7975, area:'shanhaiguan', cat:'history', rating:'4.7', price:'60元', desc:'长城唯一入海处，万里长城东端起点', img:'images/laolongtou.jpg'},
+    {id:'shanhaiguan', name:'山海关·天下第一关', lat:40.0100, lng:119.7576, area:'shanhaiguan', cat:'history', rating:'4.8', price:'50元', desc:'明长城东北关隘，六百年历史巨匾高悬', img:'images/shanhaiguan.webp'},
+    {id:'laolongtou', name:'老龙头景区', lat:39.9693, lng:119.7975, area:'shanhaiguan', cat:'history', rating:'4.7', price:'60元', desc:'长城唯一入海处，万里长城东端起点', img:'images/laolongtou.webp'},
     {id:'jiaoshan', name:'角山长城', lat:40.0376, lng:119.7403, area:'shanhaiguan', cat:'history', rating:'4.5', price:'40元', desc:'万里长城翻越的第一座山，长城第一山', img:''},
     {id:'mengjiangnv', name:'孟姜女庙', lat:39.9880, lng:119.7580, area:'shanhaiguan', cat:'history', rating:'4.3', price:'30元', desc:'千古传说孟姜女庙，天下第一奇联', img:''},
     {id:'ledao', name:'乐岛海洋王国', lat:39.9350, lng:119.7750, area:'shanhaiguan', cat:'family', rating:'4.4', price:'160元', desc:'华北最大海洋主题乐园，海豚表演+水上乐园', img:''},
@@ -817,7 +817,7 @@ if (typeof L === 'undefined') {
     {id:'xinao', name:'新澳海底世界', lat:39.9062, lng:119.5630, area:'haigang', cat:'family', rating:'4.4', price:'120元', desc:'亚洲最长海底隧道80米，美人鱼表演', img:''},
 
     // 南戴河·昌黎
-    {id:'aranya', name:'阿那亚·黄金海岸社区', lat:39.6500, lng:119.3139, area:'nandaihe', cat:'culture', rating:'4.8', price:'预约制', desc:'中国最具文艺气息海岸社区，孤独图书馆', img:'images/aranya-library.jpg'},
+    {id:'aranya', name:'阿那亚·黄金海岸社区', lat:39.6500, lng:119.3139, area:'nandaihe', cat:'culture', rating:'4.8', price:'预约制', desc:'中国最具文艺气息海岸社区，孤独图书馆', img:'images/aranya-library.webp'},
     {id:'huangjin', name:'南戴河·黄金海岸', lat:39.7200, lng:119.3700, area:'nandaihe', cat:'beach', rating:'4.5', price:'免费', desc:'中国最优质天然沙质海岸，国际滑沙中心', img:''},
     {id:'yudao', name:'渔岛海洋温泉景区', lat:39.6900, lng:119.3500, area:'nandaihe', cat:'beach', rating:'4.5', price:'188元', desc:'海水温泉+水上乐园+薰衣草庄园', img:''},
     {id:'shenglan', name:'圣蓝海洋公园', lat:39.7050, lng:119.3750, area:'nandaihe', cat:'family', rating:'4.3', price:'140元', desc:'海豚剧场+白鲸表演+海底隧道', img:''},

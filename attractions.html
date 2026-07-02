@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="秦皇岛景点大全">
 <meta name="twitter:description" content="北戴河、山海关、阿那亚……秦皇岛30+景区全收录。">
-<meta name="twitter:image" content="https://qhd-lv.vercel.app/images/qhd-panorama.jpg">
+<meta name="twitter:image" content="https://qhd-lv.vercel.app/images/qhd-panorama.webp">
 <style>
   :root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-muted:#6b7280;--ease-out:cubic-bezier(0.34,1.56,0.64,1);--dur:0.35s;--smooth:cubic-bezier(0.4,0,0.2,1);}
   .section{max-width:var(--max-width);margin:0 auto;padding:var(--s12) var(--s6);}
@@ -541,7 +541,7 @@ reveals.forEach(function(el){o.observe(el);});
 
   function buildTopSpot(spot, rank) {
     var cat = categories[spot.cat] || { name: '', icon: '', color: '#1a73e8' };
-    var img = spot.img || 'images/beidaihe-beach.png';
+    var img = spot.img || 'images/beidaihe-beach.webp';
     var loading = rank <= 2 ? 'eager' : 'lazy';
     var isReverse = rank % 2 === 0;
 
@@ -612,7 +612,7 @@ reveals.forEach(function(el){o.observe(el);});
 
   function buildSpotCard(spot) {
     var cat = categories[spot.cat] || { name: '', icon: '', color: '#1a73e8' };
-    var img = spot.img || 'images/beidaihe-beach.png';
+    var img = spot.img || 'images/beidaihe-beach.webp';
 
     var levelBadge = spot.level && spot.level !== '无'
       ? '<span class="level-badge ' + getLevelClass(spot.level) + '">' + spot.level + '</span>'
