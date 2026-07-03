@@ -51,6 +51,45 @@ def save_crawl_log(log):
     CRAWL_LOG.write_text(json.dumps(log, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def _clean_content(html: str, text: str) -> tuple:
+    """清洗抓取的内容，去噪声"""
+    # 噪声关键词
+    noise_kw = [
+        'VIP邮箱', '免费下载', '网易官方', '手机邮箱', '热门推荐',
+        '热线：', '微信号：', '许可证号', '信用代码', '报名咨询',
+        '认准正规', '无中间商', '咨询电话', '24小时', '官方微信',
+        '旅行社', '报名优选', '联系电话', '添加微信', '扫码咨询',
+        '海量资讯', '打开APP', '阅读原文', '举报/反馈',
+        '特别声明', '不代表', '不得转载', '责任编辑',
+    ]
+
+    # 清洗 HTML 中的段落
+    def clean_p(match):
+        tag = match.group(0)
+        plain = re.sub(r'<[^>]+>', '', tag).strip()
+        if len(plain) < 25:
+            return ''
+        if any(kw in plain for kw in noise_kw):
+            return ''
+        return tag
+
+    html = re.sub(r'<p[^>]*>.*?</p>', clean_p, html, flags=re.DOTALL)
+    html = re.sub(r'<p[^>]*>\s*</p>', '', html)
+
+    # 清洗纯文本
+    lines = []
+    for line in text.split('\n'):
+        line = line.strip()
+        if len(line) < 25:
+            continue
+        if any(kw in line for kw in noise_kw):
+            continue
+        lines.append(line)
+    text = '\n'.join(lines)
+
+    return html, text
+
+
 def fetch_article(url: str) -> dict | None:
     """抓取文章全文"""
     try:
@@ -61,8 +100,19 @@ def fetch_article(url: str) -> dict | None:
             return None
 
         soup = BeautifulSoup(resp.text, "html.parser")
-        for tag in soup.find_all(["script", "style", "nav", "footer", "aside", "header"]):
+        # 移除无关标签
+        for tag in soup.find_all(["script", "style", "nav", "footer", "aside", "header",
+                                   "iframe", "ins", "aside"]):
             tag.decompose()
+        # 移除广告/推荐/评论等区块
+        for sel in [".ad", ".ads", ".recommend", ".related", ".comment",
+                     ".sidebar", ".widget", "[class*=ad-]", "[class*=recommend]",
+                     ".Post-Sub", "[class*=subscription]", "[class*=newsletter]",
+                     ".article-footer-meta", ".source-info", "[class*=source]",
+                     ".topic-link", "[class*=topic]", "[class*=hot]",
+                     ".content-footer", ".article-relate"]:
+            for tag in soup.select(sel):
+                tag.decompose()
 
         # 标题
         title = ""
@@ -108,6 +158,9 @@ def fetch_article(url: str) -> dict | None:
             body = soup.find("body")
             if body:
                 content_text = body.get_text(separator="\n", strip=True)
+
+        # 内容清洗：去噪声
+        content_html, content_text = _clean_content(content_html, content_text)
 
         # 图片
         images = []
@@ -220,9 +273,9 @@ def generate_blog_html(article: dict, images_local: list) -> str:
   .source-note a {{ color: var(--brand); }}
 </style>
 <style>
-  .nav-search-trigger { display:inline-flex;align-items:center;gap:4px;background:none;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:6px 12px;border-radius:var(--radius,8px);cursor:pointer;font-size:0.8rem;transition:all 0.2s; }
-  .nav-search-trigger:hover { border-color:rgba(255,255,255,0.5);color:#fff; }
-  .search-kbd { font-size:0.65rem;opacity:0.5;margin-left:4px; }
+  .nav-search-trigger {{ display:inline-flex;align-items:center;gap:4px;background:none;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:6px 12px;border-radius:var(--radius,8px);cursor:pointer;font-size:0.8rem;transition:all 0.2s; }}
+  .nav-search-trigger:hover {{ border-color:rgba(255,255,255,0.5);color:#fff; }}
+  .search-kbd {{ font-size:0.65rem;opacity:0.5;margin-left:4px; }}
   .breadcrumb {{ max-width:var(--max-width,1200px);margin:0 auto;padding:calc(var(--s3,12px) + 60px) var(--s6,24px) var(--s3,12px);font-size:var(--text-sm,0.875rem);color:var(--text-muted,#6b7280); }}
   .breadcrumb a {{ color:var(--brand,#1a73e8);text-decoration:none; }}
   .breadcrumb a:hover {{ text-decoration:underline; }}
