@@ -112,8 +112,13 @@ def main():
         )
         html = pattern.sub(crawled_section, html)
     else:
-        # 在 </main> 之前插入
-        html = html.replace("</main>", crawled_section + "\n</main>")
+        # 在页脚之前插入
+        if '<!-- ====== 页脚 ====== -->' in html:
+            html = html.replace('<!-- ====== 页脚 ====== -->', crawled_section + '\n\n<!-- ====== 页脚 ====== -->')
+        elif '<footer' in html:
+            html = html.replace('<footer', crawled_section + '\n\n<footer', 1)
+        elif '</section>' in html:
+            html = html.replace('</section>', crawled_section + '\n</section>', 1)
 
     # 更新 JSON-LD 中的博客列表
     blog_posts_json = json.dumps([
