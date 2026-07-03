@@ -598,6 +598,7 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<link rel="apple-touch-icon" href="assets/favicon.svg">
 </head>
 <body>
 
@@ -1454,6 +1455,14 @@ if ('serviceWorker' in navigator) {
   });
 })();
 </script>
+
+
+<!-- 社交分享 -->
+<link rel="stylesheet" href="css/share.css">
+<script src="js/share.js" defer></script>
+<div id="shareFloat" style="position:fixed;bottom:140px;right:24px;z-index:98;display:flex;flex-direction:column;gap:8px;">
+  <button onclick="shareToWeixin()" style="background:#07c160;color:#fff;border:none;padding:10px 16px;border-radius:20px;cursor:pointer;font-size:0.8rem;box-shadow:0 2px 8px rgba(0,0,0,0.15);">📱 分享</button>
+</div>
 
 </body>
 </html>
