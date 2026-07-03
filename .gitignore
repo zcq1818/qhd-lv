@@ -9,3 +9,4 @@ node_modules/
 # 日志
 *.log
 .openclaw/
+data/notion-config.json
