@@ -20,6 +20,14 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
+# AI 润色
+sys.path.insert(0, str(Path.home() / '.openclaw/skills/mimo-omni'))
+try:
+    from mimo_api import call_api as mimo_call_api
+    HAS_AI = True
+except ImportError:
+    HAS_AI = False
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BLOG_DIR = PROJECT_ROOT / "blog"
 IMAGES_DIR = PROJECT_ROOT / "images" / "crawled"
@@ -32,6 +40,33 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
 }
+
+
+def ai_polish(text, title=""):
+    """用 AI 润色文章内容，去除营销话术，优化可读性"""
+    if not HAS_AI or len(text) < 200:
+        return text
+
+    truncated = text[:6000] if len(text) > 6000 else text
+
+    prompt = "你是一个旅游攻略编辑。请对以下旅游攻略文章进行润色：\n\n"
+    prompt += "要求：\n"
+    prompt += "1. 去除所有营销内容（旅行社广告、微信号、电话、报名链接等）\n"
+    prompt += "2. 去除网站噪声（导航、页脚、版权声明等）\n"
+    prompt += "3. 保留实用信息（景点介绍、路线、门票、交通、美食、避坑建议）\n"
+    prompt += "4. 优化语言流畅度，但不要改变事实信息\n"
+    prompt += "5. 保持段落结构清晰\n"
+    prompt += "6. 如果内容太短或质量太差，直接返回原文不做修改\n"
+    prompt += "7. 只返回润色后的正文，不要加任何说明\n\n"
+    prompt += f"标题：{title}\n\n原文：\n{truncated}"
+
+    try:
+        result = mimo_call_api(prompt, max_tokens=8192, timeout=60)
+        if result and len(result) > 200:
+            return result
+    except Exception as e:
+        print(f"       ⚠ AI润色失败: {e}")
+    return text
 
 
 def slugify(text):
@@ -402,6 +437,18 @@ def process_url(url: str, crawl_log: dict, dry_run=False) -> dict | None:
             images_local.append(local)
         time.sleep(0.5)
 
+    # AI 润色
+    if HAS_AI and len(article.get("content_text", "")) > 300:
+        print(f"       🤖 AI润色中...")
+        polished = ai_polish(article["content_text"], title)
+        if polished and len(polished) > 200 and polished != article["content_text"]:
+            paragraphs = [p.strip() for p in polished.split("\n") if p.strip() and len(p.strip()) > 10]
+            article["content_html"] = "\n".join(f"<p>{p}</p>" for p in paragraphs)
+            article["content_text"] = polished
+            print(f"       ✅ AI润色完成 ({len(polished)}字)")
+        else:
+            print(f"       ⏭ AI润色无变化")
+
     # 生成HTML
     slug = slugify(title)
     filename = f"{slug}.html"
@@ -450,6 +497,9 @@ def main():
 
     dry_run = "--dry-run" in sys.argv or "-n" in sys.argv
     no_push = "--no-push" in sys.argv
+    if "--no-ai" in sys.argv:
+        global HAS_AI
+        HAS_AI = False
 
     # 移除参数标志
     urls = [u for u in urls if not u.startswith("--") and not u.startswith("-")]
