@@ -38,7 +38,30 @@
 </style>
 </head>
 <body>
-<nav class="breadcrumb"><div class="container"><a href="/">首页</a> <span>›</span> <a href="/blog">博客</a> <span>›</span> <span>2026 年 7 月秦皇岛亲子纯玩导游严…</span></div></nav>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#0c4a6e"/><circle cx="14" cy="14" r="12.5" fill="none" stroke="#fcd34d" stroke-width="0.8"/><path d="M8 15L8 13L9 13L9 12L10 12L10 13L11 13L11 12L12 12L12 13L13 13L13 12L14 12L14 13L15 13L15 12L16 12L16 13L17 13L17 12L18 12L18 13L19 13L19 12L20 12L20 13L20 15Z" fill="#fcd34d"/><rect x="13" y="10" width="2" height="2" rx="0.2" fill="#fcd34d"/><path d="M8 15Q11 14 14 15T20 15L20 19L8 19Z" fill="#38bdf8"/><path d="M8 19Q11 18 14 19T20 19L20 22L8 22Z" fill="#0284c7"/></svg>
+      秦皇岛旅游官网
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">首页</a></li>
+      <li><a href="../attractions">景点</a></li>
+      <li><a href="../map">地图</a></li>
+      <li><a href="../itinerary">行程规划</a></li>
+      <li><a href="../food">美食</a></li>
+      <li><a href="../guide">旅游攻略</a></li>
+      <li><a href="../blog" class="active">博客</a></li>
+      <li><a href="../about">关于我们</a></li>
+    </ul>
+    <a href="../itinerary" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="nav-search-trigger" aria-label="搜索">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="search-kbd">⌘K</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 <main class="article-wrap">
   <header class="article-header">
     <h1>2026 年 7 月秦皇岛亲子纯玩导游严选，暑期带娃出游避坑推荐</h1>
@@ -56,7 +79,49 @@
     </div>
   </nav>
 </main>
-<footer class="site-footer"><div class="container"><p>© 2026 秦皇岛旅游官网 · <a href="/">首页</a> · <a href="/blog">博客</a> · <a href="/attractions">景点</a></p></div></footer>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>秦皇岛旅游官网</h3>
+        <p>致力于为每一位来秦皇岛的游客，提供最实用、最全面的旅游攻略。</p>
+      </div>
+      <div class="footer-col">
+        <h4>热门页面</h4>
+        <a href="/">首页</a>
+        <a href="../attractions">景点推荐</a>
+        <a href="../itinerary">行程规划</a>
+        <a href="../food">美食推荐</a>
+      </div>
+      <div class="footer-col">
+        <h4>旅游攻略</h4>
+        <a href="../guide">出行指南</a>
+        <a href="../map">旅游地图</a>
+        <a href="../blog">旅游博客</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="../about">关于官网</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 秦皇岛旅游官网</span>
+      <span>冀ICP备16026346号-2</span>
+      <div><a href="../sitemap.xml">网站地图</a></div>
+    </div>
+  </div>
+</footer>
 <script src="../js/search.js"></script>
+<script>
+window.addEventListener('scroll', function () {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+document.getElementById('hamburger').addEventListener('click', function () {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+</script>
+<script src="../js/search.js" defer></script>
+<script src="../js/chat-widget.js" defer></script>
+<link rel="stylesheet" href="../css/chat-widget.css">
 </body>
 </html>
