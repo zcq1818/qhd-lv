@@ -172,7 +172,7 @@ export default async function handler(req) {
   // ---- 来源校验（仅允许自己的域名调用） ----
   const origin = req.headers.get('origin');
   const allowedOrigins = [
-    'https://qhd-lv.vercel.app',
+    'https://www.divdu.com',
     'https://divdu.com',
     'https://www.divdu.com',
     'http://localhost:3000',

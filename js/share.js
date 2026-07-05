@@ -191,7 +191,7 @@
     // 网址
     ctx.font = '20px sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.6)';
-    ctx.fillText('qhd-lv.vercel.app', 375, 1150);
+    ctx.fillText('www.divdu.com', 375, 1150);
 
     // 装饰线
     ctx.strokeStyle = 'rgba(255,255,255,0.3)';
