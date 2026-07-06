@@ -2,7 +2,7 @@
   "meta": {
     "version": "2.1",
     "lastUpdated": "2026-06-25",
-    "totalCount": 48
+    "totalCount": 47
   },
   "areas": [
     {
@@ -1200,48 +1200,6 @@
       "suitableFor": "全家出游、情侣、拍照打卡",
       "tips": "跨海索道是最大亮点，恐高者慎坐。建议晴天去，海景最美。门票含索道往返，性价比不错。",
       "transport": "南戴河乘公交或打车约10分钟",
-      "booking": [
-        {
-          "name": "携程订票",
-          "url": "https://p.ctrip.com/ticket/dest/t228.html",
-          "type": "ctrip"
-        },
-        {
-          "name": "美团购票",
-          "url": "https://www.meituan.com/",
-          "type": "meituan"
-        }
-      ],
-      "isTop": false,
-      "topRank": 0,
-      "visible": true
-    },
-    {
-      "id": "shadiaodahai",
-      "name": "沙雕海洋乐园",
-      "area": "nandaihe",
-      "cat": "family",
-      "level": "4A",
-      "rating": "4.3",
-      "price": "35元",
-      "priceNum": 35,
-      "openTime": "08:30-17:00",
-      "address": "河北省秦皇岛市昌黎县黄金海岸",
-      "lat": 39.71,
-      "lng": 119.34,
-      "img": "images/attraction-shadiaodahai.jpg",
-      "desc": "以沙雕艺术为主题的海洋乐园，拥有大型沙雕展览、水上乐园和海滨娱乐项目。巨型沙雕作品令人叹为观止，夏季水上乐园开放，是亲子游玩的好去处。",
-      "highlights": [
-        "大型沙雕艺术展",
-        "水上乐园",
-        "海滨娱乐",
-        "沙雕DIY"
-      ],
-      "bestSeason": "6-8月（水上乐园开放）",
-      "duration": "3-4小时",
-      "suitableFor": "亲子家庭、沙雕艺术爱好者",
-      "tips": "沙雕展览全年可看，水上乐园仅夏季开放。带孩子的可以体验沙雕DIY。防晒很重要，沙滩区域无遮挡。",
-      "transport": "昌黎县城打车约20分钟",
       "booking": [
         {
           "name": "携程订票",
