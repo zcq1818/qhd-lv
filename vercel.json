@@ -35,7 +35,7 @@
       ]
     },
     {
-      "source": "/((?!images/|css/|js/|assets/|api/).*)",
+      "source": "/((?!images/|css/|js/|assets/|api/|data/).*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
@@ -62,6 +62,13 @@
       "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "Content-Type", "value": "application/json" }
       ]
     }
   ]
