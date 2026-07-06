@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "vercel dev",
-    "build": "vercel build",
+    "build": "vercel build && node scripts/baidu-push.js && node scripts/indexnow.js",
     "preview": "python -m http.server 5000 --directory .",
     "preview:alt": "npx serve .",
     "deploy": "vercel"
