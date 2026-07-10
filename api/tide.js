@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   
   // 心知天气 API Key（免费版）
   // 注册地址：https://www.seniverse.com/products?iid=new
-  const SENIVERSE_KEY = process.env.SENIVERSE_API_KEY || '';
+  const SENIVERSE_KEY = process.env.SENIVERSE_API_KEY || 'teey6tlkdrisczuf';
   
   try {
     let tideData;
