@@ -88,6 +88,10 @@
 
   <!-- 潮汐数据 -->
   <div id="tideResult" style="display:none;">
+    <!-- 数据来源 -->
+    <div class="tide-card" style="padding:12px 20px;background:#f0f9ff;">
+      <span id="dataSource" style="font-size:13px;color:#64748b;">数据来源：加载中...</span>
+    </div>
     <!-- 高低潮 -->
     <div class="tide-card">
       <div class="tide-title">📊 今日潮汐</div>
@@ -144,6 +148,9 @@ async function queryTide() {
     
     if (data.success) {
       displayTideData(data);
+      // 显示数据来源
+      const sourceText = data.source === 'seniverse' ? '心知天气实时数据' : '天文算法估算数据';
+      document.getElementById('dataSource').textContent = `数据来源：${sourceText}`;
     }
   } catch (error) {
     // 如果 API 调用失败，使用本地估算
@@ -154,6 +161,7 @@ async function queryTide() {
       data: estimatedData,
       estimated: true
     });
+    document.getElementById('dataSource').textContent = '数据来源：本地估算';
   }
 }
 

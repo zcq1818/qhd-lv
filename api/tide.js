@@ -1,5 +1,5 @@
 // api/tide.js - 潮汐查询 API（Vercel Serverless Function）
-// 数据来源：公开潮汐表网站
+// 数据来源：心知天气 API（免费版）+ 天文算法估算
 
 export default async function handler(req, res) {
   // 设置 CORS
@@ -8,30 +8,43 @@ export default async function handler(req, res) {
   
   const { date, location } = req.query;
   
-  // 默认秦皇岛北戴河坐标
+  // 地点配置
   const locations = {
-    'beidaihe': { lat: 39.83, lon: 119.52, name: '北戴河' },
-    'qinhuangdao': { lat: 39.93, lon: 119.60, name: '秦皇岛' },
-    'shankhaiguan': { lat: 40.01, lon: 119.75, name: '山海关' },
-    'nandaihe': { lat: 39.77, lon: 119.43, name: '南戴河' },
-    'huangjin': { lat: 39.70, lon: 119.35, name: '黄金海岸' }
+    'beidaihe': { lat: 39.83, lon: 119.52, name: '北戴河', seniverse: 'beidaihe' },
+    'qinhuangdao': { lat: 39.93, lon: 119.60, name: '秦皇岛', seniverse: 'qinhuangdao' },
+    'shankhaiguan': { lat: 40.01, lon: 119.75, name: '山海关', seniverse: 'shanhaiguan' },
+    'nandaihe': { lat: 39.77, lon: 119.43, name: '南戴河', seniverse: 'nandaihe' },
+    'huangjin': { lat: 39.70, lon: 119.35, name: '黄金海岸', seniverse: 'changli' }
   };
   
   const loc = locations[location] || locations['beidaihe'];
   const queryDate = date || new Date().toISOString().split('T')[0];
   
+  // 心知天气 API Key（免费版）
+  // 注册地址：https://www.seniverse.com/products?iid=new
+  const SENIVERSE_KEY = process.env.SENIVERSE_API_KEY || '';
+  
   try {
-    // 使用潮汐表精灵的数据
-    const tideData = await fetchTideData(loc, queryDate);
+    let tideData;
+    
+    // 优先使用心知天气 API
+    if (SENIVERSE_KEY) {
+      tideData = await fetchSeniverseTide(SENIVERSE_KEY, loc, queryDate);
+    } else {
+      // 降级为天文算法估算
+      tideData = estimateTide(queryDate, loc);
+      tideData.estimated = true;
+    }
     
     res.status(200).json({
       success: true,
       location: loc.name,
       date: queryDate,
-      data: tideData
+      data: tideData,
+      source: SENIVERSE_KEY ? 'seniverse' : 'estimated'
     });
   } catch (error) {
-    // 如果获取失败，返回基于天文算法的估算数据
+    // 降级为估算
     const estimatedData = estimateTide(queryDate, loc);
     
     res.status(200).json({
@@ -39,101 +52,69 @@ export default async function handler(req, res) {
       location: loc.name,
       date: queryDate,
       data: estimatedData,
-      estimated: true
+      estimated: true,
+      source: 'estimated',
+      error: error.message
     });
   }
 }
 
-// 从公开潮汐表获取数据
-async function fetchTideData(loc, date) {
-  // 尝试从潮汐表精灵获取数据
-  const url = `https://www.tidescn.com/Tides/1337.html`;
+// 心知天气 API 获取潮汐数据
+async function fetchSeniverseTide(apiKey, loc, date) {
+  // 使用心知天气逐小时潮汐接口
+  const url = `https://api.seniverse.com/v3/tide/hourly.json?key=${apiKey}&location=${loc.seniverse}&date=${date}`;
   
   const response = await fetch(url, {
     headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+      'User-Agent': 'QHD-LV-Tide/1.0'
     }
   });
   
-  if (!response.ok) throw new Error('Failed to fetch');
-  
-  const html = await response.text();
-  
-  // 解析潮汐数据
-  const tideRegex = /(\d{2}:\d{2})\s*(满潮|干潮)\s*([\d.]+)米/g;
-  const tides = [];
-  let match;
-  
-  while ((match = tideRegex.exec(html)) !== null) {
-    tides.push({
-      time: match[1],
-      type: match[2] === '满潮' ? 'high' : 'low',
-      height: parseFloat(match[3])
-    });
+  if (!response.ok) {
+    throw new Error(`Seniverse API error: ${response.status}`);
   }
   
-  if (tides.length === 0) throw new Error('No data parsed');
+  const data = await response.json();
   
-  return {
-    tides: tides,
-    source: 'tidescn.com'
-  };
-}
-
-// 基于天文算法估算潮汐（备用方案）
-function estimateTide(dateStr, loc) {
-  const date = new Date(dateStr);
-  const dayOfYear = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-  
-  // 秦皇岛潮汐特征：一天两次高潮两次低潮
-  // 平均潮差约1.5米，大潮时可达2米以上
-  
-  // 基于月相估算潮汐时间（简化算法）
-  const lunarPhase = (dayOfYear % 29.5) / 29.5; // 月相周期
-  
-  // 高潮时间偏移（大潮时高潮更高）
-  const springFactor = Math.cos(lunarPhase * Math.PI * 2); // 大潮小潮系数
-  
-  // 估算潮高
-  const baseHeight = 1.2; // 平均潮高（米）
-  const amplitude = 0.7 + springFactor * 0.3; // 潮差
-  
-  // 生成24小时逐时潮高
-  const hourly = [];
-  for (let h = 0; h < 24; h++) {
-    // 两个主潮波叠加
-    const height = baseHeight + 
-      amplitude * Math.sin((h / 12.42) * Math.PI * 2) * 0.5 +
-      amplitude * Math.sin((h / 12.42 - 0.5) * Math.PI * 2) * 0.3;
-    
-    hourly.push({
-      hour: h,
-      height: Math.round(height * 100) / 100
-    });
+  if (!data.results || data.results.length === 0) {
+    throw new Error('No tide data returned');
   }
   
-  // 找高低潮
-  const tides = [];
-  for (let i = 1; i < 23; i++) {
-    if (hourly[i].height > hourly[i-1].height && hourly[i].height > hourly[i+1].height) {
-      tides.push({
-        time: `${String(i).padStart(2, '0')}:00`,
-        type: 'high',
-        height: hourly[i].height
-      });
-    }
-    if (hourly[i].height < hourly[i-1].height && hourly[i].height < hourly[i+1].height) {
-      tides.push({
-        time: `${String(i).padStart(2, '0')}:00`,
-        type: 'low',
-        height: hourly[i].height
-      });
-    }
+  // 解析心知天气返回的数据
+  const result = data.results[0];
+  const ports = result.ports || [];
+  
+  if (ports.length === 0) {
+    throw new Error('No port data found');
   }
+  
+  // 取第一个港口的数据
+  const port = ports[0];
+  const portData = port.data && port.data[0];
+  
+  if (!portData) {
+    throw new Error('No tide data for this date');
+  }
+  
+  // 解析逐小时潮高
+  const hourly = portData.tide.map((height, hour) => ({
+    hour: hour,
+    height: parseFloat(height) / 100 // 厘米转米
+  }));
+  
+  // 解析高低潮
+  const tides = (portData.range || []).map(item => {
+    const time = new Date(item.time);
+    return {
+      time: `${String(time.getHours()).padStart(2, '0')}:${String(time.getMinutes()).padStart(2, '0')}`,
+      type: item.type === 'high' ? 'high' : 'low',
+      height: parseFloat(item.height) / 100 // 厘米转米
+    };
+  });
   
   // 计算赶海建议时间
   const lowTides = tides.filter(t => t.type === 'low');
-  const bestGanhaiTime = lowTides.map(t => {
+  const ganhai = lowTides.map(t => {
     const hour = parseInt(t.time.split(':')[0]);
     return {
       start: `${String(Math.max(0, hour - 2)).padStart(2, '0')}:00`,
@@ -145,7 +126,48 @@ function estimateTide(dateStr, loc) {
   return {
     tides: tides,
     hourly: hourly,
-    ganhai: bestGanhaiTime,
-    estimated: true
+    ganhai: ganhai,
+    port: port.port.name
   };
+}
+
+// 基于天文算法估算潮汐（备用方案）
+function estimateTide(dateStr, loc) {
+  const date = new Date(dateStr);
+  const dayOfYear = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+  const lunarPhase = (dayOfYear % 29.5) / 29.5;
+  const springFactor = Math.cos(lunarPhase * Math.PI * 2);
+  
+  const baseHeight = 1.2;
+  const amplitude = 0.7 + springFactor * 0.3;
+  
+  const hourly = [];
+  for (let h = 0; h < 24; h++) {
+    const height = baseHeight + 
+      amplitude * Math.sin((h / 12.42) * Math.PI * 2) * 0.5 +
+      amplitude * Math.sin((h / 12.42 - 0.5) * Math.PI * 2) * 0.3;
+    hourly.push({ hour: h, height: Math.round(height * 100) / 100 });
+  }
+  
+  const tides = [];
+  for (let i = 1; i < 23; i++) {
+    if (hourly[i].height > hourly[i-1].height && hourly[i].height > hourly[i+1].height) {
+      tides.push({ time: `${String(i).padStart(2, '0')}:00`, type: 'high', height: hourly[i].height });
+    }
+    if (hourly[i].height < hourly[i-1].height && hourly[i].height < hourly[i+1].height) {
+      tides.push({ time: `${String(i).padStart(2, '0')}:00`, type: 'low', height: hourly[i].height });
+    }
+  }
+  
+  const lowTides = tides.filter(t => t.type === 'low');
+  const ganhai = lowTides.map(t => {
+    const hour = parseInt(t.time.split(':')[0]);
+    return {
+      start: `${String(Math.max(0, hour - 2)).padStart(2, '0')}:00`,
+      end: `${String(Math.min(23, hour + 2)).padStart(2, '0')}:00`,
+      lowTideTime: t.time
+    };
+  });
+  
+  return { tides, hourly, ganhai };
 }
