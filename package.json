@@ -6,7 +6,13 @@
   "private": true,
   "scripts": {
     "dev": "vercel dev",
-    "build": "vercel build && node scripts/baidu-push.js && node scripts/indexnow.js",
+    "build": "node scripts/build.js minify-css && node scripts/build.js minify-js && node scripts/use-minified.js && vercel build && node scripts/baidu-push.js && node scripts/indexnow.js",
+    "build:css": "node scripts/build.js minify-css",
+    "build:js": "node scripts/build.js minify-js",
+    "build:apply": "node scripts/use-minified.js",
+    "seo:fix": "node scripts/build.js fix-seo",
+    "optimize": "node scripts/build.js minify-css && node scripts/build.js minify-js && node scripts/use-minified.js && node scripts/build.js fix-seo",
+    "report": "node scripts/build.js report",
     "preview": "python -m http.server 5000 --directory .",
     "preview:alt": "npx serve .",
     "deploy": "vercel"

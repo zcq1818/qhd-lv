@@ -46,71 +46,11 @@
 }
 </script>
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../css/search.css">
-<link rel="stylesheet" href="../css/share.css">
-<!-- <link rel="stylesheet" href="../css/user-features.css"> -->
-<style>
-  .article-wrap { max-width: 800px; margin: 0 auto; padding: 0 var(--s6) var(--s12); }
-  .article-header { padding: var(--s6) 0 var(--s6); border-bottom: 1px solid var(--border-light); margin-bottom: var(--s8); }
-  .article-header h1 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 800; line-height: 1.35; margin: var(--s3) 0 var(--s4); letter-spacing: -0.01em; color: var(--text); }
-  .article-meta { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s3); font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--s4); }
-  .article-meta svg { width: 16px; height: 16px; }
-  .article-meta .sep { opacity: 0.4; }
-  .article-tags { display: flex; flex-wrap: wrap; gap: var(--s2); }
-  .article-tags span { font-size: var(--text-xs); color: var(--brand); background: rgba(26,115,232,0.06); padding: 4px var(--s3); border-radius: var(--radius-full); font-weight: 600; }
-  .article-cover { width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: var(--s8); box-shadow: var(--shadow-md); }
-  .article-body { font-size: 1.02rem; line-height: 1.95; color: var(--gray-800); }
-  .article-body h2 { font-size: var(--text-2xl); font-weight: 800; margin: var(--s10) 0 var(--s4); color: var(--text); letter-spacing: -0.01em; }
-  .article-body h3 { font-size: var(--text-xl); font-weight: 700; margin: var(--s6) 0 var(--s3); color: var(--text); }
-  .article-body p { margin-bottom: var(--s4); }
-  .article-body strong { color: var(--brand-dark); font-weight: 700; }
-  .article-body ul, .article-body ol { margin: 0 0 var(--s4) var(--s6); }
-  .article-body li { margin-bottom: var(--s2); line-height: 1.9; }
-  .article-body blockquote { border-left: 4px solid var(--brand); background: rgba(26,115,232,0.04); padding: var(--s4) var(--s5); border-radius: 0 var(--radius) var(--radius) 0; margin: var(--s6) 0; color: var(--text-secondary); }
-
-  .kid-card {
-    background: var(--gray-50); border: 1px solid var(--border-light); border-radius: var(--radius-lg);
-    padding: var(--s5); margin-bottom: var(--s4);
-  }
-  .kid-card h4 { font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--s2); color: var(--text); }
-  .kid-card p { font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--s2); line-height: 1.75; }
-  .kid-card .kid-meta {
-    display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s3);
-    font-size: var(--text-xs); color: var(--text-muted);
-  }
-  .kid-card .kid-meta span {
-    background: #fff; border: 1px solid var(--border); padding: 2px var(--s3); border-radius: var(--radius-full);
-  }
-
-  .schedule-box {
-    background: linear-gradient(135deg, rgba(26,115,232,0.04), rgba(52,168,83,0.04));
-    border: 1px solid var(--border-light); border-radius: var(--radius-lg);
-    padding: var(--s5); margin: var(--s5) 0;
-  }
-  .schedule-box h4 { font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--s3); color: var(--brand-dark); }
-  .schedule-box .day-item {
-    padding: var(--s3) 0; border-bottom: 1px dashed var(--border);
-  }
-  .schedule-box .day-item:last-child { border-bottom: none; }
-  .schedule-box .day-title { font-weight: 700; color: var(--text); margin-bottom: var(--s2); }
-  .schedule-box .day-content { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.75; }
-
-  .article-share { background: var(--gray-50); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: var(--s6); text-align: center; margin: var(--s10) 0 var(--s6); }
-  .article-share p { font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--s4); }
-  .article-share-buttons { display: flex; gap: var(--s2); justify-content: center; flex-wrap: wrap; }
-  .share-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px var(--s5); border-radius: var(--radius-full); border: 1px solid var(--border); background: #fff; font-size: var(--text-sm); font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: all var(--dur) var(--ease-out); font-family: inherit; }
-  .share-pill:hover { border-color: var(--brand); color: var(--brand); background: rgba(26,115,232,0.04); }
-  .share-pill svg { width: 16px; height: 16px; }
-
-  .article-footer { padding-top: var(--s6); border-top: 1px solid var(--border-light); text-align: center; font-size: var(--text-sm); color: var(--text-muted); }
-  .article-footer .article-author { font-weight: 700; color: var(--text-secondary); margin-bottom: var(--s1); }
-  .article-back { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--s4); font-weight: 600; color: var(--brand); }
-
-  @media (max-width: 768px) {
-    .article-body { font-size: 1rem; line-height: 1.85; }
-  }
-</style>
+<link rel="stylesheet" href="../style.min.css">
+<link rel="stylesheet" href="../css/search.min.css">
+<link rel="stylesheet" href="../css/share.min.css">
+<!-- <link rel="stylesheet" href="../css/user-features.min.css"> -->
+<link rel="stylesheet" href="../css/blog-article.min.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -492,9 +432,9 @@ document.querySelector('.article-share-buttons').addEventListener('click', funct
   if (target) target.click();
 });
 </script>
-<script src="../js/search.js" defer></script>
-<script src="../js/share.js" defer></script>
-<!-- <script src="../js/user-features.js" defer></script> -->
+<script src="../js/search.min.js" defer></script>
+<script src="../js/share.min.js" defer></script>
+<!-- <script src="../js/user-features.min.js" defer></script> -->
 <script>
 window.addEventListener('scroll', function () {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
