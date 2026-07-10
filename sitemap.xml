@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.divdu.com/</loc><priority>1.0</priority><changefreq>daily</changefreq></url>
   <url><loc>https://www.divdu.com/attractions</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.divdu.com/must-play</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.divdu.com/family-travel</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.divdu.com/accommodation</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.divdu.com/summer</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.divdu.com/escape-heat</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.divdu.com/ganhai</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/map</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/itinerary</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/food</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
