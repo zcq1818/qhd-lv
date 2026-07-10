@@ -8,6 +8,7 @@
   <url><loc>https://www.divdu.com/summer</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/escape-heat</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/ganhai</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.divdu.com/weather</loc><priority>0.8</priority><changefreq>daily</changefreq></url>
   <url><loc>https://www.divdu.com/tide</loc><priority>0.8</priority><changefreq>daily</changefreq></url>
   <url><loc>https://www.divdu.com/pitfall-guide</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/blog/qhd-real-pitfalls</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>

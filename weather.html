@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秦皇岛天气查询 | 实时天气·穿衣建议 — 秦皇岛旅游官网</title>
+<meta name="description" content="秦皇岛实时天气查询：北戴河、山海关、南戴河实时天气、3天预报、穿衣建议、紫外线指数，出行前必看。">
+<meta name="keywords" content="秦皇岛天气,北戴河天气,秦皇岛天气预报,北戴河天气预报,秦皇岛穿衣,秦皇岛紫外线">
+<meta name="author" content="秦皇岛旅游官网">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.divdu.com/weather">
+<meta property="og:title" content="秦皇岛天气查询 | 实时天气·穿衣建议">
+<meta property="og:description" content="秦皇岛实时天气查询：北戴河、山海关、南戴河实时天气、3天预报、穿衣建议。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.divdu.com/weather">
+<meta property="og:image" content="https://www.divdu.com/images/qhd-panorama.webp">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="style.min.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QNGJC2KRK0"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QNGJC2KRK0');</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+.weather-container{max-width:1000px;margin:0 auto;padding:20px}
+.weather-card{background:#fff;border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.weather-select{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.weather-select select{padding:10px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:15px}
+.weather-select button{padding:10px 24px;background:#0ea5e9;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer}
+.weather-now{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:20px}
+.weather-now-left{text-align:center}
+.weather-now-temp{font-size:72px;font-weight:900;color:#0f172a;line-height:1}
+.weather-now-text{font-size:24px;color:#64748b;margin-top:8px}
+.weather-now-detail{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.weather-detail-item{padding:12px;background:#f8fafc;border-radius:8px;text-align:center}
+.weather-detail-label{font-size:12px;color:#94a3b8;margin-bottom:4px}
+.weather-detail-value{font-size:16px;font-weight:700;color:#0f172a}
+.weather-daily{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.weather-daily-item{text-align:center;padding:20px;background:#f8fafc;border-radius:12px}
+.weather-daily-date{font-size:14px;color:#64748b;margin-bottom:8px}
+.weather-daily-icon{font-size:32px;margin-bottom:8px}
+.weather-daily-temp{font-size:16px;font-weight:700}
+.weather-daily-temp span{color:#dc2626}
+.weather-daily-temp strong{color:#0ea5e9}
+.weather-life{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.weather-life-item{padding:16px;background:#f0f9ff;border-radius:12px;text-align:center}
+.weather-life-icon{font-size:24px;margin-bottom:8px}
+.weather-life-title{font-size:14px;font-weight:700;margin-bottom:4px}
+.weather-life-value{font-size:13px;color:#64748b}
+@media(max-width:768px){.weather-now{grid-template-columns:1fr}.weather-daily{grid-template-columns:1fr}.weather-life{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">秦皇岛旅游官网</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">首页</a></li>
+      <li><a href="attractions">景点</a></li>
+      <li><a href="map">地图</a></li>
+      <li><a href="itinerary">行程规划</a></li>
+      <li><a href="food">美食</a></li>
+      <li><a href="guide">旅游攻略</a></li>
+      <li><a href="blog">博客</a></li>
+      <li><a href="about">关于我们</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div style="background:linear-gradient(135deg,#0c4a6e,#0369a1);padding:60px 20px 40px;text-align:center;color:#fff;margin-top:60px;">
+  <h1 style="font-size:36px;font-weight:900;margin-bottom:12px;">秦皇岛天气查询</h1>
+  <p style="font-size:18px;opacity:0.9;">实时天气 · 3天预报 · 穿衣建议</p>
+</div>
+
+<div class="weather-container" style="margin-top:-20px;">
+  <!-- 查询表单 -->
+  <div class="weather-card">
+    <div class="weather-select">
+      <select id="location">
+        <option value="beidaihe">北戴河</option>
+        <option value="qinhuangdao">秦皇岛</option>
+        <option value="shankhaiguan">山海关</option>
+        <option value="nandaihe">南戴河</option>
+        <option value="huangjin">黄金海岸</option>
+      </select>
+      <button onclick="queryWeather()">查询天气</button>
+    </div>
+  </div>
+
+  <!-- 天气数据 -->
+  <div id="weatherResult" style="display:none;">
+    <!-- 实时天气 -->
+    <div class="weather-card">
+      <div style="font-size:18px;font-weight:700;margin-bottom:16px;">🌤️ 实时天气</div>
+      <div class="weather-now">
+        <div class="weather-now-left">
+          <div id="weatherIcon" style="font-size:64px;margin-bottom:8px;">☀️</div>
+          <div class="weather-now-temp" id="nowTemp">--°</div>
+          <div class="weather-now-text" id="nowText">--</div>
+          <div style="font-size:13px;color:#94a3b8;margin-top:8px;" id="nowUpdate">更新时间：--</div>
+        </div>
+        <div class="weather-now-detail">
+          <div class="weather-detail-item">
+            <div class="weather-detail-label">体感温度</div>
+            <div class="weather-detail-value" id="nowFeels">--°</div>
+          </div>
+          <div class="weather-detail-item">
+            <div class="weather-detail-label">湿度</div>
+            <div class="weather-detail-value" id="nowHumidity">--%</div>
+          </div>
+          <div class="weather-detail-item">
+            <div class="weather-detail-label">风向</div>
+            <div class="weather-detail-value" id="nowWind">--</div>
+          </div>
+          <div class="weather-detail-item">
+            <div class="weather-detail-label">能见度</div>
+            <div class="weather-detail-value" id="nowVisibility">--km</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3天预报 -->
+    <div class="weather-card">
+      <div style="font-size:18px;font-weight:700;margin-bottom:16px;">📅 3天预报</div>
+      <div class="weather-daily" id="dailyGrid"></div>
+    </div>
+
+    <!-- 生活指数 -->
+    <div class="weather-card">
+      <div style="font-size:18px;font-weight:700;margin-bottom:16px;">🎯 生活指数</div>
+      <div class="weather-life" id="lifeGrid"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>秦皇岛旅游官网</h3></div>
+      <div class="footer-col"><h4>热门页面</h4><a href="/">首页</a><a href="/weather">天气查询</a><a href="/tide">潮汐查询</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 秦皇岛旅游官网</span></div>
+  </div>
+</footer>
+
+<script>
+// 天气图标映射
+const weatherIcons = {
+  '0': '☀️', '1': '🌤️', '2': '⛅', '3': '☁️',
+  '4': '🌧️', '5': '🌦️', '6': '🌨️', '7': '❄️',
+  '8': '🌫️', '9': '🌪️', '10': '🌈', '11': '⛈️',
+  '12': '🌨️', '13': '🌧️', '14': '🌨️', '15': '🌫️',
+  '16': '☁️', '17': '⛅', '18': '🌧️', '19': '🌨️',
+  '20': '🌫️', '21': '🌧️', '22': '🌨️', '23': '🌫️',
+  '24': '🌨️', '25': '🌨️', '26': '🌧️', '27': '🌧️',
+  '28': '🌧️', '29': '🌨️', '30': '🌫️', '31': '🌫️',
+  '32': '💨', '33': '💨', '34': '💨', '35': '💨',
+  '36': '🌨️', '37': '🌨️', '38': '🌨️', '39': '🌨️',
+  '40': '🌫️', '41': '🌫️', '42': '🌫️', '43': '🌫️',
+  '44': '🌫️', '45': '🌫️', '46': '🌫️', '47': '🌫️',
+  '48': '🌫️', '49': '🌫️', '50': '🌫️', '51': '🌫️',
+  '52': '🌫️', '53': '🌫️', '54': '🌫️', '55': '🌫️',
+  '56': '🌫️', '57': '🌫️', '58': '🌫️', '59': '🌫️',
+  '60': '🌧️', '61': '🌧️', '62': '🌧️', '63': '🌧️',
+  '64': '🌧️', '65': '🌧️', '66': '🌨️', '67': '🌨️',
+  '68': '🌨️', '69': '🌨️', '70': '🌨️', '71': '🌨️',
+  '72': '🌨️', '73': '🌨️', '74': '🌨️', '75': '🌨️',
+  '76': '🌨️', '77': '🌨️', '78': '🌨️', '79': '🌨️',
+  '80': '🌧️', '81': '🌧️', '82': '🌧️', '83': '🌧️',
+  '84': '🌧️', '85': '🌨️', '86': '🌨️', '87': '🌨️',
+  '88': '🌨️', '89': '🌨️', '90': '⛈️', '91': '⛈️',
+  '92': '⛈️', '93': '⛈️', '94': '⛈️', '95': '⛈️',
+  '96': '⛈️', '97': '⛈️', '98': '⛈️', '99': '⛈️'
+};
+
+// 查询天气
+async function queryWeather() {
+  const location = document.getElementById('location').value;
+  
+  try {
+    const response = await fetch(`/api/weather?location=${location}`);
+    const data = await response.json();
+    
+    if (data.success) {
+      displayWeather(data);
+    } else {
+      alert('获取天气数据失败：' + (data.error || '未知错误'));
+    }
+  } catch (error) {
+    alert('网络错误，请稍后重试');
+  }
+}
+
+// 显示天气数据
+function displayWeather(data) {
+  document.getElementById('weatherResult').style.display = 'block';
+  
+  // 实时天气
+  const icon = weatherIcons[data.now.code] || '🌤️';
+  document.getElementById('weatherIcon').textContent = icon;
+  document.getElementById('nowTemp').textContent = `${data.now.temperature}°`;
+  document.getElementById('nowText').textContent = data.now.text;
+  document.getElementById('nowFeels').textContent = `${data.now.feelsLike || '--'}°`;
+  document.getElementById('nowHumidity').textContent = `${data.now.humidity || '--'}%`;
+  document.getElementById('nowWind').textContent = data.now.windDirection || '--';
+  document.getElementById('nowVisibility').textContent = `${data.now.visibility || '--'}km`;
+  document.getElementById('nowUpdate').textContent = `更新时间：${new Date(data.lastUpdate).toLocaleString('zh-CN')}`;
+  
+  // 3天预报
+  const dailyGrid = document.getElementById('dailyGrid');
+  dailyGrid.innerHTML = data.daily.map(d => {
+    const dayIcon = weatherIcons[d.textDay === '晴' ? '0' : d.textDay === '多云' ? '2' : '4'] || '🌤️';
+    return `
+      <div class="weather-daily-item">
+        <div class="weather-daily-date">${formatDate(d.date)}</div>
+        <div class="weather-daily-icon">${dayIcon}</div>
+        <div style="font-size:14px;margin-bottom:4px;">${d.textDay}转${d.textNight}</div>
+        <div class="weather-daily-temp">
+          <span>${d.high}°</span> / <strong>${d.low}°</strong>
+        </div>
+      </div>
+    `;
+  }).join('');
+  
+  // 生活指数
+  const lifeGrid = document.getElementById('lifeGrid');
+  const lifeItems = [
+    { icon: '☀️', title: '紫外线', value: data.life.uv?.brief || '--' },
+    { icon: '👔', title: '穿衣', value: data.life.dressing?.brief || '--' },
+    { icon: '😊', title: '舒适度', value: data.life.comfort?.brief || '--' },
+    { icon: '🏃', title: '运动', value: data.life.sport?.brief || '--' },
+    { icon: '✈️', title: '旅游', value: data.life.travel?.brief || '--' },
+    { icon: '🤧', title: '感冒', value: data.life.flu?.brief || '--' }
+  ];
+  
+  lifeGrid.innerHTML = lifeItems.map(item => `
+    <div class="weather-life-item">
+      <div class="weather-life-icon">${item.icon}</div>
+      <div class="weather-life-title">${item.title}</div>
+      <div class="weather-life-value">${item.value}</div>
+    </div>
+  `).join('');
+}
+
+// 格式化日期
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  
+  if (date.toDateString() === today.toDateString()) return '今天';
+  if (date.toDateString() === tomorrow.toDateString()) return '明天';
+  
+  const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+  return `${weekdays[date.getDay()]} ${date.getMonth() + 1}/${date.getDate()}`;
+}
+
+// 页面加载时自动查询
+window.addEventListener('load', queryWeather);
+</script>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)});
+document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
+</script>
+</body>
+</html>
