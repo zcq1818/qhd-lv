@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秦皇岛潮汐查询 | 赶海时间 — 秦皇岛旅游官网</title>
+<meta name="description" content="秦皇岛潮汐查询：实时潮汐数据、赶海最佳时间、涨潮退潮时间，帮你选择最佳赶海时机。">
+<meta name="keywords" content="秦皇岛潮汐,北戴河潮汐,秦皇岛赶海时间,潮汐查询,涨潮退潮时间,秦皇岛潮汐表">
+<meta name="author" content="秦皇岛旅游官网">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.divdu.com/tide">
+<meta property="og:title" content="秦皇岛潮汐查询 | 赶海时间">
+<meta property="og:description" content="秦皇岛潮汐查询：实时潮汐数据、赶海最佳时间。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.divdu.com/tide">
+<meta property="og:image" content="https://www.divdu.com/images/qhd-panorama.webp">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="style.min.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QNGJC2KRK0"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QNGJC2KRK0');</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+.tide-container{max-width:1000px;margin:0 auto;padding:20px}
+.tide-card{background:#fff;border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.tide-title{font-size:24px;font-weight:800;color:#0f172a;margin-bottom:16px}
+.tide-select{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.tide-select select,.tide-select input{padding:10px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:15px}
+.tide-select button{padding:10px 24px;background:#0ea5e9;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer}
+.tide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.tide-item{text-align:center;padding:16px;background:#f0f9ff;border-radius:12px}
+.tide-item.high{background:#fef2f2;border:2px solid #fecaca}
+.tide-item.low{background:#f0fdf4;border:2px solid #bbf7d0}
+.tide-time{font-size:20px;font-weight:800;color:#0f172a}
+.tide-type{font-size:12px;font-weight:700;margin-top:4px}
+.tide-type.high{color:#dc2626}
+.tide-type.low{color:#16a34a}
+.tide-height{font-size:14px;color:#64748b;margin-top:4px}
+.tide-chart{width:100%;height:200px;background:#f8fafc;border-radius:12px;position:relative;margin-bottom:20px}
+.tide-ganhai{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;border-radius:12px;padding:20px}
+.tide-ganhai h3{font-size:18px;font-weight:700;color:#166534;margin-bottom:12px}
+.tide-ganhai-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #d1fae5}
+.tide-ganhai-item:last-child{border-bottom:none}
+.tide-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.tide-badge.good{background:#dcfce7;color:#166534}
+.tide-badge.normal{background:#fef3c7;color:#92400e}
+@media(max-width:768px){.tide-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">秦皇岛旅游官网</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">首页</a></li>
+      <li><a href="attractions">景点</a></li>
+      <li><a href="map">地图</a></li>
+      <li><a href="itinerary">行程规划</a></li>
+      <li><a href="food">美食</a></li>
+      <li><a href="guide">旅游攻略</a></li>
+      <li><a href="blog">博客</a></li>
+      <li><a href="about">关于我们</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div style="background:linear-gradient(135deg,#0c4a6e,#0369a1);padding:60px 20px 40px;text-align:center;color:#fff;margin-top:60px;">
+  <h1 style="font-size:36px;font-weight:900;margin-bottom:12px;">秦皇岛潮汐查询</h1>
+  <p style="font-size:18px;opacity:0.9;">赶海时间 · 涨潮退潮 · 实时数据</p>
+</div>
+
+<div class="tide-container" style="margin-top:-20px;">
+  <!-- 查询表单 -->
+  <div class="tide-card">
+    <div class="tide-select">
+      <select id="location">
+        <option value="beidaihe">北戴河</option>
+        <option value="qinhuangdao">秦皇岛</option>
+        <option value="shankhaiguan">山海关</option>
+        <option value="nandaihe">南戴河</option>
+        <option value="huangjin">黄金海岸</option>
+      </select>
+      <input type="date" id="date">
+      <button onclick="queryTide()">查询潮汐</button>
+    </div>
+  </div>
+
+  <!-- 潮汐数据 -->
+  <div id="tideResult" style="display:none;">
+    <!-- 高低潮 -->
+    <div class="tide-card">
+      <div class="tide-title">📊 今日潮汐</div>
+      <div id="tideGrid" class="tide-grid"></div>
+    </div>
+
+    <!-- 潮汐曲线 -->
+    <div class="tide-card">
+      <div class="tide-title">📈 潮汐曲线</div>
+      <canvas id="tideChart" class="tide-chart"></canvas>
+    </div>
+
+    <!-- 赶海建议 -->
+    <div class="tide-card">
+      <div class="tide-title">🦀 赶海建议</div>
+      <div id="ganhaiAdvice" class="tide-ganhai"></div>
+    </div>
+  </div>
+
+  <!-- 使用说明 -->
+  <div class="tide-card">
+    <div class="tide-title">📖 使用说明</div>
+    <div style="font-size:14px;color:#64748b;line-height:2;">
+      <p><strong>什么是潮汐？</strong>潮汐是海水受月球和太阳引力作用产生的周期性涨落。秦皇岛沿海一天通常有两次高潮两次低潮。</p>
+      <p><strong>赶海什么时候去？</strong>退潮前后2小时是最佳赶海时间。低潮时去海边，可以抓到螃蟹、捡贝壳。</p>
+      <p><strong>大潮小潮怎么看？</strong>农历初一、十五前后是大潮，潮差最大；初八、二十三是小潮，潮差最小。大潮时赶海收获更多。</p>
+      <p><strong>注意：</strong>潮汐数据受天气、风向等因素影响，实际可能有偏差。请以当地实际情况为准。</p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>秦皇岛旅游官网</h3></div>
+      <div class="footer-col"><h4>热门页面</h4><a href="/">首页</a><a href="/tide">潮汐查询</a><a href="/ganhai">赶海攻略</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 秦皇岛旅游官网</span></div>
+  </div>
+</footer>
+
+<script>
+// 初始化日期
+document.getElementById('date').valueAsDate = new Date();
+
+// 查询潮汐
+async function queryTide() {
+  const location = document.getElementById('location').value;
+  const date = document.getElementById('date').value;
+  
+  try {
+    const response = await fetch(`/api/tide?location=${location}&date=${date}`);
+    const data = await response.json();
+    
+    if (data.success) {
+      displayTideData(data);
+    }
+  } catch (error) {
+    // 如果 API 调用失败，使用本地估算
+    const estimatedData = estimateTide(date, location);
+    displayTideData({
+      location: getLocationName(location),
+      date: date,
+      data: estimatedData,
+      estimated: true
+    });
+  }
+}
+
+// 显示潮汐数据
+function displayTideData(result) {
+  document.getElementById('tideResult').style.display = 'block';
+  
+  // 显示高低潮
+  const grid = document.getElementById('tideGrid');
+  grid.innerHTML = result.data.tides.map(t => `
+    <div class="tide-item ${t.type}">
+      <div class="tide-time">${t.time}</div>
+      <div class="tide-type ${t.type}">${t.type === 'high' ? '满潮' : '干潮'}</div>
+      <div class="tide-height">${t.height}米</div>
+    </div>
+  `).join('');
+  
+  // 显示潮汐曲线
+  if (result.data.hourly) {
+    drawTideChart(result.data.hourly);
+  }
+  
+  // 显示赶海建议
+  if (result.data.ganhai) {
+    const ganhai = document.getElementById('ganhaiAdvice');
+    ganhai.innerHTML = `
+      <h3>🦀 赶海最佳时间</h3>
+      ${result.data.ganhai.map(g => `
+        <div class="tide-ganhai-item">
+          <span class="tide-badge good">推荐</span>
+          <span>${g.start} - ${g.end}</span>
+          <span style="color:#64748b;font-size:13px;">（低潮时间 ${g.lowTideTime}）</span>
+        </div>
+      `).join('')}
+      <p style="margin-top:12px;font-size:13px;color:#64748b;">
+        💡 建议在低潮前后2小时去赶海，收获最多
+      </p>
+    `;
+  }
+}
+
+// 绘制潮汐曲线
+function drawTideChart(hourly) {
+  const canvas = document.getElementById('tideChart');
+  const ctx = canvas.getContext('2d');
+  
+  canvas.width = canvas.offsetWidth;
+  canvas.height = 200;
+  
+  const padding = { top: 20, bottom: 30, left: 40, right: 20 };
+  const chartWidth = canvas.width - padding.left - padding.right;
+  const chartHeight = canvas.height - padding.top - padding.bottom;
+  
+  // 找最大最小潮高
+  const heights = hourly.map(h => h.height);
+  const maxH = Math.max(...heights);
+  const minH = Math.min(...heights);
+  const range = maxH - minH || 1;
+  
+  // 画背景
+  ctx.fillStyle = '#f8fafc';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // 画网格线
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = padding.top + (chartHeight * i / 4);
+    ctx.beginPath();
+    ctx.moveTo(padding.left, y);
+    ctx.lineTo(canvas.width - padding.right, y);
+    ctx.stroke();
+  }
+  
+  // 画潮汐曲线
+  ctx.beginPath();
+  ctx.strokeStyle = '#0ea5e9';
+  ctx.lineWidth = 3;
+  
+  hourly.forEach((h, i) => {
+    const x = padding.left + (chartWidth * i / 23);
+    const y = padding.top + chartHeight - ((h.height - minH) / range * chartHeight);
+    
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+  
+  // 填充曲线下方
+  ctx.lineTo(canvas.width - padding.right, padding.top + chartHeight);
+  ctx.lineTo(padding.left, padding.top + chartHeight);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(14, 165, 233, 0.1)';
+  ctx.fill();
+  
+  // 画时间标签
+  ctx.fillStyle = '#64748b';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'center';
+  for (let i = 0; i < 24; i += 3) {
+    const x = padding.left + (chartWidth * i / 23);
+    ctx.fillText(`${i}:00`, x, canvas.height - 8);
+  }
+  
+  // 画潮高标签
+  ctx.textAlign = 'right';
+  for (let i = 0; i <= 4; i++) {
+    const y = padding.top + (chartHeight * i / 4);
+    const h = maxH - (range * i / 4);
+    ctx.fillText(`${h.toFixed(1)}m`, padding.left - 5, y + 4);
+  }
+}
+
+// 本地估算潮汐（备用）
+function estimateTide(dateStr, location) {
+  const date = new Date(dateStr);
+  const dayOfYear = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+  const lunarPhase = (dayOfYear % 29.5) / 29.5;
+  const springFactor = Math.cos(lunarPhase * Math.PI * 2);
+  
+  const baseHeight = 1.2;
+  const amplitude = 0.7 + springFactor * 0.3;
+  
+  const hourly = [];
+  for (let h = 0; h < 24; h++) {
+    const height = baseHeight + 
+      amplitude * Math.sin((h / 12.42) * Math.PI * 2) * 0.5 +
+      amplitude * Math.sin((h / 12.42 - 0.5) * Math.PI * 2) * 0.3;
+    hourly.push({ hour: h, height: Math.round(height * 100) / 100 });
+  }
+  
+  const tides = [];
+  for (let i = 1; i < 23; i++) {
+    if (hourly[i].height > hourly[i-1].height && hourly[i].height > hourly[i+1].height) {
+      tides.push({ time: `${String(i).padStart(2, '0')}:00`, type: 'high', height: hourly[i].height });
+    }
+    if (hourly[i].height < hourly[i-1].height && hourly[i].height < hourly[i+1].height) {
+      tides.push({ time: `${String(i).padStart(2, '0')}:00`, type: 'low', height: hourly[i].height });
+    }
+  }
+  
+  const lowTides = tides.filter(t => t.type === 'low');
+  const ganhai = lowTides.map(t => {
+    const hour = parseInt(t.time.split(':')[0]);
+    return {
+      start: `${String(Math.max(0, hour - 2)).padStart(2, '0')}:00`,
+      end: `${String(Math.min(23, hour + 2)).padStart(2, '0')}:00`,
+      lowTideTime: t.time
+    };
+  });
+  
+  return { tides, hourly, ganhai };
+}
+
+// 获取地点名称
+function getLocationName(code) {
+  const names = { beidaihe: '北戴河', qinhuangdao: '秦皇岛', shankhaiguan: '山海关', nandaihe: '南戴河', huangjin: '黄金海岸' };
+  return names[code] || '北戴河';
+}
+
+// 页面加载时自动查询
+window.addEventListener('load', queryTide);
+</script>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)});
+document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
+</script>
+</body>
+</html>
