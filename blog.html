@@ -300,6 +300,10 @@
   }
   .blog-card-meta svg { width: 14px; height: 14px; }
   .blog-card-meta .sep { opacity: 0.4; }
+  .blog-view-count { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; color: var(--text-muted); }
+  .blog-view-count svg { opacity: 0.6; }
+  .blog-view-count [data-view-count] { font-weight: 600; color: var(--text-secondary); }
+  .blog-view-count [data-view-count="0"] { color: var(--text-muted); opacity: 0.5; }
 
   .blog-foot {
     max-width: var(--max-width); margin: 0 auto;
@@ -1788,5 +1792,27 @@ reveals.forEach(function (el) { o.observe(el); });
 </div>
 
 <script src="js/weather-widget.js" defer></script>
+<!-- 阅读量统计：动态给每张卡片添加slug和显示元素 -->
+<script>
+(function(){
+  var cards = document.querySelectorAll('.blog-card');
+  cards.forEach(function(card){
+    var href = card.getAttribute('href') || '';
+    var match = href.match(/blog\/([^"'\s]+)/);
+    if (match) {
+      var slug = match[1].replace(/\.html$/, '');
+      card.setAttribute('data-blog-slug', slug);
+      var meta = card.querySelector('.blog-card-meta');
+      if (meta) {
+        var viewEl = document.createElement('span');
+        viewEl.className = 'blog-view-count';
+        viewEl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span data-view-count>0</span> 次阅读';
+        meta.appendChild(viewEl);
+      }
+    }
+  });
+})();
+</script>
+<script src="js/view-counter.js" defer></script>
 </body>
 </html>
