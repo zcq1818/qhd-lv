@@ -16,21 +16,19 @@ const CORS = {
   'Content-Type': 'application/json; charset=utf-8',
 };
 
-// 自动检测可用的 Redis 服务（优先 Upstash，兼容 KV）
+// 自动检测可用的 Redis 服务（优先 Upstash，兼容 KV 和自定义前缀）
 function getRedisConfig() {
+  // 标准前缀 UPSTASH_REDIS_REST_*
   if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
-    return {
-      url: process.env.UPSTASH_REDIS_REST_URL,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN,
-      type: 'upstash',
-    };
+    return { url: process.env.UPSTASH_REDIS_REST_URL, token: process.env.UPSTASH_REDIS_REST_TOKEN };
   }
+  // 项目前缀 qhdlv_KV_REST_API_*（Vercel Storage 链接时自动生成）
+  if (process.env.qhdlv_KV_REST_API_URL && process.env.qhdlv_KV_REST_API_TOKEN) {
+    return { url: process.env.qhdlv_KV_REST_API_URL, token: process.env.qhdlv_KV_REST_API_TOKEN };
+  }
+  // 旧版 Vercel KV
   if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
-    return {
-      url: process.env.KV_REST_API_URL,
-      token: process.env.KV_REST_API_TOKEN,
-      type: 'kv',
-    };
+    return { url: process.env.KV_REST_API_URL, token: process.env.KV_REST_API_TOKEN };
   }
   return null;
 }
