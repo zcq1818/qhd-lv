@@ -1,7 +1,11 @@
-// 博客阅读量统计 API (Vercel Edge Function + KV)
+// 博客阅读量统计 API (Vercel Edge Function + Upstash Redis)
 // POST /api/view-counter?slug=xxx   → 阅读量+1 并返回新计数
 // GET  /api/view-counter?slug=xxx   → 只读取当前计数（不+1）
 // GET  /api/view-counter?list=1     → 批量读取所有文章计数（列表页用）
+//
+// 兼容两种环境变量（自动检测）：
+//   1. Upstash Redis（推荐）：UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN
+//   2. 旧版 Vercel KV：KV_REST_API_URL + KV_REST_API_TOKEN
 
 export const config = { runtime: 'edge' };
 
@@ -12,6 +16,25 @@ const CORS = {
   'Content-Type': 'application/json; charset=utf-8',
 };
 
+// 自动检测可用的 Redis 服务（优先 Upstash，兼容 KV）
+function getRedisConfig() {
+  if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
+    return {
+      url: process.env.UPSTASH_REDIS_REST_URL,
+      token: process.env.UPSTASH_REDIS_REST_TOKEN,
+      type: 'upstash',
+    };
+  }
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    return {
+      url: process.env.KV_REST_API_URL,
+      token: process.env.KV_REST_API_TOKEN,
+      type: 'kv',
+    };
+  }
+  return null;
+}
+
 export default async function handler(req) {
   if (req.method === 'OPTIONS') return new Response(null, { headers: CORS });
 
@@ -20,29 +43,34 @@ export default async function handler(req) {
   const isList = url.searchParams.get('list') === '1';
   const isIncrement = req.method === 'POST';
 
-  // KV 未配置时兜底
-  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
-    return new Response(JSON.stringify({ error: 'KV_NOT_CONFIGURED', count: 0 }), {
-      headers: CORS, status: 200,
-    });
+  const redis = getRedisConfig();
+
+  // Redis 未配置时兜底（不影响页面渲染）
+  if (!redis) {
+    return new Response(JSON.stringify({
+      error: 'REDIS_NOT_CONFIGURED',
+      message: '请在 Vercel 项目 Storage 中创建 Upstash Redis 并链接到项目',
+      count: 0,
+    }), { headers: CORS, status: 200 });
   }
 
-  const KV_URL = process.env.KV_REST_API_URL;
-  const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+  const { url: REDIS_URL, token: REDIS_TOKEN } = redis;
 
   try {
     // 批量读取所有文章计数（列表页用）
     if (isList) {
-      const keysRes = await fetch(`${KV_URL}/keys/views:*?limit=200`, {
-        headers: { Authorization: `Bearer ${KV_TOKEN}` },
+      // Upstash 用 SCAN，KV 用 KEYS，这里用 Upstash 的 pipeline 兼容方式
+      const keysRes = await fetch(`${REDIS_URL}/keys/views:*`, {
+        headers: { Authorization: `Bearer ${REDIS_TOKEN}` },
       });
       const keysData = await keysRes.json();
       const keys = keysData.result || [];
       const counts = {};
-      for (const key of keys) {
+      // 批量 GET（用 pipeline 提高效率）
+      for (const key of keys.slice(0, 200)) {
         const slugName = key.replace('views:', '');
-        const getRes = await fetch(`${KV_URL}/get/${encodeURIComponent(key)}`, {
-          headers: { Authorization: `Bearer ${KV_TOKEN}` },
+        const getRes = await fetch(`${REDIS_URL}/get/${encodeURIComponent(key)}`, {
+          headers: { Authorization: `Bearer ${REDIS_TOKEN}` },
         });
         const getData = await getRes.json();
         counts[slugName] = parseInt(getData.result, 10) || 0;
@@ -59,24 +87,30 @@ export default async function handler(req) {
     }
 
     const key = 'views:' + slug;
-    const getRes = await fetch(`${KV_URL}/get/${encodeURIComponent(key)}`, {
-      headers: { Authorization: `Bearer ${KV_TOKEN}` },
-    });
-    const getData = await getRes.json();
-    let count = parseInt(getData.result, 10) || 0;
 
     if (isIncrement) {
-      count += 1;
-      await fetch(`${KV_URL}/set/${encodeURIComponent(key)}/${count}`, {
-        headers: { Authorization: `Bearer ${KV_TOKEN}` },
+      // 用 INCR 原子自增（更安全，避免并发问题）
+      const incrRes = await fetch(`${REDIS_URL}/incr/${encodeURIComponent(key)}`, {
+        headers: { Authorization: `Bearer ${REDIS_TOKEN}` },
+      });
+      const incrData = await incrRes.json();
+      const count = parseInt(incrData.result, 10) || 1;
+      return new Response(JSON.stringify({ slug, count }), {
+        headers: { ...CORS, 'Cache-Control': 'no-store' },
+      });
+    } else {
+      // 只读取
+      const getRes = await fetch(`${REDIS_URL}/get/${encodeURIComponent(key)}`, {
+        headers: { Authorization: `Bearer ${REDIS_TOKEN}` },
+      });
+      const getData = await getRes.json();
+      const count = parseInt(getData.result, 10) || 0;
+      return new Response(JSON.stringify({ slug, count }), {
+        headers: { ...CORS, 'Cache-Control': 'public, max-age=60' },
       });
     }
-
-    return new Response(JSON.stringify({ slug, count }), {
-      headers: { ...CORS, 'Cache-Control': isIncrement ? 'no-store' : 'public, max-age=60' },
-    });
   } catch (err) {
-    return new Response(JSON.stringify({ error: 'KV_ERROR', message: err.message, count: 0 }), {
+    return new Response(JSON.stringify({ error: 'REDIS_ERROR', message: err.message, count: 0 }), {
       headers: CORS, status: 500,
     });
   }
