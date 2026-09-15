@@ -19,8 +19,8 @@ export default async function handler(req, res) {
   
   const locName = locations[location] || '北戴河';
   
-  // 心知天气 API Key
-  const SENIVERSE_KEY = proces…_KEY || 'teey6tlkdrisczuf';
+  // 心知天气 API Key（优先读环境变量）
+  const SENIVERSE_KEY = process.env.SENIVERSE_API_KEY || 'teey6tlkdrisczuf';
   
   try {
     // 获取天气实况
