@@ -1,5 +1,6 @@
 // api/tide.js - 潮汐查询 API（Vercel Serverless Function）
-// 数据来源：心知天气 API（免费版）+ 天文算法估算
+// 说明：心知天气与和风天气的免费版均不含潮汐数据（海洋数据需付费订阅）
+// 当前降级为天文算法估算；如需真实潮汐，请接入付费数据源（如和风标准订阅的海洋数据）
 
 export default async function handler(req, res) {
   // 设置 CORS

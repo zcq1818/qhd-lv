@@ -191,12 +191,25 @@ async function queryWeather() {
   }
 }
 
+// 根据天气现象文字选择图标
+function weatherTextIcon(text) {
+  if (!text) return '🌤️';
+  if (text.indexOf('晴') >= 0) return '☀️';
+  if (text.indexOf('雷') >= 0) return '⛈️';
+  if (text.indexOf('雨') >= 0) return '🌧️';
+  if (text.indexOf('雪') >= 0) return '❄️';
+  if (text.indexOf('雾') >= 0 || text.indexOf('霾') >= 0 || text.indexOf('尘') >= 0) return '🌫️';
+  if (text.indexOf('阴') >= 0) return '☁️';
+  if (text.indexOf('云') >= 0) return '⛅';
+  return '🌤️';
+}
+
 // 显示天气数据
 function displayWeather(data) {
   document.getElementById('weatherResult').style.display = 'block';
   
   // 实时天气
-  const icon = weatherIcons[data.now.code] || '🌤️';
+  const icon = weatherTextIcon(data.now.text);
   document.getElementById('weatherIcon').textContent = icon;
   document.getElementById('nowTemp').textContent = `${data.now.temperature}°`;
   document.getElementById('nowText').textContent = data.now.text;
@@ -209,7 +222,7 @@ function displayWeather(data) {
   // 3天预报
   const dailyGrid = document.getElementById('dailyGrid');
   dailyGrid.innerHTML = data.daily.map(d => {
-    const dayIcon = weatherIcons[d.textDay === '晴' ? '0' : d.textDay === '多云' ? '2' : '4'] || '🌤️';
+    const dayIcon = weatherTextIcon(d.textDay);
     return `
       <div class="weather-daily-item">
         <div class="weather-daily-date">${formatDate(d.date)}</div>

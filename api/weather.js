@@ -1,98 +1,102 @@
 // api/weather.js - 天气查询 API（Vercel Serverless Function）
-// 数据来源：心知天气 API（免费版）
+// 数据来源：和风天气 API（免费订阅）
 
 export default async function handler(req, res) {
   // 设置 CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
-  
+
   const { location } = req.query;
-  
-  // 地点配置
+
+  // 地点配置：经纬度（和风天气 location 参数支持 经度,纬度）
   const locations = {
-    'beidaihe': '北戴河',
-    'qinhuangdao': '秦皇岛',
-    'shankhaiguan': '山海关',
-    'nandaihe': '南戴河',
-    'huangjin': '黄金海岸'
+    'beidaihe': { coord: '119.52,39.83', name: '北戴河' },
+    'qinhuangdao': { coord: '119.60,39.93', name: '秦皇岛' },
+    'shankhaiguan': { coord: '119.75,40.01', name: '山海关' },
+    'nandaihe': { coord: '119.43,39.77', name: '南戴河' },
+    'huangjin': { coord: '119.35,39.70', name: '黄金海岸' }
   };
-  
-  const locName = locations[location] || '北戴河';
-  
-  // 心知天气 API Key（优先读环境变量）
-  const SENIVERSE_KEY = process.env.SENIVERSE_API_KEY || 'teey6tlkdrisczuf';
-  
+
+  const loc = locations[location] || locations['qinhuangdao'];
+
+  // 和风天气凭据（优先读环境变量）
+  const QWEATHER_KEY = process.env.QWEATHER_API_KEY || '99ea2096b20b471d8d20400ee9a23a70';
+  const QWEATHER_HOST = process.env.QWEATHER_API_HOST || 'nu6apxvdn8.re.qweatherapi.com';
+  const base = `https://${QWEATHER_HOST}`;
+  const headers = { 'X-QW-Api-Key': QWEATHER_KEY };
+
   try {
-    // 获取天气实况
-    const nowUrl = `https://api.seniverse.com/v3/weather/now.json?key=${SENIVERSE_KEY}&location=${locName}&language=zh-Hans&unit=c`;
-    
-    // 获取3天天气预报
-    const dailyUrl = `https://api.seniverse.com/v3/weather/daily.json?key=${SENIVERSE_KEY}&location=${locName}&language=zh-Hans&unit=c&start=0&days=3`;
-    
-    // 获取生活指数
-    const lifeUrl = `https://api.seniverse.com/v3/life/suggestion.json?key=${SENIVERSE_KEY}&location=${locName}&language=zh-Hans`;
-    
-    const [nowRes, dailyRes, lifeRes] = await Promise.all([
-      fetch(nowUrl),
-      fetch(dailyUrl),
-      fetch(lifeUrl)
+    // 实况天气 + 3天预报 + 生活指数
+    const nowUrl = `${base}/v7/weather/now?location=${loc.coord}`;
+    const dailyUrl = `${base}/v7/weather/3d?location=${loc.coord}`;
+    const indicesUrl = `${base}/v7/indices/1d?type=0&location=${loc.coord}`;
+
+    const [nowRes, dailyRes, indicesRes] = await Promise.all([
+      fetch(nowUrl, { headers }),
+      fetch(dailyUrl, { headers }),
+      fetch(indicesUrl, { headers })
     ]);
-    
+
     const nowData = await nowRes.json();
     const dailyData = await dailyRes.json();
-    const lifeData = await lifeRes.json();
-    
-    // 解析天气实况
-    const now = nowData.results?.[0]?.now || {};
-    const locationInfo = nowData.results?.[0]?.location || {};
-    
-    // 解析天气预报
-    const daily = dailyData.results?.[0]?.daily || [];
-    
-    // 解析生活指数
-    const life = lifeData.results?.[0]?.suggestion || {};
-    
+    const indicesData = await indicesRes.json();
+
+    if (nowData.code !== '200') {
+      throw new Error(`和风天气实况接口错误: ${nowData.code}`);
+    }
+
+    const now = nowData.now || {};
+
+    // 生活指数：和风 type 映射到前端字段
+    const lifeMap = {
+      '5': 'uv',       // 紫外线
+      '3': 'dressing', // 穿衣
+      '8': 'comfort',  // 舒适度
+      '1': 'sport',    // 运动
+      '6': 'travel',   // 旅游
+      '9': 'flu'       // 感冒
+    };
+    const life = {};
+    (indicesData.daily || []).forEach(item => {
+      const key = lifeMap[item.type];
+      if (key) {
+        life[key] = { name: item.name, brief: item.category, details: item.text };
+      }
+    });
+
     res.status(200).json({
       success: true,
-      location: locName,
+      location: loc.name,
       now: {
         text: now.text,
-        code: now.code,
-        temperature: now.temperature,
-        windDirection: now.wind_direction,
-        windSpeed: now.wind_speed,
+        code: now.icon,
+        temperature: now.temp,
+        feelsLike: now.feelsLike,
+        windDirection: now.windDir,
+        windSpeed: now.windSpeed,
         humidity: now.humidity,
-        visibility: now.visibility,
+        visibility: now.vis,
         pressure: now.pressure,
-        feelsLike: now.feels_like,
-        ultraviolet: now.ultraviolet
+        precip: now.precip
       },
-      daily: daily.map(d => ({
-        date: d.date,
-        textDay: d.text_day,
-        textNight: d.text_night,
-        high: d.high,
-        low: d.low,
-        windDirection: d.wind_direction,
-        windSpeed: d.wind_speed,
+      daily: (dailyData.daily || []).map(d => ({
+        date: d.fxDate,
+        textDay: d.textDay,
+        textNight: d.textNight,
+        high: d.tempMax,
+        low: d.tempMin,
+        windDirection: d.windDirDay,
+        windSpeed: d.windSpeedDay,
         humidity: d.humidity
       })),
-      life: {
-        uv: life.uv,
-        dressing: life.dressing,
-        comfort: life.comfort,
-        sport: life.sport,
-        travel: life.travel,
-        flu: life.flu,
-        sunscreen: life.sunscreen
-      },
-      lastUpdate: nowData.results?.[0]?.last_update
+      life: life,
+      lastUpdate: nowData.updateTime
     });
   } catch (error) {
     res.status(200).json({
       success: false,
       error: error.message,
-      location: locName
+      location: loc.name
     });
   }
 }
