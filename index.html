@@ -392,6 +392,54 @@ var _hmt = _hmt || [];
   </div>
 </section>
 
+<!-- ====== 现在玩什么（时令推荐） ====== -->
+<style>
+  .season-guide { padding: 36px 0 8px; }
+  .season-guide .section-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--s6); }
+  .season-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .season-card { background: #fff; border-radius: var(--radius); padding: 16px; text-decoration: none; color: inherit; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100); transition: transform var(--dur), box-shadow var(--dur); }
+  .season-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .season-icon { font-size: 28px; margin-bottom: 8px; }
+  .season-card h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+  .season-card p { margin: 0; font-size: 12px; color: var(--text-muted); }
+  @media(max-width: 768px) { .season-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+<section class="season-guide">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 id="seasonTitle">现在玩什么</h2>
+      <p>按当前季节，本地人推荐这些</p>
+    </div>
+    <div class="season-grid" id="seasonGrid"></div>
+  </div>
+</section>
+<script>
+(function() {
+  var m = new Date().getMonth() + 1;
+  var D = {
+    1:  { t:'冬季 · 看海鸥泡温泉', items:[{i:'🕊',t:'看海鸥',d:'西港花园·海边成群海鸥',l:'blog/qhd-sea-gull'},{i:'♨',t:'泡温泉',d:'渔岛温泉·山海间温泉',l:'attraction/yudao'},{i:'❄',t:'冰塘峪冰瀑',d:'三伏天仍有残冰',l:'attraction/bingtangyu'},{i:'🌊',t:'冬日看海',d:'静谧海岸·人少景美',l:'attraction/beidaihe'}] },
+    2:  { t:'冬季 · 温泉冰雪', items:[{i:'♨',t:'泡温泉',d:'冬季最治愈',l:'attraction/yudao'},{i:'❄',t:'冰塘峪冰瀑',d:'地质奇观',l:'attraction/bingtangyu'},{i:'🕊',t:'看海鸥',d:'海边观鸟',l:'blog/qhd-sea-gull'},{i:'🧣',t:'淡季游',d:'门票住宿都便宜',l:'tickets'}] },
+    3:  { t:'初春 · 踏青登山', items:[{i:'⛰',t:'联峰山踏青',d:'北戴河制高点',l:'attraction/liangfengshan'},{i:'🌸',t:'春游赏花',d:'万物复苏',l:'attraction/beidaihe'},{i:'🏛',t:'逛古城',d:'山海关古城漫步',l:'attraction/shanhaiguan_gucheng'},{i:'🌅',t:'看日出',d:'春季日出约5点半',l:'sunrise'}] },
+    4:  { t:'春季 · 观鸟赏花', items:[{i:'🕊',t:'鸽子窝观鸟',d:'候鸟迁徙',l:'attraction/geziwo'},{i:'🌷',t:'赏花踏青',d:'春意盎然',l:'attraction/daihe_park'},{i:'⛰',t:'登山',d:'祖山·联峰山',l:'attraction/zushan'},{i:'🏛',t:'长城游',d:'人少景美',l:'attraction/laolongtou'}] },
+    5:  { t:'初夏 · 避暑开季', items:[{i:'🌊',t:'海滨度假',d:'海水渐暖·可下水',l:'attraction/beidaihe'},{i:'🌅',t:'看日出',d:'日出约4:50',l:'sunrise'},{i:'⛰',t:'登山避暑',d:'祖山原始森林',l:'attraction/zushan'},{i:'🦀',t:'海鲜上市',d:'皮皮虾正当时',l:'food'}] },
+    6:  { t:'盛夏 · 海水浴旺季', items:[{i:'🏖',t:'海水浴',d:'北戴河·黄金海岸',l:'attraction/beidaihe'},{i:'🦀',t:'赶海旺季',d:'查潮汐再出发',l:'tide'},{i:'🎢',t:'水上乐园',d:'乐岛·渔岛',l:'attraction/ledao'},{i:'🌃',t:'夜游碧螺塔',d:'烟花秀+酒吧',l:'attraction/biluota'}] },
+    7:  { t:'盛夏 · 避暑赶海', items:[{i:'🏖',t:'避暑',d:'联峰山·祖山清凉',l:'attraction/liangfengshan'},{i:'🦀',t:'赶海',d:'低潮前后2小时',l:'tide'},{i:'🎢',t:'亲子乐园',d:'乐岛·集发',l:'attraction/ledao'},{i:'🌃',t:'夜市美食',d:'北戴河夜市',l:'food'}] },
+    8:  { t:'盛夏 · 赶海夜游', items:[{i:'🦀',t:'赶海',d:'收获花蛤蛏子',l:'ganhai'},{i:'🌃',t:'碧螺塔夜游',d:'烟花秀+篝火',l:'attraction/biluota'},{i:'🎢',t:'水上乐园',d:'渔岛·乐岛',l:'attraction/yudao'},{i:'🦞',t:'海鲜烧烤',d:'夜市大排档',l:'food'}] },
+    9:  { t:'秋季 · 海鲜季赏秋', items:[{i:'🦀',t:'海鲜最肥季',d:'梭子蟹·皮皮虾',l:'food'},{i:'🍁',t:'祖山赏红叶',d:'层林尽染',l:'attraction/zushan'},{i:'🌅',t:'秋高看日出',d:'日出约6点',l:'sunrise'},{i:'♨',t:'温泉渐热',d:'渔岛·温泉度假',l:'attraction/yudao'}] },
+    10: { t:'金秋 · 红叶海鲜', items:[{i:'🍁',t:'赏红叶',d:'祖山·角山·联峰山',l:'attraction/zushan'},{i:'🦀',t:'海鲜季',d:'十月仍肥美',l:'food'},{i:'♨',t:'泡温泉',d:'秋日暖身',l:'attraction/yudao'},{i:'🍇',t:'葡萄采摘',d:'昌黎葡萄沟',l:'attraction/putagogou'}] },
+    11: { t:'秋末 · 温泉静海', items:[{i:'♨',t:'泡温泉',d:'渔岛·山海间',l:'attraction/yudao'},{i:'🌊',t:'静海漫步',d:'人少清静',l:'attraction/beidaihe'},{i:'🕊',t:'候鸟观赏',d:'迁徙高峰',l:'attraction/shidi'},{i:'🍂',t:'赏晚秋',d:'层林尽染尾声',l:'attraction/zushan'}] },
+    12: { t:'冬季 · 看海泡汤', items:[{i:'♨',t:'泡温泉',d:'冬季最治愈',l:'attraction/yudao'},{i:'🕊',t:'看海鸥',d:'海边观鸟',l:'blog/qhd-sea-gull'},{i:'❄',t:'冰塘峪冰瀑',d:'地质奇观',l:'attraction/bingtangyu'},{i:'🎆',t:'跨年看海',d:'安静跨年',l:'attraction/beidaihe'}] }
+  };
+  var d = D[m] || D[9];
+  document.getElementById('seasonTitle').textContent = '现在玩什么 · ' + d.t;
+  var html = '';
+  d.items.forEach(function(it) {
+    html += '<a class="season-card" href="' + it.l + '"><div class="season-icon">' + it.i + '</div><h3>' + it.t + '</h3><p>' + it.d + '</p></a>';
+  });
+  document.getElementById('seasonGrid').innerHTML = html;
+})();
+</script>
+
 <!-- ====== 交通车站选择 ====== -->
 <style>
   .station-guide { padding: 40px 0 8px; }
@@ -832,6 +880,8 @@ var _hmt = _hmt || [];
         <a href="sunrise">日出日落</a>
         <a href="tickets">门票总览</a>
         <a href="checklist">行前清单</a>
+        <a href="routes">行程模板</a>
+        <a href="seafood">海鲜季</a>
       </div>
       <div class="footer-col">
         <h4>关于我们</h4>
