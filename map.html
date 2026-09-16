@@ -778,7 +778,8 @@ if (typeof L === 'undefined') {
         rating: spot.rating,
         price: spot.price,
         desc: spot.desc || '',
-        img: spot.img || ''
+        img: spot.img || '',
+        address: spot.address || ''
       }));
 
       // 构建 AREAS：从 JSON 的 areas 中提取，加上"全部"
@@ -928,7 +929,7 @@ if (typeof L === 'undefined') {
 
   /* ===== 高德 POI 搜索：获取景点准确 GCJ-02 坐标 =====
      搜索结果缓存到 localStorage，避免每次加载都请求 */
-  var AMAP_CACHE_KEY = 'qhd_amap_coords_v6';
+  var AMAP_CACHE_KEY = 'qhd_amap_coords_v7';
   var AMAP_CACHE_TTL = 30 * 24 * 60 * 60 * 1000; // 30 天
 
   function loadAmapCache() {
@@ -1000,8 +1001,6 @@ if (typeof L === 'undefined') {
     var cleanPoi = poiName.replace(/[(（].*?[)）]/g, '').trim();
     var cleanKw = keyword.replace(/[(（].*?[)）]/g, '').trim();
     if (cleanPoi.indexOf(cleanKw) >= 0 || cleanKw.indexOf(cleanPoi) >= 0) return true;
-    if (cleanKw.length >= 2 && cleanPoi.indexOf(cleanKw.substring(0, 2)) >= 0) return true;
-    if (cleanPoi.length >= 2 && cleanKw.indexOf(cleanPoi.substring(0, 2)) >= 0) return true;
     return false;
   }
 
@@ -1046,7 +1045,7 @@ if (typeof L === 'undefined') {
               best = { lng: lng, lat: lat, name: poi.name, dist: dist };
             }
           }
-          if (best && bestDist < 30000) {
+          if (best && bestDist < 5000) {
             console.log('[map] ✓ ' + spot.name + ' → "' + best.name + '" (关键词: "' + keyword + '"' + (bestNameMatch ? ', 名称匹配' : '') + ') 偏移 ' + Math.round(bestDist) + 'm');
             resolve([best.lng, best.lat]);
           } else {
@@ -1069,7 +1068,7 @@ if (typeof L === 'undefined') {
           var lng = geo.location.getLng();
           var lat = geo.location.getLat();
           var dist = distanceM(spot.lng, spot.lat, lng, lat);
-          if (dist < 30000) {
+          if (dist < 5000) {
             console.log('[map] ✓ ' + spot.name + ' → 地理编码 (地址: "' + spot.address + '") 偏移 ' + Math.round(dist) + 'm');
             resolve([lng, lat]);
           } else {
