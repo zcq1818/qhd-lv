@@ -11,7 +11,8 @@
   ],
   "redirects": [
     { "source": "/index", "destination": "/", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/blog/2025年北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味", "destination": "/blog/北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味", "permanent": true }
   ],
   "headers": [
     {

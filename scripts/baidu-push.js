@@ -1,38 +1,32 @@
 #!/usr/bin/env node
 /**
- * 百度 URL 主动推送脚本
+ * 百度 URL 主动推送脚本（动态读取 attraction/blog 目录）
  * 用法: node scripts/baidu-push.js
  */
+const fs = require('fs');
+const path = require('path');
 
 const SITE = "https://www.divdu.com";
 const PUSH_URL = "http://data.zz.baidu.com/urls?site=https://www.divdu.com&token=cPgQP32Tem2D7Xla";
 
-const attractions = [
-  "aranya", "banchangyu", "baozigou", "beidaihe", "biluota", "bingtangyu",
-  "changshoushan", "daihe_park", "dongwuyuan", "gangkou", "geziwo", "guailou",
-  "hongxing_industrial", "huangjin", "huaxiazhuangyuan", "jiaoshan", "jieshishan",
-  "jifa", "jinshi_wine", "laohushi", "laojunding", "laolongtou", "ledao",
-  "liangfengshan", "liuhe_shanzhuang", "liuhe_xigu", "longyungu", "mengjiangnv",
-  "nanent", "putagogou", "qipanshan", "qiuxian", "shanhaiguan", "shanhaiguan_gucheng",
-  "shenglan", "shidi", "tianmahu", "tianmashan", "wangjiadayuan", "weilanhaian",
-];
+// 顶级页面（动态读取根目录 html，排除 index/404）
+const rootHtml = fs.readdirSync(path.join(__dirname, '..'))
+  .filter(f => f.endsWith('.html') && f !== 'index.html' && f !== '404.html')
+  .map(f => f.replace(/\.html$/, ''));
 
-const blogs = [
-  "beidaihe-autumn", "beidaihe-banana-boat", "beidaihe-breakfast", "beidaihe-camping",
-  "beidaihe-diving", "beidaihe-fishing", "beidaihe-hiking", "beidaihe-island-hop",
-  "beidaihe-kayak", "beidaihe-kite", "beidaihe-lost-child", "beidaihe-motorcycle",
-  "beidaihe-parasailing", "beidaihe-rainy-day", "beidaihe-rock-climbing",
-  "beidaihe-sand-sculpture", "beidaihe-shell-collecting", "beidaihe-sunrise",
-  "beidaihe-sunset", "beidaihe-swimsuit", "beidaihe-water-sports", "beidaihe-yacht",
-  "qhd-beach-volleyball", "qhd-diving", "qhd-fishing-boat", "qhd-jet-ski",
-  "qhd-kite-surfing", "qhd-sand-castle", "qhd-sea-gull", "qhd-sunscreen-review",
-  "qhd-water-park", "qhd-beach-safety",
-];
+// 景点与博客 slug（动态读取目录）
+const readSlugs = (dir) => fs.readdirSync(path.join(__dirname, '..', dir))
+  .filter(f => f.endsWith('.html'))
+  .map(f => f.replace(/\.html$/, ''));
+
+const attractions = readSlugs('attraction');
+const blogs = readSlugs('blog');
 
 const urls = [
   SITE + "/",
-  ...attractions.map(s => `${SITE}/attraction/${s}`),
-  ...blogs.map(s => `${SITE}/blog/${s}`),
+  ...rootHtml.map(p => `${SITE}/${encodeURIComponent(p)}`),
+  ...attractions.map(s => `${SITE}/attraction/${encodeURIComponent(s)}`),
+  ...blogs.map(s => `${SITE}/blog/${encodeURIComponent(s)}`),
 ];
 
 async function push() {
