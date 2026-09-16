@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秦皇岛日出日落时间查询 | 看日出攻略 — 秦皇岛旅游官网</title>
+<meta name="description" content="秦皇岛日出日落时间实时查询：今天几点日出、几点日落，鸽子窝、老龙头、老虎石看日出日落最佳地点推荐。">
+<meta name="keywords" content="秦皇岛日出时间,北戴河日出,鸽子窝日出,秦皇岛日落,看日出攻略">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.divdu.com/sunrise">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1a73e8">
+<meta property="og:title" content="秦皇岛日出日落时间查询">
+<meta property="og:description" content="今天几点日出？鸽子窝看日出全攻略。秦皇岛日出日落时间一键查询。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.divdu.com/sunrise">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="style.min.css">
+<style>
+  .sun-hero { background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%); padding: 56px 20px 48px; text-align: center; color: #fff; }
+  .sun-hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; margin: 0 0 10px; }
+  .sun-hero p { opacity: 0.92; font-size: 1.05rem; margin: 0; }
+  .sun-today { max-width: var(--max-width); margin: -28px auto 0; padding: 0 var(--s6); position: relative; z-index: 2; }
+  .sun-today-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sun-card { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 24px 20px; text-align: center; border-top: 4px solid #fdbb2d; }
+  .sun-card.today { border-top-color: #1a73e8; }
+  .sun-card .day-label { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+  .sun-card .day-date { font-size: 20px; font-weight: 800; margin: 6px 0 16px; }
+  .sun-card .sun-time { font-size: 34px; font-weight: 900; color: #1a73e8; line-height: 1.1; }
+  .sun-card .sun-time.sunset { color: #e0651a; }
+  .sun-card .sun-label { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+  .sun-card .sun-duration { font-size: 13px; color: var(--text-muted); border-top: 1px dashed var(--gray-200); padding-top: 10px; }
+  .sun-picker { max-width: var(--max-width); margin: 24px auto; padding: 0 var(--s6); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .sun-picker input[type="date"] { padding: 10px 14px; border: 1px solid var(--gray-300); border-radius: var(--radius); font-size: 15px; }
+  .sun-result { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 20px 24px; display: flex; gap: 32px; flex-wrap: wrap; }
+  .sun-result .item { flex: 1; min-width: 120px; }
+  .sun-result .item .v { font-size: 28px; font-weight: 800; color: var(--brand); }
+  .sun-result .item .k { font-size: 13px; color: var(--text-muted); }
+  .sun-spots { max-width: var(--max-width); margin: 32px auto; padding: 0 var(--s6); }
+  .sun-spots h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 16px; }
+  .sun-spot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .sun-spot-card { display: flex; gap: 14px; align-items: center; background: #fff; border-radius: var(--radius); padding: 14px 16px; text-decoration: none; color: inherit; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100); transition: transform var(--dur), box-shadow var(--dur); }
+  .sun-spot-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .sun-spot-icon { font-size: 30px; }
+  .sun-spot-body { flex: 1; }
+  .sun-spot-body h3 { margin: 0 0 3px; font-size: 15px; font-weight: 700; }
+  .sun-spot-body p { margin: 0; font-size: 13px; color: var(--text-muted); }
+  .sun-tip { max-width: var(--max-width); margin: 8px auto 40px; padding: 0 var(--s6); }
+  .sun-tip-box { background: #fff8e6; border-left: 4px solid #fdbb2d; border-radius: var(--radius); padding: 16px 20px; font-size: 14px; line-height: 1.8; }
+  @media(max-width: 768px) {
+    .sun-today-grid { grid-template-columns: 1fr; }
+    .sun-spot-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#1a73e8;color:#fff;padding:8px 16px;text-decoration:none;z-index:9999;border-radius:0 0 4px 0;">跳到主要内容</a>
+<script>
+  document.querySelector('.skip-link').addEventListener('focus', function() { this.style.top = '0'; });
+  document.querySelector('.skip-link').addEventListener('blur', function() { this.style.top = '-40px'; });
+</script>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      秦皇岛旅游官网
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">首页</a></li>
+      <li><a href="/must-play">必玩景点</a></li>
+      <li><a href="/attractions">景点大全</a></li>
+      <li><a href="/map">地图</a></li>
+      <li><a href="/itinerary">行程规划</a></li>
+      <li><a href="/food">美食</a></li>
+      <li><a href="/guide">旅游攻略</a></li>
+      <li><a href="/blog">博客</a></li>
+      <li><a href="/about">关于我们</a></li>
+    </ul>
+    <a href="/itinerary" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="sun-hero" id="main-content">
+  <h1>🌅 秦皇岛日出日落时间</h1>
+  <p>北戴河看日出 · 每天几点日出几点日落，一键查询</p>
+</section>
+
+<div class="sun-today">
+  <div class="sun-today-grid" id="sunTodayGrid"></div>
+</div>
+
+<div class="sun-picker">
+  <label for="sunDate" style="font-weight:600;">查任意日期：</label>
+  <input type="date" id="sunDate">
+  <div class="sun-result" id="sunResult"></div>
+</div>
+
+<div class="sun-spots">
+  <h2>📍 看日出日落最佳地点</h2>
+  <div class="sun-spot-grid">
+    <a href="/attraction/geziwo" class="sun-spot-card">
+      <div class="sun-spot-icon">🌅</div>
+      <div class="sun-spot-body"><h3>鸽子窝公园（看日出首选）</h3><p>北戴河二十四景之首「鸽子窝日出」，鹰角石观景</p></div>
+    </a>
+    <a href="/attraction/laolongtou" class="sun-spot-card">
+      <div class="sun-spot-icon">🏯</div>
+      <div class="sun-spot-body"><h3>老龙头（长城日出）</h3><p>长城入海处，海上日出 + 古城墙剪影</p></div>
+    </a>
+    <a href="/attraction/laohushi" class="sun-spot-card">
+      <div class="sun-spot-icon">🌇</div>
+      <div class="sun-spot-body"><h3>老虎石海上公园（看日落）</h3><p>北戴河最美日落观赏点，夕阳洒在老虎石上</p></div>
+    </a>
+    <a href="/attraction/biluota" class="sun-spot-card">
+      <div class="sun-spot-icon">🌆</div>
+      <div class="sun-spot-body"><h3>碧螺塔（塔顶日落）</h3><p>碧螺塔三面环海，塔顶拍日落 + 星空</p></div>
+    </a>
+  </div>
+</div>
+
+<div class="sun-tip">
+  <div class="sun-tip-box">
+    💡 <strong>看日出小贴士：</strong>提前 40 分钟到达观景点占位；海边凌晨比白天低 8-10℃，务必带外套；想看「红日跃出海面」选晴朗无雾天。秦皇岛夏季日出约 4:30-5:00，冬季约 7:00-7:30。
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>秦皇岛旅游官网</h3>
+        <p>致力于为每一位来秦皇岛的游客，提供最实用、最全面的旅游攻略。</p>
+      </div>
+      <div class="footer-col">
+        <h4>热门页面</h4>
+        <a href="/">首页</a>
+        <a href="/attractions">景点推荐</a>
+        <a href="/itinerary">行程规划</a>
+        <a href="/food">美食推荐</a>
+      </div>
+      <div class="footer-col">
+        <h4>实用工具</h4>
+        <a href="/tide">潮汐查询</a>
+        <a href="/weather">天气查询</a>
+        <a href="/sunrise">日出日落</a>
+        <a href="/map">景点地图</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="/about">关于官网</a>
+        <a href="/about#cooperation">商务合作</a>
+        <a href="/about#privacy">隐私政策</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 秦皇岛旅游官网 www.divdu.com</span>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">冀ICP备16026346号-2</a>
+      <div>
+        <a href="/about#privacy">隐私政策</a> ·
+        <a href="/about#disclaimer">免责声明</a> ·
+        <a href="/sitemap.xml">网站地图</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+</script>
+<script>
+(function() {
+  'use strict';
+  // 秦皇岛城市中心坐标（日出日落用，各区差异 < 1 分钟）
+  var LAT = 39.9, LNG = 119.55, TZ = 8; // UTC+8，标准子午线 120°E
+  var RAD = Math.PI / 180;
+
+  function dayOfYear(date) {
+    var start = new Date(date.getFullYear(), 0, 0);
+    return Math.floor((date - start) / 86400000);
+  }
+
+  function toTime(hours) {
+    var h = Math.floor(hours);
+    var m = Math.round((hours - h) * 60);
+    if (m === 60) { h += 1; m = 0; }
+    h = ((h % 24) + 24) % 24;
+    return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+  }
+
+  function calcSun(date) {
+    var N = dayOfYear(date);
+    // 太阳赤纬（度）
+    var decl = 23.45 * Math.sin(RAD * (360 / 365) * (284 + N));
+    // 日出日落时角（度），含大气折射 -0.833°
+    var cosH = (Math.sin(-0.833 * RAD) - Math.sin(LAT * RAD) * Math.sin(decl * RAD))
+             / (Math.cos(LAT * RAD) * Math.cos(decl * RAD));
+    if (cosH < -1) return { sunrise: '极昼', sunset: '极昼' };
+    if (cosH > 1) return { sunrise: '极夜', sunset: '极夜' };
+    var H = Math.acos(cosH) / RAD; // 度
+    // 均时差（分钟）
+    var B = RAD * (360 / 365) * (N - 81);
+    var eot = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);
+    // 太阳正午（当地标准时，小时）
+    var solarNoon = 12 + (TZ * 15 - LNG) / 15 - eot / 60;
+    return {
+      sunrise: toTime(solarNoon - H / 15),
+      sunset: toTime(solarNoon + H / 15)
+    };
+  }
+
+  function fmtDate(d) {
+    return (d.getMonth() + 1) + '月' + d.getDate() + '日';
+  }
+
+  function duration(sunrise, sunset) {
+    if (sunrise === '极昼' || sunrise === '极夜') return '—';
+    var a = sunrise.split(':').map(Number);
+    var b = sunset.split(':').map(Number);
+    var mins = (b[0] * 60 + b[1]) - (a[0] * 60 + a[1]);
+    return Math.floor(mins / 60) + '小时' + (mins % 60) + '分';
+  }
+
+  var WEEK = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+
+  function renderToday() {
+    var grid = document.getElementById('sunTodayGrid');
+    var html = '';
+    for (var i = 0; i < 3; i++) {
+      var d = new Date();
+      d.setDate(d.getDate() + i);
+      var s = calcSun(d);
+      var isToday = i === 0;
+      html += '<div class="sun-card' + (isToday ? ' today' : '') + '">' +
+        '<div class="day-label">' + (isToday ? '今天' : WEEK[d.getDay()]) + '</div>' +
+        '<div class="day-date">' + fmtDate(d) + '</div>' +
+        '<div class="sun-time">' + s.sunrise + '</div>' +
+        '<div class="sun-label">日出</div>' +
+        '<div class="sun-time sunset">' + s.sunset + '</div>' +
+        '<div class="sun-label">日落</div>' +
+        '<div class="sun-duration">☀ 日照 ' + duration(s.sunrise, s.sunset) + '</div>' +
+      '</div>';
+    }
+    grid.innerHTML = html;
+  }
+
+  function renderPick(date) {
+    var s = calcSun(date);
+    var box = document.getElementById('sunResult');
+    box.innerHTML =
+      '<div class="item"><div class="v">' + s.sunrise + '</div><div class="k">日出</div></div>' +
+      '<div class="item"><div class="v">' + s.sunset + '</div><div class="k">日落</div></div>' +
+      '<div class="item"><div class="v">' + duration(s.sunrise, s.sunset) + '</div><div class="k">日照时长</div></div>';
+  }
+
+  renderToday();
+
+  var picker = document.getElementById('sunDate');
+  var today = new Date();
+  picker.value = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+  renderPick(today);
+  picker.addEventListener('change', function() {
+    if (this.value) renderPick(new Date(this.value));
+  });
+})();
+</script>
+<script src="js/weather-widget.js" defer></script>
+</body>
+</html>

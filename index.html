@@ -274,6 +274,70 @@ var _hmt = _hmt || [];
   </div>
 </section>
 
+<!-- ====== 今日速览（实时数据） ====== -->
+<style>
+  .today-strip { background: #fff; border-bottom: 1px solid var(--gray-200); }
+  .today-strip-inner { max-width: var(--max-width); margin: 0 auto; display: flex; gap: 12px; padding: 12px var(--s6); }
+  .today-item { flex: 1; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: var(--radius); background: var(--gray-50); text-decoration: none; color: inherit; transition: background var(--dur); }
+  .today-item:hover { background: var(--gray-100); }
+  .today-icon { font-size: 26px; line-height: 1; }
+  .today-body { display: flex; flex-direction: column; gap: 2px; }
+  .today-label { font-size: 12px; color: var(--text-muted); }
+  .today-value { font-size: 15px; font-weight: 700; color: var(--gray-900); }
+  .today-value .hl { color: var(--brand); }
+  @media(max-width: 768px) { .today-strip-inner { flex-direction: column; gap: 8px; } }
+</style>
+<section class="today-strip" id="todayStrip">
+  <div class="today-strip-inner">
+    <a href="weather" class="today-item" id="todayWeather">
+      <span class="today-icon">🌤</span>
+      <span class="today-body"><span class="today-label">今日天气</span><span class="today-value">加载中…</span></span>
+    </a>
+    <a href="tide" class="today-item" id="todayTide">
+      <span class="today-icon">🌊</span>
+      <span class="today-body"><span class="today-label">今日低潮 · 赶海</span><span class="today-value">加载中…</span></span>
+    </a>
+    <a href="sunrise" class="today-item" id="todaySunrise">
+      <span class="today-icon">🌅</span>
+      <span class="today-body"><span class="today-label">明日日出</span><span class="today-value">加载中…</span></span>
+    </a>
+  </div>
+</section>
+<script>
+(function() {
+  function toTime(h){ var hh=Math.floor(h), mm=Math.round((h-hh)*60); if(mm===60){hh++;mm=0;} hh=((hh%24)+24)%24; return String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0'); }
+  function calcSunrise(date){
+    var RAD=Math.PI/180, LAT=39.9, LNG=119.55, TZ=8;
+    var s=new Date(date.getFullYear(),0,0), N=Math.floor((date-s)/86400000);
+    var decl=23.45*Math.sin(RAD*(360/365)*(284+N));
+    var cosH=(Math.sin(-0.833*RAD)-Math.sin(LAT*RAD)*Math.sin(decl*RAD))/(Math.cos(LAT*RAD)*Math.cos(decl*RAD));
+    var H=Math.acos(Math.max(-1,Math.min(1,cosH)))/RAD;
+    var B=RAD*(360/365)*(N-81), eot=9.87*Math.sin(2*B)-7.53*Math.cos(B)-1.5*Math.sin(B);
+    var noon=12+(TZ*15-LNG)/15-eot/60;
+    return toTime(noon-H/15);
+  }
+  var tomorrow=new Date(); tomorrow.setDate(tomorrow.getDate()+1);
+  var sunEl=document.getElementById('todaySunrise');
+  if(sunEl) sunEl.querySelector('.today-value').innerHTML='<span class="hl">'+calcSunrise(tomorrow)+'</span> 提前40分钟占位';
+
+  fetch('/api/weather?location=qinhuangdao').then(function(r){return r.json();}).then(function(d){
+    if(d.success && d.now){ document.getElementById('todayWeather').querySelector('.today-value').innerHTML='<span class="hl">'+d.now.temperature+'°C</span> '+d.now.text; }
+  }).catch(function(){});
+
+  var todayStr=new Date().toISOString().split('T')[0];
+  fetch('/api/tide?location=qinhuangdao&date='+todayStr).then(function(r){return r.json();}).then(function(d){
+    if(d.success && d.data && d.data.tides){
+      var lows=d.data.tides.filter(function(t){return t.type==='low';});
+      var nowM=new Date().getHours()*60+new Date().getMinutes(), next=null;
+      lows.forEach(function(t){ var p=t.time.split(':').map(Number); var m=p[0]*60+p[1]; if(m>nowM && (!next||m<next.m)) next={time:t.time,m:m}; });
+      if(!next && lows.length){ var p=lows[0].time.split(':').map(Number); next={time:lows[0].time,m:p[0]*60+p[1]}; }
+      var el=document.getElementById('todayTide');
+      if(el) el.querySelector('.today-value').innerHTML = next ? '低潮 <span class="hl">'+next.time+'</span> 前后2小时适合赶海' : '今日无低潮';
+    }
+  }).catch(function(){});
+})();
+</script>
+
 <!-- ====== 快速入口（降低跳出率） ====== -->
 <section class="quick-entry">
   <div class="quick-entry-inner">
@@ -324,6 +388,63 @@ var _hmt = _hmt || [];
           <p>夜市+海鲜市场+防宰指南</p>
         </div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 交通车站选择 ====== -->
+<style>
+  .station-guide { padding: 40px 0 8px; }
+  .station-guide .section-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--s6); }
+  .station-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .station-card { background: #fff; border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100); border-top: 4px solid var(--brand); }
+  .station-card h3 { margin: 0 0 6px; font-size: 1.15rem; font-weight: 800; }
+  .station-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: var(--radius-full); background: var(--gray-100); color: var(--gray-600); margin-bottom: 10px; }
+  .station-card p { font-size: 13px; color: var(--text-muted); margin: 0 0 10px; }
+  .station-card ul { list-style: none; margin: 0; padding: 0; }
+  .station-card li { font-size: 13px; color: var(--gray-700); padding: 4px 0; }
+  .station-card li b { color: var(--brand); }
+  .station-card.primary { border-top-color: #0d47a1; }
+  .station-card.secondary { border-top-color: #0f766e; }
+  @media(max-width: 768px) { .station-grid { grid-template-columns: 1fr; } }
+</style>
+<section class="station-guide">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>🚄 坐哪个站下车？</h2>
+      <p>三个高铁站怎么选，一图看懂</p>
+    </div>
+    <div class="station-grid">
+      <div class="station-card primary">
+        <h3>北戴河站</h3>
+        <span class="station-tag">高铁站</span>
+        <p>去北戴河、南戴河、阿那亚的首选</p>
+        <ul>
+          <li>→ 北戴河海滨 <b>打车15分钟</b></li>
+          <li>→ 阿那亚/黄金海岸 <b>打车30分钟</b></li>
+          <li>→ 蔚蓝海岸/渔田七里海 <b>打车20分钟</b></li>
+        </ul>
+      </div>
+      <div class="station-card">
+        <h3>秦皇岛站</h3>
+        <span class="station-tag">高铁+普速</span>
+        <p>市中心主枢纽，去海港区最方便</p>
+        <ul>
+          <li>→ 秦皇求仙入海处 <b>打车10分钟</b></li>
+          <li>→ 新澳海底世界 <b>打车10分钟</b></li>
+          <li>→ 北戴河海滨 <b>打车40分钟</b></li>
+        </ul>
+      </div>
+      <div class="station-card secondary">
+        <h3>山海关站</h3>
+        <span class="station-tag">高铁+普速</span>
+        <p>去山海关古城、老龙头的首选</p>
+        <ul>
+          <li>→ 天下第一关 <b>步行15分钟</b></li>
+          <li>→ 老龙头 <b>打车15分钟</b></li>
+          <li>→ 孟姜女庙 <b>打车20分钟</b></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -703,6 +824,14 @@ var _hmt = _hmt || [];
         <a href="tide">潮汐查询</a>
         <a href="weather">天气查询</a>
         <a href="accommodation">住宿推荐</a>
+      </div>
+      <div class="footer-col">
+        <h4>实用工具</h4>
+        <a href="tide">潮汐查询</a>
+        <a href="weather">天气查询</a>
+        <a href="sunrise">日出日落</a>
+        <a href="tickets">门票总览</a>
+        <a href="checklist">行前清单</a>
       </div>
       <div class="footer-col">
         <h4>关于我们</h4>
