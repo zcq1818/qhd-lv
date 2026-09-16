@@ -86,6 +86,7 @@
 
   /* ===== 特产卡片 ===== */
   .specialty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);}
+  .sf-season-grid{grid-template-columns:repeat(4,1fr);}
   .specialty-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--gray-200);transition:all var(--dur) var(--smooth);display:flex;flex-direction:column;}
   .specialty-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--food-orange);}
   .specialty-img{height:120px;overflow:hidden;background:linear-gradient(135deg,#fef3c7,#fde68a);display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
@@ -821,7 +822,7 @@ var _hmt = _hmt || [];
     </div>
   </div>
 
-  <div class="specialty-grid" style="grid-template-columns:repeat(4,1fr);">
+  <div class="specialty-grid sf-season-grid">
     <div class="specialty-card reveal" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);">
       <div class="specialty-img" style="font-size:2rem;">🌸</div>
       <div class="specialty-body">

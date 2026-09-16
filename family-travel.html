@@ -50,6 +50,14 @@
   ]
 }
 </script>
+
+<style>
+  @media (max-width: 768px) {
+    .ft-card { grid-template-columns: 1fr !important; }
+    .ft-card > img { height: 180px !important; min-height: 0 !important; }
+    .ft-tips-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
 </head>
 <body>
 
@@ -98,7 +106,7 @@
   <!-- 景点列表 -->
   <div style="display:grid;gap:24px;margin-bottom:40px;">
     <!-- 1. 鸽子窝 -->
-    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
+    <div class="ft-card" style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
       <img src="images/geziwo.webp" alt="鸽子窝公园赶海" style="width:100%;height:100%;min-height:200px;object-fit:cover;" loading="lazy">
       <div style="padding:24px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
@@ -117,7 +125,7 @@
     </div>
 
     <!-- 2. 野生动物园 -->
-    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
+    <div class="ft-card" style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
       <img src="images/dongwuyuan.webp" alt="秦皇岛野生动物园" style="width:100%;height:100%;min-height:200px;object-fit:cover;" loading="lazy">
       <div style="padding:24px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
@@ -136,7 +144,7 @@
     </div>
 
     <!-- 3. 渔岛 -->
-    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
+    <div class="ft-card" style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
       <img src="images/yudao.webp" alt="渔岛温泉度假区" style="width:100%;height:100%;min-height:200px;object-fit:cover;" loading="lazy">
       <div style="padding:24px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
@@ -155,7 +163,7 @@
     </div>
 
     <!-- 4. 集发梦想王国 -->
-    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
+    <div class="ft-card" style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
       <img src="images/jifa.webp" alt="集发梦想王国" style="width:100%;height:100%;min-height:200px;object-fit:cover;" loading="lazy">
       <div style="padding:24px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
@@ -174,7 +182,7 @@
     </div>
 
     <!-- 5. 新澳海底世界 -->
-    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
+    <div class="ft-card" style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border-light);display:grid;grid-template-columns:300px 1fr;">
       <img src="images/gangkou.webp" alt="新澳海底世界" style="width:100%;height:100%;min-height:200px;object-fit:cover;" loading="lazy">
       <div style="padding:24px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
@@ -222,7 +230,7 @@
   <!-- 带娃贴士 -->
   <div style="background:var(--gray-50);border-radius:16px;padding:32px;margin-bottom:40px;">
     <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">👶 带娃出行贴士</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
+    <div class="ft-tips-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
       <div>
         <h4 style="font-weight:700;margin-bottom:8px;">🧳 必带物品</h4>
         <ul style="list-style:none;padding:0;font-size:0.9rem;color:var(--text-secondary);line-height:2;">
