@@ -9,13 +9,13 @@ export default async function handler(req, res) {
 
   const { date, location } = req.query;
 
-  // 地点 -> TideTimes Global 站点ID（就近映射）
+  // 地点 -> TideTimes Global 站点ID（就近映射，标注实际潮汐站）
   const stations = {
-    'beidaihe': { id: 'P2454', name: '北戴河' },
-    'qinhuangdao': { id: 'P2454', name: '秦皇岛' },
-    'shankhaiguan': { id: 'P2490', name: '山海关' },
-    'nandaihe': { id: 'P2454', name: '南戴河' },
-    'huangjin': { id: 'P2436', name: '黄金海岸' }
+    'beidaihe': { id: 'P2454', name: '北戴河', station: '秦皇岛潮汐站' },
+    'qinhuangdao': { id: 'P2454', name: '秦皇岛', station: '秦皇岛潮汐站' },
+    'shankhaiguan': { id: 'P2490', name: '山海关', station: '山海关潮汐站' },
+    'nandaihe': { id: 'P2454', name: '南戴河', station: '秦皇岛潮汐站' },
+    'huangjin': { id: 'P2436', name: '黄金海岸', station: '七里海潮汐站' }
   };
 
   const loc = stations[location] || stations['qinhuangdao'];
@@ -26,6 +26,7 @@ export default async function handler(req, res) {
     res.status(200).json({
       success: true,
       location: loc.name,
+      station: loc.station,
       date: queryDate,
       data: tideData,
       source: 'qweather'
@@ -35,6 +36,7 @@ export default async function handler(req, res) {
     res.status(200).json({
       success: true,
       location: loc.name,
+      station: loc.station,
       date: queryDate,
       data: estimatedData,
       source: 'estimated',

@@ -74,7 +74,7 @@
   <!-- 查询表单 -->
   <div class="tide-card">
     <div class="tide-select">
-      <select id="location">
+      <select id="location" onchange="queryTide()">
         <option value="beidaihe">北戴河</option>
         <option value="qinhuangdao">秦皇岛</option>
         <option value="shankhaiguan">山海关</option>
@@ -150,7 +150,8 @@ async function queryTide() {
       displayTideData(data);
       // 显示数据来源
       const sourceText = data.source === 'estimated' ? '天文算法估算数据' : '实时潮汐数据';
-      document.getElementById('dataSource').textContent = `数据来源：${sourceText}`;
+      const stationText = data.station ? ' · ' + data.station : '';
+      document.getElementById('dataSource').textContent = `数据来源：${sourceText}${stationText}`;
     }
   } catch (error) {
     // 如果 API 调用失败，使用本地估算
