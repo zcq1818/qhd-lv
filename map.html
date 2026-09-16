@@ -282,6 +282,15 @@
     flex-shrink: 0;
     letter-spacing: 0.02em;
   }
+  .map-spot-fav-tag {
+    background: #ec4899;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+  }
   .map-spot-meta {
     display: flex;
     gap: 8px;
@@ -417,6 +426,15 @@
     line-height: 1;
     white-space: nowrap;
   }
+  .spot-marker-fav {
+    position: absolute;
+    top: -6px;
+    left: -4px;
+    color: #f59e0b;
+    font-size: 13px;
+    text-shadow: 0 0 3px #fff;
+    line-height: 1;
+  }
 
   /* ===== Leaflet Popup 自定义 ===== */
   .leaflet-popup-content-wrapper {
@@ -483,6 +501,27 @@
     gap: 8px;
     color: var(--brand-dark);
   }
+  .spot-popup .popup-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .spot-popup .popup-fav-btn {
+    border: 1px solid var(--gray-200);
+    background: #fff;
+    color: var(--gray-600);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 4px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all var(--dur);
+    white-space: nowrap;
+  }
+  .spot-popup .popup-fav-btn:hover { border-color: #ec4899; color: #ec4899; }
+  .spot-popup .popup-fav-btn.active { background: #ec4899; border-color: #ec4899; color: #fff; }
 
   /* Leaflet 控件美化 */
   .leaflet-control-zoom a {
@@ -901,6 +940,9 @@ if (typeof L === 'undefined') {
   var markers = {};
   var currentFilter = 'all';
   var currentCatFilter = 'all';
+  var favOnly = false;
+  var FAVORITES = [];
+  try { FAVORITES = JSON.parse(localStorage.getItem('qhd_favorites')) || []; } catch (e) {}
   var searchKeyword = '';
   var activeSpotId = null;
 
@@ -1171,7 +1213,12 @@ if (typeof L === 'undefined') {
           '<span>· ' + getAreaName(spot.area) + '</span>' +
         '</div>' +
         '<div class="popup-desc">' + spot.desc + '</div>' +
-        '<a class="popup-link" href="attractions#' + spot.id + '-spot">查看详情 →</a>' +
+        '<div class="popup-actions">' +
+          '<a class="popup-link" href="attractions#' + spot.id + '-spot">查看详情 →</a>' +
+          '<button class="popup-fav-btn' + (FAVORITES.indexOf(spot.id) >= 0 ? ' active' : '') + '" data-fav-id="' + spot.id + '">' +
+            (FAVORITES.indexOf(spot.id) >= 0 ? '❤ 已收藏' : '☆ 收藏') +
+          '</button>' +
+        '</div>' +
       '</div>' +
     '</div>';
   }
@@ -1196,33 +1243,40 @@ if (typeof L === 'undefined') {
   }
 
   /* ===== 创建所有标记 ===== */
+  function createMarkerIcon(spot) {
+    var cat = CATEGORIES[spot.cat] || {color:'#1a73e8', icon:'📍'};
+    var isTop = TOP5.indexOf(spot.id) >= 0;
+    var size = isTop ? 38 : 32;
+
+    var badgeHtml = isTop
+      ? '<i class="spot-marker-badge">TOP' + (TOP5.indexOf(spot.id) + 1) + '</i>'
+      : '';
+
+    var favBadge = FAVORITES.indexOf(spot.id) >= 0
+      ? '<i class="spot-marker-fav">★</i>'
+      : '';
+
+    var html = '<div class="spot-marker' + (isTop ? ' spot-marker-top' : '') + '" ' +
+      'style="background:' + cat.color + ';width:' + size + 'px;height:' + size + 'px;">' +
+      '<span>' + cat.icon + '</span>' +
+      badgeHtml +
+      favBadge +
+      '</div>';
+
+    return L.divIcon({
+      className: 'spot-marker-wrap',
+      html: html,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size],
+      popupAnchor: [0, -size + 4]
+    });
+  }
+
   function createMarkers() {
     resolveCoordinates();
 
     SPOTS.forEach(function(spot) {
-      var cat = CATEGORIES[spot.cat] || {color:'#1a73e8', icon:'📍'};
-      var isTop = TOP5.indexOf(spot.id) >= 0;
-      var size = isTop ? 38 : 32;
-
-      var badgeHtml = isTop
-        ? '<i class="spot-marker-badge">TOP' + (TOP5.indexOf(spot.id) + 1) + '</i>'
-        : '';
-
-      var html = '<div class="spot-marker' + (isTop ? ' spot-marker-top' : '') + '" ' +
-        'style="background:' + cat.color + ';width:' + size + 'px;height:' + size + 'px;">' +
-        '<span>' + cat.icon + '</span>' +
-        badgeHtml +
-        '</div>';
-
-      var icon = L.divIcon({
-        className: 'spot-marker-wrap',
-        html: html,
-        iconSize: [size, size],
-        iconAnchor: [size / 2, size],
-        popupAnchor: [0, -size + 4]
-      });
-
-      var marker = L.marker([spot._lat, spot._lng], { icon: icon }).addTo(map);
+      var marker = L.marker([spot._lat, spot._lng], { icon: createMarkerIcon(spot) }).addTo(map);
       marker.bindPopup(createPopup(spot), {
         maxWidth: 280,
         closeButton: true,
@@ -1234,8 +1288,44 @@ if (typeof L === 'undefined') {
         highlightListItem(spot.id);
       });
 
+      // 弹窗打开后绑定收藏按钮
+      marker.on('popupopen', function() {
+        var btn = document.querySelector('.popup-fav-btn[data-fav-id="' + spot.id + '"]');
+        if (btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleFav(spot.id);
+          });
+        }
+      });
+
       markers[spot.id] = marker;
     });
+  }
+
+  /* ===== 收藏切换 ===== */
+  function toggleFav(id) {
+    var idx = FAVORITES.indexOf(id);
+    if (idx >= 0) FAVORITES.splice(idx, 1);
+    else FAVORITES.push(id);
+    try {
+      localStorage.setItem('qhd_favorites', JSON.stringify(FAVORITES));
+      // 同步维护名称映射（供收藏页使用）
+      var spot = SPOTS.find(function(s) { return s.id === id; });
+      if (spot) {
+        var nameMap = {};
+        try { nameMap = JSON.parse(localStorage.getItem('qhd_fav_names')) || {}; } catch (e) {}
+        if (idx >= 0) delete nameMap[id];
+        else nameMap[id] = spot.name;
+        localStorage.setItem('qhd_fav_names', JSON.stringify(nameMap));
+      }
+    } catch (e) {}
+    // 更新标记星标
+    var cur = SPOTS.find(function(s) { return s.id === id; });
+    if (cur && markers[id]) markers[id].setIcon(createMarkerIcon(cur));
+    renderList();
+    renderCatFilter();
+    applyFilters(false);
   }
 
   /* ===== 渲染筛选按钮 ===== */
@@ -1280,10 +1370,14 @@ if (typeof L === 'undefined') {
         ? '<span class="map-spot-top-badge">TOP' + (TOP5.indexOf(spot.id) + 1) + '</span>'
         : '';
 
+      var favTag = FAVORITES.indexOf(spot.id) >= 0
+        ? '<span class="map-spot-fav-tag">❤ 已收藏</span>'
+        : '';
+
       html += '<div class="map-spot-item" data-id="' + spot.id + '">' +
         thumbHtml +
         '<div class="map-spot-info">' +
-          '<div class="map-spot-name">' + spot.name + topBadge + '</div>' +
+          '<div class="map-spot-name">' + spot.name + topBadge + favTag + '</div>' +
           '<div class="map-spot-meta">' +
             '<span class="stars">★ ' + spot.rating + '</span>' +
             '<span class="price">' + spot.price + '</span>' +
@@ -1365,8 +1459,9 @@ if (typeof L === 'undefined') {
     return SPOTS.filter(function(s) {
       var areaMatch = currentFilter === 'all' || s.area === currentFilter;
       var catMatch = currentCatFilter === 'all' || s.cat === currentCatFilter;
+      var favMatch = !favOnly || FAVORITES.indexOf(s.id) >= 0;
       var nameMatch = !kw || s.name.toLowerCase().indexOf(kw) >= 0;
-      return areaMatch && catMatch && nameMatch;
+      return areaMatch && catMatch && favMatch && nameMatch;
     });
   }
 
@@ -1417,10 +1512,17 @@ if (typeof L === 'undefined') {
       var cat = CATEGORIES[key];
       html += '<button class="map-cat-btn' + (currentCatFilter === key ? ' active' : '') + '" data-cat="' + key + '">' + cat.icon + ' ' + cat.name + '</button>';
     });
+    html += '<button class="map-cat-btn map-fav-toggle' + (favOnly ? ' active' : '') + '" data-fav="1">❤ 只看收藏' + (FAVORITES.length ? ' (' + FAVORITES.length + ')' : '') + '</button>';
     container.innerHTML = html;
     var btns = container.querySelectorAll('.map-cat-btn');
     btns.forEach(function(btn) {
       btn.addEventListener('click', function() {
+        if (this.hasAttribute('data-fav')) {
+          favOnly = !favOnly;
+          renderCatFilter();
+          applyFilters(false);
+          return;
+        }
         currentCatFilter = this.getAttribute('data-cat');
         renderCatFilter();
         applyFilters(false);
