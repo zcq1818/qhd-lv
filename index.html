@@ -799,14 +799,35 @@ var _hmt = _hmt || [];
 </div>
 
 <!-- 加入旅行群 -->
+<style>
+  .qr-lightbox { display: none; position: fixed; inset: 0; z-index: 99999; background: rgba(0,0,0,0.72); align-items: center; justify-content: center; padding: 24px; }
+  .qr-lightbox.show { display: flex; }
+  .qr-lightbox-inner { background: #fff; border-radius: 16px; padding: 24px; text-align: center; max-width: 320px; width: 100%; }
+  .qr-lightbox-inner img { width: 100%; max-width: 280px; height: auto; border-radius: 8px; }
+</style>
 <div style="max-width:1200px;margin:0 auto 40px;padding:40px 24px;background:linear-gradient(135deg,#e0f7fa,#e8f5e9);border-radius:16px;text-align:center;border:1px solid #b2dfdb;">
   <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;color:#00695c;">🌴 加入秦皇岛旅行交流群</h3>
   <p style="color:#00796b;margin-bottom:24px;font-size:1rem;">获取最新攻略、实时天气、本地人推荐、同行拼车</p>
-  <div style="display:inline-block;background:#fff;padding:20px;border-radius:12px;border:2px dashed #80cbc4;min-width:160px;">
-    <img src="images/wechat-qr.jpg" alt="扫码加微信入群" style="width:120px;height:120px;border-radius:8px;margin:0 auto 8px;object-fit:cover;">
-    
+  <div style="display:inline-block;background:#fff;padding:20px;border-radius:12px;border:2px dashed #80cbc4;">
+    <a href="javascript:void(0)" onclick="showQr()" style="display:block;cursor:zoom-in;text-decoration:none;" aria-label="放大入群二维码">
+      <img src="images/wechat-qr.jpg" alt="扫码加微信入群" style="width:180px;height:180px;border-radius:8px;object-fit:cover;">
+    </a>
+    <div style="margin-top:10px;font-size:13px;color:#00695c;font-weight:600;">👆 点击二维码放大 · 长按识别加入</div>
   </div>
 </div>
+
+<!-- 二维码放大弹窗 -->
+<div id="qrLightbox" class="qr-lightbox" onclick="hideQr(event)">
+  <div class="qr-lightbox-inner" onclick="event.stopPropagation()">
+    <img src="images/wechat-qr.jpg" alt="秦皇岛旅行交流群二维码">
+    <div style="margin-top:12px;font-size:15px;font-weight:700;color:#00695c;">长按识别二维码加入群聊</div>
+    <button onclick="hideQr()" style="margin-top:12px;padding:8px 24px;border:none;border-radius:999px;background:#00695c;color:#fff;font-size:14px;cursor:pointer;font-family:inherit;">关闭</button>
+  </div>
+</div>
+<script>
+function showQr() { document.getElementById('qrLightbox').classList.add('show'); }
+function hideQr(e) { if (e && e.target !== e.currentTarget) return; document.getElementById('qrLightbox').classList.remove('show'); }
+</script>
 
 <!-- ====== CTA ====== -->
 <section class="cta-home">
