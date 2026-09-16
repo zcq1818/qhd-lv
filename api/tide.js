@@ -1,6 +1,6 @@
 // api/tide.js - 潮汐查询 API（Vercel Serverless Function）
 // 数据来源：TideTimes Global 公开潮汐接口（数据源 QWeather + 国家海洋信息中心 NMDIS）
-// 站点ID：秦皇岛 P2454、山海关 P2490、七里海 P2436
+// 前端传入站点ID（如 P2454 秦皇岛、P2490 山海关、P2436 七里海），站点列表见 data/tide-stations.json
 // 失败时降级为天文算法估算兜底
 
 export default async function handler(req, res) {
@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   const { date, location } = req.query;
 
-  // 地点 -> TideTimes Global 站点ID（就近映射，标注实际潮汐站）
+  // 秦皇岛周边位置 -> 潮汐站（就近映射，标注实际潮汐站）
   const stations = {
     'beidaihe': { id: 'P2454', name: '北戴河', station: '秦皇岛潮汐站' },
     'qinhuangdao': { id: 'P2454', name: '秦皇岛', station: '秦皇岛潮汐站' },
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   const queryDate = date || new Date().toISOString().split('T')[0];
 
   try {
-    const tideData = await fetchTideTimes(loc, queryDate);
+    const tideData = await fetchTideTimes(loc.id, queryDate);
     res.status(200).json({
       success: true,
       location: loc.name,
@@ -45,10 +45,10 @@ export default async function handler(req, res) {
   }
 }
 
-// 调用 TideTimes Global 潮汐接口（返回与和风天气一致的 tideTable/tideHourly）
-async function fetchTideTimes(loc, queryDate) {
+// 调用 TideTimes Global 潮汐接口
+async function fetchTideTimes(stationId, queryDate) {
   const dateStr = queryDate.replace(/-/g, ''); // YYYY-MM-DD -> YYYYMMDD
-  const url = `https://tidetimesglobal.com/api/tide?location=${encodeURIComponent(loc.id)}&date=${dateStr}`;
+  const url = `https://tidetimesglobal.com/api/tide?location=${encodeURIComponent(stationId)}&date=${dateStr}`;
 
   const response = await fetch(url, {
     headers: {

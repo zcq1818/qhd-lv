@@ -155,7 +155,7 @@ async function queryTide() {
     }
   } catch (error) {
     // 如果 API 调用失败，使用本地估算
-    const estimatedData = estimateTide(date, location);
+    const estimatedData = estimateTide(date);
     displayTideData({
       location: getLocationName(location),
       date: date,
@@ -315,12 +315,6 @@ function estimateTide(dateStr, location) {
   });
   
   return { tides, hourly, ganhai };
-}
-
-// 获取地点名称
-function getLocationName(code) {
-  const names = { beidaihe: '北戴河', qinhuangdao: '秦皇岛', shankhaiguan: '山海关', nandaihe: '南戴河', huangjin: '黄金海岸' };
-  return names[code] || '北戴河';
 }
 
 // 页面加载时自动查询
