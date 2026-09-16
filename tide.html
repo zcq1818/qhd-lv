@@ -76,9 +76,10 @@
     <div class="tide-select">
       <select id="location" onchange="queryTide()">
         <option value="beidaihe">北戴河</option>
-        <option value="qinhuangdao">秦皇岛</option>
-        <option value="shankhaiguan">山海关</option>
+        <option value="qinhuangdao">秦皇岛市区</option>
+        <option value="shankhaiguan">山海关·老龙头</option>
         <option value="nandaihe">南戴河</option>
+        <option value="qilihai">七里海</option>
         <option value="huangjin">黄金海岸</option>
       </select>
       <input type="date" id="date">
@@ -315,6 +316,12 @@ function estimateTide(dateStr, location) {
   });
   
   return { tides, hourly, ganhai };
+}
+
+// 获取位置名称
+function getLocationName(code) {
+  const names = { beidaihe: '北戴河', qinhuangdao: '秦皇岛市区', shankhaiguan: '山海关·老龙头', nandaihe: '南戴河', qilihai: '七里海', huangjin: '黄金海岸' };
+  return names[code] || '北戴河';
 }
 
 // 页面加载时自动查询

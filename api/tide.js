@@ -12,9 +12,10 @@ export default async function handler(req, res) {
   // 秦皇岛周边位置 -> 潮汐站（就近映射，标注实际潮汐站）
   const stations = {
     'beidaihe': { id: 'P2454', name: '北戴河', station: '秦皇岛潮汐站' },
-    'qinhuangdao': { id: 'P2454', name: '秦皇岛', station: '秦皇岛潮汐站' },
-    'shankhaiguan': { id: 'P2490', name: '山海关', station: '山海关潮汐站' },
+    'qinhuangdao': { id: 'P2454', name: '秦皇岛市区', station: '秦皇岛潮汐站' },
+    'shankhaiguan': { id: 'P2490', name: '山海关·老龙头', station: '山海关潮汐站' },
     'nandaihe': { id: 'P2454', name: '南戴河', station: '秦皇岛潮汐站' },
+    'qilihai': { id: 'P2436', name: '七里海', station: '七里海潮汐站' },
     'huangjin': { id: 'P2436', name: '黄金海岸', station: '七里海潮汐站' }
   };
 
