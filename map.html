@@ -212,6 +212,15 @@
   .map-list::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
   .map-list::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
 
+  /* 列表搜索 + 分类筛选 */
+  .map-list-tools { padding: 10px 12px; border-bottom: 1px solid var(--gray-200); background: var(--gray-50); }
+  .map-search input { width: 100%; box-sizing: border-box; padding: 8px 12px; border: 1px solid var(--gray-200); border-radius: var(--radius-full); font-size: 13px; outline: none; transition: border-color var(--dur); }
+  .map-search input:focus { border-color: var(--brand); }
+  .map-cat-filter { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .map-cat-btn { padding: 4px 10px; border-radius: var(--radius-full); font-size: 11px; font-weight: 600; cursor: pointer; border: 1px solid var(--gray-200); background: #fff; color: var(--gray-600); transition: all var(--dur) var(--ease-out); display: inline-flex; align-items: center; gap: 4px; }
+  .map-cat-btn:hover { border-color: var(--brand); color: var(--brand); }
+  .map-cat-btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+
   .map-spot-item {
     display: flex;
     gap: 12px;
@@ -672,6 +681,12 @@ var _hmt = _hmt || [];
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
+    <div class="map-list-tools">
+      <div class="map-search">
+        <input type="text" id="mapSearchInput" placeholder="🔍 搜索景点名称" autocomplete="off">
+      </div>
+      <div class="map-cat-filter" id="mapCatFilter"></div>
+    </div>
     <div class="map-list" id="mapList">
       <!-- 景点列表由 JS 动态生成 -->
     </div>
@@ -885,6 +900,8 @@ if (typeof L === 'undefined') {
   var map = null;
   var markers = {};
   var currentFilter = 'all';
+  var currentCatFilter = 'all';
+  var searchKeyword = '';
   var activeSpotId = null;
 
   /* ===== 工具函数：根据 area id 获取区域名称 ===== */
@@ -1247,15 +1264,12 @@ if (typeof L === 'undefined') {
   /* ===== 渲染景点列表 ===== */
   function renderList() {
     var container = document.getElementById('mapList');
-    var filtered = currentFilter === 'all'
-      ? SPOTS
-      : SPOTS.filter(function(s) { return s.area === currentFilter; });
+    var filtered = getFilteredSpots();
 
     var html = '';
     filtered.forEach(function(spot) {
       var cat = CATEGORIES[spot.cat] || {color:'#1a73e8', icon:'📍'};
       var isTop = TOP5.indexOf(spot.id) >= 0;
-      var areaColor = getAreaColor(spot.area);
 
       // 缩略图：有图显示图片，无图显示分类色块+图标
       var thumbHtml = spot.img
@@ -1273,7 +1287,7 @@ if (typeof L === 'undefined') {
           '<div class="map-spot-meta">' +
             '<span class="stars">★ ' + spot.rating + '</span>' +
             '<span class="price">' + spot.price + '</span>' +
-            '<span class="area-tag" style="background:' + areaColor + '20;color:' + areaColor + '">' + getAreaName(spot.area) + '</span>' +
+            '<span class="area-tag" style="background:' + cat.color + '20;color:' + cat.color + '">' + cat.icon + ' ' + cat.name + '</span>' +
           '</div>' +
           '<div class="map-spot-desc">' + spot.desc + '</div>' +
         '</div>' +
@@ -1345,6 +1359,42 @@ if (typeof L === 'undefined') {
     }
   }
 
+  /* ===== 综合过滤：区域 + 分类 + 搜索关键词 ===== */
+  function getFilteredSpots() {
+    var kw = searchKeyword.trim().toLowerCase();
+    return SPOTS.filter(function(s) {
+      var areaMatch = currentFilter === 'all' || s.area === currentFilter;
+      var catMatch = currentCatFilter === 'all' || s.cat === currentCatFilter;
+      var nameMatch = !kw || s.name.toLowerCase().indexOf(kw) >= 0;
+      return areaMatch && catMatch && nameMatch;
+    });
+  }
+
+  function applyFilters(fitBounds) {
+    var filtered = getFilteredSpots();
+    var visibleBounds = [];
+    SPOTS.forEach(function(spot) {
+      var marker = markers[spot.id];
+      if (!marker) return;
+      var show = filtered.indexOf(spot) >= 0;
+      if (show) {
+        if (!map.hasLayer(marker)) marker.addTo(map);
+        visibleBounds.push([spot._lat, spot._lng]);
+      } else {
+        if (map.hasLayer(marker)) map.removeLayer(marker);
+      }
+    });
+    renderList();
+    if (activeSpotId) highlightListItem(activeSpotId);
+    if (fitBounds && visibleBounds.length > 0) {
+      if (visibleBounds.length === 1) {
+        map.flyTo(visibleBounds[0], 14, { duration: 0.8 });
+      } else {
+        map.flyToBounds(visibleBounds, { padding: [60, 60], maxZoom: 13, duration: 0.8 });
+      }
+    }
+  }
+
   /* ===== 按区域筛选 ===== */
   function filterByArea(areaId) {
     currentFilter = areaId;
@@ -1355,37 +1405,37 @@ if (typeof L === 'undefined') {
       btn.classList.toggle('active', btn.getAttribute('data-area') === areaId);
     });
 
-    // 筛选标记显示/隐藏
-    var visibleBounds = [];
-    SPOTS.forEach(function(spot) {
-      var marker = markers[spot.id];
-      if (!marker) return;
-      var show = (areaId === 'all' || spot.area === areaId);
-      if (show) {
-        if (!map.hasLayer(marker)) marker.addTo(map);
-        visibleBounds.push([spot._lat, spot._lng]);
-      } else {
-        if (map.hasLayer(marker)) map.removeLayer(marker);
-      }
+    applyFilters(true);
+  }
+
+  /* ===== 分类筛选按钮 ===== */
+  function renderCatFilter() {
+    var container = document.getElementById('mapCatFilter');
+    if (!container) return;
+    var html = '<button class="map-cat-btn' + (currentCatFilter === 'all' ? ' active' : '') + '" data-cat="all">全部</button>';
+    Object.keys(CATEGORIES).forEach(function(key) {
+      var cat = CATEGORIES[key];
+      html += '<button class="map-cat-btn' + (currentCatFilter === key ? ' active' : '') + '" data-cat="' + key + '">' + cat.icon + ' ' + cat.name + '</button>';
     });
+    container.innerHTML = html;
+    var btns = container.querySelectorAll('.map-cat-btn');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        currentCatFilter = this.getAttribute('data-cat');
+        renderCatFilter();
+        applyFilters(false);
+      });
+    });
+  }
 
-    // 重新渲染列表
-    renderList();
-    // 保持高亮状态
-    if (activeSpotId) highlightListItem(activeSpotId);
-
-    // 调整地图视野到可见标记范围
-    if (visibleBounds.length > 0) {
-      if (visibleBounds.length === 1) {
-        map.flyTo(visibleBounds[0], 14, { duration: 0.8 });
-      } else {
-        map.flyToBounds(visibleBounds, {
-          padding: [60, 60],
-          maxZoom: 13,
-          duration: 0.8
-        });
-      }
-    }
+  /* ===== 搜索框 ===== */
+  function setupSearch() {
+    var input = document.getElementById('mapSearchInput');
+    if (!input) return;
+    input.addEventListener('input', function() {
+      searchKeyword = this.value;
+      applyFilters(false);
+    });
   }
 
   /* ===== 侧边栏切换（展开/收起） ===== */
@@ -1477,6 +1527,8 @@ if (typeof L === 'undefined') {
     initMap();
     createMarkers();
     renderFilter();
+    renderCatFilter();
+    setupSearch();
     renderList();
     renderLegend();
     setupMobileToggle();
