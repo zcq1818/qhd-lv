@@ -29,16 +29,16 @@
   ],
   "laohushi": [
     {
+      "title": "老虎石海上公园全攻略 | 门票·日落·赶海",
+      "url": "/blog/laohushi-guide"
+    },
+    {
       "title": "北戴河旅游攻略 | 景区分布·票价",
       "url": "/blog/2026年北戴河旅游攻略-2026年-北戴河欢迎您-景区分布和简介-票价"
     },
     {
       "title": "北戴河2天1夜周末游攻略",
       "url": "/blog/beidaihe-2days-weekend"
-    },
-    {
-      "title": "北戴河赶海攻略",
-      "url": "/blog/qhd-ganhai-guide"
     }
   ],
   "liangfengshan": [
@@ -85,30 +85,30 @@
   ],
   "dongwuyuan": [
     {
+      "title": "秦皇岛野生动物园全攻略 | 门票·自驾·投喂",
+      "url": "/blog/dongwuyuan-guide"
+    },
+    {
       "title": "秦皇岛亲子游攻略",
       "url": "/blog/qhd-family-travel"
     },
     {
       "title": "北戴河带娃攻略",
       "url": "/blog/beidaihe-kids-play"
-    },
-    {
-      "title": "北戴河暑假亲子游",
-      "url": "/blog/beidaihe-summer-2026-guide"
     }
   ],
   "jifa": [
     {
+      "title": "集发农业梦想王国全攻略 | 门票·亲子研学",
+      "url": "/blog/jifa-guide"
+    },
+    {
       "title": "秦皇岛亲子游攻略",
       "url": "/blog/qhd-family-travel"
     },
     {
       "title": "北戴河带娃攻略",
       "url": "/blog/beidaihe-kids-play"
-    },
-    {
-      "title": "北戴河暑假亲子游",
-      "url": "/blog/beidaihe-summer-2026-guide"
     }
   ],
   "shidi": [
@@ -155,16 +155,16 @@
   ],
   "jiaoshan": [
     {
+      "title": "角山长城全攻略 | 门票·缆车·红叶",
+      "url": "/blog/jiaoshan-guide"
+    },
+    {
       "title": "秦皇岛爬山攻略 | 祖山·角山·联峰山",
       "url": "/blog/qhd-hiking"
     },
     {
       "title": "山海关长城攻略 | 老龙头·角山·第一关",
       "url": "/blog/shanhaiguan-great-wall"
-    },
-    {
-      "title": "山海关一日游路线",
-      "url": "/blog/shanhaiguan-one-day"
     }
   ],
   "mengjiangnv": [
@@ -183,16 +183,16 @@
   ],
   "ledao": [
     {
+      "title": "乐岛海洋王国全攻略 | 门票·海豚表演·水上乐园",
+      "url": "/blog/ledao-guide"
+    },
+    {
       "title": "秦皇岛水上乐园 | 夏天玩水",
       "url": "/blog/qhd-water-park"
     },
     {
       "title": "秦皇岛亲子游攻略",
       "url": "/blog/qhd-family-travel"
-    },
-    {
-      "title": "北戴河带娃攻略",
-      "url": "/blog/beidaihe-kids-play"
     }
   ],
   "changshoushan": [
@@ -211,16 +211,16 @@
   ],
   "yansaihu": [
     {
+      "title": "燕塞湖全攻略 | 门票·游船·鸟语林",
+      "url": "/blog/yansaihu-guide"
+    },
+    {
       "title": "秦皇岛爬山攻略",
       "url": "/blog/qhd-hiking"
     },
     {
       "title": "秦皇岛一日游攻略",
       "url": "/blog/qhd-one-day-trip"
-    },
-    {
-      "title": "秦皇岛旅行攻略",
-      "url": "/blog/秦皇岛旅行攻略"
     }
   ],
   "shanhaiguan_gucheng": [
@@ -253,16 +253,16 @@
   ],
   "xinao": [
     {
+      "title": "新澳海底世界全攻略 | 门票·海底隧道",
+      "url": "/blog/xinao-guide"
+    },
+    {
       "title": "秦皇岛潜水 | 海底世界",
       "url": "/blog/qhd-diving"
     },
     {
       "title": "秦皇岛亲子游攻略",
       "url": "/blog/qhd-family-travel"
-    },
-    {
-      "title": "北戴河带娃攻略",
-      "url": "/blog/beidaihe-kids-play"
     }
   ],
   "gangkou": [
@@ -323,16 +323,16 @@
   ],
   "yudao": [
     {
+      "title": "渔岛海洋温泉景区全攻略 | 门票·温泉·薰衣草",
+      "url": "/blog/yudao-guide"
+    },
+    {
       "title": "北戴河旅游攻略 | 景区分布·票价",
       "url": "/blog/2026年北戴河旅游攻略-2026年-北戴河欢迎您-景区分布和简介-票价"
     },
     {
       "title": "北戴河2天1夜周末游攻略",
       "url": "/blog/beidaihe-2days-weekend"
-    },
-    {
-      "title": "北戴河赶海攻略",
-      "url": "/blog/qhd-ganhai-guide"
     }
   ],
   "shenglan": [
@@ -365,16 +365,16 @@
   ],
   "weilanhaian": [
     {
+      "title": "蔚蓝海岸全攻略 | 猫空书店·秋千·冲浪",
+      "url": "/blog/weilanhaian-guide"
+    },
+    {
       "title": "秦皇岛水果采摘 | 葡萄·樱桃·草莓",
       "url": "/blog/qhd-fruit-picking"
     },
     {
       "title": "秦皇岛一日游攻略",
       "url": "/blog/qhd-one-day-trip"
-    },
-    {
-      "title": "秦皇岛旅行攻略",
-      "url": "/blog/秦皇岛旅行攻略"
     }
   ],
   "xianluodao": [
@@ -407,16 +407,16 @@
   ],
   "zushan": [
     {
+      "title": "祖山风景区全攻略 | 门票·缆车·云海",
+      "url": "/blog/zushan-guide"
+    },
+    {
       "title": "秦皇岛爬山攻略 | 祖山·角山·联峰山",
       "url": "/blog/qhd-hiking"
     },
     {
       "title": "秦皇岛一日游攻略",
       "url": "/blog/qhd-one-day-trip"
-    },
-    {
-      "title": "秦皇岛旅行攻略",
-      "url": "/blog/秦皇岛旅行攻略"
     }
   ],
   "bingtangyu": [
