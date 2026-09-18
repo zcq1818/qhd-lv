@@ -105,6 +105,41 @@ window.SEARCH_INDEX = [
     "type": "攻略"
   },
   {
+    "title": "阿那亚活动全攻略 | 戏剧节·音乐节·新店打卡（2026最新）",
+    "url": "/blog/aranya-events-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛海上运动全攻略 | 帆船·海钓·潜水（2026最新）",
+    "url": "/blog/qhd-sea-sports-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛夜游全攻略 | 10个夜间好去处（2026最新）",
+    "url": "/blog/qhd-night-tour-guide",
+    "type": "博客"
+  },
+  {
+    "title": "欢屿岛魔幻之旅全攻略 | 金字塔星空剧场·打铁花（2026最新）",
+    "url": "/blog/huanyu-island-night-guide",
+    "type": "博客"
+  },
+  {
+    "title": "渔渡一号海东青海上平台攻略 | 海钓·海上观光（2026最新）",
+    "url": "/blog/yudu-1-fishing-platform-guide",
+    "type": "博客"
+  },
+  {
+    "title": "北戴河不同艺术小镇全攻略 | 门票·展览·拍照打卡（2026最新）",
+    "url": "/blog/beidaihe-art-town-guide",
+    "type": "博客"
+  },
+  {
+    "title": "昌黎国际沙滑中心全攻略 | 门票·滑沙·黄金海岸（2026最新）",
+    "url": "/blog/changli-sand-slide-guide",
+    "type": "博客"
+  },
+  {
     "title": "阿那亚全攻略 | 怎么进·住哪·拍照·餐饮·孤独图书馆（2026最新）",
     "url": "/blog/aranya-complete-guide-2026",
     "type": "博客"
@@ -217,6 +252,101 @@ window.SEARCH_INDEX = [
   {
     "title": "秦皇岛国庆旅游攻略 | 2026十一出行·天气·住宿",
     "url": "/blog/qhd-national-day-guide-2026",
+    "type": "博客"
+  },
+  {
+    "title": "老虎石海上公园全攻略 | 门票·日落·赶海",
+    "url": "/blog/laohushi-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛野生动物园全攻略 | 门票·自驾·投喂",
+    "url": "/blog/dongwuyuan-guide",
+    "type": "博客"
+  },
+  {
+    "title": "集发农业梦想王国全攻略 | 门票·亲子研学",
+    "url": "/blog/jifa-guide",
+    "type": "博客"
+  },
+  {
+    "title": "角山长城全攻略 | 门票·缆车·红叶",
+    "url": "/blog/jiaoshan-guide",
+    "type": "博客"
+  },
+  {
+    "title": "乐岛海洋王国全攻略 | 门票·海豚表演·水上乐园",
+    "url": "/blog/ledao-guide",
+    "type": "博客"
+  },
+  {
+    "title": "燕塞湖全攻略 | 门票·游船·鸟语林",
+    "url": "/blog/yansaihu-guide",
+    "type": "博客"
+  },
+  {
+    "title": "新澳海底世界全攻略 | 门票·海底隧道",
+    "url": "/blog/xinao-guide",
+    "type": "博客"
+  },
+  {
+    "title": "渔岛海洋温泉景区全攻略 | 门票·温泉·薰衣草",
+    "url": "/blog/yudao-guide",
+    "type": "博客"
+  },
+  {
+    "title": "蔚蓝海岸全攻略 | 猫空书店·秋千·冲浪",
+    "url": "/blog/weilanhaian-guide",
+    "type": "博客"
+  },
+  {
+    "title": "祖山风景区全攻略 | 门票·缆车·云海",
+    "url": "/blog/zushan-guide",
+    "type": "博客"
+  },
+  {
+    "title": "怪楼奇园全攻略 | 门票·999门迷宫",
+    "url": "/blog/guailou-guide",
+    "type": "博客"
+  },
+  {
+    "title": "冰塘峪大峡谷全攻略 | 门票·冰瀑·玻璃栈道",
+    "url": "/blog/bingtangyu-guide",
+    "type": "博客"
+  },
+  {
+    "title": "圣蓝海洋公园全攻略 | 门票·海豚剧场",
+    "url": "/blog/shenglan-guide",
+    "type": "博客"
+  },
+  {
+    "title": "孟姜女庙全攻略 | 门票·望夫石",
+    "url": "/blog/mengjiangnv-guide",
+    "type": "博客"
+  },
+  {
+    "title": "山海关古城全攻略 | 门票·钟鼓楼",
+    "url": "/blog/shanhaiguan-gucheng-guide",
+    "type": "博客"
+  },
+  {
+    "title": "南戴河国际娱乐中心全攻略 | 门票·过山车",
+    "url": "/blog/nanent-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛几月去最好 | 最佳旅游时间",
+    "url": "/blog/qhd-best-time-to-visit",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛vs青岛vs大连 | 北方看海去哪个",
+    "url": "/blog/qhd-vs-qingdao-dalian",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛五一端午假期攻略 | 天气·人流·避坑",
+    "url": "/blog/qhd-holiday-guide",
     "type": "博客"
   },
   {

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QNGJC2KRK0"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QNGJC2KRK0');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秦皇岛当地向导 · 私家小团定制 | 本地人带你深度游 — 秦皇岛旅游官网</title>
+<meta name="description" content="秦皇岛当地向导、私家小团定制服务。本地人带你赶海、看日出、吃地道海鲜，1-6人小团，按需定制行程，避开游客坑。">
+<meta name="keywords" content="秦皇岛当地向导,秦皇岛私人导游,北戴河私家团,秦皇岛包车,当地向导,私家小团定制,秦皇岛深度游">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.divdu.com/local-guide">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1a73e8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="秦皇岛旅游">
+<meta property="og:title" content="秦皇岛当地向导 · 私家小团定制 | 本地人带你深度游">
+<meta property="og:description" content="本地向导带你赶海、看日出、吃地道海鲜，1-6人小团，按需定制。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.divdu.com/local-guide">
+<meta property="og:site_name" content="秦皇岛旅游官网">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Service",
+  "name":"秦皇岛当地向导 · 私家小团定制",
+  "provider":{"@type":"Organization","name":"秦皇岛旅游官网","url":"https://www.divdu.com/"},
+  "areaServed":"秦皇岛",
+  "description":"秦皇岛当地向导、私家小团定制服务：赶海、日出、美食、景点深度游。"
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="style.min.css">
+<style>
+  .pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5);}
+  .pkg-card{background:#fff;border:1px solid var(--border-light,#eef2f7);border-radius:var(--radius-lg);padding:var(--s6) var(--s5);transition:all var(--dur) var(--ease-out);position:relative;overflow:hidden;}
+  .pkg-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+  .pkg-icon{width:52px;height:52px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:var(--s4);background:linear-gradient(135deg,#e3f2fd,#bbdefb);}
+  .pkg-card h3{font-weight:800;font-size:var(--text-lg);margin-bottom:var(--s2);}
+  .pkg-card .pkg-dur{font-size:var(--text-xs);color:var(--brand);font-weight:700;margin-bottom:var(--s3);}
+  .pkg-card p{font-size:var(--text-sm);color:var(--text-muted);line-height:1.7;}
+
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5);}
+  .price-card{background:linear-gradient(160deg,#0d47a1,#1a73e8);color:#fff;border-radius:var(--radius-lg);padding:var(--s6);text-align:center;transition:all var(--dur) var(--ease-out);}
+  .price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+  .price-card .price-name{font-size:var(--text-sm);opacity:0.9;font-weight:600;}
+  .price-card .price-num{font-size:clamp(1.15rem,2vw,1.3rem);font-weight:800;margin:var(--s3) 0 var(--s1);}
+  .price-card .price-num small{font-size:var(--text-sm);font-weight:600;opacity:0.85;}
+  .price-card .price-desc{font-size:var(--text-xs);opacity:0.8;line-height:1.6;}
+
+  .form-card{background:#fff;border:1px solid var(--border-light,#eef2f7);border-radius:var(--radius-xl);padding:var(--s8);max-width:720px;margin:0 auto;box-shadow:0 8px 30px rgba(0,0,0,0.06);}
+  .form-card h2{font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--s2);}
+  .form-card .form-sub{color:var(--text-muted);font-size:var(--text-sm);margin-bottom:var(--s8);}
+  .form-tip{display:none;background:#e8f5e9;color:#2e7d32;border-radius:var(--radius);padding:var(--s4);font-size:var(--text-sm);margin-top:var(--s4);}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);max-width:760px;margin:0 auto;}
+  .contact-qr{text-align:center;background:#fff;border-radius:var(--radius-lg);padding:var(--s6);border:1px solid var(--border-light,#eef2f7);}
+  .contact-qr img{width:180px;height:180px;border-radius:var(--radius);object-fit:cover;}
+  .contact-qr p{font-size:var(--text-sm);color:var(--text-muted);margin-top:var(--s3);}
+  .contact-mail{display:flex;flex-direction:column;justify-content:center;gap:var(--s4);}
+
+  @media(max-width:768px){
+    .pkg-grid,.price-grid{grid-template-columns:1fr 1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .form-card{padding:var(--s6);}
+  }
+  @media(max-width:480px){
+    .pkg-grid,.price-grid{grid-template-columns:1fr;}
+  }
+</style>
+
+<!-- ====== Web Analytics 分析 ====== -->
+<script defer src="https://cdn.vercel-insights.com/v1/vitals.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7b1ee61e8afe12d737233bf307fc7648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="alternate" hreflang="zh-CN" href="https://www.divdu.com/">
+<link rel="stylesheet" href="css/share.min.css">
+<script src="js/share.min.js" defer></script>
+</head>
+<body>
+
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      秦皇岛旅游官网
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">首页</a></li>
+      <li><a href="/must-play">必玩景点</a></li>
+      <li><a href="/attractions">景点大全</a></li>
+      <li><a href="/map">地图</a></li>
+      <li><a href="/itinerary">行程规划</a></li>
+      <li><a href="/food">美食</a></li>
+      <li><a href="/guide">旅游攻略</a></li>
+      <li><a href="/blog">博客</a></li>
+      <li><a href="/local-guide" class="active">当地向导</a></li>
+    </ul>
+    <a href="/itinerary" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="breadcrumb"><a href="/">首页</a> <span class="sep">/</span> 当地向导</div>
+
+<section class="page-hero" id="main-content" role="main">
+  <h1>当地向导 · 私家小团</h1>
+  <p>本地人带你深度游秦皇岛，赶海、看日出、吃地道海鲜，不走冤枉路</p>
+  <div class="page-hero-meta">
+    <span class="page-hero-tag">1-6人小团</span>
+    <span class="page-hero-tag">按需定制</span>
+    <span class="page-hero-tag">本地向导带队</span>
+    <span class="page-hero-tag">避开游客坑</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+
+    <!-- 服务介绍 -->
+    <div class="reveal" style="margin-bottom:var(--s12);">
+      <span class="text-caption">服务介绍</span>
+      <h2 class="section-title">四种玩法，按你的节奏来</h2>
+      <p class="section-desc">不用跟大团、不用自己查攻略，本地向导陪你玩最地道的秦皇岛。</p>
+      <div class="pkg-grid">
+        <div class="pkg-card">
+          <div class="pkg-icon">🏖️</div>
+          <h3>半日精华向导</h3>
+          <div class="pkg-dur">2-4 小时</div>
+          <p>老龙头·山海关 / 北戴河·鸽子窝，任选一条主题线，带你走最值得看的地方。</p>
+        </div>
+        <div class="pkg-card">
+          <div class="pkg-icon">🌅</div>
+          <h3>一日深度向导</h3>
+          <div class="pkg-dur">6-8 小时</div>
+          <p>含日出、赶海、老街美食，一天串起精华，不走回头路、不吃亏。</p>
+        </div>
+        <div class="pkg-card">
+          <div class="pkg-icon">👨‍👩‍👧‍👦</div>
+          <h3>私家小团定制</h3>
+          <div class="pkg-dur">2-6 人 · 可多日</div>
+          <p>按你的时间、兴趣定制，含用车与行程建议，家庭、朋友出游首选。</p>
+        </div>
+        <div class="pkg-card">
+          <div class="pkg-icon">🍜</div>
+          <h3>美食探店向导</h3>
+          <div class="pkg-dur">约 3 小时</div>
+          <p>本地人带吃地道海鲜、网红小店，避开只坑游客的"游客店"。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 定制报价 -->
+    <div class="reveal" style="margin-bottom:var(--s12);">
+      <span class="text-caption">定制报价</span>
+      <h2 class="section-title">按需定制，一对一报价</h2>
+      <p class="section-desc">行程、人数、季节不同，价格也不同。告诉我们你的需求，1 对 1 定制专属报价。</p>
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="price-name">半日精华向导</div>
+          <div class="price-num">定制报价</div>
+          <div class="price-desc">1-4 人 · 约 2-4 小时</div>
+        </div>
+        <div class="price-card">
+          <div class="price-name">一日深度向导</div>
+          <div class="price-num">定制报价</div>
+          <div class="price-desc">1-4 人 · 约 6-8 小时</div>
+        </div>
+        <div class="price-card">
+          <div class="price-name">私家小团定制</div>
+          <div class="price-num">定制报价</div>
+          <div class="price-desc">2-6 人 · 含车 · 可多日</div>
+        </div>
+        <div class="price-card">
+          <div class="price-name">美食探店向导</div>
+          <div class="price-num">定制报价</div>
+          <div class="price-desc">约 3 小时 · 地道老店</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:var(--s8);">
+        <a href="#booking" class="btn btn-primary btn-lg">立即咨询定制报价 <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- 预约咨询表单 -->
+    <div class="reveal" id="booking" style="margin-bottom:var(--s12);">
+      <div class="form-card">
+        <span class="text-caption">预约咨询</span>
+        <h2>告诉我你的出行计划</h2>
+        <p class="form-sub">填写后提交，我们会尽快与你联系确认行程。提交即打开邮件，也可直接加微信更快回复。</p>
+        <form id="bookingForm">
+          <div class="form-group">
+            <label class="form-label" for="fName">姓名 / 称呼</label>
+            <input class="form-input" type="text" id="fName" name="name" placeholder="怎么称呼你" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fContact">联系方式（微信 / 手机号）</label>
+            <input class="form-input" type="text" id="fContact" name="contact" placeholder="方便联系到你的微信或手机号" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fDate">出行日期</label>
+            <input class="form-input" type="date" id="fDate" name="date">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fPeople">出行人数</label>
+            <select class="form-input" id="fPeople" name="people">
+              <option value="1人">1 人</option>
+              <option value="2人">2 人</option>
+              <option value="3-4人">3-4 人</option>
+              <option value="5-6人">5-6 人</option>
+              <option value="6人以上">6 人以上</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fService">意向服务</label>
+            <select class="form-input" id="fService" name="service">
+              <option value="半日精华向导">半日精华向导</option>
+              <option value="一日深度向导">一日深度向导</option>
+              <option value="私家小团定制">私家小团定制</option>
+              <option value="美食探店向导">美食探店向导</option>
+              <option value="还没想好，帮我推荐">还没想好，帮我推荐</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fNote">备注 / 特别需求</label>
+            <textarea class="form-input" id="fNote" name="note" rows="4" placeholder="想去的景点、饮食忌口、老人小孩同行等，都可以写在这里"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">提交预约咨询 <span class="btn-arrow">→</span></button>
+          <div class="form-tip" id="formTip"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 联系方式 -->
+    <div class="reveal">
+      <span class="text-caption">联系方式</span>
+      <h2 class="section-title" style="text-align:center;">扫码或发邮件，快速找到我们</h2>
+      <div class="contact-grid" style="margin-top:var(--s6);">
+        <div class="contact-qr">
+          <img src="images/wechat-qr.jpg" alt="微信二维码" loading="lazy" onerror="this.style.display='none'">
+          <p><strong>添加微信</strong>，最快获得回复</p>
+        </div>
+        <div class="contact-mail">
+          <p style="font-size:var(--text-base);color:var(--text);line-height:1.8;">预约或咨询，也可以直接发邮件：</p>
+          <p style="font-size:1.2rem;font-weight:800;color:var(--brand);">📧 zhaochenqi@163.com</p>
+          <p style="font-size:var(--text-xs);color:var(--text-muted);">我们会在 24 小时内回复你的咨询。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>秦皇岛旅游官网</h3>
+        <p>致力于为每一位来秦皇岛的游客，提供最实用、最全面的旅游攻略。</p>
+        <p style="margin-top:16px;">
+          <span style="color:var(--brand-light);font-weight:700;">当地向导 / 私家小团</span><br>
+          本地人带你深度游秦皇岛
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>热门页面</h4>
+        <a href="/">首页</a>
+        <a href="attractions">景点推荐</a>
+        <a href="itinerary">行程规划</a>
+        <a href="food">美食推荐</a>
+        <a href="blog">旅游博客</a>
+      </div>
+      <div class="footer-col">
+        <h4>旅游攻略</h4>
+        <a href="guide">出行指南</a>
+        <a href="guide#transport">交通攻略</a>
+        <a href="guide#accommodation">住宿推荐</a>
+        <a href="guide#besttime">最佳时间</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="about">关于官网</a>
+        <a href="local-guide">当地向导</a>
+        <a href="about#cooperation">商务合作</a>
+        <a href="about#privacy">隐私政策</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 秦皇岛旅游官网 www.divdu.com</span>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">冀ICP备16026346号-2</a>
+      <div>
+        <a href="about#privacy">隐私政策</a> ·
+        <a href="about#disclaimer">免责声明</a> ·
+        <a href="sitemap.xml">网站地图</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);});
+document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open');});
+var reveals=document.querySelectorAll('.reveal');
+var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target);}})},{threshold:0.1});
+reveals.forEach(function(el){o.observe(el);});
+
+// 预约表单提交：拼装预约信息并通过邮件发送（纯静态，无需后端）
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('fName').value.trim();
+  var contact = document.getElementById('fContact').value.trim();
+  var date = document.getElementById('fDate').value;
+  var people = document.getElementById('fPeople').value;
+  var service = document.getElementById('fService').value;
+  var note = document.getElementById('fNote').value.trim();
+
+  var subject = '【当地向导预约】' + (name || '游客');
+  var body = '姓名：' + name + '\n'
+    + '联系方式：' + contact + '\n'
+    + '出行日期：' + (date || '未填写') + '\n'
+    + '出行人数：' + people + '\n'
+    + '意向服务：' + service + '\n'
+    + '备注：' + (note || '无');
+
+  var mailto = 'mailto:zhaochenqi@163.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  window.location.href = mailto;
+
+  var tip = document.getElementById('formTip');
+  tip.textContent = '已为你打开邮件，发送即可完成预约；如需更快回复，请直接添加上方微信。';
+  tip.style.display = 'block';
+});
+</script>
+<!-- AI 聊天组件 -->
+<link rel="stylesheet" href="css/chat-widget.min.css">
+<script src="js/chat-widget.min.js" defer></script>
+<script src=js/accessibility.js defer></script>
+</html>

@@ -1,11 +1,28 @@
 # robots.txt for 秦皇岛旅游官网
 # https://www.divdu.com/
 
+# 默认规则：允许所有爬虫，仅屏蔽后台管理页
 User-agent: *
 Allow: /
+Disallow: /admin.html
+
+# ===== 显式欢迎主流 AI 爬虫与搜索机器人 =====
+# 便于 ChatGPT、豆包、Kimi、文心一言、Gemini、Perplexity 等 AI 搜索/助手抓取并引用本站内容
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Bytespider
+User-agent: Baiduspider
+User-agent: YisouSpider
+User-agent: 360Spider
+User-agent: Sogou web spider
+Allow: /
+Disallow: /admin.html
 
 # 网站地图位置
 Sitemap: https://www.divdu.com/sitemap.xml
-
-# 禁止爬取后台/管理页面
-Disallow: /admin.html
