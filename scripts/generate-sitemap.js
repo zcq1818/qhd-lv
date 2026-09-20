@@ -27,6 +27,14 @@ const BLOG_META = { priority: '0.6', changefreq: 'weekly' };
 // 不收录的功能/系统页
 const EXCLUDE_ROOT = new Set(['index.html', '404.html', 'admin.html', 'favorites.html']);
 
+// 已合并/退役的博客（data/retired-posts.json），不再收录，避免重定向 URL 进入 sitemap
+let RETIRED = new Set();
+try {
+  const rp = JSON.parse(fs.readFileSync(path.join(root, 'data', 'retired-posts.json'), 'utf8'));
+  RETIRED = new Set((rp.posts || []).map((x) => x.slug));
+} catch (e) { /* 文件不存在则不过滤 */ }
+
+
 function esc(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
@@ -44,7 +52,7 @@ const rootPages = fs.readdirSync(root)
   .sort();
 
 const attractions = readSlugs('attraction');
-const blogs = readSlugs('blog');
+const blogs = readSlugs('blog').filter((s) => !RETIRED.has(s));
 
 function url(loc, meta) {
   return `  <url><loc>${esc(SITE + loc)}</loc><priority>${meta.priority}</priority><changefreq>${meta.changefreq}</changefreq></url>`;

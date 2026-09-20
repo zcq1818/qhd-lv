@@ -62,11 +62,19 @@ function cnDateStr(offsetDays) {
 
 // 获取日出日落、月相、钓鱼指数（和风天气，独立于潮汐数据）
 async function fetchTideExtra(coord, queryDate) {
-  const QWEATHER_KEY = process.env.QWEATHER_API_KEY || '99ea2096b20b471d8d20400ee9a23a70';
-  const QWEATHER_HOST = process.env.QWEATHER_API_HOST || 'nu6apxvdn8.re.qweatherapi.com';
+  // 和风天气凭据（仅从环境变量读取，切勿写入代码仓库）
+  const QWEATHER_KEY = process.env.QWEATHER_API_KEY;
+  const QWEATHER_HOST = process.env.QWEATHER_API_HOST;
+  const result = { sun: null, moon: null, fishing: null };
+
+  // 未配置凭据时跳过天文/指数数据，潮汐主体仍正常返回
+  if (!QWEATHER_KEY || !QWEATHER_HOST) {
+    console.warn('[tide] 缺少 QWEATHER_API_KEY / QWEATHER_API_HOST，跳过日出日落与钓鱼指数');
+    return result;
+  }
+
   const base = `https://${QWEATHER_HOST}`;
   const headers = { 'X-QW-Api-Key': QWEATHER_KEY };
-  const result = { sun: null, moon: null, fishing: null };
 
   try {
     // 3天预报：日出日落 + 月相

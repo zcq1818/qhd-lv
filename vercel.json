@@ -6,70 +6,569 @@
   "buildCommand": "",
   "framework": null,
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/attraction/:id", "destination": "/attraction/:id.html" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/attraction/:id",
+      "destination": "/attraction/:id.html"
+    }
   ],
   "redirects": [
-    { "source": "/index", "destination": "/", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/blog/2025年北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味", "destination": "/blog/北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味", "permanent": true }
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2025年北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味",
+      "destination": "/blog/北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026联峰山门票-秦皇岛联峰山游玩攻略-联峰山游览攻略路线-地址-门票价格-去哪儿攻略",
+      "destination": "/attraction/liangfengshan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-banana-boat",
+      "destination": "/blog/qhd-sea-sports-guide#shuishang",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-breakfast",
+      "destination": "/blog/qhd-food-guide#zaocan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-camping",
+      "destination": "/blog/beidaihe-where-to-stay#luying",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-camping-hotel",
+      "destination": "/blog/beidaihe-where-to-stay#luying",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-coffee",
+      "destination": "/blog/qhd-food-guide#kafei",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-couple-trip",
+      "destination": "/blog/qhd-couple-trip-guide#langman",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-fishing",
+      "destination": "/blog/qhd-sea-sports-guide#haidiao",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-ganhai-spots",
+      "destination": "/blog/qhd-ganhai-schedule-2026#didian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-homestay-tips",
+      "destination": "/blog/beidaihe-where-to-stay#duibi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-hotel-vs-bnb",
+      "destination": "/blog/beidaihe-where-to-stay#duibi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-indoor-pool",
+      "destination": "/blog/qhd-family-travel#youyong",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-instagram",
+      "destination": "/blog/qhd-photography-guide#jiwei",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-island-hop",
+      "destination": "/blog/qhd-sea-sports-guide#youting",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-jellyfish",
+      "destination": "/blog/qhd-emergency#anquan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-kids-play",
+      "destination": "/blog/qhd-family-travel#daiwa",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-kite",
+      "destination": "/blog/qhd-family-travel#shatan-wa",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-lost-child",
+      "destination": "/blog/qhd-emergency#anquan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-luggage",
+      "destination": "/blog/qhd-emergency#jicun",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-map-guide",
+      "destination": "/map",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-morning-jog",
+      "destination": "/blog/geziwo-sunrise-guide#chenpao",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-night-life",
+      "destination": "/blog/qhd-night-tour-guide#yesheng",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-night-market",
+      "destination": "/blog/qhd-night-tour-guide#yesheng",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-parasailing",
+      "destination": "/blog/qhd-sea-sports-guide#shuishang",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-power-bank",
+      "destination": "/blog/qhd-emergency#jicun",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-sand-sculpture",
+      "destination": "/blog/qhd-family-travel#shatan-wa",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-seafood-guide",
+      "destination": "/blog/北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味#zhinan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-shell-collecting",
+      "destination": "/blog/qhd-ganhai-schedule-2026#didian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-souvenirs",
+      "destination": "/blog/qhd-food-guide#techan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-spring",
+      "destination": "/blog/qhd-best-time-to-visit#chuntian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-stay-guide",
+      "destination": "/blog/beidaihe-where-to-stay#quyu",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-sunrise-vs-sunset",
+      "destination": "/blog/geziwo-sunrise-guide#rivsri",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-surfing",
+      "destination": "/blog/qhd-sea-sports-guide#chonglang",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-swimsuit",
+      "destination": "/blog/qhd-what-to-bring#yongyi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-ticket-discount",
+      "destination": "/blog/qhd-travel-budget#shengqian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-tide-app",
+      "destination": "/blog/qhd-ganhai-schedule-2026#rumen",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-weekend-guide",
+      "destination": "/blog/beidaihe-2days-weekend#zhoumo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-winter-hot-spring",
+      "destination": "/blog/qhd-winter-travel#wenquan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-winter-swim",
+      "destination": "/blog/qhd-winter-travel#donghai",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beidaihe-yacht",
+      "destination": "/blog/qhd-sea-sports-guide#youting",
+      "permanent": true
+    },
+    {
+      "source": "/blog/changli-golden-coast",
+      "destination": "/blog/changli-sand-slide-guide#huangjin",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-barbecue",
+      "destination": "/blog/qhd-food-guide#shaokao",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-beach-volleyball",
+      "destination": "/blog/qhd-sea-sports-guide#shatan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-bike-ride",
+      "destination": "/blog/qhd-hiking#qixing",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-bus-guide",
+      "destination": "/blog/qhd-transport-guide-2026#shinei",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-diving",
+      "destination": "/blog/qhd-sea-sports-guide#qianshui",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-elderly-guide",
+      "destination": "/blog/qhd-elderly-travel#shihe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-fishing-boat",
+      "destination": "/blog/qhd-sea-sports-guide#haidiao",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-free-attractions-guide",
+      "destination": "/blog/beidaihe-free-attractions#mianfei-qhd",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-fruit-picking",
+      "destination": "/blog/qhd-food-guide#caizhai",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-ganhai-guide",
+      "destination": "/blog/qhd-ganhai-schedule-2026#rumen",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-group-discount",
+      "destination": "/blog/qhd-travel-budget#shengqian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-hospital",
+      "destination": "/blog/qhd-emergency#yiliao",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-jet-ski",
+      "destination": "/blog/qhd-sea-sports-guide#shuishang",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-kite-surfing",
+      "destination": "/blog/qhd-sea-sports-guide#chonglang",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-local-food",
+      "destination": "/blog/qhd-food-guide#bendi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-one-day-trip",
+      "destination": "/blog/qhd-one-day-best#jinghua",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-photography-spots",
+      "destination": "/blog/qhd-photography-guide#jiwei",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-rain-activities",
+      "destination": "/blog/qhd-rainy-day#shinei-huodong",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-sand-castle",
+      "destination": "/blog/qhd-family-travel#shatan-wa",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-sea-gull",
+      "destination": "/blog/qhd-family-travel#haiou",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-seafood-cooking",
+      "destination": "/blog/ganhai-seafood-cooking#zijizuo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-seafood-where-to-eat",
+      "destination": "/blog/北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味#pianyi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-self-driving",
+      "destination": "/blog/qhd-self-driving-guide#zijia-bu",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-student-budget",
+      "destination": "/blog/qhd-travel-budget#qiongyou",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-sunburn-tips",
+      "destination": "/blog/qhd-what-to-bring#fangshai",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-sunrise-alarm",
+      "destination": "/blog/geziwo-sunrise-guide#jidian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-sunscreen-review",
+      "destination": "/blog/qhd-what-to-bring#fangshai",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-swim-safety",
+      "destination": "/blog/qhd-emergency#anquan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-taxi-guide",
+      "destination": "/blog/qhd-transport-guide-2026#shinei",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-tide-table",
+      "destination": "/blog/qhd-ganhai-schedule-2026#rumen",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-to-beijing",
+      "destination": "/blog/qhd-transport-guide-2026#zhoubian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-to-chengde",
+      "destination": "/blog/qhd-transport-guide-2026#zhoubian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-to-tianjin",
+      "destination": "/blog/qhd-transport-guide-2026#zhoubian",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-train-guide",
+      "destination": "/blog/qhd-transport-guide-2026#gaotie",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-train-ticket",
+      "destination": "/blog/qhd-transport-guide-2026#gaotie",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-transport-guide",
+      "destination": "/blog/qhd-transport-guide-2026#laoban",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-water-park",
+      "destination": "/blog/qhd-family-travel#youyong",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-weather-app",
+      "destination": "/blog/qhd-best-time-to-visit#tianqi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-weather-tips",
+      "destination": "/blog/qhd-best-time-to-visit#tianqi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-wechat-pay",
+      "destination": "/blog/qhd-emergency#wangluo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-wedding-photo",
+      "destination": "/blog/qhd-photography-guide#hunsha",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-weekend-trip",
+      "destination": "/blog/beidaihe-2days-weekend#zhoumo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-what-to-eat",
+      "destination": "/blog/qhd-food-guide#bendi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-what-to-wear",
+      "destination": "/blog/qhd-what-to-bring#chuanyi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-wifi-guide",
+      "destination": "/blog/qhd-emergency#wangluo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qhd-wifi-password",
+      "destination": "/blog/qhd-emergency#wangluo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qinhuangdao-weekend-2days",
+      "destination": "/blog/beidaihe-2days-weekend#zhoumo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shanhaiguan-great-wall",
+      "destination": "/blog/shanhaiguan-one-day#changcheng",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/service-worker.js",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/((?!images/|css/|js/|assets/|api/|data/).*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/images/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/css/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/js/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/data/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
-        { "key": "Content-Type", "value": "application/json" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
       ]
     }
   ]

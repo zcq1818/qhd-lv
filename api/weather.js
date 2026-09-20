@@ -19,9 +19,18 @@ export default async function handler(req, res) {
 
   const loc = locations[location] || locations['qinhuangdao'];
 
-  // 和风天气凭据（优先读环境变量）
-  const QWEATHER_KEY = process.env.QWEATHER_API_KEY || '99ea2096b20b471d8d20400ee9a23a70';
-  const QWEATHER_HOST = process.env.QWEATHER_API_HOST || 'nu6apxvdn8.re.qweatherapi.com';
+  // 和风天气凭据（仅从环境变量读取，切勿写入代码仓库）
+  const QWEATHER_KEY = process.env.QWEATHER_API_KEY;
+  const QWEATHER_HOST = process.env.QWEATHER_API_HOST;
+
+  if (!QWEATHER_KEY || !QWEATHER_HOST) {
+    console.error('[weather] 缺少 QWEATHER_API_KEY / QWEATHER_API_HOST 环境变量');
+    return res.status(500).json({
+      success: false,
+      error: '天气服务未配置：请在 Vercel 项目设置 > Environment Variables 中添加 QWEATHER_API_KEY 与 QWEATHER_API_HOST'
+    });
+  }
+
   const base = `https://${QWEATHER_HOST}`;
   const headers = { 'X-QW-Api-Key': QWEATHER_KEY };
 

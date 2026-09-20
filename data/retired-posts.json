@@ -1,0 +1,363 @@
+{
+  "generated": "2026-09-20",
+  "note": "已合并/退役的博客 slug。sitemap 与索引生成脚本会跳过这些页面；vercel.json 中有对应 301 重定向。",
+  "count": 89,
+  "posts": [
+    {
+      "slug": "2026联峰山门票-秦皇岛联峰山游玩攻略-联峰山游览攻略路线-地址-门票价格-去哪儿攻略",
+      "redirect": "/attraction/liangfengshan"
+    },
+    {
+      "slug": "beidaihe-banana-boat",
+      "redirect": "/blog/qhd-sea-sports-guide#shuishang"
+    },
+    {
+      "slug": "beidaihe-breakfast",
+      "redirect": "/blog/qhd-food-guide#zaocan"
+    },
+    {
+      "slug": "beidaihe-camping",
+      "redirect": "/blog/beidaihe-where-to-stay#luying"
+    },
+    {
+      "slug": "beidaihe-camping-hotel",
+      "redirect": "/blog/beidaihe-where-to-stay#luying"
+    },
+    {
+      "slug": "beidaihe-coffee",
+      "redirect": "/blog/qhd-food-guide#kafei"
+    },
+    {
+      "slug": "beidaihe-couple-trip",
+      "redirect": "/blog/qhd-couple-trip-guide#langman"
+    },
+    {
+      "slug": "beidaihe-fishing",
+      "redirect": "/blog/qhd-sea-sports-guide#haidiao"
+    },
+    {
+      "slug": "beidaihe-ganhai-spots",
+      "redirect": "/blog/qhd-ganhai-schedule-2026#didian"
+    },
+    {
+      "slug": "beidaihe-homestay-tips",
+      "redirect": "/blog/beidaihe-where-to-stay#duibi"
+    },
+    {
+      "slug": "beidaihe-hotel-vs-bnb",
+      "redirect": "/blog/beidaihe-where-to-stay#duibi"
+    },
+    {
+      "slug": "beidaihe-indoor-pool",
+      "redirect": "/blog/qhd-family-travel#youyong"
+    },
+    {
+      "slug": "beidaihe-instagram",
+      "redirect": "/blog/qhd-photography-guide#jiwei"
+    },
+    {
+      "slug": "beidaihe-island-hop",
+      "redirect": "/blog/qhd-sea-sports-guide#youting"
+    },
+    {
+      "slug": "beidaihe-jellyfish",
+      "redirect": "/blog/qhd-emergency#anquan"
+    },
+    {
+      "slug": "beidaihe-kids-play",
+      "redirect": "/blog/qhd-family-travel#daiwa"
+    },
+    {
+      "slug": "beidaihe-kite",
+      "redirect": "/blog/qhd-family-travel#shatan-wa"
+    },
+    {
+      "slug": "beidaihe-lost-child",
+      "redirect": "/blog/qhd-emergency#anquan"
+    },
+    {
+      "slug": "beidaihe-luggage",
+      "redirect": "/blog/qhd-emergency#jicun"
+    },
+    {
+      "slug": "beidaihe-map-guide",
+      "redirect": "/map"
+    },
+    {
+      "slug": "beidaihe-morning-jog",
+      "redirect": "/blog/geziwo-sunrise-guide#chenpao"
+    },
+    {
+      "slug": "beidaihe-night-life",
+      "redirect": "/blog/qhd-night-tour-guide#yesheng"
+    },
+    {
+      "slug": "beidaihe-night-market",
+      "redirect": "/blog/qhd-night-tour-guide#yesheng"
+    },
+    {
+      "slug": "beidaihe-parasailing",
+      "redirect": "/blog/qhd-sea-sports-guide#shuishang"
+    },
+    {
+      "slug": "beidaihe-power-bank",
+      "redirect": "/blog/qhd-emergency#jicun"
+    },
+    {
+      "slug": "beidaihe-sand-sculpture",
+      "redirect": "/blog/qhd-family-travel#shatan-wa"
+    },
+    {
+      "slug": "beidaihe-seafood-guide",
+      "redirect": "/blog/北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味#zhinan"
+    },
+    {
+      "slug": "beidaihe-shell-collecting",
+      "redirect": "/blog/qhd-ganhai-schedule-2026#didian"
+    },
+    {
+      "slug": "beidaihe-souvenirs",
+      "redirect": "/blog/qhd-food-guide#techan"
+    },
+    {
+      "slug": "beidaihe-spring",
+      "redirect": "/blog/qhd-best-time-to-visit#chuntian"
+    },
+    {
+      "slug": "beidaihe-stay-guide",
+      "redirect": "/blog/beidaihe-where-to-stay#quyu"
+    },
+    {
+      "slug": "beidaihe-sunrise-vs-sunset",
+      "redirect": "/blog/geziwo-sunrise-guide#rivsri"
+    },
+    {
+      "slug": "beidaihe-surfing",
+      "redirect": "/blog/qhd-sea-sports-guide#chonglang"
+    },
+    {
+      "slug": "beidaihe-swimsuit",
+      "redirect": "/blog/qhd-what-to-bring#yongyi"
+    },
+    {
+      "slug": "beidaihe-ticket-discount",
+      "redirect": "/blog/qhd-travel-budget#shengqian"
+    },
+    {
+      "slug": "beidaihe-tide-app",
+      "redirect": "/blog/qhd-ganhai-schedule-2026#rumen"
+    },
+    {
+      "slug": "beidaihe-weekend-guide",
+      "redirect": "/blog/beidaihe-2days-weekend#zhoumo"
+    },
+    {
+      "slug": "beidaihe-winter-hot-spring",
+      "redirect": "/blog/qhd-winter-travel#wenquan"
+    },
+    {
+      "slug": "beidaihe-winter-swim",
+      "redirect": "/blog/qhd-winter-travel#donghai"
+    },
+    {
+      "slug": "beidaihe-yacht",
+      "redirect": "/blog/qhd-sea-sports-guide#youting"
+    },
+    {
+      "slug": "changli-golden-coast",
+      "redirect": "/blog/changli-sand-slide-guide#huangjin"
+    },
+    {
+      "slug": "qhd-barbecue",
+      "redirect": "/blog/qhd-food-guide#shaokao"
+    },
+    {
+      "slug": "qhd-beach-volleyball",
+      "redirect": "/blog/qhd-sea-sports-guide#shatan"
+    },
+    {
+      "slug": "qhd-bike-ride",
+      "redirect": "/blog/qhd-hiking#qixing"
+    },
+    {
+      "slug": "qhd-bus-guide",
+      "redirect": "/blog/qhd-transport-guide-2026#shinei"
+    },
+    {
+      "slug": "qhd-diving",
+      "redirect": "/blog/qhd-sea-sports-guide#qianshui"
+    },
+    {
+      "slug": "qhd-elderly-guide",
+      "redirect": "/blog/qhd-elderly-travel#shihe"
+    },
+    {
+      "slug": "qhd-fishing-boat",
+      "redirect": "/blog/qhd-sea-sports-guide#haidiao"
+    },
+    {
+      "slug": "qhd-free-attractions-guide",
+      "redirect": "/blog/beidaihe-free-attractions#mianfei-qhd"
+    },
+    {
+      "slug": "qhd-fruit-picking",
+      "redirect": "/blog/qhd-food-guide#caizhai"
+    },
+    {
+      "slug": "qhd-ganhai-guide",
+      "redirect": "/blog/qhd-ganhai-schedule-2026#rumen"
+    },
+    {
+      "slug": "qhd-group-discount",
+      "redirect": "/blog/qhd-travel-budget#shengqian"
+    },
+    {
+      "slug": "qhd-hospital",
+      "redirect": "/blog/qhd-emergency#yiliao"
+    },
+    {
+      "slug": "qhd-jet-ski",
+      "redirect": "/blog/qhd-sea-sports-guide#shuishang"
+    },
+    {
+      "slug": "qhd-kite-surfing",
+      "redirect": "/blog/qhd-sea-sports-guide#chonglang"
+    },
+    {
+      "slug": "qhd-local-food",
+      "redirect": "/blog/qhd-food-guide#bendi"
+    },
+    {
+      "slug": "qhd-one-day-trip",
+      "redirect": "/blog/qhd-one-day-best#jinghua"
+    },
+    {
+      "slug": "qhd-photography-spots",
+      "redirect": "/blog/qhd-photography-guide#jiwei"
+    },
+    {
+      "slug": "qhd-rain-activities",
+      "redirect": "/blog/qhd-rainy-day#shinei-huodong"
+    },
+    {
+      "slug": "qhd-sand-castle",
+      "redirect": "/blog/qhd-family-travel#shatan-wa"
+    },
+    {
+      "slug": "qhd-sea-gull",
+      "redirect": "/blog/qhd-family-travel#haiou"
+    },
+    {
+      "slug": "qhd-seafood-cooking",
+      "redirect": "/blog/ganhai-seafood-cooking#zijizuo"
+    },
+    {
+      "slug": "qhd-seafood-where-to-eat",
+      "redirect": "/blog/北戴河海鲜店推荐-五家口碑名店带您尝遍渤海湾鲜味#pianyi"
+    },
+    {
+      "slug": "qhd-self-driving",
+      "redirect": "/blog/qhd-self-driving-guide#zijia-bu"
+    },
+    {
+      "slug": "qhd-student-budget",
+      "redirect": "/blog/qhd-travel-budget#qiongyou"
+    },
+    {
+      "slug": "qhd-sunburn-tips",
+      "redirect": "/blog/qhd-what-to-bring#fangshai"
+    },
+    {
+      "slug": "qhd-sunrise-alarm",
+      "redirect": "/blog/geziwo-sunrise-guide#jidian"
+    },
+    {
+      "slug": "qhd-sunscreen-review",
+      "redirect": "/blog/qhd-what-to-bring#fangshai"
+    },
+    {
+      "slug": "qhd-swim-safety",
+      "redirect": "/blog/qhd-emergency#anquan"
+    },
+    {
+      "slug": "qhd-taxi-guide",
+      "redirect": "/blog/qhd-transport-guide-2026#shinei"
+    },
+    {
+      "slug": "qhd-tide-table",
+      "redirect": "/blog/qhd-ganhai-schedule-2026#rumen"
+    },
+    {
+      "slug": "qhd-to-beijing",
+      "redirect": "/blog/qhd-transport-guide-2026#zhoubian"
+    },
+    {
+      "slug": "qhd-to-chengde",
+      "redirect": "/blog/qhd-transport-guide-2026#zhoubian"
+    },
+    {
+      "slug": "qhd-to-tianjin",
+      "redirect": "/blog/qhd-transport-guide-2026#zhoubian"
+    },
+    {
+      "slug": "qhd-train-guide",
+      "redirect": "/blog/qhd-transport-guide-2026#gaotie"
+    },
+    {
+      "slug": "qhd-train-ticket",
+      "redirect": "/blog/qhd-transport-guide-2026#gaotie"
+    },
+    {
+      "slug": "qhd-transport-guide",
+      "redirect": "/blog/qhd-transport-guide-2026#laoban"
+    },
+    {
+      "slug": "qhd-water-park",
+      "redirect": "/blog/qhd-family-travel#youyong"
+    },
+    {
+      "slug": "qhd-weather-app",
+      "redirect": "/blog/qhd-best-time-to-visit#tianqi"
+    },
+    {
+      "slug": "qhd-weather-tips",
+      "redirect": "/blog/qhd-best-time-to-visit#tianqi"
+    },
+    {
+      "slug": "qhd-wechat-pay",
+      "redirect": "/blog/qhd-emergency#wangluo"
+    },
+    {
+      "slug": "qhd-wedding-photo",
+      "redirect": "/blog/qhd-photography-guide#hunsha"
+    },
+    {
+      "slug": "qhd-weekend-trip",
+      "redirect": "/blog/beidaihe-2days-weekend#zhoumo"
+    },
+    {
+      "slug": "qhd-what-to-eat",
+      "redirect": "/blog/qhd-food-guide#bendi"
+    },
+    {
+      "slug": "qhd-what-to-wear",
+      "redirect": "/blog/qhd-what-to-bring#chuanyi"
+    },
+    {
+      "slug": "qhd-wifi-guide",
+      "redirect": "/blog/qhd-emergency#wangluo"
+    },
+    {
+      "slug": "qhd-wifi-password",
+      "redirect": "/blog/qhd-emergency#wangluo"
+    },
+    {
+      "slug": "qinhuangdao-weekend-2days",
+      "redirect": "/blog/beidaihe-2days-weekend#zhoumo"
+    },
+    {
+      "slug": "shanhaiguan-great-wall",
+      "redirect": "/blog/shanhaiguan-one-day#changcheng"
+    }
+  ]
+}

@@ -1,9 +1,8 @@
 // js/weather-widget.js - 天气小部件（自动显示）
-// 数据来源：心知天气 API（免费版）
+// 数据来源：站内 /api/weather（服务端代理和风天气，凭据不出现在前端）
 
 (function() {
   // 配置
-  const API_KEY = 'teey6tlkdrisczuf';
   const DEFAULT_LOCATION = 'beidaihe';
   
   // 地点名称映射

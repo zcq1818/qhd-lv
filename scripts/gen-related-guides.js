@@ -79,31 +79,31 @@ const CATEGORY_FALLBACK = {
   beach: [
     { title: '北戴河旅游攻略 | 景区分布·票价', url: '/blog/2026年北戴河旅游攻略-2026年-北戴河欢迎您-景区分布和简介-票价' },
     { title: '北戴河2天1夜周末游攻略', url: '/blog/beidaihe-2days-weekend' },
-    { title: '北戴河赶海攻略', url: '/blog/qhd-ganhai-guide' }
+    { title: '北戴河赶海攻略', url: '/blog/qhd-ganhai-schedule-2026#rumen' }
   ],
   history: [
-    { title: '山海关长城攻略', url: '/blog/shanhaiguan-great-wall' },
+    { title: '山海关长城攻略', url: '/blog/shanhaiguan-one-day#changcheng' },
     { title: '山海关一日游路线', url: '/blog/shanhaiguan-one-day' },
-    { title: '秦皇岛一日游攻略', url: '/blog/qhd-one-day-trip' }
+    { title: '秦皇岛一日游攻略', url: '/blog/qhd-one-day-best#jinghua' }
   ],
   nature: [
     { title: '秦皇岛爬山攻略', url: '/blog/qhd-hiking' },
-    { title: '秦皇岛一日游攻略', url: '/blog/qhd-one-day-trip' },
+    { title: '秦皇岛一日游攻略', url: '/blog/qhd-one-day-best#jinghua' },
     { title: '秦皇岛旅行攻略', url: '/blog/秦皇岛旅行攻略' }
   ],
   family: [
     { title: '秦皇岛亲子游攻略', url: '/blog/qhd-family-travel' },
-    { title: '北戴河带娃攻略', url: '/blog/beidaihe-kids-play' },
+    { title: '北戴河带娃攻略', url: '/blog/qhd-family-travel#daiwa' },
     { title: '北戴河暑假亲子游', url: '/blog/beidaihe-summer-2026-guide' }
   ],
   art: [
-    { title: '北戴河网红打卡地', url: '/blog/beidaihe-instagram' },
-    { title: '秦皇岛拍照打卡地', url: '/blog/qhd-photography-spots' },
+    { title: '北戴河网红打卡地', url: '/blog/qhd-photography-guide#jiwei' },
+    { title: '秦皇岛拍照打卡地', url: '/blog/qhd-photography-guide#jiwei' },
     { title: '阿那亚打卡攻略', url: '/blog/阿那亚超全打卡清单-景点-美食-住宿一站式攻略-解锁海边理想生活' }
   ],
   culture: [
-    { title: '秦皇岛水果采摘 | 葡萄·樱桃·草莓', url: '/blog/qhd-fruit-picking' },
-    { title: '秦皇岛一日游攻略', url: '/blog/qhd-one-day-trip' },
+    { title: '秦皇岛水果采摘 | 葡萄·樱桃·草莓', url: '/blog/qhd-food-guide#caizhai' },
+    { title: '秦皇岛一日游攻略', url: '/blog/qhd-one-day-best#jinghua' },
     { title: '秦皇岛旅行攻略', url: '/blog/秦皇岛旅行攻略' }
   ]
 };

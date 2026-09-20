@@ -59,7 +59,6 @@
 </script>
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="stylesheet" href="../style.min.css">
-<link rel="stylesheet" href="../css/search.min.css">
 <link rel="stylesheet" href="../css/share.min.css">
 <!-- <link rel="stylesheet" href="../css/user-features.min.css"> -->
 <link rel="stylesheet" href="../css/blog-article.min.css">
@@ -162,7 +161,7 @@ var _hmt = _hmt || [];
     <p>赶海的乐趣在于"开盲盒"——你永远不知道下一铲下去会挖到什么。花蛤、蛏子、小螃蟹、海星、贝壳，运气好还能捡到海螺、海胆。比起买海鲜，自己赶海的收获吃起来格外香。</p>
     <blockquote>赶海核心原则：跟着潮汐走，潮退赶海，潮涨撤退。</blockquote>
 
-    <h2>二、全年赶海时间规律（实时潮汐查询）</h2>
+    <h2 id="rumen">二、全年赶海时间规律（实时潮汐查询）</h2>
     <p>赶海最佳时机是大潮汛，<strong>农历初一、十五前后三天潮水退得最远，收获最丰富</strong>。掌握了这个规律，全年都能赶海：</p>
     <ul>
       <li><strong>大潮汛（农历初一、十五前后）：</strong>潮差最大、退潮最远，滩涂露出的面积最宽，是赶海黄金期。</li>
@@ -171,7 +170,7 @@ var _hmt = _hmt || [];
     </ul>
     <blockquote>📅 <strong>实时潮汐查询：</strong>与其记静态时间表，不如直接用我们的<a href="../tide">潮汐查询工具</a>——选择北戴河、秦皇岛市区、山海关、南戴河、七里海、黄金海岸任一地点和日期，即可查看当天精确的涨退潮时间和赶海建议。</blockquote>
 
-    <h2>三、秦皇岛最佳赶海地点排名</h2>
+    <h2 id="didian">三、秦皇岛最佳赶海地点排名</h2>
     <p>秦皇岛适合赶海的海滩不少，按赶海收获排名如下：</p>
     <ul>
       <li><strong>TOP1 鸽子窝海滩：</strong>花蛤最多的海滩，沙质松软适合挖掘，退潮后沙滩露出宽阔。门票15元（早晨6点前免票），是亲子赶海首选。缺点是旺季人多。</li>
@@ -347,7 +346,6 @@ document.querySelector('.article-share-buttons').addEventListener('click', funct
   if (target) target.click();
 });
 </script>
-<script src="../js/search.min.js" defer></script>
 <script src="../js/share.min.js" defer></script>
 <!-- <script src="../js/user-features.min.js" defer></script> -->
 <script>
@@ -359,7 +357,7 @@ document.getElementById('hamburger').addEventListener('click', function () {
 });
 </script>
 <script src="../js/view-counter.js" defer></script>
-<script src="js/weather-widget.js" defer></script>
+<script src="../js/weather-widget.js" defer></script>
 <script src="../js/search-index.js" defer></script>
 <script src="../js/search.js" defer></script>
 <script src="../js/blog-related.js" defer></script>

@@ -51,9 +51,18 @@ function extractTitle(html) {
   return m ? cleanTitle(m[1]) : '';
 }
 
+function loadRetired() {
+  try {
+    const rp = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'retired-posts.json'), 'utf8'));
+    return new Set((rp.posts || []).map(x => x.slug));
+  } catch (e) { return new Set(); }
+}
+
 function main() {
+  const retired = loadRetired();
   const files = fs.readdirSync(BLOG_DIR)
     .filter(f => f.endsWith('.html'))
+    .filter(f => !retired.has(f.replace(/\.html$/, '')))
     .sort();
 
   const posts = [];
