@@ -26,9 +26,9 @@ export default async function handler(req, res) {
   const headers = { 'X-QW-Api-Key': QWEATHER_KEY };
 
   try {
-    // 实况天气 + 3天预报 + 生活指数
+    // 实况天气 + 7天预报 + 生活指数
     const nowUrl = `${base}/v7/weather/now?location=${loc.coord}`;
-    const dailyUrl = `${base}/v7/weather/3d?location=${loc.coord}`;
+    const dailyUrl = `${base}/v7/weather/7d?location=${loc.coord}`;
     const indicesUrl = `${base}/v7/indices/1d?type=0&location=${loc.coord}`;
 
     const [nowRes, dailyRes, indicesRes] = await Promise.all([

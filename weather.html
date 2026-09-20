@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>秦皇岛天气查询 | 实时天气·穿衣建议 — 秦皇岛旅游官网</title>
-<meta name="description" content="秦皇岛实时天气查询：北戴河、山海关、南戴河实时天气、3天预报、穿衣建议、紫外线指数，出行前必看。">
+<meta name="description" content="秦皇岛实时天气查询：北戴河、山海关、南戴河实时天气、5天预报、穿衣建议、紫外线指数，出行前必看。">
 <meta name="keywords" content="秦皇岛天气,北戴河天气,秦皇岛天气预报,北戴河天气预报,秦皇岛穿衣,秦皇岛紫外线">
 <meta name="author" content="秦皇岛旅游官网">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://www.divdu.com/weather">
 <meta property="og:title" content="秦皇岛天气查询 | 实时天气·穿衣建议">
-<meta property="og:description" content="秦皇岛实时天气查询：北戴河、山海关、南戴河实时天气、3天预报、穿衣建议。">
+<meta property="og:description" content="秦皇岛实时天气查询：北戴河、山海关、南戴河实时天气、5天预报、穿衣建议。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.divdu.com/weather">
 <meta property="og:image" content="https://www.divdu.com/images/qhd-panorama.webp">
@@ -33,7 +33,7 @@
 .weather-detail-item{padding:12px;background:#f8fafc;border-radius:8px;text-align:center}
 .weather-detail-label{font-size:12px;color:#94a3b8;margin-bottom:4px}
 .weather-detail-value{font-size:16px;font-weight:700;color:#0f172a}
-.weather-daily{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.weather-daily{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
 .weather-daily-item{text-align:center;padding:20px;background:#f8fafc;border-radius:12px}
 .weather-daily-date{font-size:14px;color:#64748b;margin-bottom:8px}
 .weather-daily-icon{font-size:32px;margin-bottom:8px}
@@ -45,7 +45,7 @@
 .weather-life-icon{font-size:24px;margin-bottom:8px}
 .weather-life-title{font-size:14px;font-weight:700;margin-bottom:4px}
 .weather-life-value{font-size:13px;color:#64748b}
-@media(max-width:768px){.weather-now{grid-template-columns:1fr}.weather-daily{grid-template-columns:1fr}.weather-life{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.weather-now{grid-template-columns:1fr}.weather-daily{grid-template-columns:repeat(2,1fr)}.weather-life{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -73,7 +73,7 @@
 
 <div style="background:linear-gradient(135deg,#0c4a6e,#0369a1);padding:60px 20px 40px;text-align:center;color:#fff;margin-top:60px;">
   <h1 style="font-size:36px;font-weight:900;margin-bottom:12px;">秦皇岛天气查询</h1>
-  <p style="font-size:18px;opacity:0.9;">实时天气 · 3天预报 · 穿衣建议</p>
+  <p style="font-size:18px;opacity:0.9;">实时天气 · 5天预报 · 穿衣建议</p>
 </div>
 
 <div class="weather-container" style="margin-top:-20px;">
@@ -124,9 +124,9 @@
       </div>
     </div>
 
-    <!-- 3天预报 -->
+    <!-- 5天预报 -->
     <div class="weather-card">
-      <div style="font-size:18px;font-weight:700;margin-bottom:16px;">📅 3天预报</div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:16px;">📅 5天预报</div>
       <div class="weather-daily" id="dailyGrid"></div>
     </div>
 
@@ -226,7 +226,7 @@ function displayWeather(data) {
   
   // 3天预报
   const dailyGrid = document.getElementById('dailyGrid');
-  dailyGrid.innerHTML = data.daily.map(d => {
+  dailyGrid.innerHTML = data.daily.slice(0, 5).map(d => {
     const dayIcon = weatherTextIcon(d.textDay);
     return `
       <div class="weather-daily-item">
