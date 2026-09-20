@@ -93,6 +93,7 @@
 
   <!-- 天气数据 -->
   <div id="weatherResult" style="display:none;">
+    <div id="weatherSkeleton" style="display:none;"></div>
     <!-- 实时天气 -->
     <div class="weather-card">
       <div style="font-size:18px;font-weight:700;margin-bottom:16px;">🌤️ 实时天气</div>
@@ -178,9 +179,50 @@ const weatherIcons = {
   '96': '⛈️', '97': '⛈️', '98': '⛈️', '99': '⛈️'
 };
 
+// 骨架屏：显示/隐藏加载占位
+function showWeatherSkeleton() {
+  var result = document.getElementById('weatherResult');
+  result.style.display = 'block';
+  Array.prototype.forEach.call(result.querySelectorAll(':scope > .weather-card'), function (c) {
+    c.style.display = 'none';
+  });
+  var sk = document.getElementById('weatherSkeleton');
+  sk.style.display = 'block';
+  sk.innerHTML = weatherSkeletonHTML();
+}
+function hideWeatherSkeleton() {
+  var sk = document.getElementById('weatherSkeleton');
+  sk.innerHTML = '';
+  sk.style.display = 'none';
+  var result = document.getElementById('weatherResult');
+  Array.prototype.forEach.call(result.querySelectorAll(':scope > .weather-card'), function (c) {
+    c.style.display = '';
+  });
+}
+function weatherSkeletonHTML() {
+  var dayCards = '';
+  for (var i = 0; i < 5; i++) {
+    dayCards += '<div style="padding:16px;text-align:center;"><div class="qhd-skeleton" style="height:34px;width:34px;border-radius:50%;margin:0 auto 8px;"></div><div class="qhd-skeleton" style="height:14px;width:80%;margin:0 auto 6px;"></div><div class="qhd-skeleton" style="height:14px;width:55%;margin:0 auto;"></div></div>';
+  }
+  var lifeCards = '';
+  for (var j = 0; j < 6; j++) {
+    lifeCards += '<div style="padding:14px;text-align:center;"><div class="qhd-skeleton" style="height:22px;width:22px;border-radius:50%;margin:0 auto 8px;"></div><div class="qhd-skeleton" style="height:14px;width:65%;margin:0 auto;"></div></div>';
+  }
+  return '<div class="weather-card"><div class="qhd-skeleton" style="height:20px;width:40%;margin-bottom:16px;"></div>' +
+    '<div style="display:flex;gap:24px;align-items:center;"><div class="qhd-skeleton" style="width:88px;height:88px;border-radius:50%;flex-shrink:0;"></div>' +
+    '<div style="flex:1;"><div class="qhd-skeleton" style="height:36px;width:50%;margin-bottom:10px;"></div>' +
+    '<div class="qhd-skeleton" style="height:14px;width:80%;margin-bottom:8px;"></div>' +
+    '<div class="qhd-skeleton" style="height:14px;width:60%;"></div></div></div></div>' +
+    '<div class="weather-card"><div class="qhd-skeleton" style="height:20px;width:30%;margin-bottom:16px;"></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">' + dayCards + '</div></div>' +
+    '<div class="weather-card"><div class="qhd-skeleton" style="height:20px;width:30%;margin-bottom:16px;"></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">' + lifeCards + '</div></div>';
+}
+
 // 查询天气
 async function queryWeather() {
   const location = document.getElementById('location').value;
+  showWeatherSkeleton();
   
   try {
     const response = await fetch(`/api/weather?location=${location}`);
@@ -189,9 +231,11 @@ async function queryWeather() {
     if (data.success) {
       displayWeather(data);
     } else {
+      hideWeatherSkeleton();
       alert('获取天气数据失败：' + (data.error || '未知错误'));
     }
   } catch (error) {
+    hideWeatherSkeleton();
     alert('网络错误，请稍后重试');
   }
 }
@@ -212,6 +256,7 @@ function weatherTextIcon(text) {
 // 显示天气数据
 function displayWeather(data) {
   document.getElementById('weatherResult').style.display = 'block';
+  hideWeatherSkeleton();
   
   // 实时天气
   const icon = weatherTextIcon(data.now.text);

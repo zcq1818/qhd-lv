@@ -104,6 +104,8 @@
 
   <!-- 潮汐数据 -->
   <div id="tideResult" style="display:none;">
+    <div id="tideSkeleton" style="display:none;"></div>
+
     <!-- 日期切换标签 -->
     <div id="dateTabs" class="tide-date-tabs" style="display:none;"></div>
 
@@ -190,9 +192,52 @@ function updateSource(data, source) {
   document.getElementById('dataSource').textContent = `数据来源：${sourceText}${stationText}`;
 }
 
+// 骨架屏：显示/隐藏加载占位
+function showTideSkeleton() {
+  var result = document.getElementById('tideResult');
+  result.style.display = 'block';
+  Array.prototype.forEach.call(result.querySelectorAll(':scope > .tide-card'), function (c) {
+    c.style.display = 'none';
+  });
+  var status = document.getElementById('tideStatus');
+  if (status) status.style.display = 'none';
+  var sk = document.getElementById('tideSkeleton');
+  sk.style.display = 'block';
+  sk.innerHTML = tideSkeletonHTML();
+}
+function hideTideSkeleton() {
+  var sk = document.getElementById('tideSkeleton');
+  sk.innerHTML = '';
+  sk.style.display = 'none';
+  var result = document.getElementById('tideResult');
+  Array.prototype.forEach.call(result.querySelectorAll(':scope > .tide-card'), function (c) {
+    c.style.display = '';
+  });
+}
+function tideSkeletonHTML() {
+  var tideItems = '';
+  for (var i = 0; i < 4; i++) {
+    tideItems += '<div style="padding:14px;text-align:center;"><div class="qhd-skeleton" style="height:20px;width:55%;margin:0 auto 8px;"></div><div class="qhd-skeleton" style="height:12px;width:40%;margin:0 auto;"></div></div>';
+  }
+  var infoItems = '';
+  for (var j = 0; j < 3; j++) {
+    infoItems += '<div style="padding:14px;text-align:center;"><div class="qhd-skeleton" style="height:20px;width:60%;margin:0 auto;"></div></div>';
+  }
+  return '<div class="tide-card"><div class="qhd-skeleton" style="height:22px;width:35%;margin-bottom:16px;"></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">' + tideItems + '</div></div>' +
+    '<div class="tide-card"><div class="qhd-skeleton" style="height:22px;width:35%;margin-bottom:16px;"></div>' +
+    '<div class="qhd-skeleton" style="height:180px;border-radius:12px;"></div></div>' +
+    '<div class="tide-card"><div class="qhd-skeleton" style="height:22px;width:35%;margin-bottom:16px;"></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">' + infoItems + '</div></div>' +
+    '<div class="tide-card"><div class="qhd-skeleton" style="height:22px;width:35%;margin-bottom:16px;"></div>' +
+    '<div class="qhd-skeleton" style="height:14px;margin:8px 0;"></div>' +
+    '<div class="qhd-skeleton" style="height:14px;margin:8px 0;"></div></div>';
+}
+
 // 页面默认加载：最近5天潮汐
 async function loadDefault() {
   const location = document.getElementById('location').value;
+  showTideSkeleton();
   try {
     const response = await fetch(`/api/tide?location=${location}&days=5`);
     const data = await response.json();
@@ -245,6 +290,7 @@ async function queryTide() {
   const tabs = document.getElementById('dateTabs');
   if (tabs) tabs.style.display = 'none';
 
+  showTideSkeleton();
   try {
     const response = await fetch(`/api/tide?location=${location}&date=${date}`);
     const data = await response.json();
@@ -277,6 +323,7 @@ function cnDateStrLocal(offsetDays) {
 // 显示潮汐数据
 function displayTideData(result) {
   document.getElementById('tideResult').style.display = 'block';
+  hideTideSkeleton();
 
   // 实时涨退潮状态（今天显示实时，其它天显示当日概览）
   renderTideStatus(result.data.tides, result.isToday);
