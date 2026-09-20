@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "2.1",
-    "lastUpdated": "2026-06-25",
+    "lastUpdated": "2026-09-20",
     "totalCount": 47
   },
   "areas": [
@@ -91,18 +91,20 @@
       "lat": 39.82,
       "lng": 119.49,
       "img": "images/beidaihe-beach.webp",
-      "desc": "北戴河是中国四大避暑胜地之一，绵延20公里的黄金沙滩、清澈海水、宜人气候，让这里成为京津地区最受欢迎的海滨度假地。从清末就是皇家避暑地，至今保留着大量近代建筑群。",
+      "desc": "北戴河海滨风景区位于河北省秦皇岛市西部，是中国开发最早、知名度最高的海滨避暑胜地，与南戴河、山海关同属秦皇岛旅游核心区。1898年清政府将此地辟为“各国人士避暑地”，此后逐渐建成大批别墅、疗养院，至今保留着北戴河近代建筑群等历史遗存。景区海岸线绵延约20公里，沙质细软、水温适宜、坡度平缓，是华北地区少见的天然优质海水浴场。核心看点包括鸽子窝公园看日出、老虎石海上公园戏水看日落、联峰山登高望海、怪楼奇园亲子探秘。适合家庭度假、避暑纳凉、摄影与近代建筑爱好者，夏季6-9月是传统旅游旺季。",
       "highlights": [
         "老虎石海上公园",
         "联峰山公园",
         "怪楼奇园",
-        "鸽子窝公园"
+        "鸽子窝公园",
+        "20公里黄金沙滩",
+        "近代别墅建筑群"
       ],
-      "bestSeason": "6-9月（海水浴），5月和10月人少景美",
+      "bestSeason": "6-9月海水浴旺季气候最宜人",
       "duration": "一整天",
-      "suitableFor": "全家出游、情侣、摄影爱好者",
-      "tips": "至少安排一整天。上午鸽子窝看日出→白天老虎石玩沙→傍晚碧螺塔看日落夜景→晚上海鲜大排档。",
-      "transport": "秦皇岛站乘34路公交约40分钟；北戴河站打车约10分钟",
+      "suitableFor": "全家出游、情侣、摄影爱好者、近代建筑与历史爱好者",
+      "tips": "建议至少安排一整天，行程可串联鸽子窝、老虎石、联峰山、怪楼奇园等多个收费景点 上午看日出、傍晚看日落，中午避开暴晒时段 旺季（暑期）人流量大，酒店和网红打卡点建议提前预订 近代别墅建筑群多为疗养院或办公场所，部分不对外开放，注意遵守指示牌",
+      "transport": "公共交通:秦皇岛站乘34路公交车约40分钟可达北戴河海滨；北戴河高铁站距海滨约12公里，站前有公交及出租车；北京南站/北京站有直达高铁约2.5小时到北戴河站 自驾:北京经京哈高速约3小时；天津经沿海高速约3小时；沈阳经京哈高速约3小时；秦皇岛站/北戴河站打车约10-30分钟",
       "booking": [
         {
           "name": "携程订酒店",
@@ -117,7 +119,82 @@
       ],
       "isTop": true,
       "topRank": 1,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "免费进入海滨风景区；区内独立景点（鸽子窝公园、联峰山公园、怪楼奇园、碧螺塔等）单独收费；北戴河风景区本身不收门票，游客通常按需单独购买区内景点门票；旺季建议通过携程/美团提前购买景点票避免排队",
+      "openTimeNotes": "全天开放（海滨风景区本身不设门禁；园内老虎石、鸽子窝、联峰山、怪楼奇园等独立景点单独收费并有各自开放时间）",
+      "bestSeasonNotes": "6-9月海水浴旺季气候最宜人；5月、10月游客较少，适合避开人潮",
+      "transportDetail": {
+        "publicTransit": "秦皇岛站乘34路公交车约40分钟可达北戴河海滨；北戴河高铁站距海滨约12公里，站前有公交及出租车；北京南站/北京站有直达高铁约2.5小时到北戴河站",
+        "driving": "北京经京哈高速约3小时；天津经沿海高速约3小时；沈阳经京哈高速约3小时；秦皇岛站/北戴河站打车约10-30分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "建议至少安排一整天，行程可串联鸽子窝、老虎石、联峰山、怪楼奇园等多个收费景点",
+        "上午看日出、傍晚看日落，中午避开暴晒时段",
+        "旺季（暑期）人流量大，酒店和网红打卡点建议提前预订",
+        "近代别墅建筑群多为疗养院或办公场所，部分不对外开放，注意遵守指示牌"
+      ],
+      "nameEn": "Beidaihe Coastal Scenic Area",
+      "descEn": "Beidaihe is a coastal resort on the northern shore of Bohai Bay in Qinhuangdao, Hebei, first opened as a summer retreat by the Qing government in 1898 and later favored by national leaders for its cooler climate. Its roughly 20-kilometer beach has fine sand and calm, shallow water, making it one of northern China's best natural sea-bathing areas. Highlights include sunrise at Pigeon Nest Park, sunset at Tiger Stone Park, hilltop sea views from Lianfeng Mountain, and the historic villa district. It suits families, swimmers, and history or architecture enthusiasts, especially June through September.",
+      "highlightsEn": [
+        "Tiger Stone Sea Park",
+        "Lianfeng Mountain Park",
+        "Strange House Garden",
+        "Pigeon Nest Park",
+        "20km golden beach",
+        "Historic villa district"
+      ],
+      "faq": [
+        {
+          "q": "北戴河海滨风景区本身要门票吗？",
+          "a": "海滨风景区不设门票，免费进入，但区内老虎石、鸽子窝、联峰山等具体景点大多单独收费。"
+        },
+        {
+          "q": "北戴河和南戴河是一个地方吗？",
+          "a": "不是，北戴河属秦皇岛市区，是传统避暑区；南戴河在昌黎县，以娱乐游乐项目为主。"
+        },
+        {
+          "q": "几月去北戴河最合适？",
+          "a": "6-9月适合下海游泳，5月和10月气候凉爽、人少景美，适合观光和摄影。"
+        }
+      ],
+      "sources": [
+        "https://baike.baidu.com/item/%E5%8C%97%E6%88%B4%E6%B2%B3%E6%B5%B7%E6%BB%A8%E9%A3%8E%E6%99%AF%E5%8C%BA/3233396",
+        "https://zh.wikipedia.org/zh-hans/%E5%8C%97%E6%88%B4%E6%B2%B3%E8%BF%91%E4%BB%A3%E5%BB%BA%E7%AD%91%E7%BE%A4",
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/16035.html",
+        "https://you.ctrip.com/traffic/qinhuangdao132/h22851981.html",
+        "https://commons.wikimedia.org/wiki/File:Beidaihe_panorama_from_the_south.jpg"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Beidaihe panorama from the south.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Beidaihe_panorama_from_the_south.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Beidaihe_panorama_from_the_south.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "Charlie fong",
+          "width": 4722,
+          "height": 2656
+        },
+        {
+          "title": "File:Beidaihe skyline from the north2021.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Beidaihe_skyline_from_the_north2021.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Beidaihe_skyline_from_the_north2021.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "Charlie fong",
+          "width": 4344,
+          "height": 2443
+        },
+        {
+          "title": "File:北戴河的晚霞 - panoramio.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%88%B4%E6%B2%B3%E7%9A%84%E6%99%9A%E9%9C%9E_-_panoramio.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/%E5%8C%97%E6%88%B4%E6%B2%B3%E7%9A%84%E6%99%9A%E9%9C%9E_-_panoramio.jpg",
+          "license": "CC BY-SA 3.0",
+          "author": "mayanming",
+          "width": 4284,
+          "height": 2842
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "geziwo",
@@ -126,25 +203,26 @@
       "cat": "beach",
       "level": "4A",
       "rating": "4.6",
-      "price": "35元",
-      "priceNum": 35,
-      "openTime": "05:00-18:00",
+      "price": "25元",
+      "priceNum": 25,
+      "openTime": "旺季约3:00-18:00",
       "address": "河北省秦皇岛市北戴河区鸽赤路",
       "lat": 39.8364,
       "lng": 119.5285,
       "img": "images/geziwo-sunrise.webp",
-      "desc": "鸽子窝公园是北戴河看日出的最佳地点。\"鸽子窝日出\"被誉为北戴河二十四景之首。鹰角石高约17米，形似雄鹰屹立。毛泽东曾在此写下《浪淘沙·北戴河》。公园内有湿地栈道，退潮时可观鸟赶海。",
+      "desc": "鸽子窝公园位于北戴河海滨东北角、鸽赤路与浴场交界处，是北戴河看日出最经典的地点，“鸽子窝日出”被列为北戴河二十四景之首。公园因早年多有野鸽栖息礁石而得名，1954年毛泽东在此写下《浪淘沙·北戴河》，园内至今立有诗碑。核心景观是高约17米、形似雄鹰的鹰角石，退潮后礁石与滩涂裸露，是观鸟、赶海的好去处；园内还建有木栈道深入湿地，方便近距离观察候鸟与滩涂生物。适合摄影爱好者清晨拍日出、家庭亲子赶海观鸟，全年均可前往，夏季日出时间最早。",
       "highlights": [
         "鹰角石观日出",
         "毛泽东诗碑",
         "湿地栈道观鸟",
-        "赶海拾贝"
+        "退潮赶海拾贝",
+        "北戴河二十四景之首"
       ],
-      "bestSeason": "全年皆宜，夏季日出最美（4:50-5:20）",
+      "bestSeason": "全年可看日出，夏季日出最早，但游客也最多",
       "duration": "1.5-2小时",
-      "suitableFor": "摄影爱好者、情侣、亲子",
-      "tips": "海边凌晨体感温度比白天低8-10℃，一定要穿外套！想拍大片建议带三脚架。日出后公园内的湿地栈道也很美，值得多留半小时。",
-      "transport": "34路公交鸽子窝站下车即到",
+      "suitableFor": "摄影爱好者、情侣、亲子家庭、早起看日出的游客",
+      "tips": "看日出需凌晨到达，海边比市区体感温度低8-10℃，务必带外套 拍摄鹰角石日出建议携带三脚架，占据栈道靠海一侧机位 日出后不要急着离开，退潮时段的湿地栈道也适合观鸟和拍照 退潮时段可下滩涂赶海，建议穿防滑鞋、备好塑料袋装战利品",
+      "transport": "公共交通:秦皇岛市区乘34路公交、北戴河区内乘37路公交至鸽子窝公园站下车即到 自驾:北戴河站打车约10-15分钟；自驾沿滨海大道行驶至鸽赤路 停车:园区周边设有停车场，旺季车位紧张，建议早到",
       "booking": [
         {
           "name": "携程订票 ¥25",
@@ -159,7 +237,51 @@
       ],
       "isTop": true,
       "topRank": 3,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "旺季25元、淡季5元；学生持证20元；1.2米以下儿童、70岁以上老人凭证免票（另有资料显示统一票价35元，两说并存，以现场为准）；票价在不同平台差异较大（5-35元区间），建议购票前在携程/美团核实当日价格；日出时段人多，建议提前到场占位",
+      "openTimeNotes": "旺季（5-9月）约3:00-18:00（配合日出提前开放）；淡季（10-4月）8:00-18:00；不同资料另有05:00-18:00的说法，出发前建议通过携程/官方公众号核实当日开放时间",
+      "bestSeasonNotes": "全年可看日出，夏季（6-8月）日出最早（约4:50-5:20），但游客也最多；春秋人少更从容",
+      "transportDetail": {
+        "publicTransit": "秦皇岛市区乘34路公交、北戴河区内乘37路公交至鸽子窝公园站下车即到",
+        "driving": "北戴河站打车约10-15分钟；自驾沿滨海大道行驶至鸽赤路",
+        "parking": "园区周边设有停车场，旺季车位紧张，建议早到"
+      },
+      "tipsList": [
+        "看日出需凌晨到达，海边比市区体感温度低8-10℃，务必带外套",
+        "拍摄鹰角石日出建议携带三脚架，占据栈道靠海一侧机位",
+        "日出后不要急着离开，退潮时段的湿地栈道也适合观鸟和拍照",
+        "退潮时段可下滩涂赶海，建议穿防滑鞋、备好塑料袋装战利品"
+      ],
+      "nameEn": "Pigeon Nest Park",
+      "descEn": "Pigeon Nest Park sits at the northeastern tip of Beidaihe beach and is the classic spot for watching sunrise over the Bohai Sea, ranked first among Beidaihe's traditional 24 scenic views. It takes its name from wild pigeons that once nested on its rocks. Mao Zedong wrote a famous poem here in 1954, commemorated by a stone tablet. The park's landmark is Eagle Rock, an eagle-shaped outcrop about 17 meters tall. Wooden boardwalks lead through wetlands good for birdwatching and beachcombing at low tide. It suits photographers, families, and early risers.",
+      "highlightsEn": [
+        "Sunrise at Eagle Rock",
+        "Mao Zedong poem tablet",
+        "Wetland boardwalk birdwatching",
+        "Low-tide beachcombing",
+        "Top of Beidaihe's 24 views"
+      ],
+      "faq": [
+        {
+          "q": "鸽子窝几点看日出最好？",
+          "a": "日出时间随季节变化，夏季约4:50-5:20，建议提前30-40分钟到达占位。"
+        },
+        {
+          "q": "鸽子窝门票多少钱？",
+          "a": "不同渠道报价差异较大，旺季约25元、淡季5元左右，购票前建议在线核实。"
+        },
+        {
+          "q": "退潮什么时候能赶海？",
+          "a": "退潮时间每天不同，建议出发前查询当日潮汐表，一般在栈道下方滩涂活动。"
+        }
+      ],
+      "sources": [
+        "https://www.meet99.com/jingdian-beidaihejingqu-2825.html",
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/5045.html",
+        "https://www.beidaihe186.com/bdh_jd_gzw15.php",
+        "https://www.beidaihe186.com/jd_daoyouci_geziwo1.php"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "laohushi",
@@ -170,23 +292,24 @@
       "rating": "4.5",
       "price": "免费",
       "priceNum": 0,
-      "openTime": "全天开放",
+      "openTime": "夏令7:00-22:00",
       "address": "河北省秦皇岛市北戴河区中海滩路",
       "lat": 39.814,
       "lng": 119.4882,
       "img": "images/laohushi.webp",
-      "desc": "北戴河最经典的海滨公园，因海边一块形似老虎的巨石而得名。沙滩细腻平缓，适合游泳、赶海。夕阳西下时，金色阳光洒在巨石上，是北戴河最美日落观赏点。",
+      "desc": "老虎石海上公园位于北戴河海滨中海滩，紧邻联峰山与鸽子窝之间，因海边一组形似群虎卧滩的礁石得名，占地约3.3万平方米，是北戴河沙滩游泳和日落观赏的代表性公园。公园免费开放，沙滩坡度平缓、沙质细软，退潮后礁石区可赶海捡贝。园内设有海上飞伞、帆板、冲浪、儿童戏水池等付费娱乐项目，是国内较早建成的综合性海上公园之一。傍晚时分，夕阳映照老虎石礁石群形成剪影，是北戴河最受摄影爱好者青睐的日落机位之一。适合游泳、亲子戏水、摄影和纯散步。",
       "highlights": [
-        "老虎巨石拍照",
-        "沙滩游泳",
-        "日落剪影",
-        "礁石赶海"
+        "老虎巨石礁群",
+        "沙滩游泳戏水",
+        "日落剪影拍摄",
+        "退潮礁石赶海",
+        "海上飞伞帆板等付费项目"
       ],
-      "bestSeason": "6-9月（游泳），下午4-6点看日落最佳",
+      "bestSeason": "6-9月适合游泳；全年下午4-6点适合看日落",
       "duration": "2-3小时",
       "suitableFor": "全家出游、游泳爱好者、摄影爱好者",
-      "tips": "退潮时可以在礁石区赶海捡贝壳小蟹，记得带小桶和拖鞋。日落时分巨石剪影非常出片。",
-      "transport": "34路/5路老虎石站",
+      "tips": "退潮时可在礁石区赶海捡贝壳、小螃蟹，建议带小桶和防滑鞋 下午4-6点是拍摄老虎石日落剪影的最佳时段 夏季游泳高峰期沙滩人多，注意看管好随身物品和孩子 水上项目价格因季节和商家而异，建议现场比价",
+      "transport": "公共交通:乘34路/5路公交至老虎石站下车即到 自驾:北戴河站打车约10分钟；沿中海滩路可直接抵达",
       "booking": [
         {
           "name": "携程订酒店",
@@ -201,7 +324,50 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "公园免费开放；园内海上飞伞、帆板、冲浪板、儿童戏水等项目单独收费；免票入园，游乐项目按次/按时收费，具体价目以现场公示为准",
+      "openTimeNotes": "夏令（4-10月）7:00-22:00；冬令（11月-次年3月）8:00-18:00；另有资料显示夏季6:00-22:00（21:30停止入场），具体以现场公告为准",
+      "transportDetail": {
+        "publicTransit": "乘34路/5路公交至老虎石站下车即到",
+        "driving": "北戴河站打车约10分钟；沿中海滩路可直接抵达",
+        "parking": null
+      },
+      "tipsList": [
+        "退潮时可在礁石区赶海捡贝壳、小螃蟹，建议带小桶和防滑鞋",
+        "下午4-6点是拍摄老虎石日落剪影的最佳时段",
+        "夏季游泳高峰期沙滩人多，注意看管好随身物品和孩子",
+        "水上项目价格因季节和商家而异，建议现场比价"
+      ],
+      "nameEn": "Tiger Stone Sea Park",
+      "descEn": "Tiger Stone Sea Park sits on Beidaihe's central beach, named for a cluster of rocks resembling crouching tigers at the shoreline. Covering about 33,000 square meters, it is free to enter and one of Beidaihe's most popular beaches for swimming, with a gentle slope and fine sand. Paid activities include parasailing, windsurfing, and a children's water park. At low tide, visitors can explore the exposed rocks for shells and small crabs. Sunset here, with the tiger-shaped rocks silhouetted against the sea, is one of Beidaihe's favorite photo spots. It suits swimmers, families, and photographers.",
+      "highlightsEn": [
+        "Tiger-shaped rock formations",
+        "Beach swimming",
+        "Sunset silhouette photos",
+        "Low-tide rock pooling",
+        "Paid water sports (parasailing, windsurfing)"
+      ],
+      "faq": [
+        {
+          "q": "老虎石海上公园要门票吗？",
+          "a": "公园本身免费开放，但海上飞伞、帆板等娱乐项目单独收费。"
+        },
+        {
+          "q": "老虎石和鸽子窝是同一个地方吗？",
+          "a": "不是，两者都在北戴河海滨但位置不同，老虎石以游泳戏水和日落著称，鸽子窝以看日出闻名。"
+        },
+        {
+          "q": "冬天可以去老虎石吗？",
+          "a": "可以，冬季公园仍开放（约8:00-18:00），但不能游泳，适合看海景、拍照。"
+        }
+      ],
+      "sources": [
+        "https://www.meet99.com/jingdian-laohushi.html",
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/78427.html",
+        "https://baike.baidu.com/item/%E8%80%81%E8%99%8E%E7%9F%B3%E6%B5%B7%E4%B8%8A%E5%85%AC%E5%9B%AD/7481304",
+        "https://touch.travel.qunar.com/poi/7526988"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "liangfengshan",
@@ -210,25 +376,26 @@
       "cat": "nature",
       "level": "4A",
       "rating": "4.4",
-      "price": "20元",
-      "priceNum": 20,
-      "openTime": "07:00-18:00",
-      "address": "河北省秦皇岛市北戴河区联峰路",
+      "price": "30元起",
+      "priceNum": 30,
+      "openTime": "07:00-17:30",
+      "address": "河北省秦皇岛市北戴河区联峰路与剑秋路交叉口",
       "lat": 39.8233,
       "lng": 119.461,
       "img": "images/attraction-liangfengshan.jpg",
-      "desc": "联峰山是北戴河制高点，也是中国第一座森林公园。望海亭可俯瞰整个北戴河海滨全景，秦皇岛港、鸽子窝尽收眼底。山中松柏苍翠，负氧离子极高，是天然氧吧。",
+      "desc": "联峰山公园位于北戴河区联峰路，是北戴河地势最高处，最高峰海拔约153米，林区面积约6068亩，常被称为中国第一座森林公园。山中松柏苍翠、负氧离子含量高，登顶望海亭可俯瞰北戴河海滨全景，天气晴好时秦皇岛港、鸽子窝一带尽收眼底。景区内还有莲花石、仙人洞等自然景观和多处近代别墅遗迹。由于树木茂密遮阴，夏季山中气温比山下低约5℃，是当地人纳凉避暑的好去处。适合登山、避暑、摄影和秋季赏红叶（10月前后），建议早晚时段前往，避开正午暴晒。",
       "highlights": [
         "望海亭俯瞰全景",
         "莲花石",
         "仙人洞",
-        "神山"
+        "近代别墅遗迹",
+        "秋季红叶"
       ],
-      "bestSeason": "5-10月，夏季避暑纳凉最佳",
+      "bestSeason": "5-10月最佳，夏季避暑纳凉，10月前后赏红叶",
       "duration": "2-3小时",
-      "suitableFor": "登山爱好者、摄影爱好者、避暑纳凉",
-      "tips": "山不高（海拔153米），但林木茂密，夏天比山下凉快5℃左右。建议早上或傍晚去，避开正午暴晒。",
-      "transport": "5路/15路联峰山公园站",
+      "suitableFor": "登山爱好者、摄影爱好者、避暑纳凉、秋季赏叶游客",
+      "tips": "山不高但林木茂密，建议穿防滑运动鞋，部分台阶较陡 夏天山里比山下凉快约5℃，是本地人纳凉首选 10月前后可赏红叶，建议关注景区赏枫资讯 建议避开正午时段上山，早晚光线也更适合拍照",
+      "transport": "公共交通:乘5路/15路公交至联峰山公园站下车即到 自驾:北戴河站打车约10-15分钟",
       "booking": [
         {
           "name": "携程订票",
@@ -243,7 +410,50 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "30元左右（在线预订平台常见22.9-30元浮动价）；线上预订通常比现场购票便宜，具体老人/学生/儿童优惠政策未能核实，建议购票前咨询平台客服",
+      "openTimeNotes": "07:00-17:30（不同来源另有07:00-17:00、07:30-17:00等说法，出发前建议核实）",
+      "transportDetail": {
+        "publicTransit": "乘5路/15路公交至联峰山公园站下车即到",
+        "driving": "北戴河站打车约10-15分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "山不高但林木茂密，建议穿防滑运动鞋，部分台阶较陡",
+        "夏天山里比山下凉快约5℃，是本地人纳凉首选",
+        "10月前后可赏红叶，建议关注景区赏枫资讯",
+        "建议避开正午时段上山，早晚光线也更适合拍照"
+      ],
+      "nameEn": "Lianfeng Mountain Park",
+      "descEn": "Lianfeng Mountain Park, on Lianfeng Road in Beidaihe, is the highest point in the area at about 153 meters, covering roughly 6,068 mu of pine and cypress forest. It is often described as one of China's earliest forest parks. From the hilltop Wanghai Pavilion, visitors get a panoramic view of the Beidaihe coastline. The dense tree cover keeps the park about 5°C cooler than the beach below, making it a popular summer retreat. Other sights include Lotus Rock and Immortal's Cave, plus scattered historic villas. It suits hikers, photographers, and anyone escaping the summer heat, and is known for autumn foliage around October.",
+      "highlightsEn": [
+        "Panoramic Wanghai Pavilion",
+        "Lotus Rock",
+        "Immortal's Cave",
+        "Historic villa ruins",
+        "Autumn foliage"
+      ],
+      "faq": [
+        {
+          "q": "联峰山公园门票多少钱？",
+          "a": "现场票约30元左右，线上平台常有22.9元起的优惠价，建议提前在携程等平台购买。"
+        },
+        {
+          "q": "联峰山好爬吗？",
+          "a": "海拔约153米，难度不大，但山路有台阶起伏，建议穿舒适的鞋。"
+        },
+        {
+          "q": "联峰山秋天红叶什么时候最好看？",
+          "a": "一般在10月中下旬前后，具体以当年气温和景区公告为准。"
+        }
+      ],
+      "sources": [
+        "https://you.ctrip.com/sight/qinhuangdao132/5043/s3-d-d-p1.html",
+        "https://baike.baidu.com/item/%E8%81%94%E5%B3%B0%E5%B1%B1%E5%85%AC%E5%9B%AD/7492410",
+        "http://qhd.bendibao.com/tour/20231017/7895.shtm",
+        "https://touch.travel.qunar.com/poi/712326"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "biluota",
@@ -252,25 +462,26 @@
       "cat": "culture",
       "level": "4A",
       "rating": "4.3",
-      "price": "50元",
-      "priceNum": 50,
-      "openTime": "09:00-24:00",
-      "address": "河北省秦皇岛市北戴河区东海滩路",
+      "price": "48元起",
+      "priceNum": 48,
+      "openTime": "10:00-22:00，节假日9:30-22:30",
+      "address": "河北省秦皇岛市北戴河区东海滩路中段",
       "lat": 39.8205,
       "lng": 119.5353,
       "img": "images/biluota.webp",
-      "desc": "北戴河夜生活地标！海上酒吧+烟花秀+篝火晚会+乐队演出。碧螺塔三面环海，塔顶是绝佳的日落和星空拍摄点。\"圣托里尼\"风的白墙蓝顶建筑让这里成为拍照圣地。",
+      "desc": "碧螺塔海上酒吧公园位于北戴河海滨小东山，三面环海，是北戴河东段的至高点，北邻鸽子窝公园和游船码头，南接金山嘴与老虎石公园，公园占地约106亩，因主建筑碧螺塔得名。碧螺塔建于1990年前后，塔高21米、共7层，是国内沿海地区少见的仿海螺造型观光塔，相传与“苑渠国使者乘碧螺舟东渡”的传说有关。公园白天以蓝白相间的“圣托里尼风”建筑和塔顶海景为特色，夜晚化身为北戴河的夜生活地标，设有海上酒吧、沙滩篝火、乐队演出，旺季还会举办电音派对和落日音乐会。适合情侣、年轻人及喜欢夜生活和拍照打卡的游客。",
       "highlights": [
-        "夜间篝火晚会",
-        "海上酒吧",
-        "圣托里尼风建筑",
-        "塔顶日落观景"
+        "碧螺塔仿海螺观光塔",
+        "圣托里尼风白墙蓝顶建筑",
+        "夜间篝火与乐队演出",
+        "塔顶日落观景",
+        "旺季电音/落日派对"
       ],
-      "bestSeason": "6-9月，下午4点到晚上10点最佳",
+      "bestSeason": "6-9月，下午4点到晚上10点体验最完整",
       "duration": "3-4小时",
-      "suitableFor": "情侣、年轻人、夜生活爱好者",
-      "tips": "建议下午4点入园，先拍白天的圣托里尼风建筑，等日落，再看晚上篝火晚会和乐队演出，一站搞定日落+夜景。",
-      "transport": "15路碧螺塔站",
+      "suitableFor": "情侣、年轻人、夜生活和拍照爱好者",
+      "tips": "建议下午4点左右入园，先拍白天的圣托里尼风建筑，再等日落和夜场演出 塔顶视野最好，建议留足时间登塔看海景 参加夜场篝火/酒吧活动建议提前查看当日节目单和场次时间 夏季旺季人多，建议提前在线购票避免现场排队",
+      "transport": "公共交通:乘15路公交至碧螺塔站下车即到 自驾:北戴河站打车约15分钟，沿东海滩路可达",
       "booking": [
         {
           "name": "携程订票 ¥40",
@@ -285,7 +496,51 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "成人票48元；60-69岁优待票25元；70岁以上及1.2米以下儿童免票；夜场（含演出+观景+酒吧体验）套票约80-120元；日场票与夜场演出套票价格不同，建议根据是否想看晚间篝火/酒吧演出选择对应票种，购票前在携程/美团核实当期价格",
+      "openTimeNotes": "日常10:00-22:00，节假日9:30-22:30；暑期（约6月底-7月）曾延长至次日0:00，具体以景区当日公告为准",
+      "bestSeasonNotes": "6-9月，下午4点到晚上10点体验最完整（白天景观+夜间演出）",
+      "transportDetail": {
+        "publicTransit": "乘15路公交至碧螺塔站下车即到",
+        "driving": "北戴河站打车约15分钟，沿东海滩路可达",
+        "parking": null
+      },
+      "tipsList": [
+        "建议下午4点左右入园，先拍白天的圣托里尼风建筑，再等日落和夜场演出",
+        "塔顶视野最好，建议留足时间登塔看海景",
+        "参加夜场篝火/酒吧活动建议提前查看当日节目单和场次时间",
+        "夏季旺季人多，建议提前在线购票避免现场排队"
+      ],
+      "nameEn": "Biluota Sea Bar Park",
+      "descEn": "Biluota (Green Snail Tower) Sea Bar Park sits on a small peninsula in eastern Beidaihe, between Pigeon Nest Park to the north and Tiger Stone Park to the south, covering about 106 mu. Its landmark, a 21-meter, seven-story spiral tower shaped like a sea snail, was built around 1990 and is tied to a local legend about envoys arriving on a \"green snail boat.\" By day the whitewashed, Santorini-style buildings and sea views draw photographers; by night it becomes Beidaihe's nightlife hub, with beach bars, bonfire shows, live bands, and summer electronic-music and sunset parties. It suits couples, young travelers, and nightlife seekers.",
+      "highlightsEn": [
+        "Spiral shell-shaped Biluo Tower",
+        "Santorini-style white-and-blue buildings",
+        "Nighttime bonfire and live band shows",
+        "Sunset views from the tower",
+        "Summer electronic/sunset parties"
+      ],
+      "faq": [
+        {
+          "q": "碧螺塔白天和晚上都能去吗？",
+          "a": "可以，白天可看建筑和海景，晚上有篝火、乐队和酒吧演出，体验不同，建议傍晚入园衔接两者。"
+        },
+        {
+          "q": "碧螺塔门票包含晚上的演出吗？",
+          "a": "普通门票和夜场演出套票不同，若想看篝火晚会等演出建议购买对应的夜场票种。"
+        },
+        {
+          "q": "碧螺塔适合带小孩去吗？",
+          "a": "白天的建筑和海景适合家庭游览，晚上酒吧氛围更适合成年人和情侣。"
+        }
+      ],
+      "sources": [
+        "https://baike.baidu.com/item/%E7%A2%A7%E8%9E%BA%E5%A1%94%E6%B5%B7%E4%B8%8A%E9%85%92%E5%90%A7%E5%85%AC%E5%9B%AD/56629958",
+        "https://www.wingontravel.com/discovery/scenic-biluota-bar-style-amusement-sea-park-10558632",
+        "https://youletour.com/qinhuangdao/bi-luo-ta-hai-shang-jiu-ba-gong-yuan/goupiao",
+        "https://baike.baidu.com/item/%E7%A2%A7%E8%9E%BA%E5%A1%94/7492487"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "guailou",
@@ -294,25 +549,26 @@
       "cat": "family",
       "level": "2A",
       "rating": "4.2",
-      "price": "15元",
-      "priceNum": 15,
-      "openTime": "08:00-17:30",
+      "price": "20元起",
+      "priceNum": 20,
+      "openTime": "5月1日-10月31日 08:00-22:00",
       "address": "河北省秦皇岛市北戴河区联峰路",
       "lat": 39.8271,
       "lng": 119.4983,
       "img": "images/attraction-guailou.jpg",
-      "desc": "一座充满奇思妙想的建筑群，内部结构错综复杂，有999个门、999扇窗，像个巨大的迷宫。每个房间都有不同的主题——有的地板是斜的，有的镜子无限反射，特别适合带孩子探险。",
+      "desc": "怪楼奇园坐落于北戴河联峰路百花山一带，是北戴河风景名胜区内的经典室内奇趣景点。景区依据美国园林学者辛伯森20世纪30年代在北戴河建造的一座奇异别墅，于1991年重建而成，园名由漫画家华君武题写。怪楼建筑面积约999平方米，楼内暗道相通、楼梯与索桥交错，地板倾斜、镜面反射营造出令人眩晕的空间效果，各房间还设有不同主题的奇幻造景，被称为“999门999窗”的迷宫式建筑。因景点全部在室内，不受天气影响，是雨天备选或亲子探险的热门去处，也适合对建筑结构、光学错觉感兴趣的游客。",
       "highlights": [
-        "999门999窗迷宫",
-        "斜地板房间",
-        "无限镜屋",
-        "主题奇幻房间"
+        "999门999窗迷宫式建筑",
+        "倾斜地板房间",
+        "无限镜面反射屋",
+        "暗道与索桥",
+        "室内不受天气影响"
       ],
-      "bestSeason": "全年皆宜（室内景点）",
+      "bestSeason": "全年皆宜，室内景点不受季节和天气影响",
       "duration": "1-1.5小时",
-      "suitableFor": "亲子探险、建筑爱好者、好奇心玩家",
-      "tips": "迷宫较复杂，带好小孩别走散。室内景点雨天也适合游玩。",
-      "transport": "5路怪楼站",
+      "suitableFor": "亲子探险、建筑与光学错觉爱好者、雨天备选游客",
+      "tips": "内部结构复杂如迷宫，带小孩游览注意看护，避免走散 部分房间地板倾斜、镜面反射强烈，有眩晕或平衡问题者请留意 室内景点雨天、阴天均可正常游玩，是恶劣天气的备选项目 游玩时间约1-1.5小时，可与附近联峰山公园安排在同一天",
+      "transport": "公共交通:乘5路公交至怪楼站下车即到 自驾:北戴河站打车约10-15分钟",
       "booking": [
         {
           "name": "携程订票",
@@ -327,7 +583,51 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "20元左右（不同来源报价15-20元不等）；票价在各平台略有差异（约15-20元），建议购票前在携程/美团核实当期价格及是否有联票优惠",
+      "phone": "0335-7189559 / 0335-3159666 / 0335-3259666（来自第三方民宿网站整理，未逐一核实为当前有效号码）",
+      "openTimeNotes": "5月1日-10月31日 08:00-22:00；11月1日-次年4月30日 08:00-18:00",
+      "transportDetail": {
+        "publicTransit": "乘5路公交至怪楼站下车即到",
+        "driving": "北戴河站打车约10-15分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "内部结构复杂如迷宫，带小孩游览注意看护，避免走散",
+        "部分房间地板倾斜、镜面反射强烈，有眩晕或平衡问题者请留意",
+        "室内景点雨天、阴天均可正常游玩，是恶劣天气的备选项目",
+        "游玩时间约1-1.5小时，可与附近联峰山公园安排在同一天"
+      ],
+      "nameEn": "Strange House Garden",
+      "descEn": "Strange House Garden (Guailou Qiyuan) stands near Baihua Hill on Lianfeng Road in Beidaihe. It was rebuilt in 1991 based on a whimsical 1930s villa designed by an American landscape scholar who once lived in Beidaihe, with the park's name inscribed by cartoonist Hua Junwu. Covering about 999 square meters, the maze-like building is famous for its many doors and windows, hidden passages, tilted floors, and mirror rooms that create disorienting optical effects, each room built around a different fantastical theme. Because it's entirely indoors, it works well as a rainy-day option and is popular with families and children.",
+      "highlightsEn": [
+        "Maze of countless doors and windows",
+        "Tilted-floor rooms",
+        "Infinity mirror room",
+        "Hidden passages and rope bridges",
+        "All-indoor, rain-or-shine visit"
+      ],
+      "faq": [
+        {
+          "q": "怪楼奇园为什么叫“怪楼”？",
+          "a": "因楼内多门多窗、结构错综复杂、地板倾斜、镜面反射营造出诡异空间感而得名。"
+        },
+        {
+          "q": "下雨天可以去怪楼奇园吗？",
+          "a": "可以，景点完全在室内，不受天气影响，是雨天出游的热门备选。"
+        },
+        {
+          "q": "怪楼奇园适合几岁的孩子？",
+          "a": "适合大部分学龄儿童，但内部较暗、结构复杂，建议家长全程陪同。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/123767.html",
+        "https://baike.baidu.com/item/%E6%80%AA%E6%A5%BC%E5%A5%87%E5%9B%AD/9280073",
+        "http://www.bdh2.com/showinfo-16-269-0.html",
+        "https://lxs.cncn.com/66364/n625138"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "dongwuyuan",
@@ -336,25 +636,26 @@
       "cat": "family",
       "level": "4A",
       "rating": "4.5",
-      "price": "80元",
-      "priceNum": 80,
-      "openTime": "08:30-17:00",
-      "address": "河北省秦皇岛市北戴河区滨海大道",
+      "price": "100元起",
+      "priceNum": 100,
+      "openTime": "夏季8:30-17:30",
+      "address": "河北省秦皇岛市北戴河区滨海大道62号",
       "lat": 39.8703,
       "lng": 119.5214,
       "img": "images/attraction-dongwuyuan.webp",
-      "desc": "华北地区最大的野生动物园之一，占地5000余亩。可自驾入园穿越猛兽区，近距离观赏老虎、狮子、黑熊。温顺区可步行投喂长颈鹿、羊驼等动物。",
+      "desc": "秦皇岛野生动物园位于北戴河区滨海大道，是华北地区规模较大的野生动物主题园区之一，占地约5000余亩。园区分为自驾猛兽区和步行温顺区两大板块：游客可驾车穿越猛兽区，隔着车窗近距离观察东北虎、非洲狮、黑熊等猛兽；步行区则可与长颈鹿、羊驼等温顺动物互动投喂，另设鸟林、草食动物区等展区。动物园常年开放，夏季动物活动更活跃，适合亲子家庭和动物爱好者安排半天到一天的行程，是北戴河亲子游的热门选择之一。",
       "highlights": [
         "自驾穿越猛兽区",
-        "长颈鹿投喂",
-        "鸟林",
-        "草食动物区"
+        "长颈鹿/羊驼投喂互动",
+        "鸟林观赏区",
+        "草食动物区",
+        "占地约5000余亩"
       ],
-      "bestSeason": "4-10月，上午动物较活跃",
+      "bestSeason": "4-10月，上午时段动物较活跃",
       "duration": "2-3小时",
       "suitableFor": "亲子家庭、动物爱好者",
-      "tips": "自驾游览时不要开窗！猛兽区有铁丝网但距离很近。建议上午去，动物比较活跃。带孩子的可以在温顺区买饲料投喂。",
-      "transport": "34路野生动物园站",
+      "tips": "自驾穿越猛兽区途中务必关闭车窗，不要下车或投喂猛兽 建议上午前往，动物活动更活跃，观赏效果更好 温顺区可提前购买饲料投喂长颈鹿、羊驼等动物，小朋友体验感强 夏季园区较大且缺少遮阴，建议做好防晒、备足饮水",
+      "transport": "公共交通:乘34路公交至野生动物园站下车即到 自驾:北戴河站打车约15-20分钟，沿滨海大道可直达",
       "booking": [
         {
           "name": "携程订票 ¥100",
@@ -369,7 +670,70 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "官方全价票约100元；在线预订平台常见72-80元优惠价；6岁/1.2米以下儿童、70岁以上老人、残疾人、现役军人等凭证免票；线上预订普遍比现场购票便宜，建议提前在携程/美团购买；门票通常包含观光车/穿越猛兽区车程",
+      "openTimeNotes": "夏季（4月1日-10月31日）8:30-17:30；冬季（11月1日-次年3月31日）8:30-16:30；全年无休，节假日与夏季时间一致",
+      "transportDetail": {
+        "publicTransit": "乘34路公交至野生动物园站下车即到",
+        "driving": "北戴河站打车约15-20分钟，沿滨海大道可直达",
+        "parking": null
+      },
+      "tipsList": [
+        "自驾穿越猛兽区途中务必关闭车窗，不要下车或投喂猛兽",
+        "建议上午前往，动物活动更活跃，观赏效果更好",
+        "温顺区可提前购买饲料投喂长颈鹿、羊驼等动物，小朋友体验感强",
+        "夏季园区较大且缺少遮阴，建议做好防晒、备足饮水"
+      ],
+      "nameEn": "Qinhuangdao Wildlife Zoo",
+      "descEn": "Qinhuangdao Wildlife Zoo, on Binhai Avenue in Beidaihe, is one of northern China's larger wildlife parks, covering roughly 5,000 mu. It is split into a drive-through predator zone, where visitors view tigers, lions, and bears from their cars, and a walk-through zone where guests can hand-feed giraffes, alpacas, and other gentle animals, plus a bird enclosure and herbivore areas. It's open year-round, with animals generally more active in the morning and in warmer months. The zoo is a popular half-day to full-day family outing in the Beidaihe area.",
+      "highlightsEn": [
+        "Drive-through predator zone",
+        "Hand-feed giraffes and alpacas",
+        "Bird enclosure",
+        "Herbivore area",
+        "About 5,000-mu grounds"
+      ],
+      "faq": [
+        {
+          "q": "自驾进入猛兽区安全吗？",
+          "a": "猛兽区设有隔离设施，但要求全程关闭车窗、不得下车，按工作人员指示通行。"
+        },
+        {
+          "q": "门票包含穿越猛兽区吗？",
+          "a": "通常门票已包含观光车或自驾穿越猛兽区的费用，具体以购票页面说明为准。"
+        },
+        {
+          "q": "几岁以下儿童免票？",
+          "a": "常见免票标准为6岁或1.2米以下儿童，另有70岁以上老人等人群优惠，购票前建议核实当期政策。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/13486.html",
+        "https://baike.baidu.com/item/%E7%A7%A6%E7%9A%87%E5%B2%9B%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%9B%AD/7493030",
+        "https://www.dahepiao.com/lvyounews1/20250917530578.html",
+        "https://commons.wikimedia.org/wiki/File:Elephas_maximus_in_Qinhuangdao_Wildlife_Park.jpg"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Elephas maximus in Qinhuangdao Wildlife Park.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Elephas_maximus_in_Qinhuangdao_Wildlife_Park.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Elephas_maximus_in_Qinhuangdao_Wildlife_Park.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "Antigng",
+          "width": 5312,
+          "height": 2988
+        },
+        {
+          "title": "File:Mandrill in Qinhuangdao Wildlife Park.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Mandrill_in_Qinhuangdao_Wildlife_Park.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Mandrill_in_Qinhuangdao_Wildlife_Park.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "Antigng",
+          "width": 2988,
+          "height": 5312
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "jifa",
@@ -378,25 +742,26 @@
       "cat": "family",
       "level": "4A",
       "rating": "4.3",
-      "price": "30元",
-      "priceNum": 30,
-      "openTime": "08:30-17:30",
-      "address": "河北省秦皇岛市北戴河区海北路",
+      "price": "50元起",
+      "priceNum": 50,
+      "openTime": "旺季8:30-17:00，16:00停止入园",
+      "address": "河北省秦皇岛市北戴河区海北路27号",
       "lat": 39.8156,
       "lng": 119.4164,
       "img": "images/attraction-jifa.jpg",
-      "desc": "农业主题乐园，温室花园+萌宠+游乐设施，亲子研学首选。有大片热带植物温室、农业科普展示区、儿童游乐设施和萌宠互动区，寓教于乐。",
+      "desc": "集发农业梦想王国位于北戴河区海北路，前身为集发生态农业观光园，2018年起按照更高等级景区标准启动升级改造，是集农业科技展示、农耕文化体验、亲子娱乐和研学科普于一体的综合性主题乐园。园区内有大片热带植物温室，种植多种热带、亚热带植物和瓜果，配有农业科普展示区介绍现代种植技术；此外设有萌宠互动区可近距离接触小动物，以及多项适合儿童的游乐设施。温室环境四季恒温，是雨天和寒冷季节的理想室内游玩去处，特别适合亲子家庭和学校研学团体。",
       "highlights": [
         "热带植物温室",
+        "农业科普展示区",
         "萌宠互动区",
-        "农业科普馆",
-        "儿童游乐设施"
+        "儿童游乐设施",
+        "四季恒温室内体验"
       ],
-      "bestSeason": "全年皆宜，夏季温室避雨好去处",
+      "bestSeason": "全年皆宜，夏季温室可避暑遮雨，冬季温室内温暖如春",
       "duration": "3-4小时",
-      "suitableFor": "亲子家庭、研学旅行",
-      "tips": "温室里较热，注意给孩子补水。可以提前在携程/美团买折扣票。",
-      "transport": "5路集发站",
+      "suitableFor": "亲子家庭、研学旅行团体",
+      "tips": "温室内较为闷热潮湿，建议穿着透气衣物并及时补水 可提前在携程/美团购买折扣票，比现场购票更划算 适合安排半天行程，可与周边景点组合游览 带孩子游玩建议预留萌宠互动和儿童游乐设施的时间",
+      "transport": "公共交通:乘5路公交至集发站下车即到 自驾:北戴河站打车约15-20分钟",
       "booking": [
         {
           "name": "携程订票",
@@ -411,7 +776,50 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "约50元（不同来源另有30元的说法，票价可能随季节/活动调整）；票价在不同来源间差异较大（30-50元），且可能因季节、夜场活动浮动，建议购票前在携程/美团核实当期价格及优惠政策",
+      "openTimeNotes": "旺季（5月-12月）8:30-17:00，16:00停止入园；另有资料显示部分时段延长至21:30，具体以景区当日公告为准",
+      "transportDetail": {
+        "publicTransit": "乘5路公交至集发站下车即到",
+        "driving": "北戴河站打车约15-20分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "温室内较为闷热潮湿，建议穿着透气衣物并及时补水",
+        "可提前在携程/美团购买折扣票，比现场购票更划算",
+        "适合安排半天行程，可与周边景点组合游览",
+        "带孩子游玩建议预留萌宠互动和儿童游乐设施的时间"
+      ],
+      "nameEn": "Jifa Agricultural Dream Kingdom",
+      "descEn": "Jifa Agricultural Dream Kingdom, on Haibei Road in Beidaihe, evolved from an earlier eco-agriculture park and began upgrading toward a higher scenic-area standard in 2018. It combines agricultural technology displays, farming-culture exhibits, children's rides, and educational tours for school groups. Large greenhouses grow a range of tropical and subtropical plants and fruit, alongside exhibits on modern farming techniques. A petting area lets children interact with small animals, and there are several kid-friendly rides. Because the greenhouses stay warm year-round, the park works well as an indoor option on rainy or cold days, and especially suits families and school groups.",
+      "highlightsEn": [
+        "Tropical plant greenhouses",
+        "Agricultural tech exhibits",
+        "Petting zoo area",
+        "Children's rides",
+        "Climate-controlled indoor greenhouses"
+      ],
+      "faq": [
+        {
+          "q": "集发农业梦想王国下雨天能玩吗？",
+          "a": "温室区域为室内，下雨天仍可正常游览，是不错的雨天备选。"
+        },
+        {
+          "q": "门票多少钱？",
+          "a": "不同渠道报价在30-50元左右，建议购票前在携程/美团核实当期价格。"
+        },
+        {
+          "q": "适合几岁的孩子？",
+          "a": "适合各年龄段儿童，尤其是喜欢动植物和研学科普内容的学龄儿童。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/65426.html",
+        "https://www.qianggen.net/2009/tuan85517/",
+        "http://www.bdh2.com/showinfo-16-271-0.html",
+        "https://www.dahepiao.com/news1/20210927222219.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "shidi",
@@ -427,18 +835,20 @@
       "lat": 39.8479,
       "lng": 119.5242,
       "img": "images/attraction-shidi.jpg",
-      "desc": "中国城市最大湿地之一，400余种鸟类栖息，是观鸟、摄影胜地。湿地木栈道蜿蜒穿过芦苇荡，秋季候鸟迁徙季节尤为壮观。",
+      "desc": "北戴河湿地公园位于秦皇岛市北戴河区,是戴河、洋河等入海口一带形成的滨海湿地,由浅海水域、潮间滩涂、河口水域、坑塘洼地和芦苇沼泽组成,是中国城市中面积较大的湿地生态区之一。2011年启动湿地生态修复工程,2015年12月核心区域获批为国家湿地公园。这里地处东亚-澳大利亚候鸟迁徙路线的关键节点,已记录鸟类达400余种,其中包括世界濒危物种黑嘴鸥的重要繁殖地之一,享有\"世界观鸟胜地\"的声誉。公园内木栈道蜿蜒穿行于芦苇荡与浅滩之间,是散步、观鸟和自然摄影的好去处,尤以春秋两季候鸟集中迁徙时最为壮观。适合观鸟爱好者、摄影爱好者及亲近自然的家庭出游。",
       "highlights": [
-        "400+种鸟类观赏",
+        "400余种鸟类栖息",
         "芦苇荡木栈道",
+        "黑嘴鸥繁殖地",
         "候鸟迁徙观察",
-        "湿地生态科普"
+        "湿地生态科普",
+        "滨海滩涂摄影"
       ],
-      "bestSeason": "9-10月候鸟迁徙季最佳",
-      "duration": "1-2小时",
-      "suitableFor": "摄影爱好者、自然爱好者、亲子科普",
-      "tips": "带望远镜观鸟效果更好。秋季候鸟最多，建议清晨或傍晚前往。免费开放，适合悠闲散步。",
-      "transport": "34路转乘或打车约15分钟",
+      "bestSeason": "春秋两季候鸟迁徙期最佳,尤以9-11月秋季南迁高峰鸟种和数量",
+      "duration": "1.5-3小时",
+      "suitableFor": "观鸟爱好者、自然摄影爱好者、亲子家庭、喜欢安静生态漫步的游客",
+      "tips": "最佳观鸟时间是清晨或傍晚,建议自带双筒望远镜或长焦镜头 秋季(9-11月)候鸟种类和数量最多,是摄影和观鸟的黄金期 木栈道较长,建议穿舒适的步行鞋,并做好防晒/防风准备 湿地内蚊虫较多,夏季前往建议携带驱蚊用品 请勿投喂或惊扰鸟类,保持安静有助于观察到更多鸟类活动 园区内商业配套较少,建议自备饮用水和食物",
+      "transport": "公共交通:市区内可乘公交至新河路一带下车步行前往,具体线路建议以当地公交实时信息或导航软件(高德/百度地图搜索\"北戴河湿地公园\")为准;基线资料提及34路可转乘到达,但本次未能独立核实该线路当前站点,建议出行前确认。 自驾:自驾导航至\"北戴河湿地公园\"或\"新河路\"即可到达,距北戴河火车站、鸽子窝公园等主要景点车程约15-20分钟。",
       "booking": [
         {
           "name": "携程订酒店",
@@ -448,7 +858,89 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "公园本体为免费开放的公益性生态区域,无需购票;湿地保护区核心区如有专业观鸟/科考活动,可能需要提前联系相关机构报备,具体以现场公示为准。",
+      "openTimeNotes": "全天开放(公园本身无固定关闭时间);观鸟最佳时段为日出后及日落前,建议清晨或傍晚前往",
+      "durationNotes": "1.5-3小时(散步游览约1小时,深度观鸟摄影建议预留2-3小时)",
+      "bestSeasonNotes": "春秋两季候鸟迁徙期最佳,尤以9-11月秋季南迁高峰鸟种和数量最多;3-5月春季北迁亦可观鸟,夏季则以湿地植被和滩涂风光为主。",
+      "transportDetail": {
+        "publicTransit": "市区内可乘公交至新河路一带下车步行前往,具体线路建议以当地公交实时信息或导航软件(高德/百度地图搜索\"北戴河湿地公园\")为准;基线资料提及34路可转乘到达,但本次未能独立核实该线路当前站点,建议出行前确认。",
+        "driving": "自驾导航至\"北戴河湿地公园\"或\"新河路\"即可到达,距北戴河火车站、鸽子窝公园等主要景点车程约15-20分钟。",
+        "parking": null
+      },
+      "tipsList": [
+        "最佳观鸟时间是清晨或傍晚,建议自带双筒望远镜或长焦镜头",
+        "秋季(9-11月)候鸟种类和数量最多,是摄影和观鸟的黄金期",
+        "木栈道较长,建议穿舒适的步行鞋,并做好防晒/防风准备",
+        "湿地内蚊虫较多,夏季前往建议携带驱蚊用品",
+        "请勿投喂或惊扰鸟类,保持安静有助于观察到更多鸟类活动",
+        "园区内商业配套较少,建议自备饮用水和食物"
+      ],
+      "nameEn": "Beidaihe Wetland Park",
+      "descEn": "Beidaihe Wetland Park sits on the coast of Beidaihe District, Qinhuangdao, where the Dai and Yang rivers meet the sea, forming tidal flats, reed marshes and shallow ponds. Restoration began in 2011, and its core area was designated a National Wetland Park in December 2015. Located on the East Asian-Australasian Flyway, it hosts over 400 recorded bird species, including one of the few breeding grounds of the endangered Saunders's gull, earning it a reputation as a world-class birdwatching site. Wooden boardwalks wind through the reeds, making it popular for walking, photography and birdwatching, especially during spring and autumn migration.",
+      "highlightsEn": [
+        "400+ recorded bird species",
+        "Boardwalk through reed marsh",
+        "Saunders's gull breeding site",
+        "Migratory bird watching",
+        "Wetland ecology exhibits",
+        "Coastal tidal-flat photography"
+      ],
+      "faq": [
+        {
+          "q": "北戴河湿地公园需要门票吗?",
+          "a": "公园本体免费开放,无需购票;个别专业观鸟活动或保护区核心区域可能有单独规定,建议前往前留意现场公示。"
+        },
+        {
+          "q": "什么时候去最容易看到候鸟?",
+          "a": "每年9-11月秋季候鸟南迁是观鸟高峰期,清晨和傍晚是鸟类活动最活跃的时段;3-5月春季北迁季也是不错的观鸟时机。"
+        },
+        {
+          "q": "适合带孩子去吗?",
+          "a": "适合,木栈道平坦好走,适合家庭漫步和自然科普,但建议携带驱蚊用品并留意脚下安全。"
+        },
+        {
+          "q": "和鸽子窝公园是同一个地方吗?",
+          "a": "不是。鸽子窝公园(鹰角公园)是另一处以看日出闻名的收费景区,北戴河湿地公园以芦苇滩涂和观鸟栈道为特色,两者相距不远但为不同景点。"
+        }
+      ],
+      "sources": [
+        "https://zh.wikipedia.org/zh-hans/%E5%8C%97%E6%88%B4%E6%B2%B3%E5%9B%BD%E5%AE%B6%E6%B9%BF%E5%9C%B0%E5%85%AC%E5%9B%AD",
+        "https://baike.baidu.com/item/%E5%8C%97%E6%88%B4%E6%B2%B3%E6%B9%BF%E5%9C%B0/3638624",
+        "https://www.thepaper.cn/newsDetail_forward_2518736",
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/1829597.html",
+        "https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=Beidaihe%20bird&gsrnamespace=6&gsrlimit=15&prop=imageinfo&iiprop=url|extmetadata|size&format=json"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Beidaihe birdingrace team.JPG",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Beidaihe_birdingrace_team.JPG",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Beidaihe_birdingrace_team.JPG",
+          "license": "CC BY-SA 2.0",
+          "author": "Snowyowls",
+          "width": 673,
+          "height": 551
+        },
+        {
+          "title": "File:Sunbird team in beidaihe.JPG",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunbird_team_in_beidaihe.JPG",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Sunbird_team_in_beidaihe.JPG",
+          "license": "CC BY-SA 2.0",
+          "author": "Snowyowls",
+          "width": 795,
+          "height": 596
+        },
+        {
+          "title": "File:Logbook of beidaihe birding race.JPG",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Logbook_of_beidaihe_birding_race.JPG",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Logbook_of_beidaihe_birding_race.JPG",
+          "license": "CC BY-SA 2.0",
+          "author": "Snowyowls",
+          "width": 795,
+          "height": 596
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "shanhaiguan",
@@ -457,25 +949,26 @@
       "cat": "history",
       "level": "5A",
       "rating": "4.8",
-      "price": "40元",
-      "priceNum": 40,
-      "openTime": "08:00-17:30",
-      "address": "河北省秦皇岛市山海关区天下第一关城楼",
+      "price": "50元起",
+      "priceNum": 50,
+      "openTime": "旺季07:00-18:00",
+      "address": "河北省秦皇岛市山海关区天下第一关城楼(山海关古城东门)",
       "lat": 40.01,
       "lng": 119.7576,
       "img": "images/shanhaiguan.webp",
-      "desc": "山海关是明长城东北关隘，中国长城三大奇观之一（东有山海关、中有镇北台、西有嘉峪关）。\"天下第一关\"巨匾高悬镇远楼之上，每个字1米见方，据传为明代书法家萧显所书，600年未换。",
+      "desc": "天下第一关(山海关关城)是明长城东端的重要关隘,始建于明洪武十四年(1381年),由大将徐达督建,因其一面靠山、一面临海而得名「山海关」。关城核心建筑镇远楼(俗称「天下第一关」城楼)坐落在古城东门之上,城楼上悬挂的「天下第一关」巨匾,每字约1米见方,相传为明代书法家萧显所书,是景区最具标志性的看点。游客可登城楼俯瞰关城内外及长城走势,城墙、瓮城、靖边楼、牧营楼等明代军事防御建筑保存较为完整,长城博物馆位于城楼附近可作延伸参观。景区常与「老龙头」(长城入海处)并称山海关长城的两大代表性景点,但二者为不同票种、地理位置也不同,不要混淆。适合对长城历史、明代军事建筑感兴趣的游客,以及希望登城远眺、拍照打卡的家庭和团队游客,登城楼有台阶,行动不便者需注意。",
       "highlights": [
         "镇远楼登城俯瞰",
         "天下第一关巨匾",
-        "古城墙",
-        "王家大院"
+        "明代古城墙与瓮城",
+        "长城博物馆",
+        "靖边楼·牧营楼"
       ],
-      "bestSeason": "4-10月，秋季气候最宜",
-      "duration": "3-4小时",
-      "suitableFor": "历史爱好者、亲子研学、摄影爱好者",
-      "tips": "登城楼记得抬头看匾额——\"天下第一关\"五个大字，笔力遒劲。城墙上有箭楼、敌楼可参观，走一圈约40分钟。可与老龙头打包一日游（仅8公里）。",
-      "transport": "山海关火车站步行15分钟到古城东门",
+      "bestSeason": "4-10月,尤以秋季气候最宜,天气晴朗少雨,登城远眺视野最佳",
+      "duration": "2-3小时",
+      "suitableFor": "对长城历史、明代军事建筑感兴趣的游客;家庭亲子及摄影爱好者;行动不便者登城楼需谨慎",
+      "tips": "登城楼台阶较多且陡,建议穿舒适的鞋,老人小孩注意安全 夏季正午时段城楼上暴晒,建议早晚时段游览并做好防晒 天下第一关与老龙头、山海关古城是不同景点/票种,购票前看清具体名称,避免与老龙头(长城入海处)混淆 如计划一并游览老龙头、长城博物馆等,可比较联票是否更划算 旺季及节假日游客较多,建议提前通过官方公众号或在线平台查询当日开放及预约情况 城楼上视野开阔适合拍摄「天下第一关」匾额与古城全景,建议避开正午顶光时段",
+      "transport": "公共交通:乘火车至山海关站,步行约15分钟至古城东门(天下第一关);市内可乘公交车至山海关古城站/古城附近站点,具体线路建议以当地公交实时信息为准 自驾:自京哈高速/京沈高速山海关出口下,按指示牌行驶至山海关古城景区,秦皇岛市区至景区车程约30-40分钟",
       "booking": [
         {
           "name": "携程订票 ¥50",
@@ -490,7 +983,88 @@
       ],
       "isTop": true,
       "topRank": 2,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "成人票约40-50元(不同购票渠道及是否含联票价格不一)；常见联票(含老龙头+天下第一关+望洋楼+迎恩楼+钟鼓楼+观光车等)价格更高,约130元左右;6岁/1.2米以下儿童、70岁以上老人、现役军人、残疾人、无偿献血者等可享免票或优待政策;是否需要提前线上预约未能核实,建议通过官方公众号或携程/美团等平台提前查询当日政策。",
+      "openTimeNotes": "旺季(5月1日-10月31日)07:00-18:00;淡季(11月1日-次年4月30日)07:30-17:00(不同来源对具体时段略有差异,建议出行前以景区官方公众号或售票平台当日公示为准)",
+      "durationNotes": "2-3小时(含登城楼、城墙及长城博物馆);如与老龙头等联游建议安排半天以上",
+      "bestSeasonNotes": "4-10月,尤以秋季(9-10月)气候最宜,天气晴朗少雨,登城远眺视野最佳;冬季寒冷风大,城楼上体感温度更低",
+      "transportDetail": {
+        "publicTransit": "乘火车至山海关站,步行约15分钟至古城东门(天下第一关);市内可乘公交车至山海关古城站/古城附近站点,具体线路建议以当地公交实时信息为准",
+        "driving": "自京哈高速/京沈高速山海关出口下,按指示牌行驶至山海关古城景区,秦皇岛市区至景区车程约30-40分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "登城楼台阶较多且陡,建议穿舒适的鞋,老人小孩注意安全",
+        "夏季正午时段城楼上暴晒,建议早晚时段游览并做好防晒",
+        "天下第一关与老龙头、山海关古城是不同景点/票种,购票前看清具体名称,避免与老龙头(长城入海处)混淆",
+        "如计划一并游览老龙头、长城博物馆等,可比较联票是否更划算",
+        "旺季及节假日游客较多,建议提前通过官方公众号或在线平台查询当日开放及预约情况",
+        "城楼上视野开阔适合拍摄「天下第一关」匾额与古城全景,建议避开正午顶光时段"
+      ],
+      "nameEn": "Shanhaiguan – First Pass Under Heaven",
+      "descEn": "The First Pass Under Heaven (Tianxia Diyi Guan) is the eastern terminus of the Ming-dynasty Great Wall, built in 1381 under general Xu Da. Its gate tower, Zhenyuan Tower, carries a huge horizontal plaque reading \"First Pass Under Heaven,\" each character about one meter square, traditionally attributed to Ming calligrapher Xiao Xian. Visitors can climb the tower for views over the old walled town and the wall itself; the fortified walls, barbican, and nearby Great Wall Museum are well preserved. It is a different ticketed site from the nearby Old Dragon Head (where the wall meets the sea) and from the free-to-enter Shanhaiguan Old Town — don't confuse them.",
+      "highlightsEn": [
+        "Climb Zhenyuan Tower",
+        "\"First Pass Under Heaven\" plaque",
+        "Ming-era city wall & barbican",
+        "Great Wall Museum",
+        "Jingbian & Muying towers"
+      ],
+      "faq": [
+        {
+          "q": "天下第一关和山海关古城是一回事吗?",
+          "a": "不是。山海关古城目前免费进城游览,天下第一关(镇远楼城楼景区)是古城内单独收费的5A核心景点,两者不能等同。"
+        },
+        {
+          "q": "天下第一关和老龙头是同一个票吗?",
+          "a": "不是同一票种,分属两个独立收费景点,如需都游览通常需购买联票或分别购票。"
+        },
+        {
+          "q": "巨匾「天下第一关」是谁写的?",
+          "a": "相传为明代书法家萧显所书,悬挂在镇远楼上,距今已有约600年历史,是景区最具代表性的标志。"
+        },
+        {
+          "q": "登城楼需要爬很多台阶吗?",
+          "a": "需要,城楼有一定高度且台阶较陡,建议穿舒适鞋具,老人小孩量力而行。"
+        }
+      ],
+      "sources": [
+        "https://www.dahepiao.com/lvyounews1/20240429461008.html",
+        "https://www.dahepiao.com/lvyounews1/20221228342569.html",
+        "https://s.visitbeijing.com.cn/attraction/118573",
+        "https://you.ctrip.com/travels/2033460/4106441.html",
+        "https://commons.wikimedia.org/wiki/Category:Shanhai_Pass"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:First Pass Under Heaven 天下第一关 (6234529540).jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:First_Pass_Under_Heaven_%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80%E5%85%B3_(6234529540).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/First_Pass_Under_Heaven_%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80%E5%85%B3_%286234529540%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "author": "Caitriana Nicholson",
+          "width": 1600,
+          "height": 1200
+        },
+        {
+          "title": "File:Gatehouse for Shanhai Pass.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Gatehouse_for_Shanhai_Pass.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Gatehouse_for_Shanhai_Pass.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "PQ77wd",
+          "width": 9216,
+          "height": 6912
+        },
+        {
+          "title": "File:河北省 天下第一关 - panoramio.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:%E6%B2%B3%E5%8C%97%E7%9C%81_%E5%A4%A8%E4%B8%8B%E7%AC%AC%E4%B8%80%E5%85%B3_-_panoramio.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/%E6%B2%B3%E5%8C%97%E7%9C%81_%E5%A4%A8%E4%B8%8B%E7%AC%AC%E4%B8%80%E5%85%B3_-_panoramio.jpg",
+          "license": "CC BY-SA 3.0",
+          "author": "Nyx Ning",
+          "width": 4352,
+          "height": 3264
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "laolongtou",
@@ -499,25 +1073,27 @@
       "cat": "history",
       "level": "5A",
       "rating": "4.7",
-      "price": "50元",
+      "price": "50元起",
       "priceNum": 50,
-      "openTime": "08:00-17:30",
-      "address": "河北省秦皇岛市山海关区老龙头路",
+      "openTime": "全年 07:30-18:00",
+      "address": "河北省秦皇岛市山海关区老龙头路(山海关古城城南约5公里)",
       "lat": 39.9693,
       "lng": 119.7975,
       "img": "images/laolongtou.webp",
-      "desc": "老龙头是明长城东端起点，万里长城唯一集山、海、关、城于一体的海陆军事防御体系。长城如巨龙探入渤海，澄海楼上有\"雄襟万里\"匾额。用铁水浇筑基础、糯米石灰砌墙，几万劳工干了十年——六百年后，潮起潮落，纹丝不动。",
+      "desc": "老龙头位于河北省秦皇岛市山海关区,山海关古城以南约5-8公里处渤海之滨,是明长城最东端的起点,也是万里长城中唯一一段延伸入海的城墙,因城墙探入渤海、形似巨龙探首饮水而得名。景区始建于明洪武年间(1381年),后经嘉靖、万历年间扩建,加筑靖虏台、入海石城;清代长城失去军事防御作用后,逐渐成为帝王将相、文人墨客登临观海之地。1900年八国联军入侵时老龙头建筑被毁,1984年由山海关民众集资重建。景区占地约700亩,由澄海楼、入海石城、海神庙、宁海城、南海口等部分组成,融山、海、关、城于一体。最值得看的是伸入海中的入海石城(涨潮时波涛拍打城基,景象壮观)、登高望海的澄海楼(楼上悬「雄襟万里」匾),以及供奉海神信仰的海神庙。适合对长城历史、海防文化感兴趣的游客及家庭亲子出游,登城和海边步道需一定体力。",
       "highlights": [
         "入海石城",
-        "澄海楼",
+        "澄海楼观海",
         "海神庙",
-        "靖虏台"
+        "靖虏台",
+        "宁海城",
+        "涨潮拍岸奇观"
       ],
-      "bestSeason": "4-10月，涨潮时最壮观",
-      "duration": "1.5-2小时",
-      "suitableFor": "历史爱好者、全家出游、摄影爱好者",
-      "tips": "涨潮时去最壮观，海水拍打城墙的场面震撼。退潮可以走到城墙根下，能摸到600年前的石条。与山海关古城打包半日游最佳。",
-      "transport": "距山海关古城8公里，打车约15分钟；或乘25路公交",
+      "bestSeason": "4-10月为最佳游览季节,气候适宜",
+      "duration": "2-3小时",
+      "suitableFor": "长城与历史文化爱好者、摄影爱好者、家庭亲子游(需留意台阶及海边安全)",
+      "tips": "入海石城靠海一侧台阶较陡且临海风大,涨潮时浪花可能打湿栈道,注意脚下防滑 夏季正午海边暴晒,建议早晚时段前往,遮阳帽/防晒霜必备 澄海楼视野最佳,登顶可俯瞰入海石城与渤海全景,建议优先游览 旺季周末及暑假客流较大,建议提前在线购票并预留2-3小时游览时间 景区内步行距离较长,建议穿着舒适的鞋子;老人小孩注意台阶起伏 海边风力较大,可另备一件薄外套",
+      "transport": "公共交通:在山海关古城内或山海关火车站可换乘公交25路等线路至老龙头站,车程约20-30分钟;暑期旺季景区间通常另有旅游专线,具体线路以当地公交公告为准 自驾:从秦皇岛市区经206国道/沿海大道向东南行驶,车程约30-40分钟;从山海关古城打车约15分钟(约8公里)可达景区门口",
       "booking": [
         {
           "name": "携程订票 ¥60",
@@ -532,7 +1108,86 @@
       ],
       "isTop": true,
       "topRank": 4,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "旺季(4-10月)约50元/人;淡季及线上团购/预订常有优惠(约20-30元起),具体以景区官方及购票平台当日公布为准；身高1.2米以下儿童免票;70周岁以上老人、残疾人士、现役及残疾军人凭有效证件免票;6-18周岁未成年人及60-69周岁老人凭证件享半价或优惠票;建议通过携程/美团等平台线上购票,旺季节假日人多建议提前预约。",
+      "openTimeNotes": "全年 07:30-18:00(旺季与淡季时间基本一致,最晚入园时间为17:00,以景区当日公告为准)",
+      "bestSeasonNotes": "4-10月为最佳游览季节,气候适宜;涨潮时段(尤其是天文大潮前后)波浪拍打入海石城的景象最为壮观,冬季海边风大寒冷,游览体验相对较差",
+      "transportDetail": {
+        "publicTransit": "在山海关古城内或山海关火车站可换乘公交25路等线路至老龙头站,车程约20-30分钟;暑期旺季景区间通常另有旅游专线,具体线路以当地公交公告为准",
+        "driving": "从秦皇岛市区经206国道/沿海大道向东南行驶,车程约30-40分钟;从山海关古城打车约15分钟(约8公里)可达景区门口",
+        "parking": null
+      },
+      "tipsList": [
+        "入海石城靠海一侧台阶较陡且临海风大,涨潮时浪花可能打湿栈道,注意脚下防滑",
+        "夏季正午海边暴晒,建议早晚时段前往,遮阳帽/防晒霜必备",
+        "澄海楼视野最佳,登顶可俯瞰入海石城与渤海全景,建议优先游览",
+        "旺季周末及暑假客流较大,建议提前在线购票并预留2-3小时游览时间",
+        "景区内步行距离较长,建议穿着舒适的鞋子;老人小孩注意台阶起伏",
+        "海边风力较大,可另备一件薄外套"
+      ],
+      "nameEn": "Old Dragon's Head (Laolongtou)",
+      "descEn": "Old Dragon's Head (Laolongtou) sits on the Bohai Sea coast in Shanhaiguan District, Qinhuangdao, about 5-8 km south of Shanhaiguan's old town. Built in 1381 during the Ming dynasty and later expanded, it marks the easternmost starting point of the Great Wall and is the only stretch where the wall runs into the sea. Destroyed in 1900 and rebuilt in 1984, the site now covers roughly 700 mu and includes the Chenghai Tower viewing platform, the stone sea-wall fortress (Rushi Shicheng), and the Sea God Temple. It suits history and Great Wall enthusiasts and families comfortable with stairs and coastal walking.",
+      "highlightsEn": [
+        "Stone sea-wall fortress",
+        "Chenghai Tower view",
+        "Sea God Temple",
+        "Jinglu Beacon Tower",
+        "Ninghai Town wall",
+        "High-tide waves at the wall"
+      ],
+      "faq": [
+        {
+          "q": "老龙头和山海关古城是一个景点吗?",
+          "a": "不是。老龙头是独立景区,位于山海关古城以南约5-8公里的海边,两者门票分开,需单独购票和前往,常见做法是打车或乘公交往返。"
+        },
+        {
+          "q": "涨潮和退潮哪个时间去更好?",
+          "a": "涨潮时波浪拍打入海石城更为壮观,是老龙头最具标志性的画面;退潮时可以看清城基结构,但视觉冲击力较弱。建议出行前查询当日潮汐时间表。"
+        },
+        {
+          "q": "门票多少钱,能不能现场买?",
+          "a": "旺季门票约50元/人,淡季及线上平台常有优惠价。现场可购票,但旺季节假日建议提前通过携程、美团等平台在线购买以节省排队时间。"
+        }
+      ],
+      "sources": [
+        "https://www.dahepiao.com/lvyounews1/20220108252570.html",
+        "http://m.qhd.bendibao.com/tour/8056.shtm",
+        "https://lxs.cncn.com/66364/n625242",
+        "https://www.travelchinaguide.com/china_great_wall/scene/hebei/shanhaiguan/laolongtou.htm",
+        "https://www.chinahighlights.com/greatwall/section/old-dragon-head.htm",
+        "https://en.wikipedia.org/wiki/AAAAA_Tourist_Attractions_of_China",
+        "https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=Old%20Dragon%27s%20Head%20Laolongtou&gsrnamespace=6&gsrlimit=15&prop=imageinfo&iiprop=url|extmetadata|size&format=json"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Beach at Old Dragon Head.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Beach_at_Old_Dragon_Head.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Beach_at_Old_Dragon_Head.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "PQ77wd",
+          "width": 4608,
+          "height": 3456
+        },
+        {
+          "title": "File:Drachenkopf der chinesischen Mauer.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Drachenkopf_der_chinesischen_Mauer.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Drachenkopf_der_chinesischen_Mauer.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "S.flaischlen",
+          "width": 4288,
+          "height": 3216
+        },
+        {
+          "title": "File:Tourists at Old Dragon Head.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Tourists_at_Old_Dragon_Head.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Tourists_at_Old_Dragon_Head.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "Dquai",
+          "width": 2816,
+          "height": 2112
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "jiaoshan",
@@ -541,25 +1196,27 @@
       "cat": "history",
       "level": "4A",
       "rating": "4.5",
-      "price": "30元",
+      "price": "30元起",
       "priceNum": 30,
-      "openTime": "08:00-17:00",
-      "address": "河北省秦皇岛市山海关区角山景区",
+      "openTime": "07:30-17:30",
+      "address": "河北省秦皇岛市山海关区角山路(山海关古城以北约3公里,角山景区内)",
       "lat": 40.0376,
       "lng": 119.7403,
       "img": "images/attraction-jiaoshan.jpg",
-      "desc": "角山是万里长城翻越的第一座山，素有\"万里长城第一山\"之称。长城沿山脊蜿蜒而上，登顶可远眺山海关全景和渤海湾。秋季红叶似火，是摄影爱好者的天堂。",
+      "desc": "角山长城位于河北省秦皇岛市山海关区,在山海关古城以北约3公里处,是明长城翻越的第一座高山,海拔约519米,故有\"万里长城第一山\"之称。长城依山脊而建,顺陡峭山势起伏攀升,工程之险峻在整个长城沿线中颇为少见。景区内主要看点包括长城主峰大平顶(可俯瞰山海关古城与渤海湾全景)、旱门关(明代重要军事关隘遗址)以及始建年代较早的栖贤寺。山路较陡,部分路段设有索道供体力有限的游客选择。秋季山间红叶层林尽染,与灰色城墙相映,是摄影与徒步爱好者的热门时节。整体较适合体力尚可、喜欢登高望远和长城历史的游客,亲子及老年游客建议乘索道上山。",
       "highlights": [
         "万里长城第一山",
         "长城山脊徒步",
-        "远眺渤海湾",
-        "秋季红叶"
+        "大平顶远眺渤海湾",
+        "旱门关遗址",
+        "栖贤寺",
+        "秋季漫山红叶"
       ],
-      "bestSeason": "9-10月秋季红叶最美",
+      "bestSeason": "9-10月秋季红叶最佳,气温适宜登山",
       "duration": "2-3小时",
-      "suitableFor": "登山爱好者、摄影爱好者、历史文化爱好者",
-      "tips": "爬上去回望，长城像一条灰色的脊梁从山脊蜿蜒而下，穿过田野，直插大海——从山到海，一条龙。体力一般可坐缆车。",
-      "transport": "山海关古城打车约15分钟",
+      "suitableFor": "喜欢长城历史与登山徒步的游客、摄影爱好者(尤其秋季);体力较弱者、老人儿童建议选乘索道上山",
+      "tips": "登顶山路较陡,建议穿防滑运动鞋,体力有限或带老人小孩可选乘索道 夏季山顶日照强、山风大,建议带遮阳帽和外套 秋季(9-10月)红叶最佳但也是客流高峰,建议错峰早入园 山上补给点有限,建议自备饮用水和干粮 旺季建议提前通过在线平台购票并核实当日开放时间,避免现场排队或扑空 与山海关古城、老龙头等景点距离较近,可安排一日联游",
+      "transport": "自驾:从山海关古城出发沿角山路向北行驶约3公里,车程约10-15分钟即可到达景区停车场;从秦皇岛市区出发经海阳路/长城南路转角山路,车程约40-50分钟",
       "booking": [
         {
           "name": "携程订票 ¥40",
@@ -574,7 +1231,86 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "不同平台/资料对票价记录不一致,部分资料显示成人票40元,建议在美团/携程/大众点评实时核实当日票价及是否有联票、学生/老人/儿童优惠;景区另设索道,资料显示往返约20元、单程约15元,仅供参考,以现场公示为准;旺季建议在线购票错峰入园。",
+      "openTimeNotes": "旺季(约4-10月)07:30-17:30,淡季时间可能缩短,建议以景区当日公告或购票平台显示为准",
+      "durationNotes": "2-3小时(仅走主要城墙段);含旱门关、栖贤寺等全部游览约3-4小时",
+      "bestSeasonNotes": "9-10月秋季红叶最佳,气温适宜登山;5-6月山花与植被葱郁也适合徒步;夏季(7-8月)高温需注意防晒防暑,冬季山路结冰湿滑需谨慎",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "从山海关古城出发沿角山路向北行驶约3公里,车程约10-15分钟即可到达景区停车场;从秦皇岛市区出发经海阳路/长城南路转角山路,车程约40-50分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "登顶山路较陡,建议穿防滑运动鞋,体力有限或带老人小孩可选乘索道",
+        "夏季山顶日照强、山风大,建议带遮阳帽和外套",
+        "秋季(9-10月)红叶最佳但也是客流高峰,建议错峰早入园",
+        "山上补给点有限,建议自备饮用水和干粮",
+        "旺季建议提前通过在线平台购票并核实当日开放时间,避免现场排队或扑空",
+        "与山海关古城、老龙头等景点距离较近,可安排一日联游"
+      ],
+      "nameEn": "Jiaoshan Great Wall",
+      "descEn": "Jiaoshan Great Wall sits about 3 km north of Shanhaiguan's old town in Qinhuangdao, Hebei. At roughly 519 m, it is the first mountain the Ming-dynasty Great Wall climbs, earning it the nickname \"the first mountain of the Great Wall.\" The wall follows a steep ridge to the summit, Dapingding, which offers panoramic views over Shanhaiguan and Bohai Bay. Other sights include the historic Hanmen Pass and Qixian Temple. A cable car is available for visitors who prefer not to hike the steep sections. Maple foliage in autumn is a particular highlight. Best suited to travelers who enjoy hiking and Great Wall history; families and older visitors may prefer the cable car.",
+      "highlightsEn": [
+        "First mountain of the Great Wall",
+        "Ridge-top wall hike",
+        "Bohai Bay view from Dapingding",
+        "Hanmen Pass ruins",
+        "Qixian Temple",
+        "Autumn maple foliage"
+      ],
+      "faq": [
+        {
+          "q": "角山长城和山海关古城是同一个地方吗?",
+          "a": "不是。角山长城在山海关古城以北约3公里的角山景区内,是长城翻越的第一座山,与古城内的天下第一关是两个独立景点,需分别购票。"
+        },
+        {
+          "q": "角山长城一定要爬山吗?",
+          "a": "不一定,景区设有索道可代步上山,体力有限或带老人小孩的游客可选择乘索道。"
+        },
+        {
+          "q": "角山长城门票多少钱?",
+          "a": "不同资料显示门票在30-40元左右,具体以景区当日公示或在线购票平台价格为准,索道费用另计。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/5036.html",
+        "http://m.qhd.bendibao.com/jingdian/jiaoshanchangcheng/",
+        "https://www.beidaihe186.com/bdh_jd_js154.php",
+        "https://www.beidaihe186.com/bdh_jd_js155.php",
+        "https://s.visitbeijing.com.cn/attraction/120815",
+        "https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=Jiaoshan%20Great%20Wall&gsrnamespace=6&gsrlimit=15&prop=imageinfo&iiprop=url|extmetadata|size&format=json"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Jiao Shan Great Wall (6237033507).jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Jiao_Shan_Great_Wall_%E8%A7%92%E5%B1%B1%E9%95%BF%E5%9F%8E_(6237033507).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Jiao_Shan_Great_Wall_%E8%A7%92%E5%B1%B1%E9%95%BF%E5%9F%8E_%286237033507%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "author": "Caitriana Nicholson",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "title": "File:Jiaoshan Great Wall - panoramio.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Jiaoshan_Great_Wall_-_panoramio.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Jiaoshan_Great_Wall_-_panoramio.jpg",
+          "license": "CC BY-SA 3.0",
+          "author": "danmairen",
+          "width": 797,
+          "height": 1200
+        },
+        {
+          "title": "File:Walking on the wall (6237564336).jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Walking_on_the_wall_(6237564336).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Walking_on_the_wall_%286237564336%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "author": "Caitriana Nicholson",
+          "width": 1600,
+          "height": 1200
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "mengjiangnv",
@@ -583,25 +1319,27 @@
       "cat": "history",
       "level": "4A",
       "rating": "4.3",
-      "price": "25元",
-      "priceNum": 25,
-      "openTime": "08:00-17:00",
-      "address": "河北省秦皇岛市山海关区凤凰山",
+      "price": "30元/人(成人票)",
+      "priceNum": 30,
+      "openTime": "08:00-17:30",
+      "address": "河北省秦皇岛市山海关区凤凰山(姜女庙路),山海关古城东约6公里",
       "lat": 40.037,
       "lng": 119.823,
       "img": "images/attraction-mengjiangnv.jpg",
-      "desc": "又称贞女祠，位于山海关城东凤凰山上，始建于宋代。供奉着中国四大民间传说之一的孟姜女。庙内有\"望夫石\"和108级台阶，每级代表一种苦难。正殿楹联\"秦皇安在哉，万里长城筑怨；姜女未亡也，千秋片石铭贞\"被誉为天下第一奇联。",
+      "desc": "孟姜女庙又称贞女祠,位于秦皇岛市山海关区凤凰山上,山海关古城东约6公里处。相传始建于宋代以前,现存主体建筑为明万历年间重修,是中国四大民间传说之一“孟姜女哭长城”的纪念地,也是河北省首批重点文物保护单位。庙依山而建,须登108级石阶方能抵达山门,沿途松柏掩映,视野可俯瞰渤海与山海关关城。正殿供奉孟姜女彩塑坐像,两侧侍女陪立;殿前楹联“秦皇安在哉,万里长城筑怨;姜女未亡也,千秋片石铭贞”运用谐音双关,被誉为“天下第一奇联”。庙后山巅有传说中孟姜女望夫痛哭的“望夫石”,以及梳妆台、振衣亭等遗迹,山下还建有仿江南园林风格的孟姜女苑,以场景形式演绎传说故事。景区规模不大,游览节奏轻松,适合对民间传说、古建筑感兴趣的游客,以及安排山海关古城、老龙头一日游行程时顺道加游。",
       "highlights": [
         "望夫石",
-        "108级台阶",
+        "108级石阶",
         "天下第一奇联",
-        "孟姜女塑像"
+        "正殿孟姜女塑像",
+        "梳妆台与振衣亭",
+        "孟姜女苑"
       ],
-      "bestSeason": "4-10月",
-      "duration": "约1小时",
-      "suitableFor": "文化爱好者、亲子研学",
-      "tips": "108级台阶代表孟姜女的108种苦难，慢慢走可以感受传说故事。可与山海关古城、老龙头组合游览。",
-      "transport": "山海关古城打车约10分钟",
+      "bestSeason": "4-10月,气候适宜、树木葱郁,登山望海视野最佳",
+      "duration": "1-2小时",
+      "suitableFor": "对民间传说和古建筑感兴趣的游客、家庭亲子出行、摄影爱好者,以及山海关古城一日游顺路加游的游客",
+      "tips": "可与山海关古城、老龙头等景点安排在同一天游览,车程均在15分钟以内 登山道共108级石阶,坡度较陡,老人小孩建议分段休息,注意台阶湿滑 旺季正午人流较多,建议上午或傍晚前往,光线也更适合拍照 山顶风大,俯瞰渤海视野好,建议携带防晒或保暖衣物 旺季建议提前通过在线平台购票,避免现场排队 冬季台阶及山路可能结冰,注意防滑",
+      "transport": "自驾:从山海关古城打车或自驾约10分钟(约6.5公里);沿姜女庙路可直达景区门口。",
       "booking": [
         {
           "name": "携程订票",
@@ -616,7 +1354,77 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "多个平台(携程、美团、大河票务等)均可在线购票;是否有老人/学生/儿童等优惠政策及是否与山海关古城、老龙头等有联票,未查到权威统一说明,建议购票前在平台或电话核实。景区门票价格历史上有过调整(曾为25元),现行价格以30元较多见,仍建议现场核对。",
+      "openTimeNotes": "常规08:00-17:30(17:00停止入场);部分年份旺季(约5月至年底)执行07:30-17:30,劳动节等高峰日或延长至18:30。具体开闭园时间各平台记录略有差异,建议出行前电话或平台确认当日时间。",
+      "bestSeasonNotes": "4-10月,气候适宜、树木葱郁,登山望海视野最佳;冬季台阶及山路易结冰湿滑,出行需注意安全。",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "从山海关古城打车或自驾约10分钟(约6.5公里);沿姜女庙路可直达景区门口。",
+        "parking": null
+      },
+      "tipsList": [
+        "可与山海关古城、老龙头等景点安排在同一天游览,车程均在15分钟以内",
+        "登山道共108级石阶,坡度较陡,老人小孩建议分段休息,注意台阶湿滑",
+        "旺季正午人流较多,建议上午或傍晚前往,光线也更适合拍照",
+        "山顶风大,俯瞰渤海视野好,建议携带防晒或保暖衣物",
+        "旺季建议提前通过在线平台购票,避免现场排队",
+        "冬季台阶及山路可能结冰,注意防滑"
+      ],
+      "nameEn": "Mengjiangnu Temple",
+      "descEn": "Mengjiangnu Temple, also called the Temple of the Faithful Maiden, sits on Fenghuang (Phoenix) Hill about 6 km east of Shanhaiguan's old town. Said to predate the Song dynasty and rebuilt in the Ming era, it commemorates one of China's four great folk legends, in which Meng Jiangnu's weeping is said to have broken a section of the Great Wall. Visitors climb 108 stone steps to the main hall, which holds a painted statue of Meng Jiangnu and a famous punning couplet. Behind the temple, the Wangfu (Longing for Husband) Rock marks where she is said to have watched for her husband. A garden area below retells the legend through staged scenes. Allow 1-2 hours.",
+      "highlightsEn": [
+        "Wangfu (Longing-for-Husband) Rock",
+        "108 stone steps",
+        "Famous punning couplet",
+        "Statue of Meng Jiangnu in main hall",
+        "Dressing Terrace & Zhenyi Pavilion",
+        "Meng Jiangnu Garden"
+      ],
+      "faq": [
+        {
+          "q": "孟姜女庙门票多少钱?",
+          "a": "成人票约30元(截至2025-2026年信息),具体以景区当日公告或购票平台为准。"
+        },
+        {
+          "q": "孟姜女庙和山海关古城是一个门票吗?",
+          "a": "不是,两者独立售票;部分平台可能推出联票套餐,购票前建议确认是否包含。"
+        },
+        {
+          "q": "孟姜女庙开放时间是几点到几点?",
+          "a": "常规为08:00-17:30(17:00停止入场),旺季及节假日时间可能略有延长,建议出行前核实。"
+        }
+      ],
+      "sources": [
+        "http://qhd.bendibao.com/jingdian/mengjiangnvmiao/",
+        "https://baike.baidu.com/item/%E5%B1%B1%E6%B5%B7%E5%85%B3%E5%AD%9F%E5%A7%9C%E5%A5%B3%E5%BA%99%E6%99%AF%E5%8C%BA/18748391",
+        "https://s.visitbeijing.com.cn/attraction/118572",
+        "https://www.travelchinaguide.com/china_great_wall/scene/hebei/shanhaiguan/temple_mengjiangnu.htm",
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/5037.html",
+        "https://commons.wikimedia.org/wiki/File:Temple_de_Meng_Jiangnu.jpg",
+        "https://commons.wikimedia.org/wiki/File:1929_山海关孟姜女庙.jpg"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Temple de Meng Jiangnu.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Temple_de_Meng_Jiangnu.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Temple_de_Meng_Jiangnu.jpg",
+          "license": "Public domain",
+          "author": "Édouard Chavannes",
+          "width": 681,
+          "height": 512
+        },
+        {
+          "title": "File:1929 山海关孟姜女庙.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:1929_山海关孟姜女庙.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/1929_山海关孟姜女庙.jpg",
+          "license": "Public domain",
+          "author": "图画时报 1929年 第621期",
+          "width": 707,
+          "height": 458
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "ledao",
@@ -625,25 +1433,26 @@
       "cat": "family",
       "level": "4A",
       "rating": "4.4",
-      "price": "100元",
-      "priceNum": 100,
-      "openTime": "09:00-17:30",
-      "address": "河北省秦皇岛市山海关区龙海大道",
+      "price": "160元",
+      "priceNum": 160,
+      "openTime": "08:30-17:30",
+      "address": "河北省秦皇岛市山海关区龙海大道148号",
       "lat": 39.935,
       "lng": 119.775,
       "img": "images/attraction-ledao.jpg",
-      "desc": "华北地区最大的海洋主题乐园之一。集海洋动物表演、水上乐园、游乐设施于一体。海豚、海狮、白鲸表演每日多场，夏季水上乐园开放，是家庭出游首选。",
+      "desc": "乐岛海洋王国位于秦皇岛市山海关区龙海大道,是华北地区规模较大的海洋主题乐园之一,园区依海而建,分为海乐岛、水乐岛、迈阿密风情区、海洋嘉年华四大板块,集海洋动物展演、水上游乐设施与休闲游乐项目于一体。景区以海豚、海狮、白鲸等海洋动物表演为核心看点,每日安排多场演出;夏季开放的水乐岛设有大型戏水设施,是秦皇岛暑期热门的亲水去处;迈阿密风情区则以异域风情建筑和游乐设施为特色。乐园实行季节性开放,通常每年4月底至10月底运营,冬季闭园。适合亲子家庭、青少年及喜欢海洋动物和水上项目的游客,是秦皇岛山海关一带夏季出游的重要选择之一。",
       "highlights": [
-        "海豚表演",
-        "海狮秀",
-        "白鲸互动",
-        "夏季水上乐园"
+        "海豚海狮表演",
+        "白鲸互动展示",
+        "夏季水乐岛戏水",
+        "迈阿密风情区游乐",
+        "海洋嘉年华项目"
       ],
-      "bestSeason": "6-8月（水上乐园开放）",
-      "duration": "一整天",
-      "suitableFor": "亲子家庭、情侣、水上项目爱好者",
-      "tips": "夏季去记得带泳衣！水上乐园是最大亮点。表演场次有限，入园后先看演出时间表规划路线。门票较贵，建议提前在携程/美团买折扣票。",
-      "transport": "25路/35路乐岛站",
+      "bestSeason": "6-8月暑期,此时气温适宜、水乐岛水上项目全面开放,海洋动物",
+      "duration": "建议5-8小时",
+      "suitableFor": "亲子家庭、青少年学生、海洋动物及水上项目爱好者",
+      "tips": "景区季节性开放(约4月底-10月底),冬季闭园,出行前务必核实当日是否开放 水乐岛仅夏季开放,戏水项目建议自带泳衣、更换衣物及防水袋 海豚、海狮、白鲸等动物表演有固定场次,当日以景区入口公告或官方公众号为准,建议提前规划路线 夏季日照强烈,建议携带防晒用品、遮阳帽及充足饮用水 园区面积较大、项目较分散,建议安排一整天游玩,合理安排乘车与步行路线 旺季(尤其暑期周末)客流量大,建议尽量早上入园错峰游玩",
+      "transport": "公共交通:秦皇岛火车站可乘8路到三中站下车,路对面换乘25路公交车到乐岛站下车;秦皇岛四道桥汽车站可直接乘25路或35路公交车到乐岛站下车;山海关火车站可乘25路公交车到乐岛站下车 自驾:路线一:秦皇岛东出口—直行至秦皇大街左转—沿秦皇大街直行约17公里—到达乐岛海洋王国;路线二:山海关孟姜口—京哈连接线—关城南路至石河路左转—石河路与龙海大道交叉口右转直行—到达乐岛海洋王国 停车:景区设有停车场,约800个车位,参考收费约20元/次(以现场公示为准)",
       "booking": [
         {
           "name": "携程订票",
@@ -658,7 +1467,55 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "全票160元/人(儿童、学生、老人、军人、残疾人等有相应减免政策)；1.2米以下儿童免费(需成人陪同);16周岁以下儿童半价;60-69周岁老人半价、70周岁以上免票;全日制在校学生凭证半价;残疾人、现役及残疾军人凭有效证件免票。门票为园区通票,涵盖海乐岛、迈阿密风情区、海洋嘉年华及夏季开放的水乐岛。景区为季节性开园,建议出行前通过官方渠道或第三方票务平台(携程/去哪儿等)核实当日是否开放及具体价格,门票和优惠政策每年可能调整。",
+      "openTimeNotes": "季节性开放,以2026年为例:04/28-06/07 08:30-17:30;06/08-10/31 08:00-18:00;每年约10月底至次年4月下旬冬季闭园(以景区当年公告为准)",
+      "durationNotes": "建议5-8小时(可安排一整天)",
+      "bestSeasonNotes": "6-8月暑期,此时气温适宜、水乐岛水上项目全面开放,海洋动物表演场次也相对更丰富;春秋淡季部分设施可能不开放,冬季景区闭园",
+      "transportDetail": {
+        "publicTransit": "秦皇岛火车站可乘8路到三中站下车,路对面换乘25路公交车到乐岛站下车;秦皇岛四道桥汽车站可直接乘25路或35路公交车到乐岛站下车;山海关火车站可乘25路公交车到乐岛站下车",
+        "driving": "路线一:秦皇岛东出口—直行至秦皇大街左转—沿秦皇大街直行约17公里—到达乐岛海洋王国;路线二:山海关孟姜口—京哈连接线—关城南路至石河路左转—石河路与龙海大道交叉口右转直行—到达乐岛海洋王国",
+        "parking": "景区设有停车场,约800个车位,参考收费约20元/次(以现场公示为准)"
+      },
+      "tipsList": [
+        "景区季节性开放(约4月底-10月底),冬季闭园,出行前务必核实当日是否开放",
+        "水乐岛仅夏季开放,戏水项目建议自带泳衣、更换衣物及防水袋",
+        "海豚、海狮、白鲸等动物表演有固定场次,当日以景区入口公告或官方公众号为准,建议提前规划路线",
+        "夏季日照强烈,建议携带防晒用品、遮阳帽及充足饮用水",
+        "园区面积较大、项目较分散,建议安排一整天游玩,合理安排乘车与步行路线",
+        "旺季(尤其暑期周末)客流量大,建议尽量早上入园错峰游玩"
+      ],
+      "nameEn": "Ledao Ocean Kingdom",
+      "descEn": "Ledao Ocean Kingdom is a large seaside theme park in Shanhaiguan District, Qinhuangdao, combining marine-animal shows with water and amusement rides. The park has four zones: Ocean Land, Water Land, a Miami-style area, and an ocean carnival section. Highlights include daily dolphin, sea lion and beluga whale performances, plus a summer water park with large slides and pools. The park operates seasonally, roughly late April through October, and closes for winter. It suits families with children, teenagers, and visitors interested in marine life and water play, and is a popular summer destination near Shanhaiguan.",
+      "highlightsEn": [
+        "Dolphin & sea lion show",
+        "Beluga whale display",
+        "Summer water park",
+        "Miami-style zone rides",
+        "Ocean carnival rides"
+      ],
+      "faq": [
+        {
+          "q": "乐岛海洋王国冬天开放吗?",
+          "a": "不开放。景区为季节性运营,通常每年4月底至10月底开放,10月底至次年4月下旬闭园,出行前建议通过官方渠道确认具体开闭园日期。"
+        },
+        {
+          "q": "门票多少钱,有优惠吗?",
+          "a": "全票约160元/人,儿童身高1.2米以下免票、16周岁以下半价,60-69周岁老人半价、70周岁以上免票,学生凭证半价,残疾人及军人凭证免票,具体以当年公告为准。"
+        },
+        {
+          "q": "水上乐园什么时候能玩?",
+          "a": "水乐岛(水上游乐区)仅在夏季高温时段开放,通常集中在6-8月前后,具体开放日期需查看当年景区公告。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/66698.html",
+        "https://gs.ctrip.com/html5/you/travels/120556/4019633.html",
+        "http://m.qhd.bendibao.com/jingdian/ledaohaiyangwangguo/",
+        "https://baike.baidu.com/item/%E4%B9%90%E5%B2%9B%E6%B5%B7%E6%B4%8B%E7%8E%8B%E5%9B%BD/23367046",
+        "https://www.qianggen.net/2009/tuan84737/"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "changshoushan",
@@ -667,25 +1524,27 @@
       "cat": "nature",
       "level": "4A",
       "rating": "4.3",
-      "price": "30元",
+      "price": "30元起",
       "priceNum": 30,
-      "openTime": "08:00-17:00",
-      "address": "河北省秦皇岛市山海关区长寿山景区",
+      "openTime": "5月1日-12月31日 07:30-17:30",
+      "address": "河北省秦皇岛市山海关区长寿山景区(山海关城东北约9公里处)",
       "lat": 40.067,
       "lng": 119.7411,
       "img": "images/attraction-changshoushan.jpg",
-      "desc": "以\"寿\"文化为主题的自然风景区。悬阳洞是中国北方最大的天然花岗岩石洞，洞中有洞。山中摩崖石刻以历代名家书写的\"寿\"字为主题，是祈福延寿的打卡胜地。",
+      "desc": "长寿山景区位于河北省秦皇岛市山海关区,地处山海关城东北约9公里处,背倚万里长城,是以“寿”文化为主题的自然山岳型风景区,国家4A级旅游景区。景区因山势起伏、林木葱郁、多有长寿传说而得名,历代文人曾在此题写与“寿”相关的碑刻,形成独特的人文景观。景区核心看点包括悬阳洞——中国北方规模最大的天然花岗岩溶洞,洞中有洞、层叠曲折;沿山而立的寿字碑林,汇集历代名家所书“寿”字石刻数百方;神医石窟内塑有历代名医石像,记述中医药文化渊源;此外山间摩崖石刻遍布,记录历代游人题咏。景区依山而建,登山步道串联各景点,兼具自然观景与祈福养生功能。适合家庭出游、中老年游客祈寿祈福,以及喜爱登山、摄影和地质奇观的游客;因山路台阶较多,行动不便者需量力而行。",
       "highlights": [
-        "悬阳洞（北方最大天然花岗岩石洞）",
+        "悬阳洞(北方最大天然花岗岩石洞)",
         "寿字碑林",
         "神医石窟",
-        "摩崖石刻"
+        "摩崖石刻",
+        "依山登山步道",
+        "背倚万里长城"
       ],
-      "bestSeason": "4-10月，秋季景色最美",
+      "bestSeason": "4-10月为宜,秋季层林尽染景色最佳,夏季山中相对清凉避暑",
       "duration": "2-3小时",
-      "suitableFor": "中老年游客、文化爱好者、登山爱好者",
-      "tips": "悬阳洞内较暗，注意脚下安全。寿字碑林适合拍照祈福。山势平缓，适合中老年游客。",
-      "transport": "山海关打车约25分钟",
+      "suitableFor": "家庭出游、中老年祈寿祈福游客、登山摄影爱好者;山路台阶较多,行动不便者需谨慎评估",
+      "tips": "山路台阶较多,建议穿防滑舒适的鞋子 悬阳洞内温度较低,可随身携带薄外套 景区旺季为5-12月,冬季(1-4月)开放情况不确定,建议出行前电话确认 可与老龙头、天下第一关等景点组合购买联票 山区导航和信号可能不稳定,建议提前下载离线地图或路线 景区内餐饮选择有限,建议自备饮用水和干粮",
+      "transport": "自驾:自驾从山海关城区向东北方向行驶约9公里可达景区;山海关打车约25分钟",
       "booking": [
         {
           "name": "携程订票",
@@ -700,7 +1559,57 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "参考价30元起(具体以景区当日公示为准);另有联票如含老龙头、天下第一关古城体验游120元,含孟姜女庙、天下第一关古城体验游的联票价格未查全；携程、本地宝等平台显示门票参考价30元;有多种跨景区联票套餐(如含老龙头、天下第一关);儿童/老人/学生优惠政策及是否需提前预约均未查到明确来源,建议出行前致电景区确认。",
+      "phone": "0335-5259000 / 0335-5176633",
+      "openTimeNotes": "5月1日-12月31日 07:30-17:30(17:00停止售检票);冬季(1-4月)开放情况多个来源未提及,与旧版“全年08:00-17:00”说法不一致,建议出行前电话确认",
+      "bestSeasonNotes": "4-10月为宜,秋季(9-10月)层林尽染景色最佳,夏季山中相对清凉避暑",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "自驾从山海关城区向东北方向行驶约9公里可达景区;山海关打车约25分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "山路台阶较多,建议穿防滑舒适的鞋子",
+        "悬阳洞内温度较低,可随身携带薄外套",
+        "景区旺季为5-12月,冬季(1-4月)开放情况不确定,建议出行前电话确认",
+        "可与老龙头、天下第一关等景点组合购买联票",
+        "山区导航和信号可能不稳定,建议提前下载离线地图或路线",
+        "景区内餐饮选择有限,建议自备饮用水和干粮"
+      ],
+      "nameEn": "Changshoushan Scenic Area (Mountain of Longevity)",
+      "descEn": "Changshoushan (Mountain of Longevity) is a mountain scenic area in Shanhaiguan District, Qinhuangdao, Hebei, about 9 km northeast of the Shanhaiguan old town, backed by the Great Wall. Rated a national 4A attraction, it is themed around China's \"longevity\" (shou) culture. Its best-known feature is Xuanyang Cave, said to be northern China's largest natural granite cave, with chambers nested within chambers. The site also holds a \"forest\" of stone tablets carved with the character for longevity by historical calligraphers, a grotto with sculptures honoring famous physicians, and scattered cliff inscriptions. Suited to family visits, older travelers, hikers and photographers; the trails involve many steps.",
+      "highlightsEn": [
+        "Xuanyang Cave (largest natural granite cave in N. China)",
+        "Forest of longevity stone tablets",
+        "Grotto of legendary physicians",
+        "Cliff-face stone inscriptions",
+        "Mountain hiking trails",
+        "Backed by the Great Wall"
+      ],
+      "faq": [
+        {
+          "q": "长寿山门票多少钱?",
+          "a": "网络平台参考价约30元起,另有多种跨景区联票套餐,具体以景区当日公示价格为准。"
+        },
+        {
+          "q": "长寿山全年都开放吗?",
+          "a": "查到的信息显示5月1日至12月31日开放,时间07:30-17:30;冬季(1-4月)是否开放及具体时间未查到可靠来源,建议出行前致电0335-5259000或0335-5176633确认。"
+        },
+        {
+          "q": "长寿山需要提前预约吗?",
+          "a": "未查到明确的预约要求信息,建议出行前通过景区电话或在线购票平台确认是否需要预约。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/5038.html",
+        "http://qhd.bendibao.com/jingdian/changshoushan/",
+        "http://lywgj.qhd.gov.cn/home/details?code=MTA3&pcode=MA%CE%B3%CE%B3&id=4668",
+        "https://m.map.360.cn/m/search/detail/pid=79aa7700ba33fd44",
+        "https://youletour.com/qinhuangdao/chang-shou-shan/goupiao",
+        "https://www.dahepiao.com/lvyounews1/20240506461633.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "yansaihu",
@@ -709,25 +1618,27 @@
       "cat": "nature",
       "level": "4A",
       "rating": "4.4",
-      "price": "90元",
+      "price": "90元起",
       "priceNum": 90,
-      "openTime": "08:00-17:00",
-      "address": "河北省秦皇岛市山海关区石河水库",
+      "openTime": "旺季08:00-17:00",
+      "address": "河北省秦皇岛市山海关区石河水库(山海关城西北约3.5公里处)",
       "lat": 40.02,
       "lng": 119.715,
       "img": "images/attraction-yansaihu.jpg",
-      "desc": "被誉为\"北方小桂林\"，青山环抱一池碧水。湖中有鸟语林，栖息着百余种珍禽。可乘船游湖，两岸奇峰怪石倒映水中，是北方难得的山水画卷。",
+      "desc": "燕塞湖景区位于河北省秦皇岛市山海关区,地处山海关城西北约3.5公里处,是万里长城东端第一座人工湖。景区原为石河水库,1974年因筑坝截流石河而形成,石河古称渝河,历史上是山海关军事要塞的天然屏障,隋唐辽金时期的民族军事冲突、明末李自成大军与吴三桂、多尔衮清军在石河两岸的大战、近代两次直奉战争及1933年长城抗战均发生于此。1984年燕塞湖被定为河北省旅游定点单位,是秦皇岛开发较早的景区之一。湖区青山环抱、碧水一池,素有“北方小桂林”之称,两岸奇峰怪石林立、倒映水中;湖中设有鸟语林,栖息百余种珍禽。游客可乘生态游船巡游湖面,沿途可观东山剑峰等景观奇石。景区适合家庭游客、摄影与自然风光爱好者、喜欢山水人文结合的游客,秋季层林尽染时尤为热门。",
       "highlights": [
         "乘船游湖",
-        "鸟语林（百余种珍禽）",
-        "奇峰怪石",
-        "山水倒影"
+        "鸟语林赏珍禽",
+        "奇峰怪石景观",
+        "秋季层林尽染",
+        "长城东端首座人工湖",
+        "石河历史遗迹"
       ],
-      "bestSeason": "5-10月，秋季层林尽染",
+      "bestSeason": "5-10月为最佳游览季节,夏季适合避暑,秋季层林尽染、景色最",
       "duration": "2-3小时",
-      "suitableFor": "全家出游、摄影爱好者、自然爱好者",
-      "tips": "乘船游湖约40分钟，是核心体验。鸟语林适合带孩子认识各种鸟类。建议上午光线好时拍照。",
-      "transport": "山海关打车约20分钟",
+      "suitableFor": "家庭游客、摄影与自然风光爱好者、喜欢山水人文结合的游客",
+      "tips": "乘船游湖前建议提前确认船票是否需要单独购买 秋季(9-10月前后)层林尽染,是拍照与观景的最佳时段 湖区面积较大,建议预留2-3小时游览时间 鸟语林适合带小朋友的家庭游客 门票、开放时间随季节调整,出行前建议通过官方渠道或在线旅游平台核实当日信息 可与山海关古城安排同日联游,车程较短",
+      "transport": "公共交通:可从山海关古城/山海关站乘坐旅游专线3路公交车直达燕塞湖景区,具体发车点及班次建议现场或在线平台确认 自驾:自驾或打车从山海关古城出发,车程约20分钟(约3.5公里)",
       "booking": [
         {
           "name": "携程订票",
@@ -742,7 +1653,57 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "不同渠道信息不一致:部分资料显示门票90元/人,也有资料显示门票50元起、团购价45元;是否含船票说明不一,未能在本次核实中确认统一口径；船票是否包含在门票内、老人/儿童/学生等优惠政策均未能查实,建议购票前通过携程、美团等平台或景区官方渠道核实当日价格及船票是否需单独购买",
+      "openTimeNotes": "旺季(约5-10月)08:00-17:00;淡季时间可能缩短,不同来源对开门时间记载为08:00或08:30,建议出行前通过官方渠道或在线旅游平台确认当日时间",
+      "bestSeasonNotes": "5-10月为最佳游览季节,夏季适合避暑,秋季(9-10月)层林尽染、景色最佳",
+      "transportDetail": {
+        "publicTransit": "可从山海关古城/山海关站乘坐旅游专线3路公交车直达燕塞湖景区,具体发车点及班次建议现场或在线平台确认",
+        "driving": "自驾或打车从山海关古城出发,车程约20分钟(约3.5公里)",
+        "parking": null
+      },
+      "tipsList": [
+        "乘船游湖前建议提前确认船票是否需要单独购买",
+        "秋季(9-10月前后)层林尽染,是拍照与观景的最佳时段",
+        "湖区面积较大,建议预留2-3小时游览时间",
+        "鸟语林适合带小朋友的家庭游客",
+        "门票、开放时间随季节调整,出行前建议通过官方渠道或在线旅游平台核实当日信息",
+        "可与山海关古城安排同日联游,车程较短"
+      ],
+      "nameEn": "Yansai Lake (Yansaihu)",
+      "descEn": "Yansai Lake sits in Shanhaiguan District, Qinhuangdao, about 3.5 km northwest of the old Shanhaiguan fortress town. Formed in 1974 when a dam was built across the Shi River, it became the first man-made lake at the eastern end of the Great Wall; the river once served as the fortress's natural defensive barrier and was the site of historical battles from the Sui-Tang era through the 1933 Great Wall resistance against Japan. Known as the \"Guilin of the North\" for its green hills and clear water, the lake offers boat cruises past unusual rock formations and a bird park with over 100 species. It is especially popular in autumn for colorful foliage.",
+      "highlightsEn": [
+        "Lake boat cruise",
+        "Bird park with rare species",
+        "Scenic rock formations",
+        "Autumn foliage views",
+        "First man-made lake by the Great Wall",
+        "Historic Shi River battlefield site"
+      ],
+      "faq": [
+        {
+          "q": "燕塞湖门票是否包含船票?",
+          "a": "本次核实发现不同渠道信息不一致,部分资料显示门票90元,也有资料显示50元起或团购45元,是否含船票未能确认统一说法,建议购票前通过官方或在线旅游平台核实。"
+        },
+        {
+          "q": "燕塞湖适合游玩多长时间?",
+          "a": "一般建议安排2-3小时,包含乘船游湖和岸边景观游览。"
+        },
+        {
+          "q": "燕塞湖和山海关古城能否安排在同一天?",
+          "a": "可以,两地车程约20分钟,适合安排同日联游。"
+        }
+      ],
+      "sources": [
+        "https://baike.baidu.com/item/%E7%87%95%E5%A1%9E%E6%B9%96%E6%99%AF%E5%8C%BA/10433282",
+        "https://baike.baidu.com/item/%E7%A7%A6%E7%9A%87%E5%B2%9B%E7%87%95%E5%A1%9E%E6%B9%96/15400047",
+        "https://zhuanlan.zhihu.com/p/447474760",
+        "https://www.beidaihe186.com/shhg_jd_yshu152.php",
+        "https://s.visitbeijing.com.cn/attraction/118569",
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/5040.html",
+        "https://m.tuniu.com/g1174255/guide-0-0/"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "shanhaiguan_gucheng",
@@ -751,25 +1712,27 @@
       "cat": "history",
       "level": "5A",
       "rating": "4.6",
-      "price": "免费(进城)",
+      "price": "免费",
       "priceNum": 0,
       "openTime": "全天开放",
-      "address": "河北省秦皇岛市山海关区古城",
+      "address": "河北省秦皇岛市山海关区东大街1号",
       "lat": 40.007,
       "lng": 119.752,
       "img": "images/attraction-shanhaiguan_gucheng.jpg",
-      "desc": "山海关古城始建于明洪武十四年，距今已有600多年历史。古城内保留大量明清建筑，钟鼓楼、王家大院、总兵府等历史遗迹丰富。漫步古城街巷，感受边关重镇的历史沧桑。进城免费，登城楼需购票。",
+      "desc": "山海关古城位于秦皇岛市山海关区，明洪武十四年（1381年）由徐达主持修建，是明长城东端的军事重镇，素有\"天下第一关\"之称。古城呈正方形，周长约4公里，城内保留了大量明清风格的街巷院落，钟鼓楼、兵部分司署、总兵府等历史建筑分布其中，东门箭楼\"天下第一关\"城楼是古城标志。古城本身免费进入，登城楼、逛兵部分司署等景点需另购票。适合喜欢历史古建、亲子研学和摄影的游客，逛完古城常与老龙头、角山长城一并安排。",
       "highlights": [
+        "天下第一关城楼",
         "明清古建街巷",
         "钟鼓楼",
-        "王家大院",
-        "总兵府"
+        "兵部分司署",
+        "总兵府",
+        "王家大院"
       ],
-      "bestSeason": "4-10月，秋季最宜",
+      "bestSeason": "4-10月，秋季天气凉爽、古建色调更出片",
       "duration": "2-3小时",
       "suitableFor": "历史爱好者、亲子研学、摄影爱好者",
-      "tips": "古城内免费漫步，登天下第一关城楼需另购50元门票。古城内有不少特色小吃和文创商店，值得慢慢逛。",
-      "transport": "山海关火车站步行15分钟",
+      "tips": "古城内免费漫步，登天下第一关城楼需另购票 古城内小吃和文创店较多，可安排半天慢慢逛 建议与老龙头、角山长城安排在同一天（三处距离不远） 旺季节假日人流大，早晨或傍晚人少光线好，适合拍照 登城楼台阶较陡，穿舒适的鞋子",
+      "transport": "公共交通:山海关火车站下车步行约15分钟即到古城；市内可乘公交至山海关古城站 自驾:自驾沿G1京哈高速山海关出口下，约10分钟到古城；距秦皇岛站约15公里，距北戴河站约18公里，距北京约300公里、车程约3.5小时",
       "booking": [
         {
           "name": "携程订酒店",
@@ -784,7 +1747,73 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "进城免费；天下第一关城楼60元；古城联票（含天下第一关、兵部分司署、钟鼓楼等）约50元；箭楼单独约40元；古城本身免费漫步，登城楼、参观兵部分司署等收费点需单独购票或买联票；1.2米以下儿童、70岁以上老人、现役军人及残疾人凭证件免费，6-18周岁未成年人及在校学生可享半价，具体以窗口公告为准。",
+      "openTimeNotes": "古城全天开放；城楼等收费景点参考08:30-17:00（各季节略有调整，建议出行前经官方渠道核实）",
+      "durationNotes": "2-3小时（含登城楼可延长至半天）",
+      "transportDetail": {
+        "publicTransit": "山海关火车站下车步行约15分钟即到古城；市内可乘公交至山海关古城站",
+        "driving": "自驾沿G1京哈高速山海关出口下，约10分钟到古城；距秦皇岛站约15公里，距北戴河站约18公里，距北京约300公里、车程约3.5小时",
+        "parking": null
+      },
+      "tipsList": [
+        "古城内免费漫步，登天下第一关城楼需另购票",
+        "古城内小吃和文创店较多，可安排半天慢慢逛",
+        "建议与老龙头、角山长城安排在同一天（三处距离不远）",
+        "旺季节假日人流大，早晨或傍晚人少光线好，适合拍照",
+        "登城楼台阶较陡，穿舒适的鞋子"
+      ],
+      "nameEn": "Shanhaiguan Old Town",
+      "descEn": "Built in 1381 during the Ming dynasty, Shanhaiguan Old Town sits at the eastern end of the Great Wall and was a key military pass, known as the \"First Pass Under Heaven.\" The walled town keeps Ming-and-Qing-era streets and courtyards, with the East Gate watchtower, a bell-and-drum tower, and former military offices. Entry to the town is free; the watchtower and some historic buildings charge separate admission. It suits history and architecture fans, families, and photographers, and pairs well with Old Dragon Head and Jiaoshan Great Wall.",
+      "highlightsEn": [
+        "First Pass Under Heaven watchtower",
+        "Ming-Qing old streets",
+        "Bell and Drum Tower",
+        "Former Ministry of War office",
+        "Commander's residence",
+        "Wang family courtyard"
+      ],
+      "faq": [
+        {
+          "q": "进古城要门票吗？",
+          "a": "古城本身免费进入，只有登天下第一关城楼等特定景点才需要购票。"
+        },
+        {
+          "q": "古城和老龙头是一个地方吗？",
+          "a": "不是，老龙头是长城入海处，在古城以南约5公里，需要另外前往。"
+        },
+        {
+          "q": "古城逛一圈要多久？",
+          "a": "只逛街巷约1.5-2小时，加上登城楼、参观各院落约需半天。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/5040.html",
+        "https://m.hd.bendibao.com/jingdian/shanhaiguan/",
+        "https://www.beidaihe186.com/shhg_jd_gc15.php",
+        "https://touch.piao.qunar.com/touch/detail.htm?id=515242"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:West gate (6237052393).jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:West_gate_(6237052393).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/West_gate_%286237052393%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "author": "Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China",
+          "width": 1600,
+          "height": 1200
+        },
+        {
+          "title": "File:Old city street (6237579464).jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Old_city_street_(6237579464).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Old_city_street_%286237579464%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "author": "Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China",
+          "width": 1299,
+          "height": 948
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "qiuxian",
@@ -793,25 +1822,26 @@
       "cat": "history",
       "level": "4A",
       "rating": "4.2",
-      "price": "30元",
-      "priceNum": 30,
-      "openTime": "08:00-17:30",
+      "price": "免费",
+      "priceNum": 0,
+      "openTime": "08:00-17:00",
       "address": "河北省秦皇岛市海港区东山街",
       "lat": 39.9139,
       "lng": 119.622,
       "img": "images/attraction-qiuxian.jpg",
-      "desc": "据传是秦始皇东巡求仙的入海处，秦皇岛市名即源于此。景区内有巨型秦始皇雕像、求仙殿、战国风情园。临海而立，可感受两千年前帝王求仙问道的历史情境。",
+      "desc": "秦皇求仙入海处位于秦皇岛市海港区东山一带，相传是秦始皇东巡时派方士出海求取长生不老药的地方，\"秦皇岛\"这一城市名称即由此传说而来。景区临海而建，园内有高约6米的秦始皇雕像、求仙殿、祈福广场和战国风情园等仿古建筑，讲述秦始皇东巡、徐福出海求仙的历史传说。景区规模不大，以历史主题小品和海景为主，是了解秦皇岛地名由来的地标性景点，适合带孩子做历史科普，也适合喜欢临海拍照的游客，游玩强度较低。",
       "highlights": [
-        "秦始皇雕像（高6米）",
+        "秦始皇雕像（约6米高）",
         "求仙殿",
         "祈福广场",
-        "战国风情园"
+        "战国风情园",
+        "临海观景平台"
       ],
-      "bestSeason": "4-10月",
-      "duration": "1.5-2小时",
-      "suitableFor": "历史爱好者、亲子研学",
-      "tips": "景区临海，风大时注意保暖。秦始皇雕像很震撼，适合拍照。了解秦皇岛城市名称的由来必来此处。",
-      "transport": "8路求仙入海处站",
+      "bestSeason": "4-10月，天气暖和、海边风浪较小时体验更佳",
+      "duration": "1-1.5小时",
+      "suitableFor": "历史爱好者、亲子研学、临海拍照的游客",
+      "tips": "景区不大，适合安排在秦皇岛市区游览的半天行程中 海边风大，春秋季前来注意保暖 秦始皇雕像是拍照打卡的主要地标 了解\"秦皇岛\"地名由来的游客建议一定要来 园内遮荫较少，夏季注意防晒",
+      "transport": "公共交通:市内乘8路公交至求仙入海处站下车即到 自驾:自驾距秦皇岛站约6公里、车程约15分钟；距北戴河站约18公里；距北京约300公里、车程约3.5-4小时",
       "booking": [
         {
           "name": "携程订票",
@@ -826,7 +1856,50 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "免费（近年已取消大门票，此前约为30-45元区间，各平台历史价格不一）；多个来源显示景区已对外免大门票开放，但历史资料中出现过门票、儿童半价、老人及军人免票等政策表述，具体是否仍对园内个别设施单独收费未能查实，建议以现场公告或官方公众号为准。",
+      "openTimeNotes": "08:00-17:00，旺季（4-10月）为主要开放期，其余月份及具体收班时间建议提前核实",
+      "transportDetail": {
+        "publicTransit": "市内乘8路公交至求仙入海处站下车即到",
+        "driving": "自驾距秦皇岛站约6公里、车程约15分钟；距北戴河站约18公里；距北京约300公里、车程约3.5-4小时",
+        "parking": null
+      },
+      "tipsList": [
+        "景区不大，适合安排在秦皇岛市区游览的半天行程中",
+        "海边风大，春秋季前来注意保暖",
+        "秦始皇雕像是拍照打卡的主要地标",
+        "了解\"秦皇岛\"地名由来的游客建议一定要来",
+        "园内遮荫较少，夏季注意防晒"
+      ],
+      "nameEn": "Site of Emperor Qin's Quest for Immortality",
+      "descEn": "Located on the coast in Haigang District, this site is traditionally linked to Emperor Qin Shi Huang's legendary quest for the elixir of immortality — the story that gave Qinhuangdao its name. The park features a roughly 6-meter statue of the emperor, a shrine-style hall, a prayer plaza, and a Warring States-themed garden. It's a small, low-key seaside park good for a short history-themed visit or photos, and works well for families doing light historical sightseeing.",
+      "highlightsEn": [
+        "Statue of Emperor Qin Shi Huang",
+        "Immortality-quest shrine hall",
+        "Prayer plaza",
+        "Warring States garden",
+        "Seaside viewing deck"
+      ],
+      "faq": [
+        {
+          "q": "现在还要门票吗？",
+          "a": "根据现有资料，景区已取消大门票、免费开放，但建议出行前通过官方渠道或现场确认，以防个别设施单独收费。"
+        },
+        {
+          "q": "\"秦皇岛\"这个名字和这里有关系吗？",
+          "a": "有关系，相传秦始皇曾派方士从此处入海求仙，\"秦皇岛\"之名即源于此传说。"
+        },
+        {
+          "q": "适合带孩子来吗？",
+          "a": "适合，园区不大、有雕像和主题小品，适合做历史科普和拍照，游玩强度低。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/5009.html",
+        "http://m.qhd.bendibao.com/jingdian/qinhuangqiuxianruhaichu/",
+        "https://www.beidaihe186.com/scenic_qiuxian.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "xinao",
@@ -835,25 +1908,26 @@
       "cat": "family",
       "level": "4A",
       "rating": "4.4",
-      "price": "60元",
-      "priceNum": 60,
-      "openTime": "09:00-17:30",
-      "address": "河北省秦皇岛市海港区河滨路",
+      "price": "55元起",
+      "priceNum": 55,
+      "openTime": "04/01-10/15 08:40-16:30",
+      "address": "河北省秦皇岛市海港区河滨路81号",
       "lat": 39.9062,
       "lng": 119.563,
       "img": "images/attraction-xinao.jpg",
-      "desc": "拥有亚洲最长的海底观光隧道（全长80米），鲨鱼、鳐鱼、海龟从头顶游过。还有海豹、企鹅等极地动物馆。每天有美人鱼表演和海狮表演，是亲子科普的绝佳去处。",
+      "desc": "新澳海底世界位于秦皇岛市海港区河滨路，是一座以海洋生物展示为主的室内水族馆，拥有当地知名的海底观光隧道，游客步行其间可看到鲨鱼、鳐鱼、海龟等从头顶游过。馆内还设有极地动物馆，饲养海豹、企鹅等极地生物，并定时安排美人鱼表演、海狮表演等互动节目。由于全程室内、恒温，是雨天、高温天或冬季出游的稳妥选择，也是秦皇岛亲子游、海洋科普的热门去处，适合带小朋友的家庭以及海洋生物爱好者。",
       "highlights": [
-        "80米海底隧道",
+        "海底观光隧道",
         "美人鱼表演",
-        "海狮秀",
-        "企鹅馆"
+        "海狮表演",
+        "企鹅馆",
+        "极地动物馆"
       ],
-      "bestSeason": "全年皆宜（室内景点）",
+      "bestSeason": "全年皆宜（室内恒温景点，不受天气季节影响）",
       "duration": "2-3小时",
-      "suitableFor": "亲子家庭、海洋爱好者",
-      "tips": "雨天或太热天的最佳选择——全室内空调。海底隧道拍照建议用视频模式。表演场次有限，入园先看时间表。",
-      "transport": "19路/32路新澳海底世界站",
+      "suitableFor": "亲子家庭、海洋爱好者、雨天/高温天备选行程",
+      "tips": "全室内景点，雨天、高温天或寒冷季节是很好的备选 海底隧道拍照建议用视频或连拍模式，效果更好 入园先看当天表演时间表，避免错过美人鱼、海狮表演 馆内较为拥挤时建议避开周末和节假日高峰时段 室内有空调，季节交替时可薄外套备用",
+      "transport": "公共交通:市内乘19路或32路公交至新澳海底世界站下车即到 自驾:自驾距秦皇岛站约6-8公里、车程约15-20分钟；距北戴河站约15公里；距北京约300公里、车程约3.5-4小时",
       "booking": [
         {
           "name": "携程订票",
@@ -868,7 +1942,51 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "55元起（票种、季节可能有浮动，以官方或购票平台实时价格为准）；1.2米以下儿童、70周岁以上老人、现役军人及残疾人凭有效证件享受免费政策，具体细则以景区当日公告为准；表演场次有限，建议入园后先查看表演时间表。",
+      "phone": "0335-7826666",
+      "openTimeNotes": "04/01-10/15 08:40-16:30；10/16-次年01/31及02/02-03/31 09:10-16:30；02/01 09:10-15:00（均为售票/入场截止时间，具体以现场公告为准）",
+      "transportDetail": {
+        "publicTransit": "市内乘19路或32路公交至新澳海底世界站下车即到",
+        "driving": "自驾距秦皇岛站约6-8公里、车程约15-20分钟；距北戴河站约15公里；距北京约300公里、车程约3.5-4小时",
+        "parking": null
+      },
+      "tipsList": [
+        "全室内景点，雨天、高温天或寒冷季节是很好的备选",
+        "海底隧道拍照建议用视频或连拍模式，效果更好",
+        "入园先看当天表演时间表，避免错过美人鱼、海狮表演",
+        "馆内较为拥挤时建议避开周末和节假日高峰时段",
+        "室内有空调，季节交替时可薄外套备用"
+      ],
+      "nameEn": "Xin'ao Ocean World",
+      "descEn": "Xin'ao Ocean World is an indoor aquarium in Haigang District, Qinhuangdao, best known for its underwater viewing tunnel where sharks, rays, and turtles swim overhead. It also houses a polar zone with seals and penguins, plus scheduled mermaid and sea lion shows. Being fully indoor and climate-controlled, it's a reliable option on rainy, very hot, or cold days, and is popular with families and marine-life enthusiasts.",
+      "highlightsEn": [
+        "Underwater viewing tunnel",
+        "Mermaid show",
+        "Sea lion show",
+        "Penguin house",
+        "Polar animal zone"
+      ],
+      "faq": [
+        {
+          "q": "下雨天可以去吗？",
+          "a": "可以，馆内全程室内，是秦皇岛少数不受天气影响的景点之一。"
+        },
+        {
+          "q": "有表演吗，几点看？",
+          "a": "馆内定时安排美人鱼表演和海狮表演，具体场次以当天入口处公示的时间表为准。"
+        },
+        {
+          "q": "小孩子适合去吗？",
+          "a": "非常适合，是秦皇岛热门的亲子科普景点，1.2米以下儿童通常享受免票政策。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/13485.html",
+        "http://qhd.bendibao.com/jingdian/xinaohaidishijie/",
+        "https://www.qianggen.net/2009/tuan115480/"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "gangkou",
@@ -879,27 +1997,73 @@
       "rating": "4.2",
       "price": "免费",
       "priceNum": 0,
-      "openTime": "09:00-17:00(周一闭馆)",
-      "address": "河北省秦皇岛市海港区南山街",
+      "openTime": "周一至周五 09:00-11:30、14:30-17:30",
+      "address": "河北省秦皇岛市海港区南山街13号",
       "lat": 39.9115,
       "lng": 119.6188,
       "img": "images/attraction-gangkou.jpg",
-      "desc": "百年港口历史，工业遗址改造的文创园区，拍照出片。博物馆记录了秦皇岛港从清末开埠到现代的发展历程，是了解这座港口城市历史的绝佳窗口。",
+      "desc": "秦皇岛港口博物馆位于海港区南山街，依托秦皇岛港百年工业遗存改造而成，是国内为数不多的以港口发展史为主题的专题博物馆。秦皇岛港始建于清末（1898年前后），是近代中国重要的煤炭输出港，馆内通过老照片、工业设备和史料展陈，讲述港口从开埠到现代化的百余年变迁。园区保留了不少工业风建筑外观，改造后兼具文创和打卡属性，很适合喜欢城市历史、工业遗址风格摄影的游客。目前对散客的参观接待方式有限，建议提前确认预约方式。",
       "highlights": [
         "百年港口历史展览",
-        "工业遗址建筑",
+        "工业遗址建筑群",
+        "老码头设备实物",
         "文创街区",
-        "港口文化体验"
+        "港口文化专题陈列"
       ],
-      "bestSeason": "全年皆宜（室内为主）",
+      "bestSeason": "全年皆宜（室内为主，不受天气影响）",
       "duration": "1-2小时",
-      "suitableFor": "文化爱好者、摄影爱好者、文艺青年",
-      "tips": "周一闭馆，注意安排时间。免费参观但需带身份证登记。工业风建筑很适合拍照打卡。",
-      "transport": "8路/31路南山站",
+      "suitableFor": "文化爱好者、摄影爱好者、对港口/工业历史感兴趣的游客",
+      "tips": "开放时间为工作日分上下午两段，周末及闭馆日建议提前电话确认 目前散客参观可能受限，出发前先致电0335-3093953或查\"乐游冀\"小程序确认 免费参观但需带身份证登记 工业风厂房和老设备很适合拍照打卡 馆内以图文和实物展陈为主，对港口史或工业遗产感兴趣的游客更有代入感",
+      "transport": "公共交通:市内乘8路或31路公交至南山站下车步行可达 自驾:自驾距秦皇岛站约3-5公里、车程约10-15分钟",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "免费参观，需携带身份证登记入馆；据部分资料，目前接待能力有限，仅接受团体预约，个人游客建议先电话咨询或通过\"乐游冀\"微信小程序查询预约方式。",
+      "phone": "0335-3093953",
+      "website": "乐游冀（微信小程序，用于预约查询）",
+      "openTimeNotes": "周一至周五 09:00-11:30、14:30-17:30（周末/节假日开放情况未能核实，与此前\"周一闭馆、其余全天开放\"的说法存在出入，请以官方公众号或电话为准）",
+      "transportDetail": {
+        "publicTransit": "市内乘8路或31路公交至南山站下车步行可达",
+        "driving": "自驾距秦皇岛站约3-5公里、车程约10-15分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "开放时间为工作日分上下午两段，周末及闭馆日建议提前电话确认",
+        "目前散客参观可能受限，出发前先致电0335-3093953或查\"乐游冀\"小程序确认",
+        "免费参观但需带身份证登记",
+        "工业风厂房和老设备很适合拍照打卡",
+        "馆内以图文和实物展陈为主，对港口史或工业遗产感兴趣的游客更有代入感"
+      ],
+      "nameEn": "Qinhuangdao Port Museum",
+      "descEn": "Housed in a converted century-old industrial site in Haigang District, this museum traces the history of Qinhuangdao Port, one of modern China's major coal-export ports established around the late Qing dynasty. Exhibits combine old photographs, industrial equipment, and archival material covering the port's growth from a treaty-era harbor to a modern facility. The industrial-style buildings also make it a good spot for photography. Visiting arrangements for individual travelers are currently limited, so checking reservation details in advance is recommended.",
+      "highlightsEn": [
+        "Century-old port history exhibits",
+        "Industrial heritage buildings",
+        "Historic dock equipment",
+        "Creative/cultural district",
+        "Port culture displays"
+      ],
+      "faq": [
+        {
+          "q": "需要预约吗？",
+          "a": "据部分资料显示目前主要接待团体预约，个人游客建议提前电话或通过\"乐游冀\"小程序确认是否可直接入馆。"
+        },
+        {
+          "q": "门票多少钱？",
+          "a": "免费参观，但需要携带身份证登记。"
+        },
+        {
+          "q": "周末开放吗？",
+          "a": "查到的资料显示工作日分时段开放，周末及闭馆安排未能确认，建议出行前致电核实。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/1675591.html",
+        "http://qhd.bendibao.com/tour/20231127/8758.shtm",
+        "https://www.visitbeijing.com.cn/article/48yJAXZYdNk"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "daihe_park",
@@ -910,27 +2074,71 @@
       "rating": "4.1",
       "price": "免费",
       "priceNum": 0,
-      "openTime": "全天开放",
-      "address": "河北省秦皇岛市北戴河区戴河沿岸",
+      "openTime": "全年全天开放",
+      "address": "河北省秦皇岛市北戴河区宁海大道北（戴河沿岸）",
       "lat": 39.848,
       "lng": 119.455,
       "img": "images/attraction-daihe_park.jpg",
-      "desc": "沿戴河而建的湿地公园，木栈道+荷花池+垂钓，悠闲半日。园内绿树成荫，河水清澈，是当地居民晨练散步的好去处，也适合游客放松休闲。",
+      "desc": "戴河生态园（也称北戴河自然生态公园）沿戴河两岸而建，位于北戴河区宁海大道北侧，占地约185公顷，相当于颐和园面积的三分之二。园区以\"阳光之美、生态和谐\"为设计理念，融合江南园林的精巧与北方园林的开阔，规划有\"一带三章七景区十八景点\"，园内木栈道、荷花池、垂钓区、环形绿道等设施齐全，绿树成荫、河水清澈，是当地居民晨练、散步、骑行的日常去处，也适合游客在赶路间隙来放松半天。全年免费开放。",
       "highlights": [
         "木栈道漫步",
         "荷花池",
         "垂钓区",
-        "河畔休闲"
+        "环形绿道骑行",
+        "河畔休闲绿地"
       ],
-      "bestSeason": "5-9月，夏季荷花盛开",
+      "bestSeason": "5-9月，夏季荷花盛开时最美",
       "duration": "1-2小时",
-      "suitableFor": "全家休闲、垂钓爱好者、散步",
-      "tips": "免费开放的社区公园，适合旅途间隙放松。夏季荷花盛开时最美，带鱼竿可以垂钓。",
-      "transport": "打车约15分钟",
+      "suitableFor": "全家休闲、垂钓爱好者、散步骑行、行程间隙放松",
+      "tips": "免费开放的社区公园，适合行程间隙来放松，不用单独预留大块时间 夏季荷花盛开（约6-8月）是最佳观赏期 带鱼竿可以在垂钓区体验垂钓 园区较大，适合骑行或散步，建议穿舒适的鞋子 园内遮荫较好，但夏季正午仍建议做好防晒",
+      "transport": "公共交通:市内乘45路公交至戴河生态园西门站下车，步行约13米即到 自驾:自驾距北戴河站约6-8公里、车程约15-20分钟；距秦皇岛站约20公里",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "无需门票，园内垂钓、自行车租赁等个别项目如有收费以现场公示为准（未核实到具体价格）。",
+      "bestSeasonNotes": "5-9月，夏季荷花盛开时最美；春季（3-4月）沿河也有赏杏花的说法",
+      "transportDetail": {
+        "publicTransit": "市内乘45路公交至戴河生态园西门站下车，步行约13米即到",
+        "driving": "自驾距北戴河站约6-8公里、车程约15-20分钟；距秦皇岛站约20公里",
+        "parking": null
+      },
+      "tipsList": [
+        "免费开放的社区公园，适合行程间隙来放松，不用单独预留大块时间",
+        "夏季荷花盛开（约6-8月）是最佳观赏期",
+        "带鱼竿可以在垂钓区体验垂钓",
+        "园区较大，适合骑行或散步，建议穿舒适的鞋子",
+        "园内遮荫较好，但夏季正午仍建议做好防晒"
+      ],
+      "nameEn": "Daihe Ecological Park",
+      "descEn": "Daihe Ecological Park stretches along both banks of the Dai River in Beidaihe District, covering about 185 hectares. It blends southern Chinese garden design with the open layout typical of northern gardens, offering wooden boardwalks, a lotus pond, a fishing area, and a ring-shaped path for walking or cycling. Shaded and quiet, it's a favorite spot for locals' morning exercise and a relaxed half-day stop for visitors. Admission is free year-round.",
+      "highlightsEn": [
+        "Wooden boardwalk",
+        "Lotus pond",
+        "Fishing area",
+        "Ring path for cycling",
+        "Riverside green space"
+      ],
+      "faq": [
+        {
+          "q": "要门票吗？",
+          "a": "不需要，全年免费开放。"
+        },
+        {
+          "q": "适合带小孩去吗？",
+          "a": "适合，园区平坦开阔，木栈道和绿地适合家庭散步，但园内游乐设施较少，以自然休闲为主。"
+        },
+        {
+          "q": "什么时候去最好？",
+          "a": "夏季（6-8月）荷花盛开时最漂亮，春秋季气候舒适也适合散步骑行。"
+        }
+      ],
+      "sources": [
+        "https://baike.baidu.com/item/%E6%88%B4%E6%B2%B3%E7%94%9F%E6%80%81%E5%9B%AD/17141341",
+        "http://qhd.bendibao.com/tour/2023113/8232.shtm",
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/1829598.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "aranya",
@@ -942,22 +2150,23 @@
       "price": "预约制",
       "priceNum": 0,
       "openTime": "全天开放",
-      "address": "河北省秦皇岛市昌黎县黄金海岸中区",
+      "address": "河北省秦皇岛市昌黎县黄金海岸中区（孤独图书馆位于大蒲河镇黄金海岸工业园区金海南路7号附近）",
       "lat": 39.65,
       "lng": 119.3139,
       "img": "images/aranya-library.webp",
-      "desc": "阿那亚是中国最具文艺气息的海岸社区。孤独图书馆、海边礼堂（阿那亚礼堂）、沙丘美术馆……每一栋建筑都是艺术品。梵语\"阿那亚\"意为\"人间寂静处，找回本我的地方\"。由建筑师董功设计的孤独图书馆，落地窗正对大海，是中国第一座海边公益图书馆。",
+      "desc": "阿那亚是位于秦皇岛市昌黎县黄金海岸中区的滨海生活方式社区，由封闭式住宅区与一系列公共文化建筑组成，2013年前后随\"孤独图书馆\"（三联海边公益图书馆）走红后成为国内最具代表性的网红海岸目的地之一。由建筑师董功设计的孤独图书馆紧邻海边、落地窗正对大海，是国内首座海边公益图书馆；园区内还有阿那亚礼堂（海边婚礼堂）、沙丘美术馆、海边市集等场所，每年举办戏剧节等文化活动。社区本身为封闭管理，非业主或非入住客人进入需通过预约或消费方式获取通行资格，孤独图书馆需单独在其微信公众号或阿那亚APP上预约参观名额。适合文艺青年、情侣和摄影爱好者，日出、黄昏时分光线最美。",
       "highlights": [
         "孤独图书馆",
-        "海边礼堂",
+        "阿那亚礼堂",
         "沙丘美术馆",
-        "海边市集"
+        "海边市集",
+        "阿那亚戏剧节（季节性）"
       ],
-      "bestSeason": "5-10月，日出和黄昏最美",
+      "bestSeason": "5-10月，日出和黄昏时段光线最美",
       "duration": "半天到一天",
       "suitableFor": "文艺青年、情侣、摄影爱好者",
-      "tips": "图书馆内禁止拍照（拍照请到馆外），保持安静。海边礼堂日出和黄昏最美，白色建筑会染上金色或粉色。穿浅色衣服拍照更出片。封闭社区，不预约/不消费可能进不去。",
-      "transport": "北戴河站打车约30分钟；社区有接驳车需提前预约",
+      "tips": "图书馆内禁止拍照，如需拍照请到馆外进行，馆内需保持安静 务必提前通过\"孤独图书馆\"微信公众号或阿那亚APP预约参观名额，现场不一定能进 社区为封闭管理，非业主/非住客建议以入住民宿或消费的方式获取通行资格 日出、黄昏时段光线最佳，白色建筑会被染上金色或粉色 穿浅色系衣物拍照效果更好 戏剧节等特殊活动期间部分场馆开放规则会临时调整，出行前需再次确认",
+      "transport": "公共交通:北戴河站打车约30-40分钟可达；社区内部设有接驳车，通常需提前预约 自驾:自驾距北戴河站约25-30公里；距秦皇岛站约45公里；距北京约260公里、车程约3小时",
       "booking": [
         {
           "name": "阿那亚官网预约",
@@ -972,7 +2181,54 @@
       ],
       "isTop": true,
       "topRank": 5,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "预约制（社区本身不设统一门票，但部分场馆/活动可能单独收费或限业主、住客进入）；孤独图书馆等公共文化建筑通常免费但需线上预约名额；戏剧节等特定活动期间部分场馆仅限购票观众或业主进入，非入住游客可能无法随意进入社区，建议提前通过官方公众号确认当日可预约的场馆与名额。",
+      "website": "阿那亚官网 aranya.com；微信公众号\"孤独图书馆\"用于预约参观",
+      "openTimeNotes": "社区全天对外，但为封闭管理园区；孤独图书馆预约参观时段一般为09:00-17:00（每日限流，先到先得，具体以微信公众号\"孤独图书馆\"或阿那亚APP公示为准）",
+      "bestSeasonNotes": "5-10月，日出和黄昏时段光线最美；夏季戏剧节期间氛围最热闹但也最拥挤",
+      "transportDetail": {
+        "publicTransit": "北戴河站打车约30-40分钟可达；社区内部设有接驳车，通常需提前预约",
+        "driving": "自驾距北戴河站约25-30公里；距秦皇岛站约45公里；距北京约260公里、车程约3小时",
+        "parking": null
+      },
+      "tipsList": [
+        "图书馆内禁止拍照，如需拍照请到馆外进行，馆内需保持安静",
+        "务必提前通过\"孤独图书馆\"微信公众号或阿那亚APP预约参观名额，现场不一定能进",
+        "社区为封闭管理，非业主/非住客建议以入住民宿或消费的方式获取通行资格",
+        "日出、黄昏时段光线最佳，白色建筑会被染上金色或粉色",
+        "穿浅色系衣物拍照效果更好",
+        "戏剧节等特殊活动期间部分场馆开放规则会临时调整，出行前需再次确认"
+      ],
+      "nameEn": "Aranya Gold Coast Community",
+      "descEn": "Aranya is a gated seaside community at Golden Coast in Changli County, Qinhuangdao, known for the \"Lonely Library\" (Sanlian Seaside Public Library) designed by architect Dong Gong, whose floor-to-ceiling windows face the sea — one of China's first free public libraries by the beach. The community also includes a seaside auditorium, a Dune Art Museum, and a beachfront market, and hosts an annual theatre festival. Access is restricted: non-residents typically need a reservation or to be a paying guest, and the library requires a separate booking via its WeChat account or the Aranya app. It's popular with young creatives, couples, and photographers, especially at sunrise and sunset.",
+      "highlightsEn": [
+        "Lonely Library",
+        "Aranya Auditorium",
+        "UCCA Dune Art Museum",
+        "Seaside market",
+        "Aranya Theatre Festival (seasonal)"
+      ],
+      "faq": [
+        {
+          "q": "不是业主能进去吗？",
+          "a": "可以，但社区为封闭管理，通常需要预约、入住社区内民宿/酒店或达到一定消费才能进入，建议提前查询当期政策。"
+        },
+        {
+          "q": "孤独图书馆怎么预约？",
+          "a": "通过\"孤独图书馆\"微信公众号或阿那亚APP在线预约参观时段，通常每日限流、先到先得。"
+        },
+        {
+          "q": "图书馆里能拍照吗？",
+          "a": "馆内禁止拍照，需保持安静，可在馆外拍摄图书馆外观。"
+        }
+      ],
+      "sources": [
+        "http://m.qhd.bendibao.com/tour/5487.shtm",
+        "https://www.lycoo.com/articles/aranya-theatre-festival-final-week-lonely-library-2026",
+        "https://qhd.focus.cn/loupan/160333.html",
+        "http://www.bdhxq.gov.cn/home/details4?code=MjA%CE%B3&pcode=Mw%CE%B3%CE%B3&id=26767"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "huangjin",
@@ -988,18 +2244,20 @@
       "lat": 39.6363,
       "lng": 119.3082,
       "img": "images/attraction-huangjin.jpg",
-      "desc": "被誉为\"沙漠与大海的吻痕\"，拥有中国最优质的天然沙质海岸之一。沙细、滩缓、水清、潮平。国际滑沙中心是国内最大的滑沙场，从沙丘滑下直冲大海的体验独一无二。",
+      "desc": "黄金海岸位于秦皇岛市昌黎县，紧邻南戴河旅游度假区，是国内知名的天然优质沙质海岸之一，被称为\"沙漠与大海的吻痕\"，沙质细软、滩缓水清、潮汐平稳。海岸后方保留有连片沙丘，是国内少见的\"沙漠临海\"景观，园区内的国际滑沙中心是国内规模较大的滑沙场，游客可乘滑沙板从数十米高的沙丘俯冲直下，是景区最具标志性的体验项目，此外还有滑草、水上摩托、香蕉船等水陆娱乐。沙滩本身全天免费开放，滑沙中心等收费项目按季节运营、单独售票，适合年轻人、亲子家庭和水上运动爱好者。",
       "highlights": [
         "国际滑沙中心",
-        "黄金沙滩",
+        "天然黄金沙滩",
+        "临海沙丘景观",
         "水上摩托",
-        "香蕉船"
+        "香蕉船",
+        "滑草"
       ],
-      "bestSeason": "6-9月，夏季玩水最佳",
+      "bestSeason": "6-9月，夏季气温高、适合下海玩水和滑沙",
       "duration": "半天到一天",
-      "suitableFor": "年轻人、亲子、水上运动爱好者",
-      "tips": "滑沙是这里的招牌项目，坐滑沙板从沙丘俯冲而下直冲大海，超刺激！沙子很烫，记得穿凉鞋。防晒一定要做好。",
-      "transport": "22路公交或打车，距北戴河30公里",
+      "suitableFor": "年轻人、亲子家庭、水上运动爱好者",
+      "tips": "滑沙是这里的招牌项目，从高大沙丘俯冲滑下直冲大海，体验刺激 夏季沙子被晒得很烫，建议穿凉鞋或拖鞋 海边风大、日照强，防晒和防风外套都要备好 滑沙中心为季节性运营（约4月初至10月初），淡季前往需提前确认是否开放 水上项目（摩托艇、香蕉船等）通常另计费，参与前问清单价",
+      "transport": "公共交通:可在秦皇岛长途汽车站乘直达班车前往黄金海岸；也可从秦皇岛海阳路长途汽车站或北戴河乘车至昌黎后转中巴前往；市内公交22路可达部分路段 自驾:自驾距北戴河约30公里、车程约40-50分钟；距秦皇岛站约50公里；距北京约300公里、车程约3.5-4小时",
       "booking": [
         {
           "name": "携程订酒店",
@@ -1014,7 +2272,71 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "沙滩免费；国际滑沙中心等项目单独售票，成人票约80元（部分渠道电子优惠价约35元，团购价约60元），儿童/老人票约50元（优惠价约35元）；海岸本身免费进入，滑沙、滑草、卡丁车等游乐项目通常含在滑沙中心门票内、一般仅可体验一次，线上购票通常比现场窗口更划算，建议提前在旅游平台比价购买。",
+      "openTimeNotes": "沙滩区域全天开放；国际滑沙中心等收费项目按季节运营，参考4月初至10月初 08:50-16:30（16:00停止检票），具体以当季公告为准",
+      "transportDetail": {
+        "publicTransit": "可在秦皇岛长途汽车站乘直达班车前往黄金海岸；也可从秦皇岛海阳路长途汽车站或北戴河乘车至昌黎后转中巴前往；市内公交22路可达部分路段",
+        "driving": "自驾距北戴河约30公里、车程约40-50分钟；距秦皇岛站约50公里；距北京约300公里、车程约3.5-4小时",
+        "parking": null
+      },
+      "tipsList": [
+        "滑沙是这里的招牌项目，从高大沙丘俯冲滑下直冲大海，体验刺激",
+        "夏季沙子被晒得很烫，建议穿凉鞋或拖鞋",
+        "海边风大、日照强，防晒和防风外套都要备好",
+        "滑沙中心为季节性运营（约4月初至10月初），淡季前往需提前确认是否开放",
+        "水上项目（摩托艇、香蕉船等）通常另计费，参与前问清单价"
+      ],
+      "nameEn": "Nandaihe Gold Coast",
+      "descEn": "The Gold Coast, next to the Nandaihe resort area in Changli County, is one of China's best natural sandy coastlines — fine sand, a gentle slope, clear water, and mild tides. Behind the beach lie genuine sand dunes, an unusual dune-meets-sea landscape. Its signature attraction is the International Sand-Sliding Center, one of the country's larger sand-sliding grounds, where visitors ride a board down the dunes toward the sea; jet skiing and banana boats are also available. The open beach itself is free; the sand-sliding center and other activity zones operate seasonally with separate tickets. It suits young travelers, families, and water-sports fans.",
+      "highlightsEn": [
+        "International Sand-Sliding Center",
+        "Natural golden beach",
+        "Coastal sand dunes",
+        "Jet skiing",
+        "Banana boat",
+        "Grass skiing"
+      ],
+      "faq": [
+        {
+          "q": "沙滩要门票吗？",
+          "a": "沙滩本身免费开放，只有进入滑沙中心等游乐项目区域才需要购票。"
+        },
+        {
+          "q": "滑沙一年四季都能玩吗？",
+          "a": "不是，滑沙中心为季节性运营，大致在4月初到10月初之间开放，冬季通常停业。"
+        },
+        {
+          "q": "和南戴河是一个地方吗？",
+          "a": "黄金海岸紧邻南戴河旅游度假区，两者地理位置相近但是不同的景区范围，常被放在同一行程中游览。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/changli1835/140358.html",
+        "https://baike.baidu.com/item/%E6%98%8C%E9%BB%8E%E5%8E%BF%E6%97%85%E6%B8%B8%E6%BB%91%E6%B2%99%E6%B4%BB%E5%8A%A8%E4%B8%AD%E5%BF%83/64099105",
+        "https://qinhuangdao.cncn.com/jingdian/nandaihe/"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Golden Beach in Changli Hebei China.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Golden_Beach_in_Changli_Hebei_China.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Golden_Beach_in_Changli_Hebei_China.jpg",
+          "license": "CC BY-SA 4.0",
+          "author": "Charlie fong",
+          "width": 4729,
+          "height": 2660
+        },
+        {
+          "title": "File:Nandaihe - panoramio.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Nandaihe_-_panoramio.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Nandaihe_-_panoramio.jpg",
+          "license": "CC BY 3.0",
+          "author": "cameramancn",
+          "width": 3456,
+          "height": 2304
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "yudao",
@@ -1023,25 +2345,26 @@
       "cat": "beach",
       "level": "4A",
       "rating": "4.5",
-      "price": "135元",
+      "price": "135元起",
       "priceNum": 135,
-      "openTime": "09:00-20:00",
+      "openTime": "暑期08:00-21:30",
       "address": "河北省秦皇岛市北戴河新区黄金海岸中部",
       "lat": 39.5997,
       "lng": 119.2888,
       "img": "images/attraction-yudao.jpg",
-      "desc": "集温泉、水上乐园、海洋娱乐于一体的大型综合度假区。室内外温泉池数十个，夏有水上乐园，冬有温泉暖浴。薰衣草庄园花季（6-8月）美如普罗旺斯。",
+      "desc": "渔岛海洋温泉景区位于北戴河新区黄金海岸中部，是一处集海水温泉、水上乐园、沙滩游乐于一体的大型综合度假区。景区拥有数十个室内外温泉池，含多种矿物质的海水温泉是其特色，夏季开放水寨、水上乐园等玩水项目，冬季则以露天泡汤为主打，形成\"夏玩水、冬泡汤\"的全年运营模式。园区内薰衣草庄园在6-8月花期盛放，是热门的拍照打卡点；此外还设有滑沙、夜场演艺等项目。整体定位偏向家庭和情侣的度假式游玩，游玩时间较长，适合安排一整天。",
       "highlights": [
         "海水温泉（含多种矿物质）",
-        "水上乐园",
-        "薰衣草庄园（6-8月）",
-        "滑沙"
+        "水上乐园/水寨",
+        "薰衣草庄园（6-8月花期）",
+        "滑沙",
+        "夜场演艺"
       ],
-      "bestSeason": "全年皆宜，夏季玩水/冬季泡温泉",
+      "bestSeason": "全年皆宜，夏季（6-8月）适合玩水和赏薰衣草，冬季适合泡温泉",
       "duration": "一整天",
       "suitableFor": "全家度假、情侣、温泉爱好者",
-      "tips": "夏季带泳衣，冬季也可泡室外温泉。薰衣草花期6-8月最美，适合拍照。门票较贵，建议提前网购折扣票。",
-      "transport": "北戴河打车约40分钟",
+      "tips": "夏季记得带泳衣，冬季也可体验室外温泉，注意保暖衣物随身携带 薰衣草花期集中在6-8月，是最佳拍照时间 门票种类较多，建议提前线上比价购买套票更划算 暑期有夜场延时开放，可安排傍晚入园避开日间高温 园区面积较大，建议安排一整天行程",
+      "transport": "公共交通:北戴河站打车约40分钟可达，暂未查到直达公交线路信息 自驾:自驾距北戴河站约30公里、车程约40分钟；距秦皇岛站约50公里；距北京约300公里、车程约3.5-4小时",
       "booking": [
         {
           "name": "携程订票",
@@ -1056,7 +2379,52 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "基础成人套票线上约135元起（含入园、沙滩、滑沙滑草、水寨等基础项目）；温泉+夜演全套联票约198元；菲奢尔海景温泉单独门票约188元；线上购票通常比现场窗口便宜约20-30元，建议提前1天在旅游平台预订；票种较多（基础套票、温泉联票、夜演联票等），出行前根据需求选择合适套票。",
+      "phone": "0335-7189559 / 0335-3159666 / 0335-3259666",
+      "openTimeNotes": "暑期（7-8月）08:00-21:30（21:00停止入场，含夜场）；旺季（4-6月、9-10月）09:00-17:30，温泉区延长至21:00；春节、国庆等节假日开放时间延长至18:30左右，具体以当日公告为准",
+      "transportDetail": {
+        "publicTransit": "北戴河站打车约40分钟可达，暂未查到直达公交线路信息",
+        "driving": "自驾距北戴河站约30公里、车程约40分钟；距秦皇岛站约50公里；距北京约300公里、车程约3.5-4小时",
+        "parking": null
+      },
+      "tipsList": [
+        "夏季记得带泳衣，冬季也可体验室外温泉，注意保暖衣物随身携带",
+        "薰衣草花期集中在6-8月，是最佳拍照时间",
+        "门票种类较多，建议提前线上比价购买套票更划算",
+        "暑期有夜场延时开放，可安排傍晚入园避开日间高温",
+        "园区面积较大，建议安排一整天行程"
+      ],
+      "nameEn": "Yudao Sea Hot Spring Resort",
+      "descEn": "Yudao is a large resort combining seawater hot springs, a water park, and beach activities at the middle of the Gold Coast in Beidaihe New District. It has dozens of indoor and outdoor mineral-rich seawater hot spring pools, water park attractions open in summer, and outdoor soaking in winter, making it a year-round destination. A lavender garden blooms from roughly June to August and is a popular photo spot; sand sliding and evening shows are also offered. It suits families and couples looking for a full-day resort-style outing.",
+      "highlightsEn": [
+        "Mineral-rich seawater hot springs",
+        "Water park",
+        "Lavender garden (June-Aug bloom)",
+        "Sand sliding",
+        "Evening shows"
+      ],
+      "faq": [
+        {
+          "q": "冬天温泉也开放吗？",
+          "a": "开放，冬季以室外温泉泡汤为主打项目，水上乐园等玩水设施则主要在夏季运营。"
+        },
+        {
+          "q": "薰衣草什么时候开？",
+          "a": "薰衣草庄园花期大致在6-8月，此时段是最佳观赏和拍照时间。"
+        },
+        {
+          "q": "门票包含温泉吗？",
+          "a": "基础套票通常不含温泉，温泉需另购温泉联票或单独门票，购票前建议看清票种说明。"
+        }
+      ],
+      "sources": [
+        "https://www.meet99.com/jingdian-yudaohaiyang-129209.html",
+        "https://youletour.com/qinhuangdao/yu-dao-hai-yang-wen-quan/goupiao",
+        "https://www.zhunaqu.com/nandaihe/article/16534",
+        "https://gs.ctrip.com/html5/you/sight/changli1835/123678.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "shenglan",
@@ -1065,25 +2433,26 @@
       "cat": "family",
       "level": "4A",
       "rating": "4.3",
-      "price": "70元",
-      "priceNum": 70,
-      "openTime": "09:00-17:30",
-      "address": "河北省秦皇岛市昌黎县大蒲河",
+      "price": "88元起",
+      "priceNum": 88,
+      "openTime": "淡旺季不同：7月1日-8月31日 08:10-18:00",
+      "address": "河北省秦皇岛市昌黎县大蒲河镇昌海大道3号",
       "lat": 39.6684,
       "lng": 119.3245,
       "img": "images/attraction-shenglan.webp",
-      "desc": "综合性海洋主题公园，拥有海底观光、海洋动物表演、4D影院、游乐设施等。海豚剧场和白鲸表演是最大亮点，与海洋动物零距离接触的互动体验深受孩子喜爱。",
+      "desc": "圣蓝海洋公园位于秦皇岛市昌黎县大蒲河镇昌海大道，是集海洋动物展演、海底观光、亲子游乐和沙滩戏水于一体的综合性海洋主题公园。园内设有海豚、白鲸表演剧场，可近距离观看驯养员与海洋哺乳动物的互动表演；此外还有海底隧道式观光通道、4D影院及多项适合儿童的游乐设施。景区紧邻沙滩，夏季可结合海水浴场一起游玩。最值得看的是海豚剧场和白鲸表演，场次有限、人气高，是南戴河片区亲子游的热门去处，适合带孩子的家庭以及海洋动物爱好者。",
       "highlights": [
         "海豚剧场",
         "白鲸表演",
         "海底隧道",
-        "4D影院"
+        "4D影院",
+        "海滨沙滩"
       ],
-      "bestSeason": "4-10月",
+      "bestSeason": "4-10月，尤其是6-8月表演场次多、可同时玩水",
       "duration": "3-4小时",
-      "suitableFor": "亲子家庭、海洋爱好者",
-      "tips": "表演场次有限，入园后先看时间表。海豚剧场最受欢迎，建议提前占座。门票可在网上提前购买折扣票。",
-      "transport": "北戴河新区打车约30分钟",
+      "suitableFor": "亲子家庭、海洋动物爱好者",
+      "tips": "入园后先查看当日表演时间表，海豚剧场和白鲸表演场次有限，建议提前占座。 门票价格在不同平台差异较大，建议提前在携程、美团等平台比价购买。 夏季可结合园内沙滩戏水一起安排，注意携带防晒和泳装。 开放时间随季节调整，出行前建议电话或在购票平台确认当日时间。",
+      "transport": "公共交通:暂未查到明确的公交线路信息，建议从北戴河或昌黎县城乘出租车/网约车前往。 自驾:从北戴河新区打车约30分钟可达；从秦皇岛市区自驾约1小时。",
       "booking": [
         {
           "name": "携程订票",
@@ -1098,7 +2467,49 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "成人票在不同平台价格不同，官方标价约88元起，网络平台常见折扣票58元起；70周岁以上老人免费；60-69周岁老人享优惠；身高1.2米以下或6周岁以下儿童免费；残疾人、军人、学生等另有优惠政策，具体以景区当日公示及购票平台说明为准。",
+      "openTimeNotes": "淡旺季不同：7月1日-8月31日 08:10-18:00；9月1日-9月30日 08:40-17:30；园内游乐设备及场馆17:00停止运营，沙滩开放09:30-17:00（出口17:20关闭）。其余月份开放时间未查到确切数据，建议出行前在官方平台确认。",
+      "transportDetail": {
+        "publicTransit": "暂未查到明确的公交线路信息，建议从北戴河或昌黎县城乘出租车/网约车前往。",
+        "driving": "从北戴河新区打车约30分钟可达；从秦皇岛市区自驾约1小时。",
+        "parking": null
+      },
+      "tipsList": [
+        "入园后先查看当日表演时间表，海豚剧场和白鲸表演场次有限，建议提前占座。",
+        "门票价格在不同平台差异较大，建议提前在携程、美团等平台比价购买。",
+        "夏季可结合园内沙滩戏水一起安排，注意携带防晒和泳装。",
+        "开放时间随季节调整，出行前建议电话或在购票平台确认当日时间。"
+      ],
+      "nameEn": "Shenglan Ocean Park",
+      "descEn": "Shenglan Ocean Park is a marine-themed park in Dapuhe, Changli County, Qinhuangdao, combining animal shows, an underwater viewing tunnel, a 4D theater and family rides. Its dolphin and beluga whale shows are the main draw, with trainers performing close-up interactions with the animals. The park sits next to a beach, making it easy to combine with seaside play in summer. It suits families with children and marine-life enthusiasts; show times are limited, so arriving early for a good seat is recommended.",
+      "highlightsEn": [
+        "Dolphin theater",
+        "Beluga whale show",
+        "Underwater tunnel",
+        "4D theater",
+        "Adjacent beach"
+      ],
+      "faq": [
+        {
+          "q": "圣蓝海洋公园门票包含表演吗？",
+          "a": "门票通常包含海豚、白鲸等常规表演场次，具体以当日公示的场次时间为准。"
+        },
+        {
+          "q": "冬季是否开放？",
+          "a": "搜索到的公开资料仅覆盖7-9月的开放时间，冬季是否正常开放及具体时间未查到确切信息，建议出行前致电或在购票平台确认。"
+        },
+        {
+          "q": "适合几岁的孩子？",
+          "a": "园内以海洋动物表演和亲子游乐设施为主，适合各年龄段儿童，1.2米以下/6周岁以下儿童可享免票。"
+        }
+      ],
+      "sources": [
+        "https://www.dahepiao.com/lvyounews1/20220708282664.html",
+        "https://www.qianggen.net/2009/tuan84941/",
+        "https://gs.ctrip.com/html5/you/sight/changli1835/1696904.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "jieshishan",
@@ -1107,25 +2518,25 @@
       "cat": "history",
       "level": "3A",
       "rating": "4.2",
-      "price": "20元",
+      "price": "20元起",
       "priceNum": 20,
-      "openTime": "08:00-17:00",
+      "openTime": "5月1日-10月6日 07:30-17:30",
       "address": "河北省秦皇岛市昌黎县城北碣石山",
       "lat": 39.7428,
       "lng": 119.1502,
       "img": "images/attraction-jieshishan.jpg",
-      "desc": "千古名山！曹操\"东临碣石，以观沧海\"即在此所作。主峰仙台顶海拔695米，登顶可俯瞰渤海。秦始皇、汉武帝、唐太宗等帝王均曾登临碣石，是中国古代帝王祭海的名山。",
+      "desc": "碣石山位于秦皇岛市昌黎县城北，主峰仙台顶海拔695米，是华北地区少有的濒海高山，也是中国古代帝王祭海巡狩的名山。东汉末年曹操北征乌桓凯旋途中登临此山，写下\"东临碣石，以观沧海\"的名句，山上至今立有\"曹操观海处\"石刻。此外秦始皇、汉武帝、隋炀帝、唐太宗等多位帝王均曾登临碣石山祭海求仙，山中留有水岩寺、碣石门等古迹。登顶仙台顶可俯瞰渤海及昌黎黄金海岸，天气晴好时视野开阔。景区以登山览胜、访古怀今为主，适合喜欢历史文化和户外登山的游客，全程登顶约需2小时，有一定体力要求。",
       "highlights": [
         "仙台顶（观海最佳点）",
         "水岩寺",
         "碣石门",
-        "曹操观海处"
+        "曹操观海处石刻"
       ],
-      "bestSeason": "4-10月，秋季登高望远最佳",
+      "bestSeason": "4-10月，秋季天气晴朗时登高望远视野最佳",
       "duration": "3-4小时",
       "suitableFor": "登山爱好者、历史文化爱好者",
-      "tips": "登山约2小时，需一定体力。登顶可远眺渤海，天气好时视野极佳。山上无商店，自带水和干粮。",
-      "transport": "昌黎县城打车约30分钟",
+      "tips": "登山全程约2小时，需一定体力，建议穿舒适的运动鞋。 山上商店较少，自备饮用水和干粮。 登顶后视野开阔可远眺渤海，建议选择晴天前往。 秋季气候凉爽、能见度较高，是登高望远的较佳时段。",
+      "transport": "公共交通:暂未查到直达公交班线信息，建议先到昌黎县城再换乘出租车/网约车前往。 自驾:从昌黎县城打车约30分钟可达；从秦皇岛市区自驾约1小时。",
       "booking": [
         {
           "name": "携程订票",
@@ -1135,7 +2546,48 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "20元；不同渠道也有显示24元的报价；具体老人、儿童、学生等优惠政策未查到明确公示，建议购票前在携程等平台或现场售票处核实最新优惠及联票信息。",
+      "openTimeNotes": "5月1日-10月6日 07:30-17:30（17:30停止入场）；10月7日-12月31日 08:30-17:30（17:30停止入场）；1-4月开放时间未查到确切数据。",
+      "transportDetail": {
+        "publicTransit": "暂未查到直达公交班线信息，建议先到昌黎县城再换乘出租车/网约车前往。",
+        "driving": "从昌黎县城打车约30分钟可达；从秦皇岛市区自驾约1小时。",
+        "parking": null
+      },
+      "tipsList": [
+        "登山全程约2小时，需一定体力，建议穿舒适的运动鞋。",
+        "山上商店较少，自备饮用水和干粮。",
+        "登顶后视野开阔可远眺渤海，建议选择晴天前往。",
+        "秋季气候凉爽、能见度较高，是登高望远的较佳时段。"
+      ],
+      "nameEn": "Jieshi Mountain",
+      "descEn": "Jieshi Mountain, north of Changli County, rises to 695 meters at its main peak, Xiantai Ding. It is one of the few mountains near the Bohai coast that Chinese emperors historically climbed to worship the sea, most famously Cao Cao, who wrote his poem \"Gazing at the Sea from Jieshi\" here after a campaign in 207 CE. Qin Shi Huang, Emperor Wu of Han and other rulers also visited. The mountain holds old temple ruins and stone inscriptions, and the summit offers views over the Bohai Sea and Changli's Golden Coast. It suits hikers and history enthusiasts; reaching the top takes about two hours on foot.",
+      "highlightsEn": [
+        "Xiantai Ding summit",
+        "Shuiyan Temple ruins",
+        "Jieshi Gate",
+        "Cao Cao's sea-viewing stone"
+      ],
+      "faq": [
+        {
+          "q": "碣石山门票多少钱？",
+          "a": "公开资料显示门票约20元，个别平台标价24元，建议以景区当日公示为准。"
+        },
+        {
+          "q": "登顶大概需要多长时间？",
+          "a": "全程步行登顶约需2小时，山路有一定坡度，需适度体力。"
+        },
+        {
+          "q": "山上有没有吃饭、补给的地方？",
+          "a": "山上商店较少，建议自带水和干粮。"
+        }
+      ],
+      "sources": [
+        "https://you.ctrip.com/sight/changli1835/13484.html",
+        "https://www.clxzf.gov.cn/single/21/1839.html",
+        "https://touch.piao.qunar.com/touch/detail_10185.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "weilanhaian",
@@ -1151,18 +2603,18 @@
       "lat": 39.7719,
       "lng": 119.4025,
       "img": "images/attraction-weilanhaian.jpg",
-      "desc": "新兴文艺海岸社区。猫的天空之城书店+海边秋千+冲浪，是近年新晋网红打卡地。沙滩干净人少，比北戴河更安静，适合休闲度假和文艺拍照。",
+      "desc": "蔚蓝海岸是秦皇岛北戴河新区一处近年兴起的文艺海滨社区，紧邻南戴河，以\"猫的天空之城\"概念书店、海边秋千和冲浪体验为主要打卡点。这里没有大型景区式的收费入口，本质上是一片开放式的海滨生活区，沙滩相对干净、游客密度低于传统的北戴河海滨，氛围更安静休闲。猫的天空之城书店集合书籍、咖啡、文创产品，并提供\"寄给未来的自己\"明信片服务，是社交媒体上的热门拍照地；海边秋千在黄昏时分出片效果尤佳。适合喜欢安静度假、摄影打卡和文艺氛围的游客，尤其受情侣和年轻游客青睐。",
       "highlights": [
         "猫的天空之城书店",
         "海边秋千",
         "冲浪体验",
-        "网红打卡点"
+        "安静的海滨沙滩"
       ],
-      "bestSeason": "5-10月",
+      "bestSeason": "5-10月，夏季适合海边活动，傍晚时段光线最佳",
       "duration": "半天",
       "suitableFor": "文艺青年、情侣、摄影爱好者",
-      "tips": "猫的天空之城书店可以寄明信片给未来的自己。海边秋千拍照很出片，建议黄昏时分去。人比北戴河少很多，体验更好。",
-      "transport": "北戴河站打车约20分钟",
+      "tips": "猫的天空之城书店可以购买明信片寄给未来的自己，是热门体验项目。 海边秋千建议黄昏时段前往，光线和背景更适合拍照。 相比传统北戴河海滨，这里人少、更安静，适合悠闲漫步。 冲浪等水上项目建议提前联系当地商户确认价格和时段。",
+      "transport": "公共交通:暂未查到直达公交线路信息，建议从北戴河站乘出租车/网约车前往。 自驾:从北戴河站打车约20分钟可达。",
       "booking": [
         {
           "name": "携程订酒店",
@@ -1172,7 +2624,47 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "免费（公共海滨区域），书店、冲浪等具体项目需单独付费；区域本身不设门票，书店消费、冲浪教学、餐饮等按各商户标价单独收费，具体价格未查到公开统一数据。",
+      "openTimeNotes": "全天开放（公共海滨区域）；猫的天空之城书店等商户营业时间以各店铺公示为准，未查到具体时段。",
+      "transportDetail": {
+        "publicTransit": "暂未查到直达公交线路信息，建议从北戴河站乘出租车/网约车前往。",
+        "driving": "从北戴河站打车约20分钟可达。",
+        "parking": null
+      },
+      "tipsList": [
+        "猫的天空之城书店可以购买明信片寄给未来的自己，是热门体验项目。",
+        "海边秋千建议黄昏时段前往，光线和背景更适合拍照。",
+        "相比传统北戴河海滨，这里人少、更安静，适合悠闲漫步。",
+        "冲浪等水上项目建议提前联系当地商户确认价格和时段。"
+      ],
+      "nameEn": "Weilan Coast (Blue Coast)",
+      "descEn": "Weilan Coast is a newer, low-key seaside community in Beidaihe New District, next to Nandaihe, known for the \"Bookstore of the Sky\" (Mao de Tiankong Zhicheng) concept bookstore, beach swings and surfing. There is no single ticketed entrance — it functions as an open coastal area with a quieter, less crowded beach than the traditional Beidaihe waterfront. The bookstore offers books, coffee, and a postcard-to-your-future-self service, and is popular for photos, especially at dusk near the beach swings. It suits couples, photography fans and travelers looking for a relaxed, artsy alternative to the busier beach resorts.",
+      "highlightsEn": [
+        "Sky bookstore",
+        "Beach swing",
+        "Surfing",
+        "Quieter beach"
+      ],
+      "faq": [
+        {
+          "q": "蔚蓝海岸需要门票吗？",
+          "a": "公共海滨区域免费开放，园区内书店、冲浪等具体项目单独收费。"
+        },
+        {
+          "q": "和阿那亚是同一个地方吗？",
+          "a": "不是，阿那亚是昌黎黄金海岸另一处知名文旅社区，与北戴河新区的蔚蓝海岸是不同项目，容易混淆，出行前请确认目的地名称。"
+        },
+        {
+          "q": "适合带小孩去吗？",
+          "a": "整体氛围安静休闲，沙滩适合亲子漫步，但缺乏大型游乐设施，更适合以拍照、休闲为主的家庭。"
+        }
+      ],
+      "sources": [
+        "https://travel.qunar.com/p-oi19586205-maodetiankongzhicheng",
+        "https://piao.qunar.com/ticket/detail_2286180276.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "xianluodao",
@@ -1181,25 +2673,26 @@
       "cat": "beach",
       "level": "4A",
       "rating": "4.6",
-      "price": "35元",
-      "priceNum": 35,
-      "openTime": "08:00-17:30",
-      "address": "河北省秦皇岛市抚宁区南戴河仙螺岛",
+      "price": "80元起",
+      "priceNum": 80,
+      "openTime": "09:00-19:00",
+      "address": "河北省秦皇岛市抚宁区南戴河旅游度假区环海路1号",
       "lat": 39.791,
       "lng": 119.4371,
       "img": "images/attraction-xianluodao.jpg",
-      "desc": "南戴河标志性海岛景区，通过跨海索道登岛。岛上有观海长廊、海上游乐项目，索道往返千米跨海，俯瞰碧海金沙，体验独特。是南戴河必打卡景点。",
+      "desc": "仙螺岛是秦皇岛南戴河旅游度假区标志性的海岛景区，位于河北省秦皇岛市抚宁区南戴河环海路。游客需乘坐长约1038米的跨海索道往返海岸与海岛之间，单程约15分钟，是景区最大的特色项目，索道全程可俯瞰碧海金沙的海岛全景。岛上设有观海长廊及多种海上游乐项目，如海上蹦极、游船、旋转出租车、豪华转马、海盗船等，多数需另行付费。景区整体以\"跨海索道+海岛观光+海上游乐\"为核心体验，是南戴河片区的必打卡景点之一，适合全家出游、情侣及喜欢拍照打卡的游客，恐高人群乘坐索道需谨慎。",
       "highlights": [
-        "跨海索道（千米）",
+        "跨海索道（约1038米）",
         "观海长廊",
-        "海上游乐",
+        "海上蹦极",
+        "游船体验",
         "海岛全景"
       ],
-      "bestSeason": "5-10月",
+      "bestSeason": "5-10月，夏季适合海上游乐项目",
       "duration": "2-3小时",
       "suitableFor": "全家出游、情侣、拍照打卡",
-      "tips": "跨海索道是最大亮点，恐高者慎坐。建议晴天去，海景最美。门票含索道往返，性价比不错。",
-      "transport": "南戴河乘公交或打车约10分钟",
+      "tips": "跨海索道是最大亮点，也是登岛的主要方式，恐高者需谨慎乘坐。 岛上海上蹦极、游船等项目均需单独付费，预算游玩项目时需留出额外费用。 建议选择晴天前往，海景视野和拍照效果更好。 索道往返约15分钟，出行前留出足够的排队和候乘时间。",
+      "transport": "公共交通:暂未查到直达公交线路信息，建议从南戴河片区乘出租车/网约车前往。 自驾:从南戴河景区内打车约10分钟可达。",
       "booking": [
         {
           "name": "携程订票",
@@ -1214,7 +2707,60 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "门票含往返索道约80元；海上蹦极另收240元/人，游船另收80元/人，旋转出租车、豪华转马、海盗船等游乐项目约35元/人；门票通常含跨海索道往返，岛上蹦极、游船及各类游乐设施均需单独购票；具体老人/儿童优惠政策未查到明确公示，建议购票前核实。",
+      "openTimeNotes": "查到的公开数据为7月10日-12月31日期间 09:00-19:00，其余月份开放时间未查到确切数据，建议出行前在购票平台或景区确认。",
+      "transportDetail": {
+        "publicTransit": "暂未查到直达公交线路信息，建议从南戴河片区乘出租车/网约车前往。",
+        "driving": "从南戴河景区内打车约10分钟可达。",
+        "parking": null
+      },
+      "tipsList": [
+        "跨海索道是最大亮点，也是登岛的主要方式，恐高者需谨慎乘坐。",
+        "岛上海上蹦极、游船等项目均需单独付费，预算游玩项目时需留出额外费用。",
+        "建议选择晴天前往，海景视野和拍照效果更好。",
+        "索道往返约15分钟，出行前留出足够的排队和候乘时间。"
+      ],
+      "nameEn": "Xianluo Island",
+      "descEn": "Xianluo Island is a landmark island scenic area in the Nandaihe resort district of Funing, Qinhuangdao. Visitors reach the island via a roughly 1,038-meter cross-sea cable car (about 15 minutes each way), which offers panoramic views of the coastline. The island has a seaside viewing promenade and several paid attractions, including sea bungee jumping, boat rides, a rotating car ride, a carousel and a pirate ship. The cable car crossing is the main highlight and makes this a popular stop in Nandaihe, suited to families, couples and photo-focused visitors; those afraid of heights should be cautious on the cable car.",
+      "highlightsEn": [
+        "Cross-sea cable car (~1,038m)",
+        "Sea-view promenade",
+        "Sea bungee jumping",
+        "Boat rides",
+        "Island panorama"
+      ],
+      "faq": [
+        {
+          "q": "仙螺岛门票包含哪些项目？",
+          "a": "门票通常含跨海索道往返，蹦极、游船、各类游乐设施等均需现场单独购票。"
+        },
+        {
+          "q": "索道安全吗？恐高能坐吗？",
+          "a": "索道是常规跨海观光索道，安全性有保障，但全程悬空海面，恐高人群需自行评估是否乘坐。"
+        },
+        {
+          "q": "冬季还开放吗？",
+          "a": "查到的公开时间数据仅覆盖7-12月，冬季（1-6月）是否正常开放及具体时间未查到确切信息，建议提前咨询。"
+        }
+      ],
+      "sources": [
+        "https://www.dahepiao.com/lvyounews1/20220708282795.html",
+        "https://www.beidaihe186.com/ndh_jd_xld154.php",
+        "https://www.beidaihe186.com/bdh_jd_xld15.php"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Nandaihe - panoramio.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Nandaihe_-_panoramio.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Nandaihe_-_panoramio.jpg",
+          "license": "CC BY 3.0",
+          "author": "cameramancn",
+          "width": 3456,
+          "height": 2304
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "nanent",
@@ -1223,25 +2769,26 @@
       "cat": "family",
       "level": "4A",
       "rating": "4.3",
-      "price": "100元",
-      "priceNum": 100,
-      "openTime": "08:30-17:30",
-      "address": "河北省秦皇岛市抚宁区南戴河",
+      "price": "29元起",
+      "priceNum": 29,
+      "openTime": "5月1日-6月30日 08:30-17:30",
+      "address": "河北省秦皇岛市抚宁区南戴河旅游度假区沿海路999号",
       "lat": 39.7355,
       "lng": 119.3546,
       "img": "images/attraction-nanent.jpg",
-      "desc": "大型综合游乐场，过山车+摩天轮+水上世界，适合年轻人。园区面积大，游乐设施丰富，是南戴河传统的大型游乐目的地，适合追求刺激的年轻人和家庭。",
+      "desc": "南戴河国际娱乐中心位于河北省秦皇岛市抚宁区南戴河旅游度假区，是南戴河片区历史较久、规模较大的综合性游乐场，以过山车、摩天轮、水上世界等大型机械游乐设施为主，是当地传统的度假游乐目的地。2025年景区对多个项目进行了升级，新增或改造了观海摩天轮、球幕视界、魔环过山车、挑战者之旅、太空梭等项目，进一步丰富了游玩内容。园区面积较大，游乐设施类型多样，兼顾刺激类和亲子类项目，适合追求刺激体验的年轻人以及带孩子出游的家庭。旺季（尤其暑期）游客较多，建议尽量避开周末、早入园以减少排队时间。",
       "highlights": [
-        "过山车",
-        "摩天轮",
+        "观海摩天轮",
+        "魔环过山车",
+        "球幕视界",
         "水上世界",
-        "大型游乐设施"
+        "挑战者之旅"
       ],
-      "bestSeason": "5-10月",
+      "bestSeason": "5-10月，暑期项目最全但人流量也最大",
       "duration": "一整天",
       "suitableFor": "年轻人、亲子家庭、游乐爱好者",
-      "tips": "园区较大，建议早点入园多玩项目。暑期人多排队时间长，非周末去体验更好。网上提前购票有折扣。",
-      "transport": "南戴河乘公交或打车",
+      "tips": "园区面积较大，建议早点入园，合理规划游玩顺序，多体验几个大项目。 暑期周末人流量大、排队时间长，建议错峰选择工作日出行。 网上提前购票通常比现场购票更划算，建议提前在票务平台比价。 开放时间随季节和节假日调整较大，出行前建议在购票平台或官方渠道确认当日时间。",
+      "transport": "公共交通:暂未查到直达公交线路信息，建议从南戴河片区乘出租车/网约车前往。 自驾:从南戴河景区内打车即可到达；从秦皇岛市区自驾约1小时。",
       "booking": [
         {
           "name": "携程订票",
@@ -1256,7 +2803,49 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "门票价格随季节和项目组合浮动，团购渠道优惠价格低至29元起，具体以购票平台当日显示为准；免费：6周岁以下或身高1.2米以下儿童、70周岁以上老人、现役军人、残疾人、消防救援人员及\"英才A卡\"持有人；半价：6-18周岁儿童、全日制本科及以下学历学生、60-69周岁老人、残疾人。具体票种及是否含全部游乐项目建议购票前核实。",
+      "openTimeNotes": "2025年公示时间：5月1日-6月30日 08:30-17:30；7月1日-8月25日 08:00-18:00；8月26日-8月31日 08:30-18:00；9月1日-10月7日 09:00-17:30；劳动节/端午节/中秋节/国庆节等假期 08:00-18:00。11月-次年4月是否开放及具体时间未查到确切数据。",
+      "transportDetail": {
+        "publicTransit": "暂未查到直达公交线路信息，建议从南戴河片区乘出租车/网约车前往。",
+        "driving": "从南戴河景区内打车即可到达；从秦皇岛市区自驾约1小时。",
+        "parking": null
+      },
+      "tipsList": [
+        "园区面积较大，建议早点入园，合理规划游玩顺序，多体验几个大项目。",
+        "暑期周末人流量大、排队时间长，建议错峰选择工作日出行。",
+        "网上提前购票通常比现场购票更划算，建议提前在票务平台比价。",
+        "开放时间随季节和节假日调整较大，出行前建议在购票平台或官方渠道确认当日时间。"
+      ],
+      "nameEn": "Nandaihe International Amusement Center",
+      "descEn": "Nandaihe International Amusement Center, in the Nandaihe resort area of Funing, Qinhuangdao, is one of the region's older and larger amusement parks, built around roller coasters, a Ferris wheel and a water park. In 2025 the park upgraded several attractions, including a sea-view Ferris wheel, a dome-screen theater, a themed roller coaster, a challenge ride and a space-shuttle-style ride. With a large footprint and a mix of thrill rides and family-friendly attractions, it suits both younger visitors seeking excitement and families with children. Lines can be long during peak summer weekends, so an early, weekday visit is recommended.",
+      "highlightsEn": [
+        "Sea-view Ferris wheel",
+        "Themed roller coaster",
+        "Dome-screen theater",
+        "Water park",
+        "Challenger ride"
+      ],
+      "faq": [
+        {
+          "q": "南戴河国际娱乐中心门票多少钱？",
+          "a": "票价随季节、渠道浮动较大，团购价格低至29元起，具体以购票平台当日公示为准，未查到统一官方定价。"
+        },
+        {
+          "q": "冬季是否开放？",
+          "a": "查到的公开数据仅覆盖5-10月，冬季开放情况未查到确切信息，建议出行前咨询确认。"
+        },
+        {
+          "q": "适合小孩子玩吗？",
+          "a": "园区既有刺激类大型机械设施，也有相对温和的亲子项目，可根据孩子年龄和身高选择适合的项目。"
+        }
+      ],
+      "sources": [
+        "https://www.dahepiao.com/lvyounews1/20240606468860.html",
+        "https://www.dahepiao.com/lvyounews1/20240606468914.html",
+        "https://baike.baidu.com/item/%E5%8D%97%E6%88%B4%E6%B2%B3%E5%9B%BD%E9%99%85%E5%A8%B1%E4%B9%90%E4%B8%AD%E5%BF%83/9495685"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "zushan",
@@ -1265,25 +2854,25 @@
       "cat": "nature",
       "level": "4A",
       "rating": "4.6",
-      "price": "65元",
-      "priceNum": 65,
-      "openTime": "08:00-17:00",
+      "price": "80元",
+      "priceNum": 80,
+      "openTime": "全年 08:00-17:00，15:00停止入园",
       "address": "河北省秦皇岛市青龙满族自治县祖山",
       "lat": 40.114,
       "lng": 119.528,
       "img": "images/attraction-zushan.jpg",
-      "desc": "素有\"北方群山之祖\"之称，主峰天女峰海拔1428米。原始森林覆盖率达96%，负氧离子浓度极高。春有杜鹃花海，夏可避暑纳凉，秋赏红叶满山，冬观雾凇冰挂。云海日出堪称一绝。",
+      "desc": "祖山风景区位于河北省秦皇岛市青龙满族自治县，渤海北岸、燕山南麓，主峰天女峰海拔1428米，素有\"塞北小黄山\"\"北方群山之祖\"之称，是国家级风景名胜区、国家地质公园。景区原始森林覆盖率高，负氧离子浓度大，春季杜鹃花漫山遍野，夏季清凉避暑，秋季红叶层林尽染，冬季可见雾凇冰挂，四季景观各异，云海日出是天女峰最负盛名的景观。景区主要看点包括天女峰、十里画廊、画廊谷、情人谷等，步道以山地徒步和索道观光结合。适合登山爱好者、摄影爱好者及夏季避暑的游客，体力一般者可选择乘坐索道上山、步行下山。",
       "highlights": [
         "天女峰（云海日出）",
         "十里画廊",
         "画廊谷",
         "情人谷"
       ],
-      "bestSeason": "4-10月，秋季红叶最美",
+      "bestSeason": "4-10月，秋季红叶最美，5月可赏杜鹃花海",
       "duration": "一整天",
-      "suitableFor": "登山爱好者、摄影爱好者、避暑度假",
-      "tips": "想看云海日出需前一天住山脚民宿，凌晨4点出发登顶。体力一般建议坐缆车上山（单程60元），步行下山。秋季红叶最美。",
-      "transport": "秦皇岛市区打车约1小时",
+      "suitableFor": "登山爱好者、摄影爱好者、避暑度假游客",
+      "tips": "想看云海日出建议前一晚入住山脚民宿，凌晨出发登顶天女峰。 体力一般建议乘索道上山、步行下山，兼顾体验与体力消耗。 秋季红叶最美，是摄影爱好者出行的热门时段；春季杜鹃花海也值得专程前往。 冬季有19.9元特惠票（含门票+观光车），但索道及部分景点是否照常开放需提前确认。",
+      "transport": "公共交通:暂未查到直达公交班线信息，建议先到青龙县城再换乘出租车/网约车前往。 自驾:从秦皇岛市区打车约1小时可达。",
       "booking": [
         {
           "name": "携程订票",
@@ -1298,7 +2887,48 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "散客门票80元，半价票40元；门票+观光车套票120元；门票+观光车+单程索道160元；门票+观光车+往返索道210元；索道单程80元/往返130元；冬季（12月-次年2月）特惠票19.9元（含门票+观光车）；半价票及老人、儿童、学生等优惠政策的具体适用条件未查到统一公示，建议购票前核实；索道、观光车均可与门票组合购买套票。",
+      "openTimeNotes": "全年 08:00-17:00，15:00停止入园（另有个别来源显示15:30停止入场，建议以景区当日公示为准）",
+      "transportDetail": {
+        "publicTransit": "暂未查到直达公交班线信息，建议先到青龙县城再换乘出租车/网约车前往。",
+        "driving": "从秦皇岛市区打车约1小时可达。",
+        "parking": null
+      },
+      "tipsList": [
+        "想看云海日出建议前一晚入住山脚民宿，凌晨出发登顶天女峰。",
+        "体力一般建议乘索道上山、步行下山，兼顾体验与体力消耗。",
+        "秋季红叶最美，是摄影爱好者出行的热门时段；春季杜鹃花海也值得专程前往。",
+        "冬季有19.9元特惠票（含门票+观光车），但索道及部分景点是否照常开放需提前确认。"
+      ],
+      "nameEn": "Zushan Scenic Area",
+      "descEn": "Zushan Scenic Area lies in Qinglong Manchu Autonomous County, Qinhuangdao, on the southern slope of the Yan Mountains near the Bohai coast. Its main peak, Tiannv Feng, rises to 1,428 meters and is nicknamed the \"Little Huangshan of the north\" for its forested peaks and sea of clouds at sunrise. The area is a national scenic and geological park with old-growth forest, azaleas in spring, cool summer air, red foliage in autumn and rime ice in winter. Highlights include Tiannv Feng peak, the Ten-Li Gallery and Gallery Valley. It suits hikers and photographers; visitors with average fitness often take the cable car up and walk down.",
+      "highlightsEn": [
+        "Tiannv Feng (sea of clouds)",
+        "Ten-Li Gallery",
+        "Gallery Valley",
+        "Lovers' Valley"
+      ],
+      "faq": [
+        {
+          "q": "祖山门票多少钱？",
+          "a": "散客门票80元，半价票40元；如需观光车和索道需另购或购买组合套票，往返索道套票210元。"
+        },
+        {
+          "q": "看云海日出需要怎么安排？",
+          "a": "建议前一天入住山脚民宿，凌晨4点左右出发登顶天女峰，以赶上日出时段。"
+        },
+        {
+          "q": "冬季能不能去？",
+          "a": "冬季（12月-次年2月）推出19.9元特惠票（含门票+观光车），但具体索道运营及步道开放情况建议提前咨询景区。"
+        }
+      ],
+      "sources": [
+        "https://www.sina.cn/news/detail/5229534720036520.html",
+        "https://you.ctrip.com/sight/qinglong2540/67457.html",
+        "https://www.chinaqinglong.gov.cn/single/6/28035.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "bingtangyu",
@@ -1307,25 +2937,25 @@
       "cat": "nature",
       "level": "4A",
       "rating": "4.4",
-      "price": "80元",
-      "priceNum": 80,
-      "openTime": "08:00-17:00",
-      "address": "河北省秦皇岛市抚宁区冰塘峪",
+      "price": "50元",
+      "priceNum": 50,
+      "openTime": "4月1日-10月31日 08:00-18:00",
+      "address": "河北省秦皇岛市抚宁区大新寨镇冰塘峪（梁家湾村）",
       "lat": 40.1054,
       "lng": 119.3582,
       "img": "images/attraction-bingtangyu.jpg",
-      "desc": "因峡谷中夏季仍有冰瀑而得名——夏季三伏天谷内仍有残冰，是北方罕见的地质奇观。峡谷两侧长城蜿蜒，溪流潺潺，玻璃栈道悬于峭壁之上，惊险刺激。",
+      "desc": "冰塘峪大峡谷（全名冰塘峪长城风情大峡谷）位于河北省秦皇岛市抚宁区大新寨镇梁家湾村，坐落在明长城脚下，因峡谷夏季三伏天仍有残冰不化而得名，是北方地区较为罕见的地质奇观。峡谷两侧可见明长城遗迹蜿蜒而过，谷内溪流潺潺，并建有约200米长的悬崖玻璃栈道，惊险刺激；此外还有峡谷漂流项目，适合夏季戏水降温。景区整体以避暑纳凉、峡谷探险和长城人文为特色，夏季谷内气温明显低于谷外，是当地知名的避暑目的地，也吸引了不少外国游客前来体验。适合探险爱好者、亲子家庭以及夏季避暑的游客，恐高人群需谨慎体验玻璃栈道。",
       "highlights": [
-        "夏季冰瀑奇观",
-        "玻璃栈道（长200米）",
+        "夏季残冰奇观",
+        "悬崖玻璃栈道（约200米）",
         "峡谷漂流",
-        "长城遗迹"
+        "明长城遗迹"
       ],
-      "bestSeason": "6-8月夏季（看冰瀑+避暑）",
+      "bestSeason": "6-8月夏季，可同时看冰瀑奇观和避暑纳凉",
       "duration": "3-4小时",
-      "suitableFor": "探险爱好者、亲子、避暑纳凉",
-      "tips": "夏天去最合适，峡谷内比外面凉快10℃。玻璃栈道恐高慎入。带一套换洗衣物，峡谷漂流会湿身。",
-      "transport": "秦皇岛市区打车约1小时",
+      "suitableFor": "探险爱好者、亲子家庭、夏季避暑游客",
+      "tips": "夏天前往体验最佳，峡谷内比谷外气温低约10℃，是避暑纳凉的好去处。 玻璃栈道悬于峭壁之上，恐高人群需谨慎体验。 峡谷漂流会弄湿衣物，建议自备一套换洗衣服。 门票和开放时间随季节浮动，出行前建议致电景区或在购票平台确认当日信息。",
+      "transport": "公共交通:暂未查到直达公交线路信息，建议从秦皇岛市区乘出租车/网约车前往。 自驾:从秦皇岛市区打车约1小时可达。",
       "booking": [
         {
           "name": "携程订票",
@@ -1340,7 +2970,49 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "原价50元，据部分渠道信息现场/团购价格可低至15元，价格波动较大且来源不完全一致；玻璃栈道、峡谷漂流等项目是否包含在门票内或需单独购票，未查到明确公示，建议购票前向景区确认；具体老人、儿童优惠政策未查到统一数据。",
+      "phone": "0335-6388888",
+      "openTimeNotes": "4月1日-10月31日 08:00-18:00；11月1日-次年3月31日 08:00-17:00，具体停止入园时间各来源不一（16:00或17:00），建议出行前向景区核实。",
+      "transportDetail": {
+        "publicTransit": "暂未查到直达公交线路信息，建议从秦皇岛市区乘出租车/网约车前往。",
+        "driving": "从秦皇岛市区打车约1小时可达。",
+        "parking": null
+      },
+      "tipsList": [
+        "夏天前往体验最佳，峡谷内比谷外气温低约10℃，是避暑纳凉的好去处。",
+        "玻璃栈道悬于峭壁之上，恐高人群需谨慎体验。",
+        "峡谷漂流会弄湿衣物，建议自备一套换洗衣服。",
+        "门票和开放时间随季节浮动，出行前建议致电景区或在购票平台确认当日信息。"
+      ],
+      "nameEn": "Bingtangyu Great Wall Canyon",
+      "descEn": "Bingtangyu Great Wall Canyon sits at the foot of the Ming Great Wall in Liangjiawan village, Funing District, Qinhuangdao. It is named for patches of ice that reportedly survive in the canyon even during the hottest summer days, an unusual sight for a site at this latitude. Great Wall ruins run along the canyon's ridges, and the site features a roughly 200-meter glass skywalk over the cliffs plus a river-rafting activity. The canyon stays noticeably cooler than the surrounding area in summer, making it a popular local escape from the heat and drawing a growing number of international visitors. It suits adventure seekers, families and anyone looking to cool off in summer; the glass skywalk may not suit those afraid of heights.",
+      "highlightsEn": [
+        "Summer ice patches",
+        "Cliff glass skywalk (~200m)",
+        "Canyon rafting",
+        "Ming Great Wall ruins"
+      ],
+      "faq": [
+        {
+          "q": "为什么叫冰塘峪？",
+          "a": "因峡谷内在三伏天仍有残冰不化的地质现象而得名，是当地较为罕见的自然奇观。"
+        },
+        {
+          "q": "玻璃栈道安全吗？",
+          "a": "栈道为景区常规观光设施，安全性有保障，但架设于悬崖峭壁之上，恐高人群需自行评估是否体验。"
+        },
+        {
+          "q": "峡谷漂流是否单独收费？",
+          "a": "具体票务组合未查到明确公示，建议购票或到达景区后向售票处确认。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/1730089.html",
+        "https://m.hebeitour.com.cn/c/2021-11-12/508608.html",
+        "https://www.chinafuning.gov.cn/single/179/67779.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "banchangyu",
@@ -1349,25 +3021,25 @@
       "cat": "history",
       "level": "3A",
       "rating": "4.5",
-      "price": "50元",
+      "price": "50元起",
       "priceNum": 50,
-      "openTime": "08:00-17:00",
-      "address": "河北省秦皇岛市海港区驻操营镇板厂峪",
+      "openTime": "全年 08:00-17:00",
+      "address": "河北省秦皇岛市海港区驻操营镇板厂峪村",
       "lat": 40.226,
       "lng": 119.5628,
       "img": "images/attraction-banchangyu.jpg",
-      "desc": "明朝修筑长城的\"后勤基地\"。2002年出土了600座明代砖窑遗址和世界唯一的\"斑鬣狗\"化石。倒挂长城段险峻壮丽，是长城摄影的宝藏取景地。秋季红叶与长城交织如画。",
+      "desc": "板厂峪长城景区（板厂峪长城文化公园）位于河北省秦皇岛市海港区驻操营镇板厂峪村，距秦皇岛市区约29公里，是明代修筑长城时的\"后勤基地\"，因发现全国规模最大的明代长城砖窑遗址群而闻名。2002年在此出土约600座明代砖窑遗址，同时还发现了世界上唯一的\"斑鬣狗\"化石，景区内设有相关化石展览。园区内长城因山势起伏形成独特的\"倒挂长城\"段，险峻壮丽，是长城摄影爱好者的重要取景地；此外还有天然寺、灵仙洞、一线天、九道缸瀑布等自然人文景点。秋季红叶与古长城交相辉映，景色尤佳。景区是省级风景名胜区，也是世界徒步协会健走基地，适合长城爱好者、摄影爱好者和对明代军事、考古历史感兴趣的游客。",
       "highlights": [
-        "明代砖窑遗址群（全国唯一）",
+        "明代长城砖窑遗址群",
         "倒挂长城",
         "斑鬣狗化石展览",
-        "秋季红叶"
+        "秋季红叶长城"
       ],
-      "bestSeason": "4-10月，秋季红叶最美",
+      "bestSeason": "4-10月，秋季红叶与长城相映最美",
       "duration": "3-4小时",
-      "suitableFor": "长城爱好者、摄影爱好者、考古迷",
-      "tips": "明代砖窑遗址群是全国唯一的发现，非常珍贵。倒挂长城段适合拍照，但路况较险注意安全。秋季红叶和长城搭配绝美。",
-      "transport": "秦皇岛市区打车约50分钟",
+      "suitableFor": "长城爱好者、摄影爱好者、历史考古爱好者",
+      "tips": "明代砖窑遗址群是全国规模最大的发现，具有较高的考古价值，参观时可留意讲解或说明牌。 倒挂长城段路况较险，适合拍照但需注意脚下安全。 秋季红叶与长城搭配景色极佳，是摄影出行的推荐时段。 景区包含天然寺、灵仙洞、九道缸瀑布等多个分散景点，游览前建议规划好路线。",
+      "transport": "公共交通:暂未查到直达公交线路信息，建议从秦皇岛市区乘出租车/网约车前往。 自驾:从秦皇岛市区打车约50分钟可达，距市区约29公里。",
       "booking": [
         {
           "name": "携程订票",
@@ -1382,7 +3054,77 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "门票约50元起，不同渠道及套票价格有差异，个别来源显示100元，建议以景区当日公示为准；具体老人、儿童、学生等优惠政策及是否含化石展览、观光车等项目未查到统一公示，建议购票前核实。",
+      "phone": "0335-6890666",
+      "transportDetail": {
+        "publicTransit": "暂未查到直达公交线路信息，建议从秦皇岛市区乘出租车/网约车前往。",
+        "driving": "从秦皇岛市区打车约50分钟可达，距市区约29公里。",
+        "parking": null
+      },
+      "tipsList": [
+        "明代砖窑遗址群是全国规模最大的发现，具有较高的考古价值，参观时可留意讲解或说明牌。",
+        "倒挂长城段路况较险，适合拍照但需注意脚下安全。",
+        "秋季红叶与长城搭配景色极佳，是摄影出行的推荐时段。",
+        "景区包含天然寺、灵仙洞、九道缸瀑布等多个分散景点，游览前建议规划好路线。"
+      ],
+      "nameEn": "Banchangyu Great Wall Scenic Area",
+      "descEn": "Banchangyu Great Wall Scenic Area sits about 29 km from downtown Qinhuangdao in a village that served as a logistics base for Ming-dynasty Great Wall construction. Excavations in 2002 uncovered roughly 600 Ming-era brick kilns used to fire wall bricks — the largest such find in China — along with the world's only known fossil of a hyena species, now displayed on site. A steep, undulating stretch of wall known as the \"inverted Great Wall\" is a favorite subject for photographers, and the park also has a temple, a cave, a narrow rock passage and waterfalls. Autumn foliage against the old wall is a particular highlight. It suits Great Wall enthusiasts, photographers and visitors interested in Ming-era military history and archaeology.",
+      "highlightsEn": [
+        "Ming Great Wall brick kiln ruins",
+        "\"Inverted\" Great Wall section",
+        "Fossil hyena exhibit",
+        "Autumn foliage on the wall"
+      ],
+      "faq": [
+        {
+          "q": "板厂峪长城和山海关长城是同一个地方吗？",
+          "a": "不是，板厂峪长城是明长城的一段，因长城砖窑遗址闻名，与山海关长城是不同的景区，游览前请确认目的地。"
+        },
+        {
+          "q": "门票多少钱？",
+          "a": "不同渠道价格从约50元到100元不等，暂未确认统一官方定价，建议购票前在景区或购票平台核实。"
+        },
+        {
+          "q": "倒挂长城好走吗？",
+          "a": "该段路况较险峻，攀爬时需注意安全，不建议穿着不合适的鞋子前往。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/123746.html",
+        "https://baike.baidu.com/item/%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E/167614",
+        "https://www.chinafuning.gov.cn/single/179/67575.html"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:板厂峪长城 - panoramio - 山海风.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E_-_panoramio_-_%E5%B1%B1%E6%B5%B7%E9%A3%8E.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E_-_panoramio_-_%E5%B1%B1%E6%B5%B7%E9%A3%8E.jpg",
+          "license": "CC BY-SA 3.0",
+          "author": "山海风",
+          "width": 798,
+          "height": 600
+        },
+        {
+          "title": "File:板厂峪长城砖窑遗址 - panoramio.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E%E7%A0%96%E7%AA%91%E9%81%97%E5%9D%80_-_panoramio.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E%E7%A0%96%E7%AA%91%E9%81%97%E5%9D%80_-_panoramio.jpg",
+          "license": "CC BY-SA 3.0",
+          "author": "山海风",
+          "width": 2048,
+          "height": 1536
+        },
+        {
+          "title": "File:板厂峪长城的敌楼的入口 - panoramio.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E%E7%9A%84%E6%95%8C%E6%A5%BC%E7%9A%84%E5%85%A5%E5%8F%A3_-_panoramio.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E%E7%9A%84%E6%95%8C%E6%A5%BC%E7%9A%84%E5%85%A5%E5%8F%A3_-_panoramio.jpg",
+          "license": "CC BY-SA 3.0",
+          "author": "山海风",
+          "width": 1024,
+          "height": 768
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "tianmahu",
@@ -1391,25 +3133,25 @@
       "cat": "nature",
       "level": "3A",
       "rating": "4.0",
-      "price": "30元",
-      "priceNum": 30,
-      "openTime": "08:00-17:00",
-      "address": "河北省秦皇岛市抚宁区天马湖",
+      "price": "暂停营业",
+      "priceNum": 0,
+      "openTime": "暂停营业",
+      "address": "河北省秦皇岛市抚宁区天马湖(抚宁区城区以北约9公里)",
       "lat": 39.98,
       "lng": 119.22,
       "img": "images/attraction-tianmahu.jpg",
-      "desc": "以天马湖为核心的山水景区，湖光山色相映成趣。可乘船游湖、湖畔垂钓、登山观景。湖边有天马雕塑，是抚宁区的标志性景点之一，适合周末休闲游。",
+      "desc": "天马湖景区位于秦皇岛市抚宁区县城以北约9公里处，以人工水库天马湖为核心，湖光山色相映，湖边立有天马雕塑，是当地居民周末休闲的去处。景区历史上设有游船、垂钓、滑索、月亮船等水上娱乐项目，规模不大，以家庭休闲为主。需要特别说明的是，根据2025年以来的网络信息，景区处于暂停营业状态，具体重新开放时间未见官方公告，游客计划前往前应提前电话确认或改选周边同类景区（如天马山、老君顶等）。",
       "highlights": [
         "天马湖游船",
         "湖畔垂钓",
         "天马雕塑",
         "登山观湖"
       ],
-      "bestSeason": "5-10月",
-      "duration": "2-3小时",
-      "suitableFor": "全家休闲、垂钓爱好者",
-      "tips": "适合休闲放松，景区不大但环境清幽。可以带鱼竿垂钓，湖畔适合野餐。",
-      "transport": "抚宁区打车约15分钟",
+      "bestSeason": "5-10月（若恢复营业）",
+      "duration": "1-2小时（若恢复营业）",
+      "suitableFor": "全家休闲、垂钓爱好者（需景区恢复营业后适用）",
+      "tips": "景区目前处于暂停营业状态，出行前务必电话或线上核实是否已恢复开放 如已恢复开放，历史信息显示景区不大，1-2小时可游览完毕 可与附近的天马山、老君顶等景区组合安排行程 暂停营业原因及恢复时间暂无官方说明，不要轻信网络二手信息 湖区活动以家庭休闲、垂钓为主，非专业景区，预期不宜过高",
+      "transport": "公共交通:无直达公交明确信息，建议从抚宁区客运站打车前往，或查询抚宁区公交是否有临时调整（景区暂停营业期间班线信息可能失效） 自驾:从秦皇岛市区经京沈高速转102国道至抚宁区，再北行约9公里，全程约40分钟；毗邻京沈高速、102国道等交通干线",
       "booking": [
         {
           "name": "携程订票",
@@ -1419,7 +3161,48 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "暂停营业，门票信息待恢复开放后确认；历史门市价约10元，1.2米以下儿童及现役军人免票（截至可查最近的历史资料，非当前价格）；景区目前不对外运营，建议前往前致电抚宁区文旅部门核实最新状态。",
+      "openTimeNotes": "暂停营业(截至2025年多方信息显示景区处于暂停营业状态，历史开放时间为08:00-17:00，未见官方恢复开放公告)",
+      "transportDetail": {
+        "publicTransit": "无直达公交明确信息，建议从抚宁区客运站打车前往，或查询抚宁区公交是否有临时调整（景区暂停营业期间班线信息可能失效）",
+        "driving": "从秦皇岛市区经京沈高速转102国道至抚宁区，再北行约9公里，全程约40分钟；毗邻京沈高速、102国道等交通干线",
+        "parking": null
+      },
+      "tipsList": [
+        "景区目前处于暂停营业状态，出行前务必电话或线上核实是否已恢复开放",
+        "如已恢复开放，历史信息显示景区不大，1-2小时可游览完毕",
+        "可与附近的天马山、老君顶等景区组合安排行程",
+        "暂停营业原因及恢复时间暂无官方说明，不要轻信网络二手信息",
+        "湖区活动以家庭休闲、垂钓为主，非专业景区，预期不宜过高"
+      ],
+      "nameEn": "Tianma Lake Scenic Area",
+      "descEn": "Tianma Lake Scenic Area sits about 9 km north of Funing District, Qinhuangdao, centered on a reservoir with a horse-shaped landmark sculpture on its shore. It historically offered boating, fishing and simple water rides for family outings. As of recent reports (2025), the site has been temporarily closed with no confirmed reopening date, so visitors should verify its status before planning a trip.",
+      "highlightsEn": [
+        "Boating on Tianma Lake",
+        "Lakeside fishing",
+        "Horse statue landmark",
+        "Hillside lake views"
+      ],
+      "faq": [
+        {
+          "q": "天马湖景区现在还能去吗？",
+          "a": "根据2025年以来的网络信息，景区处于暂停营业状态，具体恢复时间未见官方公告，建议前往前先致电当地文旅部门或景区确认。"
+        },
+        {
+          "q": "门票多少钱？",
+          "a": "当前无法确认现行票价；历史资料显示门市价约10元，1.2米以下儿童及现役军人免票，仅供参考。"
+        },
+        {
+          "q": "附近有其他类似景区吗？",
+          "a": "抚宁区及周边有天马山、老君顶、龙云谷等山水类景区可作为替代选择。"
+        }
+      ],
+      "sources": [
+        "https://baike.baidu.com/item/%E5%A4%A9%E9%A9%AC%E6%B9%96%E6%99%AF%E5%8C%BA/12001776",
+        "https://gs.ctrip.com/html5/you/sight/junancounty2104/125343.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "putagogou",
@@ -1435,22 +3218,62 @@
       "lat": 39.77,
       "lng": 119.12,
       "img": "images/attraction-putagogou.jpg",
-      "desc": "昌黎葡萄沟是著名的葡萄种植区，百年葡萄架长廊遮天蔽日。秋季葡萄成熟时节，可入园采摘品尝多种品种的鲜食葡萄，体验田园乐趣。是亲子农事体验和乡村休闲的好去处。",
+      "desc": "昌黎葡萄沟位于昌黎县城西北偏北约7.2公里的十里铺乡西山场村，是国家3A级旅游景区、国家级农业旅游示范点。景区依托当地百年葡萄种植传统而成，园内百年老葡萄架长廊遮天蔽日，种植巨峰、玫瑰香等多个鲜食葡萄品种。每年7月至11月为采摘期，9月前后集中成熟，游客可入园采摘、品尝，也可沿葡萄架长廊漫步拍照。昌黎同时是中国葡萄酒之乡，周边分布多家酒庄，适合与酒庄游览、亲子农事体验结合安排。",
       "highlights": [
         "百年葡萄架长廊",
         "葡萄采摘体验",
         "田园风光",
         "葡萄酒品鉴"
       ],
-      "bestSeason": "8-9月葡萄成熟季",
+      "bestSeason": "8-9月葡萄成熟季（4-10月均可游览田园风光）",
       "duration": "2-3小时",
       "suitableFor": "亲子家庭、田园休闲爱好者",
-      "tips": "8-9月葡萄成熟时去最佳，可以入园采摘。昌黎是中国葡萄酒之乡，附近有不少酒庄可以参观品酒。",
-      "transport": "昌黎县城打车约20分钟",
+      "tips": "最佳采摘期为8-9月葡萄成熟季，7-11月均有不同品种可采摘品尝 景区免费开放，但入园采摘葡萄通常按斤另行付费，建议提前问清价格 可与附近华夏庄园、金士国际葡萄酒庄等酒庄组合游览，体验完整的葡萄酒文化线路 夏秋季昌黎日照较强，建议做好防晒并穿轻便鞋子方便走田间小路 园区内农户较多，建议货比三家，旺季周末人流较大",
+      "transport": "公共交通:可先乘车至昌黎县城，再转乘当地公交或出租车前往西山场村，无直达高铁/长途班车信息 自驾:从秦皇岛站/北戴河站驾车沿沿海高速转昌黎方向，至昌黎县城后西北行约7公里可达，全程约40-60分钟",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "景区本身免费入园；进入具体采摘园区采摘葡萄按重量或按园区规则另行收费，价格因摊位而异，建议现场与农户确认。",
+      "transportDetail": {
+        "publicTransit": "可先乘车至昌黎县城，再转乘当地公交或出租车前往西山场村，无直达高铁/长途班车信息",
+        "driving": "从秦皇岛站/北戴河站驾车沿沿海高速转昌黎方向，至昌黎县城后西北行约7公里可达，全程约40-60分钟",
+        "parking": null
+      },
+      "tipsList": [
+        "最佳采摘期为8-9月葡萄成熟季，7-11月均有不同品种可采摘品尝",
+        "景区免费开放，但入园采摘葡萄通常按斤另行付费，建议提前问清价格",
+        "可与附近华夏庄园、金士国际葡萄酒庄等酒庄组合游览，体验完整的葡萄酒文化线路",
+        "夏秋季昌黎日照较强，建议做好防晒并穿轻便鞋子方便走田间小路",
+        "园区内农户较多，建议货比三家，旺季周末人流较大"
+      ],
+      "nameEn": "Changli Grape Valley",
+      "descEn": "Changli Grape Valley lies about 7.2 km northwest of Changli county town, a national 3A-rated agricultural tourism site built around century-old grape trellises. Visitors can walk the shaded vine corridors and pick and taste several fresh-eating grape varieties from July through November, peaking in September. As Changli is known as China's wine town, the valley pairs well with a visit to a nearby winery for a full day of vineyard-themed sightseeing.",
+      "highlightsEn": [
+        "Century-old grape trellis corridor",
+        "Grape picking experience",
+        "Rural farmland scenery",
+        "Wine tasting nearby"
+      ],
+      "faq": [
+        {
+          "q": "葡萄沟门票多少钱？",
+          "a": "景区本身免费开放，全天不限时段，但入园采摘葡萄一般按重量另行收费。"
+        },
+        {
+          "q": "什么时候去能采摘到葡萄？",
+          "a": "采摘季一般为7月至11月，其中8-9月是多数品种集中成熟、体验最好的时段。"
+        },
+        {
+          "q": "附近有酒庄可以一起玩吗？",
+          "a": "昌黎是中国葡萄酒之乡，附近有华夏庄园、金士国际葡萄酒庄等酒庄，可以安排在同一天游览。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/changli1835/123775.html",
+        "http://m.qhd.bendibao.com/tour/6518.shtm"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "huaxiazhuangyuan",
@@ -1459,25 +3282,26 @@
       "cat": "culture",
       "level": "4A",
       "rating": "4.3",
-      "price": "30元",
-      "priceNum": 30,
-      "openTime": "08:30-17:00",
+      "price": "80元起",
+      "priceNum": 80,
+      "openTime": "08:30-17:30，节假日08:00-18:00",
       "address": "河北省秦皇岛市昌黎县城北昌抚公路西侧",
       "lat": 39.7323,
       "lng": 119.183,
       "img": "images/attraction-huaxiazhuangyuan.jpg",
-      "desc": "亚洲第一大地下酒窖所在地！华夏庄园始建于1988年，隶属中粮集团，占地5.6万亩，集干红酒文化传播、生产、观光、生态园体验于一体。东临渤海，背靠碣石，是了解中国葡萄酒文化的标杆景区。",
+      "desc": "华夏庄园隶属中粮集团旗下长城葡萄酒，始建于1988年，位于昌黎县城北昌抚公路西侧，占地约5.6万亩，是国家4A级旅游景区、全国首批工业旅游示范点。庄园东临渤海、背靠碣石山，拥有亚洲第一大地下酒窖，集酿酒葡萄种植、干红酒生产、观光科普、生态园体验于一体，是了解中国干红葡萄酒文化的代表性景区之一。园区内设有国际酿酒葡萄名种示范区和长城葡萄酒学院研究中心，可参观自动化灌装生产线并进行品酒体验，适合葡萄酒爱好者及亲子家庭游览。",
       "highlights": [
         "亚洲第一大地下酒窖",
-        "5万吨全自动灌装生产线",
+        "全自动灌装生产线参观",
         "国际酿酒葡萄名种示范区",
-        "长城葡萄酒学院研究中心"
+        "长城葡萄酒学院研究中心",
+        "非遗文化体验项目"
       ],
       "bestSeason": "夏秋两季（秋季葡萄采摘季最佳）",
       "duration": "2-3小时",
       "suitableFor": "葡萄酒爱好者、家庭游客、文化体验",
-      "tips": "门票30元，秦皇岛居民凭身份证半价。可加购品酒套餐，品鉴四款不同葡萄酒。秋季葡萄成熟时去最佳。",
-      "transport": "距北戴河30公里，驾车走京沈高速抚宁出口下约20公里",
+      "tips": "门票价格网络信息不完全一致（约30-80元不等），建议出发前通过官方渠道或第三方平台核实当日价格 可加购品酒套餐，现场品鉴多款干红葡萄酒 秋季葡萄采摘季（9-10月）是最佳游览时间，可结合周边葡萄沟一同安排 地下酒窖内温度较低，建议携带薄外套 作为工业旅游示范点，园区较大，建议预留至少2-3小时游览时间",
+      "transport": "公共交通:无直达公交明确班次信息，建议从昌黎县城或北戴河站打车前往 自驾:距北戴河约30公里，驾车走京沈高速抚宁出口下后沿昌抚公路行驶约20公里可达",
       "booking": [
         {
           "name": "携程订票",
@@ -1487,7 +3311,53 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "门票约60-80元区间(淡旺季不同)；站内历史数据记录为30元，与近期查得信息存在差异，建议出行前以景区官方/第三方购票平台当日价格为准；查到信息显示1.2米以下儿童、70岁以上老人免票；另有秦皇岛本地居民凭身份证享半价的说法（可能为旧政策）。旺季与淡季票价、优惠政策均有变化，建议购票前通过携程等平台或电话确认当日价格与是否含品酒项目。",
+      "phone": "400-088-7180",
+      "website": "长城华夏酒庄（中粮长城葡萄酒官方旗下庄园，具体官网未核实）",
+      "openTimeNotes": "日常08:30-17:30，节假日08:00-18:00（不同来源亦有分时段说法：4/1-10/15约08:40-16:30，10/16-次年1/31及2/2-3/31约09:10-16:30，具体以现场公示为准）",
+      "transportDetail": {
+        "publicTransit": "无直达公交明确班次信息，建议从昌黎县城或北戴河站打车前往",
+        "driving": "距北戴河约30公里，驾车走京沈高速抚宁出口下后沿昌抚公路行驶约20公里可达",
+        "parking": null
+      },
+      "tipsList": [
+        "门票价格网络信息不完全一致（约30-80元不等），建议出发前通过官方渠道或第三方平台核实当日价格",
+        "可加购品酒套餐，现场品鉴多款干红葡萄酒",
+        "秋季葡萄采摘季（9-10月）是最佳游览时间，可结合周边葡萄沟一同安排",
+        "地下酒窖内温度较低，建议携带薄外套",
+        "作为工业旅游示范点，园区较大，建议预留至少2-3小时游览时间"
+      ],
+      "nameEn": "Huaxia Manor (Great Wall Winery)",
+      "descEn": "Huaxia Manor, part of COFCO's Great Wall Winery brand, was founded in 1988 on a roughly 5.6 million-square-meter estate north of Changli town. As a national 4A scenic area and one of China's first industrial-tourism demonstration sites, it houses Asia's largest underground wine cellar alongside vineyards, an automated bottling line and a wine research institute. Visitors can tour the cellar, see grape cultivation demonstration plots, and join guided tastings, making it a good stop for wine enthusiasts and families interested in China's red-wine heritage.",
+      "highlightsEn": [
+        "Asia's largest underground wine cellar",
+        "Automated bottling line tour",
+        "International grape variety demonstration plots",
+        "Great Wall Wine Institute",
+        "Intangible heritage experiences"
+      ],
+      "faq": [
+        {
+          "q": "华夏庄园门票多少钱？",
+          "a": "近期网络信息显示门票在60-80元区间（淡旺季不同），但也有资料显示30元，价格存在差异，建议出发前通过官方或购票平台核实当日价格。"
+        },
+        {
+          "q": "可以品酒吗？",
+          "a": "可以，园区提供品酒项目，通常需要单独购买品酒套餐或选择含品酒的联票。"
+        },
+        {
+          "q": "地下酒窖值得看吗？",
+          "a": "地下酒窖是华夏庄园的招牌项目，号称亚洲第一大地下酒窖，是园区最主要的参观亮点之一。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/changli1835/1414050.html",
+        "https://baike.baidu.com/item/%E5%8D%8E%E5%A4%8F%E5%BA%84%E5%9B%AD/15524996",
+        "https://www.wingontravel.com/discovery/scenic-huaxia-winery-13505971",
+        "https://www.clxzf.gov.cn/single/21/2092.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "laojunding",
@@ -1496,25 +3366,25 @@
       "cat": "nature",
       "level": "3A",
       "rating": "4.2",
-      "price": "30元",
-      "priceNum": 30,
+      "price": "90元起",
+      "priceNum": 90,
       "openTime": "08:00-17:00",
       "address": "河北省秦皇岛市海港区石门寨镇房庄村",
       "lat": 40.1526,
       "lng": 119.569,
       "img": "images/attraction-laojunding.jpg",
-      "desc": "老君顶海拔493.7米，是石门诸山之冠，北东南三面陡峭崇山环绕，南向渤海开口，是秦皇岛远近闻名的避暑胜地。融道教文化、地质文化、河流文化于一身，夏季漂流避暑，冬季冰雪嘉年华。",
+      "desc": "老君顶景区位于秦皇岛市海港区石门寨镇房庄村，主峰海拔493.7米，是石门诸山之冠，北、东、南三面陡峭崇山环绕，向南朝渤海开口，融合道教文化、地质文化与河流文化，是秦皇岛知名的避暑与户外目的地。景区标志性项目是夏季漂流：包括总长约2.5公里的高空环山漂流和全程约3.5公里的龙须河河谷漂流，惊险刺激又能消暑降温；冬季则化身冰雪嘉年华，提供滑雪、滑冰、冰壶等项目，一年四季均有可玩内容，是家庭亲子和年轻游客的热门选择。",
       "highlights": [
-        "高山漂流（惊险刺激）",
-        "龙须河河谷漂流（全程8公里）",
+        "高空环山漂流(约2.5公里)",
+        "龙须河河谷漂流(约3.5公里)",
         "冬季冰雪嘉年华",
         "山水围炉营地"
       ],
       "bestSeason": "夏季（漂流避暑）、冬季（冰雪嘉年华）",
       "duration": "半天到一天",
       "suitableFor": "家庭亲子、年轻人、户外运动爱好者",
-      "tips": "漂流是最大亮点，高山漂流套票90元，河谷漂流130元。夏季去带换洗衣物。冬季有冰雪嘉年华，滑雪滑冰冰壶等项目。",
-      "transport": "秦皇岛市区驾车约30-40公里，沿蜿蜒山路进入石门寨镇房庄村",
+      "tips": "漂流是最大亮点，夏季前往建议携带换洗衣物和防水袋装电子设备 公交820路班次较少，自驾或包车更灵活 冬季冰雪嘉年华含滑雪、滑冰、冰壶等项目，需另外购票且可能需要预约装备 不同票种（高山漂流/河谷漂流/观光票/季卡）价格差异较大，出发前先在第三方平台比价 夏季周末和暑期人流较大，建议错峰前往或提前订票",
+      "transport": "公共交通:秦皇岛海阳路汽车站乘坐820路公交可直达景区，班次为上午7:20-9:00，下午14:20-16:00返程 自驾:秦皇岛市区驾车约30-40公里，沿蜿蜒山路进入石门寨镇房庄村，车程约1小时",
       "booking": [
         {
           "name": "携程订票",
@@ -1524,7 +3394,51 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "登山踏青本身不设门票，漂流等项目单独售票：高山漂流约90元、河谷漂流约130元（第三方平台起售价更低，含团购优惠）；门票以漂流票/观光票/冰雪票等分类售卖，第三方平台（去哪儿等）峡谷漂流票有9.9元起的促销票、高山漂流80元起的活动价，实际价格随季节和平台活动浮动，建议购票前在官方渠道或第三方平台核实当日价格。",
+      "phone": "0335-6091001",
+      "website": "laojunding.com.cn（老君顶官方网站，页面因反爬限制未能完整抓取核实全部内容）",
+      "openTimeNotes": "08:00-17:00（漂流等季节性项目以景区当季公告为准，冬季冰雪项目通常在12月至次年2月）",
+      "transportDetail": {
+        "publicTransit": "秦皇岛海阳路汽车站乘坐820路公交可直达景区，班次为上午7:20-9:00，下午14:20-16:00返程",
+        "driving": "秦皇岛市区驾车约30-40公里，沿蜿蜒山路进入石门寨镇房庄村，车程约1小时",
+        "parking": null
+      },
+      "tipsList": [
+        "漂流是最大亮点，夏季前往建议携带换洗衣物和防水袋装电子设备",
+        "公交820路班次较少，自驾或包车更灵活",
+        "冬季冰雪嘉年华含滑雪、滑冰、冰壶等项目，需另外购票且可能需要预约装备",
+        "不同票种（高山漂流/河谷漂流/观光票/季卡）价格差异较大，出发前先在第三方平台比价",
+        "夏季周末和暑期人流较大，建议错峰前往或提前订票"
+      ],
+      "nameEn": "Laojunding Scenic Area",
+      "descEn": "Laojunding Scenic Area sits in Shimenzhai Township, Haigang District, Qinhuangdao, its main peak rising 493.7 meters and ringed by steep hills on three sides, opening south toward the Bohai Sea. Blending Taoist heritage with the local geology and river landscape, it is best known for summer whitewater and canyon rafting routes of roughly 2.5 km and 3.5 km, and for a winter ice-and-snow carnival with skiing, skating and curling. It draws families, young travelers and outdoor enthusiasts across both seasons.",
+      "highlightsEn": [
+        "High-altitude ring rafting (~2.5 km)",
+        "Longxu River canyon rafting (~3.5 km)",
+        "Winter ice-and-snow carnival",
+        "Riverside fireside camp"
+      ],
+      "faq": [
+        {
+          "q": "老君顶门票要多少钱？",
+          "a": "登山本身不设门票，主要消费是漂流项目，高山漂流约90元、河谷漂流约130元，第三方平台常有更低的促销票。"
+        },
+        {
+          "q": "怎么坐公交去老君顶？",
+          "a": "可在秦皇岛海阳路汽车站乘坐820路公交直达景区，上午7:20-9:00发车，下午14:20-16:00返程，班次较少建议提前规划。"
+        },
+        {
+          "q": "冬天去老君顶能玩什么？",
+          "a": "冬季景区会举办冰雪嘉年华，提供滑雪、滑冰、冰壶等项目，与夏季漂流形成鲜明对比。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/1938685.html",
+        "http://laojunding.com.cn/",
+        "https://touch.piao.qunar.com/touch/detail.htm?id=459204"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "jinshi_wine",
@@ -1533,29 +3447,74 @@
       "cat": "culture",
       "level": "3A",
       "rating": "4.2",
-      "price": "免费",
+      "price": "免费入园",
       "priceNum": 0,
-      "openTime": "09:00-16:00",
+      "openTime": "09:00-16:00（具体以景区当日公示为准）",
       "address": "河北省秦皇岛市昌黎县碣石酒乡1号",
       "lat": 39.755,
       "lng": 119.105,
       "img": "images/attraction-jinshi_wine.jpg",
-      "desc": "由天士力集团投资建设，占地674亩，坐落在碣石山葡萄酒产区，距黄金海岸18公里。集葡萄种植、精工酿酒、文旅研学于一体的复合型标杆酒庄，被誉为\"镶嵌在碣石山东麓一颗璀璨的明珠\"。",
+      "desc": "金士国际葡萄酒庄由天士力控股集团投资建设，占地674亩，坐落在碣石山葡萄酒产区，距黄金海岸约18公里，是国家3A级旅游景区。庄园集精品酿酒葡萄种植、特色葡萄酒酿造、葡萄酒文化展示与旅游观光于一体，园区建有游客中心、天宫葡萄酒文化巨型壁画群（约5800平方米）、360度观景天台、葡萄酒诗词壁刻群、酒吧餐厅及鲜食水果采摘园等设施。招牌产品马瑟兰特色葡萄酒已累计获得152项国际大奖，是当地融合葡萄酒文化与康养理念的代表性酒庄之一，已对外开放接待游客参观和品酒。",
       "highlights": [
-        "天宫葡萄酒文化巨型壁画群（5800㎡）",
-        "马瑟兰特色葡萄酒（152项国际大奖）",
+        "天宫葡萄酒文化巨型壁画群(约5800㎡)",
+        "马瑟兰特色葡萄酒(152项国际大奖)",
         "葡萄观光长廊",
+        "360度观景天台",
         "酒文化诗词壁刻群"
       ],
       "bestSeason": "秋季（9-10月葡萄采摘季）",
       "duration": "2-3小时",
       "suitableFor": "葡萄酒爱好者、文化体验、研学团队",
-      "tips": "免费入园，园内参观体验和品酒项目单独收费（套餐88元起）。马瑟兰葡萄酒是招牌，已获152项国际大奖。",
-      "transport": "昌黎县城驾车前往，毗邻北戴河",
+      "tips": "免费入园，园内品酒、体验类项目需单独付费，建议提前电话咨询套餐内容和价格 招牌马瑟兰葡萄酒获奖较多，适合作为伴手礼选购 园区规划较大（674亩），且仍在持续建设配套设施，部分区域可能尚未完全开放 秋季葡萄采摘季（9-10月）体验感更好，可结合品酒安排半天行程 可与附近的华夏庄园、葡萄沟组成昌黎葡萄酒文化一日游线路",
+      "transport": "自驾:毗邻北戴河，距黄金海岸约18公里，从昌黎县城或北戴河驾车前往，具体路线建议结合导航实时规划",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "免费入园，园内参观体验和品酒项目单独收费，品酒套餐约88元起；具体项目价格未能通过公开渠道逐一核实，建议现场或电话咨询。",
+      "phone": "400-928-2212",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "毗邻北戴河，距黄金海岸约18公里，从昌黎县城或北戴河驾车前往，具体路线建议结合导航实时规划",
+        "parking": null
+      },
+      "tipsList": [
+        "免费入园，园内品酒、体验类项目需单独付费，建议提前电话咨询套餐内容和价格",
+        "招牌马瑟兰葡萄酒获奖较多，适合作为伴手礼选购",
+        "园区规划较大（674亩），且仍在持续建设配套设施，部分区域可能尚未完全开放",
+        "秋季葡萄采摘季（9-10月）体验感更好，可结合品酒安排半天行程",
+        "可与附近的华夏庄园、葡萄沟组成昌黎葡萄酒文化一日游线路"
+      ],
+      "nameEn": "Chateau Kings International Winery",
+      "descEn": "Chateau Kings International Winery, developed by the Tasly Group, covers roughly 45 hectares in the Jieshi Mountain wine region about 18 km from Beidaihe's Golden Coast, and holds national 3A scenic-area status. It combines premium grape cultivation, wine production, cultural displays and tourism, featuring a visitor center, a large themed mural complex (~5,800 sqm), a 360-degree viewing deck, poetry-inscribed walls, a bar/restaurant and a fruit-picking orchard. Its signature Marselan wine has won 152 international awards, and the estate is open to the public for tours and tastings.",
+      "highlightsEn": [
+        "Large themed mural complex (~5,800 sqm)",
+        "Award-winning Marselan wine (152 awards)",
+        "Vineyard viewing corridor",
+        "360-degree observation deck",
+        "Poetry-inscribed cultural walls"
+      ],
+      "faq": [
+        {
+          "q": "金士国际葡萄酒庄要门票吗？",
+          "a": "园区免费入园，但内部参观体验和品酒项目需要单独付费，套餐约88元起。"
+        },
+        {
+          "q": "可以现场品酒吗？",
+          "a": "可以，庄园提供品酒项目和套餐，招牌是获得152项国际大奖的马瑟兰葡萄酒。"
+        },
+        {
+          "q": "开放时间是几点到几点？",
+          "a": "查到的信息为09:00-16:00，具体以景区当日公示或电话确认为准。"
+        }
+      ],
+      "sources": [
+        "http://www.winechina.com/html/2016/08/201608286348.html",
+        "http://www.winechina.com/html/2020/04/202004300684.html",
+        "https://m.winesinfo.com/WineryDetail.aspx?id=13119",
+        "https://www.moa.gov.cn/ztzl/2023_qcz/202311/t20231102_6439738.htm"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "hongxing_industrial",
@@ -1564,29 +3523,71 @@
       "cat": "culture",
       "level": "3A",
       "rating": "4.0",
-      "price": "免费",
+      "price": "免费(团队预约参观)",
       "priceNum": 0,
-      "openTime": "09:00-17:00(团队预约)",
+      "openTime": "09:00-17:00",
       "address": "河北省秦皇岛市昌黎县循环经济产业园滦河大街1号",
       "lat": 39.63,
       "lng": 119.05,
       "img": "images/attraction-hongxing_industrial.jpg",
-      "desc": "依托宏兴钢铁生产基地打造的工业旅游景区，占地约28.5万平方米。以钢铁作业、钢铁科技为核心，以碳中和、地方非遗为特色，构建\"一馆带四区\"核心格局，是秦皇岛工业与旅游融合发展的新成果。",
+      "desc": "魅力宏兴工业文化园依托秦皇岛宏兴钢铁集团有限公司的生产基地打造，位于昌黎县西部经济开发区循环经济产业园内，占地约28.5万平方米，是国家3A级工业旅游景区，也是秦皇岛工业旅游的代表项目之一。园区以钢铁生产作业和钢铁科技为核心参观内容，游客可近距离感受炼钢生产线的热力场景，同时设有展示企业近20年发展历程的宏兴初心馆（党建馆），并结合碳中和示范区、昌黎地方非遗展演等特色内容，形成“一馆带四区”的参观格局。园区于2022年前后建成开放，目前以团队预约参观为主，是研学和党建活动的热门目的地。",
       "highlights": [
-        "党建初心馆",
-        "钢铁印象大道（了解钢铁是怎样炼成的）",
+        "宏兴初心馆(企业发展历程展示)",
+        "钢铁生产线近距离参观",
         "碳中和示范区",
         "昌黎非遗\"三歌一影\"演出"
       ],
       "bestSeason": "全年皆宜（室内工业参观为主）",
       "duration": "2-3小时",
       "suitableFor": "研学团队、党建活动、工业文化爱好者",
-      "tips": "以团队预约参观为主，建议提前联系景区。可了解钢铁冶炼全过程，还有昌黎地秧歌、民歌、吹歌、皮影等非遗演出。",
-      "transport": "昌黎县城驾车前往循环经济产业园",
+      "tips": "园区以团队预约参观为主，个人游客建议提前联系确认是否可以入园 参观内容以工业生产线和企业文化展示为主，室内项目较多，全年皆宜 可提前了解钢铁冶炼工艺基础知识，参观体验感更好 园区内有昌黎地秧歌、民歌、吹歌、皮影等非遗演出，具体演出时间建议提前询问 适合研学团队、党建活动等团体性质的参观安排",
+      "transport": "自驾:昌黎县城驾车前往西部经济开发区循环经济产业园，具体路线建议结合导航实时规划",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "以团队预约参观为主，散客是否可直接入园及是否收费未能查实，建议提前电话或通过官方渠道预约确认。",
+      "openTimeNotes": "09:00-17:00(以团队预约参观为主，散客开放情况未查实，建议提前联系确认)",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "昌黎县城驾车前往西部经济开发区循环经济产业园，具体路线建议结合导航实时规划",
+        "parking": null
+      },
+      "tipsList": [
+        "园区以团队预约参观为主，个人游客建议提前联系确认是否可以入园",
+        "参观内容以工业生产线和企业文化展示为主，室内项目较多，全年皆宜",
+        "可提前了解钢铁冶炼工艺基础知识，参观体验感更好",
+        "园区内有昌黎地秧歌、民歌、吹歌、皮影等非遗演出，具体演出时间建议提前询问",
+        "适合研学团队、党建活动等团体性质的参观安排"
+      ],
+      "nameEn": "Hongxing Industrial Culture Park",
+      "descEn": "Hongxing Industrial Culture Park is built around the production site of Qinhuangdao Hongxing Steel Group in Changli's circular-economy industrial park, covering about 285,000 square meters as a national 3A-rated industrial tourism site. Visitors can observe the steelmaking process up close, tour a museum tracing the company's nearly 20-year history, and see a carbon-neutrality demonstration zone alongside performances of local Changli intangible-heritage arts. Opened around 2022, the park mainly welcomes pre-booked group visits and is popular for study tours and corporate/Party-building activities.",
+      "highlightsEn": [
+        "Hongxing history museum",
+        "Close-up steel production line tour",
+        "Carbon-neutrality demonstration zone",
+        "Changli intangible heritage performances"
+      ],
+      "faq": [
+        {
+          "q": "个人游客可以去参观吗？",
+          "a": "园区目前以团队预约参观为主，个人游客能否直接入园暂未查实，建议提前电话联系确认。"
+        },
+        {
+          "q": "参观需要门票吗？",
+          "a": "查到的信息显示为团队预约免费参观性质，但具体收费政策及是否对散客开放未能完全核实，建议提前咨询。"
+        },
+        {
+          "q": "园区主要看什么？",
+          "a": "主要参观内容包括宏兴初心馆、钢铁生产作业线、碳中和示范区，以及昌黎地方非遗表演。"
+        }
+      ],
+      "sources": [
+        "https://whly.hebei.gov.cn/c/2026-07-30/585858.html",
+        "http://www.csteelnews.com/xwzx/djbd/202206/t20220617_64139.html",
+        "https://news.gmw.cn/2025-02/26/content_37871095.htm"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "longyungu",
@@ -1595,25 +3596,26 @@
       "cat": "nature",
       "level": "3A",
       "rating": "4.3",
-      "price": "50元",
+      "price": "50元起",
       "priceNum": 50,
-      "openTime": "08:00-16:00",
+      "openTime": "全年08:00-16:30",
       "address": "河北省秦皇岛市抚宁区大新寨镇张各庄村",
       "lat": 40.0649,
       "lng": 119.346,
       "img": "images/attraction-longyungu.jpg",
-      "desc": "主峰海拔905米，有千米木栈道、龙潭瀑布、天池瀑布、花海景观等自然景观。置身龙潭峡若缘溪探幽，可听泉水叮咚，望巨石悬空，闻百鸟啼鸣，是野外旅游探险的好地方。",
+      "desc": "龙云谷景区位于秦皇岛市抚宁区大新寨镇张各庄村，主峰海拔905米，是国家3A级旅游景区，以群峰竞秀、山泉飞瀑的自然峡谷景观为核心特色。景区内建有约3000米木质栈道贯穿峡谷，设有530米高空悬挑玻璃栈道和华北首条约2200米的悬崖漂流项目，龙潭瀑布、天池瀑布沿途可见，夏季峡谷中28种鲜花竞相开放形成花海景观，山间还分布天女木兰等珍稀植物。置身龙潭峡谷可听泉水叮咚、望巨石悬空，是户外探险和避暑纳凉的好去处，冬季则可观赏冰瀑奇观。",
       "highlights": [
-        "千米木栈道（天梯段极具挑战）",
+        "千米木栈道(天梯段极具挑战)",
         "龙潭瀑布、天池瀑布",
-        "28种鲜花花海景观",
-        "玻璃栈道及高山滑道"
+        "530米高空玻璃栈道",
+        "约2200米悬崖漂流(华北首条)",
+        "28种鲜花花海景观"
       ],
       "bestSeason": "夏季（避暑戏水）、秋季（赏红叶）",
       "duration": "3-4小时",
       "suitableFor": "户外探险爱好者、家庭游客、摄影爱好者",
-      "tips": "玻璃栈道和高山滑道为自费项目。夏季去最佳，峡谷内凉爽宜人。木栈道天梯段较陡，体力一般者量力而行。",
-      "transport": "S52承秦高速抚宁北下东行",
+      "tips": "玻璃栈道和高山滑道/悬崖漂流为自费项目，需在普通门票基础上另行购买 夏季峡谷内凉爽宜人，是避暑戏水的好选择，也是本地人钟爱的纳凉地 木栈道天梯段较陡，体力一般者需量力而行，穿防滑鞋前往 秋季可赏红叶，冬季可观冰瀑，四季景观差异明显 门票有多种套票组合，建议提前在购票平台比价后再出发",
+      "transport": "自驾:沿S52承秦高速抚宁北出口下高速后东行至大新寨镇张各庄村",
       "booking": [
         {
           "name": "携程订票",
@@ -1623,7 +3625,50 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "50元/人（另有套票140元、大套票240元、特价套票120元等不同组合，具体以购票平台当日信息为准）；玻璃栈道和悬崖漂流为自费/加购项目，未包含在普通门票内；套票选择较多，购票前建议比对各平台价格与所含项目。",
+      "phone": "0335-6223777",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "沿S52承秦高速抚宁北出口下高速后东行至大新寨镇张各庄村",
+        "parking": null
+      },
+      "tipsList": [
+        "玻璃栈道和高山滑道/悬崖漂流为自费项目，需在普通门票基础上另行购买",
+        "夏季峡谷内凉爽宜人，是避暑戏水的好选择，也是本地人钟爱的纳凉地",
+        "木栈道天梯段较陡，体力一般者需量力而行，穿防滑鞋前往",
+        "秋季可赏红叶，冬季可观冰瀑，四季景观差异明显",
+        "门票有多种套票组合，建议提前在购票平台比价后再出发"
+      ],
+      "nameEn": "Longyungu (Dragon Cloud Valley) Scenic Area",
+      "descEn": "Longyungu Scenic Area sits in Zhanggezhuang Village, Daxinzhai Township, Funing District, its main peak reaching 905 meters. A national 3A attraction, it features a roughly 3,000-meter wooden boardwalk through the canyon, a 530-meter glass skywalk, and North China's first cliff-side rafting course (~2,200 m), alongside waterfalls such as Longtan and Tianchi. In summer the canyon fills with wildflowers from some 28 species, and winter brings striking ice-waterfall scenery, making it a year-round destination for hikers and photographers.",
+      "highlightsEn": [
+        "Wooden boardwalk with a steep \"sky ladder\" section",
+        "Longtan and Tianchi waterfalls",
+        "530-meter glass skywalk",
+        "~2,200-meter cliff rafting course (first in North China)",
+        "Wildflower fields with about 28 species"
+      ],
+      "faq": [
+        {
+          "q": "龙云谷门票多少钱？",
+          "a": "普通门票50元/人，另有140元、240元、120元等不同内容的套票可选，具体以购票平台当日价格为准。"
+        },
+        {
+          "q": "玻璃栈道和漂流要额外付费吗？",
+          "a": "是的，530米高空玻璃栈道和约2200米的悬崖漂流均为自费加购项目，不包含在基础门票内。"
+        },
+        {
+          "q": "全年都能去吗？",
+          "a": "景区全年08:00-16:30开放，夏季适合避暑戏水，冬季可以看冰瀑，秋季适合赏红叶。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/140889.html",
+        "https://baike.baidu.com/item/%E9%BE%99%E4%BA%91%E8%B0%B7%E6%99%AF%E5%8C%BA/60485422",
+        "https://piao.qunar.com/ticket/detail_466229.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "qipanshan",
@@ -1634,23 +3679,23 @@
       "rating": "4.0",
       "price": "135元",
       "priceNum": 135,
-      "openTime": "09:00-17:00",
+      "openTime": "09:00-17:00（未能独立核实，建议出行前电话确认）",
       "address": "河北省秦皇岛市卢龙县刘田各庄镇前上庄村",
       "lat": 39.8,
       "lng": 118.98,
       "img": "images/attraction-qipanshan.jpg",
-      "desc": "卢龙为古孤竹国都城所在地，传说西周时期孤竹国二公子伯夷叔齐曾在此守节隐居。山顶有奇特巨石，平平似棋盘，棋子可在石槽中挪动却无法拿开，故名\"仙人对弈\"。总面积1.2平方公里。",
+      "desc": "棋盘山景区位于秦皇岛市卢龙县刘田各庄镇前上庄村，总面积约1.2平方公里。卢龙为古孤竹国都城所在地，相传西周时期孤竹国二公子伯夷、叔齐曾在此隐居守节，为当地增添了深厚的历史文化底蕴。景区因山顶一块形似棋盘的巨石而得名，传说石槽中的棋子可以挪动却无法取出，故称“仙人对弈”，是景区最具辨识度的地质奇观。园区内还建有梯田花海景观和约600亩的鲜果采摘园，抗战时期这里曾是冀东抗日模范根据地，兼具自然景观、历史传说与红色文化多重看点。",
       "highlights": [
-        "仙人对弈巨石（棋子可挪不可拿）",
-        "52阶梯田+棋盘山梯田花海",
-        "600亩鲜果采摘园",
+        "仙人对弈巨石(棋子可挪不可拿)",
+        "梯田花海景观",
+        "约600亩鲜果采摘园",
         "孤竹文化长廊"
       ],
       "bestSeason": "春季（赏花）、秋季（核桃及水果采摘季）",
       "duration": "3-4小时",
       "suitableFor": "家庭亲子、采摘爱好者、历史文化爱好者",
-      "tips": "门票135元偏高，建议网上提前购票有折扣。秋季核桃和水果采摘是亮点。抗战时期曾是冀东抗日模范根据地。",
-      "transport": "卢龙县城驾车约20公里至刘田各庄镇",
+      "tips": "该景区网络公开信息较少，建议出行前电话咨询当地文旅部门或第三方平台核实门票、开放时间 秋季核桃和水果采摘是亮点，建议采摘季（秋季）前往 山顶巨石传说是最大看点，登顶前建议查看步道难度和天气情况 网络上存在同名或相近名称的景区（如沈阳棋盘山、卢龙\"左右山谷\"），预订门票前注意核对景区全称和地址，避免混淆 门票135元相对偏高，如网上购票渠道有折扣建议提前购买",
+      "transport": "自驾:卢龙县城驾车约20公里至刘田各庄镇前上庄村",
       "booking": [
         {
           "name": "携程订票",
@@ -1660,7 +3705,47 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "135元（未能独立核实当前票价，沿用站内既有数据，建议购票前通过官方或第三方平台核实）；查到卢龙相关景区有'70周岁以上老人持身份证免票、残疾人凭证免票'一类的优惠政策，但未能确认该政策具体适用于本景区，建议现场或电话核实老年人、儿童等优惠细则。",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "卢龙县城驾车约20公里至刘田各庄镇前上庄村",
+        "parking": null
+      },
+      "tipsList": [
+        "该景区网络公开信息较少，建议出行前电话咨询当地文旅部门或第三方平台核实门票、开放时间",
+        "秋季核桃和水果采摘是亮点，建议采摘季（秋季）前往",
+        "山顶巨石传说是最大看点，登顶前建议查看步道难度和天气情况",
+        "网络上存在同名或相近名称的景区（如沈阳棋盘山、卢龙\"左右山谷\"），预订门票前注意核对景区全称和地址，避免混淆",
+        "门票135元相对偏高，如网上购票渠道有折扣建议提前购买"
+      ],
+      "nameEn": "Qipanshan (Chessboard Mountain) Scenic Area",
+      "descEn": "Qipanshan Scenic Area, covering about 1.2 sq km, lies in Qianshangzhuang Village, Liutianzhuang Township, Lulong County — the site of the ancient Guzhu state, where legend says the noble brothers Boyi and Shuqi lived in seclusion. The park takes its name from a large boulder atop the peak resembling a chessboard, with a folk tale claiming its stone \"pieces\" can be moved but never removed. It also features terraced flower fields and a roughly 600-mu fruit-picking orchard, and served as a model anti-Japanese resistance base during WWII, blending natural scenery, legend and revolutionary history.",
+      "highlightsEn": [
+        "\"Immortals' Chess Game\" boulder",
+        "Terraced flower fields",
+        "~600-mu fruit-picking orchard",
+        "Guzhu culture corridor"
+      ],
+      "faq": [
+        {
+          "q": "棋盘山景区和沈阳的棋盘山是一个地方吗？",
+          "a": "不是。本景区位于秦皇岛市卢龙县刘田各庄镇，沈阳棋盘山是辽宁省的另一处同名景区，两者无关联，预订时需注意区分。"
+        },
+        {
+          "q": "\"仙人对弈\"是什么意思？",
+          "a": "指山顶一块形似棋盘的巨石，传说石槽中的棋子只能挪动无法取出，因此得名'仙人对弈'，是景区标志性的地质奇观。"
+        },
+        {
+          "q": "什么季节去最好？",
+          "a": "春季适合赏花，秋季是核桃和水果采摘旺季，两季均为推荐游览时间。"
+        }
+      ],
+      "sources": [
+        "https://baike.baidu.com/item/%E7%A7%A6%E7%9A%87%E5%B2%9B%E5%B8%82%E5%8D%A2%E9%BE%99%E5%8E%BF%E5%B7%A6%E5%8F%B3%E5%B1%B1%E8%B0%B7%E6%99%AF%E5%8C%BA/64085769",
+        "https://en.wikipedia.org/wiki/Qipanshan_International_Scenery_and_Tourism_Development_Zone"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "wufengshan",
@@ -1669,29 +3754,73 @@
       "cat": "history",
       "level": "2A",
       "rating": "4.3",
-      "price": "13元",
+      "price": "13元起",
       "priceNum": 13,
-      "openTime": "08:30-17:00",
+      "openTime": "全天开放",
       "address": "河北省秦皇岛市昌黎县两山乡五峰山村",
       "lat": 39.7422,
       "lng": 119.1694,
       "img": "images/attraction-wufengshan.jpg",
-      "desc": "革命先驱李大钊曾八上五峰山，在此写下《我的马克思主义观》《再论问题与主义》，是中国马克思主义传播的重要策源地。五座山峰峰峰异状、环列如屏，飞来峰最高海拔507米，为古碣石十景之一\"五峰屏开\"。",
+      "desc": "五峰山位于昌黎县城北两山乡五峰山村，距碣石山风景区约10公里，为古碣石十景之一\"五峰屏开\"。景区由挂月峰、飞来峰、平斗峰、锦绣峰、望海峰五座山峰组成，峰峰异状，环列如屏，其中飞来峰最高，海拔约507米。这里也是中国马克思主义早期传播的重要策源地，革命先驱李大钊曾八上五峰山，在明代建筑韩文公祠一带避险读书，写下《我的马克思主义观》《再论问题与主义》等文章，山中留有李大钊塑像和多处名人石刻。景区兼具自然山景与红色历史，适合登山爱好者和红色教育、历史文化爱好者前往。",
       "highlights": [
-        "李大钊革命活动旧址（韩文公祠）",
-        "五座异状山峰环列如屏",
-        "李大钊塑像及名人石刻",
-        "古碣石十景\"五峰屏开\""
+        "李大钊革命活动旧址",
+        "明代韩文公祠",
+        "五峰环列如屏奇观",
+        "飞来峰海拔507米登高",
+        "李大钊塑像及石刻群"
       ],
-      "bestSeason": "春季（4-5月）和秋季（9-10月）",
+      "bestSeason": "春季（4-5月）和秋季（9-10月），气候凉爽、植被状态好",
       "duration": "2-3小时",
-      "suitableFor": "红色旅游、历史文化爱好者、登山爱好者",
-      "tips": "门票仅13元，性价比极高。李大钊曾在此写就《我的马克思主义观》，是红色教育重要基地。韩文公祠为明代建筑。",
-      "transport": "昌黎火车站乘小客车直达景区",
+      "suitableFor": "红色旅游、历史文化爱好者、登山健身者",
+      "tips": "门票价格较低，性价比高，适合安排半天行程 山路以登山步道为主，建议穿防滑运动鞋 可与碣石山、昌黎黄金海岸等景区串联游览 红色教育元素较多，适合带孩子做历史研学 山中林木茂密，夏季注意防蚊虫",
+      "transport": "公共交通:昌黎火车站出站后有小客车可直达景区。 自驾:秦皇岛市区经京哈高速转沿海高速，从昌黎/黄金海岸出口驶出，沿昌黄连接线转五峰山路可达；距秦皇岛市区约1小时车程。",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "13元（网络资料另有10元说法，不同来源不一致）；多个平台对票价记载不一致（10元/13元均有出现），未见联票或线上预约要求信息，建议以景区现场公示或购票平台实时价格为准。",
+      "openTimeNotes": "全天开放（无明确旺季/淡季差异公告，建议白天前往，日落前下山）",
+      "transportDetail": {
+        "publicTransit": "昌黎火车站出站后有小客车可直达景区。",
+        "driving": "秦皇岛市区经京哈高速转沿海高速，从昌黎/黄金海岸出口驶出，沿昌黄连接线转五峰山路可达；距秦皇岛市区约1小时车程。",
+        "parking": null
+      },
+      "tipsList": [
+        "门票价格较低，性价比高，适合安排半天行程",
+        "山路以登山步道为主，建议穿防滑运动鞋",
+        "可与碣石山、昌黎黄金海岸等景区串联游览",
+        "红色教育元素较多，适合带孩子做历史研学",
+        "山中林木茂密，夏季注意防蚊虫"
+      ],
+      "nameEn": "Wufeng Mountain Scenic Area",
+      "descEn": "Wufeng (Five Peaks) Mountain lies north of Changli County, about 10 km from Jieshi Mountain. Its five distinctively shaped peaks, the highest around 507 m, form a screen-like ridge long listed among the \"Ten Scenes of Ancient Jieshi.\" It is also historically significant as a site where the early Chinese Marxist Li Dazhao took refuge and wrote key essays. A statue of Li Dazhao, inscribed rocks, and the Ming-dynasty Hanwengong Shrine remain on the mountain, making it a mix of hiking and revolutionary-history tourism.",
+      "highlightsEn": [
+        "Li Dazhao historic site",
+        "Ming-dynasty Hanwengong Shrine",
+        "Five screen-like peaks",
+        "Feilai Peak (507m) hike",
+        "Li Dazhao statue and rock inscriptions"
+      ],
+      "faq": [
+        {
+          "q": "五峰山适合带老人小孩去吗？",
+          "a": "山不算太高但以山路步行为主，体力一般的老人小孩建议量力而行，选择较缓的路段。"
+        },
+        {
+          "q": "山上有李大钊相关的哪些遗迹？",
+          "a": "有李大钊塑像、多处名人石刻以及他曾避险读书写作的明代韩文公祠一带旧址。"
+        },
+        {
+          "q": "门票多少钱？",
+          "a": "网络资料显示票价在10-13元左右，具体以景区现场公示为准。"
+        }
+      ],
+      "sources": [
+        "https://www.clxzf.gov.cn/single/21/2090.html",
+        "https://gs.ctrip.com/html5/you/sight/changli1835/134056171.html",
+        "https://www.meet99.com/jingdian-changliwufengshan-90730.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "tianmashan",
@@ -1702,27 +3831,71 @@
       "rating": "4.2",
       "price": "35元",
       "priceNum": 35,
-      "openTime": "08:00-16:00",
-      "address": "河北省秦皇岛市抚宁区城北10公里",
+      "openTime": "08:00-17:00左右",
+      "address": "河北省秦皇岛市抚宁区城北约10公里，102国道附近",
       "lat": 39.9768,
       "lng": 119.2469,
       "img": "images/attraction-tianmashan.jpg",
-      "desc": "海拔约300米，因顶峰巨石似云中奔马而得名，原名\"马头崖\"，是抚宁第一名胜。明代蓟镇总兵戚继光巡边到此题\"天马山\"\"山河一览\"\"天马行空\"\"海天在目\"等摩崖石刻，1982年列为省级重点文物保护单位。",
+      "desc": "天马山位于秦皇岛市抚宁区城北约10公里处，属燕山余脉，海拔约300米，因顶峰巨石远望似云中奔马而得名，原名\"马头崖\"，被称为抚宁第一名胜。明代蓟镇总兵戚继光巡边至此，留下\"天马山\"\"山河一览\"\"天马行空\"\"海天在目\"等多处摩崖石刻，1982年被列为河北省级重点文物保护单位。山中巨石叠砌、洞穴众多，并有\"猴儿望海\"等造型奇特的自然景观。山体不高，往返步行约4公里，适合作为半日休闲登山、了解明代边关历史的目的地。",
       "highlights": [
         "戚继光摩崖石刻群（省级文保）",
-        "山形俏美酷似奔马",
-        "巨石叠砌洞穴众多",
-        "\"猴儿望海\"等自然景观"
+        "山形似奔马的巨石地貌",
+        "\"猴儿望海\"奇石景观",
+        "多处天然洞穴",
+        "登顶远眺燕山与渤海"
       ],
-      "bestSeason": "秋季（9-10月）秋高气爽",
+      "bestSeason": "秋季（9-10月）秋高气爽、能见度好",
       "duration": "2-3小时",
       "suitableFor": "历史文化爱好者、登山健身者、家庭出游",
-      "tips": "戚继光题刻是最大看点，省级文保单位。山不高（300米），往返约4公里，适合休闲登山。注意部分季节开放时间可能调整。",
-      "transport": "102国道城北9公里，距秦皇岛市约45公里",
+      "tips": "出发前建议先通过电话或平台确认最新票价和开放时间 最大看点是戚继光摩崖石刻，登山途中留意崖壁题字 山体不高（约300米），往返约4公里，普通体力均可完成 山路多石阶和碎石，建议穿防滑鞋 秋季能见度高，适合登顶远眺",
+      "transport": "自驾:沿102国道行驶至抚宁区城北约9-10公里处即达，距秦皇岛市区约45公里，车程约1小时。",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "门票信息网络来源不一致，无法确认统一价格；不同来源给出的价格差异较大（有称免费，也有称约35元或成人60元/学生半价30元），且未见官方最新公告，建议出行前直接致电景区或查询携程/美团实时票价确认。",
+      "openTimeNotes": "08:00-17:00左右（16:00停止入场，具体以景区当日公示为准）",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "沿102国道行驶至抚宁区城北约9-10公里处即达，距秦皇岛市区约45公里，车程约1小时。",
+        "parking": null
+      },
+      "tipsList": [
+        "出发前建议先通过电话或平台确认最新票价和开放时间",
+        "最大看点是戚继光摩崖石刻，登山途中留意崖壁题字",
+        "山体不高（约300米），往返约4公里，普通体力均可完成",
+        "山路多石阶和碎石，建议穿防滑鞋",
+        "秋季能见度高，适合登顶远眺"
+      ],
+      "nameEn": "Tianma Mountain Scenic Area",
+      "descEn": "Tianma (\"Heavenly Horse\") Mountain sits about 10 km north of Funing District, Qinhuangdao, rising to roughly 300 m. It is named for a summit boulder resembling a galloping horse. Ming-dynasty general Qi Jiguang, who defended this stretch of the Great Wall, left several rock inscriptions here, now a provincial cultural relic. The mountain features stacked boulders, caves, and whimsically shaped rocks such as \"Monkey Watching the Sea.\" It's an easy half-day hike combining natural scenery with Ming border-defense history.",
+      "highlightsEn": [
+        "Qi Jiguang's cliff inscriptions",
+        "Horse-shaped summit rock formation",
+        "\"Monkey Watching the Sea\" rock",
+        "Natural caves",
+        "Summit views over the Yanshan range and Bohai Sea"
+      ],
+      "faq": [
+        {
+          "q": "天马山门票多少钱？",
+          "a": "网络信息不一致，出行前建议致电景区或在购票平台查询当天实时价格。"
+        },
+        {
+          "q": "天马山最值得看的是什么？",
+          "a": "山顶及沿途的戚继光摩崖石刻群，是省级重点文物保护单位。"
+        },
+        {
+          "q": "登山难度大吗？",
+          "a": "海拔约300米，往返约4公里，路况以石阶和碎石为主，普通游客均可完成。"
+        }
+      ],
+      "sources": [
+        "https://baike.baidu.com/item/%E5%A4%A9%E9%A9%AC%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%8C%BA/10472386",
+        "https://lxs.cncn.com/66364/n625214",
+        "https://s.visitbeijing.com.cn/attraction/118840"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "baozigou",
@@ -1738,22 +3911,66 @@
       "lat": 39.7686,
       "lng": 119.0127,
       "img": "images/attraction-baozigou.jpg",
-      "desc": "被誉为\"渤海之滨吐鲁番\"，地处北纬40度附近，是优良葡萄产地。全村葡萄种植面积1500余亩，景区总面积30平方公里，集葡萄采摘、奇石观赏、登高望远、湖畔垂钓于一体的生态旅游度假村。",
+      "desc": "鲍子沟景区位于秦皇岛市卢龙县蛤泊镇鲍子沟村，三面环山，地处北纬40度附近的优良葡萄产地，被誉为\"渤海之滨吐鲁番\"。当地种植葡萄已有300多年历史，全村耕地及可开发荒山基本都种上了以玫瑰香为主的食用葡萄，面积约1500亩，另有美人指、阳光玫瑰、红提、巨峰等十余个品种，年产量约400万-500万斤。自2002年起，鲍子沟村探索葡萄产业与乡村旅游结合的发展路径，景区总面积约30平方公里，集葡萄采摘、奇石观赏、登高望远、湖畔垂钓于一体，已入选全国农业旅游示范点，是家庭亲子采摘和乡村生态游的热门去处。",
       "highlights": [
-        "1500亩葡萄种植园",
+        "1500亩葡萄种植园采摘",
         "\"渤海之滨吐鲁番\"美誉",
-        "500亩油葵花海",
-        "奇石观赏+湖畔垂钓"
+        "玫瑰香、阳光玫瑰等十余品种",
+        "奇石观赏与湖畔垂钓",
+        "全国农业旅游示范点"
       ],
       "bestSeason": "8-10月葡萄成熟采摘季",
       "duration": "2-4小时",
-      "suitableFor": "家庭亲子、采摘体验者、乡村生态游",
-      "tips": "免费开放，葡萄采摘按斤计费。8-10月葡萄成熟时去最佳，与昌黎葡萄沟相邻可一并游览。",
-      "transport": "京哈高速转昌卢公路，由昌卢公路东行1公里即达",
+      "suitableFor": "家庭亲子、采摘体验者、乡村生态游爱好者",
+      "tips": "8-10月葡萄陆续成熟，是采摘最佳时段 免费入村，采摘按斤付费，建议自带购物袋或现金 与昌黎葡萄沟距离较近，可安排同日游览 村内道路较窄，自驾建议错峰前往 山地地形，儿童老人游玩注意路面起伏",
+      "transport": "自驾:京哈高速转昌卢公路，沿昌卢公路东行约1公里即达；可与昌黎葡萄沟一并规划行程。",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "免费（葡萄采摘按斤另计费）；景区本身不收门票，葡萄采摘现场按重量收费，具体单价随品种和年份浮动，未查到统一公示价格。",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "京哈高速转昌卢公路，沿昌卢公路东行约1公里即达；可与昌黎葡萄沟一并规划行程。",
+        "parking": null
+      },
+      "tipsList": [
+        "8-10月葡萄陆续成熟，是采摘最佳时段",
+        "免费入村，采摘按斤付费，建议自带购物袋或现金",
+        "与昌黎葡萄沟距离较近，可安排同日游览",
+        "村内道路较窄，自驾建议错峰前往",
+        "山地地形，儿童老人游玩注意路面起伏"
+      ],
+      "nameEn": "Baozigou Grape Valley",
+      "descEn": "Baozigou is a grape-growing village and scenic area in Hebo Town, Lulong County, surrounded by hills near the 40th parallel — good grape-growing latitude that has earned it the nickname \"Turpan by the Bohai Sea.\" Grapes have been cultivated here for over 300 years, and roughly 1,500 mu of farmland now grow Rose Honey and other varieties such as Sunshine Rose and Kyoho. Since 2002 the village has combined grape farming with rural tourism, offering fruit picking, rock formations, hilltop views, and lakeside fishing. It is a recognized national agri-tourism demonstration site, popular for family fruit-picking trips.",
+      "highlightsEn": [
+        "1,500-mu grape orchards for picking",
+        "\"Turpan by the Bohai Sea\" reputation",
+        "Rose Honey, Sunshine Rose and other varieties",
+        "Rock formations and lakeside fishing",
+        "National agri-tourism demonstration site"
+      ],
+      "faq": [
+        {
+          "q": "鲍子沟景区要门票吗？",
+          "a": "景区本身免费开放，采摘葡萄按现场重量另行付费。"
+        },
+        {
+          "q": "什么时候去最好？",
+          "a": "8-10月葡萄成熟期最佳，可现场采摘多个品种。"
+        },
+        {
+          "q": "附近还有什么可以一起玩？",
+          "a": "与昌黎葡萄沟相邻，可安排在同一天的行程中。"
+        }
+      ],
+      "sources": [
+        "https://m.thepaper.cn/newsDetail_forward_8708883",
+        "https://s.visitbeijing.com.cn/attraction/118778",
+        "http://www.news.cn/city/20220816/c7fcfa1b9aa54fb18adb3abfda112583/c.html",
+        "http://shop.bytravel.cn/produce3/9C8D5B506C9F84618404.html"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "liuhe_xigu",
@@ -1769,22 +3986,64 @@
       "lat": 39.87,
       "lng": 119.08,
       "img": "images/attraction-liuhe_xigu.jpg",
-      "desc": "被誉为\"长寿北山、红色北山、绿色北山\"。1943-1945年间冀东十二地委和专署机关在此办公，是冀东抗日根据地堡垒村庄。依山傍水，群山环抱，集绿色种植、果品采摘、休闲娱乐和红色教育于一体。",
+      "desc": "柳河溪谷位于秦皇岛市卢龙县刘田各庄镇柳河北山村北，毗邻冀东抗战纪念馆，当地素有\"长寿北山、红色北山、绿色北山\"之称。1943-1945年间，冀东十二地委和专署机关曾在此办公，是冀东抗日根据地的堡垒村庄之一。景区依山傍水、群山环抱，建有林中木屋和别墅，集绿色种植、果品采摘、休闲垂钓和红色教育于一体，是卢龙县夏季休闲乡村游线路的代表景点之一，常与碧霞山庄、棋盘山绿色庄园、左右山谷等景区串联游览。",
       "highlights": [
-        "冀东抗日根据地遗址",
-        "\"三色\"美誉（长寿·红色·绿色）",
-        "果品采摘体验",
-        "群山环抱生态风光"
+        "冀东抗日根据地堡垒村旧址",
+        "紧邻冀东抗战纪念馆",
+        "林中木屋与别墅度假区",
+        "果品采摘与湖畔垂钓",
+        "群山环抱的生态景观"
       ],
       "bestSeason": "夏季（6-8月）和秋季（9-10月）",
       "duration": "2-3小时",
-      "suitableFor": "红色旅游、亲子家庭、乡村生态游",
-      "tips": "免费开放。是红色教育和乡村生态游的好去处。李运昌、曾克林等将领曾在此战斗。",
-      "transport": "卢龙县刘田各庄镇东北方向约10公里",
+      "suitableFor": "红色旅游、亲子家庭、乡村生态游爱好者",
+      "tips": "可与紧邻的冀东抗战纪念馆一并参观，加深红色历史了解 夏秋季节适合采摘和避暑纳凉 免费开放，适合家庭自驾一日游 山区道路较窄，建议白天出行 与柳河山庄、左右山谷等景区距离较近，可规划环线游览",
+      "transport": "自驾:从卢龙县城驱车前往刘田各庄镇，沿路可导航\"柳河溪谷\"或\"冀东抗战纪念馆\"，位于镇区东北方向约10公里。",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "景区本身免费开放，园内果品采摘、垂钓等项目可能单独收费，未查到具体价目。",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "从卢龙县城驱车前往刘田各庄镇，沿路可导航\"柳河溪谷\"或\"冀东抗战纪念馆\"，位于镇区东北方向约10公里。",
+        "parking": null
+      },
+      "tipsList": [
+        "可与紧邻的冀东抗战纪念馆一并参观，加深红色历史了解",
+        "夏秋季节适合采摘和避暑纳凉",
+        "免费开放，适合家庭自驾一日游",
+        "山区道路较窄，建议白天出行",
+        "与柳河山庄、左右山谷等景区距离较近，可规划环线游览"
+      ],
+      "nameEn": "Liuhe Valley",
+      "descEn": "Liuhe Valley lies north of Liuhe Beishan Village in Liutianjiazhuang Town, Lulong County, next to the Jidong Anti-Japanese War Memorial Hall. From 1943-1945 it served as the office of the Jidong 12th District Committee, making it a stronghold village of the Jidong anti-Japanese base area — hence its local reputation for \"longevity, revolutionary history, and greenery.\" Surrounded by hills and water, the site has forest cabins and villas, and combines organic farming, fruit picking, fishing, and patriotic-education tourism. It is often visited together with nearby Biixia Manor and other Lulong countryside scenic spots.",
+      "highlightsEn": [
+        "Former Jidong anti-Japanese base stronghold",
+        "Adjacent to Jidong War Memorial Hall",
+        "Forest cabins and villa retreat",
+        "Fruit picking and fishing",
+        "Hill-ringed ecological scenery"
+      ],
+      "faq": [
+        {
+          "q": "柳河溪谷和冀东抗战纪念馆是一个地方吗？",
+          "a": "两者相邻但并非同一场所，柳河溪谷是依托柳河北山村自然风光和红色历史打造的乡村旅游区，紧邻冀东抗战纪念馆。"
+        },
+        {
+          "q": "需要门票吗？",
+          "a": "景区本身免费开放，部分采摘、垂钓等体验项目可能单独收费。"
+        },
+        {
+          "q": "适合什么季节去？",
+          "a": "夏秋两季气候宜人，果品也在此时成熟，是最佳游览期。"
+        }
+      ],
+      "sources": [
+        "https://www.visitbeijing.com.cn/article/4NHFUu2N98M",
+        "https://baike.baidu.com/item/%E7%A7%A6%E7%9A%87%E5%B2%9B%E5%B8%82%E5%8D%A2%E9%BE%99%E5%8E%BF%E5%B7%A6%E5%8F%B3%E5%B1%B1%E8%B0%B7%E6%99%AF%E5%8C%BA/64085769"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "liuhe_shanzhuang",
@@ -1793,29 +4052,71 @@
       "cat": "culture",
       "level": "3A",
       "rating": "4.0",
-      "price": "免费",
+      "price": "免费（园区参观）",
       "priceNum": 0,
-      "openTime": "全天开放",
+      "openTime": "全天开放（具体参观/品酒项目时段建议提前咨询）",
       "address": "河北省秦皇岛市卢龙县刘田各庄镇冯家山村",
       "lat": 39.82,
       "lng": 119.03,
       "img": "images/attraction-liuhe_shanzhuang.jpg",
-      "desc": "由秦皇岛柳河山庄葡萄酒业有限公司投资2亿元兴建，拥有500亩高标准种植基地和万吨级葡萄酒加工厂。打造了以红酒文化为主题的\"9D乐园\"，是秦皇岛\"葡萄酒+旅游\"特色休闲模式的代表。",
+      "desc": "柳河山庄位于秦皇岛市卢龙县刘田各庄镇冯家山村，由秦皇岛柳河山庄葡萄酒业有限公司投资兴建，拥有一定规模的酿酒葡萄种植基地和葡萄酒加工厂，是集葡萄种植、葡萄酒酿造、庄园观光和休闲度假于一体的乡村旅游综合体。庄园以红酒文化体验为核心，将葡萄园、庄园景观与葡萄酒文化结合，配套木屋度假区，是秦皇岛\"葡萄酒+旅游\"模式的代表之一，也是卢龙县庄园乡村休闲游线路上的重要节点，曾被评为农业旅游示范点。适合对葡萄酒文化感兴趣的游客、商务团队和情侣休闲出游。",
       "highlights": [
-        "红酒文化\"9D乐园\"",
-        "500亩酿酒葡萄种植基地",
-        "万吨级葡萄酒加工厂",
-        "高档木屋度假区"
+        "酿酒葡萄种植基地观光",
+        "葡萄酒加工厂参观",
+        "红酒文化主题庄园",
+        "木屋度假休闲区",
+        "农业旅游示范点"
       ],
-      "bestSeason": "秋季（9-10月）葡萄成熟采摘季",
+      "bestSeason": "秋季（9-10月）葡萄成熟酿酒季",
       "duration": "2-3小时",
       "suitableFor": "葡萄酒爱好者、商务团队、情侣休闲",
-      "tips": "免费开放。红酒文化9D乐园是亮点，可品酒采摘。被评为国家级农业旅游示范点。",
-      "transport": "秦皇岛市区驾车经碧霞山庄→木井镇→柳河山庄",
+      "tips": "适合安排在葡萄成熟的秋季（9-10月）前往，体验采摘与品酒 园区体验项目（品酒、住宿等）建议提前电话或线上确认 可与相邻的柳河溪谷、左右山谷等景区组合成一日游线路 商务团建、情侣出游可考虑入住园内木屋 山区自驾建议提前规划路线，部分路段导航信号较弱",
+      "transport": "自驾:秦皇岛市区驾车经碧霞山庄、木井镇方向前往柳河山庄，路程约1-1.5小时（具体以实时导航为准）。",
       "booking": [],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "庄园本身免费开放，品酒、住宿、采摘等体验项目通常单独收费，具体价目网络未查到统一公示，建议提前联系确认。此前网络资料中提及的\"9D乐园\"未能通过本次检索独立核实，请谨慎采信。",
+      "transportDetail": {
+        "publicTransit": null,
+        "driving": "秦皇岛市区驾车经碧霞山庄、木井镇方向前往柳河山庄，路程约1-1.5小时（具体以实时导航为准）。",
+        "parking": null
+      },
+      "tipsList": [
+        "适合安排在葡萄成熟的秋季（9-10月）前往，体验采摘与品酒",
+        "园区体验项目（品酒、住宿等）建议提前电话或线上确认",
+        "可与相邻的柳河溪谷、左右山谷等景区组合成一日游线路",
+        "商务团建、情侣出游可考虑入住园内木屋",
+        "山区自驾建议提前规划路线，部分路段导航信号较弱"
+      ],
+      "nameEn": "Liuhe Manor Winery",
+      "descEn": "Liuhe Manor is a winery-resort in Fengjiashan Village, Liutianjiazhuang Town, Lulong County, built by a local wine company. It combines wine-grape vineyards, a winemaking facility, and manor-style grounds with leisure lodging in wooden cabins, making it a representative \"wine plus tourism\" destination near Qinhuangdao. Visitors can tour the vineyards and winery, learn about the winemaking process, and relax on the grounds. It suits wine enthusiasts, business groups, and couples looking for a quiet countryside getaway.",
+      "highlightsEn": [
+        "Wine-grape vineyard tours",
+        "Winery production visit",
+        "Wine-culture themed manor grounds",
+        "Wooden cabin resort area",
+        "Recognized agri-tourism site"
+      ],
+      "faq": [
+        {
+          "q": "柳河山庄需要门票吗？",
+          "a": "园区参观免费，品酒、住宿等增值体验项目通常另行收费。"
+        },
+        {
+          "q": "可以现场品酒或购买葡萄酒吗？",
+          "a": "作为葡萄酒生产企业配套的庄园，通常提供品酒和购酒服务，具体以现场安排为准，建议提前咨询。"
+        },
+        {
+          "q": "适合什么时候去？",
+          "a": "秋季葡萄成熟、酿酒季氛围最浓，是最佳游览时间。"
+        }
+      ],
+      "sources": [
+        "https://m.bj.bendibao.com/tour/224970_21.html",
+        "https://www.visitbeijing.com.cn/article/47QlcFW4pxw"
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "wangjiadayuan",
@@ -1826,23 +4127,24 @@
       "rating": "4.3",
       "price": "30元",
       "priceNum": 30,
-      "openTime": "07:30-17:30",
+      "openTime": "08:00-17:00",
       "address": "河北省秦皇岛市山海关区古城东三条29号",
       "lat": 40.007,
       "lng": 119.7594,
       "img": "images/attraction-wangjiadayuan.jpg",
-      "desc": "\"万里长城第一家\"，坐落于天下第一关西侧，始建于明末清初。典型明清四合庭院建筑，占地十余亩，建筑面积2000多平方米，三个套院18个展厅。原为晋商王三佛宅院，现作为民俗博物馆展示山海关古城历史文化。",
+      "desc": "王家大院又称山海关古城民俗博物馆，坐落于\"天下第一关\"城楼西侧，被称为\"万里长城第一家\"，始建于明末清初，鼎盛于清晚期。院落为典型明清四合庭院式建筑群，占地十余亩，建筑面积2000多平方米，由三个套院、18个展厅组成。宅院原主人王三佛是山西盐商，因家业兴旺被称为\"山海关南半城\"。如今大院辟为民俗博物馆，通过实景陈设和展品展示明清时期山海关古城居民的生活场景与民俗文化，是了解晋商文化和山海关古城历史的重要窗口，适合历史文化爱好者、古建筑研究者及亲子研学。",
       "highlights": [
         "万里长城第一家",
-        "明清四合庭院（三个套院18个展厅）",
-        "晋商王三佛宅院",
-        "山海关古城民俗展览"
+        "明清四合庭院建筑群",
+        "三套院18个展厅",
+        "晋商王三佛宅院旧址",
+        "山海关古城民俗生活复原场景"
       ],
-      "bestSeason": "全年皆宜（室内参观），春秋季最佳",
+      "bestSeason": "全年皆宜（室内参观为主），春秋季节古城整体游览体验更好",
       "duration": "1-2小时",
       "suitableFor": "历史文化爱好者、古建筑研究者、亲子研学",
-      "tips": "与天下第一关城楼相邻，可一并游览。了解晋商文化和山海关古城历史的第一站。主人王三佛为山西盐商，号称\"山海关南半城\"。",
-      "transport": "山海关火车站步行至天下第一关景区即到",
+      "tips": "与天下第一关城楼相邻，建议安排在同一行程中一并游览 出行前建议在携程等平台核实当日票价，网络记载有30元和50元两种说法 馆内为室内展陈，四季均可参观，雨雪天气也不受影响 适合结合古城其他历史街区做半天到一天的深度游 想了解晋商文化和山海关古城民俗的游客不要错过",
+      "transport": "公共交通:山海关火车站出站后步行至天下第一关景区，王家大院位于城楼西侧，步行即可到达。 自驾:自秦皇岛市区沿秦皇西大街/庆首道方向经G228或市区道路前往山海关古城，车程约30-40分钟；自北戴河站方向约30分钟车程。",
       "booking": [
         {
           "name": "携程订票",
@@ -1852,7 +4154,80 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "30元（网络另有50元说法，来源不一致）；不同平台票价记载不一致（30元与50元均有出现），与天下第一关景区相邻，是否有联票需现场或购票平台核实，建议出行前通过携程等平台确认当日实时价格。",
+      "openTimeNotes": "08:00-17:00左右，旺季（5月-12月）与淡季时段可能有调整，网络资料显示曾公示5月4日-12月31日8:00-17:00",
+      "transportDetail": {
+        "publicTransit": "山海关火车站出站后步行至天下第一关景区，王家大院位于城楼西侧，步行即可到达。",
+        "driving": "自秦皇岛市区沿秦皇西大街/庆首道方向经G228或市区道路前往山海关古城，车程约30-40分钟；自北戴河站方向约30分钟车程。",
+        "parking": null
+      },
+      "tipsList": [
+        "与天下第一关城楼相邻，建议安排在同一行程中一并游览",
+        "出行前建议在携程等平台核实当日票价，网络记载有30元和50元两种说法",
+        "馆内为室内展陈，四季均可参观，雨雪天气也不受影响",
+        "适合结合古城其他历史街区做半天到一天的深度游",
+        "想了解晋商文化和山海关古城民俗的游客不要错过"
+      ],
+      "nameEn": "Wang Family Courtyard (Shanhaiguan Folk Museum)",
+      "descEn": "Wang Family Courtyard, also known as the Shanhaiguan Folk Museum, sits just west of the First Pass Under Heaven watchtower and is billed as the \"first house along the Great Wall.\" Built in the late Ming to early Qing period, it is a classic Ming-Qing courtyard complex of three linked courtyards and 18 exhibition halls on about 2,000+ sq m of floor space. It was originally the home of Wang Sanfo, a wealthy Shanxi salt merchant. Today it houses folk-life exhibits recreating Qing-era domestic scenes, offering visitors a window into Shanhaiguan's old-city history and Shanxi merchant culture.",
+      "highlightsEn": [
+        "\"First house along the Great Wall\"",
+        "Ming-Qing courtyard complex",
+        "Three courtyards, 18 exhibition halls",
+        "Former residence of merchant Wang Sanfo",
+        "Recreated old-city folk-life scenes"
+      ],
+      "faq": [
+        {
+          "q": "王家大院和天下第一关是一个门票吗？",
+          "a": "两者是相邻但各自独立的景点，是否有联票建议在购票平台或现场售票处确认。"
+        },
+        {
+          "q": "王家大院值得看什么？",
+          "a": "明清四合院建筑本身、18个展厅内的民俗生活场景，以及晋商王三佛家族的历史陈列。"
+        },
+        {
+          "q": "门票多少钱？",
+          "a": "网络资料显示在30-50元之间，不同来源不一致，建议出行前用购票平台核实实时价格。"
+        }
+      ],
+      "sources": [
+        "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/123761.html",
+        "https://s.visitbeijing.com.cn/attraction/118878",
+        "https://www.beidaihe186.com/shhg_jd_wjdy15.php",
+        "https://commons.wikimedia.org/wiki/Category:Wang_Family_Courtyard,_Shanhaiguan"
+      ],
+      "photoCandidates": [
+        {
+          "title": "File:Wang Family Courtyard 王家大院 (6237013339).jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_(6237013339).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_%286237013339%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "author": "Caitriana Nicholson from Beijing, China",
+          "width": 1600,
+          "height": 1200
+        },
+        {
+          "title": "File:Wang Family Courtyard 王家大院 (6237012645).jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_(6237012645).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_%286237012645%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "author": "Caitriana Nicholson from Beijing, China",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "title": "File:Ladies' Boudoir (6234002759).jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Ladies%27_Boudoir_(6234002759).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Ladies%27_Boudoir_%286234002759%29.jpg",
+          "license": "CC BY-SA 2.0",
+          "author": "Caitriana Nicholson from Beijing, China",
+          "width": 2592,
+          "height": 1944
+        }
+      ],
+      "asOf": "2026-09"
     },
     {
       "id": "yutian_qilihai",
@@ -1861,25 +4236,26 @@
       "cat": "family",
       "level": "4A",
       "rating": "4.8",
-      "price": "128元",
-      "priceNum": 128,
-      "openTime": "10:00-22:00(4月30日-10月7日)",
+      "price": "109元起",
+      "priceNum": 109,
+      "openTime": "10:00-22:00",
       "address": "河北省秦皇岛市北戴河新区七里海片区侯里村与大韩庄村之间",
       "lat": 39.58,
       "lng": 119.28,
       "img": "images/attraction-yutian_qilihai.jpg",
-      "desc": "2025年新评4A级景区！占地2400亩，总投资50亿，拥有5400亩海洋牧场。集行进式夜游演艺、互动式特色商街、网红民宿集群、亲子主题度假酒店、渔文化精粹于一体的一站式旅游度假目的地。以\"深度沉浸、多元体验\"为特征，是秦皇岛最新最火的亲子度假天堂。",
+      "desc": "渔田·七里海度假区位于秦皇岛市北戴河新区七里海片区（侯里村与大韩庄村之间），是2025年新评的4A级景区，占地约8000亩，水域面积约5000亩，总投资规模较大。景区集大型实景演艺、渔文化体验、亲子动物互动（长颈鹿、水豚、小矮马等）、休闲体验式街区、特色主题民宿于一体，白天以动物互动和戏水项目为主，夜间有由专业团队打造的水上灯光大秀，是目前秦皇岛热度较高的亲子度假目的地之一。景区每年仅在4月底至10月初运营，营业时间较长，适合安排半天到一天，尤其推荐晚间留下观看夜场演艺。",
       "highlights": [
-        "夜秀光影演艺（渔人世界）",
-        "长颈鹿水部落+鳐鱼湾+龟谷溯溪+水豚森友会",
-        "沿水街·东坊酒吧街",
-        "七里宿集主题民宿集群"
+        "夜间水上灯光大秀",
+        "长颈鹿、水豚等动物互动",
+        "亲水戏水主题区",
+        "沿水街特色商业街区",
+        "七里宿集主题民宿群"
       ],
-      "bestSeason": "5-10月（夏季运营期，夜场最有氛围）",
-      "duration": "半天到一天（夜场体验最佳）",
-      "suitableFor": "亲子家庭、情侣、年轻人、度假休闲",
-      "tips": "10:00-22:00开放，21:30停止入园，09:30可检票入园。夜场最有氛围，建议下午入园玩水项目，晚上看夜秀演艺。四大亲水区域适合亲子戏水，夏季无惧暴晒。",
-      "transport": "北戴河新区导航\"渔田七里海度假区\"，距北戴河站约30分钟车程",
+      "bestSeason": "5-10月夏季运营期，尤以夜场演艺氛围最佳",
+      "duration": "半天到一天",
+      "suitableFor": "亲子家庭、情侣、年轻人、度假休闲人群",
+      "tips": "建议下午入园先玩水项目和动物互动，晚上留下看夜场演艺 夜场是景区精华所在，强烈建议停留到21:00左右 旺季周末人流量大，建议提前1-2天线上购票，甚至提前预约住宿套餐走VIP通道 园区面积大（约8000亩），步行量较大，建议穿舒适运动鞋 工作日前往相对人少，体验更好",
+      "transport": "公共交通:乘高铁至北戴河站后打车约40分钟可达；也可乘808路公交至\"大韩庄\"站，下车后步行约10分钟。 自驾:北京方向经京哈高速，车程约3.5小时；天津方向约3小时；景区导航可直接搜索\"渔田七里海度假区\"。 停车:景区设有免费停车场（以景区实际公示为准）。",
       "booking": [
         {
           "name": "携程订票",
@@ -1894,7 +4270,52 @@
       ],
       "isTop": false,
       "topRank": 0,
-      "visible": true
+      "visible": true,
+      "ticketNotes": "成人票109元起（日场+夜场通玩，具体以购票平台当日价格为准）；票价按人群分级：成人109元起、学生/老人90元起、儿童（1.2米以上）79元起，1.2米以下儿童及符合条件的老人等可免票；部分特殊活动期（如国际烟花节）票价会上浮，曾出现238元的活动票价，建议通过官方渠道或携程/美团在出行前确认当日实时价格。景区+住宿套餐通常比单独购票更划算。",
+      "openTimeNotes": "季节性运营，约每年4月30日-10月7日，每日10:00-22:00（21:30停止入园及售票）",
+      "durationNotes": "半天到一天（建议留到夜场结束）",
+      "transportDetail": {
+        "publicTransit": "乘高铁至北戴河站后打车约40分钟可达；也可乘808路公交至\"大韩庄\"站，下车后步行约10分钟。",
+        "driving": "北京方向经京哈高速，车程约3.5小时；天津方向约3小时；景区导航可直接搜索\"渔田七里海度假区\"。",
+        "parking": "景区设有免费停车场（以景区实际公示为准）。"
+      },
+      "tipsList": [
+        "建议下午入园先玩水项目和动物互动，晚上留下看夜场演艺",
+        "夜场是景区精华所在，强烈建议停留到21:00左右",
+        "旺季周末人流量大，建议提前1-2天线上购票，甚至提前预约住宿套餐走VIP通道",
+        "园区面积大（约8000亩），步行量较大，建议穿舒适运动鞋",
+        "工作日前往相对人少，体验更好"
+      ],
+      "nameEn": "Yutian Qilihai Resort",
+      "descEn": "Yutian Qilihai Resort sits in the Qilihai area of Beidaihe New District, between Houli and Dahanzhuang villages. Newly rated as a 4A attraction in 2025, it covers about 8,000 mu (roughly 530 hectares) with 5,000 mu of water area. The resort combines large-scale live shows, fishing-culture exhibits, close-up animal encounters (giraffes, capybaras, miniature horses), themed shopping streets, and boutique lodging. Daytime visits focus on animal interaction and water play, while evenings feature a large light-and-water show. It operates seasonally from late April to early October and is best enjoyed as a full-day-into-evening visit.",
+      "highlightsEn": [
+        "Nighttime water & light show",
+        "Giraffe and capybara encounters",
+        "Water-play themed zones",
+        "Waterfront shopping street",
+        "Themed boutique lodging cluster"
+      ],
+      "faq": [
+        {
+          "q": "渔田七里海度假区全年开放吗？",
+          "a": "不是，属季节性运营景区，通常每年4月底至10月初开放，冬季不营业。"
+        },
+        {
+          "q": "门票多少钱？",
+          "a": "成人票109元起，学生/老人90元起，儿童79元起，具体以购票平台当日价格为准，节庆活动期间价格可能上浮。"
+        },
+        {
+          "q": "白天和夜场哪个更值得看？",
+          "a": "白天适合亲子戏水和动物互动，夜场的灯光水秀是景区最大亮点，建议尽量留到晚上。"
+        }
+      ],
+      "sources": [
+        "https://www.divdu.com/blog/yutian-qilihai-guide-2026",
+        "https://gs.ctrip.com/html5/you/sight/changli1835/134077258.html",
+        "https://www.beidaihe186.com/scenic_yutian.html",
+        "https://touch.piao.qunar.com/touch/detail.htm?id=516944"
+      ],
+      "asOf": "2026-09"
     }
   ]
 }

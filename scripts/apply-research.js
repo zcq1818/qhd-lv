@@ -45,6 +45,38 @@ for (const f of files) {
   set('duration', clean(r.duration));
   set('suitableFor', clean(r.suitableFor));
   if (nonEmpty(r.level) && !spot.level) spot.level = r.level;
+  // 票价规范化:price 只保留短文案(列表/行程/画廊用),长说明并入 ticketNotes
+  if (typeof spot.price === 'string' && spot.price.length > 12) {
+    const long = spot.price;
+    if (!(spot.ticketNotes || '').includes(long)) spot.ticketNotes = long + (spot.ticketNotes ? '；' + spot.ticketNotes : '');
+    if (/免费/.test(long) && (spot.priceNum === 0 || /^免费|不设门票|取消大门票/.test(long))) { spot.price = '免费'; spot.priceNum = 0; }
+    else if (/预约/.test(long) && !/\d+元/.test(long)) spot.price = '预约制';
+    else {
+      const m = long.match(/(\d+(?:\.\d+)?)\s*元/);
+      const n = m ? Math.round(parseFloat(m[1])) : (typeof spot.priceNum === 'number' ? spot.priceNum : null);
+      if (n !== null) { spot.price = `${n}元${/起|约|左右|浮动|不同/.test(long) ? '起' : ''}`; spot.priceNum = n; }
+      else spot.price = '以现场公示为准';
+    }
+  }
+  if (typeof spot.priceNum !== 'number') spot.priceNum = /免费/.test(spot.price || '') ? 0 : (parseInt(spot.price, 10) || 0);
+  // 开放时间 / 时长 / 季节:卡片只放短文案,长说明放 *Notes
+  const stripParen = (x) => x.replace(/[（(][^（）()]*[）)]/g, '').replace(/\s+/g, ' ').trim();
+  const firstSeg = (x) => x.split(/[;；。]/)[0];
+  if (typeof spot.openTime === 'string' && spot.openTime.length > 30) {
+    const long = spot.openTime;
+    if (!(spot.openTimeNotes || '').includes(long)) spot.openTimeNotes = long;
+    let short;
+    if (/暂停营业|闭园整修|暂不开放/.test(long)) short = '暂停营业';
+    else if (/^全天|^古城全天|^社区全天|^沙滩区域全天/.test(long)) short = '全天开放';
+    else {
+      short = stripParen(firstSeg(long)).replace(/^(约|参考|常规|日常|查到的公开数据为|\d{4}年公示时间[:：])\s*/, '');
+      if (short.length > 30) { const m = long.match(/\d{1,2}:\d{2}\s*[-–—]\s*\d{1,2}:\d{2}/); short = m ? m[0].replace(/\s/g, '') : short.slice(0, 22) + '…'; }
+    }
+    spot.openTime = short;
+    if (short === '暂停营业') { spot.price = '暂停营业'; spot.priceNum = 0; }
+  }
+  if (typeof spot.duration === 'string' && spot.duration.length > 14) { spot.durationNotes = spot.duration; spot.duration = stripParen(firstSeg(spot.duration)).slice(0, 14); }
+  if (typeof spot.bestSeason === 'string' && spot.bestSeason.length > 30) { spot.bestSeasonNotes = spot.bestSeason; spot.bestSeason = stripParen(firstSeg(spot.bestSeason)).slice(0, 30); }
   // 交通:对象保留在 transportDetail,同时拼成字符串供旧消费方使用
   if (r.transport && typeof r.transport === 'object') {
     const t = r.transport;
@@ -99,7 +131,7 @@ for (const f of files) {
   if (spot.highlights?.length) rep(/(<ul class="highlights-list">)[\s\S]*?(<\/ul>)/, (_, a, b) => `${a}\n        ${spot.highlights.map((h) => `<li>${esc(h)}</li>`).join('\n        ')}\n      ${b}`, '亮点列表');
 
   // 实用贴士 → 列表
-  if (spot.tipsList?.length) rep(/(实用贴士\s*<\/h2>\s*)(<p>[\s\S]*?<\/p>|<ul class="tips-list">[\s\S]*?<\/ul>)/, (_, a) => `${a}<ul class="tips-list">\n        ${spot.tipsList.map((t) => `<li>${esc(t)}</li>`).join('\n        ')}\n      </ul>${spot.ticketNotes ? `\n      <p class="ticket-notes">🎫 ${esc(spot.ticketNotes)}</p>` : ''}`, '贴士区块');
+  if (spot.tipsList?.length) rep(/(实用贴士\s*<\/h2>\s*)(<p>[\s\S]*?<\/p>|<ul class="tips-list">[\s\S]*?<\/ul>(?:\s*<p class="ticket-notes">[\s\S]*?<\/p>)*)/, (_, a) => `${a}<ul class="tips-list">\n        ${spot.tipsList.map((t) => `<li>${esc(t)}</li>`).join('\n        ')}\n      </ul>${spot.ticketNotes ? `\n      <p class="ticket-notes">🎫 ${esc(spot.ticketNotes)}</p>` : ''}${spot.openTimeNotes ? `\n      <p class="ticket-notes">🕒 ${esc(spot.openTimeNotes)}</p>` : ''}`, '贴士区块');
 
   // 交通指南 → 三段
   if (spot.transportDetail) {
