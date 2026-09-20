@@ -2,8 +2,8 @@
 /**
  * 统一导航栏脚本：把全站每个页面的 <nav> 规范成同一套标准导航栏。
  *
- * 标准导航栏（完整版 10 项菜单）：
- *   首页 · 必玩景点 · 景点大全 · 实景画廊 · 地图 · 行程规划 · 美食 · 旅游攻略 · 博客 · 关于我们
+ * 标准导航栏（完整版 9 项菜单）：
+ *   首页 · 必玩景点 · 景点大全 · 地图 · 行程规划 · 美食 · 旅游攻略 · 博客 · 关于我们
  * 外加 logo 图标 + 「免费规划行程」CTA 按钮 + 手机端汉堡菜单（含点击切换 JS）。
  *
  * 用法: node scripts/unify-navbar.js
@@ -33,7 +33,6 @@ const LINKS = [
   { href: '/', label: '首页', key: 'home' },
   { href: '/must-play', label: '必玩景点', key: 'must-play' },
   { href: '/attractions', label: '景点大全', key: 'attractions' },
-  { href: '/gallery3d', label: '实景画廊', key: 'gallery3d' },
   { href: '/map', label: '地图', key: 'map' },
   { href: '/itinerary', label: '行程规划', key: 'itinerary' },
   { href: '/food', label: '美食', key: 'food' },
@@ -48,7 +47,7 @@ function getActiveKey(rel) {
   if (p === 'must-play.html') return 'must-play';
   if (p === 'attractions.html') return 'attractions';
   if (p.startsWith('attraction/')) return 'attractions';
-  if (p === 'gallery3d.html') return 'gallery3d';
+  if (p === 'gallery3d.html') return 'attractions';
   if (p === 'map.html') return 'map';
   if (p === 'itinerary.html') return 'itinerary';
   if (p === 'food.html') return 'food';
