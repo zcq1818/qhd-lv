@@ -51,6 +51,9 @@
 .tide-info-label{font-size:13px;color:#64748b;margin-bottom:8px;font-weight:600;}
 .tide-info-value{font-size:20px;font-weight:800;color:#0f172a;}
 .tide-info-sub{font-size:12px;color:#64748b;margin-top:4px;}
+.tide-date-tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 2px;}
+.tide-date-tab{flex:0 0 auto;padding:8px 18px;border:2px solid #e2e8f0;border-radius:999px;font-size:14px;font-weight:600;color:#475569;background:#fff;cursor:pointer;white-space:nowrap;}
+.tide-date-tab.active{background:#0ea5e9;border-color:#0ea5e9;color:#fff;}
 @media(max-width:768px){.tide-grid{grid-template-columns:repeat(2,1fr)}.tide-info-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -86,7 +89,7 @@
   <!-- 查询表单 -->
   <div class="tide-card">
     <div class="tide-select">
-      <select id="location" onchange="queryTide()">
+      <select id="location" onchange="loadDefault()">
         <option value="beidaihe">北戴河</option>
         <option value="qinhuangdao">秦皇岛市区</option>
         <option value="shankhaiguan">山海关·老龙头</option>
@@ -101,6 +104,9 @@
 
   <!-- 潮汐数据 -->
   <div id="tideResult" style="display:none;">
+    <!-- 日期切换标签 -->
+    <div id="dateTabs" class="tide-date-tabs" style="display:none;"></div>
+
     <!-- 数据来源 -->
     <div class="tide-card" style="padding:12px 20px;background:#f0f9ff;">
       <span id="dataSource" style="font-size:13px;color:#64748b;">数据来源：加载中...</span>
@@ -173,21 +179,79 @@
 // 初始化日期
 document.getElementById('date').valueAsDate = new Date();
 
-// 查询潮汐
+// 多天数据状态
+let multiDays = [];
+let currentDay = 0;
+
+// 更新数据来源文字
+function updateSource(data, source) {
+  const sourceText = (source || data.source) === 'estimated' ? '天文算法估算数据' : '实时潮汐数据';
+  const stationText = data.station ? ' · ' + data.station : '';
+  document.getElementById('dataSource').textContent = `数据来源：${sourceText}${stationText}`;
+}
+
+// 页面默认加载：最近5天潮汐
+async function loadDefault() {
+  const location = document.getElementById('location').value;
+  try {
+    const response = await fetch(`/api/tide?location=${location}&days=5`);
+    const data = await response.json();
+    if (data.success && Array.isArray(data.data) && data.data.length > 1) {
+      multiDays = data.data;
+      currentDay = 0;
+      renderDateTabs();
+      renderDay(0);
+      updateSource(data, data.data[0].source);
+      return;
+    }
+  } catch (e) { /* 多天加载失败，回退单天 */ }
+  queryTide();
+}
+
+// 渲染日期切换标签
+function renderDateTabs() {
+  const el = document.getElementById('dateTabs');
+  if (!multiDays.length) { el.style.display = 'none'; return; }
+  el.style.display = 'flex';
+  el.innerHTML = multiDays.map((d, i) =>
+    `<button type="button" class="tide-date-tab ${i === currentDay ? 'active' : ''}" onclick="renderDay(${i})">${formatDayLabel(d.date, i)}</button>`
+  ).join('');
+}
+
+// 渲染某一天
+function renderDay(i) {
+  currentDay = i;
+  const d = multiDays[i];
+  displayTideData({ location: '', date: d.date, data: d.data, source: d.source, isToday: i === 0 });
+  renderDateTabs();
+}
+
+// 日期标签文案
+function formatDayLabel(dateStr, index) {
+  if (index === 0) return '今天';
+  if (index === 1) return '明天';
+  const d = new Date(dateStr + 'T00:00:00');
+  const wd = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][d.getDay()];
+  return `${d.getMonth() + 1}月${d.getDate()}日 ${wd}`;
+}
+
+// 查询潮汐（手动选日期，单天）
 async function queryTide() {
   const location = document.getElementById('location').value;
   const date = document.getElementById('date').value;
-  
+
+  // 手动查询时清空多天标签
+  multiDays = [];
+  const tabs = document.getElementById('dateTabs');
+  if (tabs) tabs.style.display = 'none';
+
   try {
     const response = await fetch(`/api/tide?location=${location}&date=${date}`);
     const data = await response.json();
-    
+
     if (data.success) {
-      displayTideData(data);
-      // 显示数据来源
-      const sourceText = data.source === 'estimated' ? '天文算法估算数据' : '实时潮汐数据';
-      const stationText = data.station ? ' · ' + data.station : '';
-      document.getElementById('dataSource').textContent = `数据来源：${sourceText}${stationText}`;
+      displayTideData({ ...data, isToday: date === cnDateStrLocal(0) });
+      updateSource(data);
     }
   } catch (error) {
     // 如果 API 调用失败，使用本地估算
@@ -196,18 +260,26 @@ async function queryTide() {
       location: getLocationName(location),
       date: date,
       data: estimatedData,
-      estimated: true
+      source: 'estimated',
+      isToday: date === cnDateStrLocal(0)
     });
     document.getElementById('dataSource').textContent = '数据来源：本地估算';
   }
+}
+
+// 本地今天日期字符串
+function cnDateStrLocal(offsetDays) {
+  const china = new Date(Date.now() + 8 * 60 * 60 * 1000);
+  const d = new Date(china.getTime() + offsetDays * 24 * 60 * 60 * 1000);
+  return d.toISOString().split('T')[0];
 }
 
 // 显示潮汐数据
 function displayTideData(result) {
   document.getElementById('tideResult').style.display = 'block';
 
-  // 实时涨退潮状态
-  renderTideStatus(result.data.tides);
+  // 实时涨退潮状态（今天显示实时，其它天显示当日概览）
+  renderTideStatus(result.data.tides, result.isToday);
 
   // 显示高低潮
   const grid = document.getElementById('tideGrid');
@@ -253,10 +325,20 @@ function displayTideData(result) {
   renderAstro(result.data);
 }
 
-// 实时涨退潮状态
-function renderTideStatus(tides) {
+// 实时涨退潮状态（isToday 为 true 时显示实时涨退潮，否则显示当日概览）
+function renderTideStatus(tides, isToday) {
   const el = document.getElementById('tideStatus');
   if (!el || !tides || !tides.length) { if (el) el.style.display = 'none'; return; }
+
+  // 非今天：显示当日满潮/干潮概览
+  if (!isToday) {
+    const highs = tides.filter(t => t.type === 'high').map(t => t.time);
+    const lows = tides.filter(t => t.type === 'low').map(t => t.time);
+    el.style.display = 'flex';
+    el.innerHTML = '<span>📅 当日潮汐</span>' +
+      '<span class="tide-status-detail">满潮 ' + (highs.join(' / ') || '--') + ' · 干潮 ' + (lows.join(' / ') || '--') + '</span>';
+    return;
+  }
 
   const now = new Date();
   const nowMin = now.getHours() * 60 + now.getMinutes();
@@ -427,7 +509,8 @@ function estimateTide(dateStr, location) {
     return {
       start: `${String(Math.max(0, hour - 2)).padStart(2, '0')}:00`,
       end: `${String(Math.min(23, hour + 2)).padStart(2, '0')}:00`,
-      lowTideTime: t.time
+      lowTideTime: t.time,
+      isDaytime: hour >= 6 && hour < 18
     };
   });
   
@@ -441,7 +524,7 @@ function getLocationName(code) {
 }
 
 // 页面加载时自动查询
-window.addEventListener('load', queryTide);
+window.addEventListener('load', loadDefault);
 </script>
 <script>
 window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)});

@@ -8,6 +8,7 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'GET');
 
   const { date, location } = req.query;
+  const days = Math.min(parseInt(req.query.days, 10) || 1, 5);
 
   // 秦皇岛周边位置 -> 潮汐站（就近映射，标注实际潮汐站）
   const stations = {
@@ -20,33 +21,43 @@ export default async function handler(req, res) {
   };
 
   const loc = stations[location] || stations['qinhuangdao'];
-  const queryDate = date || new Date().toISOString().split('T')[0];
 
-  // 日出日落、月相、钓鱼指数（和风天气，独立于潮汐数据）
-  const extra = await fetchTideExtra(loc.coord, queryDate);
-
-  try {
-    const tideData = await fetchTideTimes(loc.id, queryDate);
-    res.status(200).json({
-      success: true,
-      location: loc.name,
-      station: loc.station,
-      date: queryDate,
-      data: { ...tideData, ...extra },
-      source: 'qweather'
-    });
-  } catch (error) {
-    const estimatedData = estimateTide(queryDate);
-    res.status(200).json({
-      success: true,
-      location: loc.name,
-      station: loc.station,
-      date: queryDate,
-      data: { ...estimatedData, ...extra },
-      source: 'estimated',
-      error: error.message
-    });
+  // 生成查询日期列表（北京时区，从今天起 N 天；指定 date 时仅查询该天）
+  const dateList = [];
+  if (date) {
+    dateList.push(date);
+  } else {
+    for (let i = 0; i < days; i++) dateList.push(cnDateStr(i));
   }
+
+  // 并行拉取每天潮汐 + 天文数据
+  const results = await Promise.all(dateList.map(async (queryDate) => {
+    const extra = await fetchTideExtra(loc.coord, queryDate);
+    try {
+      const tideData = await fetchTideTimes(loc.id, queryDate);
+      return { date: queryDate, source: 'qweather', data: { ...tideData, ...extra } };
+    } catch (error) {
+      const estimatedData = estimateTide(queryDate);
+      return { date: queryDate, source: 'estimated', error: error.message, data: { ...estimatedData, ...extra } };
+    }
+  }));
+
+  // 单天保持原有返回结构，多天返回数组
+  if (results.length === 1) {
+    const r = results[0];
+    const body = { success: true, location: loc.name, station: loc.station, date: r.date, data: r.data, source: r.source };
+    if (r.error) body.error = r.error;
+    res.status(200).json(body);
+  } else {
+    res.status(200).json({ success: true, location: loc.name, station: loc.station, days: results.length, data: results });
+  }
+}
+
+// 北京时区日期字符串（UTC+8，避免 Vercel 服务器 UTC 时区偏移）
+function cnDateStr(offsetDays) {
+  const china = new Date(Date.now() + 8 * 60 * 60 * 1000);
+  const d = new Date(china.getTime() + offsetDays * 24 * 60 * 60 * 1000);
+  return d.toISOString().split('T')[0];
 }
 
 // 获取日出日落、月相、钓鱼指数（和风天气，独立于潮汐数据）
