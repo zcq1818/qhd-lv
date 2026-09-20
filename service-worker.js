@@ -1,7 +1,7 @@
 // Service Worker for 秦皇岛旅游官网 - PWA offline support
 // 策略：HTML 网络优先，静态资源 stale-while-revalidate
-const CACHE_NAME = 'qhd-lv-v3';
-const RUNTIME_CACHE = 'qhd-lv-runtime-v3';
+const CACHE_NAME = 'qhd-lv-v4';
+const RUNTIME_CACHE = 'qhd-lv-runtime-v4';
 
 // 需要预缓存的关键页面
 const STATIC_ASSETS = [
@@ -13,7 +13,8 @@ const STATIC_ASSETS = [
   '/guide',
   '/blog',
   '/about',
-  '/style.css',
+  '/style.min.css',
+  '/css/page-common.min.css',
   '/manifest.json',
   '/robots.txt'
 ];

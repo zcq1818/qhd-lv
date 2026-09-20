@@ -1,0 +1,17 @@
+# 不上传到 Vercel 的本地/开发文件(静态站只需要页面、资源与 api/)
+node_modules
+.git
+.cursor
+.trae
+.workbuddy
+.claude
+Claude outputs
+ppt-temp
+docs
+scripts
+amap-skills
+*.md
+*.pptx
+*.bat
+*.sh
+data/crawl-log.json

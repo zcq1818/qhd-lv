@@ -16,25 +16,25 @@ function processFile(filePath) {
   
   // 替换 CSS 引用（只替换 css/ 目录下的文件）
   html = html.replace(
-    /href="(css\/[^"]+)\.css"/g,
+    /href="(css\/[^"]+?)(?<!\.min)\.css"/g,
     (match, p1) => `href="${p1}.min.css"`
   );
   
   // 替换 JS 引用（只替换 js/ 目录下的文件）
   html = html.replace(
-    /src="(js\/[^"]+)\.js"/g,
+    /src="(js\/[^"]+?)(?<!\.min)\.js"/g,
     (match, p1) => `src="${p1}.min.js"`
   );
   
   // 处理相对路径的 CSS 引用
   html = html.replace(
-    /href="\.\.\/(css\/[^"]+)\.css"/g,
+    /href="\.\.\/(css\/[^"]+?)(?<!\.min)\.css"/g,
     (match, p1) => `href="../${p1}.min.css"`
   );
   
   // 处理相对路径的 JS 引用
   html = html.replace(
-    /src="\.\.\/(js\/[^"]+)\.js"/g,
+    /src="\.\.\/(js\/[^"]+?)(?<!\.min)\.js"/g,
     (match, p1) => `src="../${p1}.min.js"`
   );
   

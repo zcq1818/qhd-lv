@@ -54,17 +54,30 @@ const rootPages = fs.readdirSync(root)
 const attractions = readSlugs('attraction');
 const blogs = readSlugs('blog').filter((s) => !RETIRED.has(s));
 
-function url(loc, meta) {
-  return `  <url><loc>${esc(SITE + loc)}</loc><priority>${meta.priority}</priority><changefreq>${meta.changefreq}</changefreq></url>`;
+// 页面最后修改时间:优先取 git 最近一次提交时间,没有则取文件 mtime
+const { execSync } = require('child_process');
+function lastmod(file) {
+  const abs = path.join(root, file);
+  if (!fs.existsSync(abs)) return null;
+  try {
+    const out = execSync(`git log -1 --format=%cI -- "${file}"`, { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    if (out) return out.slice(0, 10);
+  } catch (e) { /* 非 git 环境 */ }
+  return fs.statSync(abs).mtime.toISOString().slice(0, 10);
+}
+
+function url(loc, meta, file) {
+  const lm = file ? lastmod(file) : null;
+  return `  <url><loc>${esc(SITE + loc)}</loc>${lm ? `<lastmod>${lm}</lastmod>` : ''}<priority>${meta.priority}</priority><changefreq>${meta.changefreq}</changefreq></url>`;
 }
 
 const lines = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-  url('/', { priority: '1.0', changefreq: 'daily' }),
-  ...rootPages.map((p) => url(`/${p}`, ROOT_META[p] || DEFAULT_ROOT_META)),
-  ...attractions.map((s) => url(`/attraction/${s}`, ATTRACTION_META)),
-  ...blogs.map((s) => url(`/blog/${s}`, BLOG_META)),
+  url('/', { priority: '1.0', changefreq: 'daily' }, 'index.html'),
+  ...rootPages.map((p) => url(`/${p}`, ROOT_META[p] || DEFAULT_ROOT_META, `${p}.html`)),
+  ...attractions.map((s) => url(`/attraction/${s}`, ATTRACTION_META, `attraction/${s}.html`)),
+  ...blogs.map((s) => url(`/blog/${s}`, BLOG_META, `blog/${s}.html`)),
   '</urlset>',
 ];
 

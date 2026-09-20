@@ -9,36 +9,18 @@
  */
 const fs = require('fs');
 const path = require('path');
+const esbuild = require('esbuild');
 
 const ROOT = path.join(__dirname, '..');
 
 // ===== 1. CSS 压缩 =====
 function minifyCSS(css) {
-  return css
-    // 移除注释
-    .replace(/\/\*[\s\S]*?\*\//g, '')
-    // 移除多余空白
-    .replace(/\s+/g, ' ')
-    // 移除规则周围的空白
-    .replace(/\s*([{}:;,])\s*/g, '$1')
-    // 移除最后的分号
-    .replace(/;}/g, '}')
-    // 移除开头空白
-    .trim();
+  return esbuild.transformSync(css, { loader: 'css', minify: true, charset: 'utf8' }).code.trim();
 }
 
 // ===== 2. JS 压缩 =====
 function minifyJS(js) {
-  return js
-    // 移除单行注释（但保留 URL 中的 //）
-    .replace(/(?<![:"'])\/\/(?!.*:\/\/).*/g, '')
-    // 移除多行注释
-    .replace(/\/\*[\s\S]*?\*\//g, '')
-    // 移除多余空白
-    .replace(/\s+/g, ' ')
-    // 移除运算符周围的空白
-    .replace(/\s*([=+\-*/<>!&|,;:{}()])\s*/g, '$1')
-    .trim();
+  return esbuild.transformSync(js, { loader: 'js', minify: true, charset: 'utf8', target: 'es2018' }).code.trim();
 }
 
 // ===== 3. 提取公共导航栏 =====
@@ -131,10 +113,12 @@ function main() {
   
   switch (command) {
     case 'minify-css':
-      // 压缩所有 CSS 文件
+      // 压缩所有 CSS 文件(css/ 目录 + 根目录 style.css)
       const cssDir = path.join(ROOT, 'css');
-      fs.readdirSync(cssDir).filter(f => f.endsWith('.css') && !f.endsWith('.min.css')).forEach(f => {
-        const filePath = path.join(cssDir, f);
+      const cssFiles = fs.readdirSync(cssDir).filter(f => f.endsWith('.css') && !f.endsWith('.min.css')).map(f => path.join(cssDir, f));
+      if (fs.existsSync(path.join(ROOT, 'style.css'))) cssFiles.push(path.join(ROOT, 'style.css'));
+      cssFiles.forEach(filePath => {
+        const f = path.basename(filePath);
         const content = fs.readFileSync(filePath, 'utf8');
         const minified = minifyCSS(content);
         const minPath = filePath.replace('.css', '.min.css');
