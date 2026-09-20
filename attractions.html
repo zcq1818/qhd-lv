@@ -227,6 +227,9 @@ var _hmt = _hmt || [];
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.divdu.com/"},{"@type":"ListItem","position":2,"name":"景点推荐","item":"https://www.divdu.com/attractions"}]}
 </script>
+<link rel="alternate" hreflang="en" href="https://www.divdu.com/en/attractions">
+<link rel="alternate" hreflang="zh-CN" href="https://www.divdu.com/attractions">
+<link rel="alternate" hreflang="x-default" href="https://www.divdu.com/attractions">
 </head>
 <body>
 
@@ -735,6 +738,7 @@ reveals.forEach(function(el){o.observe(el);});
       '<h3 class="spot-card-name"><a href="attraction/' + spot.id + '" style="color:inherit;text-decoration:none;">' + spot.name + '</a></h3>' +
       meta +
       '<p class="spot-card-desc">' + spot.desc + '</p>' +
+      '<div style="margin:0 0 10px"><button class="trip-btn sm" data-trip-add="' + spot.id + '">加入行程</button></div>' +
       (highlights ? '<div class="spot-card-highlights">' + highlights + '</div>' : '') +
       footer +
     '</div>';
@@ -769,3 +773,4 @@ reveals.forEach(function(el){o.observe(el);});
 
 <script src="js/community-float.min.js" defer></script>
 </html>
+<script src="js/trip.min.js" defer></script>

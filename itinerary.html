@@ -603,6 +603,70 @@ var _hmt = _hmt || [];
   </div>
 </section>
 
+<!-- 我的行程(本地选择的景点,自动排天) -->
+<section class="mytrip" id="mytrip">
+  <div class="section-inner">
+    <div class="mytrip-head">
+      <h2>🧭 我的行程</h2>
+      <p>在景点页、必玩景点或实景画廊点「加入行程」,这里会按区域自动串成每日路线,可复制链接分享给同行的人。</p>
+    </div>
+    <div class="mytrip-card">
+      <div class="mytrip-empty" id="tripEmpty">还没有加入景点。<a href="must-play">去必玩景点挑选 →</a> 或 <a href="gallery3d">逛逛实景画廊 →</a></div>
+      <div id="tripBody" hidden>
+        <div class="mytrip-toolbar">
+          <label>行程天数
+            <select id="tripDays" aria-label="行程天数"><option value="1">1 天</option><option value="2">2 天</option><option value="3">3 天</option><option value="4">4 天</option><option value="5">5 天</option><option value="6">6 天</option><option value="7">7 天</option></select>
+          </label>
+          <span class="mytrip-count" id="tripCount"></span>
+          <button type="button" class="mytrip-clear" id="tripClear">清空</button>
+        </div>
+        <div class="mytrip-chips" id="tripChips" aria-label="已选景点"></div>
+        <div class="mytrip-plan" id="tripPlan"></div>
+        <div class="mytrip-actions">
+          <button type="button" class="mytrip-btn pri" id="tripShare">🔗 复制分享链接</button>
+          <button type="button" class="mytrip-btn" id="tripImg">🖼 生成行程长图</button>
+          <a class="mytrip-btn" href="map">🗺 在地图上看</a>
+        </div>
+        <p class="mytrip-tip" id="tripTip" hidden></p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.mytrip{padding:56px 0 8px}
+.mytrip .section-inner{max-width:var(--max-width,1200px);margin:0 auto;padding:0 var(--s6,24px)}
+.mytrip-head h2{font-size:1.6rem;font-weight:900;margin:0 0 6px;color:#0f172a}
+.mytrip-head p{margin:0 0 18px;color:#64748b;font-size:.95rem}
+.mytrip-card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:22px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.mytrip-empty{color:#64748b;text-align:center;padding:18px 0}.mytrip-empty a{color:#1a73e8;font-weight:700}
+.mytrip-toolbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.mytrip-toolbar label{font-weight:700;color:#1E293B;display:flex;align-items:center;gap:8px}
+.mytrip-toolbar select{padding:7px 10px;border-radius:8px;border:1px solid #d1d5db;font-size:14px}
+.mytrip-count{color:#64748b;font-size:.9rem}
+.mytrip-clear{margin-left:auto;border:0;background:transparent;color:#94a3b8;cursor:pointer;font-size:.85rem}.mytrip-clear:hover{color:#ef4444}
+.mytrip-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.mytrip-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 8px 6px 12px;border-radius:999px;background:#eaf2fe;color:#1a4f9c;font-size:13px;font-weight:600}
+.mytrip-chip i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c,#1a73e8)}
+.mytrip-chip button{border:0;background:rgba(0,0,0,.08);color:#1a4f9c;width:20px;height:20px;border-radius:50%;cursor:pointer;line-height:20px;font-size:12px}
+.mytrip-chip button:hover{background:#ef4444;color:#fff}
+.mytrip-day{border:1px solid #e5e7eb;border-radius:14px;padding:16px 18px;margin-bottom:12px;background:#fafbfd}
+.mytrip-day h3{margin:0 0 10px;font-size:1.05rem;font-weight:800;color:#0f172a;display:flex;gap:10px;align-items:baseline}
+.mytrip-day h3 small{font-weight:600;color:#64748b;font-size:.85rem}
+.mytrip-day ol{margin:0;padding-left:0;list-style:none;display:grid;gap:8px}
+.mytrip-day li{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;font-size:.95rem}
+.mytrip-day .slot{font-size:.78rem;font-weight:800;color:#1a73e8;background:#eaf2fe;border-radius:6px;padding:3px 0;text-align:center}
+.mytrip-day li a{color:#0f172a;font-weight:700;text-decoration:none}.mytrip-day li a:hover{color:#1a73e8}
+.mytrip-day li .area{color:#94a3b8;font-weight:500;font-size:.82rem;margin-left:6px}
+.mytrip-day li .price{color:#E37400;font-weight:700;font-size:.85rem;white-space:nowrap}
+.mytrip-day .budget{margin:10px 0 0;font-size:.88rem;color:#475569}
+.mytrip-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.mytrip-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;border:1.5px solid #d1d5db;background:#fff;color:#1E293B;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+.mytrip-btn:hover{border-color:#1a73e8;color:#1a73e8}
+.mytrip-btn.pri{background:#1a73e8;border-color:#1a73e8;color:#fff}.mytrip-btn.pri:hover{background:#0d47a1;color:#fff}
+.mytrip-tip{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:#ecfdf5;color:#065f46;font-size:.9rem}
+@media(max-width:600px){.mytrip{padding:40px 0 0}.mytrip-card{padding:16px}.mytrip-day li{grid-template-columns:46px 1fr;row-gap:2px}.mytrip-day li .price{grid-column:2;justify-self:start}}
+</style>
+
 <section class="ai-planner" id="aiPlanner">
   <div class="section-inner">
     <div class="ai-planner-head">
@@ -1252,6 +1316,133 @@ reveals.forEach(function(el){o.observe(el);});
 
   function getAreaName(aid) { return AREA_NAMES[aid] || ''; }
 
+  /* ================= 我的行程(本地已选景点) ================= */
+  (function initMyTrip() {
+    var T = window.QhdTrip;
+    var body = document.getElementById('tripBody'), empty = document.getElementById('tripEmpty');
+    if (!body || !empty) return;
+    if (!T) { setTimeout(initMyTrip, 120); return; }
+    var daysSel = document.getElementById('tripDays'), chips = document.getElementById('tripChips'), planEl = document.getElementById('tripPlan');
+    var tip = document.getElementById('tripTip'), countEl = document.getElementById('tripCount');
+    var AREA_COLORS = { beidaihe: '#0369a1', shanhaiguan: '#92400e', haigang: '#166534', nandaihe: '#6b21a8', funing: '#EA4335', lulong: '#0f766e' };
+    var SLOTS = ['上午', '午后', '下午', '傍晚', '夜晚'];
+    var cachedSpots = null, lastPlan = null;
+
+    // 分享链接导入
+    var q = T.fromQuery();
+    if (q) {
+      var merged = T.list().slice(); q.ids.forEach(function (id) { if (merged.indexOf(id) < 0) merged.push(id); });
+      T.setAll(merged, q.days || undefined);
+      showTip('已导入分享的行程,共 ' + q.ids.length + ' 个景点。');
+      try { history.replaceState(null, '', location.pathname + '#mytrip'); } catch (e) {}
+    }
+    daysSel.value = String(T.days());
+    daysSel.addEventListener('change', function () { T.setDays(daysSel.value); });
+    document.getElementById('tripClear').addEventListener('click', function () { if (confirm('清空已选景点?')) T.clear(); });
+    document.getElementById('tripShare').addEventListener('click', function () {
+      var url = T.shareUrl();
+      var done = function () { showTip('分享链接已复制,发给同行的人打开即可看到同样的行程。'); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { prompt('复制下面的链接:', url); });
+      else prompt('复制下面的链接:', url);
+    });
+    document.getElementById('tripImg').addEventListener('click', function () { if (lastPlan) exportImage(lastPlan); });
+    window.addEventListener('qhd-trip-change', render);
+    render();
+
+    function showTip(msg) { tip.textContent = msg; tip.hidden = false; clearTimeout(tip._t); tip._t = setTimeout(function () { tip.hidden = true; }, 6000); }
+    function dist(a, b) { var dx = (a.lng - b.lng) * 85, dy = (a.lat - b.lat) * 111; return Math.sqrt(dx * dx + dy * dy); }
+    function shortPrice(s) { return s.price && s.price !== '免费' ? s.price.split(/[;；,，(（]/)[0] : '免费'; }
+
+    /** 按区域分组 → 区域按经度自西向东排 → 分配到天数 → 天内最近邻串线 */
+    function buildTripPlan(spots, days) {
+      var groups = {};
+      spots.forEach(function (s) { (groups[s.area] = groups[s.area] || []).push(s); });
+      var areas = Object.keys(groups).map(function (a) {
+        var g = groups[a]; var lng = g.reduce(function (t, s) { return t + (s.lng || 0); }, 0) / g.length;
+        return { id: a, spots: g, lng: lng };
+      }).sort(function (a, b) { return a.lng - b.lng; });
+      var total = spots.length, perDay = Math.max(1, Math.ceil(total / days));
+      var plan = [], cur = { areas: [], spots: [] };
+      areas.forEach(function (ar) {
+        if (cur.spots.length && cur.spots.length + ar.spots.length > perDay && plan.length < days - 1) { plan.push(cur); cur = { areas: [], spots: [] }; }
+        cur.areas.push(ar.id); cur.spots = cur.spots.concat(ar.spots);
+      });
+      plan.push(cur);
+      // 单区域景点过多且还有空余天数时再切分
+      var out = [];
+      plan.forEach(function (d) {
+        var remainingDays = days - out.length - (plan.length - plan.indexOf(d) - 1);
+        if (d.spots.length <= perDay + 1 || remainingDays <= 1) { out.push(d); return; }
+        var chunk = Math.ceil(d.spots.length / Math.min(remainingDays, Math.ceil(d.spots.length / perDay)));
+        for (var i = 0; i < d.spots.length; i += chunk) out.push({ areas: d.areas, spots: d.spots.slice(i, i + chunk) });
+      });
+      out.forEach(function (d, i) {
+        d.day = i + 1;
+        var rest = d.spots.slice().sort(function (a, b) { return (a.lng || 0) - (b.lng || 0); }), ordered = [];
+        var curS = rest.shift(); if (curS) ordered.push(curS);
+        while (rest.length) { var bi = 0, bd = Infinity; rest.forEach(function (s, k) { var dd = dist(curS, s); if (dd < bd) { bd = dd; bi = k; } }); curS = rest.splice(bi, 1)[0]; ordered.push(curS); }
+        d.spots = ordered;
+      });
+      return out;
+    }
+
+    function render() {
+      var ids = T.list();
+      daysSel.value = String(T.days());
+      if (!ids.length) { body.hidden = true; empty.hidden = false; lastPlan = null; return; }
+      body.hidden = false; empty.hidden = true;
+      (cachedSpots ? Promise.resolve(cachedSpots) : loadSpots()).then(function (spots) {
+        cachedSpots = spots;
+        var byId = {}; spots.forEach(function (s) { byId[s.id] = s; });
+        var sel = ids.map(function (id) { return byId[id]; }).filter(Boolean);
+        countEl.textContent = '已选 ' + sel.length + ' 个景点';
+        chips.innerHTML = sel.map(function (s) {
+          return '<span class="mytrip-chip" style="--c:' + (AREA_COLORS[s.area] || '#1a73e8') + '"><i></i>' + s.name + '<button type="button" aria-label="移除' + s.name + '" data-rm="' + s.id + '">×</button></span>';
+        }).join('');
+        chips.querySelectorAll('[data-rm]').forEach(function (b) { b.addEventListener('click', function () { T.remove(b.getAttribute('data-rm')); }); });
+        var plan = buildTripPlan(sel, T.days()); lastPlan = plan;
+        planEl.innerHTML = plan.map(function (d) {
+          var budget = 0;
+          var items = d.spots.map(function (s, i) {
+            var p = typeof s.priceNum === 'number' ? s.priceNum : 0; budget += p;
+            var slot = SLOTS[Math.min(i, SLOTS.length - 1)];
+            return '<li><span class="slot">' + slot + '</span><span><a href="attraction/' + s.id + '">' + s.name + '</a><span class="area">' + getAreaName(s.area) + '</span></span><span class="price">' + shortPrice(s) + '</span></li>';
+          }).join('');
+          var areaNames = d.areas.map(getAreaName).filter(Boolean).join(' · ');
+          return '<div class="mytrip-day"><h3>Day ' + d.day + ' <small>' + areaNames + '</small></h3><ol>' + items + '</ol><p class="budget">💰 当日门票约 <strong>' + budget + ' 元/人</strong> · 同区域串游,减少来回奔波</p></div>';
+        }).join('');
+      });
+    }
+
+    /** 行程长图:Canvas 绘制后下载 PNG */
+    function exportImage(plan) {
+      var W = 1080, pad = 64, lineH = 52; var rows = 0; plan.forEach(function (d) { rows += 1 + d.spots.length; });
+      var H = 320 + rows * lineH + plan.length * 40 + 160;
+      var c = document.createElement('canvas'); c.width = W; c.height = H; var x = c.getContext('2d');
+      var g = x.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#0b1f3a'); g.addColorStop(1, '#123c6e'); x.fillStyle = g; x.fillRect(0, 0, W, H);
+      var F = 'system-ui, "PingFang SC", "Microsoft YaHei", sans-serif';
+      x.fillStyle = '#fff'; x.font = '900 56px ' + F; x.fillText('我的秦皇岛行程', pad, 130);
+      x.font = '500 28px ' + F; x.fillStyle = 'rgba(255,255,255,.75)';
+      var total = 0; plan.forEach(function (d) { total += d.spots.length; });
+      x.fillText(plan.length + ' 天 · ' + total + ' 个景点 · 秦皇岛旅游官网 divdu.com', pad, 180);
+      var y = 260;
+      plan.forEach(function (d) {
+        x.fillStyle = '#ffb648'; x.font = '800 34px ' + F;
+        x.fillText('Day ' + d.day + '  ' + d.areas.map(getAreaName).filter(Boolean).join(' · '), pad, y); y += lineH;
+        d.spots.forEach(function (s, i) {
+          x.fillStyle = 'rgba(255,255,255,.55)'; x.font = '600 24px ' + F; x.fillText(SLOTS[Math.min(i, SLOTS.length - 1)], pad + 8, y);
+          x.fillStyle = '#fff'; x.font = '700 30px ' + F; x.fillText(s.name, pad + 120, y);
+          x.fillStyle = '#ffb648'; x.font = '600 24px ' + F; var pr = shortPrice(s); x.fillText(pr, W - pad - x.measureText(pr).width, y);
+          y += lineH;
+        });
+        y += 40;
+      });
+      x.fillStyle = 'rgba(255,255,255,.5)'; x.font = '500 22px ' + F; x.fillText('行程由 www.divdu.com 自动按区域串游生成 · 门票以景区当日公示为准', pad, H - 70);
+      var a = document.createElement('a'); a.download = '秦皇岛行程-' + plan.length + '天.png'; a.href = c.toDataURL('image/png'); document.body.appendChild(a); a.click(); a.remove();
+      showTip('行程长图已生成并开始下载。');
+    }
+  })();
+
   function buildLocalPlan(spots, days, interests) {
     // 1. 按兴趣筛选
     var cats = [];
@@ -1366,3 +1557,4 @@ reveals.forEach(function(el){o.observe(el);});
 
 <script src="js/community-float.min.js" defer></script>
 </html>
+<script src="js/trip.min.js" defer></script>

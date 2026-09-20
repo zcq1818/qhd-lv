@@ -24,6 +24,9 @@
   <url><loc>https://www.divdu.com/tickets</loc><lastmod>2026-09-20</lastmod><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/tide</loc><lastmod>2026-09-20</lastmod><priority>0.8</priority><changefreq>daily</changefreq></url>
   <url><loc>https://www.divdu.com/weather</loc><lastmod>2026-09-20</lastmod><priority>0.8</priority><changefreq>daily</changefreq></url>
+  <url><loc>https://www.divdu.com/en/attractions</loc><lastmod>2026-09-20</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.divdu.com/en/</loc><lastmod>2026-09-20</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.divdu.com/en/practical</loc><lastmod>2026-09-20</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.divdu.com/attraction/aranya</loc><lastmod>2026-09-20</lastmod><priority>0.7</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/attraction/banchangyu</loc><lastmod>2026-09-20</lastmod><priority>0.7</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.divdu.com/attraction/baozigou</loc><lastmod>2026-09-20</lastmod><priority>0.7</priority><changefreq>weekly</changefreq></url>
