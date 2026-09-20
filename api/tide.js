@@ -11,16 +11,19 @@ export default async function handler(req, res) {
 
   // 秦皇岛周边位置 -> 潮汐站（就近映射，标注实际潮汐站）
   const stations = {
-    'beidaihe': { id: 'P2454', name: '北戴河', station: '秦皇岛潮汐站' },
-    'qinhuangdao': { id: 'P2454', name: '秦皇岛市区', station: '秦皇岛潮汐站' },
-    'shankhaiguan': { id: 'P2490', name: '山海关·老龙头', station: '山海关潮汐站' },
-    'nandaihe': { id: 'P2454', name: '南戴河', station: '秦皇岛潮汐站' },
-    'qilihai': { id: 'P2436', name: '七里海', station: '七里海潮汐站' },
-    'huangjin': { id: 'P2436', name: '黄金海岸', station: '七里海潮汐站' }
+    'beidaihe': { id: 'P2454', name: '北戴河', station: '秦皇岛潮汐站', coord: '119.52,39.83' },
+    'qinhuangdao': { id: 'P2454', name: '秦皇岛市区', station: '秦皇岛潮汐站', coord: '119.60,39.93' },
+    'shankhaiguan': { id: 'P2490', name: '山海关·老龙头', station: '山海关潮汐站', coord: '119.75,40.01' },
+    'nandaihe': { id: 'P2454', name: '南戴河', station: '秦皇岛潮汐站', coord: '119.43,39.77' },
+    'qilihai': { id: 'P2436', name: '七里海', station: '七里海潮汐站', coord: '119.28,39.58' },
+    'huangjin': { id: 'P2436', name: '黄金海岸', station: '七里海潮汐站', coord: '119.35,39.70' }
   };
 
   const loc = stations[location] || stations['qinhuangdao'];
   const queryDate = date || new Date().toISOString().split('T')[0];
+
+  // 日出日落、月相、钓鱼指数（和风天气，独立于潮汐数据）
+  const extra = await fetchTideExtra(loc.coord, queryDate);
 
   try {
     const tideData = await fetchTideTimes(loc.id, queryDate);
@@ -29,7 +32,7 @@ export default async function handler(req, res) {
       location: loc.name,
       station: loc.station,
       date: queryDate,
-      data: tideData,
+      data: { ...tideData, ...extra },
       source: 'qweather'
     });
   } catch (error) {
@@ -39,11 +42,52 @@ export default async function handler(req, res) {
       location: loc.name,
       station: loc.station,
       date: queryDate,
-      data: estimatedData,
+      data: { ...estimatedData, ...extra },
       source: 'estimated',
       error: error.message
     });
   }
+}
+
+// 获取日出日落、月相、钓鱼指数（和风天气，独立于潮汐数据）
+async function fetchTideExtra(coord, queryDate) {
+  const QWEATHER_KEY = process.env.QWEATHER_API_KEY || '99ea2096b20b471d8d20400ee9a23a70';
+  const QWEATHER_HOST = process.env.QWEATHER_API_HOST || 'nu6apxvdn8.re.qweatherapi.com';
+  const base = `https://${QWEATHER_HOST}`;
+  const headers = { 'X-QW-Api-Key': QWEATHER_KEY };
+  const result = { sun: null, moon: null, fishing: null };
+
+  try {
+    // 3天预报：日出日落 + 月相
+    const dailyRes = await fetch(`${base}/v7/weather/3d?location=${coord}`, { headers });
+    const dailyData = await dailyRes.json();
+    if (dailyData.code === '200' && dailyData.daily) {
+      const day = dailyData.daily.find(d => d.fxDate === queryDate) || dailyData.daily[0];
+      if (day) {
+        result.sun = { sunrise: day.sunrise, sunset: day.sunset };
+        result.moon = {
+          moonrise: day.moonrise,
+          moonset: day.moonset,
+          moonPhase: day.moonPhase,
+          moonPhaseIcon: day.moonPhaseIcon
+        };
+      }
+    }
+  } catch (e) { /* 天文数据失败不影响潮汐 */ }
+
+  try {
+    // 钓鱼指数 type=4
+    const idxRes = await fetch(`${base}/v7/indices/1d?type=4&location=${coord}`, { headers });
+    const idxData = await idxRes.json();
+    if (idxData.code === '200' && idxData.daily) {
+      const fishing = idxData.daily.find(d => d.type === '4');
+      if (fishing) {
+        result.fishing = { category: fishing.category, text: fishing.text };
+      }
+    }
+  } catch (e) { /* 指数失败不影响潮汐 */ }
+
+  return result;
 }
 
 // 调用 TideTimes Global 潮汐接口
@@ -79,7 +123,7 @@ async function fetchTideTimes(stationId, queryDate) {
     height: parseFloat(h.height)
   }));
 
-  // 赶海建议：低潮前后2小时
+  // 赶海建议：低潮前后2小时（仅白天低潮适合赶海，夜间危险）
   const lowTides = tides.filter(t => t.type === 'low');
   const ganhai = lowTides.map(t => {
     const [h, m] = t.time.split(':').map(Number);
@@ -88,7 +132,8 @@ async function fetchTideTimes(stationId, queryDate) {
     return {
       start: `${String(startH).padStart(2, '0')}:${String(m).padStart(2, '0')}`,
       end: `${String(endH).padStart(2, '0')}:${String(m).padStart(2, '0')}`,
-      lowTideTime: t.time
+      lowTideTime: t.time,
+      isDaytime: h >= 6 && h < 18
     };
   });
 
@@ -129,7 +174,8 @@ function estimateTide(dateStr) {
     return {
       start: `${String(Math.max(0, hour - 2)).padStart(2, '0')}:00`,
       end: `${String(Math.min(23, hour + 2)).padStart(2, '0')}:00`,
-      lowTideTime: t.time
+      lowTideTime: t.time,
+      isDaytime: hour >= 6 && hour < 18
     };
   });
 

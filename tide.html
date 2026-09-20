@@ -44,7 +44,14 @@
 .tide-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
 .tide-badge.good{background:#dcfce7;color:#166534}
 .tide-badge.normal{background:#fef3c7;color:#92400e}
-@media(max-width:768px){.tide-grid{grid-template-columns:repeat(2,1fr)}}
+.tide-status{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;border-radius:12px;padding:14px 20px;margin-bottom:20px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.tide-status .tide-status-detail{font-size:13px;font-weight:400;opacity:0.92;}
+.tide-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.tide-info-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px;text-align:center;}
+.tide-info-label{font-size:13px;color:#64748b;margin-bottom:8px;font-weight:600;}
+.tide-info-value{font-size:20px;font-weight:800;color:#0f172a;}
+.tide-info-sub{font-size:12px;color:#64748b;margin-top:4px;}
+@media(max-width:768px){.tide-grid{grid-template-columns:repeat(2,1fr)}.tide-info-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -98,16 +105,39 @@
     <div class="tide-card" style="padding:12px 20px;background:#f0f9ff;">
       <span id="dataSource" style="font-size:13px;color:#64748b;">数据来源：加载中...</span>
     </div>
+
+    <!-- 实时涨退潮状态 -->
+    <div id="tideStatus" class="tide-status" style="display:none;"></div>
+
     <!-- 高低潮 -->
     <div class="tide-card">
-      <div class="tide-title">📊 今日潮汐</div>
+      <div class="tide-title">📊 潮汐涨退潮时间</div>
       <div id="tideGrid" class="tide-grid"></div>
     </div>
 
     <!-- 潮汐曲线 -->
     <div class="tide-card">
-      <div class="tide-title">📈 潮汐曲线</div>
+      <div class="tide-title">📈 逐小时水位变化</div>
       <canvas id="tideChart" class="tide-chart"></canvas>
+    </div>
+
+    <!-- 日出日落 · 月相 · 钓鱼 -->
+    <div class="tide-card">
+      <div class="tide-title">🌅 今日天文 & 出行参考</div>
+      <div class="tide-info-grid">
+        <div class="tide-info-item">
+          <div class="tide-info-label">🌅 日出 / 日落</div>
+          <div class="tide-info-value" id="sunInfo">--</div>
+        </div>
+        <div class="tide-info-item">
+          <div class="tide-info-label">🌙 月相</div>
+          <div class="tide-info-value" id="moonInfo">--</div>
+        </div>
+        <div class="tide-info-item">
+          <div class="tide-info-label">🎣 钓鱼指数</div>
+          <div class="tide-info-value" id="fishingInfo">--</div>
+        </div>
+      </div>
     </div>
 
     <!-- 赶海建议 -->
@@ -175,7 +205,10 @@ async function queryTide() {
 // 显示潮汐数据
 function displayTideData(result) {
   document.getElementById('tideResult').style.display = 'block';
-  
+
+  // 实时涨退潮状态
+  renderTideStatus(result.data.tides);
+
   // 显示高低潮
   const grid = document.getElementById('tideGrid');
   grid.innerHTML = result.data.tides.map(t => `
@@ -192,21 +225,99 @@ function displayTideData(result) {
   }
   
   // 显示赶海建议
-  if (result.data.ganhai) {
+  if (result.data.ganhai && result.data.ganhai.length) {
     const ganhai = document.getElementById('ganhaiAdvice');
+    const hasDaytime = result.data.ganhai.some(g => g.isDaytime);
     ganhai.innerHTML = `
       <h3>🦀 赶海最佳时间</h3>
-      ${result.data.ganhai.map(g => `
+      ${result.data.ganhai.map(g => g.isDaytime ? `
         <div class="tide-ganhai-item">
           <span class="tide-badge good">推荐</span>
           <span>${g.start} - ${g.end}</span>
           <span style="color:#64748b;font-size:13px;">（低潮时间 ${g.lowTideTime}）</span>
         </div>
+      ` : `
+        <div class="tide-ganhai-item">
+          <span class="tide-badge normal">天黑</span>
+          <span>${g.start} - ${g.end}</span>
+          <span style="color:#64748b;font-size:13px;">（低潮 ${g.lowTideTime}，夜间不建议赶海）</span>
+        </div>
       `).join('')}
       <p style="margin-top:12px;font-size:13px;color:#64748b;">
-        💡 建议在低潮前后2小时去赶海，收获最多
+        ${hasDaytime ? '💡 建议在白天低潮前后2小时去赶海，收获最多、也更安全' : '💡 今日低潮都在夜间，赶海建议改天再安排，注意安全'}
       </p>
     `;
+  }
+
+  // 日出日落、月相、钓鱼指数
+  renderAstro(result.data);
+}
+
+// 实时涨退潮状态
+function renderTideStatus(tides) {
+  const el = document.getElementById('tideStatus');
+  if (!el || !tides || !tides.length) { if (el) el.style.display = 'none'; return; }
+
+  const now = new Date();
+  const nowMin = now.getHours() * 60 + now.getMinutes();
+  const events = tides.map(t => {
+    const p = t.time.split(':').map(Number);
+    return { minute: p[0] * 60 + p[1], type: t.type, time: t.time };
+  }).sort((a, b) => a.minute - b.minute);
+
+  // 找当前时间之后的第一个潮汐事件
+  let next = null;
+  for (const e of events) { if (e.minute > nowMin) { next = e; break; } }
+  if (!next) {
+    el.style.display = 'flex';
+    el.innerHTML = '🌊 今日潮汐已过，明天再来查询';
+    return;
+  }
+  // 判断涨潮还是退潮（看前一个事件：干潮后涨潮，满潮后退潮）
+  let prev = null;
+  for (let i = events.length - 1; i >= 0; i--) { if (events[i].minute <= nowMin) { prev = events[i]; break; } }
+  const rising = prev ? prev.type === 'low' : true;
+  const arrow = rising ? '↑' : '↓';
+  const status = rising ? '涨潮中' : '退潮中';
+  const nextName = next.type === 'high' ? '满潮' : '干潮';
+  const diff = next.minute - nowMin;
+  const h = Math.floor(diff / 60);
+  const m = diff % 60;
+
+  el.style.display = 'flex';
+  el.innerHTML = '<span>' + arrow + ' ' + status + '</span>' +
+    '<span class="tide-status-detail">距' + nextName + '（' + next.time + '）还有 ' +
+    (h > 0 ? h + ' 小时 ' : '') + m + ' 分</span>';
+}
+
+// 日出日落、月相、钓鱼指数
+function renderAstro(data) {
+  const sunEl = document.getElementById('sunInfo');
+  const moonEl = document.getElementById('moonInfo');
+  const fishEl = document.getElementById('fishingInfo');
+
+  if (sunEl) {
+    if (data.sun && data.sun.sunrise && data.sun.sunset) {
+      sunEl.innerHTML = data.sun.sunrise + '<div class="tide-info-sub">日出</div>' + data.sun.sunset + '<div class="tide-info-sub">日落</div>';
+    } else {
+      sunEl.innerHTML = '--';
+    }
+  }
+  if (moonEl) {
+    if (data.moon && data.moon.moonPhase) {
+      moonEl.innerHTML = data.moon.moonPhase +
+        (data.moon.moonrise ? '<div class="tide-info-sub">月升 ' + data.moon.moonrise + '</div>' : '');
+    } else {
+      moonEl.innerHTML = '--';
+    }
+  }
+  if (fishEl) {
+    if (data.fishing && data.fishing.category) {
+      fishEl.innerHTML = data.fishing.category +
+        (data.fishing.text ? '<div class="tide-info-sub">' + data.fishing.text + '</div>' : '');
+    } else {
+      fishEl.innerHTML = '--';
+    }
   }
 }
 

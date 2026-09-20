@@ -664,6 +664,9 @@ var _hmt = _hmt || [];
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 4.8L18 8.4l-4.4 1.6L12 14l-1.6-4L6 8.4l4.4-1.6z"/><path d="M18 14l.9 2.7L21.6 18l-2.7.9L18 21.6l-.9-2.7L14.4 18l2.7-.9z"/></svg>
             生成我的专属行程
           </button>
+          <button type="button" class="btn btn-outline btn-lg" id="aiLocalBtn" aria-label="基于景点数据本地快速生成行程">
+            🚀 本地快速规划（离线秒出）
+          </button>
         </div>
       </form>
 
@@ -1209,6 +1212,144 @@ reveals.forEach(function(el){o.observe(el);});
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
+  }
+})();
+</script>
+
+<!-- 本地快速规划逻辑 -->
+<script>
+(function () {
+  'use strict';
+
+  var INTEREST_CATS = {
+    '海滨休闲': ['beach'],
+    '历史文化': ['history'],
+    '户外运动': ['nature'],
+    '摄影打卡': ['culture', 'nature'],
+    '美食探索': ['beach', 'culture']
+  };
+  var AREA_NAMES = {
+    beidaihe: '北戴河区', shanhaiguan: '山海关区', haigang: '海港区',
+    nandaihe: '南戴河·昌黎', funing: '抚宁·青龙', lulong: '卢龙县'
+  };
+  var spotsCache = null;
+
+  function loadSpots() {
+    if (spotsCache) return Promise.resolve(spotsCache);
+    return fetch('data/attractions.json')
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (d) { spotsCache = d.spots || []; return spotsCache; })
+      .catch(function () { return []; });
+  }
+
+  function getSelected(name) {
+    var g = document.querySelector('.pill-group[data-name="' + name + '"]');
+    if (!g) return [];
+    var vals = [];
+    g.querySelectorAll('.pill.active').forEach(function (p) { vals.push(p.getAttribute('data-value')); });
+    return vals;
+  }
+
+  function getAreaName(aid) { return AREA_NAMES[aid] || ''; }
+
+  function buildLocalPlan(spots, days, interests) {
+    // 1. 按兴趣筛选
+    var cats = [];
+    interests.forEach(function (it) {
+      (INTEREST_CATS[it] || []).forEach(function (c) { if (cats.indexOf(c) < 0) cats.push(c); });
+    });
+    var pool = spots.filter(function (s) { return s.visible !== false; });
+    if (cats.length) {
+      var filtered = pool.filter(function (s) { return cats.indexOf(s.cat) >= 0; });
+      if (filtered.length) pool = filtered;
+    }
+    // 2. 按区域分组，区域内按评分 + 必去排名排序
+    var groups = {};
+    pool.forEach(function (s) { (groups[s.area] = groups[s.area] || []).push(s); });
+    Object.keys(groups).forEach(function (k) {
+      groups[k].sort(function (a, b) {
+        var ra = parseFloat(a.rating) || 0, rb = parseFloat(b.rating) || 0;
+        if (rb !== ra) return rb - ra;
+        return (a.topRank || 99) - (b.topRank || 99);
+      });
+    });
+    var areaIds = Object.keys(groups).sort(function (a, b) { return groups[b].length - groups[a].length; });
+    // 3. 按天数分配区域
+    var dayCount = parseInt(days) || 3;
+    var areasPerDay = Math.max(1, Math.ceil(areaIds.length / dayCount));
+    var plan = [];
+    for (var d = 0; d < dayCount; d++) {
+      var dayAreas = areaIds.slice(d * areasPerDay, (d + 1) * areasPerDay);
+      var daySpots = [];
+      dayAreas.forEach(function (aid) { daySpots = daySpots.concat(groups[aid].slice(0, 3)); });
+      plan.push({ day: d + 1, areas: dayAreas, spots: daySpots });
+    }
+    return plan;
+  }
+
+  function renderPlan(plan) {
+    var html = '<h2>🗺 本地快速行程（' + plan.length + ' 天）</h2>';
+    var slots = ['上午', '下午', '傍晚'];
+    plan.forEach(function (day) {
+      var areaNames = day.areas.map(getAreaName).filter(Boolean).join(' + ');
+      html += '<h3>Day ' + day.day + (areaNames ? ' · ' + areaNames : '') + '</h3>';
+      if (!day.spots.length) { html += '<p>这一天可自由安排或休整</p>'; return; }
+      var budget = 0;
+      html += '<ul>';
+      day.spots.forEach(function (s, i) {
+        var slot = slots[Math.min(i, slots.length - 1)];
+        var priceNum = (typeof s.priceNum === 'number') ? s.priceNum : 0;
+        budget += priceNum;
+        var priceTxt = (s.price && s.price !== '免费') ? '（' + s.price + '）' : '（免费）';
+        html += '<li><strong>' + slot + '：</strong>' + s.name + priceTxt + ' · ' + getAreaName(s.area) + '</li>';
+      });
+      html += '</ul>';
+      html += '<p>💰 当日门票预算约 <strong>' + budget + ' 元/人</strong></p>';
+    });
+    html += '<p>💡 提示：这是按「同区域串游」原则自动排的，可收藏景点后到<a href="map">地图</a>生成路线，或点上方「生成我的专属行程」用 AI 精细定制。</p>';
+    return html;
+  }
+
+  function runLocalPlan() {
+    var days = getSelected('days');
+    var interests = getSelected('interests');
+    var d = parseInt(days[0]) || 3;
+    var out = document.getElementById('aiOutput');
+    var result = document.getElementById('aiResult');
+    var loading = document.getElementById('aiLoading');
+    var content = document.getElementById('aiResultContent');
+    var actions = document.getElementById('aiActions');
+    var booking = document.getElementById('aiBooking');
+    var err = document.getElementById('aiError');
+
+    if (result) result.hidden = false;
+    if (loading) loading.hidden = true;
+    if (content) content.hidden = false;
+    if (err) err.hidden = true;
+    if (actions) actions.hidden = false;
+    if (booking) booking.hidden = false;
+    if (out) out.innerHTML = '<p>正在生成行程…</p>';
+
+    loadSpots().then(function (spots) {
+      if (!spots.length) {
+        if (out) out.innerHTML = '<p>景点数据加载失败，请刷新页面重试</p>';
+        return;
+      }
+      var plan = buildLocalPlan(spots, d, interests);
+      if (out) out.innerHTML = renderPlan(plan);
+      try { result.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) {}
+    });
+  }
+
+  function initLocal() {
+    var btn = document.getElementById('aiLocalBtn');
+    if (btn) btn.addEventListener('click', runLocalPlan);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLocal);
+  } else {
+    initLocal();
   }
 })();
 </script>

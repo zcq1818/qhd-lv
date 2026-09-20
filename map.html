@@ -744,6 +744,50 @@ var _hmt = _hmt || [];
       <!-- 图例由 JS 动态生成 -->
     </div>
   </div>
+
+  <!-- 路线规划面板 -->
+  <style>
+    .popup-route-btn{display:block;width:100%;margin-top:8px;padding:8px;background:#1a73e8;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;}
+    .route-panel{position:absolute;right:16px;bottom:16px;width:330px;max-width:calc(100% - 32px);background:#fff;border-radius:14px;box-shadow:0 6px 28px rgba(0,0,0,0.18);padding:16px;z-index:1000;}
+    .route-panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+    .route-panel-title{font-weight:800;font-size:15px;color:#0f172a;}
+    .route-panel-close{background:none;border:none;font-size:24px;cursor:pointer;color:#999;line-height:1;padding:0 4px;}
+    .route-panel-dest{font-size:13px;color:#1a73e8;margin-bottom:10px;padding:9px 12px;background:#f0f6ff;border-radius:8px;font-weight:600;}
+    .route-panel-modes{display:flex;gap:6px;margin-bottom:10px;}
+    .route-mode{flex:1;padding:8px 4px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;cursor:pointer;font-size:12px;color:#555;}
+    .route-mode.active{border-color:#1a73e8;color:#1a73e8;background:#f0f6ff;font-weight:700;}
+    .route-panel-from{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+    .route-loc-btn{padding:9px;border:1px dashed #1a73e8;border-radius:8px;background:#f0f6ff;color:#1a73e8;cursor:pointer;font-size:13px;text-align:left;}
+    .route-from-input{padding:9px 10px;border:1px solid #e2e8f0;border-radius:8px;font-size:13px;}
+    .route-go-btn{width:100%;padding:10px;background:#1a73e8;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;}
+    .route-go-btn:disabled{background:#a5c6f5;cursor:not-allowed;}
+    .route-panel-result{margin-top:10px;font-size:12px;color:#333;max-height:160px;overflow-y:auto;}
+    .route-panel-result .route-info{padding:9px 12px;background:#f8fafc;border-radius:8px;margin-bottom:6px;line-height:1.5;}
+    .route-panel-result .route-error{color:#dc2626;}
+    @media (max-width:768px){.route-panel{left:12px;right:12px;bottom:12px;width:auto;}}
+    .fav-route-btn{position:absolute;left:16px;bottom:16px;padding:10px 16px;background:#fff;border:1px solid #e2e8f0;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600;color:#1a73e8;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:999;}
+    .fav-route-btn:hover{border-color:#1a73e8;background:#f0f6ff;}
+  </style>
+  <button class="fav-route-btn" id="favRouteBtn">📌 收藏行程路线</button>
+  <div class="route-panel" id="routePanel" hidden>
+    <div class="route-panel-head">
+      <span class="route-panel-title">🧭 路线规划</span>
+      <button class="route-panel-close" id="routeClose" aria-label="关闭">×</button>
+    </div>
+    <div class="route-panel-dest" id="routeDest">目的地：—</div>
+    <div class="route-panel-modes" id="routeModes">
+      <button type="button" class="route-mode active" data-mode="driving">🚗 驾车</button>
+      <button type="button" class="route-mode" data-mode="transit">🚌 公交</button>
+      <button type="button" class="route-mode" data-mode="walking">🚶 步行</button>
+      <button type="button" class="route-mode" data-mode="riding">🚴 骑行</button>
+    </div>
+    <div class="route-panel-from">
+      <button type="button" class="route-loc-btn" id="routeMyLoc">📍 使用我的位置</button>
+      <input type="text" class="route-from-input" id="routeFromInput" placeholder="或输入起点（如：北戴河火车站）" autocomplete="off">
+    </div>
+    <button type="button" class="route-go-btn" id="routeGo">开始规划路线</button>
+    <div class="route-panel-result" id="routeResult"></div>
+  </div>
 </div>
 
 <!-- ====== 页脚 ====== -->
@@ -797,7 +841,7 @@ var _hmt = _hmt || [];
 <script type="text/javascript">
   window._AMapSecurityConfig = { securityJsCode: '24a3a4784cc4ec33ea5693daccc0aacb' };
 </script>
-<script src="https://webapi.amap.com/maps?v=2.0&key=e0d13b1fc206156d61926d1158a2dd16&plugin=AMap.PlaceSearch,AMap.Geocoder" defer></script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=e0d13b1fc206156d61926d1158a2dd16&plugin=AMap.PlaceSearch,AMap.Geocoder,AMap.Driving,AMap.Walking,AMap.Transfer,AMap.Riding,AMap.Geolocation" defer></script>
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
@@ -1219,6 +1263,7 @@ if (typeof L === 'undefined') {
             (FAVORITES.indexOf(spot.id) >= 0 ? '❤ 已收藏' : '☆ 收藏') +
           '</button>' +
         '</div>' +
+        '<button class="popup-route-btn" data-route-id="' + spot.id + '">🧭 到这去</button>' +
       '</div>' +
     '</div>';
   }
@@ -1295,6 +1340,13 @@ if (typeof L === 'undefined') {
           btn.addEventListener('click', function(e) {
             e.stopPropagation();
             toggleFav(spot.id);
+          });
+        }
+        var routeBtn = document.querySelector('.popup-route-btn[data-route-id="' + spot.id + '"]');
+        if (routeBtn) {
+          routeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openRoutePanel(spot);
           });
         }
       });
@@ -1618,6 +1670,230 @@ if (typeof L === 'undefined') {
       });
   }
 
+  /* ===== 路线规划（高德导航） ===== */
+  var routeDest = null;       // { lng, lat, name }
+  var routeMode = 'driving';  // driving | transit | walking | riding
+  var myLocation = null;      // { lng, lat }
+  var routeLayer = null;      // L.layerGroup
+
+  function openRoutePanel(spot) {
+    routeDest = { lng: spot._lng, lat: spot._lat, name: spot.name };
+    var panel = document.getElementById('routePanel');
+    var dest = document.getElementById('routeDest');
+    if (dest) dest.textContent = '目的地：' + spot.name;
+    if (panel) panel.hidden = false;
+    var result = document.getElementById('routeResult');
+    if (result) result.innerHTML = '';
+    clearRoute();
+  }
+
+  function closeRoutePanel() {
+    var panel = document.getElementById('routePanel');
+    if (panel) panel.hidden = true;
+    clearRoute();
+  }
+
+  function clearRoute() {
+    if (routeLayer) { map.removeLayer(routeLayer); routeLayer = null; }
+  }
+
+  /* 获取我的位置（优先高德 Geolocation 返回 GCJ-02，回退浏览器定位） */
+  function getMyLocation(callback) {
+    if (myLocation) { callback(myLocation); return; }
+    if (typeof AMap !== 'undefined' && AMap.Geolocation) {
+      var geolocation = new AMap.Geolocation({ enableHighAccuracy: true, timeout: 8000 });
+      geolocation.getCurrentPosition(function(status, result) {
+        if (status === 'complete' && result && result.position) {
+          myLocation = { lng: result.position.lng, lat: result.position.lat };
+          callback(myLocation);
+        } else {
+          fallbackGeolocation(callback);
+        }
+      });
+    } else {
+      fallbackGeolocation(callback);
+    }
+  }
+
+  function fallbackGeolocation(callback) {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        myLocation = { lng: pos.coords.longitude, lat: pos.coords.latitude };
+        callback(myLocation);
+      }, function() { callback(null); }, { timeout: 8000 });
+    } else {
+      callback(null);
+    }
+  }
+
+  /* 输入起点文本 → 地理编码成坐标 */
+  function geocodeFrom(text, callback) {
+    if (typeof AMAP === 'undefined' || !AMap.Geocoder) { callback(null); return; }
+    var geocoder = new AMap.Geocoder({ city: '秦皇岛' });
+    geocoder.getLocation(text, function(status, result) {
+      if (status === 'complete' && result.geocodes && result.geocodes.length) {
+        var g = result.geocodes[0];
+        callback({ lng: g.location.getLng(), lat: g.location.getLat() });
+      } else {
+        callback(null);
+      }
+    });
+  }
+
+  function resolveOrigin(callback) {
+    var input = document.getElementById('routeFromInput');
+    var text = input ? input.value.trim() : '';
+    if (text) geocodeFrom(text, callback);
+    else getMyLocation(callback);
+  }
+
+  function setRouteMode(mode) {
+    routeMode = mode;
+    var modes = document.querySelectorAll('#routeModes .route-mode');
+    modes.forEach(function(b) {
+      if (b.getAttribute('data-mode') === mode) b.classList.add('active');
+      else b.classList.remove('active');
+    });
+  }
+
+  function showRouteResult(html) {
+    var el = document.getElementById('routeResult');
+    if (el) el.innerHTML = html;
+  }
+
+  function collectRoutePath(route) {
+    var latlngs = [];
+    var steps = route.steps || [];
+    steps.forEach(function(step) {
+      var path = step.path || [];
+      path.forEach(function(p) { latlngs.push([p.lat, p.lng]); });
+    });
+    return latlngs;
+  }
+
+  function drawRouteOnMap(latlngs) {
+    clearRoute();
+    if (!latlngs.length) return;
+    routeLayer = L.layerGroup().addTo(map);
+    L.polyline(latlngs, { color: '#1a73e8', weight: 5, opacity: 0.8 }).addTo(routeLayer);
+    var start = latlngs[0];
+    var end = latlngs[latlngs.length - 1];
+    L.circleMarker(start, { radius: 7, color: '#16a34a', fillColor: '#16a34a', fillOpacity: 1 }).addTo(routeLayer);
+    L.circleMarker(end, { radius: 7, color: '#dc2626', fillColor: '#dc2626', fillOpacity: 1 }).addTo(routeLayer);
+    map.fitBounds(L.latLngBounds(latlngs), { padding: [80, 80], maxZoom: 15 });
+  }
+
+  function planRoute() {
+    if (!routeDest) return;
+    if (typeof AMap === 'undefined' || !AMap.Driving) {
+      showRouteResult('<div class="route-error">路线服务未加载，请刷新页面重试</div>');
+      return;
+    }
+    var goBtn = document.getElementById('routeGo');
+    if (goBtn) { goBtn.disabled = true; goBtn.textContent = '规划中...'; }
+    showRouteResult('<div class="route-info">正在规划路线…</div>');
+
+    resolveOrigin(function(origin) {
+      if (!origin) {
+        if (goBtn) { goBtn.disabled = false; goBtn.textContent = '开始规划路线'; }
+        showRouteResult('<div class="route-error">无法获取起点，请点击「使用我的位置」或手动输入起点</div>');
+        return;
+      }
+      var dest = new AMap.LngLat(routeDest.lng, routeDest.lat);
+      var ori = new AMap.LngLat(origin.lng, origin.lat);
+      var done = function(status, result) {
+        if (goBtn) { goBtn.disabled = false; goBtn.textContent = '开始规划路线'; }
+        if (status !== 'complete' || !result.routes || !result.routes.length) {
+          showRouteResult('<div class="route-error">未找到可行路线，请换个起点或出行方式</div>');
+          return;
+        }
+        var route = result.routes[0];
+        var latlngs = collectRoutePath(route);
+        drawRouteOnMap(latlngs);
+        var dist = route.distance ? (route.distance / 1000).toFixed(1) + ' 公里' : '';
+        var time = route.time ? Math.round(route.time / 60) + ' 分钟' : '';
+        var info = '✅ 规划成功';
+        if (dist) info += '<br>距离：' + dist;
+        if (time) info += '　预计耗时：' + time;
+        showRouteResult('<div class="route-info">' + info + '</div>');
+      };
+      if (routeMode === 'driving') {
+        new AMap.Driving({ policy: AMap.DrivingPolicy.LEAST_TIME }).search(ori, dest, done);
+      } else if (routeMode === 'walking') {
+        new AMap.Walking({}).search(ori, dest, done);
+      } else if (routeMode === 'riding') {
+        new AMap.Riding({}).search(ori, dest, done);
+      } else if (routeMode === 'transit') {
+        new AMap.Transfer({ city: '秦皇岛', policy: AMap.TransferPolicy.LEAST_TIME }).search(ori, dest, done);
+      }
+    });
+  }
+
+  function generateFavoriteRoute() {
+    var favSpots = SPOTS.filter(function(s) { return FAVORITES.indexOf(s.id) >= 0; });
+    if (favSpots.length < 2) {
+      alert('请先收藏至少 2 个景点，才能生成行程路线');
+      return;
+    }
+    // 贪心最近邻排序
+    var ordered = [favSpots[0]];
+    var rest = favSpots.slice(1);
+    while (rest.length) {
+      var last = ordered[ordered.length - 1];
+      var bestIdx = 0, bestDist = Infinity;
+      rest.forEach(function(s, i) {
+        var d = distanceM(last._lng, last._lat, s._lng, s._lat);
+        if (d < bestDist) { bestDist = d; bestIdx = i; }
+      });
+      ordered.push(rest[bestIdx]);
+      rest.splice(bestIdx, 1);
+    }
+    // 画折线 + 顺序编号
+    clearRoute();
+    routeLayer = L.layerGroup().addTo(map);
+    var latlngs = ordered.map(function(s) { return [s._lat, s._lng]; });
+    L.polyline(latlngs, { color: '#1a73e8', weight: 4, opacity: 0.85, dashArray: '8,6' }).addTo(routeLayer);
+    ordered.forEach(function(s, i) {
+      var icon = L.divIcon({ className: 'route-num-wrap', html: '<div style="background:#1a73e8;color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.3);">' + (i + 1) + '</div>', iconSize: [22, 22], iconAnchor: [11, 11] });
+      L.marker([s._lat, s._lng], { icon: icon }).addTo(routeLayer);
+    });
+    map.fitBounds(L.latLngBounds(latlngs), { padding: [80, 80], maxZoom: 14 });
+    // 打开面板显示顺序
+    var panel = document.getElementById('routePanel');
+    var dest = document.getElementById('routeDest');
+    if (panel) panel.hidden = false;
+    if (dest) dest.textContent = '📌 收藏行程路线（' + ordered.length + ' 个景点）';
+    var list = ordered.map(function(s, i) { return (i + 1) + '. ' + s.name; }).join('<br>');
+    showRouteResult('<div class="route-info">推荐游览顺序（按距离智能排序）：<br>' + list + '</div>');
+  }
+
+  function setupRoute() {
+    var favRouteBtn = document.getElementById('favRouteBtn');
+    if (favRouteBtn) favRouteBtn.addEventListener('click', generateFavoriteRoute);
+    var closeBtn = document.getElementById('routeClose');
+    if (closeBtn) closeBtn.addEventListener('click', closeRoutePanel);
+    var goBtn = document.getElementById('routeGo');
+    if (goBtn) goBtn.addEventListener('click', planRoute);
+    var myLocBtn = document.getElementById('routeMyLoc');
+    if (myLocBtn) {
+      myLocBtn.addEventListener('click', function() {
+        var input = document.getElementById('routeFromInput');
+        if (input) input.value = '';
+        getMyLocation(function(loc) {
+          if (loc) myLocBtn.textContent = '📍 已定位（' + loc.lng.toFixed(3) + ', ' + loc.lat.toFixed(3) + '）';
+          else myLocBtn.textContent = '📍 定位失败，请手动输入起点';
+        });
+      });
+    }
+    var modes = document.getElementById('routeModes');
+    if (modes) {
+      modes.addEventListener('click', function(e) {
+        var btn = e.target.closest('.route-mode');
+        if (btn) setRouteMode(btn.getAttribute('data-mode'));
+      });
+    }
+  }
+
   /* ===== 入口：DOM 加载完成后初始化 ===== */
   function init() {
     // 先应用 localStorage 缓存的高德坐标（秒级渲染，无需等待搜索）
@@ -1635,6 +1911,7 @@ if (typeof L === 'undefined') {
     renderLegend();
     setupMobileToggle();
     setupNav();
+    setupRoute();
 
     // 初始视野适配所有标记
     var allBounds = SPOTS.map(function(s) { return [s._lat, s._lng]; });
