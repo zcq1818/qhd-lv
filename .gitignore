@@ -13,3 +13,4 @@ data/notion-config.json
 
 # 其他 AI 工具的临时输出（非项目交付内容）
 Claude outputs/
+.claude/
