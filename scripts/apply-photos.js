@@ -38,7 +38,7 @@ for (const s of withPhoto) {
   const base = `attraction-${s.id}`;
   OLD_OF[s.id] = [`images/${base}.jpg`, `images/${base}.webp`, `images/webp/${base}.webp`, `images/${s.id}.webp`, `images/${s.id}.jpg`];
 }
-const EXTRA = { beidaihe: ['images/beidaihe-beach.webp'], shanhaiguan: ['images/shanhaiguan.webp'], laolongtou: ['images/laolongtou.webp'] };
+const EXTRA = { beidaihe: ['images/beidaihe-beach.webp'], shanhaiguan: ['images/shanhaiguan.webp'], laolongtou: ['images/laolongtou.webp'], aranya: ['images/aranya-library.webp'], biluota: ['images/biluota.webp'] };
 for (const [id, list] of Object.entries(EXTRA)) if (OLD_OF[id]) OLD_OF[id].push(...list);
 
 const pages = [

@@ -388,7 +388,7 @@
       "address": "河北省秦皇岛市北戴河区联峰路与剑秋路交叉口",
       "lat": 39.8233,
       "lng": 119.461,
-      "img": "images/attraction-liangfengshan.jpg",
+      "img": "images/real/liangfengshan.webp",
       "desc": "联峰山公园位于北戴河区联峰路，是北戴河地势最高处，最高峰海拔约153米，林区面积约6068亩，常被称为中国第一座森林公园。山中松柏苍翠、负氧离子含量高，登顶望海亭可俯瞰北戴河海滨全景，天气晴好时秦皇岛港、鸽子窝一带尽收眼底。景区内还有莲花石、仙人洞等自然景观和多处近代别墅遗迹。由于树木茂密遮阴，夏季山中气温比山下低约5℃，是当地人纳凉避暑的好去处。适合登山、避暑、摄影和秋季赏红叶（10月前后），建议早晚时段前往，避开正午暴晒。",
       "highlights": [
         "望海亭俯瞰全景",
@@ -459,7 +459,24 @@
         "http://qhd.bendibao.com/tour/20231017/7895.shtm",
         "https://touch.travel.qunar.com/poi/712326"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCandidates": [
+        {
+          "title": "File:从联峰山望海亭看北戴河区.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File%3A%E4%BB%8E%E8%81%94%E5%B3%B0%E5%B1%B1%E6%9C%9B%E6%B5%B7%E4%BA%AD%E7%9C%8B%E5%8C%97%E6%88%B4%E6%B2%B3%E5%8C%BA.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/%E4%BB%8E%E8%81%94%E5%B3%B0%E5%B1%B1%E6%9C%9B%E6%B5%B7%E4%BA%AD%E7%9C%8B%E5%8C%97%E6%88%B4%E6%B2%B3%E5%8C%BA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "license": "CC BY-SA 4.0",
+          "author": "Antigng",
+          "width": 5312,
+          "height": 2988
+        }
+      ],
+      "photoCredit": {
+        "title": "File:从联峰山望海亭看北戴河区.jpg",
+        "author": "Antigng",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File%3A%E4%BB%8E%E8%81%94%E5%B3%B0%E5%B1%B1%E6%9C%9B%E6%B5%B7%E4%BA%AD%E7%9C%8B%E5%8C%97%E6%88%B4%E6%B2%B3%E5%8C%BA.jpg"
+      }
     },
     {
       "id": "biluota",
@@ -474,7 +491,7 @@
       "address": "河北省秦皇岛市北戴河区东海滩路中段",
       "lat": 39.8205,
       "lng": 119.5353,
-      "img": "images/biluota.webp",
+      "img": "images/real/biluota.webp",
       "desc": "碧螺塔海上酒吧公园位于北戴河海滨小东山，三面环海，是北戴河东段的至高点，北邻鸽子窝公园和游船码头，南接金山嘴与老虎石公园，公园占地约106亩，因主建筑碧螺塔得名。碧螺塔建于1990年前后，塔高21米、共7层，是国内沿海地区少见的仿海螺造型观光塔，相传与“苑渠国使者乘碧螺舟东渡”的传说有关。公园白天以蓝白相间的“圣托里尼风”建筑和塔顶海景为特色，夜晚化身为北戴河的夜生活地标，设有海上酒吧、沙滩篝火、乐队演出，旺季还会举办电音派对和落日音乐会。适合情侣、年轻人及喜欢夜生活和拍照打卡的游客。",
       "highlights": [
         "碧螺塔仿海螺观光塔",
@@ -546,7 +563,24 @@
         "https://youletour.com/qinhuangdao/bi-luo-ta-hai-shang-jiu-ba-gong-yuan/goupiao",
         "https://baike.baidu.com/item/%E7%A2%A7%E8%9E%BA%E5%A1%94/7492487"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCandidates": [
+        {
+          "title": "File:Biluota Pub Park.png",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File%3ABiluota%20Pub%20Park.png",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Biluota_Pub_Park.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "license": "CC BY-SA 4.0",
+          "author": "Make789",
+          "width": 1080,
+          "height": 1080
+        }
+      ],
+      "photoCredit": {
+        "title": "File:Biluota Pub Park.png",
+        "author": "Make789",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File%3ABiluota%20Pub%20Park.png"
+      }
     },
     {
       "id": "guailou",
@@ -2189,7 +2223,7 @@
       "address": "河北省秦皇岛市昌黎县黄金海岸中区（孤独图书馆位于大蒲河镇黄金海岸工业园区金海南路7号附近）",
       "lat": 39.65,
       "lng": 119.3139,
-      "img": "images/aranya-library.webp",
+      "img": "images/real/aranya.webp",
       "desc": "阿那亚是位于秦皇岛市昌黎县黄金海岸中区的滨海生活方式社区，由封闭式住宅区与一系列公共文化建筑组成，2013年前后随\"孤独图书馆\"（三联海边公益图书馆）走红后成为国内最具代表性的网红海岸目的地之一。由建筑师董功设计的孤独图书馆紧邻海边、落地窗正对大海，是国内首座海边公益图书馆；园区内还有阿那亚礼堂（海边婚礼堂）、沙丘美术馆、海边市集等场所，每年举办戏剧节等文化活动。社区本身为封闭管理，非业主或非入住客人进入需通过预约或消费方式获取通行资格，孤独图书馆需单独在其微信公众号或阿那亚APP上预约参观名额。适合文艺青年、情侣和摄影爱好者，日出、黄昏时分光线最美。",
       "highlights": [
         "孤独图书馆",
@@ -2264,7 +2298,24 @@
         "https://qhd.focus.cn/loupan/160333.html",
         "http://www.bdhxq.gov.cn/home/details4?code=MjA%CE%B3&pcode=Mw%CE%B3%CE%B3&id=26767"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCandidates": [
+        {
+          "title": "File:Aranya Litang.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File%3AAranya%20Litang.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Aranya_Litang.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "license": "CC BY-SA 4.0",
+          "author": "Yumeto",
+          "width": 5632,
+          "height": 4224
+        }
+      ],
+      "photoCredit": {
+        "title": "File:Aranya Litang.jpg",
+        "author": "Yumeto",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File%3AAranya%20Litang.jpg"
+      }
     },
     {
       "id": "huangjin",
@@ -3650,7 +3701,7 @@
       "address": "河北省秦皇岛市抚宁区大新寨镇张各庄村",
       "lat": 40.0649,
       "lng": 119.346,
-      "img": "images/attraction-longyungu.jpg",
+      "img": "images/real/longyungu.webp",
       "desc": "龙云谷景区位于秦皇岛市抚宁区大新寨镇张各庄村，主峰海拔905米，是国家3A级旅游景区，以群峰竞秀、山泉飞瀑的自然峡谷景观为核心特色。景区内建有约3000米木质栈道贯穿峡谷，设有530米高空悬挑玻璃栈道和华北首条约2200米的悬崖漂流项目，龙潭瀑布、天池瀑布沿途可见，夏季峡谷中28种鲜花竞相开放形成花海景观，山间还分布天女木兰等珍稀植物。置身龙潭峡谷可听泉水叮咚、望巨石悬空，是户外探险和避暑纳凉的好去处，冬季则可观赏冰瀑奇观。",
       "highlights": [
         "千米木栈道(天梯段极具挑战)",
@@ -3716,7 +3767,24 @@
         "https://baike.baidu.com/item/%E9%BE%99%E4%BA%91%E8%B0%B7%E6%99%AF%E5%8C%BA/60485422",
         "https://piao.qunar.com/ticket/detail_466229.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCandidates": [
+        {
+          "title": "File:河北抚宁龙云谷-湖泊.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File%3A%E6%B2%B3%E5%8C%97%E6%8A%9A%E5%AE%81%E9%BE%99%E4%BA%91%E8%B0%B7-%E6%B9%96%E6%B3%8A.jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/%E6%B2%B3%E5%8C%97%E6%8A%9A%E5%AE%81%E9%BE%99%E4%BA%91%E8%B0%B7-%E6%B9%96%E6%B3%8A.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "license": "CC BY-SA 4.0",
+          "author": "云在动",
+          "width": 4000,
+          "height": 3000
+        }
+      ],
+      "photoCredit": {
+        "title": "File:河北抚宁龙云谷-湖泊.jpg",
+        "author": "云在动",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File%3A%E6%B2%B3%E5%8C%97%E6%8A%9A%E5%AE%81%E9%BE%99%E4%BA%91%E8%B0%B7-%E6%B9%96%E6%B3%8A.jpg"
+      }
     },
     {
       "id": "qipanshan",
@@ -4179,7 +4247,7 @@
       "address": "河北省秦皇岛市山海关区古城东三条29号",
       "lat": 40.007,
       "lng": 119.7594,
-      "img": "images/attraction-wangjiadayuan.jpg",
+      "img": "images/real/wangjiadayuan.webp",
       "desc": "王家大院又称山海关古城民俗博物馆，坐落于\"天下第一关\"城楼西侧，被称为\"万里长城第一家\"，始建于明末清初，鼎盛于清晚期。院落为典型明清四合庭院式建筑群，占地十余亩，建筑面积2000多平方米，由三个套院、18个展厅组成。宅院原主人王三佛是山西盐商，因家业兴旺被称为\"山海关南半城\"。如今大院辟为民俗博物馆，通过实景陈设和展品展示明清时期山海关古城居民的生活场景与民俗文化，是了解晋商文化和山海关古城历史的重要窗口，适合历史文化爱好者、古建筑研究者及亲子研学。",
       "highlights": [
         "万里长城第一家",
@@ -4249,33 +4317,21 @@
       "photoCandidates": [
         {
           "title": "File:Wang Family Courtyard 王家大院 (6237013339).jpg",
-          "pageUrl": "https://commons.wikimedia.org/wiki/File:Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_(6237013339).jpg",
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_%286237013339%29.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File%3AWang%20Family%20Courtyard%20%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2%20(6237013339).jpg",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_%286237013339%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
           "license": "CC BY-SA 2.0",
-          "author": "Caitriana Nicholson from Beijing, China",
+          "author": "Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China",
           "width": 1600,
           "height": 1200
-        },
-        {
-          "title": "File:Wang Family Courtyard 王家大院 (6237012645).jpg",
-          "pageUrl": "https://commons.wikimedia.org/wiki/File:Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_(6237012645).jpg",
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Wang_Family_Courtyard_%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2_%286237012645%29.jpg",
-          "license": "CC BY-SA 2.0",
-          "author": "Caitriana Nicholson from Beijing, China",
-          "width": 1200,
-          "height": 1600
-        },
-        {
-          "title": "File:Ladies' Boudoir (6234002759).jpg",
-          "pageUrl": "https://commons.wikimedia.org/wiki/File:Ladies%27_Boudoir_(6234002759).jpg",
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Ladies%27_Boudoir_%286234002759%29.jpg",
-          "license": "CC BY-SA 2.0",
-          "author": "Caitriana Nicholson from Beijing, China",
-          "width": 2592,
-          "height": 1944
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:Wang Family Courtyard 王家大院 (6237013339).jpg",
+        "author": "Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File%3AWang%20Family%20Courtyard%20%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2%20(6237013339).jpg"
+      }
     },
     {
       "id": "yutian_qilihai",
