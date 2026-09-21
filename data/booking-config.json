@@ -1,0 +1,16 @@
+{
+  "enabled": false,
+  "note": "拿到联盟推广标识后填入 affiliates,然后运行 node scripts/toggle-booking-links.js on",
+  "affiliates": {
+    "ctrip.com": {
+      "allianceid": "",
+      "sid": "",
+      "ouid": ""
+    },
+    "meituan.com": {
+      "utm_source": "",
+      "utm_medium": "",
+      "utm_campaign": ""
+    }
+  }
+}
