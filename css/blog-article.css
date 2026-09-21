@@ -1,7 +1,8 @@
 .article-wrap {
   max-width: 760px;
   margin: 0 auto;
-  padding: 0 var(--s6) var(--s12);
+  /* 顶部留出固定导航栏的高度,否则文章 h1 会被导航挡住 */
+  padding: calc(var(--nav-height, 64px) + var(--s6)) var(--s6) var(--s12);
 }
 .article-header {
   padding: var(--s5) 0 var(--s6);

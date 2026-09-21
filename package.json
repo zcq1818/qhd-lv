@@ -19,7 +19,8 @@
     "check": "node scripts/check-min.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "data": "node scripts/build-runtime-data.js",
-    "seo": "node scripts/fix-seo-meta.js && node scripts/add-asset-version.js"
+    "seo": "node scripts/fix-seo-meta.js && node scripts/add-asset-version.js",
+    "covers": "python scripts/gen-cover-images.py && node scripts/apply-cover-images.js"
   },
   "keywords": [
     "秦皇岛",
