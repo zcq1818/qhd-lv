@@ -243,7 +243,7 @@
     }
 
     // 尝试从 attractions.json 获取详细信息
-    fetch('data/attractions.json', { cache: 'no-store' })
+    fetch('data/spots.json', { cache: 'no-store' })
       .then(function (res) { return res.ok ? res.json() : { spots: [] }; })
       .catch(function () { return { spots: [] }; })
       .then(function (data) {

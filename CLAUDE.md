@@ -5,7 +5,9 @@
 ## 目录
 
 - `*.html` 根目录页面;`attraction/` 47 个景点页;`blog/` 博客(退役文章仍在磁盘,由 vercel.json 301 到合并后的文章)
-- `data/attractions.json` 景点数据源(景点页、地图、画廊、筛选都读它);`data/blog-index.json` 博客索引;`data/retired-posts.json` 退役博客
+- `data/attractions.json` 景点**主数据**(含英文简介、FAQ、贴士、交通、来源等),只给构建脚本用,不下发浏览器
+- `data/spots.json` 浏览器加载的**运行时数据**(约 42KB),由 `npm run data` 从主数据生成,景点大全/地图/画廊/行程/搜索都读它
+- `data/blog-index.json` 博客索引;`data/retired-posts.json` 退役博客
 - `css/`、`js/`、`style.css` 源文件;同名 `.min.*` 是提交到仓库的压缩产物;`js/vendor/` 第三方库本地托管
 - `api/` Vercel 函数(weather、tide、chat、view-counter),密钥全部走环境变量,见 `.env.example`
 - `scripts/` 构建与内容脚本(node + python)
@@ -25,6 +27,14 @@ npm run optimize
 导航栏在每个页面里都是复制的。改 `scripts/unify-navbar.js` 里的 `LINKS`,再运行 `node scripts/unify-navbar.js`。
 注意:`local-guide.html` 和 `seafood.html` 有定制的导航高亮,脚本会覆盖它们,跑完后用 `git diff` 检查并手动恢复。
 顶部导航保持 9 项,新功能入口放在相关页面内(例如 3D 画廊入口在景点大全页),不要往导航里加。
+
+## 改动景点数据后
+
+改完 `data/attractions.json` 必须重新生成运行时数据,否则页面看到的还是旧值:
+
+```bash
+npm run data
+```
 
 ## 新增页面 / 博客后
 

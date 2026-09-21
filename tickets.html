@@ -159,7 +159,7 @@ document.getElementById('hamburger').addEventListener('click', function() {
   var currentArea = 'all', keyword = '';
 
   function loadData(cb) {
-    fetch('data/attractions.json', { cache: 'no-store' })
+    fetch('data/spots.json', { cache: 'no-store' })
       .then(function(r) { return r.json(); })
       .then(function(d) {
         SPOTS = d.spots || [];

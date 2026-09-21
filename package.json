@@ -17,7 +17,8 @@
     "preview:alt": "npx serve .",
     "deploy": "vercel",
     "check": "node scripts/check-min.js",
-    "sitemap": "node scripts/generate-sitemap.js"
+    "sitemap": "node scripts/generate-sitemap.js",
+    "data": "node scripts/build-runtime-data.js"
   },
   "keywords": [
     "秦皇岛",

@@ -1300,7 +1300,7 @@ reveals.forEach(function(el){o.observe(el);});
 
   function loadSpots() {
     if (spotsCache) return Promise.resolve(spotsCache);
-    return fetch('data/attractions.json')
+    return fetch('data/spots.json')
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (d) { spotsCache = d.spots || []; return spotsCache; })
       .catch(function () { return []; });

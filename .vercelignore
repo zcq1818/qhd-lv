@@ -15,3 +15,7 @@ amap-skills
 *.bat
 *.sh
 data/crawl-log.json
+
+# 完整景点主数据仅用于生成静态页,浏览器加载的是 data/spots.json
+data/attractions.json
+data/photo-candidates.json

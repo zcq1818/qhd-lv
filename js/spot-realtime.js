@@ -34,7 +34,7 @@
     anchor.parentNode.insertBefore(el, anchor.nextSibling);
   }
 
-  fetch('../data/attractions.json').then(function(r) { return r.json(); }).then(function(data) {
+  fetch('../data/spots.json').then(function(r) { return r.json(); }).then(function(data) {
     var spot = null;
     (data.spots || []).forEach(function(s) { if (s.id === spotId) spot = s; });
     if (!spot) return;

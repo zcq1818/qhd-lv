@@ -855,13 +855,13 @@ if (typeof L === 'undefined') {
 (function() {
   'use strict';
 
-  /* ===== 数据驱动初始化：从 data/attractions.json 加载景点数据 ===== */
+  /* ===== 数据驱动初始化：从 data/spots.json 加载景点数据 ===== */
   var SPOTS, AREAS, CATEGORIES, TOP5;
   var dataLoaded = false;
 
   async function initDataFromJSON() {
     try {
-      const res = await fetch('data/attractions.json');
+      const res = await fetch('data/spots.json');
       if (!res.ok) throw new Error('加载 attractions.json 失败');
       const data = await res.json();
       
@@ -1650,7 +1650,7 @@ if (typeof L === 'undefined') {
 
   /* ===== 从 JSON 加载景点数据（失败则使用上方默认硬编码数据） ===== */
   function loadDataFromJSON(callback) {
-    fetch('data/attractions.json', { cache: 'no-store' })
+    fetch('data/spots.json', { cache: 'no-store' })
       .then(function(res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.json();

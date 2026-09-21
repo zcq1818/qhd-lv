@@ -623,7 +623,7 @@ var _hmt = _hmt || [];
   <div class="admin-notice-inner">
     <span>💡</span>
     <div>
-      <strong>使用说明：</strong>本后台为纯前端实现，数据存储在浏览器 localStorage 中。修改后请点击"导出 JSON"下载文件，然后手动替换服务器上的 <code>data/attractions.json</code> 文件，全站（景点页/地图页）即可同步更新。点击"恢复默认"可重新从服务器加载初始数据。
+      <strong>使用说明：</strong>本后台为纯前端实现，数据存储在浏览器 localStorage 中。修改后请点击"导出 JSON"下载文件，然后手动替换服务器上的 <code>data/spots.json</code> 文件，全站（景点页/地图页）即可同步更新。点击"恢复默认"可重新从服务器加载初始数据。
     </div>
   </div>
 </div>
@@ -865,7 +865,7 @@ var _hmt = _hmt || [];
 
   /* ===== 常量 ===== */
   var STORAGE_KEY = 'qhd_attractions_data';
-  var DEFAULT_JSON_URL = 'data/attractions.json';
+  var DEFAULT_JSON_URL = 'data/spots.json';
 
   /* ===== 全局数据 ===== */
   var appData = null;
@@ -1235,7 +1235,7 @@ var _hmt = _hmt || [];
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    showToast('JSON 文件已下载，请替换服务器上的 data/attractions.json', 'success');
+    showToast('JSON 文件已下载，请替换服务器上的 data/spots.json', 'success');
   };
 
   /* ===== 导入 JSON ===== */

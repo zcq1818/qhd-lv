@@ -62,16 +62,23 @@
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   /* ---------- 按钮绑定 ---------- */
+  var painting = false;   // 自身写 DOM 期间不响应 MutationObserver,避免「重绘→监听→重绘」死循环
   function paint(btn) {
     var id = btn.getAttribute('data-trip-add');
     var on = Trip.has(id);
-    btn.classList.toggle('on', on);
     var label = btn.getAttribute('data-trip-label') || '加入行程';
-    btn.innerHTML = on ? '<span aria-hidden="true">✓</span> 已加入行程' : '<span aria-hidden="true">＋</span> ' + label;
+    var html = on ? '<span aria-hidden="true">✓</span> 已加入行程' : '<span aria-hidden="true">＋</span> ' + label;
+    if (btn.__tripHtml === html) return;                    // 内容没变就不动 DOM
+    painting = true;
+    btn.classList.toggle('on', on);
+    btn.innerHTML = html;
+    btn.__tripHtml = html;
     btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    painting = false;
   }
   function bindAll(root) {
-    (root || document).querySelectorAll('[data-trip-add]').forEach(function (btn) {
+    var list = (root || document).querySelectorAll('[data-trip-add]');
+    for (var i = 0; i < list.length; i++) (function (btn) {
       if (btn.__trip) { paint(btn); return; }
       btn.__trip = true;
       btn.classList.add('trip-btn');
@@ -84,12 +91,29 @@
         paint(btn);
         if (added) bump();
       });
-    });
+    })(list[i]);
   }
   window.addEventListener('qhd-trip-change', function () { bindAll(); renderPill(); });
   // 动态渲染的列表(如 attractions.html)也能自动绑定
+  var scanQueued = false;
+  // 注意:MutationObserver 回调是微任务,同步写 DOM 时设的标志位到这里已经复位,
+  // 所以不能靠标志位挡自身的重绘,必须判断「新增节点里是否真的有未绑定的按钮」。
+  function needsScan(muts) {
+    for (var i = 0; i < muts.length; i++) {
+      var added = muts[i].addedNodes;
+      for (var j = 0; j < added.length; j++) {
+        var n = added[j];
+        if (!n || n.nodeType !== 1) continue;                       // 文本节点直接跳过
+        if (n.matches && n.matches('[data-trip-add]') && !n.__trip) return true;
+        if (n.querySelector && n.querySelector('[data-trip-add]')) return true;
+      }
+    }
+    return false;
+  }
   var mo = new MutationObserver(function (muts) {
-    for (var i = 0; i < muts.length; i++) { if (muts[i].addedNodes.length) { bindAll(); break; } }
+    if (scanQueued || !needsScan(muts)) return;
+    scanQueued = true;                                              // 合并到下一帧,列表批量渲染只扫一次
+    requestAnimationFrame(function () { scanQueued = false; bindAll(); });
   });
 
   /* ---------- 悬浮胶囊 ---------- */
@@ -97,6 +121,7 @@
   function renderPill() {
     var n = Trip.list().length;
     var onItin = /\/itinerary(\.html)?$/.test(location.pathname);
+    painting = true;
     if (!pill) {
       pill = document.createElement('a');
       pill.id = 'qhdTripPill';
@@ -104,8 +129,10 @@
       pill.setAttribute('aria-label', '查看我的行程');
       document.body.appendChild(pill);
     }
-    pill.innerHTML = '🧭 我的行程 <b>' + n + '</b>';
+    var html = '🧭 我的行程 <b>' + n + '</b>';
+    if (pill.__html !== html) { pill.innerHTML = html; pill.__html = html; }
     pill.classList.toggle('show', n > 0 && !onItin);
+    painting = false;
   }
   function bump() { if (!pill) return; pill.classList.remove('bump'); void pill.offsetWidth; pill.classList.add('bump'); }
 

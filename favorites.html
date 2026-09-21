@@ -166,7 +166,7 @@ function generateItinerary() {
     else alert('请先收藏景点');
     return;
   }
-  fetch('data/attractions.json', { cache: 'no-store' })
+  fetch('data/spots.json', { cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : { spots: [], areas: [] }; })
     .catch(function () { return { spots: [], areas: [] }; })
     .then(function (data) {

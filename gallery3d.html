@@ -220,7 +220,7 @@ const loader = new THREE.TextureLoader();
 let loaded = 0;
 
 let DATA;
-fetch('data/attractions.json').then(r => r.json()).then(data => {
+fetch('data/spots.json').then(r => r.json()).then(data => {
   DATA = data;
   PICKS.forEach((p, i) => {
     const spot = data.spots.find(s => s.id === p.id) || { name: p.id };

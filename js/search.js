@@ -1,6 +1,6 @@
 /**
  * 全站搜索组件：在导航栏注入搜索框，搜索景点 + 攻略 + 博客
- * 依赖 js/search-index.js（window.SEARCH_INDEX）和 data/attractions.json（景点）
+ * 依赖 js/search-index.js（window.SEARCH_INDEX）和 data/spots.json（景点）
  * 用法：页面引入 <script src="js/search-index.js" defer></script> 和 <script src="js/search.js" defer></script>
  */
 (function() {
@@ -49,7 +49,7 @@
 
   // 景点数据（动态加载）
   var spots = [];
-  fetch('/data/attractions.json').then(function(r) { return r.json(); }).then(function(d) {
+  fetch('/data/spots.json').then(function(r) { return r.json(); }).then(function(d) {
     spots = (d.spots || []).map(function(s) { return { title: s.name, url: '/attraction/' + s.id, type: '景点' }; });
   }).catch(function() {});
 
