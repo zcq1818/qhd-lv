@@ -5,6 +5,8 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /dashboard.html
+Disallow: /dashboard
 
 # ===== 显式欢迎主流 AI 爬虫与搜索机器人 =====
 # 便于 ChatGPT、豆包、Kimi、文心一言、Gemini、Perplexity 等 AI 搜索/助手抓取并引用本站内容
@@ -23,6 +25,8 @@ User-agent: 360Spider
 User-agent: Sogou web spider
 Allow: /
 Disallow: /admin.html
+Disallow: /dashboard.html
+Disallow: /dashboard
 
 # 网站地图位置
 Sitemap: https://www.divdu.com/sitemap.xml

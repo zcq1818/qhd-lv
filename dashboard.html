@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>运营后台 | 秦皇岛旅游官网</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<style>
+:root{--brand:#1a73e8;--ink:#0f172a;--muted:#64748b;--line:#e5e7eb;--bg:#f6f8fb}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:var(--brand)}
+
+/* 登录 */
+#gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0b1f3a,#123c6e);z-index:100;padding:20px}
+#gate .box{background:#fff;border-radius:16px;padding:32px;width:100%;max-width:360px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+#gate h1{margin:0 0 6px;font-size:1.3rem}
+#gate p{margin:0 0 20px;color:var(--muted);font-size:.9rem}
+#gate input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:12px}
+#gate button{width:100%;padding:12px;border:0;border-radius:10px;background:var(--brand);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+#gate .err{color:#dc2626;font-size:.85rem;margin-top:10px;display:none}
+
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+header h1{margin:0;font-size:1.1rem;font-weight:800}
+header .spacer{flex:1}
+header button{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.85rem;font-weight:700;cursor:pointer}
+header button:hover{border-color:var(--brand);color:var(--brand)}
+
+.wrap{max-width:1100px;margin:0 auto;padding:24px}
+.tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.tab{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.9rem;font-weight:700;cursor:pointer;color:var(--muted)}
+.tab.on{background:var(--brand);border-color:var(--brand);color:#fff}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card .n{font-size:1.9rem;font-weight:900;line-height:1.2}
+.card .l{font-size:.8rem;color:var(--muted);margin-top:2px}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.panel h2{margin:0;padding:16px 20px;font-size:1rem;border-bottom:1px solid var(--line);background:#fafbfd}
+.empty{padding:48px 20px;text-align:center;color:var(--muted)}
+
+.lead{padding:18px 20px;border-bottom:1px solid var(--line)}
+.lead:last-child{border-bottom:0}
+.lead-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.lead-name{font-weight:800;font-size:1.02rem}
+.lead-contact{font-weight:700;color:var(--brand);cursor:pointer;border-bottom:1px dashed var(--brand)}
+.lead-time{margin-left:auto;font-size:.8rem;color:var(--muted);white-space:nowrap}
+.lead-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.lead-meta span{font-size:.78rem;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:#475569}
+.lead-note{color:#475569;font-size:.9rem;background:#fffbeb;border-radius:8px;padding:10px 12px;margin-top:6px}
+.lead-src{font-size:.75rem;color:#94a3b8;margin-top:8px}
+
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{padding:10px 20px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:#fafbfd;font-size:.8rem;color:var(--muted);font-weight:700}
+td.n{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+tr:hover td{background:#fafbfd}
+.bar{height:6px;background:var(--brand);border-radius:3px;min-width:2px}
+
+.note{margin-top:18px;font-size:.85rem;color:var(--muted);line-height:1.8}
+@media(max-width:600px){.wrap{padding:14px}th,td{padding:9px 12px}.lead{padding:14px}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <h1>运营后台</h1>
+    <p>输入后台口令查看询价线索与页面热度</p>
+    <input type="password" id="pass" placeholder="口令" autocomplete="current-password">
+    <button id="loginBtn">进入</button>
+    <div class="err" id="err"></div>
+  </div>
+</div>
+
+<header hidden id="bar">
+  <h1>运营后台</h1>
+  <span class="spacer"></span>
+  <button id="refreshBtn">刷新</button>
+  <button id="exportBtn">导出线索 CSV</button>
+  <button id="logoutBtn">退出</button>
+</header>
+
+<div class="wrap" hidden id="main">
+  <div class="tabs">
+    <button class="tab on" data-tab="leads">询价线索</button>
+    <button class="tab" data-tab="views">页面热度</button>
+  </div>
+
+  <section id="tabLeads">
+    <div class="cards" id="leadCards"></div>
+    <div class="panel">
+      <h2>最近的询价</h2>
+      <div id="leadList"><div class="empty">加载中…</div></div>
+    </div>
+    <p class="note">线索保存 400 天。点联系方式可复制。表单来自当地向导页,后续会在行程页与景点页增加更多入口。</p>
+  </section>
+
+  <section id="tabViews" hidden>
+    <div class="cards" id="viewCards"></div>
+    <div class="panel">
+      <h2>页面热度排行</h2>
+      <div id="viewList"><div class="empty">加载中…</div></div>
+    </div>
+    <p class="note">spot- 开头是景点页,en- 是英文页,page- 是栏目页,其余是博客。招商谈价时可以直接引用这里的单页数据。</p>
+  </section>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var KEY = 'qhd-admin-key';
+  var key = sessionStorage.getItem(KEY) || '';
+  var gate = document.getElementById('gate');
+  var err = document.getElementById('err');
+  var leadsCache = [];
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function fmtTime(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    if (isNaN(d)) return iso;
+    var p = function (n) { return String(n).padStart(2, '0'); };
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+  function daysAgo(iso, n) { return Date.now() - new Date(iso).getTime() <= n * 86400000; }
+
+  function show() {
+    gate.hidden = true;
+    document.getElementById('bar').hidden = false;
+    document.getElementById('main').hidden = false;
+  }
+
+  function login() {
+    var v = document.getElementById('pass').value.trim();
+    if (!v) return;
+    err.style.display = 'none';
+    fetch('/api/leads?stat=1&key=' + encodeURIComponent(v))
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d && d.ok) { key = v; sessionStorage.setItem(KEY, v); show(); loadAll(); }
+        else {
+          err.textContent = d && d.error === 'ADMIN_KEY_NOT_SET'
+            ? '后台口令尚未配置:请在 Vercel 环境变量中添加 LEADS_ADMIN_KEY'
+            : '口令不正确';
+          err.style.display = 'block';
+        }
+      })
+      .catch(function () { err.textContent = '无法连接服务'; err.style.display = 'block'; });
+  }
+
+  document.getElementById('loginBtn').addEventListener('click', login);
+  document.getElementById('pass').addEventListener('keypress', function (e) { if (e.key === 'Enter') login(); });
+  document.getElementById('logoutBtn').addEventListener('click', function () { sessionStorage.removeItem(KEY); location.reload(); });
+  document.getElementById('refreshBtn').addEventListener('click', loadAll);
+
+  document.querySelectorAll('.tab').forEach(function (t) {
+    t.addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (x) { x.classList.toggle('on', x === t); });
+      document.getElementById('tabLeads').hidden = t.dataset.tab !== 'leads';
+      document.getElementById('tabViews').hidden = t.dataset.tab !== 'views';
+    });
+  });
+
+  /* ---------- 线索 ---------- */
+  function loadLeads() {
+    fetch('/api/leads?limit=300&key=' + encodeURIComponent(key))
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || !d.ok) throw new Error(d && d.error);
+        leadsCache = d.leads || [];
+        var today = leadsCache.filter(function (l) { return daysAgo(l.createdAt, 1); }).length;
+        var week = leadsCache.filter(function (l) { return daysAgo(l.createdAt, 7); }).length;
+        document.getElementById('leadCards').innerHTML =
+          card(d.total || 0, '累计线索') + card(week, '最近 7 天') + card(today, '最近 24 小时');
+
+        if (!leadsCache.length) {
+          document.getElementById('leadList').innerHTML =
+            '<div class="empty">还没有线索。表单已接通,有人提交就会出现在这里。</div>';
+          return;
+        }
+        document.getElementById('leadList').innerHTML = leadsCache.map(function (l) {
+          var meta = [l.date, l.people, l.service].filter(Boolean)
+            .map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
+          return '<div class="lead">' +
+            '<div class="lead-top">' +
+              '<span class="lead-name">' + esc(l.name || '(未留姓名)') + '</span>' +
+              '<span class="lead-contact" data-copy="' + esc(l.contact) + '">' + esc(l.contact) + '</span>' +
+              '<span class="lead-time">' + fmtTime(l.createdAt) + '</span>' +
+            '</div>' +
+            (meta ? '<div class="lead-meta">' + meta + '</div>' : '') +
+            (l.note ? '<div class="lead-note">' + esc(l.note) + '</div>' : '') +
+            '<div class="lead-src">来自 ' + esc(l.source || '?') + (l.page ? ' · ' + esc(l.page) : '') + '</div>' +
+          '</div>';
+        }).join('');
+
+        document.querySelectorAll('[data-copy]').forEach(function (el) {
+          el.addEventListener('click', function () {
+            var v = el.getAttribute('data-copy');
+            if (navigator.clipboard) navigator.clipboard.writeText(v);
+            var old = el.textContent;
+            el.textContent = '已复制';
+            setTimeout(function () { el.textContent = old; }, 1200);
+          });
+        });
+      })
+      .catch(function (e) {
+        document.getElementById('leadList').innerHTML =
+          '<div class="empty">读取失败:' + esc(e.message || '未知错误') + '</div>';
+      });
+  }
+
+  function card(n, l) { return '<div class="card"><div class="n">' + n + '</div><div class="l">' + l + '</div></div>'; }
+
+  /* ---------- 页面热度 ---------- */
+  function loadViews() {
+    fetch('/api/view-counter?list=1')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var counts = (d && d.counts) || {};
+        var rows = Object.keys(counts).map(function (k) { return [k, counts[k]]; })
+          .sort(function (a, b) { return b[1] - a[1]; });
+        var total = rows.reduce(function (t, r) { return t + r[1]; }, 0);
+        var spots = rows.filter(function (r) { return r[0].indexOf('spot-') === 0; }).length;
+        document.getElementById('viewCards').innerHTML =
+          card(total, '累计浏览') + card(rows.length, '有数据的页面') + card(spots, '其中景点页');
+
+        if (!rows.length) {
+          document.getElementById('viewList').innerHTML = '<div class="empty">还没有数据</div>';
+          return;
+        }
+        var max = rows[0][1] || 1;
+        document.getElementById('viewList').innerHTML =
+          '<table><thead><tr><th>页面</th><th>类型</th><th style="width:34%">热度</th><th class="n">浏览</th></tr></thead><tbody>' +
+          rows.slice(0, 120).map(function (r) {
+            var k = r[0], v = r[1];
+            var type = k.indexOf('en-spot-') === 0 ? '英文景点'
+              : k.indexOf('en-') === 0 ? '英文页'
+              : k.indexOf('spot-') === 0 ? '景点页'
+              : k.indexOf('page-') === 0 ? '栏目页'
+              : k === 'home' ? '首页' : '博客';
+            var href = k === 'home' ? '/'
+              : k.indexOf('en-spot-') === 0 ? '/en/attraction/' + k.slice(8)
+              : k.indexOf('spot-') === 0 ? '/attraction/' + k.slice(5)
+              : k.indexOf('en-') === 0 ? '/en/' + k.slice(3)
+              : k.indexOf('page-') === 0 ? '/' + k.slice(5)
+              : '/blog/' + k;
+            return '<tr><td><a href="' + esc(href) + '" target="_blank">' + esc(k) + '</a></td>' +
+              '<td>' + type + '</td>' +
+              '<td><div class="bar" style="width:' + Math.round(v / max * 100) + '%"></div></td>' +
+              '<td class="n">' + v + '</td></tr>';
+          }).join('') + '</tbody></table>';
+      })
+      .catch(function () {
+        document.getElementById('viewList').innerHTML = '<div class="empty">读取失败</div>';
+      });
+  }
+
+  function loadAll() { loadLeads(); loadViews(); }
+
+  /* ---------- 导出 ---------- */
+  document.getElementById('exportBtn').addEventListener('click', function () {
+    if (!leadsCache.length) return alert('暂无线索可导出');
+    var head = ['时间', '姓名', '联系方式', '出行日期', '人数', '意向服务', '备注', '来源', '页面'];
+    var q = function (s) { return '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"'; };
+    var csv = '﻿' + head.map(q).join(',') + '\n' + leadsCache.map(function (l) {
+      return [fmtTime(l.createdAt), l.name, l.contact, l.date, l.people, l.service, l.note, l.source, l.page].map(q).join(',');
+    }).join('\n');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+    a.download = '询价线索-' + new Date().toISOString().slice(0, 10) + '.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  if (key) { show(); loadAll(); }
+})();
+</script>
+</body>
+</html>

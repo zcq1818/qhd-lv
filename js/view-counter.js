@@ -6,14 +6,29 @@
   'use strict';
 
   // 从URL提取文章slug（支持 /blog/xxx 和 /blog/xxx.html 两种格式）
+  // 统计范围从「只有博客」扩到全站:博客、景点页、英文景点页与主要栏目页,
+  // 都用一个可读的 slug 作为键,后台按这个排热度。
   function getSlug() {
-    var path = window.location.pathname;
-    var match = path.match(/\/blog\/([^\/\?]+)/);
-    if (!match) return null;
-    var slug = match[1];
-    // 去掉 .html 后缀
-    slug = slug.replace(/\.html$/, '');
-    return slug;
+    var path = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+    if (!path) return 'home';
+
+    var m = path.match(/\/blog\/([^\/\?]+)/);
+    if (m) return m[1];
+
+    m = path.match(/\/en\/attraction\/([^\/\?]+)/);
+    if (m) return 'en-spot-' + m[1];
+
+    m = path.match(/\/attraction\/([^\/\?]+)/);
+    if (m) return 'spot-' + m[1];
+
+    m = path.match(/\/en\/([^\/\?]+)/);
+    if (m) return 'en-' + m[1];
+
+    // 根目录栏目页:只统计有价值的几类,后台页与 404 不计
+    var name = path.replace(/^\//, '');
+    if (!name || name.indexOf('/') >= 0) return null;
+    if (/^(admin|404|favorites)$/.test(name)) return null;
+    return 'page-' + name;
   }
 
   // 格式化阅读量（1234 → 1.2k）
