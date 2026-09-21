@@ -29,6 +29,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="style.min.css">
 <link rel="stylesheet" href="css/page-common.min.css">
+<link rel="stylesheet" href="css/must-play.min.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,207 +112,198 @@
   </div>
 </section>
 
-<main class="section">
-  <div class="section-label">精选推荐</div>
-  <h2 class="section-title">秦皇岛必玩景点 TOP10</h2>
-  <p class="section-desc">根据2026年游客真实评价、搜索热度和本地人推荐，精选秦皇岛最值得去的10个景点。每个都附有门票价格、游玩时间和<strong>真实口碑</strong>。</p>
+<main class="section" id="main-content">
 
-  <!-- 真实评价提示 -->
-  <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:20px;margin-bottom:32px;">
-    <h4 style="font-weight:700;margin-bottom:8px;">📢 游客真实反馈</h4>
-    <p style="font-size:14px;color:#92400e;line-height:1.8;">秦皇岛整体评价：<strong>错峰去的基本全员好评，旺季扎堆去的大多吐槽人多、价贵、体验差。</strong>适合亲子、老人、短途避暑、慢节奏度假；不适合追求极致海景、高强度娱乐。</p>
-  </div>
+  <!-- 一句话定调 -->
+  <p class="mp-lead">根据 2026 年游客真实评价、搜索热度与本地人推荐,精选最值得去的 10 个。<strong>错峰去的基本全员好评,旺季扎堆去的大多吐槽人多价贵</strong>——这里适合亲子、老人、短途避暑与慢节奏度假。</p>
 
-  <!-- TOP 1: 鸽子窝 -->
-  <div class="spot-top" style="margin-bottom:32px;">
-    <div class="spot-top-inner">
-      <div class="spot-top-img">
-        <img src="images/geziwo-sunrise.webp" alt="鸽子窝公园日出" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23e3f2fd%22 width=%22600%22 height=%22400%22/%3E%3C/svg%3E'">
-        <div class="spot-top-rank">TOP 1</div>
+  <!-- 片区分布:先讲清楚怎么串 -->
+  <section class="mp-plan" aria-labelledby="plan-title">
+    <h2 id="plan-title">先看分布:10 个景点集中在 3 个片区</h2>
+    <p class="mp-plan-sub">同片区内车程都在半小时以内,按片区走能少折腾一半时间。</p>
+    <div class="mp-zones">
+      <div class="mp-zone" style="--z:#0369a1">
+        <h3>北戴河片区 <span>4 个 · 建议 1 整天</span></h3>
+        <p>海滨度假核心区,景点之间 10-20 分钟车程,可步行加共享单车串联。</p>
+        <p class="mp-zone-list"><a href="#s1">①鸽子窝</a><a href="#s5">⑤碧螺塔</a><a href="#s6">⑥老虎石</a><a href="#s7">⑦联峰山</a></p>
       </div>
-      <div class="spot-top-body">
-        <span class="spot-card-tag tag-beach">🌅 看日出圣地</span>
-        <h3 class="spot-top-name">鸽子窝公园</h3>
-        <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">北戴河标志性景点，"红日浴海"奇景的最佳观赏地。每年接待游客量秦皇岛第一，百年经典景区。看日出、赶海、观鸟，一次满足。</p>
-        <div style="background:#f0fdf4;border-radius:8px;padding:12px;margin-bottom:16px;font-size:13px;color:#166534;">
-          <strong>👍 游客好评：</strong>"清晨看日出，太阳从海面升起来真的很震撼🌅" "日出超绝，海鸟很多🕊️" "赶海抓螃蟹，小朋友玩疯了"
-        </div>
-        <div style="background:#fef2f2;border-radius:8px;padding:12px;margin-bottom:16px;font-size:13px;color:#991b1b;">
-          <strong>⚠️ 注意：</strong>旺季人多，建议4:00前到；日出后可顺路赶海
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
-          <span style="background:#fef3c7;padding:4px 12px;border-radius:20px;font-size:0.85rem;font-weight:700;color:#92400e;" data-spot-price="geziwo">🎫 25元</span>
-          <span style="background:#e0f2fe;padding:4px 12px;border-radius:20px;font-size:0.85rem;color:#0369a1;" data-spot-duration="geziwo">⏰ 建议1.5-2小时</span>
-          <span style="background:#dcfce7;padding:4px 12px;border-radius:20px;font-size:0.85rem;color:#166534;" data-spot-rating="geziwo">⭐ 4.6分</span>
-        </div>
-        <a href="attraction/geziwo" class="btn btn-primary" style="align-self:flex-start;">查看详细攻略 →</a>
-        <button class="trip-btn" data-trip-add="geziwo" style="align-self:flex-start;margin-top:10px">加入行程</button>
+      <div class="mp-zone" style="--z:#92400e">
+        <h3>山海关片区 <span>2 个 · 建议半天</span></h3>
+        <p>长城与古城集中在一起,两个景点相距约 6 公里,打车十几分钟。</p>
+        <p class="mp-zone-list"><a href="#s2">②山海关</a><a href="#s3">③老龙头</a></p>
+      </div>
+      <div class="mp-zone" style="--z:#6b21a8">
+        <h3>南戴河 · 昌黎片区 <span>4 个 · 建议 1 整天</span></h3>
+        <p>沿海岸线向西南展开,彼此间距较大,建议自驾或包车。</p>
+        <p class="mp-zone-list"><a href="#s4">④阿那亚</a><a href="#s8">⑧仙螺岛</a><a href="#s9">⑨南戴河娱乐中心</a><a href="#s10">⑩渔岛</a></p>
       </div>
     </div>
-  </div>
-
-  <!-- TOP 2: 山海关 -->
-  <div class="spot-top" style="margin-bottom:32px;">
-    <div class="spot-top-inner">
-      <div class="spot-top-img">
-        <img src="images/real/shanhaiguan.webp" alt="山海关天下第一关" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23fef3c7%22 width=%22600%22 height=%22400%22/%3E%3C/svg%3E'">
-        <div class="spot-top-rank">TOP 2</div>
-      </div>
-      <div class="spot-top-body">
-        <span class="spot-card-tag tag-history">🏰 天下第一关</span>
-        <h3 class="spot-top-name">山海关·天下第一关</h3>
-        <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">明长城东北关隘，中国长城三大奇观之一。"天下第一关"巨匾高悬镇远楼之上，每个字1米见方，600年未换。登城楼俯瞰古城，感受历史沧桑。</p>
-        <div style="background:#f0fdf4;border-radius:8px;padding:12px;margin-bottom:16px;font-size:13px;color:#166534;">
-          <strong>👍 游客好评：</strong>"历史韵味十足，漫步明清风格街道" "城楼壮观，适合带孩子研学" "古城免费逛，只有上城楼才要票"
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
-          <span style="background:#fef3c7;padding:4px 12px;border-radius:20px;font-size:0.85rem;font-weight:700;color:#92400e;" data-spot-price="shanhaiguan">🎫 50元起</span>
-          <span style="background:#e0f2fe;padding:4px 12px;border-radius:20px;font-size:0.85rem;color:#0369a1;" data-spot-duration="shanhaiguan">⏰ 建议2-3小时</span>
-          <span style="background:#dcfce7;padding:4px 12px;border-radius:20px;font-size:0.85rem;color:#166534;" data-spot-rating="shanhaiguan">⭐ 4.8分</span>
-        </div>
-        <a href="attraction/shanhaiguan" class="btn btn-primary" style="align-self:flex-start;">查看详细攻略 →</a>
-        <button class="trip-btn" data-trip-add="shanhaiguan" style="align-self:flex-start;margin-top:10px">加入行程</button>
-      </div>
+    <div class="mp-combos">
+      <h3>按天数怎么串</h3>
+      <ul>
+        <li><b>经典 1 日</b><span>鸽子窝日出 → 山海关 → 老龙头</span><em>第一次来,先把最有代表性的看完</em></li>
+        <li><b>休闲 2 日</b><span>Day1 北戴河片区(鸽子窝 → 老虎石 → 碧螺塔夜场)/ Day2 山海关片区</span><em>节奏舒服,适合带老人孩子</em></li>
+        <li><b>深度 3 日</b><span>在 2 日基础上加南戴河片区(阿那亚 + 渔岛或仙螺岛)</span><em>需自驾,建议住北戴河或昌黎</em></li>
+      </ul>
+      <p class="mp-combos-cta">看中哪个就点「加入行程」,到 <a href="itinerary#mytrip">行程规划</a> 里会自动按片区排好每一天。</p>
     </div>
-  </div>
+  </section>
 
-  <!-- TOP 3-5 卡片网格 -->
-  <div class="spots-grid" style="margin-bottom:40px;">
-    <div class="spot-card">
-      <div class="spot-card-img">
-        <img src="images/real/laolongtou.webp" alt="老龙头长城入海" loading="lazy">
-        <div class="level-badge level-5A" data-spot-level="laolongtou">5A</div>
-        <div class="price-tag" data-spot-price="laolongtou">50元起</div>
-      </div>
-      <div class="spot-card-body">
-        <span class="spot-card-tag tag-history">TOP 3 · 长城入海</span>
-        <h3 class="spot-card-name">老龙头</h3>
-        <p class="spot-card-desc">万里长城东端起点，长城唯一入海处。城墙直插大海，气势磅礴。</p>
-        <p style="font-size:12px;color:#166534;margin-bottom:8px;">👍 "长城入海很震撼，比山海关更值得去"</p>
-        <a href="attraction/laolongtou" class="btn btn-outline" style="margin-top:auto;align-self:flex-start;">查看详情 →</a>
-        <div style="margin-top:12px"><button class="trip-btn sm" data-trip-add="laolongtou">加入行程</button></div>
-      </div>
-    </div>
+  <!-- 快速跳转 -->
+  <nav class="mp-nav" aria-label="景点快速跳转">
+    <span class="mp-nav-label">快速跳转</span>
+    <a href="#s1">1 鸽子窝</a><a href="#s2">2 山海关</a><a href="#s3">3 老龙头</a><a href="#s4">4 阿那亚</a><a href="#s5">5 碧螺塔</a><a href="#s6">6 老虎石</a><a href="#s7">7 联峰山</a><a href="#s8">8 仙螺岛</a><a href="#s9">9 南戴河娱乐中心</a><a href="#s10">10 渔岛</a>
+  </nav>
 
-    <div class="spot-card">
-      <div class="spot-card-img">
-        <img src="images/real/aranya.webp" alt="阿那亚礼堂" loading="lazy">
-        <div class="price-tag" data-spot-price="aranya">预约制</div>
-      </div>
-      <div class="spot-card-body">
-        <span class="spot-card-tag tag-culture">TOP 4 · 网红打卡</span>
-        <h3 class="spot-card-name">阿那亚</h3>
-        <p class="spot-card-desc">纯白海边礼堂、孤独图书馆、沙丘美术馆……文艺青年必打卡。</p>
-        <p style="font-size:12px;color:#dc2626;margin-bottom:8px;">⚠️ "门票200元性价比低，预约麻烦，周末约不到" "拍照好看但实际就那样"</p>
-        <a href="attraction/aranya" class="btn btn-outline" style="margin-top:auto;align-self:flex-start;">查看详情 →</a>
-        <div style="margin-top:12px"><button class="trip-btn sm" data-trip-add="aranya">加入行程</button></div>
-      </div>
-    </div>
+  <!-- 排名列表 -->
+  <h2 class="mp-rank-title">TOP 10 逐个看</h2>
+  <ol class="mp-list">
 
-    <div class="spot-card">
-      <div class="spot-card-img">
-        <img src="images/real/biluota.webp" alt="碧螺塔海上酒吧公园" loading="lazy">
-        <div class="price-tag" data-spot-price="biluota">48元起</div>
+    <li class="mp-item" id="s1">
+      <div class="mp-media"><span class="mp-rank">1</span><img src="images/geziwo-sunrise.webp" alt="鸽子窝公园日出" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#0369a1">北戴河</span><span class="mp-cat">看日出圣地</span></div>
+        <h3><a href="attraction/geziwo">鸽子窝公园</a></h3>
+        <p class="mp-desc">北戴河标志性景点,"红日浴海"的最佳观赏地。看日出、赶海、观鸟一次满足,每年接待量全市第一。</p>
+        <div class="mp-meta"><span data-spot-price="geziwo">🎫 25元</span><span data-spot-duration="geziwo">⏰ 建议1.5-2小时</span><span data-spot-rating="geziwo">⭐ 4.6分</span></div>
+        <p class="mp-voice good">游客说:清晨看日出,太阳从海面升起来真的很震撼;赶海抓螃蟹,小朋友玩疯了</p>
+        <p class="mp-voice warn">注意:旺季人多,建议 4:00 前到;日出后可顺路赶海</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/geziwo">查看攻略 →</a><button class="trip-btn sm" data-trip-add="geziwo">加入行程</button></div>
       </div>
-      <div class="spot-card-body">
-        <span class="spot-card-tag tag-beach">TOP 5 · 海上酒吧</span>
-        <h3 class="spot-card-name">碧螺塔海上酒吧公园</h3>
-        <p class="spot-card-desc">秦皇岛第一家上市景区，小而美。网红拍照圣地，夜场篝火+沙滩蹦迪。</p>
-        <p style="font-size:12px;color:#d97706;margin-bottom:8px;">⚠️ "白天去没啥意思，晚上夜场还行" "网红拍照点排队1小时"</p>
-        <a href="attraction/biluota" class="btn btn-outline" style="margin-top:auto;align-self:flex-start;">查看详情 →</a>
-        <div style="margin-top:12px"><button class="trip-btn sm" data-trip-add="biluota">加入行程</button></div>
-      </div>
-    </div>
+    </li>
 
-    <div class="spot-card">
-      <div class="spot-card-img">
-        <img src="images/laohushi.webp" alt="老虎石海上公园" loading="lazy">
-        <div class="price-tag free" data-spot-price="laohushi">免费</div>
+    <li class="mp-item" id="s2">
+      <div class="mp-media"><span class="mp-rank">2</span><img src="images/real/shanhaiguan.webp" alt="山海关天下第一关城楼" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#92400e">山海关</span><span class="mp-cat">天下第一关</span><span class="mp-level" data-spot-level="shanhaiguan">5A</span></div>
+        <h3><a href="attraction/shanhaiguan">山海关 · 天下第一关</a></h3>
+        <p class="mp-desc">明长城东北关隘,"天下第一关"巨匾高悬镇远楼之上,每个字一米见方,六百年未换。登城楼可俯瞰整座古城。</p>
+        <div class="mp-meta"><span data-spot-price="shanhaiguan">🎫 50元起</span><span data-spot-duration="shanhaiguan">⏰ 建议2-3小时</span><span data-spot-rating="shanhaiguan">⭐ 4.8分</span></div>
+        <p class="mp-voice good">游客说:历史韵味十足,漫步明清风格街道;城楼壮观,适合带孩子研学;古城免费逛,只有上城楼才要票</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/shanhaiguan">查看攻略 →</a><button class="trip-btn sm" data-trip-add="shanhaiguan">加入行程</button></div>
       </div>
-      <div class="spot-card-body">
-        <span class="spot-card-tag tag-beach">TOP 6 · 本地人最爱</span>
-        <h3 class="spot-card-name">老虎石海上公园</h3>
-        <p class="spot-card-desc">北戴河最经典的海滨浴场，2025年起免费开放。<strong>本地人后花园！</strong></p>
-        <p style="font-size:12px;color:#166534;margin-bottom:8px;">👍 "本地人把它当后花园，比阿那亚舒服" "免费，礁石群延伸入海，人少景美"</p>
-        <a href="attraction/laohushi" class="btn btn-outline" style="margin-top:auto;align-self:flex-start;">查看详情 →</a>
-        <div style="margin-top:12px"><button class="trip-btn sm" data-trip-add="laohushi">加入行程</button></div>
-      </div>
-    </div>
-  </div>
+    </li>
 
-  <!-- TOP 7-10 简洁列表 -->
-  <div style="background:var(--gray-50);border-radius:16px;padding:32px;margin-bottom:40px;">
-    <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:24px;">📍 更多必玩景点</h3>
-    
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-      <a href="attraction/liangfengshan" style="display:flex;align-items:center;gap:16px;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:inherit;border:1px solid var(--border-light);transition:all 0.2s;">
-        <span style="background:var(--brand);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.9rem;flex-shrink:0;">7</span>
-        <div>
-          <div style="font-weight:700;color:var(--gray-900);">联峰山公园</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);" data-spot-meta="liangfengshan">🎫 30元起 · 登山观海 · 中央领导休养地</div>
-        </div>
-      <button class="trip-btn sm" data-trip-add="liangfengshan" style="margin-left:auto;flex-shrink:0">加入行程</button></a>
-      
-      <a href="attraction/xianluodao" style="display:flex;align-items:center;gap:16px;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:inherit;border:1px solid var(--border-light);transition:all 0.2s;">
-        <span style="background:var(--brand);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.9rem;flex-shrink:0;">8</span>
-        <div>
-          <div style="font-weight:700;color:var(--gray-900);">仙螺岛</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);" data-spot-meta="xianluodao">🎫 80元起 · 网红海上索道 · 需排队</div>
-        </div>
-      <button class="trip-btn sm" data-trip-add="xianluodao" style="margin-left:auto;flex-shrink:0">加入行程</button></a>
-      
-      <a href="attraction/nanent" style="display:flex;align-items:center;gap:16px;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:inherit;border:1px solid var(--border-light);transition:all 0.2s;">
-        <span style="background:var(--brand);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.9rem;flex-shrink:0;">9</span>
-        <div>
-          <div style="font-weight:700;color:var(--gray-900);">南戴河国际娱乐中心</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);" data-spot-meta="nanent">🎫 29元起 · 大型游乐场 · 滑草+水上乐园</div>
-        </div>
-      <button class="trip-btn sm" data-trip-add="nanent" style="margin-left:auto;flex-shrink:0">加入行程</button></a>
-      
-      <a href="attraction/yudao" style="display:flex;align-items:center;gap:16px;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:inherit;border:1px solid var(--border-light);transition:all 0.2s;">
-        <span style="background:var(--brand);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.9rem;flex-shrink:0;">10</span>
-        <div>
-          <div style="font-weight:700;color:var(--gray-900);">渔岛</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);" data-spot-meta="yudao">🎫 135元起 · 温泉+水上乐园 · 老少皆宜</div>
-        </div>
-      <button class="trip-btn sm" data-trip-add="yudao" style="margin-left:auto;flex-shrink:0">加入行程</button></a>
-    </div>
-  </div>
-
-  <!-- 实用攻略 -->
-  <div style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1px solid rgba(26,115,232,0.15);border-radius:16px;padding:32px;margin-bottom:40px;">
-    <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:16px;">💡 实用攻略（真实经验）</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-      <div>
-        <h4 style="font-weight:700;margin-bottom:8px;">🎯 推荐行程组合</h4>
-        <ul style="list-style:none;padding:0;">
-          <li style="padding:4px 0;color:var(--text-secondary);">• <strong>经典1日游：</strong>鸽子窝日出 → 山海关 → 老龙头</li>
-          <li style="padding:4px 0;color:var(--text-secondary);">• <strong>休闲2日游：</strong>碧螺塔 → 老虎石 → 联峰山</li>
-          <li style="padding:4px 0;color:var(--text-secondary);">• <strong>深度3日游：</strong>加阿那亚 + 渔岛/南戴河</li>
-        </ul>
+    <li class="mp-item" id="s3">
+      <div class="mp-media"><span class="mp-rank">3</span><img src="images/real/laolongtou.webp" alt="老龙头长城入海" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#92400e">山海关</span><span class="mp-cat">长城入海</span><span class="mp-level" data-spot-level="laolongtou">5A</span></div>
+        <h3><a href="attraction/laolongtou">老龙头</a></h3>
+        <p class="mp-desc">万里长城东端起点,也是长城唯一入海处。城墙直插渤海,涨潮时浪打城基,气势最足。</p>
+        <div class="mp-meta"><span data-spot-price="laolongtou">🎫 50元起</span><span data-spot-duration="laolongtou">⏰ 建议2-3小时</span><span data-spot-rating="laolongtou">⭐ 4.7分</span></div>
+        <p class="mp-voice good">游客说:长城入海很震撼,比山海关更值得去</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/laolongtou">查看攻略 →</a><button class="trip-btn sm" data-trip-add="laolongtou">加入行程</button></div>
       </div>
-      <div>
-        <h4 style="font-weight:700;margin-bottom:8px;">⚠️ 避坑建议</h4>
-        <ul style="list-style:none;padding:0;">
-          <li style="padding:4px 0;color:var(--text-secondary);">• <strong>错峰出行：</strong>5-6月或9月去，体验好很多</li>
-          <li style="padding:4px 0;color:var(--text-secondary);">• <strong>阿那亚：</strong>性价比低，老虎石免费且更舒服</li>
-          <li style="padding:4px 0;color:var(--text-secondary);">• <strong>碧螺塔：</strong>晚上去，白天没意思</li>
-          <li style="padding:4px 0;color:var(--text-secondary);">• <strong>仙螺岛：</strong>旺季排队1-2小时，做好心理准备</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    </li>
 
-  <!-- 相关推荐 -->
-  <div style="margin-top:48px;padding-top:32px;border-top:2px solid var(--border-light);">
-    <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:20px;">📖 相关攻略</h3>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
-      <a href="attractions" style="display:block;padding:16px;background:var(--gray-50);border-radius:12px;text-decoration:none;color:var(--text);font-weight:600;">🗺️ 全部景点大全</a>
-      <a href="itinerary" style="display:block;padding:16px;background:var(--gray-50);border-radius:12px;text-decoration:none;color:var(--text);font-weight:600;">📅 行程规划工具</a>
-      <a href="guide" style="display:block;padding:16px;background:var(--gray-50);border-radius:12px;text-decoration:none;color:var(--text);font-weight:600;">📚 旅游攻略</a>
-      <a href="food" style="display:block;padding:16px;background:var(--gray-50);border-radius:12px;text-decoration:none;color:var(--text);font-weight:600;">🦞 美食推荐</a>
+    <li class="mp-item" id="s4">
+      <div class="mp-media"><span class="mp-rank">4</span><img src="images/real/aranya.webp" alt="阿那亚海边礼堂" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#6b21a8">南戴河·昌黎</span><span class="mp-cat">文艺打卡</span></div>
+        <h3><a href="attraction/aranya">阿那亚 · 黄金海岸社区</a></h3>
+        <p class="mp-desc">纯白海边礼堂、孤独图书馆、沙丘美术馆,中国最具文艺气息的海滨社区,每栋建筑都是作品。</p>
+        <div class="mp-meta"><span data-spot-price="aranya">🎫 预约制</span><span data-spot-duration="aranya">⏰ 建议半天到一天</span><span data-spot-rating="aranya">⭐ 4.8分</span></div>
+        <p class="mp-voice warn">注意:封闭社区需提前预约,周末常约不到;拍照出片但游玩项目不多,期待别太高</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/aranya">查看攻略 →</a><button class="trip-btn sm" data-trip-add="aranya">加入行程</button></div>
+      </div>
+    </li>
+
+    <li class="mp-item" id="s5">
+      <div class="mp-media"><span class="mp-rank">5</span><img src="images/real/biluota.webp" alt="碧螺塔海上酒吧公园" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#0369a1">北戴河</span><span class="mp-cat">海上酒吧 · 夜场</span><span class="mp-level" data-spot-level="biluota">4A</span></div>
+        <h3><a href="attraction/biluota">碧螺塔海上酒吧公园</a></h3>
+        <p class="mp-desc">北戴河夜生活地标,小而精。塔顶看日落,入夜有篝火晚会与沙滩演出,圣托里尼风格建筑很出片。</p>
+        <div class="mp-meta"><span data-spot-price="biluota">🎫 48元起</span><span data-spot-duration="biluota">⏰ 建议3-4小时</span><span data-spot-rating="biluota">⭐ 4.3分</span></div>
+        <p class="mp-voice warn">注意:白天内容少,傍晚四点后进场最划算;网红拍照点旺季要排队</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/biluota">查看攻略 →</a><button class="trip-btn sm" data-trip-add="biluota">加入行程</button></div>
+      </div>
+    </li>
+
+    <li class="mp-item" id="s6">
+      <div class="mp-media"><span class="mp-rank">6</span><img src="images/laohushi.webp" alt="老虎石海上公园" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#0369a1">北戴河</span><span class="mp-cat">本地人最爱</span></div>
+        <h3><a href="attraction/laohushi">老虎石海上公园</a></h3>
+        <p class="mp-desc">北戴河最经典的海滨浴场,礁石群延伸入海,已免费开放。傍晚的日落剪影是这里的招牌。</p>
+        <div class="mp-meta"><span data-spot-price="laohushi">🎫 免费</span><span data-spot-duration="laohushi">⏰ 建议2-3小时</span><span data-spot-rating="laohushi">⭐ 4.5分</span></div>
+        <p class="mp-voice good">游客说:本地人把它当后花园,比阿那亚舒服;免费,礁石延伸入海,人少景美</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/laohushi">查看攻略 →</a><button class="trip-btn sm" data-trip-add="laohushi">加入行程</button></div>
+      </div>
+    </li>
+
+    <li class="mp-item" id="s7">
+      <div class="mp-media"><span class="mp-rank">7</span><img src="images/real/liangfengshan.webp" alt="联峰山望海亭俯瞰北戴河" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#0369a1">北戴河</span><span class="mp-cat">登山观海</span><span class="mp-level" data-spot-level="liangfengshan">4A</span></div>
+        <h3><a href="attraction/liangfengshan">联峰山公园</a></h3>
+        <p class="mp-desc">北戴河的制高点,望海亭上可一眼看尽整片海滨。林荫茂密,夏天比海边凉快,也是历史上的疗养区。</p>
+        <div class="mp-meta"><span data-spot-price="liangfengshan">🎫 30元起</span><span data-spot-duration="liangfengshan">⏰ 建议2-3小时</span><span data-spot-rating="liangfengshan">⭐ 4.4分</span></div>
+        <p class="mp-voice good">游客说:爬到望海亭,整个北戴河尽收眼底;夏天山里凉快,适合避暑</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/liangfengshan">查看攻略 →</a><button class="trip-btn sm" data-trip-add="liangfengshan">加入行程</button></div>
+      </div>
+    </li>
+
+    <li class="mp-item" id="s8">
+      <div class="mp-media"><span class="mp-rank">8</span><img src="images/attraction-xianluodao.jpg" alt="仙螺岛跨海索道" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#6b21a8">南戴河·昌黎</span><span class="mp-cat">跨海索道</span><span class="mp-level" data-spot-level="xianluodao">4A</span></div>
+        <h3><a href="attraction/xianluodao">仙螺岛</a></h3>
+        <p class="mp-desc">千米跨海索道直达海中小岛,悬在海面上的那几分钟是全程最值的部分,岛上有观海长廊与海上游乐。</p>
+        <div class="mp-meta"><span data-spot-price="xianluodao">🎫 80元起</span><span data-spot-duration="xianluodao">⏰ 建议2-3小时</span><span data-spot-rating="xianluodao">⭐ 4.6分</span></div>
+        <p class="mp-voice warn">注意:门票已含往返索道;旺季排队 1-2 小时,建议开园即到</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/xianluodao">查看攻略 →</a><button class="trip-btn sm" data-trip-add="xianluodao">加入行程</button></div>
+      </div>
+    </li>
+
+    <li class="mp-item" id="s9">
+      <div class="mp-media"><span class="mp-rank">9</span><img src="images/attraction-nanent.jpg" alt="南戴河国际娱乐中心" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#6b21a8">南戴河·昌黎</span><span class="mp-cat">大型游乐场</span><span class="mp-level" data-spot-level="nanent">4A</span></div>
+        <h3><a href="attraction/nanent">南戴河国际娱乐中心</a></h3>
+        <p class="mp-desc">过山车、摩天轮、滑草与水上世界都在一处,是本地带孩子玩一整天的首选,项目多但设施偏老。</p>
+        <div class="mp-meta"><span data-spot-price="nanent">🎫 29元起</span><span data-spot-duration="nanent">⏰ 建议一整天</span><span data-spot-rating="nanent">⭐ 4.3分</span></div>
+        <p class="mp-voice warn">注意:门票与单项目多为分开计费,先看清楚套票再买;冬季多数项目停运</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/nanent">查看攻略 →</a><button class="trip-btn sm" data-trip-add="nanent">加入行程</button></div>
+      </div>
+    </li>
+
+    <li class="mp-item" id="s10">
+      <div class="mp-media"><span class="mp-rank">10</span><img src="images/attraction-yudao.jpg" alt="渔岛海洋温泉景区" loading="lazy" width="600" height="400"></div>
+      <div class="mp-body">
+        <div class="mp-tags"><span class="mp-zone-tag" style="--z:#6b21a8">南戴河·昌黎</span><span class="mp-cat">温泉 + 水乐园</span><span class="mp-level" data-spot-level="yudao">4A</span></div>
+        <h3><a href="attraction/yudao">渔岛海洋温泉景区</a></h3>
+        <p class="mp-desc">海水温泉加水上乐园,6 到 8 月还有薰衣草花田。夏天玩水、冬天泡汤,一年四季都能去。</p>
+        <div class="mp-meta"><span data-spot-price="yudao">🎫 135元起</span><span data-spot-duration="yudao">⏰ 建议一整天</span><span data-spot-rating="yudao">⭐ 4.5分</span></div>
+        <p class="mp-voice good">游客说:温泉区和水乐园一票通,带孩子性价比不错;薰衣草季拍照很出片</p>
+        <div class="mp-actions"><a class="mp-btn" href="attraction/yudao">查看攻略 →</a><button class="trip-btn sm" data-trip-add="yudao">加入行程</button></div>
+      </div>
+    </li>
+
+  </ol>
+
+  <!-- 避坑 -->
+  <section class="mp-tips">
+    <h2>去之前先知道这几件事</h2>
+    <div class="mp-tips-grid">
+      <div><b>错峰出行</b><p>5 到 6 月或 9 月去,人少、价低、海水温度也还行,体验比暑假好得多。</p></div>
+      <div><b>门票以现场为准</b><p>本页价格按 2026 年公开信息整理,景区常按淡旺季浮动,出发前在购票平台再确认一次。</p></div>
+      <div><b>免费的未必差</b><p>老虎石、北戴河海滨、山海关古城街区都免费,口碑不比收费景点低。</p></div>
+      <div><b>按片区安排</b><p>北戴河与山海关相距约 30 公里,来回跑一趟要一个多小时,尽量同片区连着玩。</p></div>
     </div>
-  </div>
+  </section>
+
+  <!-- 相关 -->
+  <nav class="mp-related" aria-label="相关攻略">
+    <h2>接着看</h2>
+    <div>
+      <a href="attractions">🗺 全部 47 个景点</a>
+      <a href="itinerary#mytrip">📅 生成我的行程</a>
+      <a href="gallery3d">🖼 3D 实景画廊</a>
+      <a href="guide">📚 旅游攻略</a>
+      <a href="food">🦞 美食推荐</a>
+    </div>
+  </nav>
 </main>
 
 <footer class="footer">
