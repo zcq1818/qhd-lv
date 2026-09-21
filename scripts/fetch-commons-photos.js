@@ -32,19 +32,26 @@ function pick(spot) {
   return c[0] || null;
 }
 
-function download(url, dest) {
-  return new Promise((resolve, reject) => {
-    const req = https.get(url, { headers: { 'User-Agent': 'qhd-lv-site/1.0 (https://www.divdu.com; contact via site)' } }, (res) => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) return download(res.headers.location, dest).then(resolve, reject);
-      if (res.statusCode !== 200) return reject(new Error(`HTTP ${res.statusCode} ${url}`));
-      const ws = fs.createWriteStream(dest);
-      res.pipe(ws); ws.on('finish', () => ws.close(resolve)); ws.on('error', reject);
-    });
-    req.on('error', reject);
-  });
+const UA = 'qhd-lv-site/1.0 (https://www.divdu.com; site maintainer)';
+
+/** 用 curl 抓取(本机 Node 直连 wikimedia 会超时,curl 正常) */
+function curlText(url, timeout = 30) {
+  return execFileSync('curl', ['-sS', '--max-time', String(timeout), '-A', UA, url], { maxBuffer: 64 * 1024 * 1024 }).toString('utf8');
+}
+function curlFile(url, dest, timeout = 90) {
+  execFileSync('curl', ['-sS', '-L', '--max-time', String(timeout), '-A', UA, '-o', dest, url], { maxBuffer: 1024 });
+  if (!fs.existsSync(dest) || fs.statSync(dest).size < 2048) throw new Error('下载内容过小或失败');
 }
 
-(async () => {
+/** 用 MediaWiki API 取 1600px 缩略图地址,避免下载原图 */
+function thumbUrl(title) {
+  const api = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url&iiurlwidth=1600&titles=' + encodeURIComponent(title);
+  const body = JSON.parse(curlText(api, 25));
+  const info = Object.values(body?.query?.pages || {})[0]?.imageinfo?.[0];
+  return info?.thumburl || info?.url || null;
+}
+
+(() => {
   if (LIST) {
     let total = 0;
     for (const s of targets) { const p = pick(s); if (!p) continue; total++; console.log(`${s.id.padEnd(20)} ${p.license.padEnd(14)} ${p.width}x${p.height}  ${p.title}  by ${p.author || '?'}`); }
@@ -59,9 +66,8 @@ function download(url, dest) {
     if (fs.existsSync(webp) && !only.length) { console.log(`跳过(已有): ${s.id}`); continue; }
     const tmp = path.join(outDir, `${s.id}.src`);
     try {
-      // 用 Commons 缩略图接口拿 1600px 版本,避免下载几十 MB 原图
-      const thumb = p.imageUrl.replace('/wikipedia/commons/', '/wikipedia/commons/thumb/') + '/1600px-' + path.basename(decodeURIComponent(p.imageUrl));
-      try { await download(thumb, tmp); } catch (e) { await download(p.imageUrl, tmp); }
+      const url = thumbUrl(p.title) || p.imageUrl;
+      curlFile(url, tmp);
       execFileSync('python', ['-c', `
 from PIL import Image, ImageOps; import sys
 im = Image.open(sys.argv[1]); im = ImageOps.exif_transpose(im).convert('RGB')

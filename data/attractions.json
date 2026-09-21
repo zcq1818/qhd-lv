@@ -90,7 +90,7 @@
       "address": "河北省秦皇岛市北戴河区中海滩",
       "lat": 39.82,
       "lng": 119.49,
-      "img": "images/beidaihe-beach.webp",
+      "img": "images/real/beidaihe.webp",
       "desc": "北戴河海滨风景区位于河北省秦皇岛市西部，是中国开发最早、知名度最高的海滨避暑胜地，与南戴河、山海关同属秦皇岛旅游核心区。1898年清政府将此地辟为“各国人士避暑地”，此后逐渐建成大批别墅、疗养院，至今保留着北戴河近代建筑群等历史遗存。景区海岸线绵延约20公里，沙质细软、水温适宜、坡度平缓，是华北地区少见的天然优质海水浴场。核心看点包括鸽子窝公园看日出、老虎石海上公园戏水看日落、联峰山登高望海、怪楼奇园亲子探秘。适合家庭度假、避暑纳凉、摄影与近代建筑爱好者，夏季6-9月是传统旅游旺季。",
       "highlights": [
         "老虎石海上公园",
@@ -194,7 +194,13 @@
           "height": 2842
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:Beidaihe panorama from the south.jpg",
+        "author": "Charlie fong",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Beidaihe_panorama_from_the_south.jpg"
+      }
     },
     {
       "id": "geziwo",
@@ -642,7 +648,7 @@
       "address": "河北省秦皇岛市北戴河区滨海大道62号",
       "lat": 39.8703,
       "lng": 119.5214,
-      "img": "images/attraction-dongwuyuan.webp",
+      "img": "images/real/dongwuyuan.webp",
       "desc": "秦皇岛野生动物园位于北戴河区滨海大道，是华北地区规模较大的野生动物主题园区之一，占地约5000余亩。园区分为自驾猛兽区和步行温顺区两大板块：游客可驾车穿越猛兽区，隔着车窗近距离观察东北虎、非洲狮、黑熊等猛兽；步行区则可与长颈鹿、羊驼等温顺动物互动投喂，另设鸟林、草食动物区等展区。动物园常年开放，夏季动物活动更活跃，适合亲子家庭和动物爱好者安排半天到一天的行程，是北戴河亲子游的热门选择之一。",
       "highlights": [
         "自驾穿越猛兽区",
@@ -733,7 +739,13 @@
           "height": 5312
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:Elephas maximus in Qinhuangdao Wildlife Park.jpg",
+        "author": "Antigng",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Elephas_maximus_in_Qinhuangdao_Wildlife_Park.jpg"
+      }
     },
     {
       "id": "jifa",
@@ -955,7 +967,7 @@
       "address": "河北省秦皇岛市山海关区天下第一关城楼(山海关古城东门)",
       "lat": 40.01,
       "lng": 119.7576,
-      "img": "images/shanhaiguan.webp",
+      "img": "images/real/shanhaiguan.webp",
       "desc": "天下第一关(山海关关城)是明长城东端的重要关隘,始建于明洪武十四年(1381年),由大将徐达督建,因其一面靠山、一面临海而得名「山海关」。关城核心建筑镇远楼(俗称「天下第一关」城楼)坐落在古城东门之上,城楼上悬挂的「天下第一关」巨匾,每字约1米见方,相传为明代书法家萧显所书,是景区最具标志性的看点。游客可登城楼俯瞰关城内外及长城走势,城墙、瓮城、靖边楼、牧营楼等明代军事防御建筑保存较为完整,长城博物馆位于城楼附近可作延伸参观。景区常与「老龙头」(长城入海处)并称山海关长城的两大代表性景点,但二者为不同票种、地理位置也不同,不要混淆。适合对长城历史、明代军事建筑感兴趣的游客,以及希望登城远眺、拍照打卡的家庭和团队游客,登城楼有台阶,行动不便者需注意。",
       "highlights": [
         "镇远楼登城俯瞰",
@@ -1064,7 +1076,13 @@
           "height": 3264
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:Gatehouse for Shanhai Pass.jpg",
+        "author": "PQ77wd",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gatehouse_for_Shanhai_Pass.jpg"
+      }
     },
     {
       "id": "laolongtou",
@@ -1079,7 +1097,7 @@
       "address": "河北省秦皇岛市山海关区老龙头路(山海关古城城南约5公里)",
       "lat": 39.9693,
       "lng": 119.7975,
-      "img": "images/laolongtou.webp",
+      "img": "images/real/laolongtou.webp",
       "desc": "老龙头位于河北省秦皇岛市山海关区,山海关古城以南约5-8公里处渤海之滨,是明长城最东端的起点,也是万里长城中唯一一段延伸入海的城墙,因城墙探入渤海、形似巨龙探首饮水而得名。景区始建于明洪武年间(1381年),后经嘉靖、万历年间扩建,加筑靖虏台、入海石城;清代长城失去军事防御作用后,逐渐成为帝王将相、文人墨客登临观海之地。1900年八国联军入侵时老龙头建筑被毁,1984年由山海关民众集资重建。景区占地约700亩,由澄海楼、入海石城、海神庙、宁海城、南海口等部分组成,融山、海、关、城于一体。最值得看的是伸入海中的入海石城(涨潮时波涛拍打城基,景象壮观)、登高望海的澄海楼(楼上悬「雄襟万里」匾),以及供奉海神信仰的海神庙。适合对长城历史、海防文化感兴趣的游客及家庭亲子出游,登城和海边步道需一定体力。",
       "highlights": [
         "入海石城",
@@ -1187,7 +1205,13 @@
           "height": 2112
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:Beach at Old Dragon Head.jpg",
+        "author": "PQ77wd",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Beach_at_Old_Dragon_Head.jpg"
+      }
     },
     {
       "id": "jiaoshan",
@@ -1202,7 +1226,7 @@
       "address": "河北省秦皇岛市山海关区角山路(山海关古城以北约3公里,角山景区内)",
       "lat": 40.0376,
       "lng": 119.7403,
-      "img": "images/attraction-jiaoshan.jpg",
+      "img": "images/real/jiaoshan.webp",
       "desc": "角山长城位于河北省秦皇岛市山海关区,在山海关古城以北约3公里处,是明长城翻越的第一座高山,海拔约519米,故有\"万里长城第一山\"之称。长城依山脊而建,顺陡峭山势起伏攀升,工程之险峻在整个长城沿线中颇为少见。景区内主要看点包括长城主峰大平顶(可俯瞰山海关古城与渤海湾全景)、旱门关(明代重要军事关隘遗址)以及始建年代较早的栖贤寺。山路较陡,部分路段设有索道供体力有限的游客选择。秋季山间红叶层林尽染,与灰色城墙相映,是摄影与徒步爱好者的热门时节。整体较适合体力尚可、喜欢登高望远和长城历史的游客,亲子及老年游客建议乘索道上山。",
       "highlights": [
         "万里长城第一山",
@@ -1310,7 +1334,13 @@
           "height": 1200
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:Walking on the wall (6237564336).jpg",
+        "author": "Caitriana Nicholson",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Walking_on_the_wall_(6237564336).jpg"
+      }
     },
     {
       "id": "mengjiangnv",
@@ -1718,7 +1748,7 @@
       "address": "河北省秦皇岛市山海关区东大街1号",
       "lat": 40.007,
       "lng": 119.752,
-      "img": "images/attraction-shanhaiguan_gucheng.jpg",
+      "img": "images/real/shanhaiguan_gucheng.webp",
       "desc": "山海关古城位于秦皇岛市山海关区，明洪武十四年（1381年）由徐达主持修建，是明长城东端的军事重镇，素有\"天下第一关\"之称。古城呈正方形，周长约4公里，城内保留了大量明清风格的街巷院落，钟鼓楼、兵部分司署、总兵府等历史建筑分布其中，东门箭楼\"天下第一关\"城楼是古城标志。古城本身免费进入，登城楼、逛兵部分司署等景点需另购票。适合喜欢历史古建、亲子研学和摄影的游客，逛完古城常与老龙头、角山长城一并安排。",
       "highlights": [
         "天下第一关城楼",
@@ -1813,7 +1843,13 @@
           "height": 948
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:West gate (6237052393).jpg",
+        "author": "Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:West_gate_(6237052393).jpg"
+      }
     },
     {
       "id": "qiuxian",
@@ -2243,7 +2279,7 @@
       "address": "河北省秦皇岛市昌黎县黄金海岸",
       "lat": 39.6363,
       "lng": 119.3082,
-      "img": "images/attraction-huangjin.jpg",
+      "img": "images/real/huangjin.webp",
       "desc": "黄金海岸位于秦皇岛市昌黎县，紧邻南戴河旅游度假区，是国内知名的天然优质沙质海岸之一，被称为\"沙漠与大海的吻痕\"，沙质细软、滩缓水清、潮汐平稳。海岸后方保留有连片沙丘，是国内少见的\"沙漠临海\"景观，园区内的国际滑沙中心是国内规模较大的滑沙场，游客可乘滑沙板从数十米高的沙丘俯冲直下，是景区最具标志性的体验项目，此外还有滑草、水上摩托、香蕉船等水陆娱乐。沙滩本身全天免费开放，滑沙中心等收费项目按季节运营、单独售票，适合年轻人、亲子家庭和水上运动爱好者。",
       "highlights": [
         "国际滑沙中心",
@@ -2336,7 +2372,13 @@
           "height": 2304
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:Golden Beach in Changli Hebei China.jpg",
+        "author": "Charlie fong",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Golden_Beach_in_Changli_Hebei_China.jpg"
+      }
     },
     {
       "id": "yudao",
@@ -3027,7 +3069,7 @@
       "address": "河北省秦皇岛市海港区驻操营镇板厂峪村",
       "lat": 40.226,
       "lng": 119.5628,
-      "img": "images/attraction-banchangyu.jpg",
+      "img": "images/real/banchangyu.webp",
       "desc": "板厂峪长城景区（板厂峪长城文化公园）位于河北省秦皇岛市海港区驻操营镇板厂峪村，距秦皇岛市区约29公里，是明代修筑长城时的\"后勤基地\"，因发现全国规模最大的明代长城砖窑遗址群而闻名。2002年在此出土约600座明代砖窑遗址，同时还发现了世界上唯一的\"斑鬣狗\"化石，景区内设有相关化石展览。园区内长城因山势起伏形成独特的\"倒挂长城\"段，险峻壮丽，是长城摄影爱好者的重要取景地；此外还有天然寺、灵仙洞、一线天、九道缸瀑布等自然人文景点。秋季红叶与古长城交相辉映，景色尤佳。景区是省级风景名胜区，也是世界徒步协会健走基地，适合长城爱好者、摄影爱好者和对明代军事、考古历史感兴趣的游客。",
       "highlights": [
         "明代长城砖窑遗址群",
@@ -3124,7 +3166,13 @@
           "height": 768
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "photoCredit": {
+        "title": "File:板厂峪长城砖窑遗址 - panoramio.jpg",
+        "author": "山海风",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E%E7%A0%96%E7%AA%91%E9%81%97%E5%9D%80_-_panoramio.jpg"
+      }
     },
     {
       "id": "tianmahu",

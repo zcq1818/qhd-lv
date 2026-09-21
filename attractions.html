@@ -286,7 +286,7 @@ var _hmt = _hmt || [];
   <a class="g3d-card" href="gallery3d" aria-label="进入 3D 实景画廊">
     <div class="g3d-pics" aria-hidden="true">
       <img src="images/geziwo-sunrise.webp" alt="" loading="lazy">
-      <img src="images/laolongtou.webp" alt="" loading="lazy">
+      <img src="images/real/laolongtou.webp" alt="" loading="lazy">
       <img src="images/aranya-library.webp" alt="" loading="lazy">
     </div>
     <div class="g3d-text">
@@ -623,7 +623,7 @@ reveals.forEach(function(el){o.observe(el);});
 
   function buildTopSpot(spot, rank) {
     var cat = categories[spot.cat] || { name: '', icon: '', color: '#1a73e8' };
-    var img = spot.img || 'images/beidaihe-beach.webp';
+    var img = spot.img || 'images/real/beidaihe.webp';
     var loading = rank <= 2 ? 'eager' : 'lazy';
     var isReverse = rank % 2 === 0;
 
@@ -694,7 +694,7 @@ reveals.forEach(function(el){o.observe(el);});
 
   function buildSpotCard(spot) {
     var cat = categories[spot.cat] || { name: '', icon: '', color: '#1a73e8' };
-    var img = spot.img || 'images/beidaihe-beach.webp';
+    var img = spot.img || 'images/real/beidaihe.webp';
 
     var levelBadge = spot.level && spot.level !== '无'
       ? '<span class="level-badge ' + getLevelClass(spot.level) + '">' + spot.level + '</span>'
