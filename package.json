@@ -23,7 +23,8 @@
     "covers": "python scripts/gen-cover-images.py && node scripts/apply-cover-images.js",
     "en": "node scripts/gen-en-pages.js && node scripts/gen-en-attractions.js",
     "booking:off": "node scripts/toggle-booking-links.js off",
-    "booking:on": "node scripts/toggle-booking-links.js on"
+    "booking:on": "node scripts/toggle-booking-links.js on",
+    "ads": "node scripts/apply-ad-slots.js"
   },
   "keywords": [
     "秦皇岛",

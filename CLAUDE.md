@@ -45,6 +45,16 @@ openTimeNotesEn / transportEn / tipsEn / faqEn 由 `scripts/merge-en-translation
 中文站导航右侧有 EN 切换,由 `scripts/unify-navbar.js` 统一注入;英文页底部与卡片上有回中文的链接。
 英文首页地址是 `/en`(不带尾斜杠),站点 trailingSlash 为 false,写成 `/en/` 会 308 跳转。
 
+## 广告位与招商
+
+页面里的 `.ad-slot` 是预留的广告位,共 144 处(首页 3 处 + 47 个景点页各 3 处)。
+未售出时由 `css/advertise.css` 控制:同一页面只显示第一个,内容是指向 `/advertise`
+的招商入口,其余用 CSS 隐藏,售出后把真实广告填进对应的 `.ad-slot` 即可显示。
+重建招商位用 `npm run ads`,招商页是 `advertise.html`。
+
+约定:广告必须标注,不伪装成攻略;不接弹窗与自动播放;不接与秦皇岛旅游无关的行业。
+第三方票务平台外链目前关闭,见「预订外链」一节。
+
 ## 新增页面 / 博客后
 
 ```bash
