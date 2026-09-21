@@ -11,14 +11,15 @@
     "build:js": "node scripts/build.js minify-js",
     "build:apply": "node scripts/use-minified.js",
     "seo:fix": "node scripts/build.js fix-seo",
-    "optimize": "node scripts/build.js minify-css && node scripts/build.js minify-js && node scripts/use-minified.js && node scripts/build.js fix-seo && node scripts/check-min.js",
+    "optimize": "node scripts/build.js minify-css && node scripts/build.js minify-js && node scripts/use-minified.js && node scripts/build.js fix-seo && node scripts/fix-seo-meta.js && node scripts/add-asset-version.js && node scripts/check-min.js",
     "report": "node scripts/build.js report",
     "preview": "python -m http.server 5000 --directory .",
     "preview:alt": "npx serve .",
     "deploy": "vercel",
     "check": "node scripts/check-min.js",
     "sitemap": "node scripts/generate-sitemap.js",
-    "data": "node scripts/build-runtime-data.js"
+    "data": "node scripts/build-runtime-data.js",
+    "seo": "node scripts/fix-seo-meta.js && node scripts/add-asset-version.js"
   },
   "keywords": [
     "秦皇岛",
