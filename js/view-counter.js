@@ -133,14 +133,60 @@
       });
   }
 
+  /* ========== 转化动作统计 ==========
+     光知道「多少人看了这一页」不够用,还得知道有多少人真的走到了
+     加微信那一步。这里记三件事,都复用同一个接口,slug 带 event- 前缀:
+       event-qr-view   二维码真正滚动到视野里(不是页面一打开就算)
+       event-qr-tap    二维码被点/长按
+       event-form-view 咨询表单滚进视野
+     同一次会话每种只记一次,避免来回滚动把数字刷上去。 */
+  function trackOnce(name) {
+    var key = 'ev_' + name;
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, '1');
+    } catch (e) { /* 无痕模式下 sessionStorage 可能不可用,记一次也无妨 */ }
+    fetch('/api/view-counter?slug=' + encodeURIComponent('event-' + name), { method: 'POST' })
+      .catch(function () { /* 统计失败不影响页面 */ });
+  }
+
+  function watch(el, name) {
+    if (!el) return;
+    if (!window.IntersectionObserver) { trackOnce(name); return; }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          trackOnce(name);
+          io.disconnect();
+          return;
+        }
+      }
+    }, { threshold: 0.5 });
+    io.observe(el);
+  }
+
+  function trackConversions() {
+    var qr = document.querySelector('img[src*="wechat-qr"]');
+    if (qr) {
+      watch(qr, 'qr-view');
+      var target = qr.closest('.contact-qr') || qr;
+      target.addEventListener('click', function () { trackOnce('qr-tap'); });
+    }
+    // 咨询卡片是 JS 渲染的,等它出现再观察
+    var form = document.querySelector('[data-lead-form]');
+    if (form) watch(form, 'form-view');
+  }
+
   // 页面加载后执行
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       if (isArticlePage()) incrementAndDisplay();
       else if (isListPage()) batchDisplay();
+      trackConversions();
     });
   } else {
     if (isArticlePage()) incrementAndDisplay();
     else if (isListPage()) batchDisplay();
+    trackConversions();
   }
 })();

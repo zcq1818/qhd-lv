@@ -55,24 +55,30 @@ export default async function handler(req) {
   const { url: REDIS_URL, token: REDIS_TOKEN } = redis;
 
   try {
-    // 批量读取所有文章计数（列表页用）
+    // 批量读取所有页面计数（列表页与后台用）
+    // 注意:统计范围已从博客扩到全站(约 250 个 slug),这里必须一次 MGET 取回,
+    // 逐个 GET 会产生几百次串行请求,函数执行时间直接爆掉。
     if (isList) {
-      // Upstash 用 SCAN，KV 用 KEYS，这里用 Upstash 的 pipeline 兼容方式
       const keysRes = await fetch(`${REDIS_URL}/keys/views:*`, {
         headers: { Authorization: `Bearer ${REDIS_TOKEN}` },
       });
       const keysData = await keysRes.json();
-      const keys = keysData.result || [];
+      const keys = (keysData.result || []).slice(0, 1000);
+
       const counts = {};
-      // 批量 GET（用 pipeline 提高效率）
-      for (const key of keys.slice(0, 200)) {
-        const slugName = key.replace('views:', '');
-        const getRes = await fetch(`${REDIS_URL}/get/${encodeURIComponent(key)}`, {
-          headers: { Authorization: `Bearer ${REDIS_TOKEN}` },
+      if (keys.length) {
+        const mgetRes = await fetch(`${REDIS_URL}/pipeline`, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${REDIS_TOKEN}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify([['MGET', ...keys]]),
         });
-        const getData = await getRes.json();
-        counts[slugName] = parseInt(getData.result, 10) || 0;
+        const mgetData = await mgetRes.json();
+        const values = mgetData?.[0]?.result || [];
+        keys.forEach((key, i) => {
+          counts[key.replace('views:', '')] = parseInt(values[i], 10) || 0;
+        });
       }
+
       return new Response(JSON.stringify({ counts, total: Object.keys(counts).length }), {
         headers: { ...CORS, 'Cache-Control': 'public, max-age=300' },
       });

@@ -95,16 +95,20 @@ tr:hover td{background:#fafbfd}
       <h2>最近的询价</h2>
       <div id="leadList"><div class="empty">加载中…</div></div>
     </div>
-    <p class="note">线索保存 400 天。点联系方式可复制。表单来自当地向导页,后续会在行程页与景点页增加更多入口。</p>
+    <p class="note">线索保存 400 天。点联系方式可复制。来源 spot- 开头是景点页,itinerary 是行程规划页,accommodation 是住宿页,local-guide 是当地向导页。</p>
   </section>
 
   <section id="tabViews" hidden>
     <div class="cards" id="viewCards"></div>
     <div class="panel">
+      <h2>转化漏斗</h2>
+      <div id="funnel"><div class="empty">加载中…</div></div>
+    </div>
+    <div class="panel">
       <h2>页面热度排行</h2>
       <div id="viewList"><div class="empty">加载中…</div></div>
     </div>
-    <p class="note">spot- 开头是景点页,en- 是英文页,page- 是栏目页,其余是博客。招商谈价时可以直接引用这里的单页数据。</p>
+    <p class="note">spot- 开头是景点页,en- 是英文页,page- 是栏目页,其余是博客。招商谈价时可以直接引用这里的单页数据。<br>漏斗按「同一次会话每种只记一次」统计,所以是人数不是次数。</p>
   </section>
 </div>
 
@@ -175,6 +179,8 @@ tr:hover td{background:#fafbfd}
       .then(function (d) {
         if (!d || !d.ok) throw new Error(d && d.error);
         leadsCache = d.leads || [];
+        leadsTotal = d.total || leadsCache.length;
+        renderFunnel();
         var today = leadsCache.filter(function (l) { return daysAgo(l.createdAt, 1); }).length;
         var week = leadsCache.filter(function (l) { return daysAgo(l.createdAt, 7); }).length;
         document.getElementById('leadCards').innerHTML =
@@ -218,14 +224,60 @@ tr:hover td{background:#fafbfd}
 
   function card(n, l) { return '<div class="card"><div class="n">' + n + '</div><div class="l">' + l + '</div></div>'; }
 
+  /* ---------- 转化漏斗 ----------
+     页面浏览量只说明有人来过,不说明有人动心。这里看的是三个动作:
+     滚到二维码 → 点了二维码 → 看到咨询框 → 真的提交。
+     两条数据来自不同接口(线索数与事件计数),谁先回来都能画,所以
+     两边各调一次 renderFunnel。 */
+  var events = {};
+  var leadsTotal = 0;
+
+  function renderFunnel() {
+    var box = document.getElementById('funnel');
+    if (!box) return;
+
+    var steps = [
+      ['看到微信二维码', events['qr-view'] || 0, '滚动到二维码位置的人数'],
+      ['点了二维码', events['qr-tap'] || 0, '点击或长按二维码,多半是去保存/识别'],
+      ['看到咨询表单', events['form-view'] || 0, '咨询卡片进入视野的人数'],
+      ['提交了咨询', leadsTotal, '真正留下联系方式的人数']
+    ];
+
+    if (!steps.some(function (x) { return x[1] > 0; })) {
+      box.innerHTML = '<div class="empty">还没有数据。访客访问带二维码或咨询表单的页面后,这里会出现。</div>';
+      return;
+    }
+
+    var max = Math.max.apply(null, steps.map(function (x) { return x[1]; })) || 1;
+    var seen = events['form-view'] || 0;
+    var rate = seen ? (leadsTotal / seen * 100) : 0;
+
+    box.innerHTML =
+      '<table><thead><tr><th>动作</th><th style="width:40%">相对人数</th><th class="n">人数</th></tr></thead><tbody>' +
+      steps.map(function (x) {
+        return '<tr><td title="' + esc(x[2]) + '">' + esc(x[0]) + '</td>' +
+          '<td><div class="bar" style="width:' + Math.round(x[1] / max * 100) + '%"></div></td>' +
+          '<td class="n">' + x[1] + '</td></tr>';
+      }).join('') + '</tbody></table>' +
+      (seen ? '<p class="note" style="margin-top:12px">看到咨询表单的人里,有 <strong>' +
+        rate.toFixed(1) + '%</strong> 提交了。' +
+        (rate < 2 ? '这个比例偏低,通常是文案或位置的问题,不是流量不够。' : '') + '</p>' : '');
+  }
+
   /* ---------- 页面热度 ---------- */
   function loadViews() {
     fetch('/api/view-counter?list=1')
       .then(function (r) { return r.json(); })
       .then(function (d) {
         var counts = (d && d.counts) || {};
-        var rows = Object.keys(counts).map(function (k) { return [k, counts[k]]; })
+        // event- 开头的是转化动作,不是页面,单独拿出来算漏斗
+        events = {};
+        var rows = Object.keys(counts).filter(function (k) {
+          if (k.indexOf('event-') === 0) { events[k.slice(6)] = counts[k]; return false; }
+          return true;
+        }).map(function (k) { return [k, counts[k]]; })
           .sort(function (a, b) { return b[1] - a[1]; });
+        renderFunnel();
         var total = rows.reduce(function (t, r) { return t + r[1]; }, 0);
         var spots = rows.filter(function (r) { return r[0].indexOf('spot-') === 0; }).length;
         document.getElementById('viewCards').innerHTML =

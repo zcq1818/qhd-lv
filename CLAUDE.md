@@ -45,6 +45,31 @@ openTimeNotesEn / transportEn / tipsEn / faqEn 由 `scripts/merge-en-translation
 中文站导航右侧有 EN 切换,由 `scripts/unify-navbar.js` 统一注入;英文页底部与卡片上有回中文的链接。
 英文首页地址是 `/en`(不带尾斜杠),站点 trailingSlash 为 false,写成 `/en/` 会 308 跳转。
 
+## 询价线索与统计
+
+访客留下的联系方式走 `api/leads.js`(Edge Function,写 Upstash Redis,线索存 400 天),
+后台 `dashboard.html` 查看,需要环境变量 `LEADS_ADMIN_KEY` 才能读;没配置不影响访客提交。
+后台是 noindex + robots 屏蔽 + 不进 sitemap 的,别把它加进导航。
+
+咨询入口是一个复用组件:页面里只放占位 `<div class="lead-card" data-lead-form data-source="…">`,
+真正的表单由 `js/lead-form.js` 渲染,占位里那一行微信/邮箱是 JS 起不来时的兜底。
+**改文案只改 js/lead-form.js,不要回头改 49 个页面。** 铺到新页面用:
+
+```bash
+npm run leads
+```
+
+浏览量统计在 `js/view-counter.js`,`getSlug()` 决定 slug 前缀(spot- / en- / page- / 博客直接用 slug)。
+同一文件还记三个转化动作,slug 带 `event-` 前缀(qr-view / qr-tap / form-view),
+后台按这个前缀拆出「转化漏斗」,不混进页面热度。铺到新页面用:
+
+```bash
+npm run views
+```
+
+注意 `/api/view-counter?list=1` 必须保持单次 MGET —— 统计范围是全站 250 个 slug,
+改回逐个 GET 会让后台直接超时。
+
 ## 广告位与招商
 
 页面里的 `.ad-slot` 是预留的广告位,共 144 处(首页 3 处 + 47 个景点页各 3 处)。

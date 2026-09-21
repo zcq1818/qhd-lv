@@ -24,7 +24,9 @@
     "en": "node scripts/gen-en-pages.js && node scripts/gen-en-attractions.js",
     "booking:off": "node scripts/toggle-booking-links.js off",
     "booking:on": "node scripts/toggle-booking-links.js on",
-    "ads": "node scripts/apply-ad-slots.js"
+    "ads": "node scripts/apply-ad-slots.js",
+    "leads": "node scripts/apply-lead-forms.js",
+    "views": "node scripts/apply-view-counter.js"
   },
   "keywords": [
     "秦皇岛",
