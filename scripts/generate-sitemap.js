@@ -53,6 +53,7 @@ const rootPages = fs.readdirSync(root)
 
 const attractions = readSlugs('attraction');
 const enPages = fs.existsSync(path.join(root, 'en')) ? readSlugs('en') : [];
+const enAttractions = fs.existsSync(path.join(root, 'en', 'attraction')) ? readSlugs('en/attraction') : [];
 const blogs = readSlugs('blog').filter((s) => !RETIRED.has(s));
 
 // 页面最后修改时间:优先取 git 最近一次提交时间,没有则取文件 mtime
@@ -78,6 +79,7 @@ const lines = [
   url('/', { priority: '1.0', changefreq: 'daily' }, 'index.html'),
   ...rootPages.map((p) => url(`/${p}`, ROOT_META[p] || DEFAULT_ROOT_META, `${p}.html`)),
   ...enPages.map((s) => url(s === 'index' ? '/en' : `/en/${s}`, { priority: '0.7', changefreq: 'monthly' }, `en/${s}.html`)),
+  ...enAttractions.map((s) => url(`/en/attraction/${s}`, { priority: '0.6', changefreq: 'monthly' }, `en/attraction/${s}.html`)),
   ...attractions.map((s) => url(`/attraction/${s}`, ATTRACTION_META, `attraction/${s}.html`)),
   ...blogs.map((s) => url(`/blog/${s}`, BLOG_META, `blog/${s}.html`)),
   '</urlset>',
@@ -87,4 +89,4 @@ fs.writeFileSync(path.join(root, 'sitemap.xml'), lines.join('\n') + '\n', 'utf8'
 
 const count = lines.length - 2; // 去掉 xml 声明和 urlset 首尾标签
 console.log(`✅ sitemap.xml 已生成：${count} 个 URL`);
-console.log(`   首页 1 + 根目录 ${rootPages.length} + 英文 ${enPages.length} + 景点 ${attractions.length} + 博客 ${blogs.length}`);
+console.log(`   首页 1 + 根目录 ${rootPages.length} + 英文 ${enPages.length + enAttractions.length} + 景点 ${attractions.length} + 博客 ${blogs.length}`);

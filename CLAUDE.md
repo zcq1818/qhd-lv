@@ -38,7 +38,10 @@ npm run data
 
 ## 英文版
 
-`en/` 三页由 `node scripts/gen-en-pages.js` 从景点主数据生成(nameEn / descEn / highlightsEn)。
+`en/` 三个总览页加 `en/attraction/` 47 个景点详情页,由 `npm run en` 从景点主数据生成。
+英文字段:nameEn / descEn / highlightsEn 来自景点研究,bestSeasonEn / suitableForEn / ticketNotesEn /
+openTimeNotesEn / transportEn / tipsEn / faqEn 由 `scripts/merge-en-translations.js` 合并翻译结果得到。
+品牌封面有中英两版,英文版在 `images/cover/en/`,用 `python scripts/gen-cover-images.py --en` 生成。
 中文站导航右侧有 EN 切换,由 `scripts/unify-navbar.js` 统一注入;英文页底部与卡片上有回中文的链接。
 英文首页地址是 `/en`(不带尾斜杠),站点 trailingSlash 为 false,写成 `/en/` 会 308 跳转。
 

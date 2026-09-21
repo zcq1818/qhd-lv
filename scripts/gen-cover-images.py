@@ -7,7 +7,9 @@
 与景点毫无关系,对旅游站是硬伤。在拿到实拍照片之前,用一张诚实的品牌封面
 比用误导性的照片好:不假装是实景,同时保持版面整齐,也能用作分享缩略图。
 
-用法: python scripts/gen-cover-images.py [景点id...]
+用法:
+  python scripts/gen-cover-images.py [景点id...]           中文封面 → images/cover/
+  python scripts/gen-cover-images.py --en [景点id...]      英文封面 → images/cover/en/
 """
 import json, os, sys, math
 from PIL import Image, ImageDraw, ImageFont
@@ -21,13 +23,44 @@ FONT_REG = 'C:/Windows/Fonts/msyh.ttc'
 
 # 分类 → 配色(深→浅)与图形母题
 CAT_STYLE = {
-    'beach':   {'from': (8, 47, 93),    'to': (23, 138, 178), 'motif': 'wave',     'label': '海滨风光'},
-    'history': {'from': (61, 32, 16),   'to': (146, 84, 32),  'motif': 'wall',     'label': '历史文化'},
-    'nature':  {'from': (13, 51, 32),   'to': (34, 122, 74),  'motif': 'mountain', 'label': '自然风光'},
-    'family':  {'from': (76, 15, 56),   'to': (170, 45, 110), 'motif': 'ferris',   'label': '亲子娱乐'},
-    'culture': {'from': (44, 20, 74),   'to': (110, 60, 170), 'motif': 'arch',     'label': '文艺打卡'},
+    'beach':   {'from': (8, 47, 93),    'to': (23, 138, 178), 'motif': 'wave',     'label': '海滨风光', 'labelEn': 'Beach & Coast'},
+    'history': {'from': (61, 32, 16),   'to': (146, 84, 32),  'motif': 'wall',     'label': '历史文化', 'labelEn': 'History & Culture'},
+    'nature':  {'from': (13, 51, 32),   'to': (34, 122, 74),  'motif': 'mountain', 'label': '自然风光', 'labelEn': 'Nature'},
+    'family':  {'from': (76, 15, 56),   'to': (170, 45, 110), 'motif': 'ferris',   'label': '亲子娱乐', 'labelEn': 'Family Fun'},
+    'culture': {'from': (44, 20, 74),   'to': (110, 60, 170), 'motif': 'arch',     'label': '文艺打卡', 'labelEn': 'Art & Lifestyle'},
 }
-DEFAULT = {'from': (15, 30, 60), 'to': (26, 115, 232), 'motif': 'wave', 'label': '景点'}
+DEFAULT = {'from': (15, 30, 60), 'to': (26, 115, 232), 'motif': 'wave', 'label': '景点', 'labelEn': 'Attraction'}
+
+AREA_EN = {'beidaihe': 'Beidaihe', 'shanhaiguan': 'Shanhaiguan', 'haigang': 'Haigang',
+           'nandaihe': 'Nandaihe & Changli', 'funing': 'Funing & Qinglong', 'lulong': 'Lulong'}
+
+
+def price_en(spot):
+    p = str(spot.get('price') or '')
+    if '暂停' in p:
+        return 'Temporarily closed'
+    if not p or '免费' in p or spot.get('priceNum') == 0:
+        return 'Free'
+    if '预约' in p:
+        return 'Reservation required'
+    n = spot.get('priceNum')
+    return ('%s%d%s' % (chr(165), n, ' and up' if '起' in p else '')) if isinstance(n, int) else 'Ticketed'
+
+
+def duration_en(spot):
+    import re as _re
+    d = str(spot.get('duration') or '')
+    m = _re.search(r'([\d.]+)\s*-\s*([\d.]+)\s*小时', d)
+    if m:
+        return '%s-%s hours' % (m.group(1), m.group(2))
+    if '一整天' in d or '整天' in d:
+        return 'A full day'
+    if '半天到一天' in d:
+        return 'Half to full day'
+    if '半天' in d:
+        return 'Half a day'
+    h = _re.search(r'([\d.]+)\s*小时', d)
+    return ('About %s hours' % h.group(1)) if h else '2-3 hours'
 
 
 def gradient(size, c1, c2):
@@ -86,7 +119,7 @@ def wrap(text, font, max_w, draw):
     return lines[:2]
 
 
-def build(spot, areas):
+def build(spot, areas, en=False):
     st = CAT_STYLE.get(spot.get('cat'), DEFAULT)
     img = gradient((W, H), st['from'], st['to']).convert('RGBA')
     layer = Image.new('RGBA', (W, H), (0, 0, 0, 0))
@@ -96,18 +129,18 @@ def build(spot, areas):
     d = ImageDraw.Draw(img)
 
     pad = 84
-    area_name = areas.get(spot.get('area'), '')
+    area_name = AREA_EN.get(spot.get('area'), '') if en else areas.get(spot.get('area'), '')
     f_kicker = ImageFont.truetype(FONT_REG, 34)
     f_title = ImageFont.truetype(FONT_BOLD, 92)
     f_meta = ImageFont.truetype(FONT_REG, 33)
     f_brand = ImageFont.truetype(FONT_REG, 27)
 
     # 顶部:区域 · 分类
-    kicker = ' · '.join([x for x in [area_name, st['label']] if x])
+    kicker = ' · '.join([x for x in [area_name, st['labelEn'] if en else st['label']] if x])
     d.text((pad, pad), kicker, font=f_kicker, fill=(255, 255, 255, 190))
 
     # 主标题
-    name = spot['name'].split('（')[0]
+    name = (spot.get('nameEn') or spot['name']) if en else spot['name'].split('（')[0]
     lines = wrap(name, f_title, W - pad * 2, d)
     y = pad + 86
     for ln in lines:
@@ -120,37 +153,46 @@ def build(spot, areas):
     # 关键信息
     bits = []
     if spot.get('level') and spot['level'] != '无':
-        bits.append(spot['level'] + '景区')
-    if spot.get('price'):
-        bits.append(str(spot['price']).split('；')[0].split(';')[0])
-    if spot.get('duration'):
-        bits.append('建议' + spot['duration'])
+        bits.append(spot['level'] + (' scenic area' if en else '景区'))
+    if en:
+        bits.append(price_en(spot))
+        bits.append(duration_en(spot))
+    else:
+        if spot.get('price'):
+            bits.append(str(spot['price']).split('；')[0].split(';')[0])
+        if spot.get('duration'):
+            bits.append('建议' + spot['duration'])
     if bits:
         d.text((pad, y + 56), '  ·  '.join(bits), font=f_meta, fill=(255, 255, 255, 205))
 
     # 角标
-    d.text((pad, H - pad - 14), '秦皇岛旅游官网  divdu.com', font=f_brand, fill=(255, 255, 255, 150))
+    d.text((pad, H - pad - 14), 'Qinhuangdao Travel Guide  divdu.com' if en else '秦皇岛旅游官网  divdu.com', font=f_brand, fill=(255, 255, 255, 150))
 
     return img.convert('RGB')
 
 
 def main():
+    en = '--en' in sys.argv
     only = [a for a in sys.argv[1:] if not a.startswith('--')]
+    out_dir = os.path.join(OUT, 'en') if en else OUT
     data = json.load(open(os.path.join(ROOT, 'data', 'attractions.json'), encoding='utf-8'))
     areas = {a['id']: a['name'] for a in data['areas']}
-    os.makedirs(OUT, exist_ok=True)
+    os.makedirs(out_dir, exist_ok=True)
     n = 0
     for s in data['spots']:
         if only and s['id'] not in only:
             continue
         if not only and str(s.get('img', '')).startswith('images/real/'):
             continue          # 已有实景照片的不动
-        img = build(s, areas)
-        p = os.path.join(OUT, s['id'] + '.webp')
+        if en and not s.get('nameEn'):
+            continue
+        img = build(s, areas, en)
+        p = os.path.join(out_dir, s['id'] + '.webp')
         img.save(p, 'WEBP', quality=88, method=6)
         n += 1
         print('  %-22s %s' % (s['id'], os.path.relpath(p, ROOT).replace('\\', '/')))
-    print('✅ 生成 %d 张品牌封面图 → images/cover/' % n)
+    rel = os.path.relpath(out_dir, ROOT).replace(os.sep, '/')
+    print('generated %d cover images -> %s' % (n, rel))
 
 
 if __name__ == '__main__':

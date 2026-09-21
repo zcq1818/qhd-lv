@@ -38,7 +38,11 @@ const hoursEn = (s) => {
   const m = t.match(/\d{1,2}:\d{2}\s*[-–—]\s*\d{1,2}:\d{2}/);
   return m ? m[0].replace(/\s/g, '') : 'See official hours';
 };
-const imgOf = (s) => '/' + (s.img || `images/webp/attraction-${s.id}.webp`).replace(/^\//, '');
+const imgOf = (s) => {
+  const en = `images/cover/en/${s.id}.webp`;
+  if (!String(s.img || '').startsWith('images/real/') && fs.existsSync(path.join(ROOT, en))) return '/' + en;
+  return '/' + (s.img || `images/cover/${s.id}.webp`).replace(/^\//, '');
+};
 
 function layout({ title, description, canonical, active, body, extraHead = '' }) {
   return `<!DOCTYPE html>
@@ -87,6 +91,7 @@ function layout({ title, description, canonical, active, body, extraHead = '' })
 .en-card .meta b{color:#E37400}
 .en-card .links{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 .en-card .links a{font-size:.8rem;font-weight:700;color:#1a73e8;text-decoration:none;padding:5px 10px;border:1px solid #cfe0fb;border-radius:999px}
+.en-card .links a.pri{background:#1a73e8;color:#fff;border-color:#1a73e8}
 .en-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
 .en-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px}
 .en-box h3{margin:0 0 10px;font-size:1.1rem;font-weight:800;color:#0f172a}
@@ -96,6 +101,7 @@ function layout({ title, description, canonical, active, body, extraHead = '' })
 .en-footer{background:#0f172a;color:#94a3b8;padding:40px 24px;text-align:center;font-size:.88rem}
 .en-footer a{color:#cbd5e1;margin:0 8px}
 .lang-switch{font-weight:800!important;color:#1a73e8!important}
+.cn-mark{display:inline-block;margin-left:4px;padding:1px 5px;border-radius:4px;background:#e2e8f0;color:#64748b;font-size:.62rem;font-weight:800;vertical-align:1px;letter-spacing:.04em}
 @media(max-width:768px){.en-section{padding:44px 0}.en-hero{padding-top:calc(var(--nav-height,64px) + 44px)}}
 </style>
 ${extraHead}
@@ -111,8 +117,8 @@ ${extraHead}
       <li><a href="/en"${active === 'home' ? ' class="active"' : ''}>Home</a></li>
       <li><a href="/en/attractions"${active === 'attractions' ? ' class="active"' : ''}>Attractions</a></li>
       <li><a href="/en/practical"${active === 'practical' ? ' class="active"' : ''}>Practical info</a></li>
-      <li><a href="/gallery3d">3D Gallery</a></li>
-      <li><a href="/map">Map</a></li>
+      <li><a href="/gallery3d" hreflang="zh-CN" title="Photo gallery, Chinese interface">3D Gallery <span class="cn-mark">CN</span></a></li>
+      <li><a href="/map" hreflang="zh-CN" title="Interactive map, Chinese interface">Map <span class="cn-mark">CN</span></a></li>
       <li><a href="/" class="lang-switch" lang="zh-CN">中文</a></li>
     </ul>
     <a href="/en/attractions" class="nav-cta">Plan your visit <span class="nav-cta-arrow">→</span></a>
@@ -139,7 +145,7 @@ function card(s, { showArea = false } = {}) {
     <h3>${esc(nameOf(s))}${s.nameEn ? `<small lang="zh-CN">${esc(s.name)}</small>` : ''}</h3>
     ${s.descEn ? `<p>${esc(s.descEn)}</p>` : hl ? `<p>${esc(hl)}</p>` : ''}
     <div class="meta"><span>🎫 <b>${esc(priceEn(s))}</b></span><span>🕒 ${esc(hoursEn(s))}</span>${s.rating ? `<span>⭐ ${esc(s.rating)}</span>` : ''}</div>
-    <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}" target="_blank" rel="noopener">Google Maps</a><a href="https://uri.amap.com/marker?position=${s.lng},${s.lat}&name=${encodeURIComponent(s.name)}" target="_blank" rel="noopener">Amap (CN)</a><a href="/attraction/${s.id}" lang="zh-CN">中文详情</a></div>
+    <div class="links"><a class="pri" href="/en/attraction/${s.id}">Details</a><a href="https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}" target="_blank" rel="noopener">Map</a><a href="/attraction/${s.id}" lang="zh-CN" hreflang="zh-CN">中文</a></div>
   </div>
 </article>`;
 }

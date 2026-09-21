@@ -204,7 +204,35 @@
       },
       "mentions": 30,
       "inlinks": 1,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "June to September is the most pleasant for sea bathing",
+      "suitableForEn": "Families, couples, photographers, and fans of early modern architecture and history",
+      "ticketNotesEn": "Entry to the coastal scenic area itself is free; individual attractions inside (Pigeon Nest Park, Lianfeng Mountain Park, the Strange House Garden, Biluota Tower, etc.) charge separate admission. During peak season it's best to book tickets for these sub-attractions in advance via Ctrip or Meituan to avoid queues.",
+      "openTimeNotesEn": "Open around the clock (the coastal area itself has no gates; individual attractions inside — Tiger Stone, Pigeon Nest Park, Lianfeng Mountain, the Strange House Garden — charge admission separately and keep their own hours).",
+      "transportEn": {
+        "publicTransit": "Bus 34 from Qinhuangdao Railway Station takes about 40 minutes to reach the Beidaihe coast; Beidaihe High-Speed Railway Station is about 12 km from the beach, with buses and taxis outside the station; direct high-speed trains from Beijing South and Beijing stations reach Beidaihe Station in about 2.5 hours.",
+        "driving": "About 3 hours from Beijing via the Beijing–Harbin Expressway; about 3 hours from Tianjin via the coastal expressway; about 3 hours from Shenyang via the Beijing–Harbin Expressway; a taxi from Qinhuangdao or Beidaihe station takes 10-30 minutes."
+      },
+      "tipsEn": [
+        "Plan for at least a full day, since the route can link Pigeon Nest Park, Tiger Stone, Lianfeng Mountain, and the Strange House Garden, each with its own admission fee.",
+        "Watch the sunrise in the morning and the sunset in the evening, and avoid the midday sun.",
+        "Peak season (summer) draws large crowds, so book hotels and popular photo spots ahead of time.",
+        "Many of the historic villas were built as sanatoriums or offices and are not open to the public — follow posted signs."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there an entrance fee for the Beidaihe Coastal Scenic Area itself?",
+          "a": "No — the coastal area is free to enter, but most individual attractions inside, such as Tiger Stone, Pigeon Nest Park, and Lianfeng Mountain, charge separate admission."
+        },
+        {
+          "q": "Are Beidaihe and Nandaihe the same place?",
+          "a": "No. Beidaihe is within Qinhuangdao city and is the traditional summer resort area; Nandaihe is in Changli County and focuses on amusement-park style attractions."
+        },
+        {
+          "q": "Which months are best to visit Beidaihe?",
+          "a": "June to September is best for swimming; May and October are cooler with fewer crowds and are better for sightseeing and photography."
+        }
+      ]
     },
     {
       "id": "geziwo",
@@ -295,7 +323,36 @@
       "mentions": 58,
       "inlinks": 5,
       "tier": 1,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Sunrise can be seen year-round; summer has the earliest sunrise but also the biggest crowds",
+      "suitableForEn": "Photographers, couples, families, and early risers who want to watch the sunrise",
+      "ticketNotesEn": "¥25 in peak season, ¥5 in the off-season; ¥20 for students with ID; children under 1.2m and seniors over 70 enter free with ID (some sources instead list a flat ¥35 ticket — both figures circulate, so check what's posted on site). Prices vary noticeably between platforms (¥5-35), so verify the current price on Ctrip or Meituan before buying. It gets crowded around sunrise, so arrive early to get a spot.",
+      "openTimeNotesEn": "Peak season (May-September): roughly 3:00-18:00, opening earlier to catch the sunrise; off-season (October-April): 8:00-18:00. Some sources instead give 5:00-18:00, so check via Ctrip or the official WeChat account before you go.",
+      "transportEn": {
+        "publicTransit": "Take Bus 34 from downtown Qinhuangdao, or Bus 37 within Beidaihe district, and get off at the Pigeon Nest Park stop, right at the entrance.",
+        "driving": "About 10-15 minutes by taxi from Beidaihe Station; by car, follow the coastal road (Binhai Dadao) to Gechi Road.",
+        "parking": "Parking lots are available around the park; spaces get tight in peak season, so arrive early."
+      },
+      "tipsEn": [
+        "Watching sunrise means arriving before dawn — the seaside feels 8-10°C colder than downtown, so bring a jacket.",
+        "Bring a tripod to photograph sunrise over Eagle Rock (Yingjiaoshi), and stake out a spot on the seaward side of the boardwalk.",
+        "Don't rush off after sunrise — the wetland boardwalk at low tide is also good for birdwatching and photos.",
+        "At low tide you can walk out onto the mudflats to forage for shellfish; wear non-slip shoes and bring a bag for your catch."
+      ],
+      "faqEn": [
+        {
+          "q": "What's the best time to see sunrise at Pigeon Nest Park?",
+          "a": "Sunrise time varies by season — around 4:50-5:20am in summer — so arrive 30-40 minutes early to get a good spot."
+        },
+        {
+          "q": "How much is admission to Pigeon Nest Park?",
+          "a": "Prices vary a lot by channel — roughly ¥25 in peak season and ¥5 in the off-season — so it's worth checking online before you buy."
+        },
+        {
+          "q": "When can I go mudflat foraging at low tide?",
+          "a": "Low tide time changes daily, so check the day's tide table before you go; the activity usually happens on the flats below the boardwalk."
+        }
+      ]
     },
     {
       "id": "laohushi",
@@ -385,7 +442,35 @@
       "mentions": 17,
       "inlinks": 3,
       "tier": 1,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "June to September for swimming; year-round from 4-6pm for sunset",
+      "suitableForEn": "Families, swimmers, photographers",
+      "ticketNotesEn": "The park itself is free to enter; activities inside such as parasailing, windsurfing, surfboarding, and the children's water play area charge separately. Admission is free and activities are billed per use or per time slot — check the prices posted on site.",
+      "openTimeNotesEn": "Summer hours (April-October): 7:00-22:00; winter hours (November-March): 8:00-18:00. Some sources instead list 6:00-22:00 in summer with last entry at 21:30 — check the notices posted on site.",
+      "transportEn": {
+        "publicTransit": "Take Bus 34 or Bus 5 and get off at the Tiger Stone stop, right at the entrance.",
+        "driving": "About 10 minutes by taxi from Beidaihe Station; follow Zhonghaitan Road directly to the park."
+      },
+      "tipsEn": [
+        "At low tide you can forage among the rocks for shells and small crabs — bring a small bucket and non-slip shoes.",
+        "4-6pm is the best window to photograph the sunset silhouette of Tiger Stone.",
+        "The beach gets crowded during the summer swimming peak, so keep an eye on your belongings and children.",
+        "Prices for water activities vary by season and operator, so it's worth comparing on site."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there an entrance fee for Tiger Stone Sea Park?",
+          "a": "The park itself is free, but activities like parasailing and windsurfing are charged separately."
+        },
+        {
+          "q": "Are Tiger Stone and Pigeon Nest Park the same place?",
+          "a": "No — both are on the Beidaihe coast but in different spots. Tiger Stone is known for swimming and sunset views, while Pigeon Nest Park is known for sunrise."
+        },
+        {
+          "q": "Can I visit Tiger Stone in winter?",
+          "a": "Yes, the park stays open in winter (roughly 8:00-18:00), though swimming isn't possible — it's still good for sea views and photos."
+        }
+      ]
     },
     {
       "id": "liangfengshan",
@@ -491,7 +576,35 @@
       },
       "mentions": 26,
       "inlinks": 6,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "May to October is best — cool relief from summer heat, with autumn foliage around October",
+      "suitableForEn": "Hikers, photographers, visitors escaping summer heat, and autumn-foliage viewers",
+      "ticketNotesEn": "Around ¥30 (online booking platforms often show ¥22.9-30); booking online is usually cheaper than buying on site. Discount policies for seniors, students, or children could not be confirmed — check with the platform before booking.",
+      "openTimeNotesEn": "07:00-17:30 (some sources instead give 07:00-17:00 or 07:30-17:00 — worth confirming before you go).",
+      "transportEn": {
+        "publicTransit": "Take Bus 5 or Bus 15 and get off at the Lianfeng Mountain Park stop, right at the entrance.",
+        "driving": "About 10-15 minutes by taxi from Beidaihe Station."
+      },
+      "tipsEn": [
+        "The mountain isn't tall but is densely wooded; wear non-slip athletic shoes, as some steps are steep.",
+        "It's about 5°C cooler up in the hills than at the foot in summer — a favorite spot for locals to cool off.",
+        "Autumn foliage is best around mid-to-late October — check the park's updates on peak color.",
+        "Avoid climbing at midday; the light is also better for photos in the early morning or evening."
+      ],
+      "faqEn": [
+        {
+          "q": "How much is admission to Lianfeng Mountain Park?",
+          "a": "About ¥30 on site, with online platforms often offering discounts from around ¥22.9 — booking ahead on Ctrip or similar is worthwhile."
+        },
+        {
+          "q": "Is Lianfeng Mountain an easy climb?",
+          "a": "At about 153m elevation, it's not difficult, but the path has uneven steps, so wear comfortable shoes."
+        },
+        {
+          "q": "When is the best time to see autumn leaves at Lianfeng Mountain?",
+          "a": "Usually mid-to-late October, depending on that year's temperatures and the park's announcements."
+        }
+      ]
     },
     {
       "id": "biluota",
@@ -598,7 +711,35 @@
       },
       "mentions": 17,
       "inlinks": 6,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "June to September, with the fullest experience from 4pm to 10pm",
+      "suitableForEn": "Couples, young travelers, and nightlife or photography enthusiasts",
+      "ticketNotesEn": "Adult ticket ¥48; discounted ticket ¥25 for ages 60-69; free for over-70s and children under 1.2m. Evening packages (show + views + bar experience) run about ¥80-120. Daytime and evening-show tickets are priced differently — choose based on whether you want the evening bonfire/bar show, and check current prices on Ctrip or Meituan before buying.",
+      "openTimeNotesEn": "Regular hours 10:00-22:00, extended to 9:30-22:30 on holidays; during summer (around late June-July) hours have sometimes extended to midnight — check the day's notice posted at the site.",
+      "transportEn": {
+        "publicTransit": "Take Bus 15 and get off at the Biluota stop, right at the entrance.",
+        "driving": "About 15 minutes by taxi from Beidaihe Station, via Donghaitan Road."
+      },
+      "tipsEn": [
+        "Arrive around 4pm to photograph the Santorini-style architecture in daylight before waiting for sunset and the evening show.",
+        "The view from the top of the tower is the best on site, so leave enough time to climb up and take in the sea.",
+        "If you plan to attend the evening bonfire or bar show, check that day's lineup and showtimes in advance.",
+        "Summer peak season gets crowded — book online ahead of time to avoid queuing on site."
+      ],
+      "faqEn": [
+        {
+          "q": "Can I visit Biluota during the day and at night?",
+          "a": "Yes — daytime is for the architecture and sea views, while the evening brings a bonfire, live band, and bar performances; arriving in the late afternoon lets you enjoy both."
+        },
+        {
+          "q": "Does the regular ticket include the evening show?",
+          "a": "No, the regular admission and the evening-show package are different tickets — buy the evening package if you want to see the bonfire show."
+        },
+        {
+          "q": "Is Biluota suitable for children?",
+          "a": "The daytime architecture and sea views work well for families, but the bar atmosphere at night is more suited to adults and couples."
+        }
+      ]
     },
     {
       "id": "guailou",
@@ -689,7 +830,35 @@
       "mentions": 6,
       "inlinks": 1,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Good year-round, since the indoor attraction isn't affected by season or weather",
+      "suitableForEn": "Family adventures, fans of architecture and optical illusions, and as a rainy-day backup",
+      "ticketNotesEn": "Around ¥20 (sources vary between ¥15-20); prices differ slightly across platforms, so check the current price and any combo-ticket discounts on Ctrip or Meituan before buying.",
+      "openTimeNotesEn": "May 1 - October 31: 08:00-22:00; November 1 - April 30: 08:00-18:00.",
+      "transportEn": {
+        "publicTransit": "Take Bus 5 and get off at the Strange House stop, right at the entrance.",
+        "driving": "About 10-15 minutes by taxi from Beidaihe Station."
+      },
+      "tipsEn": [
+        "The interior is maze-like, so keep a close eye on children to avoid getting separated.",
+        "Some rooms have slanted floors and strong mirror reflections — take care if you're prone to dizziness or balance issues.",
+        "Since it's entirely indoors, it's a good backup on rainy or overcast days.",
+        "A visit takes about 1-1.5 hours, and it pairs well with nearby Lianfeng Mountain Park on the same day."
+      ],
+      "faqEn": [
+        {
+          "q": "Why is it called the 'Strange House'?",
+          "a": "The name comes from its maze of doors and windows, tangled layout, slanted floors, and mirror effects that create a disorienting sense of space."
+        },
+        {
+          "q": "Can I visit the Strange House Garden on a rainy day?",
+          "a": "Yes — the attraction is entirely indoors and unaffected by weather, making it a popular rainy-day option."
+        },
+        {
+          "q": "What age is the Strange House Garden suitable for?",
+          "a": "Suitable for most school-age children, though the interior is dim and complex, so parents should stay with kids throughout."
+        }
+      ]
     },
     {
       "id": "dongwuyuan",
@@ -804,7 +973,35 @@
       },
       "mentions": 6,
       "inlinks": 2,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "April to October, with animals most active in the morning",
+      "suitableForEn": "Families and animal lovers",
+      "ticketNotesEn": "Official full-price ticket around ¥100; online platforms often show discounted prices of ¥72-80. Free admission with ID for children under 6 or 1.2m, seniors over 70, people with disabilities, and active-duty military. Booking online is generally cheaper than buying on site — book ahead on Ctrip or Meituan. Admission usually includes the safari shuttle/drive-through predator area.",
+      "openTimeNotesEn": "Summer (April 1 - October 31): 8:30-17:30; winter (November 1 - March 31): 8:30-16:30. Open year-round, including holidays, on the same summer schedule.",
+      "transportEn": {
+        "publicTransit": "Take Bus 34 and get off at the Wildlife Zoo stop, right at the entrance.",
+        "driving": "About 15-20 minutes by taxi from Beidaihe Station, via the coastal road (Binhai Dadao)."
+      },
+      "tipsEn": [
+        "Keep windows fully closed while driving through the predator area, and never get out of the car or feed the animals.",
+        "Visit in the morning when the animals are more active for better viewing.",
+        "In the tame-animal area you can buy feed in advance to feed giraffes, alpacas, and similar animals — a hit with kids.",
+        "The park is large with little shade in summer, so bring sun protection and plenty of water."
+      ],
+      "faqEn": [
+        {
+          "q": "Is it safe to drive through the predator area?",
+          "a": "Yes — the area has safety barriers, but you must keep all windows closed and stay in the vehicle, following staff instructions."
+        },
+        {
+          "q": "Does the ticket include the drive through the predator area?",
+          "a": "Admission usually includes the shuttle or drive-through fee for the predator area — check the details on the ticket page."
+        },
+        {
+          "q": "What age qualifies for free admission?",
+          "a": "The common threshold is children under 6 or under 1.2m tall, with discounts for seniors over 70 and others — check current policy before buying."
+        }
+      ]
     },
     {
       "id": "jifa",
@@ -894,7 +1091,35 @@
       "mentions": 4,
       "inlinks": 2,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Good year-round — the greenhouses offer shade and shelter in summer and stay warm in winter",
+      "suitableForEn": "Families and school study-trip groups",
+      "ticketNotesEn": "Around ¥50 (some sources instead list ¥30; prices may shift with season or events). Prices vary considerably between sources (¥30-50) and may fluctuate with season or evening events, so check the current price and any discounts on Ctrip or Meituan before buying.",
+      "openTimeNotesEn": "Peak season (May-December): 8:30-17:00, with last entry at 16:00. Some sources say hours extend to 21:30 during certain periods — check the day's notice posted at the site.",
+      "transportEn": {
+        "publicTransit": "Take Bus 5 and get off at the Jifa stop, right at the entrance.",
+        "driving": "About 15-20 minutes by taxi from Beidaihe Station."
+      },
+      "tipsEn": [
+        "The greenhouses can feel hot and humid, so wear breathable clothing and drink water regularly.",
+        "Discounted tickets are often available on Ctrip or Meituan in advance, cheaper than buying at the gate.",
+        "A half-day visit works well and can be combined with nearby attractions.",
+        "If bringing children, leave time for the petting-animal area and kids' play equipment."
+      ],
+      "faqEn": [
+        {
+          "q": "Can I visit Jifa Agricultural Dream Kingdom on a rainy day?",
+          "a": "Yes — the greenhouse areas are indoors, so a rainy day doesn't stop the visit; it's a good rainy-day option."
+        },
+        {
+          "q": "How much is admission?",
+          "a": "Prices vary by channel, roughly ¥30-50 — check the current price on Ctrip or Meituan before buying."
+        },
+        {
+          "q": "What age is it suitable for?",
+          "a": "Suitable for children of all ages, especially school-age kids who enjoy plants, animals, and educational content."
+        }
+      ]
     },
     {
       "id": "shidi",
@@ -1019,7 +1244,41 @@
       "mentions": 4,
       "inlinks": 1,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Best during spring and autumn bird migration, especially September-November during the autumn southward peak for the widest variety and numbers of birds",
+      "suitableForEn": "Birdwatchers, nature photographers, families, and visitors who enjoy a quiet nature walk",
+      "ticketNotesEn": "The park itself is a free public ecological area with no admission fee. Specialized birdwatching or research activities in the core reserve area may require advance registration with the relevant organization — check on-site notices.",
+      "openTimeNotesEn": "Open around the clock (the park itself has no fixed closing time); the best birdwatching windows are just after sunrise and just before sunset, so plan an early morning or evening visit.",
+      "transportEn": {
+        "publicTransit": "From downtown, take a bus toward the Xinhe Road area and walk from there; check current routes via Amap or Baidu Maps (search \"Beidaihe Wetland Park\"), since the exact bus line may change. One source mentions transferring via Bus 34, but this could not be independently confirmed — verify before you go.",
+        "driving": "Navigate to \"Beidaihe Wetland Park\" or \"Xinhe Road\"; it's about 15-20 minutes by car from Beidaihe Railway Station and Pigeon Nest Park."
+      },
+      "tipsEn": [
+        "The best birdwatching times are early morning or evening — bring binoculars or a telephoto lens.",
+        "Autumn (September-November) has the widest variety and number of migratory birds, making it the prime season for photography and birdwatching.",
+        "The boardwalk is long, so wear comfortable walking shoes and prepare for sun and wind.",
+        "Mosquitoes can be an issue in the wetlands — bring repellent for summer visits.",
+        "Avoid feeding or disturbing the birds — staying quiet helps you see more bird activity.",
+        "There are few shops or facilities inside the park, so bring your own water and food."
+      ],
+      "faqEn": [
+        {
+          "q": "Does Beidaihe Wetland Park charge admission?",
+          "a": "The park itself is free; certain professional birdwatching activities or the core reserve area may have separate rules — check the notices on site."
+        },
+        {
+          "q": "When is the best time to see migratory birds?",
+          "a": "September-November during the autumn southward migration is the peak, with early morning and evening the most active times; the spring northward migration (March-May) is also good."
+        },
+        {
+          "q": "Is it suitable for children?",
+          "a": "Yes — the boardwalk is flat and easy to walk, good for family strolls and nature education, though bring insect repellent and watch your footing."
+        },
+        {
+          "q": "Is it the same place as Pigeon Nest Park?",
+          "a": "No. Pigeon Nest Park (Yingjiao Park) is a separate paid attraction famous for sunrise; Beidaihe Wetland Park features reed marshes and birdwatching boardwalks — they're nearby but distinct."
+        }
+      ]
     },
     {
       "id": "shanhaiguan",
@@ -1152,7 +1411,41 @@
       },
       "mentions": 6,
       "inlinks": 3,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "April to October, with autumn especially pleasant — clear skies, little rain, and the best views from the city wall",
+      "suitableForEn": "Visitors interested in Great Wall history and Ming-dynasty military architecture; families and photographers; those with mobility issues should be cautious climbing the wall",
+      "ticketNotesEn": "Adult ticket around ¥40-50 (price varies by channel and whether it's a combo ticket); a common combo ticket (covering Old Dragon's Head, First Pass Under Heaven, Wangyang Tower, Ying'en Tower, the Bell and Drum Tower, and the shuttle) costs more, around ¥130. Free or discounted admission for children under 6 or 1.2m, seniors over 70, active-duty military, people with disabilities, and blood donors. Whether advance online booking is required could not be confirmed — check the official WeChat account or platforms like Ctrip/Meituan for the current policy.",
+      "openTimeNotesEn": "Peak season (May 1 - October 31): 07:00-18:00; off-season (November 1 - April 30): 07:30-17:00 (sources vary slightly — check the official WeChat account or ticketing platform for the day's posted hours before you go).",
+      "transportEn": {
+        "publicTransit": "Take a train to Shanhaiguan Station, then walk about 15 minutes to the old town's east gate (First Pass Under Heaven); within the city, buses run to stops near the old town — check current routes via local transit info.",
+        "driving": "Exit the Beijing-Harbin or Beijing-Shenyang Expressway at Shanhaiguan and follow signs to the old town; about 30-40 minutes from downtown Qinhuangdao."
+      },
+      "tipsEn": [
+        "The city wall has many steep steps — wear comfortable shoes, and elderly visitors and children should take care.",
+        "The wall gets very sunny at midday in summer — visit in the early morning or evening and bring sun protection.",
+        "First Pass Under Heaven, Old Dragon's Head, and Shanhaiguan Old Town are separate attractions with separate tickets — check the exact name before buying to avoid confusing First Pass Under Heaven with Old Dragon's Head (where the Great Wall meets the sea).",
+        "If you plan to visit Old Dragon's Head or the Great Wall Museum too, compare whether a combo ticket is better value.",
+        "Peak season and holidays draw large crowds — check the official WeChat account or booking platforms for the day's opening status and reservation requirements.",
+        "The wall offers open views, great for photographing the \"First Pass Under Heaven\" plaque and the old town skyline — avoid the harsh midday light."
+      ],
+      "faqEn": [
+        {
+          "q": "Are First Pass Under Heaven and Shanhaiguan Old Town the same thing?",
+          "a": "No. Shanhaiguan Old Town is currently free to enter, while First Pass Under Heaven (the Zhenyuan Tower gate complex) is a separately ticketed 5A attraction within the old town — they aren't interchangeable."
+        },
+        {
+          "q": "Is First Pass Under Heaven covered by the same ticket as Old Dragon's Head?",
+          "a": "No, they're separate paid attractions with different tickets — visiting both usually means buying a combo ticket or two separate tickets."
+        },
+        {
+          "q": "Who wrote the giant \"First Pass Under Heaven\" plaque?",
+          "a": "It's traditionally attributed to the Ming-dynasty calligrapher Xiao Xian, and hangs on the Zhenyuan Tower — about 600 years old and the site's most iconic symbol."
+        },
+        {
+          "q": "Are there a lot of steps to climb the city wall?",
+          "a": "Yes — the wall stands at a considerable height with fairly steep steps, so wear comfortable shoes and elderly visitors or children should pace themselves."
+        }
+      ]
     },
     {
       "id": "laolongtou",
@@ -1284,7 +1577,37 @@
       },
       "mentions": 44,
       "inlinks": 5,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "April to October is the best time to visit, with pleasant weather.",
+      "suitableForEn": "Great Wall and history enthusiasts, photographers, families with children (watch your step on stairs and near the sea)",
+      "ticketNotesEn": "Peak season (April-October) admission is about ¥50 per person; off-season and online group-buy or advance-booking discounts often bring it down to roughly ¥20-30, so check the posted price on the scenic area's official channels or a ticketing platform on the day. Children under 1.2m enter free; visitors over 70, people with disabilities, and active-duty or disabled military personnel enter free with valid ID; minors aged 6-18 and seniors aged 60-69 get half-price or discounted tickets with ID. Booking online via platforms like Ctrip or Meituan is recommended, especially in peak season and on holidays when it gets busy.",
+      "openTimeNotesEn": "Open year-round 07:30-18:00 (peak and off-season hours are roughly the same, with last entry at 17:00), but check the scenic area's daily notice for the current schedule.",
+      "transportEn": {
+        "publicTransit": "From Shanhaiguan Old Town or Shanhaiguan Railway Station, take bus line 25 (or similar) to the Laolongtou stop, about 20-30 minutes; in summer peak season there is usually an additional tourist shuttle line, so check local bus notices for the current route.",
+        "driving": "From downtown Qinhuangdao, drive southeast via National Highway 206 or the coastal road, about 30-40 minutes; from Shanhaiguan Old Town it's about a 15-minute taxi ride (roughly 8 km) to the entrance."
+      },
+      "tipsEn": [
+        "The steps on the sea-facing side of the Rushi Stone Castle (the fort running into the sea) are steep and windy, and waves can splash the walkway at high tide, so watch your footing.",
+        "Midday sun on the beach is intense in summer, so visit in the early morning or evening and bring a sun hat and sunscreen.",
+        "Chenghai Tower has the best views — climb to the top for a panorama of the Rushi Stone Castle and the Bohai Sea, and it's worth prioritizing.",
+        "Weekends and summer holidays in peak season get crowded, so book tickets online in advance and allow 2-3 hours for the visit.",
+        "There's a fair amount of walking inside the site, so wear comfortable shoes; elderly visitors and children should watch for uneven steps.",
+        "Sea breezes can be strong, so bring a light jacket."
+      ],
+      "faqEn": [
+        {
+          "q": "Are Old Dragon's Head and Shanhaiguan Old Town the same attraction?",
+          "a": "No. Old Dragon's Head is a separate scenic area on the coast about 5-8 km south of Shanhaiguan Old Town. They have separate tickets, and you need to travel between them separately, usually by taxi or bus."
+        },
+        {
+          "q": "Is it better to visit at high tide or low tide?",
+          "a": "At high tide, waves crashing against the Rushi Stone Castle create the most dramatic and iconic view of Old Dragon's Head; at low tide you can see the fortress foundation more clearly, but it's less visually striking. Check the day's tide table before you go."
+        },
+        {
+          "q": "How much is admission, and can I buy tickets on site?",
+          "a": "Peak-season admission is about ¥50 per person, with frequent discounts off-season and on online platforms. Tickets can be bought on site, but during peak-season holidays it's best to book online in advance via platforms like Ctrip or Meituan to skip the line."
+        }
+      ]
     },
     {
       "id": "jiaoshan",
@@ -1416,7 +1739,36 @@
       },
       "mentions": 11,
       "inlinks": 2,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "September-October is best for autumn foliage, with comfortable temperatures for hiking.",
+      "suitableForEn": "Visitors interested in Great Wall history and hiking, photographers (especially in autumn); those with limited stamina or traveling with elderly family or children should take the cable car up",
+      "ticketNotesEn": "Sources disagree on the ticket price — some list ¥40 for an adult ticket — so check the current price and any combo tickets or student/senior/child discounts in real time on Meituan, Ctrip, or Dianping before you go. The site also has a cable car, reportedly about ¥20 round-trip or ¥15 one-way, but treat this as a rough reference only and check the price posted on site. Booking online in advance is recommended in peak season to avoid crowds.",
+      "openTimeNotesEn": "Peak season (roughly April-October) 07:30-17:30; off-season hours may be shorter, so check the scenic area's daily notice or the ticketing platform for the current schedule.",
+      "transportEn": {
+        "driving": "From Shanhaiguan Old Town, head north on Jiaoshan Road for about 3 km, roughly a 10-15 minute drive to the site's parking lot; from downtown Qinhuangdao, take Haiyang Road/Changcheng South Road onto Jiaoshan Road, about 40-50 minutes."
+      },
+      "tipsEn": [
+        "The trail to the summit is steep, so wear non-slip athletic shoes; if you have limited stamina or are traveling with elderly family or children, take the cable car instead.",
+        "Sun and wind can be strong at the summit in summer, so bring a sun hat and a jacket.",
+        "Autumn (September-October) has the best foliage but also the biggest crowds, so arrive early to beat the rush.",
+        "Supplies on the mountain are limited, so bring your own water and snacks.",
+        "Book tickets online in advance in peak season and confirm the day's opening hours to avoid lines or a wasted trip.",
+        "It's close to Shanhaiguan Old Town and Old Dragon's Head, so it's easy to combine into a one-day itinerary."
+      ],
+      "faqEn": [
+        {
+          "q": "Are Jiaoshan Great Wall and Shanhaiguan Old Town the same place?",
+          "a": "No. Jiaoshan Great Wall is in the Jiaoshan scenic area about 3 km north of Shanhaiguan Old Town — it's the first mountain the Great Wall climbs. It's a separate attraction from the First Pass Under Heaven inside the old town, with its own ticket."
+        },
+        {
+          "q": "Do I have to climb the whole way at Jiaoshan?",
+          "a": "No, there's a cable car available, so visitors with limited stamina or traveling with elderly family or children can ride up instead of hiking."
+        },
+        {
+          "q": "How much does admission cost?",
+          "a": "Sources put the ticket price at around ¥30-40; check the price posted on site or on the booking platform on the day. The cable car is charged separately."
+        }
+      ]
     },
     {
       "id": "mengjiangnv",
@@ -1534,7 +1886,36 @@
       "mentions": 9,
       "inlinks": 1,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "April to October, when the weather is pleasant, the trees are lush, and the views from the hilltop overlooking the sea are at their best.",
+      "suitableForEn": "Visitors interested in folklore and historic architecture, families, photographers, and anyone doing a day trip from Shanhaiguan Old Town",
+      "ticketNotesEn": "Tickets can be booked online through several platforms (Ctrip, Meituan, Dahe Ticketing, etc.). We could not find authoritative, consistent information on discounts for seniors, students, or children, or on combo tickets with Shanhaiguan Old Town or Old Dragon's Head, so check with the platform or call ahead. The price has changed over time (it was previously ¥25); ¥30 is the price most commonly listed now, but confirm on site.",
+      "openTimeNotesEn": "Regular hours are 08:00-17:30 (last entry 17:00); in some years, peak season (roughly May through year-end) runs 07:30-17:30, extending to 18:30 on busy holidays like Labor Day. Opening hours vary slightly by source, so call ahead or check a booking platform for the current schedule.",
+      "transportEn": {
+        "driving": "About a 10-minute taxi ride or drive from Shanhaiguan Old Town (roughly 6.5 km), straight to the entrance via Jiangnümiao Road."
+      },
+      "tipsEn": [
+        "It's easy to combine with Shanhaiguan Old Town and Old Dragon's Head in one day, as all are within a 15-minute drive of each other.",
+        "The 108-step stone stairway to the temple is fairly steep — elderly visitors and children should take breaks, and watch for slippery steps.",
+        "Peak season gets crowded around midday, so visit in the morning or evening, which also gives better light for photos.",
+        "It's windy at the top with good views over the Bohai Sea, so bring sun protection or something warm.",
+        "Book tickets online in advance in peak season to avoid lines.",
+        "Steps and paths can ice over in winter, so watch your footing."
+      ],
+      "faqEn": [
+        {
+          "q": "How much is admission to Mengjiangnu Temple?",
+          "a": "Adult tickets were about ¥30 as of 2025-2026, but check the price posted on site or on a booking platform on the day."
+        },
+        {
+          "q": "Is the ticket shared with Shanhaiguan Old Town?",
+          "a": "No, they're sold separately; some platforms may offer combo packages, so confirm before booking if that matters to you."
+        },
+        {
+          "q": "What are the opening hours?",
+          "a": "Regular hours are 08:00-17:30 (last entry 17:00); hours may be extended slightly during peak season and holidays, so confirm before you go."
+        }
+      ]
     },
     {
       "id": "ledao",
@@ -1629,7 +2010,38 @@
       "mentions": 6,
       "inlinks": 2,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "June-August (summer break) is best — temperatures are comfortable, the water park (Water Paradise) is fully open, and the marine animal shows are in full swing.",
+      "suitableForEn": "Families with children, teens and students, fans of marine animals and water rides",
+      "ticketNotesEn": "Full-price admission is ¥160 per person, with discounts for children, students, seniors, and military/disabled visitors. Children under 1.2m enter free (with an adult); children under 16 get half price; seniors 60-69 get half price and those 70+ enter free; full-time students get half price with ID; people with disabilities and active-duty or disabled military personnel enter free with valid ID. The ticket is an all-park pass covering Ocean Paradise, the Miami-themed area, the Ocean Carnival, and the seasonal Water Paradise. The park is only open seasonally, so check the official channels or a platform like Ctrip or Qunar for whether it's open and the current price before you go, since prices and discount policies can change year to year.",
+      "openTimeNotesEn": "Seasonal opening; for 2026: April 28-June 7, 08:30-17:30; June 8-October 31, 08:00-18:00; the park is generally closed from late October through late April the following year (check the current year's official notice).",
+      "transportEn": {
+        "publicTransit": "From Qinhuangdao Railway Station, take bus 8 to the Sanzhong stop, then cross the street and transfer to bus 25 to the Ledao stop. From Qinhuangdao Sidaoqiao Bus Station, take bus 25 or 35 directly to the Ledao stop. From Shanhaiguan Railway Station, take bus 25 to the Ledao stop.",
+        "driving": "Route 1: from the Qinhuangdao East exit, go straight, turn left onto Qinhuang Avenue, and follow it about 17 km to Ledao Ocean Kingdom. Route 2: from Shanhaiguan Mengjiangkou, take the Jingha connector to Guancheng South Road, turn left onto Shihe Road, then turn right at the Shihe Road/Longhai Avenue intersection and continue straight to the park.",
+        "parking": "The site has a parking lot with about 800 spaces; the reference fee is about ¥20 per visit (check the price posted on site)."
+      },
+      "tipsEn": [
+        "The park is open seasonally (roughly late April to late October) and closed in winter, so confirm it's open before you go.",
+        "Water Paradise only operates in summer — bring a swimsuit, a change of clothes, and a waterproof bag if you plan to get wet.",
+        "Dolphin, sea lion, and beluga shows run on a fixed schedule posted at the entrance or on the park's official account each day, so plan your route around them.",
+        "Summer sun is intense, so bring sunscreen, a hat, and plenty of water.",
+        "The park is large and spread out, so plan for a full day and think through your route between rides and shows.",
+        "Peak season (especially summer weekends) gets very crowded, so arrive early to beat the rush."
+      ],
+      "faqEn": [
+        {
+          "q": "Is Ledao Ocean Kingdom open in winter?",
+          "a": "No. The park operates seasonally, typically open from late April to late October and closed from late October to late April the following year. Confirm the exact dates through official channels before you go."
+        },
+        {
+          "q": "How much is admission, and are there discounts?",
+          "a": "Full price is about ¥160 per person. Children under 1.2m enter free, children under 16 get half price, seniors 60-69 get half price and those 70+ enter free, students get half price with ID, and people with disabilities or military ID enter free — check the current year's notice for details."
+        },
+        {
+          "q": "When can I use the water park?",
+          "a": "Water Paradise (the water play area) only opens during the hottest part of the year, typically around June-August — check the park's notice for the exact dates each year."
+        }
+      ]
     },
     {
       "id": "changshoushan",
@@ -1727,7 +2139,36 @@
       "mentions": 5,
       "inlinks": 0,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "April-October is best, with the most vivid foliage in autumn and relatively cool mountain air offering respite from summer heat.",
+      "suitableForEn": "Family outings, older visitors seeking longevity blessings, hikers and photographers; there are many steps on the trails, so those with mobility issues should assess carefully",
+      "ticketNotesEn": "Reference price starts around ¥30 (check the price posted on site on the day). There's also a combo ticket covering Old Dragon's Head and the Shanhaiguan Old Town experience for ¥120; we couldn't find a complete price for a combo including Mengjiangnu Temple. Ctrip, Bendibao, and similar platforms list a reference price of ¥30, and there are several cross-attraction combo packages (e.g., with Old Dragon's Head and First Pass Under Heaven). We found no clear source on discounts for children, seniors, or students, or on whether advance booking is required — call the site to confirm before you go.",
+      "openTimeNotesEn": "May 1-December 31, 07:30-17:30 (ticket sales and entry stop at 17:00). Sources are inconsistent about winter (January-April) opening, and an older claim of year-round 08:00-17:00 hours conflicts with this, so call ahead to confirm.",
+      "transportEn": {
+        "driving": "By car, head northeast from Shanhaiguan for about 9 km to reach the site; about a 25-minute taxi ride from Shanhaiguan."
+      },
+      "tipsEn": [
+        "There are many steps on the mountain trails, so wear comfortable, non-slip shoes.",
+        "Xuanyang Cave is cool inside, so bring a light jacket.",
+        "Peak season runs May-December; winter (January-April) opening is uncertain, so call ahead to confirm.",
+        "Combo tickets are available covering Old Dragon's Head and First Pass Under Heaven, among others.",
+        "Mobile signal and navigation can be unreliable in the mountains, so download offline maps or directions beforehand.",
+        "Food options on site are limited, so bring your own water and snacks."
+      ],
+      "faqEn": [
+        {
+          "q": "How much does Changshoushan cost?",
+          "a": "Online platforms list a reference price starting around ¥30, with several cross-attraction combo packages also available — check the price posted on site on the day."
+        },
+        {
+          "q": "Is Changshoushan open year-round?",
+          "a": "Available information shows it's open May 1 through December 31, 07:30-17:30. We couldn't find a reliable source on winter (January-April) opening or hours — call 0335-5259000 or 0335-5176633 to confirm before you go."
+        },
+        {
+          "q": "Do I need to book in advance for Changshoushan?",
+          "a": "We found no clear information requiring advance booking — check with the site by phone or through an online ticketing platform before you go."
+        }
+      ]
     },
     {
       "id": "yansaihu",
@@ -1825,7 +2266,37 @@
       "mentions": 8,
       "inlinks": 0,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "May-October is best, with summer good for escaping the heat and autumn offering the most vivid foliage.",
+      "suitableForEn": "Families, nature and photography enthusiasts, visitors who enjoy a mix of scenery and cultural sites",
+      "ticketNotesEn": "Sources disagree: some list admission at ¥90 per person, others put it from ¥50 or a group-buy price of ¥45, and we could not confirm a consistent answer on whether boat rides are included. Whether the boat ticket is bundled with admission, and discounts for seniors, children, or students, could not be confirmed — check the current price and whether the boat ride is separate through Ctrip, Meituan, or the site's official channels before buying.",
+      "openTimeNotesEn": "Peak season (roughly May-October) 08:00-17:00; off-season hours may be shorter, and sources differ on opening at 08:00 or 08:30, so check the official channels or a travel platform for the current schedule.",
+      "transportEn": {
+        "publicTransit": "Tourist shuttle line 3 runs directly to Yansai Lake from Shanhaiguan Old Town/Shanhaiguan Station; confirm the departure point and schedule on site or online.",
+        "driving": "About a 20-minute drive or taxi ride from Shanhaiguan Old Town (roughly 3.5 km)."
+      },
+      "tipsEn": [
+        "Confirm whether the boat ticket needs to be purchased separately before boarding.",
+        "Autumn (around September-October) has the most vivid foliage and is the best time for photos and scenery.",
+        "The lake area is fairly large, so allow 2-3 hours for the visit.",
+        "The bird sanctuary (Niaoyulin) is a good stop for families with young children.",
+        "Admission and hours change with the season, so check official channels or a travel platform for the current information before you go.",
+        "It pairs well with Shanhaiguan Old Town on the same day, since the drive is short."
+      ],
+      "faqEn": [
+        {
+          "q": "Does the Yansai Lake ticket include the boat ride?",
+          "a": "Sources disagree — some list admission at ¥90, others from ¥50 or a group-buy price of ¥45, and we couldn't confirm a consistent answer on whether the boat ride is included. Check with the official channels or a travel platform before buying."
+        },
+        {
+          "q": "How long should I plan for Yansai Lake?",
+          "a": "Generally 2-3 hours, including a boat ride on the lake and exploring the shoreline scenery."
+        },
+        {
+          "q": "Can I visit Yansai Lake and Shanhaiguan Old Town on the same day?",
+          "a": "Yes, they're about a 20-minute drive apart, making them easy to combine in one day."
+        }
+      ]
     },
     {
       "id": "shanhaiguan_gucheng",
@@ -1944,7 +2415,36 @@
       },
       "mentions": 25,
       "inlinks": 1,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "April-October; autumn brings cooler weather and the old buildings photograph especially well.",
+      "suitableForEn": "History buffs, families with kids on educational trips, photographers",
+      "ticketNotesEn": "Entry to the old town itself is free. Climbing the First Pass Under Heaven gate tower costs ¥60. A combo ticket covering the First Pass Under Heaven, the Ministry of War Branch Office, the Bell and Drum Tower, and other sites costs about ¥50. The Arrow Tower alone is about ¥40. Walking through the old town is free; visiting the paid sites — the gate tower, the Ministry of War Branch Office, etc. — requires a separate ticket or combo pass. Children under 1.2m, seniors over 70, active-duty military, and people with disabilities enter free with ID; minors aged 6-18 and students get half price — check the ticket window for current details.",
+      "openTimeNotesEn": "The old town is open all day; paid sites like the gate tower are roughly 08:30-17:00 (hours shift slightly by season, so check official channels before you go).",
+      "transportEn": {
+        "publicTransit": "About a 15-minute walk from Shanhaiguan Railway Station to the old town; local buses also run to the Shanhaiguan Old Town stop.",
+        "driving": "Take the Shanhaiguan exit off the G1 Jingha Expressway, about a 10-minute drive to the old town; it's roughly 15 km from Qinhuangdao Station and 18 km from Beidaihe Station, and about 300 km (roughly 3.5 hours) from Beijing."
+      },
+      "tipsEn": [
+        "Walking through the old town is free; climbing the First Pass Under Heaven gate tower requires a separate ticket.",
+        "There are plenty of snack stalls and gift shops inside, so you could easily spend half a day browsing.",
+        "It pairs well with Old Dragon's Head and Jiaoshan Great Wall on the same day, since all three are close together.",
+        "Peak-season holidays get crowded — mornings and evenings are quieter and give better light for photos.",
+        "The steps up the gate tower are steep, so wear comfortable shoes."
+      ],
+      "faqEn": [
+        {
+          "q": "Do I need a ticket to enter the old town?",
+          "a": "No, the old town itself is free to enter; you only need a ticket for specific sites like the First Pass Under Heaven gate tower."
+        },
+        {
+          "q": "Are the old town and Old Dragon's Head the same place?",
+          "a": "No, Old Dragon's Head is where the Great Wall meets the sea, about 5 km south of the old town, and requires a separate trip."
+        },
+        {
+          "q": "How long does it take to see the old town?",
+          "a": "Walking the streets alone takes about 1.5-2 hours; add the gate tower and various courtyards and it's closer to half a day."
+        }
+      ]
     },
     {
       "id": "qiuxian",
@@ -2034,7 +2534,36 @@
       "mentions": 5,
       "inlinks": 0,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "April-October, when the weather is warm and sea winds are milder, is the best time to visit.",
+      "suitableForEn": "History buffs, families on educational trips, visitors after seaside photos",
+      "ticketNotesEn": "Free (the general admission fee, previously about ¥30-45 depending on the source, has been dropped in recent years). Multiple sources say the site now has no general admission fee, though older material mentions ticket prices, half-price for children, and free entry for seniors and military. Whether individual facilities within the park are still charged separately could not be confirmed, so check the on-site notice or the official account before you go.",
+      "openTimeNotesEn": "08:00-17:00, mainly open in peak season (April-October); hours for other months and the exact closing time should be confirmed in advance.",
+      "transportEn": {
+        "publicTransit": "Take bus 8 within the city to the Qiuxian Ruhaichu stop, right at the entrance.",
+        "driving": "About 6 km (roughly a 15-minute drive) from Qinhuangdao Station; about 18 km from Beidaihe Station; about 300 km (roughly 3.5-4 hours) from Beijing."
+      },
+      "tipsEn": [
+        "The site is small and fits easily into a half-day itinerary while exploring downtown Qinhuangdao.",
+        "It's windy by the sea, so dress warmly in spring and autumn.",
+        "The statue of Qin Shi Huang is the main photo spot.",
+        "Worth visiting if you're curious where the name 'Qinhuangdao' comes from.",
+        "There's little shade in the park, so watch for sun exposure in summer."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there still an admission fee?",
+          "a": "According to available information, the general admission fee has been dropped and the site is free to enter, but confirm through official channels or on site in case individual facilities are charged separately."
+        },
+        {
+          "q": "Is the name 'Qinhuangdao' connected to this site?",
+          "a": "Yes — according to legend, Qin Shi Huang sent alchemists to sea from this spot in search of immortality, and the city's name, 'Qinhuangdao,' comes from that legend."
+        },
+        {
+          "q": "Is it good to bring kids?",
+          "a": "Yes, the site is small with a statue and themed installations, making it good for a light, low-effort history lesson and photos."
+        }
+      ]
     },
     {
       "id": "xinao",
@@ -2125,7 +2654,36 @@
       "mentions": 11,
       "inlinks": 3,
       "tier": 1,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Good year-round (it's an indoor, climate-controlled attraction unaffected by weather or season).",
+      "suitableForEn": "Families with children, marine life enthusiasts, a good backup plan for rainy or very hot days",
+      "ticketNotesEn": "Starting from ¥55 (ticket types and prices may vary by season, so check the official channel or a booking platform for the current price). Children under 1.2m, seniors over 70, active-duty military, and people with disabilities enter free with valid ID, check the site's daily notice for details. Shows run on a limited schedule, so check the show times after entering.",
+      "openTimeNotesEn": "April 1-October 15: 08:40-16:30; October 16-January 31 and February 2-March 31: 09:10-16:30; February 1: 09:10-15:00 (these are ticket sales/entry cutoff times, so check the on-site notice for details).",
+      "transportEn": {
+        "publicTransit": "Take bus 19 or 32 within the city to the Xin'ao Ocean World stop, right at the entrance.",
+        "driving": "About 6-8 km (roughly a 15-20 minute drive) from Qinhuangdao Station; about 15 km from Beidaihe Station; about 300 km (roughly 3.5-4 hours) from Beijing."
+      },
+      "tipsEn": [
+        "It's fully indoors, making it a great backup for rainy, very hot, or cold days.",
+        "In the underwater tunnel, video or burst-mode photos tend to come out better.",
+        "Check the day's show schedule after entering so you don't miss the mermaid or sea lion shows.",
+        "It can get crowded, so try to avoid weekend and holiday peak times.",
+        "It's air-conditioned inside, so bring a light jacket for shoulder seasons."
+      ],
+      "faqEn": [
+        {
+          "q": "Can I visit on a rainy day?",
+          "a": "Yes, the whole experience is indoors, making it one of the few Qinhuangdao attractions unaffected by weather."
+        },
+        {
+          "q": "Are there shows, and when?",
+          "a": "Yes, mermaid and sea lion shows run on a set schedule, posted at the entrance each day."
+        },
+        {
+          "q": "Is it good for young kids?",
+          "a": "Yes, it's a popular family attraction in Qinhuangdao, and children under 1.2m generally enter free."
+        }
+      ]
     },
     {
       "id": "gangkou",
@@ -2206,7 +2764,36 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Good year-round (mostly indoor and unaffected by weather).",
+      "suitableForEn": "Culture and photography enthusiasts, visitors interested in port or industrial history",
+      "ticketNotesEn": "Free admission, but you need to bring ID to register at entry. According to some sources, current capacity is limited and the museum currently only accepts group bookings, so individual visitors should call ahead or check the 'Leyoueji' WeChat mini-program for booking information.",
+      "openTimeNotesEn": "Monday-Friday 09:00-11:30 and 14:30-17:30 (weekend/holiday hours could not be confirmed, and this differs from an earlier claim of 'closed Mondays, open all day otherwise', so check the official account or call to confirm).",
+      "transportEn": {
+        "publicTransit": "Take bus 8 or 31 within the city to the Nanshan stop, then walk to the museum.",
+        "driving": "About 3-5 km (roughly a 10-15 minute drive) from Qinhuangdao Station."
+      },
+      "tipsEn": [
+        "Open hours are split into weekday morning and afternoon sessions, so call ahead to confirm on weekends or closed days.",
+        "Individual visits may currently be restricted, so call 0335-3093953 or check the 'Leyoueji' mini-program before you go.",
+        "Admission is free, but bring ID to register.",
+        "The industrial-style buildings and vintage equipment make for good photos.",
+        "Exhibits are mostly panels and artifacts, so it will resonate most with visitors interested in port or industrial heritage."
+      ],
+      "faqEn": [
+        {
+          "q": "Do I need to book in advance?",
+          "a": "Some sources indicate the museum currently mainly accepts group bookings, so individual visitors should call ahead or check the 'Leyoueji' mini-program to confirm whether they can enter directly."
+        },
+        {
+          "q": "How much is admission?",
+          "a": "Free, but you need to bring ID to register at entry."
+        },
+        {
+          "q": "Is it open on weekends?",
+          "a": "Available information covers weekday hours only; weekend and closure schedules could not be confirmed, so call ahead to check before you go."
+        }
+      ]
     },
     {
       "id": "daihe_park",
@@ -2285,7 +2872,35 @@
       "mentions": 2,
       "inlinks": 1,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "May to September, most beautiful in summer when the lotus flowers bloom.",
+      "suitableForEn": "Families, anglers, strolling and cycling, a relaxing break between other sights",
+      "ticketNotesEn": "No admission fee. A few individual activities inside the park, such as fishing or bike rental, may charge a fee — check the posted price on site (exact figures unverified).",
+      "transportEn": {
+        "publicTransit": "Take bus line 45 to the Daihe Ecological Park West Gate (Daihe Shengtaiyuan Ximen) stop; it's about a 13-meter walk from there.",
+        "driving": "About 6-8 km (15-20 minutes) by car from Beidaihe Station, or about 20 km from Qinhuangdao Station."
+      },
+      "tipsEn": [
+        "This free community park is a good place to unwind between other stops — no need to set aside a big block of time.",
+        "Lotus flowers are at their best from roughly June to August, the peak viewing period.",
+        "Bring a fishing rod if you want to try the designated fishing area.",
+        "The park is fairly large and good for cycling or walking, so wear comfortable shoes.",
+        "There's decent shade, but bring sun protection for midday visits in summer."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there an admission fee?",
+          "a": "No — the park is free to enter year-round."
+        },
+        {
+          "q": "Is it suitable for children?",
+          "a": "Yes. The park is flat and open, with boardwalks and lawns good for a family stroll, though there are few playground facilities — it's mainly about enjoying nature."
+        },
+        {
+          "q": "When is the best time to visit?",
+          "a": "Summer (June-August), when the lotus flowers are in full bloom, is the most scenic time. Spring and autumn are also pleasant for walking or cycling."
+        }
+      ]
     },
     {
       "id": "aranya",
@@ -2395,7 +3010,37 @@
       },
       "mentions": 2,
       "inlinks": 3,
-      "tier": 1
+      "tier": 1,
+      "bestSeasonEn": "May to October, with the best light at sunrise and dusk.",
+      "suitableForEn": "Art and design enthusiasts, couples, photographers",
+      "ticketNotesEn": "Reservation required. The community itself has no single admission ticket, but some venues or events charge separately or are limited to owners and guests. The Seaside Library is usually free but needs an online reservation for a visiting slot. During special events such as the drama festival, some venues admit only ticket holders or owners, and day-trippers who are not staying overnight may not be able to enter freely — check the official WeChat account in advance for which venues and slots are open that day.",
+      "openTimeNotesEn": "The community is open to visitors all day but is a gated, privately managed area. Seaside Library visiting slots are generally 9:00 AM-5:00 PM, with a daily visitor cap on a first-come, first-served basis — check the \"Seaside Library\" (Gudu Tushuguan) WeChat account or the Aranya app for the current schedule.",
+      "transportEn": {
+        "publicTransit": "About a 30-40 minute taxi ride from Beidaihe Station. The community also runs its own shuttle, which usually needs to be booked in advance.",
+        "driving": "About 25-30 km from Beidaihe Station; about 45 km from Qinhuangdao Station; about 260 km (roughly 3 hours) from Beijing."
+      },
+      "tipsEn": [
+        "Photography is not allowed inside the library — step outside if you want to take pictures, and keep your voice down while inside.",
+        "Book your library visiting slot in advance through the \"Seaside Library\" WeChat account or the Aranya app — walk-ins are not guaranteed entry.",
+        "The community is gated; if you're not an owner or overnight guest, the easiest way in is usually to book a homestay/hotel within Aranya or make a qualifying purchase.",
+        "Sunrise and dusk give the best light, when the white buildings take on golden or pink tones.",
+        "Light-colored clothing tends to photograph well against the architecture here.",
+        "Access rules for some venues can change temporarily during special events like the drama festival, so double-check before you go."
+      ],
+      "faqEn": [
+        {
+          "q": "Can non-owners get in?",
+          "a": "Yes, but the community is gated and managed access — you typically need a reservation, an overnight stay at a homestay/hotel inside Aranya, or a minimum amount of spending to enter. Check the current policy before you go."
+        },
+        {
+          "q": "How do I book the Seaside Library?",
+          "a": "Reserve a visiting slot online through the \"Seaside Library\" WeChat account or the Aranya app. There's usually a daily cap, filled on a first-come, first-served basis."
+        },
+        {
+          "q": "Can I take photos inside the library?",
+          "a": "No photography is allowed inside, and visitors are asked to stay quiet. You can photograph the library's exterior from outside."
+        }
+      ]
     },
     {
       "id": "huangjin",
@@ -2512,7 +3157,36 @@
       },
       "mentions": 2,
       "inlinks": 2,
-      "tier": 2
+      "tier": 2,
+      "bestSeasonEn": "June to September, when temperatures are warm enough for the sea and sand-sliding.",
+      "suitableForEn": "Young travelers, families with kids, water-sports fans",
+      "ticketNotesEn": "The beach itself is free. The International Sand-Sliding Center and similar attractions are ticketed separately — adult tickets are around 80 RMB at the gate (some online channels list discounted prices around 35 RMB, or about 60 RMB for group deals), with tickets for children/seniors around 50 RMB (discounted to about 35 RMB online). Sand-sliding, grass-sliding and go-karts are usually included in the sand-sliding center ticket, generally good for one ride each; booking online in advance is typically cheaper than paying at the gate, so it's worth comparing prices on travel platforms first.",
+      "openTimeNotesEn": "The beach area is open all day. The paid attractions, such as the International Sand-Sliding Center, run seasonally, roughly early April to early October, 8:50 AM-4:30 PM (last entry 4:00 PM) — check the current season's posted hours.",
+      "transportEn": {
+        "publicTransit": "Direct buses run from Qinhuangdao's long-distance bus station to Gold Coast (Huangjin Haian). You can also take a bus from the Qinhuangdao Haiyang Road bus station or from Beidaihe to Changli, then transfer to a minibus. City bus line 22 covers part of the route.",
+        "driving": "About 30 km (40-50 minutes) by car from Beidaihe; about 50 km from Qinhuangdao Station; about 300 km (roughly 3.5-4 hours) from Beijing."
+      },
+      "tipsEn": [
+        "Sand-sliding is the signature activity here — sliding down the tall dunes straight toward the sea is a thrilling ride.",
+        "The sand gets very hot in summer sun, so wear sandals or flip-flops.",
+        "It's windy and sunny by the sea, so pack both sunscreen and a windbreaker.",
+        "The sand-sliding center only operates seasonally (roughly early April to early October) — confirm it's open before visiting in the off-season.",
+        "Water activities like jet skis and banana boats are usually billed separately, so ask about pricing before joining in."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there an admission fee for the beach?",
+          "a": "The beach itself is free. You only need a ticket to enter attractions such as the sand-sliding center."
+        },
+        {
+          "q": "Can you go sand-sliding year-round?",
+          "a": "No — the sand-sliding center operates seasonally, roughly from early April to early October, and is normally closed in winter."
+        },
+        {
+          "q": "Is this the same place as Nandaihe?",
+          "a": "Gold Coast sits right next to the Nandaihe resort area — they're close together geographically but are separate scenic zones, often visited together on the same trip."
+        }
+      ]
     },
     {
       "id": "yudao",
@@ -2604,7 +3278,36 @@
       "mentions": 4,
       "inlinks": 5,
       "tier": 1,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Good year-round: summer (June-August) for water play and lavender, winter for the hot springs.",
+      "suitableForEn": "Family getaways, couples, hot-spring enthusiasts",
+      "ticketNotesEn": "The basic adult package starts around 135 RMB online (covers park entry, beach, sand/grass sliding, water fort and other basic attractions). A combined hot spring + night show ticket is about 198 RMB. The standalone Feishe'er Seaview Hot Spring ticket is about 188 RMB. Booking online is typically 20-30 RMB cheaper than at the gate, so book a day ahead on a travel platform if possible. There are several ticket types (basic package, hot spring combo, night show combo, etc.), so pick the one that matches your plans.",
+      "openTimeNotesEn": "Summer season (July-August): 8:00 AM-9:30 PM (last entry 9:00 PM), including the night session. Peak season (April-June, September-October): 9:00 AM-5:30 PM, with the hot spring area open until 9:00 PM. Hours are extended to around 6:30 PM during holidays like Spring Festival and National Day — check the day's posted schedule.",
+      "transportEn": {
+        "publicTransit": "About a 40-minute taxi ride from Beidaihe Station; no direct bus route information found.",
+        "driving": "About 30 km (40 minutes) by car from Beidaihe Station; about 50 km from Qinhuangdao Station; about 300 km (roughly 3.5-4 hours) from Beijing."
+      },
+      "tipsEn": [
+        "Bring a swimsuit in summer; in winter you can still enjoy the outdoor hot springs, so pack warm clothing to wear between soaks.",
+        "The lavender is in bloom roughly June to August, the best time for photos.",
+        "There are several ticket types — comparing prices online in advance usually gets you a better package deal.",
+        "The park stays open late in summer, so consider arriving in the evening to avoid the daytime heat.",
+        "The grounds are large, so plan for a full day."
+      ],
+      "faqEn": [
+        {
+          "q": "Are the hot springs open in winter?",
+          "a": "Yes — outdoor hot spring soaking is the main winter draw, while the water park facilities mainly run in summer."
+        },
+        {
+          "q": "When does the lavender bloom?",
+          "a": "The lavender garden generally flowers from June to August, the best time to see and photograph it."
+        },
+        {
+          "q": "Does the ticket include the hot springs?",
+          "a": "The basic package usually doesn't include the hot springs — you'll need a separate hot spring combo ticket or standalone ticket, so check the ticket details before buying."
+        }
+      ]
     },
     {
       "id": "shenglan",
@@ -2693,7 +3396,35 @@
       "mentions": 7,
       "inlinks": 0,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "April to October, especially June to August when there are more shows and you can combine it with water play.",
+      "suitableForEn": "Families with children, marine-animal enthusiasts",
+      "ticketNotesEn": "Adult ticket prices vary by platform — the official list price starts around 88 RMB, with online discount tickets commonly available from about 58 RMB. Free for seniors 70 and over; discounted for seniors 60-69; free for children under 1.2 m tall or under 6 years old. Additional discounts exist for people with disabilities, military personnel, and students — check the day's posted price and the booking platform for details.",
+      "openTimeNotesEn": "Hours vary by season: July 1-August 31, 8:10 AM-6:00 PM; September 1-30, 8:40 AM-5:30 PM. Rides and indoor venues close at 5:00 PM; the beach is open 9:30 AM-5:00 PM (exit closes at 5:20 PM). Hours for the rest of the year were not found — confirm on the official platform before visiting.",
+      "transportEn": {
+        "publicTransit": "No clear direct bus route found — it's best to take a taxi or ride-hailing car from Beidaihe or Changli county town.",
+        "driving": "About a 30-minute taxi ride from the new Beidaihe district; about 1 hour by car from downtown Qinhuangdao."
+      },
+      "tipsEn": [
+        "Check the day's show schedule as soon as you enter — dolphin and beluga whale shows have limited seating, so get there early to grab a spot.",
+        "Ticket prices vary a lot by platform, so compare prices on sites like Ctrip or Meituan before booking.",
+        "In summer you can combine your visit with the park's beach — bring sunscreen and swimwear.",
+        "Opening hours change with the season, so call ahead or check the booking platform for the current day's hours."
+      ],
+      "faqEn": [
+        {
+          "q": "Does the ticket include the animal shows?",
+          "a": "Tickets generally include regular dolphin and beluga whale shows — check the posted show times for the day you visit."
+        },
+        {
+          "q": "Is it open in winter?",
+          "a": "The information found only covers hours for July-September; winter opening status and hours were not confirmed, so call ahead or check the booking platform before visiting."
+        },
+        {
+          "q": "What ages is it suitable for?",
+          "a": "The park focuses on marine animal shows and family-friendly rides, suitable for children of all ages, with free entry for those under 1.2 m tall or under 6 years old."
+        }
+      ]
     },
     {
       "id": "jieshishan",
@@ -2775,7 +3506,35 @@
       "mentions": 4,
       "inlinks": 2,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "April to October, with autumn's clear skies offering the best views from the summit.",
+      "suitableForEn": "Hikers, history and culture enthusiasts",
+      "ticketNotesEn": "20 RMB; some sources list 24 RMB. No clear published discount policy for seniors, children or students was found — check with Ctrip or a similar platform, or at the ticket office, for the latest pricing and combo tickets.",
+      "openTimeNotesEn": "May 1-October 6: 7:30 AM-5:30 PM (last entry 5:30 PM). October 7-December 31: 8:30 AM-5:30 PM (last entry 5:30 PM). Hours for January-April were not found.",
+      "transportEn": {
+        "publicTransit": "No direct bus route found — take a taxi or ride-hailing car from Changli county town.",
+        "driving": "About a 30-minute taxi ride from Changli county town; about 1 hour by car from downtown Qinhuangdao."
+      },
+      "tipsEn": [
+        "The full climb takes about 2 hours and requires reasonable fitness, so wear comfortable hiking shoes.",
+        "There are few shops on the mountain, so bring your own water and snacks.",
+        "The summit offers wide views out to the Bohai Sea — pick a clear day for the best visibility.",
+        "Autumn brings cool weather and better visibility, making it a good time for the climb."
+      ],
+      "faqEn": [
+        {
+          "q": "How much is the entrance fee?",
+          "a": "Published sources show around 20 RMB, though some platforms list 24 RMB — check the price posted at the site on the day."
+        },
+        {
+          "q": "How long does it take to reach the summit?",
+          "a": "The full hike to the top takes about 2 hours; the trail has a fair bit of incline, so some fitness is needed."
+        },
+        {
+          "q": "Are there places to eat or resupply on the mountain?",
+          "a": "There are few shops on the mountain, so bring your own water and food."
+        }
+      ]
     },
     {
       "id": "weilanhaian",
@@ -2856,7 +3615,35 @@
       "mentions": 12,
       "inlinks": 1,
       "tier": 1,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "May to October, good for beach activities in summer, with the best light in the evening.",
+      "suitableForEn": "Art and design enthusiasts, couples, photographers",
+      "ticketNotesEn": "Free to enter (it's a public stretch of coastline); individual attractions like the bookstore or surfing lessons charge separately. There's no admission fee for the area itself — spending at the bookstore, surf lessons, dining, etc. is priced individually by each vendor, and no single published rate list was found.",
+      "openTimeNotesEn": "The public seafront area is open all day. Business hours for shops such as the Sky of the City Cat bookstore follow each store's own posted schedule — no specific hours were found.",
+      "transportEn": {
+        "publicTransit": "No direct bus route found — take a taxi or ride-hailing car from Beidaihe Station.",
+        "driving": "About a 20-minute taxi ride from Beidaihe Station."
+      },
+      "tipsEn": [
+        "The Sky of the City Cat bookstore sells postcards you can send to your future self — a popular thing to do here.",
+        "Visit the beach swing at dusk for the best light and backdrop for photos.",
+        "Compared with the traditional Beidaihe seafront, this spot is quieter and less crowded, good for an unhurried stroll.",
+        "For surfing and other water activities, contact the local vendor ahead of time to confirm pricing and schedule."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there an admission fee for Weilan Coast?",
+          "a": "The public seafront area is free; individual attractions like the bookstore or surfing are charged separately."
+        },
+        {
+          "q": "Is this the same place as Aranya?",
+          "a": "No. Aranya is a separate, well-known lifestyle community on the Changli Gold Coast, while Weilan Coast is a different project in the new Beidaihe district — the two are easy to mix up, so double-check your destination name before heading out."
+        },
+        {
+          "q": "Is it good for a visit with children?",
+          "a": "The overall vibe is quiet and relaxed, and the beach is fine for a family stroll, but there aren't major rides or attractions — it suits families more interested in photos and a low-key visit."
+        }
+      ]
     },
     {
       "id": "xianluodao",
@@ -2956,7 +3743,35 @@
       "mentions": 12,
       "inlinks": 2,
       "tier": 1,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "May to October, with summer best for the sea-based rides.",
+      "suitableForEn": "Families, couples, photo opportunities",
+      "ticketNotesEn": "Admission, which includes a round-trip cable car, is about 80 RMB. Sea bungee jumping costs an extra 240 RMB per person, boat rides an extra 80 RMB per person, and rides such as the spinning taxi, deluxe carousel and pirate ship are about 35 RMB per person. The ticket usually covers the round-trip cable car across the sea, while bungee jumping, boat rides and other attractions on the island are all charged separately. No clear published discount policy for seniors or children was found — check before buying.",
+      "openTimeNotesEn": "Published hours cover July 10-December 31: 9:00 AM-7:00 PM. Hours for the rest of the year were not found — check with the ticketing platform or the site before visiting.",
+      "transportEn": {
+        "publicTransit": "No direct bus route found — take a taxi or ride-hailing car from the Nandaihe area.",
+        "driving": "About a 10-minute taxi ride from within the Nandaihe scenic area."
+      },
+      "tipsEn": [
+        "The cable car across the sea is the main highlight and the primary way to reach the island — those afraid of heights should think twice before riding.",
+        "Sea bungee jumping, boat rides and similar attractions on the island are all extra, so budget accordingly.",
+        "Pick a clear day for the best sea views and photos.",
+        "The round-trip cable car ride takes about 15 minutes, so allow extra time for queuing."
+      ],
+      "faqEn": [
+        {
+          "q": "What does the Xianluo Island ticket include?",
+          "a": "It usually includes the round-trip cable car across the sea; bungee jumping, boat rides and other rides are bought separately on-site."
+        },
+        {
+          "q": "Is the cable car safe? Can people afraid of heights ride it?",
+          "a": "It's a standard sightseeing cable car across the sea and is generally considered safe, but since the whole ride is suspended above open water, those afraid of heights should decide for themselves whether to ride."
+        },
+        {
+          "q": "Is it open in winter?",
+          "a": "The published hours found only cover July-December; opening status and hours for winter (January-June) were not confirmed, so check ahead."
+        }
+      ]
     },
     {
       "id": "nanent",
@@ -3045,7 +3860,35 @@
       "mentions": 9,
       "inlinks": 1,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "May to October — summer has the fullest lineup of attractions but also the biggest crowds.",
+      "suitableForEn": "Young travelers, families with kids, amusement-park fans",
+      "ticketNotesEn": "Prices shift with the season and ride combinations; group-buy deals can start as low as 29 RMB, so check the booking platform's current price. Free entry for children under 6 or under 1.2 m tall, seniors 70 and over, active-duty military, people with disabilities, firefighters/rescue workers, and holders of the \"Yingcai A Card.\" Half-price for children 6-18, full-time undergraduate or lower-level students, seniors 60-69, and people with disabilities. Confirm the exact ticket type and whether it covers all rides before buying.",
+      "openTimeNotesEn": "2025 posted hours: May 1-June 30, 8:30 AM-5:30 PM; July 1-August 25, 8:00 AM-6:00 PM; August 26-31, 8:30 AM-6:00 PM; September 1-October 7, 9:00 AM-5:30 PM; extended to 8:00 AM-6:00 PM during holidays such as Labor Day, Dragon Boat Festival, Mid-Autumn Festival and National Day. Opening status and hours for November through the following April were not found.",
+      "transportEn": {
+        "publicTransit": "No direct bus route found — take a taxi or ride-hailing car from the Nandaihe area.",
+        "driving": "Easily reached by taxi from within the Nandaihe scenic area; about 1 hour by car from downtown Qinhuangdao."
+      },
+      "tipsEn": [
+        "The park is large, so arrive early and plan your route to fit in the major rides.",
+        "Summer weekends draw big crowds and long queues — visiting on a weekday is less hectic.",
+        "Booking online ahead of time is usually cheaper than paying at the gate, so compare prices on ticketing platforms first.",
+        "Hours change significantly by season and holiday, so confirm the day's schedule on a booking platform or official channel before you go."
+      ],
+      "faqEn": [
+        {
+          "q": "How much is admission to Nandaihe International Amusement Center?",
+          "a": "Prices fluctuate a lot by season and sales channel, with group-buy deals as low as 29 RMB — check the booking platform's current listing, as there's no single official fixed price."
+        },
+        {
+          "q": "Is it open in winter?",
+          "a": "The information found only covers May-October; winter opening status was not confirmed, so check ahead before visiting."
+        },
+        {
+          "q": "Is it suitable for young children?",
+          "a": "The park has both thrill rides and gentler family-friendly attractions, so you can pick rides suited to your child's age and height."
+        }
+      ]
     },
     {
       "id": "zushan",
@@ -3132,7 +3975,35 @@
       "mentions": 14,
       "inlinks": 2,
       "tier": 1,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "April to October — autumn for the best fall foliage, May for the azalea blooms.",
+      "suitableForEn": "Hikers, photographers, summer-getaway travelers",
+      "ticketNotesEn": "Standard adult admission is 80 RMB, half-price ticket 40 RMB. Admission + shuttle bus combo is 120 RMB; admission + shuttle + one-way cable car is 160 RMB; admission + shuttle + round-trip cable car is 210 RMB. Cable car alone: 80 RMB one-way, 130 RMB round-trip. A winter special (December-February) combo of admission + shuttle is 19.9 RMB. The exact conditions for half-price and senior/child/student discounts were not clearly published — check before buying. Cable car and shuttle tickets can be bundled with admission.",
+      "openTimeNotesEn": "Open year-round, 8:00 AM-5:00 PM, with last entry at 3:00 PM (some sources give 3:30 PM — check the day's posted notice).",
+      "transportEn": {
+        "publicTransit": "No direct bus route found — go to Qinglong county town first, then take a taxi or ride-hailing car.",
+        "driving": "About a 1-hour taxi ride from downtown Qinhuangdao."
+      },
+      "tipsEn": [
+        "To see the sea of clouds at sunrise, stay overnight at a guesthouse at the foot of the mountain and set off before dawn to reach Tiannv Peak in time.",
+        "If your fitness is average, consider taking the cable car up and walking down to balance the experience with the effort involved.",
+        "Autumn brings the best fall foliage, a favorite time for photographers; the spring azalea blooms are also worth a special trip.",
+        "The winter special ticket (19.9 RMB, admission + shuttle) is available December-February, but confirm in advance whether the cable car and some trails are running as usual."
+      ],
+      "faqEn": [
+        {
+          "q": "How much does admission to Zushan cost?",
+          "a": "Standard admission is 80 RMB, half-price ticket 40 RMB. The shuttle bus and cable car are extra or available as combo tickets, with the round-trip cable car combo at 210 RMB."
+        },
+        {
+          "q": "How should I plan a visit to see the sea of clouds at sunrise?",
+          "a": "Stay overnight at a guesthouse at the foot of the mountain and set off around 4:00 AM to reach Tiannv Peak in time for sunrise."
+        },
+        {
+          "q": "Can you visit in winter?",
+          "a": "Yes — a winter special ticket (19.9 RMB, admission + shuttle) is available December-February, but check with the site in advance about cable car operation and trail access."
+        }
+      ]
     },
     {
       "id": "bingtangyu",
@@ -3220,7 +4091,35 @@
       "mentions": 3,
       "inlinks": 1,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "June to August, when you can see the summer ice remnants and cool off at the same time.",
+      "suitableForEn": "Adventure seekers, families, and visitors escaping the summer heat.",
+      "ticketNotesEn": "The listed price is ¥50, though some sources report on-site or group-buy prices as low as ¥15 — figures vary and aren't fully consistent across sources. It's unclear whether the glass skywalk and canyon rafting are included in the ticket or sold separately, and there's no unified information on discounts for seniors or children, so confirm with the scenic area before buying.",
+      "openTimeNotesEn": "Open 08:00-18:00 from April 1 to October 31, and 08:00-17:00 from November 1 to March 31. Sources disagree on the last-entry cutoff (either 16:00 or 17:00), so check with the scenic area before you go.",
+      "transportEn": {
+        "publicTransit": "No direct bus route has been confirmed; a taxi or ride-hailing car from downtown Qinhuangdao is recommended.",
+        "driving": "About a 1-hour taxi ride from downtown Qinhuangdao."
+      },
+      "tipsEn": [
+        "Summer is the best time to visit — the canyon runs about 10°C (18°F) cooler than outside, making it a great spot to beat the heat.",
+        "The glass skywalk hangs over a sheer cliff face, so visitors afraid of heights should think carefully before trying it.",
+        "Canyon rafting will get your clothes wet, so bring a change of clothing.",
+        "Ticket prices and opening hours shift with the season — call the scenic area or check a booking platform for the current day's information before you go."
+      ],
+      "faqEn": [
+        {
+          "q": "Why is it called Bingtangyu (\"Ice Pond Valley\")?",
+          "a": "The name comes from patches of ice that remain in the canyon even during the hottest days of summer — a fairly rare geological phenomenon in the region."
+        },
+        {
+          "q": "Is the glass skywalk safe?",
+          "a": "The skywalk is a standard sightseeing attraction and is considered safe, but it is built along a sheer cliff, so visitors with a fear of heights should judge for themselves whether to try it."
+        },
+        {
+          "q": "Is canyon rafting charged separately?",
+          "a": "There's no clear public information on ticket bundling, so check with the ticket counter when booking or after you arrive."
+        }
+      ]
     },
     {
       "id": "banchangyu",
@@ -3341,7 +4240,34 @@
       },
       "mentions": 1,
       "inlinks": 0,
-      "tier": 2
+      "tier": 2,
+      "bestSeasonEn": "April to October, with the fall foliage against the Great Wall being the most beautiful sight.",
+      "suitableForEn": "Great Wall enthusiasts, photographers, and history and archaeology buffs.",
+      "ticketNotesEn": "Tickets start around ¥50, though prices and combo packages vary by channel — some sources list ¥100 — so go with the price posted at the scenic area on the day of your visit. There's no consistent public information on discounts for seniors, children, or students, or on whether the brick-kiln exhibition and sightseeing shuttle are included, so confirm before buying.",
+      "transportEn": {
+        "publicTransit": "No direct bus route has been confirmed; a taxi or ride-hailing car from downtown Qinhuangdao is recommended.",
+        "driving": "About a 50-minute taxi ride from downtown Qinhuangdao, roughly 29 km away."
+      },
+      "tipsEn": [
+        "The Ming-dynasty brick kiln ruins here are the largest such find in China and have significant archaeological value — look out for signage or guided commentary.",
+        "The \"Upside-Down Great Wall\" (Daogua Changcheng) section has rough footing; it's great for photos but watch your step.",
+        "Fall foliage paired with the Great Wall makes for excellent photography, so autumn is the recommended season for photographers.",
+        "The scenic area includes several scattered sites — Tianran Temple, Lingxian Cave, and the Jiudaogang Waterfalls among them — so plan your route before you set out."
+      ],
+      "faqEn": [
+        {
+          "q": "Is Banchangyu Great Wall the same as the Great Wall at Shanhaiguan?",
+          "a": "No. Banchangyu is a separate section of the Ming Great Wall, known for its brick-kiln ruins, and is a different scenic area from Shanhaiguan — double-check your destination before you go."
+        },
+        {
+          "q": "How much are tickets?",
+          "a": "Prices range from about ¥50 to ¥100 depending on the source, with no confirmed official rate — check with the scenic area or a booking platform before buying."
+        },
+        {
+          "q": "Is the \"Upside-Down Great Wall\" section easy to walk?",
+          "a": "This section is fairly steep and rugged, so take care while climbing and avoid unsuitable footwear."
+        }
+      ]
     },
     {
       "id": "tianmahu",
@@ -3423,7 +4349,36 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "May to October, if and when the site reopens.",
+      "suitableForEn": "Family outings and anglers — applicable only once the scenic area resumes operation.",
+      "ticketNotesEn": "IMPORTANT: Tianma Lake is currently closed/suspended, and ticket information will only be confirmed if it reopens. The historical listed price was about ¥10, with free admission for children under 1.2 m and active-duty military personnel, but this reflects the most recent historical data available, not a current price. The site is not currently operating — call the Funing District tourism authority to check its latest status before planning a visit.",
+      "openTimeNotesEn": "CLOSED: As of 2025, multiple sources report the scenic area is suspended and not operating. Historical opening hours were 08:00-17:00, but there is no official announcement of a reopening date.",
+      "transportEn": {
+        "publicTransit": "No confirmed direct bus route; a taxi from the Funing District bus station is recommended if you go, though check whether local routes have been temporarily altered given the site's closed status.",
+        "driving": "From downtown Qinhuangdao, take the Jingshen Expressway to National Highway 102 into Funing District, then head north about 9 km; the full trip takes roughly 40 minutes. The area is near the Jingshen Expressway and National Highway 102."
+      },
+      "tipsEn": [
+        "This scenic area is currently closed — call ahead or check online to confirm whether it has reopened before making the trip.",
+        "If it has reopened, historical accounts suggest the site is small and can be seen in 1-2 hours.",
+        "It can be combined with nearby Tianma Mountain and Laojunding, if you're building an itinerary around the area.",
+        "There is no official explanation for the closure or an expected reopening date — don't rely on secondhand information found online.",
+        "Historically, activities here centered on family leisure and fishing rather than major attractions, so keep expectations modest even if it reopens."
+      ],
+      "faqEn": [
+        {
+          "q": "Is Tianma Lake Scenic Area still open?",
+          "a": "According to reports circulating since 2025, the scenic area is currently suspended, with no official announcement of when it might reopen. Call the local tourism authority or the site itself before visiting."
+        },
+        {
+          "q": "How much do tickets cost?",
+          "a": "The current price cannot be confirmed. Historical records show a listed price of about ¥10, with free admission for children under 1.2 m and active-duty military personnel — for reference only."
+        },
+        {
+          "q": "Are there similar attractions nearby?",
+          "a": "Funing District and the surrounding area have alternatives such as Tianma Mountain, Laojunding, and Longyungu, all nature-based scenic spots."
+        }
+      ]
     },
     {
       "id": "putagogou",
@@ -3498,7 +4453,35 @@
       "mentions": 3,
       "inlinks": 2,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "August to September for the grape harvest, though the countryside scenery is pleasant April through October.",
+      "suitableForEn": "Families and anyone who enjoys a relaxed rural outing.",
+      "ticketNotesEn": "Admission to the scenic area itself is free; entering individual picking orchards to harvest grapes is charged separately, either by weight or by each orchard's own rules, and prices vary by vendor — confirm with the growers on site.",
+      "transportEn": {
+        "publicTransit": "Take transport to Changli County town first, then a local bus or taxi on to Xishanchang village; there's no direct high-speed rail or long-distance bus service.",
+        "driving": "From Qinhuangdao or Beidaihe railway station, drive along the coastal expressway toward Changli, then head northwest about 7 km after reaching the county town; the full trip takes roughly 40-60 minutes."
+      },
+      "tipsEn": [
+        "Peak picking season is August-September, though different grape varieties are ready for picking anywhere from July to November.",
+        "Admission to the valley is free, but picking grapes inside the orchards is usually charged by weight — ask about pricing before you start.",
+        "Combine it with nearby wineries such as Huaxia Manor and Chateau Kings International Winery for a full wine-country day trip.",
+        "Summer and autumn sun in Changli can be strong, so bring sun protection and wear light shoes suited to walking between the fields.",
+        "There are many independent growers on site, so it's worth comparing a few before you buy; weekends in peak season can get crowded."
+      ],
+      "faqEn": [
+        {
+          "q": "How much does it cost to enter Grape Valley?",
+          "a": "The scenic area itself is free to enter at any time, but picking grapes inside the orchards is typically charged separately by weight."
+        },
+        {
+          "q": "When is the best time to go grape picking?",
+          "a": "The picking season generally runs from July to November, with most varieties at their peak — and the best overall experience — in August and September."
+        },
+        {
+          "q": "Are there wineries nearby to visit as well?",
+          "a": "Changli is known as China's wine-producing hometown, and nearby wineries like Huaxia Manor and Chateau Kings International Winery can easily be visited on the same day."
+        }
+      ]
     },
     {
       "id": "huaxiazhuangyuan",
@@ -3586,7 +4569,36 @@
       "mentions": 1,
       "inlinks": 1,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Summer and autumn, with the fall grape-harvest season being best of all.",
+      "suitableForEn": "Wine lovers, families, and anyone interested in cultural experiences.",
+      "ticketNotesEn": "Tickets run roughly ¥60-80 depending on the season, though the site's own historical data lists ¥30 — a discrepancy from more recent figures — so check the official or third-party booking price on the day of your visit. Reports indicate free admission for children under 1.2 m and seniors over 70, and some sources mention a half-price discount for Qinhuangdao residents with local ID (possibly an outdated policy). Prices and discounts change between peak and off-peak seasons, so confirm the current price and whether wine tasting is included via a platform like Ctrip or by phone before buying.",
+      "openTimeNotesEn": "Generally open 08:30-17:30 on regular days and 08:00-18:00 on holidays. Other sources give different seasonal hours: roughly 08:40-16:30 from April 1 to October 15, and roughly 09:10-16:30 from October 16 to January 31 and February 2 to March 31 — check the hours posted on site.",
+      "transportEn": {
+        "publicTransit": "No confirmed direct bus service; a taxi from Changli County town or Beidaihe railway station is recommended.",
+        "driving": "About 30 km from Beidaihe — take the Jingshen Expressway, exit at Funing, then follow the Changfu Road for about 20 km."
+      },
+      "tipsEn": [
+        "Reported ticket prices vary online (roughly ¥30-80), so confirm the current price through an official channel or booking platform before you set out.",
+        "You can add a wine-tasting package on site to sample several dry red wines.",
+        "The autumn grape harvest (September-October) is the best time to visit, and it pairs well with a stop at nearby Grape Valley.",
+        "The underground wine cellar is noticeably cool, so bring a light jacket.",
+        "As a designated industrial tourism site, the grounds are fairly large — budget at least 2-3 hours for a visit."
+      ],
+      "faqEn": [
+        {
+          "q": "How much are tickets to Huaxia Manor?",
+          "a": "Recent reports put ticket prices at roughly ¥60-80 depending on the season, though some sources list ¥30 — figures vary, so confirm the current price through an official channel or booking platform before you go."
+        },
+        {
+          "q": "Can you do wine tasting there?",
+          "a": "Yes. The estate offers wine tasting, usually as a separately purchased package or bundled with a combo ticket."
+        },
+        {
+          "q": "Is the underground wine cellar worth seeing?",
+          "a": "Yes — it's Huaxia Manor's signature feature, billed as the largest underground wine cellar in Asia, and one of the main highlights of a visit."
+        }
+      ]
     },
     {
       "id": "laojunding",
@@ -3671,7 +4683,36 @@
       "mentions": 3,
       "inlinks": 0,
       "tier": 2,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Summer for rafting and cooling off, winter for the ice and snow carnival.",
+      "suitableForEn": "Families, young travelers, and outdoor sports enthusiasts.",
+      "ticketNotesEn": "There's no admission fee just for hiking the mountain; rafting and similar activities are ticketed separately — roughly ¥90 for the alpine rafting course and ¥130 for the valley rafting course, with lower group-buy starting prices on third-party platforms. Tickets are sold by category (rafting, sightseeing, snow-park, etc.); platforms like Qunar have shown canyon-rafting promo tickets from ¥9.9 and alpine-rafting deals from ¥80, with actual prices fluctuating by season and platform promotions — check the official channel or a booking platform for the current price before buying.",
+      "openTimeNotesEn": "Open 08:00-17:00; seasonal activities like rafting follow the scenic area's current-season announcements, and the winter snow programs typically run from December through February.",
+      "transportEn": {
+        "publicTransit": "Bus route 820 from the Haiyang Road bus station in Qinhuangdao goes directly to the scenic area, running roughly 7:20-9:00 AM outbound and 2:20-4:00 PM for the return trip.",
+        "driving": "About 30-40 km from downtown Qinhuangdao, along winding mountain roads to Fangzhuang village in Shimenzhai township; the drive takes roughly 1 hour."
+      },
+      "tipsEn": [
+        "Rafting is the main draw — if visiting in summer, bring a change of clothes and a waterproof bag for electronics.",
+        "Bus route 820 runs infrequently, so a private car or chartered ride offers more flexibility.",
+        "The winter ice and snow carnival includes skiing, skating, and curling, which are charged separately and may require booking equipment in advance.",
+        "Prices vary significantly between ticket types (alpine rafting, valley rafting, sightseeing, season pass), so compare prices on a booking platform before you go.",
+        "Summer weekends and the peak holiday season can get crowded — consider visiting on off-peak days or booking ahead."
+      ],
+      "faqEn": [
+        {
+          "q": "How much does it cost to visit Laojunding?",
+          "a": "There's no charge just for hiking the mountain. The main expense is the rafting activities — about ¥90 for alpine rafting and ¥130 for valley rafting — with lower promotional prices often available on third-party platforms."
+        },
+        {
+          "q": "How do I get there by bus?",
+          "a": "Take bus route 820 from the Haiyang Road bus station in Qinhuangdao directly to the scenic area. It departs roughly 7:20-9:00 AM and returns 2:20-4:00 PM; since service is infrequent, plan ahead."
+        },
+        {
+          "q": "What can you do at Laojunding in winter?",
+          "a": "The scenic area hosts an ice and snow carnival with skiing, skating, and curling — a sharp contrast to the summer rafting."
+        }
+      ]
     },
     {
       "id": "jinshi_wine",
@@ -3751,7 +4792,34 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Autumn, during the September-October grape harvest.",
+      "suitableForEn": "Wine enthusiasts, cultural visitors, and educational groups.",
+      "ticketNotesEn": "Admission to the grounds is free; tours and tasting experiences inside are charged separately, with tasting packages starting around ¥88. Prices for individual experiences haven't been fully verified through public sources, so check on site or by phone.",
+      "transportEn": {
+        "driving": "Near Beidaihe, about 18 km from the Gold Coast (Huangjin Haian); drive from Changli County town or Beidaihe, planning the exact route with real-time navigation."
+      },
+      "tipsEn": [
+        "Admission is free, but tasting and other in-park experiences are charged separately — call ahead to ask about package options and prices.",
+        "The winery's flagship Marselan wine has won numerous awards and makes a good souvenir.",
+        "The estate covers a large area (about 674 mu, roughly 45 hectares) and is still building out facilities, so some areas may not be fully open yet.",
+        "The autumn grape harvest (September-October) offers the best experience and can be combined with a tasting for a half-day visit.",
+        "Combine it with nearby Huaxia Manor and Grape Valley for a full day tour of Changli's wine culture."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there an admission fee for Chateau Kings International Winery?",
+          "a": "The grounds are free to enter, but tours and tasting experiences inside require a separate fee, with packages starting around ¥88."
+        },
+        {
+          "q": "Can you do wine tasting on site?",
+          "a": "Yes — the winery offers tasting experiences and packages, headlined by its Marselan wine, which has won 152 international awards."
+        },
+        {
+          "q": "What are the opening hours?",
+          "a": "Reported hours are 09:00-16:00, but confirm with the scenic area's current posted hours or by phone."
+        }
+      ]
     },
     {
       "id": "hongxing_industrial",
@@ -3828,7 +4896,35 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Year-round, since it's mainly an indoor industrial tour.",
+      "suitableForEn": "Educational groups, Party-building activities, and industrial culture enthusiasts.",
+      "ticketNotesEn": "Visits are mainly by group reservation; whether individual visitors can enter directly, and whether there's a fee, hasn't been confirmed — call ahead or book through an official channel to check.",
+      "openTimeNotesEn": "Open 09:00-17:00. Visits are mainly by group reservation, and whether individual visitors are admitted has not been confirmed — contact the site ahead of time.",
+      "transportEn": {
+        "driving": "Drive from Changli County town to the Western Economic Development Zone's circular economy industrial park; plan the exact route with real-time navigation."
+      },
+      "tipsEn": [
+        "Visits are mainly arranged for groups by reservation — individual visitors should call ahead to confirm whether they can enter.",
+        "The tour focuses on production lines and corporate culture exhibits, mostly indoors, so it works well year-round.",
+        "A basic understanding of steelmaking processes beforehand can make the visit more rewarding.",
+        "The park also hosts intangible-heritage performances such as Changli yangge dance, folk songs, chuige music, and shadow puppetry — ask about the current performance schedule.",
+        "Best suited to group visits such as educational tours or Party-building activities rather than casual individual visits."
+      ],
+      "faqEn": [
+        {
+          "q": "Can individual visitors tour the park?",
+          "a": "The park currently operates mainly on group reservations, and whether individuals can enter directly hasn't been confirmed — call ahead to check."
+        },
+        {
+          "q": "Is there an admission fee?",
+          "a": "Available information suggests group tours are free by reservation, but the exact policy and whether individual visitors are charged hasn't been fully verified — ask in advance."
+        },
+        {
+          "q": "What's the main thing to see there?",
+          "a": "Highlights include the Hongxing origin exhibition hall, the steel production line, the carbon-neutrality demonstration zone, and local intangible-heritage performances from the Changli area."
+        }
+      ]
     },
     {
       "id": "longyungu",
@@ -3929,7 +5025,34 @@
       },
       "mentions": 2,
       "inlinks": 0,
-      "tier": 2
+      "tier": 2,
+      "bestSeasonEn": "Summer for cooling off in the water, autumn for the fall foliage.",
+      "suitableForEn": "Outdoor adventure seekers, families, and photographers.",
+      "ticketNotesEn": "Standard admission is ¥50 per person, with combo packages also available (¥140, a larger ¥240 package, and a ¥120 special package, among other combinations) — check a booking platform for the current options. The glass skywalk and cliffside rafting are paid add-ons not included in the standard ticket. With several package options available, compare prices and included activities across platforms before buying.",
+      "transportEn": {
+        "driving": "Take the S52 Cheng-Qin Expressway, exit at Funing North, then head east to Zhanggezhuang village in Daxinzhai township."
+      },
+      "tipsEn": [
+        "The glass skywalk and the alpine slide/cliffside rafting are paid add-ons on top of the standard admission ticket.",
+        "The canyon stays cool in summer, making it a popular local spot to escape the heat and play in the water.",
+        "The wooden \"stairway to heaven\" section is fairly steep — visitors with limited stamina should pace themselves, and non-slip shoes are recommended.",
+        "Fall brings colorful foliage and winter brings frozen waterfalls, so the scenery changes noticeably across seasons.",
+        "Several ticket bundles are available, so compare prices on a booking platform before setting out."
+      ],
+      "faqEn": [
+        {
+          "q": "How much are tickets to Longyungu?",
+          "a": "Standard admission is ¥50 per person, with combo packages also available at ¥140, ¥240, and ¥120 with different inclusions — check a booking platform for the current pricing."
+        },
+        {
+          "q": "Do the glass skywalk and rafting cost extra?",
+          "a": "Yes. The 530-meter high-altitude glass skywalk and the roughly 2,200-meter cliffside rafting course are both paid add-ons not included in the base ticket."
+        },
+        {
+          "q": "Is it open year-round?",
+          "a": "Yes, the scenic area is open year-round from 08:00 to 16:30 — summer is good for cooling off in the water, winter for viewing frozen waterfalls, and autumn for fall foliage."
+        }
+      ]
     },
     {
       "id": "qipanshan",
@@ -4010,7 +5133,34 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Spring for flowers, autumn for the walnut and fruit harvest.",
+      "suitableForEn": "Families, fruit-picking enthusiasts, and history and culture buffs.",
+      "ticketNotesEn": "The listed price is ¥135 (this figure comes from existing site data and hasn't been independently reconfirmed — check with an official or third-party platform before buying). Other Lulong-area scenic sites reportedly offer free admission for seniors 70 and older with ID and for visitors with disability certification, but it's unconfirmed whether that policy applies here — check discount details for seniors and children on site or by phone.",
+      "transportEn": {
+        "driving": "About 20 km from Lulong County town, driving to Qianshangzhuang village in Liutianggezhuang township."
+      },
+      "tipsEn": [
+        "Public information about this scenic area is limited — call the local tourism authority or check a third-party platform for current ticket prices and hours before visiting.",
+        "The autumn walnut and fruit harvest is a highlight, so plan an autumn visit if picking interests you.",
+        "The legendary boulder formation at the summit is the top attraction — check the trail difficulty and weather conditions before climbing.",
+        "There are similarly or identically named scenic areas elsewhere (such as Qipanshan in Shenyang, or the \"Zuoyou Valley\" in Lulong) — double-check the full name and address when booking to avoid confusion.",
+        "The ¥135 ticket price is relatively high, so look for online discounts and book ahead if available."
+      ],
+      "faqEn": [
+        {
+          "q": "Is this Qipanshan the same as the one in Shenyang?",
+          "a": "No. This scenic area is in Liutianggezhuang township, Lulong County, Qinhuangdao, while Shenyang's Qipanshan is a separate, unrelated site in Liaoning province with the same name — check carefully when booking."
+        },
+        {
+          "q": "What does \"Immortals at Chess\" (xianren duiyi) refer to?",
+          "a": "It refers to a summit boulder shaped like a chessboard; legend holds that the chess pieces carved into its grooves can be moved but never removed — hence the name, and it's the scenic area's signature geological curiosity."
+        },
+        {
+          "q": "What's the best season to visit?",
+          "a": "Spring is good for flowers, and autumn is peak season for walnut and fruit picking — both are recommended times to visit."
+        }
+      ]
     },
     {
       "id": "wufengshan",
@@ -4089,7 +5239,36 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Spring (April-May) and autumn (September-October), when the weather is cool and the vegetation is at its best.",
+      "suitableForEn": "Red tourism, history and culture enthusiasts, hikers",
+      "ticketNotesEn": "Around ¥13 (some online sources list ¥10 instead, so figures are inconsistent across platforms). No information was found on combo tickets or online booking requirements; check the current price posted at the site or on a booking platform before you go.",
+      "openTimeNotesEn": "Open all day, with no published difference between peak and off-peak hours. It's best to visit during daylight and head back down before sunset.",
+      "transportEn": {
+        "publicTransit": "From Changli Railway Station, minivans run directly to the scenic area.",
+        "driving": "From downtown Qinhuangdao, take the Jing-Ha Expressway to the coastal expressway, exit at Changli/Golden Coast, then follow the Changli-Huanghai connector road onto Wufengshan Road. The drive takes about 1 hour from the city center."
+      },
+      "tipsEn": [
+        "Ticket prices are low, making this a good value half-day trip.",
+        "The trails are mostly hiking paths, so wear non-slip athletic shoes.",
+        "Combine it with nearby Jieshi Mountain or Changli Golden Coast for a fuller itinerary.",
+        "The site has strong revolutionary-history content, making it a good history lesson for kids.",
+        "The forest cover is dense, so watch for mosquitoes in summer."
+      ],
+      "faqEn": [
+        {
+          "q": "Is Wufeng Mountain suitable for elderly visitors or children?",
+          "a": "The mountain isn't very high, but the route is mostly on foot, so elderly visitors and children with limited stamina should pace themselves and stick to the gentler sections."
+        },
+        {
+          "q": "What Li Dazhao-related sites are on the mountain?",
+          "a": "There is a statue of Li Dazhao, several inscribed rock carvings by notable figures, and the site near the Ming-dynasty Han Wengong Temple where he once took refuge to read and write."
+        },
+        {
+          "q": "How much is admission?",
+          "a": "Online sources put the price at around ¥10-13; check the price posted on site for the exact figure."
+        }
+      ]
     },
     {
       "id": "tianmashan",
@@ -4168,7 +5347,35 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Autumn (September-October), for crisp air and good visibility.",
+      "suitableForEn": "History and culture enthusiasts, hikers, family outings",
+      "ticketNotesEn": "Online sources disagree and no single confirmed price could be found; figures range widely, from free admission to around ¥35, or ¥60 for adults with a 50% student discount (about ¥30). No recent official announcement was found, so call the site directly or check real-time pricing on Ctrip or Meituan before you go.",
+      "openTimeNotesEn": "Roughly 8:00 AM-5:00 PM, with last entry at 4:00 PM; check the day's posted hours at the site, as these can vary.",
+      "transportEn": {
+        "driving": "Follow National Highway 102 to a point about 9-10 km north of Funing District's urban area. It's about 45 km from downtown Qinhuangdao, roughly a 1-hour drive."
+      },
+      "tipsEn": [
+        "Call ahead or check a booking platform to confirm the current ticket price and opening hours before setting out.",
+        "The main highlight is the Qi Jiguang cliff carvings, so watch the rock faces along the trail as you climb.",
+        "The mountain is low (about 300 m) and the round trip is about 4 km, manageable for most fitness levels.",
+        "The trail is mostly stone steps and loose gravel, so wear non-slip shoes.",
+        "Autumn offers the clearest views, ideal for taking in the scenery from the summit."
+      ],
+      "faqEn": [
+        {
+          "q": "How much does admission to Tianma Mountain cost?",
+          "a": "Online information is inconsistent, so it's best to call the site or check a booking platform for the day's actual price before you go."
+        },
+        {
+          "q": "What's the top attraction at Tianma Mountain?",
+          "a": "The Qi Jiguang cliff carvings near and along the way to the summit, a provincial-level protected cultural relic."
+        },
+        {
+          "q": "Is the hike difficult?",
+          "a": "The peak is about 300 m in elevation with a roughly 4 km round trip, mostly on stone steps and loose gravel — manageable for ordinary visitors."
+        }
+      ]
     },
     {
       "id": "baozigou",
@@ -4247,7 +5454,34 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "August to October, during the grape harvest and picking season.",
+      "suitableForEn": "Families with children, fruit-picking visitors, rural eco-tourism fans",
+      "ticketNotesEn": "Free to enter; grape picking is charged by weight on site, with the exact rate varying by variety and year. No standard published price was found.",
+      "transportEn": {
+        "driving": "Take the Jing-Ha Expressway to the Changlu Road, then head east on Changlu Road for about 1 km. It can be combined with a visit to nearby Changli Grape Valley."
+      },
+      "tipsEn": [
+        "Grapes ripen progressively from August to October, making this the best window for picking.",
+        "Entry to the village is free; picking is charged by weight, so bring a shopping bag or cash.",
+        "It's close to Changli Grape Valley, so the two can be visited on the same day.",
+        "The village roads are narrow, so drivers should aim to visit at off-peak times.",
+        "The terrain is hilly, so keep an eye on uneven ground when bringing children or elderly visitors."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there an admission fee for Baozigou?",
+          "a": "The scenic area itself is free to enter; grape picking is charged separately by weight on site."
+        },
+        {
+          "q": "When is the best time to visit?",
+          "a": "August to October, during peak grape season, when several varieties are available for picking."
+        },
+        {
+          "q": "What else is nearby?",
+          "a": "It's adjacent to Changli Grape Valley, so the two can be combined into a single day's itinerary."
+        }
+      ]
     },
     {
       "id": "liuhe_xigu",
@@ -4324,7 +5558,34 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Summer (June-August) and autumn (September-October).",
+      "suitableForEn": "Red tourism, family outings, rural eco-tourism fans",
+      "ticketNotesEn": "The scenic area itself is free to enter. Fruit picking, fishing, and similar activities inside may be charged separately, but no specific pricing was found.",
+      "transportEn": {
+        "driving": "From Lulong County, drive toward Liutianjiazhuang Town; you can navigate to \"Liuhe Valley\" (Liuhe Xigu) or the \"Jidong Anti-Japanese War Memorial Hall,\" located about 10 km northeast of the town center."
+      },
+      "tipsEn": [
+        "Combine it with the adjacent Jidong Anti-Japanese War Memorial Hall for a deeper look at the area's revolutionary history.",
+        "Summer and autumn are ideal for fruit picking and escaping the heat.",
+        "Admission is free, making it a good family day-trip destination by car.",
+        "Mountain roads here are narrow, so it's best to travel during daylight.",
+        "It's close to Liuhe Manor and Zuoyou Valley, so a loop route combining several sites is possible."
+      ],
+      "faqEn": [
+        {
+          "q": "Are Liuhe Valley and the Jidong Anti-Japanese War Memorial Hall the same place?",
+          "a": "They are adjacent but not the same site. Liuhe Valley is a rural tourism area built around the natural scenery and revolutionary history of Liuhebeishan Village, located right next to the memorial hall."
+        },
+        {
+          "q": "Is there an admission fee?",
+          "a": "The scenic area itself is free; some picking and fishing experiences inside may be charged separately."
+        },
+        {
+          "q": "What season is best to visit?",
+          "a": "Summer and autumn, when the weather is pleasant and the fruit is in season, are the best times to visit."
+        }
+      ]
     },
     {
       "id": "liuhe_shanzhuang",
@@ -4401,7 +5662,34 @@
       "mentions": 0,
       "inlinks": 0,
       "tier": 3,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "Autumn (September-October), during the grape harvest and winemaking season.",
+      "suitableForEn": "Wine enthusiasts, corporate groups, couples",
+      "ticketNotesEn": "The manor itself is free to enter; wine tasting, lodging, and picking experiences are usually charged separately, with no standard published pricing found online — it's best to contact the manor in advance to confirm. A \"9D amusement park\" mentioned in some online sources could not be independently verified in this research, so treat that claim with caution.",
+      "transportEn": {
+        "driving": "From downtown Qinhuangdao, drive via Bixia Manor and Mujing Town toward Liuhe Manor; the trip takes about 1-1.5 hours (check real-time navigation for the current route)."
+      },
+      "tipsEn": [
+        "Autumn (September-October), during grape harvest, is the best time to visit for picking and tasting.",
+        "Call ahead or check online to confirm on-site experiences like tastings and lodging.",
+        "It can be combined with the nearby Liuhe Valley and Zuoyou Valley for a one-day route.",
+        "Corporate groups and couples may want to consider staying in the manor's log cabins.",
+        "Plan your driving route in advance, as GPS signal can be weak in parts of this mountainous area."
+      ],
+      "faqEn": [
+        {
+          "q": "Is there an admission fee for Liuhe Manor?",
+          "a": "Touring the grounds is free; add-on experiences like wine tasting and lodging are usually charged separately."
+        },
+        {
+          "q": "Can you taste or buy wine on site?",
+          "a": "As a winery-affiliated estate, it typically offers tasting and wine sales, though this depends on what's available on the day — it's best to inquire in advance."
+        },
+        {
+          "q": "When is the best time to go?",
+          "a": "Autumn, during the grape harvest and winemaking season, offers the best atmosphere."
+        }
+      ]
     },
     {
       "id": "wangjiadayuan",
@@ -4503,7 +5791,36 @@
       },
       "mentions": 0,
       "inlinks": 0,
-      "tier": 3
+      "tier": 3,
+      "bestSeasonEn": "Suitable year-round since it's mostly an indoor visit, though spring and autumn make for a better overall experience of the old town.",
+      "suitableForEn": "History and culture enthusiasts, researchers of traditional architecture, family educational trips",
+      "ticketNotesEn": "Around ¥30 (some online sources list ¥50 instead, so figures are inconsistent across platforms). It's next to the First Pass Under Heaven scenic area, so whether a combo ticket is available should be confirmed on site or through a booking platform; check a site like Ctrip for the day's real-time price before you go.",
+      "openTimeNotesEn": "Roughly 8:00 AM-5:00 PM, with possible seasonal adjustments between peak (May-December) and off-peak hours; one online source cites posted hours of 8:00 AM-5:00 PM from May 4 through December 31.",
+      "transportEn": {
+        "publicTransit": "From Shanhaiguan Railway Station, walk to the First Pass Under Heaven scenic area. Wang Family Courtyard is just west of the gate tower and reachable on foot.",
+        "driving": "From downtown Qinhuangdao, head toward Shanhaiguan Old Town via Qinhuang West Street/Qingshou Road or G228; the drive takes about 30-40 minutes. From Beidaihe Railway Station it's about 30 minutes."
+      },
+      "tipsEn": [
+        "It's right next to the First Pass Under Heaven gate tower, so plan to visit both on the same trip.",
+        "Check the day's ticket price on a platform like Ctrip before you go — online sources list both ¥30 and ¥50.",
+        "The exhibits are entirely indoors, so it's a good option in any season, including rain or snow.",
+        "It pairs well with other historic streets in the old town for a half-day to full-day visit.",
+        "Don't miss it if you're interested in Shanxi merchant culture and Shanhaiguan folk traditions."
+      ],
+      "faqEn": [
+        {
+          "q": "Does one ticket cover both Wang Family Courtyard and the First Pass Under Heaven?",
+          "a": "They are adjacent but independent attractions; check with the ticketing platform or the on-site box office to see if a combo ticket is available."
+        },
+        {
+          "q": "What's worth seeing at Wang Family Courtyard?",
+          "a": "The Ming- and Qing-dynasty courtyard architecture itself, folk-life scenes displayed across 18 exhibition halls, and a historical exhibit on the Shanxi merchant Wang Sanfo's family."
+        },
+        {
+          "q": "How much is admission?",
+          "a": "Online sources put it between ¥30 and ¥50, with figures inconsistent across sources — check a booking platform for the current price before you go."
+        }
+      ]
     },
     {
       "id": "yutian_qilihai",
@@ -4595,7 +5912,37 @@
       "mentions": 1,
       "inlinks": 1,
       "tier": 1,
-      "imgIsPlaceholder": true
+      "imgIsPlaceholder": true,
+      "bestSeasonEn": "The summer operating season, May to October, is best experienced for its evening show atmosphere.",
+      "suitableForEn": "Families, couples, young visitors, resort/leisure travelers",
+      "ticketNotesEn": "Adult tickets start at ¥109 (day and night sessions combined; check the booking platform for the exact price on your travel date). Pricing is tiered: adults from ¥109, students/seniors from ¥90, children over 1.2 m from ¥79, with free admission for children under 1.2 m and qualifying seniors. Prices may rise during special events (an International Fireworks Festival ticket was seen priced at ¥238), so confirm the current price through official channels or Ctrip/Meituan before you go. Package deals combining admission with lodging are usually better value than buying tickets separately.",
+      "openTimeNotesEn": "Seasonal operation, roughly April 30 to October 7 each year, daily from 10:00 AM to 10:00 PM (last entry and ticket sales at 9:30 PM).",
+      "transportEn": {
+        "publicTransit": "Take the high-speed rail to Beidaihe Station, then a taxi for about 40 minutes. Alternatively, take bus route 808 to the \"Dahanzhuang\" stop and walk about 10 minutes.",
+        "driving": "From Beijing, take the Jing-Ha Expressway, about a 3.5-hour drive; from Tianjin, about 3 hours. You can navigate directly to \"Yutian Qilihai Resort.\"",
+        "parking": "The resort has a free parking lot (check current on-site signage for details)."
+      },
+      "tipsEn": [
+        "Enter in the afternoon for the water attractions and animal encounters, then stay for the evening show.",
+        "The night show is the highlight of the resort — it's worth staying until around 9:00 PM to see it.",
+        "Weekends in peak season get crowded, so book tickets online 1-2 days ahead, or book a lodging package for VIP access.",
+        "The resort is large (about 8,000 mu, roughly 530 hectares), so expect a lot of walking and wear comfortable shoes.",
+        "Weekday visits are noticeably less crowded and offer a better experience."
+      ],
+      "faqEn": [
+        {
+          "q": "Is Yutian Qilihai Resort open all year?",
+          "a": "No, it operates seasonally, typically from late April to early October, and is closed in winter."
+        },
+        {
+          "q": "How much does admission cost?",
+          "a": "Adult tickets start at ¥109, students/seniors from ¥90, and children from ¥79; check the booking platform for the current price, as it may rise during festivals and special events."
+        },
+        {
+          "q": "Which is better, the daytime or the night show?",
+          "a": "Daytime is great for water play and animal encounters with kids, but the night show's light and water display is the resort's biggest draw — try to stay until evening."
+        }
+      ]
     }
   ]
 }
