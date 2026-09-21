@@ -1,14 +1,13 @@
 /**
- * 天气与潮汐组件 — 接入免费天气 API
+ * 天气与潮汐组件 — 统一走站内 /api/weather 与 /api/tide
  * 自执行 IIFE，在含 #weatherWidget 的容器自动渲染
- * 使用 Open-Meteo 免费 API（无需密钥）
+ * 站内接口优先和风天气，未配置凭据时自动降级到 Open-Meteo，
+ * 首页与天气页因此始终显示同一份数据，不会出现两个温度。
  */
 (function () {
   'use strict';
 
-  // 秦皇岛坐标
-  var LAT = 39.9355;
-  var LON = 119.5669;
+  var LOCATION = 'qinhuangdao';
 
   function init() {
     var containers = document.querySelectorAll('#weatherWidget, .weather-widget');
@@ -16,20 +15,23 @@
   }
 
   function renderWidget(container) {
-    container.innerHTML =
-      '<div class="weather-loading">加载天气数据中…</div>';
+    container.innerHTML = '<div class="weather-loading">加载天气数据中…</div>';
 
-    var url =
-      'https://api.open-meteo.com/v1/forecast' +
-      '?latitude=' + LAT + '&longitude=' + LON +
-      '&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m' +
-      '&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max' +
-      '&timezone=Asia%2FShanghai&forecast_days=3';
+    var today = new Date();
+    var dateStr = today.getFullYear() + '-' +
+      String(today.getMonth() + 1).padStart(2, '0') + '-' +
+      String(today.getDate()).padStart(2, '0');
 
-    fetch(url)
-      .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
-      .then(function (data) { renderContent(container, data); })
-      .catch(function () { renderError(container); });
+    Promise.all([
+      fetch('/api/weather?location=' + LOCATION).then(function (r) { return r.ok ? r.json() : Promise.reject(); }),
+      // 潮汐取真实数据，失败不影响天气显示
+      fetch('/api/tide?location=' + LOCATION + '&date=' + dateStr)
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .catch(function () { return null; })
+    ]).then(function (arr) {
+      if (!arr[0] || arr[0].success === false) return renderError(container);
+      renderContent(container, arr[0], arr[1]);
+    }).catch(function () { renderError(container); });
   }
 
   function weatherCodeToDesc(code) {
@@ -44,7 +46,18 @@
     return map[code] || '未知';
   }
 
-  function weatherCodeToIcon(code) {
+  function weatherCodeToIcon(code, text) {
+    var t = String(text || '');
+    if (t) {
+      if (/雷/.test(t)) return '⛈️';
+      if (/雪/.test(t)) return '🌨️';
+      if (/阵雨/.test(t)) return '🌦️';
+      if (/雨/.test(t)) return '🌧️';
+      if (/雾|霾|浮尘|沙/.test(t)) return '🌫️';
+      if (/^晴/.test(t)) return '☀️';
+      if (/多云/.test(t)) return '⛅';
+      if (/阴/.test(t)) return '☁️';
+    }
     if (code === 0 || code === 1) return '☀️';
     if (code === 2) return '⛅';
     if (code === 3) return '☁️';
@@ -57,44 +70,42 @@
     return '🌤️';
   }
 
-  function renderContent(container, data) {
-    var c = data.current;
-    var d = data.daily;
-    var desc = weatherCodeToDesc(c.weather_code);
-    var icon = weatherCodeToIcon(c.weather_code);
+  function renderContent(container, data, tide) {
+    var c = data.now || {};
+    var days = data.daily || [];
+    var code = parseInt(c.code, 10);
+    var icon = weatherCodeToIcon(isNaN(code) ? -1 : code, c.text);
 
-    // 日出日落
-    var sunrise = d.sunrise[0] ? new Date(d.sunrise[0]).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }) : '--';
-    var sunset = d.sunset[0] ? new Date(d.sunset[0]).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }) : '--';
+    var sunrise = fmtTime(data.sunrise) || '--';
+    var sunset = fmtTime(data.sunset) || '--';
 
-    // 未来3天预报
     var forecastHtml = '';
-    for (var i = 0; i < Math.min(3, d.time.length); i++) {
-      var date = new Date(d.time[i]);
+    for (var i = 0; i < Math.min(3, days.length); i++) {
+      var d = days[i];
       var dayLabel = i === 0 ? '今天' : i === 1 ? '明天' : '后天';
       forecastHtml +=
         '<div class="weather-forecast-day">' +
           '<span class="weather-forecast-label">' + dayLabel + '</span>' +
-          '<span class="weather-forecast-icon">' + weatherCodeToIcon(d.weather_code[i]) + '</span>' +
-          '<span class="weather-forecast-temp">' + Math.round(d.temperature_2m_max[i]) + '° / ' + Math.round(d.temperature_2m_min[i]) + '°</span>' +
+          '<span class="weather-forecast-icon">' + weatherCodeToIcon(-1, d.textDay) + '</span>' +
+          '<span class="weather-forecast-temp">' + d.high + '° / ' + d.low + '°</span>' +
         '</div>';
     }
 
-    // 潮汐提示（简化版：基于农历日期估算）
-    var tideTip = getTideTip();
+    var uv = data.uvIndex || (data.life && data.life.uv ? data.life.uv.brief : '');
+    var temp = parseFloat(c.temperature);
 
     container.innerHTML =
       '<div class="weather-card">' +
         '<div class="weather-current">' +
           '<div class="weather-icon">' + icon + '</div>' +
           '<div class="weather-main">' +
-            '<div class="weather-temp">' + Math.round(c.temperature_2m) + '°C</div>' +
-            '<div class="weather-desc">' + desc + ' · 体感' + Math.round(c.apparent_temperature) + '°C</div>' +
+            '<div class="weather-temp">' + c.temperature + '°C</div>' +
+            '<div class="weather-desc">' + c.text + (c.feelsLike ? ' · 体感' + c.feelsLike + '°C' : '') + '</div>' +
           '</div>' +
           '<div class="weather-extra">' +
-            '<div class="weather-extra-item"><span>湿度</span><strong>' + c.relative_humidity_2m + '%</strong></div>' +
-            '<div class="weather-extra-item"><span>风速</span><strong>' + Math.round(c.wind_speed_10m) + ' km/h</strong></div>' +
-            '<div class="weather-extra-item"><span>紫外线</span><strong>' + (d.uv_index_max[0] ? d.uv_index_max[0].toFixed(1) : '--') + '</strong></div>' +
+            '<div class="weather-extra-item"><span>湿度</span><strong>' + (c.humidity || '--') + '%</strong></div>' +
+            '<div class="weather-extra-item"><span>风速</span><strong>' + (c.windSpeed || '--') + ' km/h</strong></div>' +
+            '<div class="weather-extra-item"><span>紫外线</span><strong>' + (uv || '--') + '</strong></div>' +
           '</div>' +
         '</div>' +
         '<div class="weather-sun">' +
@@ -104,39 +115,45 @@
         '<div class="weather-forecast">' + forecastHtml + '</div>' +
         '<div class="weather-tide">' +
           '<span class="weather-tide-icon">🌊</span>' +
-          '<span>' + tideTip + '</span>' +
+          '<span>' + buildTideTip(tide) + '</span>' +
         '</div>' +
-        '<div class="weather-tip">' + getTravelTip(c.weather_code, c.temperature_2m) + '</div>' +
+        '<div class="weather-tip">' + getTravelTip(c.text, temp) + '</div>' +
       '</div>';
   }
 
-  function getTideTip() {
-    // 基于农历的简化潮汐估算（仅供参考）
-    var now = new Date();
-    var lunarDay = getLunarDay(now);
-    if (lunarDay <= 3 || (lunarDay >= 15 && lunarDay <= 18)) {
-      return '大潮期，赶海最佳！退潮后2小时是黄金时段';
-    } else if (lunarDay <= 7 || (lunarDay >= 22)) {
-      return '小潮期，赶海收获较少，适合观潮';
-    } else {
-      return '中潮期，可以赶海但需注意潮汐表';
+  function fmtTime(v) {
+    if (!v) return '';
+    if (/^\d{1,2}:\d{2}$/.test(v)) return v;          // 已是 HH:MM
+    var m = String(v).match(/(\d{2}:\d{2})/);         // ISO 时间串
+    return m ? m[1] : '';
+  }
+
+  /** 用真实潮汐数据生成赶海提示，取不到时只提示去潮汐页查 */
+  function buildTideTip(tide) {
+    if (!tide || !tide.success || !tide.data) {
+      return '潮汐数据暂不可用，可到<a href="/tide">潮汐表</a>查询赶海时段';
     }
+    var g = (tide.data.ganhai || []).filter(function (x) { return x.isDaytime; });
+    if (g.length) {
+      var first = g[0];
+      return '今日白天赶海窗口 ' + first.start + '–' + first.end + '（低潮 ' + first.lowTideTime + '），' +
+        '<a href="/ganhai">赶海攻略</a>';
+    }
+    var tides = tide.data.tides || [];
+    var low = tides.filter(function (t) { return t.type === 'low'; })[0];
+    if (low) return '今日低潮 ' + low.time + '，白天无合适赶海窗口，可到<a href="/tide">潮汐表</a>看其他日期';
+    return '今日潮汐平缓，详见<a href="/tide">潮汐表</a>';
   }
 
-  function getLunarDay(date) {
-    // 简化版农历日期估算（不准确但够用）
-    var baseDate = new Date(2024, 0, 11); // 2024年1月11日 ≈ 农历初一
-    var diff = Math.floor((date - baseDate) / 86400000);
-    return (diff % 29.5 + 29.5) % 29.5 + 1;
-  }
-
-  function getTravelTip(code, temp) {
-    if (code >= 61 && code <= 67) return '🌧️ 今天有雨，记得带伞，室内景点更合适';
-    if (code >= 71 && code <= 77) return '🌨️ 今天有雪，注意保暖防滑';
-    if (code >= 95) return '⛈️ 今天有雷暴，请避免户外活动';
+  function getTravelTip(text, temp) {
+    var t = String(text || '');
+    if (/雷/.test(t)) return '⛈️ 今天有雷暴，请避免户外活动';
+    if (/雪/.test(t)) return '🌨️ 今天有雪，注意保暖防滑';
+    if (/雨/.test(t)) return '🌧️ 今天有雨，记得带伞，室内景点更合适';
+    if (/雾|霾/.test(t)) return '🌫️ 能见度较低，海边观景效果一般';
     if (temp >= 30) return '☀️ 高温天气，注意防晒补水，避开正午时段';
     if (temp <= 5) return '🧥 天气寒冷，注意保暖，海边风大';
-    if (code === 0 || code === 1) return '🌤️ 天气晴好，非常适合户外游玩和看日出！';
+    if (/晴/.test(t)) return '🌤️ 天气晴好，非常适合户外游玩和看日出！';
     return '🌤️ 天气适宜出行，祝旅途愉快！';
   }
 
