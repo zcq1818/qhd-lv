@@ -2,7 +2,8 @@
   "meta": {
     "version": "2.1",
     "lastUpdated": "2026-09-20",
-    "totalCount": 47
+    "totalCount": 47,
+    "tierUpdated": "2026-09-21"
   },
   "areas": [
     {
@@ -200,7 +201,10 @@
         "author": "Charlie fong",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Beidaihe_panorama_from_the_south.jpg"
-      }
+      },
+      "mentions": 29,
+      "inlinks": 1,
+      "tier": 1
     },
     {
       "id": "geziwo",
@@ -287,7 +291,10 @@
         "https://www.beidaihe186.com/bdh_jd_gzw15.php",
         "https://www.beidaihe186.com/jd_daoyouci_geziwo1.php"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 58,
+      "inlinks": 5,
+      "tier": 1
     },
     {
       "id": "laohushi",
@@ -373,7 +380,10 @@
         "https://baike.baidu.com/item/%E8%80%81%E8%99%8E%E7%9F%B3%E6%B5%B7%E4%B8%8A%E5%85%AC%E5%9B%AD/7481304",
         "https://touch.travel.qunar.com/poi/7526988"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 17,
+      "inlinks": 3,
+      "tier": 1
     },
     {
       "id": "liangfengshan",
@@ -476,7 +486,10 @@
         "author": "Antigng",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File%3A%E4%BB%8E%E8%81%94%E5%B3%B0%E5%B1%B1%E6%9C%9B%E6%B5%B7%E4%BA%AD%E7%9C%8B%E5%8C%97%E6%88%B4%E6%B2%B3%E5%8C%BA.jpg"
-      }
+      },
+      "mentions": 26,
+      "inlinks": 6,
+      "tier": 1
     },
     {
       "id": "biluota",
@@ -580,7 +593,10 @@
         "author": "Make789",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File%3ABiluota%20Pub%20Park.png"
-      }
+      },
+      "mentions": 17,
+      "inlinks": 6,
+      "tier": 1
     },
     {
       "id": "guailou",
@@ -667,7 +683,10 @@
         "http://www.bdh2.com/showinfo-16-269-0.html",
         "https://lxs.cncn.com/66364/n625138"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 6,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "dongwuyuan",
@@ -779,7 +798,10 @@
         "author": "Antigng",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Elephas_maximus_in_Qinhuangdao_Wildlife_Park.jpg"
-      }
+      },
+      "mentions": 6,
+      "inlinks": 2,
+      "tier": 1
     },
     {
       "id": "jifa",
@@ -865,7 +887,10 @@
         "http://www.bdh2.com/showinfo-16-271-0.html",
         "https://www.dahepiao.com/news1/20210927222219.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 4,
+      "inlinks": 2,
+      "tier": 2
     },
     {
       "id": "shidi",
@@ -986,7 +1011,10 @@
           "height": 596
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 3,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "shanhaiguan",
@@ -1116,7 +1144,10 @@
         "author": "PQ77wd",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Gatehouse_for_Shanhai_Pass.jpg"
-      }
+      },
+      "mentions": 6,
+      "inlinks": 3,
+      "tier": 1
     },
     {
       "id": "laolongtou",
@@ -1245,7 +1276,10 @@
         "author": "PQ77wd",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Beach_at_Old_Dragon_Head.jpg"
-      }
+      },
+      "mentions": 44,
+      "inlinks": 5,
+      "tier": 1
     },
     {
       "id": "jiaoshan",
@@ -1374,7 +1408,10 @@
         "author": "Caitriana Nicholson",
         "license": "CC BY-SA 2.0",
         "source": "https://commons.wikimedia.org/wiki/File:Walking_on_the_wall_(6237564336).jpg"
-      }
+      },
+      "mentions": 11,
+      "inlinks": 2,
+      "tier": 1
     },
     {
       "id": "mengjiangnv",
@@ -1488,7 +1525,10 @@
           "height": 458
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 9,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "ledao",
@@ -1579,7 +1619,10 @@
         "https://baike.baidu.com/item/%E4%B9%90%E5%B2%9B%E6%B5%B7%E6%B4%8B%E7%8E%8B%E5%9B%BD/23367046",
         "https://www.qianggen.net/2009/tuan84737/"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 6,
+      "inlinks": 2,
+      "tier": 2
     },
     {
       "id": "changshoushan",
@@ -1673,7 +1716,10 @@
         "https://youletour.com/qinhuangdao/chang-shou-shan/goupiao",
         "https://www.dahepiao.com/lvyounews1/20240506461633.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 5,
+      "inlinks": 0,
+      "tier": 2
     },
     {
       "id": "yansaihu",
@@ -1767,7 +1813,10 @@
         "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/5040.html",
         "https://m.tuniu.com/g1174255/guide-0-0/"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 8,
+      "inlinks": 0,
+      "tier": 2
     },
     {
       "id": "shanhaiguan_gucheng",
@@ -1883,7 +1932,10 @@
         "author": "Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China",
         "license": "CC BY-SA 2.0",
         "source": "https://commons.wikimedia.org/wiki/File:West_gate_(6237052393).jpg"
-      }
+      },
+      "mentions": 24,
+      "inlinks": 1,
+      "tier": 1
     },
     {
       "id": "qiuxian",
@@ -1969,7 +2021,10 @@
         "http://m.qhd.bendibao.com/jingdian/qinhuangqiuxianruhaichu/",
         "https://www.beidaihe186.com/scenic_qiuxian.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 5,
+      "inlinks": 0,
+      "tier": 2
     },
     {
       "id": "xinao",
@@ -2056,7 +2111,10 @@
         "http://qhd.bendibao.com/jingdian/xinaohaidishijie/",
         "https://www.qianggen.net/2009/tuan115480/"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 11,
+      "inlinks": 3,
+      "tier": 1
     },
     {
       "id": "gangkou",
@@ -2133,7 +2191,10 @@
         "http://qhd.bendibao.com/tour/20231127/8758.shtm",
         "https://www.visitbeijing.com.cn/article/48yJAXZYdNk"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "daihe_park",
@@ -2208,7 +2269,10 @@
         "http://qhd.bendibao.com/tour/2023113/8232.shtm",
         "https://gs.ctrip.com/html5/you/sight/qinhuangdao132/1829598.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 2,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "aranya",
@@ -2315,7 +2379,10 @@
         "author": "Yumeto",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File%3AAranya%20Litang.jpg"
-      }
+      },
+      "mentions": 1,
+      "inlinks": 2,
+      "tier": 1
     },
     {
       "id": "huangjin",
@@ -2429,7 +2496,10 @@
         "author": "Charlie fong",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Golden_Beach_in_Changli_Hebei_China.jpg"
-      }
+      },
+      "mentions": 1,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "yudao",
@@ -2517,7 +2587,10 @@
         "https://www.zhunaqu.com/nandaihe/article/16534",
         "https://gs.ctrip.com/html5/you/sight/changli1835/123678.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 3,
+      "inlinks": 5,
+      "tier": 1
     },
     {
       "id": "shenglan",
@@ -2602,7 +2675,10 @@
         "https://www.qianggen.net/2009/tuan84941/",
         "https://gs.ctrip.com/html5/you/sight/changli1835/1696904.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 7,
+      "inlinks": 0,
+      "tier": 2
     },
     {
       "id": "jieshishan",
@@ -2680,7 +2756,10 @@
         "https://www.clxzf.gov.cn/single/21/1839.html",
         "https://touch.piao.qunar.com/touch/detail_10185.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 3,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "weilanhaian",
@@ -2757,7 +2836,10 @@
         "https://travel.qunar.com/p-oi19586205-maodetiankongzhicheng",
         "https://piao.qunar.com/ticket/detail_2286180276.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 12,
+      "inlinks": 1,
+      "tier": 1
     },
     {
       "id": "xianluodao",
@@ -2853,7 +2935,10 @@
           "height": 2304
         }
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 12,
+      "inlinks": 2,
+      "tier": 1
     },
     {
       "id": "nanent",
@@ -2938,7 +3023,10 @@
         "https://www.dahepiao.com/lvyounews1/20240606468914.html",
         "https://baike.baidu.com/item/%E5%8D%97%E6%88%B4%E6%B2%B3%E5%9B%BD%E9%99%85%E5%A8%B1%E4%B9%90%E4%B8%AD%E5%BF%83/9495685"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 9,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "zushan",
@@ -3021,7 +3109,10 @@
         "https://you.ctrip.com/sight/qinglong2540/67457.html",
         "https://www.chinaqinglong.gov.cn/single/6/28035.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 14,
+      "inlinks": 2,
+      "tier": 1
     },
     {
       "id": "bingtangyu",
@@ -3105,7 +3196,10 @@
         "https://m.hebeitour.com.cn/c/2021-11-12/508608.html",
         "https://www.chinafuning.gov.cn/single/179/67779.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 3,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "banchangyu",
@@ -3223,7 +3317,10 @@
         "author": "山海风",
         "license": "CC BY-SA 3.0",
         "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%BF%E5%8E%82%E5%B3%AA%E9%95%BF%E5%9F%8E%E7%A0%96%E7%AA%91%E9%81%97%E5%9D%80_-_panoramio.jpg"
-      }
+      },
+      "mentions": 1,
+      "inlinks": 0,
+      "tier": 2
     },
     {
       "id": "tianmahu",
@@ -3301,7 +3398,10 @@
         "https://baike.baidu.com/item/%E5%A4%A9%E9%A9%AC%E6%B9%96%E6%99%AF%E5%8C%BA/12001776",
         "https://gs.ctrip.com/html5/you/sight/junancounty2104/125343.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "putagogou",
@@ -3372,7 +3472,10 @@
         "https://gs.ctrip.com/html5/you/sight/changli1835/123775.html",
         "http://m.qhd.bendibao.com/tour/6518.shtm"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 2,
+      "inlinks": 1,
+      "tier": 2
     },
     {
       "id": "huaxiazhuangyuan",
@@ -3456,7 +3559,11 @@
         "https://www.wingontravel.com/discovery/scenic-huaxia-winery-13505971",
         "https://www.clxzf.gov.cn/single/21/2092.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 2,
+      "contentGap": true
     },
     {
       "id": "laojunding",
@@ -3537,7 +3644,10 @@
         "http://laojunding.com.cn/",
         "https://touch.piao.qunar.com/touch/detail.htm?id=459204"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 3,
+      "inlinks": 0,
+      "tier": 2
     },
     {
       "id": "jinshi_wine",
@@ -3613,7 +3723,10 @@
         "https://m.winesinfo.com/WineryDetail.aspx?id=13119",
         "https://www.moa.gov.cn/ztzl/2023_qcz/202311/t20231102_6439738.htm"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "hongxing_industrial",
@@ -3686,7 +3799,10 @@
         "http://www.csteelnews.com/xwzx/djbd/202206/t20220617_64139.html",
         "https://news.gmw.cn/2025-02/26/content_37871095.htm"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "longyungu",
@@ -3784,7 +3900,10 @@
         "author": "云在动",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File%3A%E6%B2%B3%E5%8C%97%E6%8A%9A%E5%AE%81%E9%BE%99%E4%BA%91%E8%B0%B7-%E6%B9%96%E6%B3%8A.jpg"
-      }
+      },
+      "mentions": 2,
+      "inlinks": 0,
+      "tier": 2
     },
     {
       "id": "qipanshan",
@@ -3861,7 +3980,10 @@
         "https://baike.baidu.com/item/%E7%A7%A6%E7%9A%87%E5%B2%9B%E5%B8%82%E5%8D%A2%E9%BE%99%E5%8E%BF%E5%B7%A6%E5%8F%B3%E5%B1%B1%E8%B0%B7%E6%99%AF%E5%8C%BA/64085769",
         "https://en.wikipedia.org/wiki/Qipanshan_International_Scenery_and_Tourism_Development_Zone"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "wufengshan",
@@ -3936,7 +4058,10 @@
         "https://gs.ctrip.com/html5/you/sight/changli1835/134056171.html",
         "https://www.meet99.com/jingdian-changliwufengshan-90730.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "tianmashan",
@@ -4011,7 +4136,10 @@
         "https://lxs.cncn.com/66364/n625214",
         "https://s.visitbeijing.com.cn/attraction/118840"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "baozigou",
@@ -4086,7 +4214,10 @@
         "http://www.news.cn/city/20220816/c7fcfa1b9aa54fb18adb3abfda112583/c.html",
         "http://shop.bytravel.cn/produce3/9C8D5B506C9F84618404.html"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "liuhe_xigu",
@@ -4159,7 +4290,10 @@
         "https://www.visitbeijing.com.cn/article/4NHFUu2N98M",
         "https://baike.baidu.com/item/%E7%A7%A6%E7%9A%87%E5%B2%9B%E5%B8%82%E5%8D%A2%E9%BE%99%E5%8E%BF%E5%B7%A6%E5%8F%B3%E5%B1%B1%E8%B0%B7%E6%99%AF%E5%8C%BA/64085769"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "liuhe_shanzhuang",
@@ -4232,7 +4366,10 @@
         "https://m.bj.bendibao.com/tour/224970_21.html",
         "https://www.visitbeijing.com.cn/article/47QlcFW4pxw"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "wangjiadayuan",
@@ -4331,7 +4468,10 @@
         "author": "Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China",
         "license": "CC BY-SA 2.0",
         "source": "https://commons.wikimedia.org/wiki/File%3AWang%20Family%20Courtyard%20%E7%8E%8B%E5%AE%B6%E5%A4%A7%E9%99%A2%20(6237013339).jpg"
-      }
+      },
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 3
     },
     {
       "id": "yutian_qilihai",
@@ -4419,7 +4559,11 @@
         "https://www.beidaihe186.com/scenic_yutian.html",
         "https://touch.piao.qunar.com/touch/detail.htm?id=516944"
       ],
-      "asOf": "2026-09"
+      "asOf": "2026-09",
+      "mentions": 0,
+      "inlinks": 0,
+      "tier": 1,
+      "contentGap": true
     }
   ]
 }

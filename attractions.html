@@ -204,6 +204,22 @@
 .g3d-text p{margin:0;font-size:13px;opacity:.82;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .g3d-btn{flex-shrink:0;padding:10px 18px;border-radius:999px;background:#fff;color:#0b1f3a;font-weight:800;font-size:13.5px;white-space:nowrap;}
 @media (max-width:768px){.g3d-entry{margin-top:-16px;padding:0 var(--s4);} .g3d-card{gap:12px;padding:14px;} .g3d-pics img{width:38px;height:52px;} .g3d-pics img:nth-child(3){display:none;} .g3d-text h3{font-size:1rem;} .g3d-btn{padding:8px 12px;font-size:12px;}}
+
+  /* 小众与周边(折叠) */
+  .niche-block{margin:48px 0 8px;border:1px solid var(--gray-200);border-radius:16px;background:#fafbfd;overflow:hidden;}
+  .niche-block summary{cursor:pointer;list-style:none;padding:18px 22px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;}
+  .niche-block summary::-webkit-details-marker{display:none;}
+  .niche-block summary::after{content:'展开 ▾';margin-left:auto;font-size:0.85rem;color:var(--brand);font-weight:700;white-space:nowrap;}
+  .niche-block[open] summary::after{content:'收起 ▴';}
+  .niche-title{font-size:1.05rem;font-weight:800;color:var(--gray-900);}
+  .niche-hint{font-size:0.85rem;color:var(--text-muted);}
+  .niche-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;padding:0 22px 22px;}
+  .niche-item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;text-decoration:none;transition:all 0.2s;}
+  .niche-item:hover{border-color:var(--brand-glow);transform:translateY(-2px);}
+  .niche-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .niche-name{font-weight:700;color:var(--gray-900);font-size:0.95rem;}
+  .niche-meta{margin-left:auto;font-size:0.78rem;color:var(--text-muted);white-space:nowrap;}
+  @media(max-width:600px){.niche-grid{grid-template-columns:1fr;padding:0 14px 16px;}.niche-block summary{padding:14px;}.niche-hint{width:100%;}}
 </style>
 
 <!-- ====== Web Analytics 分析 ====== -->
@@ -563,7 +579,9 @@ reveals.forEach(function(el){o.observe(el);});
     var spots = getFilteredSpots();
     var topSpots = spots.filter(function(s) { return s.isTop; })
       .sort(function(a, b) { return (a.topRank || 99) - (b.topRank || 99); });
-    var normalSpots = spots.filter(function(s) { return !s.isTop; });
+    // tier 3(小众与周边)不参与区域分组,统一收进页面底部折叠区
+    var nicheSpots = spots.filter(function(s) { return !s.isTop && s.tier === 3; });
+    var normalSpots = spots.filter(function(s) { return !s.isTop && s.tier !== 3; });
 
     // 按 area 分组
     var grouped = {};
@@ -607,6 +625,25 @@ reveals.forEach(function(el){o.observe(el);});
       });
       html += '</div>';
     });
+
+    // 小众与周边(折叠)
+    if (nicheSpots.length) {
+      var nicheOpen = (!topSpots.length && !normalSpots.length) ? ' open' : '';
+      html += '<details class="niche-block"' + nicheOpen + '>' +
+        '<summary><span class="niche-title">小众与周边 ' + nicheSpots.length + ' 个</span>' +
+        '<span class="niche-hint">酒庄、乡村山谷、专题展馆等,适合二次到访或自驾深度游</span></summary>' +
+        '<div class="niche-grid">';
+      nicheSpots.forEach(function(spot) {
+        var area = areas.filter(function(a){return a.id===spot.area;})[0] || {};
+        var price = (spot.price || '免费').split(/[;；,，(（]/)[0];
+        html += '<a class="niche-item" href="attraction/' + spot.id + '">' +
+          '<span class="niche-dot" style="background:' + (area.color || '#94a3b8') + ';"></span>' +
+          '<span class="niche-name">' + spot.name + '</span>' +
+          '<span class="niche-meta">' + (area.name || '') + ' · ' + price + (spot.level && spot.level !== '无' ? ' · ' + spot.level : '') + '</span>' +
+        '</a>';
+      });
+      html += '</div></details>';
+    }
 
     // 无结果提示
     if (spots.length === 0) {

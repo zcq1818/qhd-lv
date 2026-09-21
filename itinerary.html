@@ -1449,7 +1449,7 @@ reveals.forEach(function(el){o.observe(el);});
     interests.forEach(function (it) {
       (INTEREST_CATS[it] || []).forEach(function (c) { if (cats.indexOf(c) < 0) cats.push(c); });
     });
-    var pool = spots.filter(function (s) { return s.visible !== false; });
+    var pool = spots.filter(function (s) { return s.visible !== false && s.tier !== 3; });
     if (cats.length) {
       var filtered = pool.filter(function (s) { return cats.indexOf(s.cat) >= 0; });
       if (filtered.length) pool = filtered;
