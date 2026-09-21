@@ -36,6 +36,12 @@ npm run optimize
 npm run data
 ```
 
+## 英文版
+
+`en/` 三页由 `node scripts/gen-en-pages.js` 从景点主数据生成(nameEn / descEn / highlightsEn)。
+中文站导航右侧有 EN 切换,由 `scripts/unify-navbar.js` 统一注入;英文页底部与卡片上有回中文的链接。
+英文首页地址是 `/en`(不带尾斜杠),站点 trailingSlash 为 false,写成 `/en/` 会 308 跳转。
+
 ## 新增页面 / 博客后
 
 ```bash

@@ -77,7 +77,7 @@ const lines = [
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   url('/', { priority: '1.0', changefreq: 'daily' }, 'index.html'),
   ...rootPages.map((p) => url(`/${p}`, ROOT_META[p] || DEFAULT_ROOT_META, `${p}.html`)),
-  ...enPages.map((s) => url(s === 'index' ? '/en/' : `/en/${s}`, { priority: '0.7', changefreq: 'monthly' }, `en/${s}.html`)),
+  ...enPages.map((s) => url(s === 'index' ? '/en' : `/en/${s}`, { priority: '0.7', changefreq: 'monthly' }, `en/${s}.html`)),
   ...attractions.map((s) => url(`/attraction/${s}`, ATTRACTION_META, `attraction/${s}.html`)),
   ...blogs.map((s) => url(`/blog/${s}`, BLOG_META, `blog/${s}.html`)),
   '</urlset>',

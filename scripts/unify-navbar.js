@@ -74,6 +74,7 @@ function buildNav(activeKey) {
     '    <ul class="nav-links" id="navLinks">',
     lis,
     '    </ul>',
+    '    <a href="/en" class="nav-lang" hreflang="en" lang="en" title="English version">EN</a>',
     '    <a href="/itinerary" class="nav-cta">免费规划行程 <span class="nav-cta-arrow">→</span></a>',
     '    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>',
     '  </div>',

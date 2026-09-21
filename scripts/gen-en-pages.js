@@ -50,7 +50,7 @@ function layout({ title, description, canonical, active, body, extraHead = '' })
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${SITE}${canonical}">
 <link rel="alternate" hreflang="en" href="${SITE}${canonical}">
-<link rel="alternate" hreflang="zh-CN" href="${SITE}${canonical === '/en/' ? '/' : canonical === '/en/attractions' ? '/attractions' : '/guide'}">
+<link rel="alternate" hreflang="zh-CN" href="${SITE}${canonical === '/en' ? '/' : canonical === '/en/attractions' ? '/attractions' : '/guide'}">
 <link rel="alternate" hreflang="x-default" href="${SITE}/">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
@@ -103,12 +103,12 @@ ${extraHead}
 <body>
 <nav class="navbar en-nav" id="navbar" style="background:rgba(255,255,255,.96);backdrop-filter:blur(10px);box-shadow:var(--shadow-sm)">
   <div class="nav-inner">
-    <a href="/en/" class="nav-logo">
+    <a href="/en" class="nav-logo">
       <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#1a73e8"/><path d="M8 18 Q11 10 14 8 Q17 10 20 18" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
       Qinhuangdao Travel
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/en/"${active === 'home' ? ' class="active"' : ''}>Home</a></li>
+      <li><a href="/en"${active === 'home' ? ' class="active"' : ''}>Home</a></li>
       <li><a href="/en/attractions"${active === 'attractions' ? ' class="active"' : ''}>Attractions</a></li>
       <li><a href="/en/practical"${active === 'practical' ? ' class="active"' : ''}>Practical info</a></li>
       <li><a href="/gallery3d">3D Gallery</a></li>
@@ -121,7 +121,7 @@ ${extraHead}
 </nav>
 ${body}
 <footer class="en-footer">
-  <p>Qinhuangdao Travel Guide · independent, locally maintained · <a href="/en/">Home</a><a href="/en/attractions">Attractions</a><a href="/en/practical">Practical info</a><a href="/" lang="zh-CN">中文版</a></p>
+  <p>Qinhuangdao Travel Guide · independent, locally maintained · <a href="/en">Home</a><a href="/en/attractions">Attractions</a><a href="/en/practical">Practical info</a><a href="/" lang="zh-CN">中文版</a></p>
   <p style="margin-top:8px;opacity:.7">Ticket prices and opening hours change seasonally. Always check the venue's official notice on the day.</p>
 </footer>
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
@@ -150,8 +150,8 @@ const topFill = top.length < 10 ? spots.filter((s) => !s.isTop).sort((a, b) => p
 const home = layout({
   title: 'Qinhuangdao Travel Guide | Beidaihe, Shanhaiguan & the Great Wall by the Sea',
   description: 'English guide to Qinhuangdao, China: Beidaihe beaches, Shanhaiguan and the Old Dragon\'s Head where the Great Wall meets the sea, Aranya, tickets, hours and how to get there from Beijing.',
-  canonical: '/en/', active: 'home',
-  extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Qinhuangdao Travel Guide', url: SITE + '/en/', inLanguage: 'en' })}</script>`,
+  canonical: '/en', active: 'home',
+  extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Qinhuangdao Travel Guide', url: SITE + '/en', inLanguage: 'en' })}</script>`,
   body: `
 <header class="en-hero" id="main-content">
   <h1>Qinhuangdao: where the Great Wall meets the sea</h1>
