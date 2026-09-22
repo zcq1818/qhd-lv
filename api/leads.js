@@ -55,6 +55,61 @@ async function redis(cfg, commands) {
 
 const clean = (v, max = 400) => String(v ?? '').replace(/[\x00-\x1f\x7f]/g, ' ').trim().slice(0, max);
 
+/**
+ * Server酱 的推送地址按 key 的代次不一样,这里自动识别,
+ * 免得以后换了 key 又得回来改代码:
+ *   sctp<uid>t…  Server酱³   https://<uid>.push.ft07.com/send/<key>.send
+ *   SCT…         Turbo       https://sctapi.ftqq.com/<key>.send
+ *   其余(SCU…)  旧版        https://sc.ftqq.com/<key>.send
+ */
+function serverChanUrl(sendKey) {
+  const m = /^sctp(\d+)t/.exec(sendKey);
+  if (m) return `https://${m[1]}.push.ft07.com/send/${sendKey}.send`;
+  if (sendKey.startsWith('SCT')) return `https://sctapi.ftqq.com/${sendKey}.send`;
+  return `https://sc.ftqq.com/${sendKey}.send`;
+}
+
+/**
+ * 有新线索时推到微信。
+ * 刻意做成「失败也不吭声」:线索这时已经写进数据库了,推送只是提醒,
+ * 不能因为推送商挂了就让访客看到「提交失败」而重复提交。
+ * 同时限时 5 秒 —— 访客还在等这个请求返回。
+ */
+async function notify(lead) {
+  const sendKey = (process.env.SERVERCHAN_KEY || '').trim();
+  if (!sendKey) return;
+
+  const rows = [
+    ['联系方式', lead.contact],
+    ['姓名', lead.name],
+    ['出行日期', lead.date],
+    ['人数', lead.people],
+    ['需求', lead.service],
+    ['留言', lead.note],
+    ['来源', lead.source],
+    ['页面', lead.page],
+  ].filter(([, v]) => v);
+
+  const title = `新询价:${lead.contact}`.slice(0, 32);
+  const desp = rows.map(([k, v]) => `**${k}**:${v}`).join('\n\n') +
+    `\n\n[打开后台](https://www.divdu.com/dashboard)`;
+
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 5000);
+  try {
+    await fetch(serverChanUrl(sendKey), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, desp }),
+      signal: ctrl.signal,
+    });
+  } catch (e) {
+    /* 推送失败不影响线索,已落库 */
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /** 简单限流:同一 IP 每 10 分钟最多 5 条,防刷 */
 async function tooMany(cfg, ip) {
   if (!ip) return false;
@@ -112,10 +167,13 @@ export default async function handler(req) {
         ['ZADD', 'leads:index', String(now), id],
         ['INCR', 'leads:count'],
       ]);
-      return json({ ok: true, id });
     } catch (e) {
       return json({ ok: false, error: '保存失败,请改用微信或邮件联系' }, 200);
     }
+
+    // 线索已经落库了,推送只是锦上添花:推失败绝不能让访客以为没提交成功
+    await notify(lead);
+    return json({ ok: true, id });
   }
 
   /* ---------------- 健康检查(不需要口令) ----------------
@@ -141,6 +199,32 @@ export default async function handler(req) {
   const key = (req.headers.get('x-admin-key') || url.searchParams.get('key') || '').trim();
   if (!adminKey) return json({ ok: false, error: 'ADMIN_KEY_NOT_SET', message: '请在 Vercel 环境变量中设置 LEADS_ADMIN_KEY' }, 200);
   if (!key || key !== adminKey) return json({ ok: false, error: '口令错误' }, 401);
+
+  /* ---------------- 推送自测(需口令) ----------------
+     不制造假线索,直接发一条测试推送,回报 Server酱 的原始应答。 */
+  if (url.searchParams.get('testnotify') === '1') {
+    const sendKey = (process.env.SERVERCHAN_KEY || '').trim();
+    if (!sendKey) return json({ ok: false, error: '没有配置 SERVERCHAN_KEY' }, 200);
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    try {
+      const r = await fetch(serverChanUrl(sendKey), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: '推送测试',
+          desp: '看到这条就说明新线索通知已经能推到你微信了。\n\n[打开后台](https://www.divdu.com/dashboard)',
+        }),
+        signal: ctrl.signal,
+      });
+      const text = await r.text();
+      return json({ ok: r.ok, status: r.status, endpoint: serverChanUrl(sendKey).replace(sendKey, '***'), reply: text.slice(0, 300) });
+    } catch (e) {
+      return json({ ok: false, error: String(e && e.message || e) }, 200);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
 
   /* ---------------- 删除一条线索 ---------------- */
   if (req.method === 'DELETE') {

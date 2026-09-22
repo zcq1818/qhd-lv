@@ -51,6 +51,11 @@ openTimeNotesEn / transportEn / tipsEn / faqEn 由 `scripts/merge-en-translation
 后台 `dashboard.html` 查看,需要环境变量 `LEADS_ADMIN_KEY` 才能读;没配置不影响访客提交。
 后台是 noindex + robots 屏蔽 + 不进 sitemap 的,别把它加进导航。
 
+有新线索时会推一条到微信,走 Server酱,环境变量 `SERVERCHAN_KEY`(不填就只是没通知,
+线索照常入库)。推送刻意做成失败也不吭声 —— 线索那时已经落库,不能因为推送商挂了
+就让访客看到「提交失败」去重复提交。自测用 `/api/leads?testnotify=1`(需口令),
+它不会制造假线索。
+
 咨询入口是一个复用组件:页面里只放占位 `<div class="lead-card" data-lead-form data-source="…">`,
 真正的表单由 `js/lead-form.js` 渲染,占位里那一行微信/邮箱是 JS 起不来时的兜底。
 **改文案只改 js/lead-form.js,不要回头改 49 个页面。** 铺到新页面用:
