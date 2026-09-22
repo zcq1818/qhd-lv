@@ -117,6 +117,19 @@ export default async function handler(req) {
     }
   }
 
+  /* ---------------- 健康检查(不需要口令) ----------------
+     只做一次和读线索完全相同的数据库往返,回报成功与否和耗时,
+     不返回任何线索内容。用来区分「口令不对」和「数据库读不通」。 */
+  if (url.searchParams.get('ping') === '1') {
+    const t0 = Date.now();
+    try {
+      await redis(cfg, [['GET', 'leads:count'], ['ZCARD', 'leads:index']]);
+      return json({ ok: true, ms: Date.now() - t0 });
+    } catch (e) {
+      return json({ ok: false, ms: Date.now() - t0, error: String(e && e.message || e) }, 200);
+    }
+  }
+
   /* ---------------- 读取线索(需口令) ---------------- */
   // 环境变量在控制台里粘贴时很容易带上首尾空格或换行,严格比对会导致
   // 口令明明是对的却永远进不去,所以两边都先去掉首尾空白再比。

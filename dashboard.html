@@ -164,10 +164,23 @@ tr:hover td{background:#fafbfd}
     var original = btn.textContent;
     btn.disabled = true;
     btn.textContent = '验证中…';
+    var settled = false;
     var done = function () { btn.disabled = false; btn.textContent = original; };
 
+    // 请求再怎么卡也不能让按钮一直转:15 秒没结果就认定超时
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function () {
+      if (settled) return;
+      settled = true;
+      if (ctrl) ctrl.abort();
+      done();
+      fail('接口 15 秒没有响应。数据库那边可能没连上 —— ' +
+        '可以先打开 <a href="/api/leads?ping=1" target="_blank">/api/leads?ping=1</a> 看一眼,' +
+        '它会直接告诉你读取通不通。');
+    }, 15000);
+
     try {
-      fetch('/api/leads?stat=1', { headers: { 'X-Admin-Key': v } })
+      fetch('/api/leads?stat=1', { headers: { 'X-Admin-Key': v }, signal: ctrl ? ctrl.signal : undefined })
         .then(function (r) {
           return r.text().then(function (t) {
             var d = null;
@@ -176,6 +189,9 @@ tr:hover td{background:#fafbfd}
           });
         })
         .then(function (res) {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
           if (res.data && res.data.ok) {
             key = v;
             try { sessionStorage.setItem(KEY, v); } catch (e) { /* 无痕模式下存不了,不影响本次 */ }
@@ -197,11 +213,16 @@ tr:hover td{background:#fafbfd}
           }
         })
         .catch(function (e) {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
           done();
           fail('请求没能发出去:' + esc(e && e.message ? e.message : String(e)) +
             '<br><span style="color:#64748b">多半是网络问题或被浏览器扩展拦了。</span>');
         });
     } catch (e) {
+      settled = true;
+      clearTimeout(timer);
       done();
       fail('页面出错:' + esc(e && e.message ? e.message : String(e)));
     }
