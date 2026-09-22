@@ -143,7 +143,9 @@ for (const file of fs.readdirSync(blogDir).filter((f) => f.endsWith('.html'))) {
   stat.blogs++;
 }
 
-/* ---------------- 3. 根目录高意向页 ---------------- */
+/* ---------------- 3. 根目录栏目页 ----------------
+   文案按页面各写各的:同一句「有问题找我们」放在必玩景点页和门票页上,
+   说服力完全不同。anchor 留空的按 </main> → 页脚 依次找。 */
 const rootPages = [
   {
     file: 'itinerary.html',
@@ -161,6 +163,76 @@ const rootPages = [
     title: '不知道住哪一片合适?',
     sub: '带老人孩子、想走路到海边、还是图便宜 —— 需求不一样,该住的区完全不同。说说情况,我们给几个具体建议。',
   },
+  {
+    file: 'attractions.html', source: 'attractions', service: '景点挑选',
+    title: '47 个景点,不知道挑哪几个?',
+    sub: '时间有限就得取舍。说说你有几天、和谁一起来,我们帮你圈出值得去的那几个,顺路的排在一起。',
+  },
+  {
+    file: 'must-play.html', source: 'must-play', service: '景点挑选',
+    title: '这些必玩的,哪些真适合你?',
+    sub: '「必玩」是给所有人的,你的情况是你自己的 —— 带老人爬不动山、带小孩耗不起排队。说一下,我们帮你筛。',
+  },
+  {
+    file: 'guide.html', source: 'guide', service: '综合咨询',
+    title: '攻略看完了,还是有拿不准的?',
+    sub: '写在纸面上的经验盖不住每个人的具体情况。几号来、几个人、预算多少,说一句,我们给针对性的建议。',
+  },
+  {
+    file: 'routes.html', source: 'routes', service: '路线咨询',
+    title: '几条路线之间,选哪条?',
+    sub: '路线好不好,取决于你有几天、住在哪、自驾还是坐车。说说你的情况,我们帮你定一条。',
+  },
+  {
+    file: 'food.html', source: 'food', service: '餐饮咨询',
+    title: '不知道吃什么、在哪吃?',
+    sub: '住在哪一片、几个人、想吃海鲜还是家常,推荐完全不一样。说一下,我们给几家本地人真去的。',
+  },
+  {
+    file: 'seafood.html', source: 'seafood', service: '海鲜咨询',
+    title: '海鲜怎么买、去哪吃不踩坑?',
+    sub: '市场几点去最新鲜、加工店怎么谈价、哪些说法是套路 —— 这些攻略里写不全。有疑问直接问。',
+  },
+  {
+    file: 'ganhai.html', source: 'ganhai', service: '赶海咨询',
+    title: '想赶上好潮水,哪天去?',
+    sub: '赶海看的是潮汐不是天气,日子选错了就是去看一片水。告诉我们你哪几天有空,我们帮你挑时间和地点。',
+  },
+  {
+    file: 'sunrise.html', source: 'sunrise', service: '日出咨询',
+    title: '看日出,几点出发、去哪个点?',
+    sub: '不同月份日出时间差一个多小时,住的地方不同该去的观景点也不同。说一下你的日期和住处。',
+  },
+  {
+    file: 'tickets.html', source: 'tickets', service: '门票咨询',
+    title: '门票怎么买不多花钱?',
+    sub: '哪些能提前订、哪些现场买更划算、哪些联票其实用不上 —— 按你的行程算一遍最清楚。',
+  },
+  {
+    file: 'summer.html', source: 'summer', service: '综合咨询',
+    title: '夏天来,住哪、玩哪最舒服?',
+    sub: '七八月人多、价高、天热,但错开时段和地点差别很大。说说你的日期,我们帮你避开高峰。',
+  },
+  {
+    file: 'escape-heat.html', source: 'escape-heat', service: '综合咨询',
+    title: '想避暑,去哪几天、哪一片最凉快?',
+    sub: '山里和海边凉得不一样,住几天也影响选法。说说你的时间和同行的人,我们给个具体安排。',
+  },
+  {
+    file: 'family-travel.html', source: 'family-travel', service: '亲子行程',
+    title: '带孩子来,行程怎么排才不累?',
+    sub: '孩子多大、能走多久、要不要午睡 —— 这些决定了一天能安排几个点。说一下,我们给一份不赶的行程。',
+  },
+  {
+    file: 'checklist.html', source: 'checklist', service: '行前咨询',
+    title: '还有什么没想到的?',
+    sub: '清单是通用的,你的情况未必通用。带老人、带婴儿、自驾还是高铁,要准备的东西差别不小。问一句更稳。',
+  },
+  {
+    file: 'pitfall-guide.html', source: 'pitfall-guide', service: '综合咨询',
+    title: '出发前,不如先问一句',
+    sub: '大部分坑都是临场才发现的。把你打算怎么玩说一下,我们提前告诉你哪几步容易出问题。',
+  },
 ];
 
 for (const cfg of rootPages) {
@@ -170,14 +242,18 @@ for (const cfg of rootPages) {
   let html = before;
 
   if (!html.includes('data-lead-form')) {
-    if (!html.includes(cfg.anchor)) {
-      console.warn(`   (${cfg.file} 找不到插入位置 ${cfg.anchor},跳过)`);
+    // 指定了就用指定的,没指定就按 </main> → 页脚 依次找
+    const anchor = [cfg.anchor, '</main>', '<footer class="footer">']
+      .filter(Boolean)
+      .find((a) => html.includes(a));
+    if (!anchor) {
+      console.warn(`   (${cfg.file} 找不到插入位置,跳过)`);
       stat.skipped++;
       continue;
     }
-    // 这两页没有自带宽度约束的容器,包一层
+    // 这些页面在插入点没有带宽度约束的容器,包一层
     const block = `<div class="lead-wrap">\n${placeholder({ ...cfg, indent: '  ' })}</div>\n\n`;
-    html = html.replace(cfg.anchor, block + cfg.anchor);
+    html = html.replace(anchor, block + anchor);
   }
 
   html = ensureAssets(html, 0);
