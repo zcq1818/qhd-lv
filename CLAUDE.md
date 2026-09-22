@@ -12,15 +12,37 @@
 - `api/` Vercel 函数(weather、tide、chat、view-counter),密钥全部走环境变量,见 `.env.example`
 - `scripts/` 构建与内容脚本(node + python)
 
-## 改动 CSS / JS 后必须做
-
-页面统一引用 `.min` 文件。改完源文件后运行:
+## 改完东西跑这一条就够
 
 ```bash
-npm run optimize
+npm run all
 ```
 
-它会用 esbuild 重新压缩、把页面引用统一到 .min、修 SEO,并用 `check-min` 校验没有过期产物。只想校验用 `npm run check`。
+按顺序跑完 15 步:生成运行时数据与英文页 → 铺咨询入口/浏览量/统计 →
+压缩、统一 .min 引用、补 SEO、打资源指纹 → 生成 sitemap 与 RSS → 全量自检。
+每一步都可重复执行,没改动的地方不会动。
+
+只想检查不想改动,用 `npm run check`(等同 `node scripts/check-all.js`)。
+它查七件事:压缩产物是否过期、页面有没有引用未压缩文件、统计与浏览量
+覆盖是否完整、有没有内嵌统计导致双重计数、图片引用是否存在、
+sitemap 与 RSS 是否跟得上、有没有把 .env 之类的东西加进暂存区。
+**有问题它会直接告诉你跑哪个命令能修。**
+
+只改了 CSS/JS 也可以只跑 `npm run optimize`。
+
+### 提交钩子
+
+```bash
+npm run hooks
+```
+
+设置 `core.hooksPath` 指向 `.githooks/`,以后每次提交前自动跑一遍自检,
+不过就拦下来。**新克隆仓库后要跑一次**,因为 git 不会版本化 `.git/hooks`。
+确实需要跳过时用 `git commit --no-verify`。
+
+这层不是洁癖:曾经 9 个页面一直在下载未压缩脚本(属性没加引号,
+两个校验脚本都看不见)、RSS 烂到 27 条里 18 条是死链,根子都是
+「有个步骤没人记得做」。
 
 ## 改导航栏
 

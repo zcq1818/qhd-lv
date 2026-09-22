@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# 提交前自检。
+#
+# 这个项目有八九个维护命令,靠人记得跑迟早出事 —— 曾经 9 个页面一直在
+# 下载未压缩脚本、RSS 烂到 27 条里 18 条是死链,根子都是「有个步骤
+# 没人记得做」。这里把它变成提交时自动判断。
+#
+# 安装:npm run hooks(设置 core.hooksPath 指向 .githooks)
+# 临时跳过:git commit --no-verify
+
+echo "提交前自检…"
+
+if ! node scripts/check-all.js --staged; then
+  echo ""
+  echo "自检没过,这次提交被拦下了。"
+  echo "按上面的提示修好再提交;确实想跳过就用 git commit --no-verify。"
+  exit 1
+fi
+
+exit 0
