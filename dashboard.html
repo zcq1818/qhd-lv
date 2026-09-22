@@ -167,7 +167,7 @@ tr:hover td{background:#fafbfd}
     var done = function () { btn.disabled = false; btn.textContent = original; };
 
     try {
-      fetch('/api/leads?stat=1&key=' + encodeURIComponent(v))
+      fetch('/api/leads?stat=1', { headers: { 'X-Admin-Key': v } })
         .then(function (r) {
           return r.text().then(function (t) {
             var d = null;
@@ -222,7 +222,7 @@ tr:hover td{background:#fafbfd}
 
   /* ---------- 线索 ---------- */
   function loadLeads() {
-    fetch('/api/leads?limit=300&key=' + encodeURIComponent(key))
+    fetch('/api/leads?limit=200', { headers: { 'X-Admin-Key': key } })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         if (!d || !d.ok) throw new Error(d && d.error);

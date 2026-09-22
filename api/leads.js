@@ -5,8 +5,8 @@
 // 现在改为直接写入 Redis,后台可查。
 //
 // POST /api/leads                提交一条线索,body 为 JSON
-// GET  /api/leads?key=xxx        读取线索列表(需口令),?limit=100&since=时间戳
-// GET  /api/leads?key=xxx&stat=1 只返回统计摘要
+// GET  /api/leads                读取线索列表,口令放 X-Admin-Key 请求头(也接受 ?key=),?limit=100
+// GET  /api/leads?stat=1         只返回统计摘要
 //
 // 存储结构:
 //   leads:<时间戳>-<随机串>  →  线索 JSON(保存 400 天)
@@ -20,7 +20,7 @@ export const config = { runtime: 'edge' };
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Key',
   'Content-Type': 'application/json; charset=utf-8',
 };
 
@@ -121,7 +121,9 @@ export default async function handler(req) {
   // 环境变量在控制台里粘贴时很容易带上首尾空格或换行,严格比对会导致
   // 口令明明是对的却永远进不去,所以两边都先去掉首尾空白再比。
   const adminKey = (process.env.LEADS_ADMIN_KEY || '').trim();
-  const key = (url.searchParams.get('key') || '').trim();
+  // 优先取请求头:查询串会被写进函数请求日志和浏览器历史,口令不该出现在那里。
+  // 仍然接受 ?key=,方便偶尔用地址栏直接排查。
+  const key = (req.headers.get('x-admin-key') || url.searchParams.get('key') || '').trim();
   if (!adminKey) return json({ ok: false, error: 'ADMIN_KEY_NOT_SET', message: '请在 Vercel 环境变量中设置 LEADS_ADMIN_KEY' }, 200);
   if (!key || key !== adminKey) return json({ ok: false, error: '口令错误' }, 401);
 
