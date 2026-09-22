@@ -141,26 +141,74 @@ tr:hover td{background:#fafbfd}
     document.getElementById('main').hidden = false;
   }
 
+  function fail(msg) {
+    err.innerHTML = msg;
+    err.style.display = 'block';
+  }
+
   function login() {
-    var v = document.getElementById('pass').value.trim();
-    if (!v) return;
+    var btn = document.getElementById('loginBtn');
+    var input = document.getElementById('pass');
+    var v = (input.value || '').trim();
+
+    // 先给出可见反馈,后面无论走哪条路都会改写它 —— 不允许「点了没反应」
     err.style.display = 'none';
-    fetch('/api/leads?stat=1&key=' + encodeURIComponent(v))
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        if (d && d.ok) { key = v; sessionStorage.setItem(KEY, v); show(); loadAll(); }
-        else {
-          err.textContent = d && d.error === 'ADMIN_KEY_NOT_SET'
-            ? '后台口令尚未配置:请在 Vercel 环境变量中添加 LEADS_ADMIN_KEY'
-            : '口令不正确。请确认输入的口令与 Vercel 环境变量 LEADS_ADMIN_KEY 完全一致;改过环境变量后需要重新部署一次才生效。';
-          err.style.display = 'block';
-        }
-      })
-      .catch(function () { err.textContent = '无法连接服务'; err.style.display = 'block'; });
+    if (!v) { fail('请先输入口令。'); return; }
+
+    if (location.protocol === 'file:') {
+      fail('这个页面是直接从磁盘打开的,后台接口调不通。请通过网址访问:<br>' +
+        '<a href="https://www.divdu.com/dashboard">https://www.divdu.com/dashboard</a>');
+      return;
+    }
+
+    var original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '验证中…';
+    var done = function () { btn.disabled = false; btn.textContent = original; };
+
+    try {
+      fetch('/api/leads?stat=1&key=' + encodeURIComponent(v))
+        .then(function (r) {
+          return r.text().then(function (t) {
+            var d = null;
+            try { d = JSON.parse(t); } catch (e) { /* 不是 JSON,下面按状态码报 */ }
+            return { status: r.status, data: d, raw: t };
+          });
+        })
+        .then(function (res) {
+          if (res.data && res.data.ok) {
+            key = v;
+            try { sessionStorage.setItem(KEY, v); } catch (e) { /* 无痕模式下存不了,不影响本次 */ }
+            show();
+            loadAll();
+            return;
+          }
+          done();
+          if (res.data && res.data.error === 'ADMIN_KEY_NOT_SET') {
+            fail('后台口令尚未配置:请在 Vercel 环境变量中添加 LEADS_ADMIN_KEY,并重新部署一次。');
+          } else if (res.data && res.data.error) {
+            fail('口令不正确。请确认与 Vercel 环境变量 LEADS_ADMIN_KEY 完全一致;' +
+              '改过环境变量后需要重新部署一次才生效。');
+          } else {
+            // 接口没返回预期的 JSON —— 把状态码显示出来,方便定位
+            fail('接口返回异常(HTTP ' + res.status + ')。' +
+              (res.status === 404 ? ' 看起来 /api/leads 还没部署上去。' : '') +
+              '<br><span style="color:#64748b">' + esc(String(res.raw).slice(0, 120)) + '</span>');
+          }
+        })
+        .catch(function (e) {
+          done();
+          fail('请求没能发出去:' + esc(e && e.message ? e.message : String(e)) +
+            '<br><span style="color:#64748b">多半是网络问题或被浏览器扩展拦了。</span>');
+        });
+    } catch (e) {
+      done();
+      fail('页面出错:' + esc(e && e.message ? e.message : String(e)));
+    }
   }
 
   document.getElementById('loginBtn').addEventListener('click', login);
-  document.getElementById('pass').addEventListener('keypress', function (e) { if (e.key === 'Enter') login(); });
+  document.getElementById('pass').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); login(); } });
   document.getElementById('logoutBtn').addEventListener('click', function () { sessionStorage.removeItem(KEY); location.reload(); });
   document.getElementById('refreshBtn').addEventListener('click', loadAll);
 
