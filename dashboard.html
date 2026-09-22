@@ -65,6 +65,17 @@ td.n{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
 tr:hover td{background:#fafbfd}
 .bar{height:6px;background:var(--brand);border-radius:3px;min-width:2px}
 
+.lead.done{opacity:.55}
+.lead-badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.72rem;font-weight:700;margin-left:2px}
+.lead-badge.new{background:#fee2e2;color:#b91c1c}
+.lead-badge.done{background:#dcfce7;color:#15803d}
+.lead-act{float:right;display:flex;gap:10px}
+.lead-act button{border:0;background:none;font-size:.8rem;cursor:pointer;padding:0 2px}
+.lead-mark{color:#1d4ed8}
+.lead-mark:hover,.lead-del:hover{text-decoration:underline}
+.filters{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.filters button{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:5px 14px;font-size:.85rem;cursor:pointer}
+.filters button.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
 #notifyTip{font-size:.85rem;line-height:1.5}
 #notifyTip.ok{color:#15803d}
 #notifyTip.bad{color:#b91c1c}
@@ -109,6 +120,11 @@ tr:hover td{background:#fafbfd}
     <div class="cards" id="leadCards"></div>
     <div class="panel">
       <h2>最近的询价</h2>
+      <div class="filters">
+        <button data-filter="all" class="on">全部</button>
+        <button data-filter="new">未处理</button>
+        <button data-filter="done">已处理</button>
+      </div>
       <div id="leadList"><div class="empty">加载中…</div></div>
     </div>
     <p class="note">线索保存 400 天。点联系方式可复制。来源 spot- 开头是景点页,itinerary 是行程规划页,accommodation 是住宿页,local-guide 是当地向导页。</p>
@@ -256,6 +272,14 @@ tr:hover td{background:#fafbfd}
   document.getElementById('loginBtn').addEventListener('click', login);
   document.getElementById('pass').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); login(); } });
   document.getElementById('logoutBtn').addEventListener('click', function () { sessionStorage.removeItem(KEY); location.reload(); });
+  document.querySelectorAll('.filters button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.filters button').forEach(function (x) { x.classList.toggle('on', x === btn); });
+      filter = btn.dataset.filter;
+      renderLeads();
+    });
+  });
+
   document.getElementById('refreshBtn').addEventListener('click', loadAll);
 
   // 验证微信通知是否接通。走的是不制造假线索的自测入口。
@@ -315,31 +339,92 @@ tr:hover td{background:#fafbfd}
         renderFunnel();
         var today = leadsCache.filter(function (l) { return daysAgo(l.createdAt, 1); }).length;
         var week = leadsCache.filter(function (l) { return daysAgo(l.createdAt, 7); }).length;
+        var pending = leadsCache.filter(function (l) { return l.status !== 'done'; }).length;
         document.getElementById('leadCards').innerHTML =
-          card(d.total || 0, '累计线索') + card(week, '最近 7 天') + card(today, '最近 24 小时');
+          card(pending, '待处理') + card(d.total || 0, '累计线索') +
+          card(week, '最近 7 天') + card(today, '最近 24 小时');
 
-        if (!leadsCache.length) {
-          document.getElementById('leadList').innerHTML =
-            '<div class="empty">还没有线索。表单已接通,有人提交就会出现在这里。</div>';
-          return;
-        }
-        document.getElementById('leadList').innerHTML = leadsCache.map(function (l) {
-          var meta = [l.date, l.people, l.service].filter(Boolean)
-            .map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
-          return '<div class="lead">' +
-            '<div class="lead-top">' +
-              '<span class="lead-name">' + esc(l.name || '(未留姓名)') + '</span>' +
-              '<span class="lead-contact" data-copy="' + esc(l.contact) + '">' + esc(l.contact) + '</span>' +
-              '<span class="lead-time">' + fmtTime(l.createdAt) + '</span>' +
-            '</div>' +
-            (meta ? '<div class="lead-meta">' + meta + '</div>' : '') +
-            (l.note ? '<div class="lead-note">' + esc(l.note) + '</div>' : '') +
-            '<div class="lead-src">来自 ' + esc(l.source || '?') + (l.page ? ' · ' + esc(l.page) : '') +
-              '<button class="lead-del" data-del="' + esc(l.id) + '">删除</button></div>' +
-          '</div>';
-        }).join('');
+        renderLeads();
+      })
+      .catch(function (e) {
+        document.getElementById('leadList').innerHTML =
+          '<div class="empty">读取失败:' + esc(e.message || '未知错误') + '</div>';
+      });
+  }
 
-        document.querySelectorAll('[data-del]').forEach(function (el) {
+  /* 单独抽出来:切换筛选时不必重新请求接口 */
+  var filter = 'all';
+
+  function renderLeads() {
+    var box = document.getElementById('leadList');
+    if (!leadsCache.length) {
+      box.innerHTML = '<div class="empty">还没有线索。表单已接通,有人提交就会出现在这里。</div>';
+      return;
+    }
+
+    var rows = leadsCache.filter(function (l) {
+      if (filter === 'new') return l.status !== 'done';
+      if (filter === 'done') return l.status === 'done';
+      return true;
+    });
+
+    if (!rows.length) {
+      box.innerHTML = '<div class="empty">' +
+        (filter === 'new' ? '没有待处理的线索,都回过了。' : '还没有标记为已处理的线索。') + '</div>';
+      return;
+    }
+
+    box.innerHTML = rows.map(function (l) {
+      var done = l.status === 'done';
+      var meta = [l.date, l.people, l.service].filter(Boolean)
+        .map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
+      return '<div class="lead' + (done ? ' done' : '') + '">' +
+        '<div class="lead-top">' +
+          '<span class="lead-name">' + esc(l.name || '(未留姓名)') + '</span>' +
+          '<span class="lead-contact" data-copy="' + esc(l.contact) + '">' + esc(l.contact) + '</span>' +
+          '<span class="lead-badge ' + (done ? 'done">已处理' : 'new">待处理') + '</span>' +
+          '<span class="lead-time">' + fmtTime(l.createdAt) + '</span>' +
+        '</div>' +
+        (meta ? '<div class="lead-meta">' + meta + '</div>' : '') +
+        (l.note ? '<div class="lead-note">' + esc(l.note) + '</div>' : '') +
+        '<div class="lead-src">来自 ' + esc(l.source || '?') + (l.page ? ' · ' + esc(l.page) : '') +
+          '<span class="lead-act">' +
+            '<button class="lead-mark" data-mark="' + esc(l.id) + '" data-to="' + (done ? 'new' : 'done') + '">' +
+              (done ? '恢复待处理' : '标记已处理') + '</button>' +
+            '<button class="lead-del" data-del="' + esc(l.id) + '">删除</button>' +
+          '</span></div>' +
+      '</div>';
+    }).join('');
+
+    document.querySelectorAll('[data-mark]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var id = el.getAttribute('data-mark');
+        var to = el.getAttribute('data-to');
+        el.disabled = true;
+        el.textContent = '处理中…';
+        fetch('/api/leads?id=' + encodeURIComponent(id) + '&status=' + to, {
+          method: 'PATCH', headers: { 'X-Admin-Key': key }
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (!d || !d.ok) throw new Error(d && d.error);
+            // 本地改一下就够了,不用为一次点击把整页数据重拉一遍
+            var hit = leadsCache.filter(function (x) { return x.id === id; })[0];
+            if (hit) hit.status = to;
+            var pending = leadsCache.filter(function (x) { return x.status !== 'done'; }).length;
+            var firstCard = document.querySelector('#leadCards .card .n');
+            if (firstCard) firstCard.textContent = pending;
+            renderLeads();
+          })
+          .catch(function (e) {
+            el.disabled = false;
+            el.textContent = '标记失败';
+            console.warn(e);
+          });
+      });
+    });
+
+    document.querySelectorAll('[data-del]').forEach(function (el) {
           el.addEventListener('click', function () {
             var id = el.getAttribute('data-del');
             if (!confirm('删除这条线索?删掉就找不回来了。')) return;
@@ -366,11 +451,6 @@ tr:hover td{background:#fafbfd}
             setTimeout(function () { el.textContent = old; }, 1200);
           });
         });
-      })
-      .catch(function (e) {
-        document.getElementById('leadList').innerHTML =
-          '<div class="empty">读取失败:' + esc(e.message || '未知错误') + '</div>';
-      });
   }
 
   function card(n, l) { return '<div class="card"><div class="n">' + n + '</div><div class="l">' + l + '</div></div>'; }

@@ -50,6 +50,8 @@ openTimeNotesEn / transportEn / tipsEn / faqEn 由 `scripts/merge-en-translation
 访客留下的联系方式走 `api/leads.js`(Edge Function,写 Upstash Redis,线索存 400 天),
 后台 `dashboard.html` 查看,需要环境变量 `LEADS_ADMIN_KEY` 才能读;没配置不影响访客提交。
 后台是 noindex + robots 屏蔽 + 不进 sitemap 的,别把它加进导航。
+线索可以标记处理状态(PATCH ?id=&status=done|new)与删除(DELETE ?id=),
+标记用 KEEPTTL 保住原来的 400 天到期时间,不因为点一下就续命。
 
 有新线索时会推一条到微信,走 Server酱,环境变量 `SERVERCHAN_KEY`(不填就只是没通知,
 线索照常入库)。推送刻意做成失败也不吭声 —— 线索那时已经落库,不能因为推送商挂了

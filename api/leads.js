@@ -7,6 +7,7 @@
 // POST /api/leads                提交一条线索,body 为 JSON
 // GET  /api/leads                读取线索列表,口令放 X-Admin-Key 请求头(也接受 ?key=),?limit=100
 // GET  /api/leads?stat=1         只返回统计摘要
+// PATCH  /api/leads?id=xxx&status=done|new   标记处理状态(需口令)
 // DELETE /api/leads?id=xxx      删除一条线索(同样需要口令)
 //
 // 存储结构:
@@ -20,7 +21,7 @@ export const config = { runtime: 'edge' };
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+  'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Key',
   'Content-Type': 'application/json; charset=utf-8',
 };
@@ -223,6 +224,31 @@ export default async function handler(req) {
       return json({ ok: false, error: String(e && e.message || e) }, 200);
     } finally {
       clearTimeout(timer);
+    }
+  }
+
+  /* ---------------- 标记处理状态 ----------------
+     PATCH /api/leads?id=xxx&status=done|new
+     线索一多就分不清哪些回过了。这里只改 status 一个字段,
+     用 KEEPTTL 保住原来的 400 天到期时间,不因为标记一下就续命。 */
+  if (req.method === 'PATCH') {
+    const id = (url.searchParams.get('id') || '').trim();
+    const status = (url.searchParams.get('status') || '').trim();
+    if (!id) return json({ ok: false, error: '缺少 id' }, 400);
+    if (status !== 'done' && status !== 'new') return json({ ok: false, error: 'status 只能是 done 或 new' }, 400);
+
+    try {
+      const got = await redis(cfg, [['GET', `leads:${id}`]]);
+      const raw = got?.[0]?.result;
+      if (!raw) return json({ ok: false, error: '线索不存在(可能已过期或被删除)' }, 404);
+
+      const lead = JSON.parse(raw);
+      lead.status = status;
+      lead.handledAt = status === 'done' ? new Date().toISOString() : '';
+      await redis(cfg, [['SET', `leads:${id}`, JSON.stringify(lead), 'KEEPTTL']]);
+      return json({ ok: true, id, status });
+    } catch (e) {
+      return json({ ok: false, error: String(e && e.message || e) }, 200);
     }
   }
 
