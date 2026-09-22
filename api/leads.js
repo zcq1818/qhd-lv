@@ -122,11 +122,27 @@ export default async function handler(req) {
      不返回任何线索内容。用来区分「口令不对」和「数据库读不通」。 */
   if (url.searchParams.get('ping') === '1') {
     const t0 = Date.now();
+
+    // 口令的「形状」:只报长度与几个布尔判断,不回任何一个字符。
+    // 最常见的两种配错是粘贴时把引号一起带进去了,以及混进了空格或换行,
+    // 这两种在 Vercel 界面上肉眼都看不出来。
+    const raw = process.env.LEADS_ADMIN_KEY;
+    const keyShape = raw == null
+      ? { configured: false }
+      : {
+          configured: true,
+          length: raw.length,
+          lengthAfterTrim: raw.trim().length,
+          hasQuotes: /["']/.test(raw),
+          hasSpace: /\s/.test(raw.trim()),          // 去掉首尾后仍有空白 = 中间有空格
+          hasNonAscii: /[^\x20-\x7e]/.test(raw.trim()),
+        };
+
     try {
       await redis(cfg, [['GET', 'leads:count'], ['ZCARD', 'leads:index']]);
-      return json({ ok: true, ms: Date.now() - t0 });
+      return json({ ok: true, ms: Date.now() - t0, keyShape });
     } catch (e) {
-      return json({ ok: false, ms: Date.now() - t0, error: String(e && e.message || e) }, 200);
+      return json({ ok: false, ms: Date.now() - t0, keyShape, error: String(e && e.message || e) }, 200);
     }
   }
 
