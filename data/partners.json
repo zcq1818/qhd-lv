@@ -1,0 +1,18 @@
+{
+  "note": "合作商家数据。active 为 false 或列表为空时,页面显示招商位而不是空白。改完这里直接生效,不用重新生成页面。",
+  "updated": "2026-09-22",
+  "types": {
+    "stay": "住宿",
+    "food": "餐饮",
+    "car": "包车/接送",
+    "guide": "向导"
+  },
+  "areas": {
+    "beidaihe": "北戴河",
+    "nandaihe": "南戴河",
+    "shanhaiguan": "山海关",
+    "haigang": "市区",
+    "changli": "昌黎·黄金海岸"
+  },
+  "partners": []
+}
