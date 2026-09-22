@@ -65,6 +65,9 @@ td.n{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
 tr:hover td{background:#fafbfd}
 .bar{height:6px;background:var(--brand);border-radius:3px;min-width:2px}
 
+#notifyTip{font-size:.85rem;line-height:1.5}
+#notifyTip.ok{color:#15803d}
+#notifyTip.bad{color:#b91c1c}
 .lead-del{float:right;border:0;background:none;color:#b91c1c;font-size:.8rem;cursor:pointer;padding:0 2px}
 .lead-del:hover{text-decoration:underline}
 .note{margin-top:18px;font-size:.85rem;color:var(--muted);line-height:1.8}
@@ -91,6 +94,8 @@ tr:hover td{background:#fafbfd}
   <span class="spacer"></span>
   <button id="refreshBtn">刷新</button>
   <button id="exportBtn">导出线索 CSV</button>
+  <button id="notifyBtn">测试微信推送</button>
+  <span id="notifyTip" hidden></span>
   <button id="logoutBtn">退出</button>
 </header>
 
@@ -252,6 +257,44 @@ tr:hover td{background:#fafbfd}
   document.getElementById('pass').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); login(); } });
   document.getElementById('logoutBtn').addEventListener('click', function () { sessionStorage.removeItem(KEY); location.reload(); });
   document.getElementById('refreshBtn').addEventListener('click', loadAll);
+
+  // 验证微信通知是否接通。走的是不制造假线索的自测入口。
+  document.getElementById('notifyBtn').addEventListener('click', function () {
+    var btn = this;
+    var tip = document.getElementById('notifyTip');
+    var original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '发送中…';
+    tip.hidden = true;
+
+    fetch('/api/leads?testnotify=1', { headers: { 'X-Admin-Key': key } })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        btn.disabled = false;
+        btn.textContent = original;
+        tip.hidden = false;
+        // Server酱 收下了会在应答里回 "code":0;HTTP 200 不代表它认这个 key
+        var accepted = d && d.ok && /"code"\s*:\s*0/.test(d.reply || '');
+        if (accepted) {
+          tip.className = 'ok';
+          tip.textContent = '已发送,看一下微信。';
+        } else if (d && d.error) {
+          tip.className = 'bad';
+          tip.textContent = d.error;
+        } else {
+          tip.className = 'bad';
+          tip.textContent = 'Server酱 没有收下(HTTP ' + (d && d.status) + '):' +
+            String((d && d.reply) || '').slice(0, 120);
+        }
+      })
+      .catch(function (e) {
+        btn.disabled = false;
+        btn.textContent = original;
+        tip.hidden = false;
+        tip.className = 'bad';
+        tip.textContent = '请求失败:' + (e && e.message ? e.message : e);
+      });
+  });
 
   document.querySelectorAll('.tab').forEach(function (t) {
     t.addEventListener('click', function () {
