@@ -98,8 +98,9 @@
     var tides = (entry.data && entry.data.tides) || [];
     var wins = windowsOf(entry);
 
-    var d = new Date(entry.date + 'T00:00:00+08:00');
-    var label = (entry.date || '').slice(5).replace('-', '月') + '日 ' + WEEK[d.getDay()];
+    // 按纯日历日期算星期,不受访客所在时区影响
+    var d = new Date(entry.date + 'T00:00:00Z');
+    var label = (entry.date || '').slice(5).replace('-', '月') + '日 ' + WEEK[d.getUTCDay()];
     var r = tides.length ? rate(tides) : null;
 
     if (!wins.length) {

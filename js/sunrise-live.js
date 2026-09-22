@@ -55,8 +55,9 @@
 
   function card(d, isToday) {
     var v = visibility(d.textDay);
-    var dt = new Date(d.date + 'T00:00:00+08:00');
-    var label = d.date.slice(5).replace('-', '月') + '日 ' + WEEK[dt.getDay()];
+    // 按纯日历日期算星期,不受访客所在时区影响
+    var dt = new Date(d.date + 'T00:00:00Z');
+    var label = d.date.slice(5).replace('-', '月') + '日 ' + WEEK[dt.getUTCDay()];
 
     return '<div class="sl-day' + (isToday ? ' is-today' : '') + '">' +
       '<div class="sl-date">' + esc(label) + (isToday ? ' <em>今天</em>' : '') +

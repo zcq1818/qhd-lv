@@ -20,7 +20,8 @@
 
   var WEEK = ['日', '一', '二', '三', '四', '五', '六'];
   function md(d) { return (+d.slice(5, 7)) + '月' + (+d.slice(8, 10)) + '日'; }
-  function week(d) { return '周' + WEEK[new Date(d + 'T00:00:00+08:00').getDay()]; }
+  // 按纯日历日期算,不受访客所在时区影响
+  function week(d) { return '周' + WEEK[new Date(d + 'T00:00:00Z').getUTCDay()]; }
 
   /* ---------- 卡片 ---------- */
 

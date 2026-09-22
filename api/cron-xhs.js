@@ -29,7 +29,9 @@ const fmtMin = (n) => {
 };
 const md = (d) => `${+d.slice(5, 7)}月${+d.slice(8, 10)}日`;
 const WEEK = ['日', '一', '二', '三', '四', '五', '六'];
-const weekOf = (d) => '周' + WEEK[new Date(d + 'T00:00:00+08:00').getDay()];
+// 用 UTC 解析纯日历日期:getDay() 取的是运行时本地时区,
+// 而 Vercel 跑在 UTC,会把北京时间的第二天算成前一天
+const weekOf = (d) => '周' + WEEK[new Date(d + 'T00:00:00Z').getUTCDay()];
 
 /**
  * 赶海窗口。和 js/ganhai-time.js 是同一套判断:
