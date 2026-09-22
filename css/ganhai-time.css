@@ -213,3 +213,15 @@
 /* 退得浅的那次低潮:时刻是对的,但水位下不去,标出来免得白跑 */
 .gh-win.is-shallow b { color: var(--text-muted, #64748B); font-weight: 700; }
 .gh-win.is-shallow small i { font-style: normal; color: #b45309; }
+
+/* 白天/夜间标记 —— 秦皇岛的大潮低潮常整周落在凌晨,不标出来等于让人半夜出门 */
+.gh-tag { margin-left: 6px; padding: 1px 7px; border-radius: 999px; font-size: .68rem; font-weight: 700; vertical-align: 2px; }
+.gh-tag.day { background: #dbeafe; color: #1d4ed8; }
+.gh-tag.night { background: #1e293b; color: #cbd5e1; }
+.gh-win.is-night b { color: var(--text-muted, #64748B); }
+
+/* 一句话结论 */
+.gh-sum { margin-bottom: 16px; padding: 14px 16px; border-radius: 12px; font-size: .95rem; line-height: 1.75; }
+.gh-sum.ok { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a5f; }
+.gh-sum.warn { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+.gh-sum b { font-weight: 800; }

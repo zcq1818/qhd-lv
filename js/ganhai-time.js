@@ -56,41 +56,99 @@
     return { text: '小潮', cls: 'weak', tip: '潮差小,滩涂露得少,不建议专程去' };
   }
 
-  function dayCard(entry, isToday) {
+  /**
+   * 一天的赶海窗口:时刻、深浅、白天还是夜里,都在这里算一次。
+   * 卡片和顶部结论共用 —— 之前两处各算各的,结论推荐过一个卡片上
+   * 标着「退得浅」的窗口。
+   */
+  function windowsOf(entry) {
     var tides = (entry.data && entry.data.tides) || [];
     var lows = tides.filter(function (t) { return t.type === 'low'; })
       .map(function (t) { return { min: toMin(t.time), h: t.height }; })
       .filter(function (t) { return t.min != null; });
+    if (!lows.length) return [];
+
+    var hs = tides.map(function (t) { return t.height; });
+    var lo = Math.min.apply(null, hs), hi = Math.max.apply(null, hs);
+    var span = hi - lo;
+
+    // 白天还是夜里直接决定这个窗口对绝大多数人有没有用,接口自己算好了
+    var dayFlag = {};
+    ((entry.data && entry.data.ganhai) || []).forEach(function (g) {
+      dayFlag[g.lowTideTime] = !!g.isDaytime;
+    });
+
+    return lows.map(function (l) {
+      var t = fmtMin(l.min);
+      var w = windowOf(l.min);
+      return {
+        time: t,
+        height: l.h,
+        from: w.from,
+        to: w.to,
+        // 「低潮」水位和当天高潮差不多时(浅半日潮),照着去就是白跑
+        shallow: span > 0 && (l.h - lo) > span * 0.4,
+        // 接口没给就按 06:00-18:00 粗略判断,总比不标好
+        isDay: dayFlag.hasOwnProperty(t) ? dayFlag[t] : (l.min >= 360 && l.min <= 1080),
+      };
+    });
+  }
+
+  function dayCard(entry, isToday) {
+    var tides = (entry.data && entry.data.tides) || [];
+    var wins = windowsOf(entry);
 
     var d = new Date(entry.date + 'T00:00:00+08:00');
     var label = (entry.date || '').slice(5).replace('-', '月') + '日 ' + WEEK[d.getDay()];
     var r = tides.length ? rate(tides) : null;
 
-    if (!lows.length) {
+    if (!wins.length) {
       return '<div class="gh-day"><div class="gh-date">' + esc(label) + (isToday ? ' <em>今天</em>' : '') +
         '</div><div class="gh-none">这天没有取到低潮时刻</div></div>';
     }
 
-    /* 一天有两次低潮时,两次的高度可能差很多。遇到「低潮」水位其实和当天
-       高潮差不多的情况(浅半日潮),照着这个时间去就是白跑一趟,
-       所以单独标出来,不能只按时刻算窗口。 */
-    var hs = tides.map(function (t) { return t.height; });
-    var lo = Math.min.apply(null, hs), hi = Math.max.apply(null, hs);
-    var span = hi - lo;
-
-    var windows = lows.map(function (l) {
-      var w = windowOf(l.min);
-      var shallow = span > 0 && (l.h - lo) > span * 0.4;
-      return '<div class="gh-win' + (shallow ? ' is-shallow' : '') + '">' +
-        '<b>' + w.from + ' – ' + w.to + '</b>' +
-        '<small>低潮 ' + fmtMin(l.min) + ' · ' + l.h.toFixed(2) + ' 米' +
-        (shallow ? '<br><i>这次退得浅,滩涂露不出多少</i>' : '') + '</small></div>';
+    var windows = wins.map(function (w) {
+      return '<div class="gh-win' + (w.shallow ? ' is-shallow' : '') + (w.isDay ? '' : ' is-night') + '">' +
+        '<b>' + w.from + ' – ' + w.to +
+          '<span class="gh-tag ' + (w.isDay ? 'day' : 'night') + '">' + (w.isDay ? '白天' : '夜间') + '</span></b>' +
+        '<small>低潮 ' + w.time + ' · ' + w.height.toFixed(2) + ' 米' +
+        (w.shallow ? '<br><i>这次退得浅,滩涂露不出多少</i>' : '') + '</small></div>';
     }).join('');
 
     return '<div class="gh-day' + (isToday ? ' is-today' : '') + '">' +
       '<div class="gh-date">' + esc(label) + (isToday ? ' <em>今天</em>' : '') +
       (r ? '<span class="gh-rate ' + r.cls + '" title="' + esc(r.tip) + '">' + r.text + '</span>' : '') +
       '</div>' + windows + '</div>';
+  }
+
+  /* 一句话结论放最上面。
+     秦皇岛的大潮低潮常常整整一周都落在凌晨,这种时候最该先告诉人
+     「这几天白天没有好潮水」,而不是让他自己一张张卡片去数。 */
+  function summary(list, today) {
+    var good = [];
+    list.forEach(function (e) {
+      windowsOf(e).forEach(function (w) {
+        // 白天还不够,还得真退得下去 —— 否则等于推荐人去看一片水
+        if (w.isDay && !w.shallow) good.push({ date: e.date, w: w });
+      });
+    });
+
+    if (!good.length) {
+      var anyDay = list.some(function (e) {
+        return windowsOf(e).some(function (w) { return w.isDay; });
+      });
+      return '<div class="gh-sum warn">接下来 5 天,<b>白天没有值得跑一趟的赶海窗口</b> —— ' +
+        (anyDay ? '白天有低潮,但都退得浅,滩涂露不出多少;退得狠的那几次在凌晨。'
+                : '退得最狠的低潮都在凌晨。') +
+        '想去的话需要头灯和同伴,或者往后再等几天。</div>';
+    }
+
+    var first = good[0];
+    var when = first.date === today ? '就在今天' :
+      (first.date.slice(5).replace('-', '月') + '日');
+    return '<div class="gh-sum ok">接下来 5 天有 <b>' + good.length + ' 个白天的好窗口</b>,' +
+      '最近的是 ' + when + ' <b>' + first.w.from + ' – ' + first.w.to + '</b>' +
+      '(低潮 ' + first.w.time + ')。其余日子见下面,标了「夜间」的是凌晨。</div>';
   }
 
   function render(box, json, station) {
@@ -102,6 +160,7 @@
     var estimated = list.some(function (e) { return e.source === 'estimated'; });
 
     box.innerHTML =
+      summary(list, today) +
       '<div class="gh-days">' +
         list.map(function (e) { return dayCard(e, e.date === today); }).join('') +
       '</div>' +
