@@ -7,6 +7,7 @@
 // POST /api/leads                提交一条线索,body 为 JSON
 // GET  /api/leads                读取线索列表,口令放 X-Admin-Key 请求头(也接受 ?key=),?limit=100
 // GET  /api/leads?stat=1         只返回统计摘要
+// DELETE /api/leads?id=xxx      删除一条线索(同样需要口令)
 //
 // 存储结构:
 //   leads:<时间戳>-<随机串>  →  线索 JSON(保存 400 天)
@@ -19,7 +20,7 @@ export const config = { runtime: 'edge' };
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Key',
   'Content-Type': 'application/json; charset=utf-8',
 };
@@ -123,26 +124,11 @@ export default async function handler(req) {
   if (url.searchParams.get('ping') === '1') {
     const t0 = Date.now();
 
-    // 口令的「形状」:只报长度与几个布尔判断,不回任何一个字符。
-    // 最常见的两种配错是粘贴时把引号一起带进去了,以及混进了空格或换行,
-    // 这两种在 Vercel 界面上肉眼都看不出来。
-    const raw = process.env.LEADS_ADMIN_KEY;
-    const keyShape = raw == null
-      ? { configured: false }
-      : {
-          configured: true,
-          length: raw.length,
-          lengthAfterTrim: raw.trim().length,
-          hasQuotes: /["']/.test(raw),
-          hasSpace: /\s/.test(raw.trim()),          // 去掉首尾后仍有空白 = 中间有空格
-          hasNonAscii: /[^\x20-\x7e]/.test(raw.trim()),
-        };
-
     try {
       await redis(cfg, [['GET', 'leads:count'], ['ZCARD', 'leads:index']]);
-      return json({ ok: true, ms: Date.now() - t0, keyShape });
+      return json({ ok: true, ms: Date.now() - t0 });
     } catch (e) {
-      return json({ ok: false, ms: Date.now() - t0, keyShape, error: String(e && e.message || e) }, 200);
+      return json({ ok: false, ms: Date.now() - t0, error: String(e && e.message || e) }, 200);
     }
   }
 
@@ -155,6 +141,19 @@ export default async function handler(req) {
   const key = (req.headers.get('x-admin-key') || url.searchParams.get('key') || '').trim();
   if (!adminKey) return json({ ok: false, error: 'ADMIN_KEY_NOT_SET', message: '请在 Vercel 环境变量中设置 LEADS_ADMIN_KEY' }, 200);
   if (!key || key !== adminKey) return json({ ok: false, error: '口令错误' }, 401);
+
+  /* ---------------- 删除一条线索 ---------------- */
+  if (req.method === 'DELETE') {
+    const id = (url.searchParams.get('id') || '').trim();
+    if (!id) return json({ ok: false, error: '缺少 id' }, 400);
+    try {
+      // 索引与正文一起删;leads:count 是累计提交数,不回退
+      await redis(cfg, [['DEL', `leads:${id}`], ['ZREM', 'leads:index', id]]);
+      return json({ ok: true, id });
+    } catch (e) {
+      return json({ ok: false, error: String(e && e.message || e) }, 200);
+    }
+  }
 
   try {
     const countOut = await redis(cfg, [['GET', 'leads:count'], ['ZCARD', 'leads:index']]);

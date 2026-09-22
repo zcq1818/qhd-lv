@@ -17,7 +17,9 @@ a{color:var(--brand)}
 #gate .box{background:#fff;border-radius:16px;padding:32px;width:100%;max-width:360px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
 #gate h1{margin:0 0 6px;font-size:1.3rem}
 #gate p{margin:0 0 20px;color:var(--muted);font-size:.9rem}
-#gate input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:12px}
+#gate input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px}
+#gate .pass-row{display:flex;gap:8px;margin-bottom:12px}
+#gate .pass-row button{width:auto;flex:0 0 auto;padding:0 14px;background:#eef2f7;color:#475569;font-weight:600;font-size:13px}
 #gate button{width:100%;padding:12px;border:0;border-radius:10px;background:var(--brand);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
 #gate .err{color:#dc2626;font-size:.85rem;margin-top:10px;display:none}
 
@@ -59,6 +61,8 @@ td.n{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
 tr:hover td{background:#fafbfd}
 .bar{height:6px;background:var(--brand);border-radius:3px;min-width:2px}
 
+.lead-del{float:right;border:0;background:none;color:#b91c1c;font-size:.8rem;cursor:pointer;padding:0 2px}
+.lead-del:hover{text-decoration:underline}
 .note{margin-top:18px;font-size:.85rem;color:var(--muted);line-height:1.8}
 @media(max-width:600px){.wrap{padding:14px}th,td{padding:9px 12px}.lead{padding:14px}}
 </style>
@@ -69,7 +73,10 @@ tr:hover td{background:#fafbfd}
   <div class="box">
     <h1>运营后台</h1>
     <p>输入后台口令查看询价线索与页面热度</p>
-    <input type="password" id="pass" placeholder="口令" autocomplete="current-password">
+    <div class="pass-row">
+      <input type="password" id="pass" placeholder="口令" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button type="button" id="peek" title="显示口令">显示</button>
+    </div>
     <button id="loginBtn">进入</button>
     <div class="err" id="err"></div>
   </div>
@@ -228,6 +235,15 @@ tr:hover td{background:#fafbfd}
     }
   }
 
+  // 能看见框里到底是什么 —— 密码管理器覆盖输入是这类「口令明明对却进不去」的常见原因
+  document.getElementById('peek').addEventListener('click', function () {
+    var input = document.getElementById('pass');
+    var showing = input.type === 'text';
+    input.type = showing ? 'password' : 'text';
+    this.textContent = showing ? '显示' : '隐藏';
+    input.focus();
+  });
+
   document.getElementById('loginBtn').addEventListener('click', login);
   document.getElementById('pass').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); login(); } });
   document.getElementById('logoutBtn').addEventListener('click', function () { sessionStorage.removeItem(KEY); location.reload(); });
@@ -271,9 +287,28 @@ tr:hover td{background:#fafbfd}
             '</div>' +
             (meta ? '<div class="lead-meta">' + meta + '</div>' : '') +
             (l.note ? '<div class="lead-note">' + esc(l.note) + '</div>' : '') +
-            '<div class="lead-src">来自 ' + esc(l.source || '?') + (l.page ? ' · ' + esc(l.page) : '') + '</div>' +
+            '<div class="lead-src">来自 ' + esc(l.source || '?') + (l.page ? ' · ' + esc(l.page) : '') +
+              '<button class="lead-del" data-del="' + esc(l.id) + '">删除</button></div>' +
           '</div>';
         }).join('');
+
+        document.querySelectorAll('[data-del]').forEach(function (el) {
+          el.addEventListener('click', function () {
+            var id = el.getAttribute('data-del');
+            if (!confirm('删除这条线索?删掉就找不回来了。')) return;
+            el.disabled = true;
+            el.textContent = '删除中…';
+            fetch('/api/leads?id=' + encodeURIComponent(id), {
+              method: 'DELETE', headers: { 'X-Admin-Key': key }
+            })
+              .then(function (r) { return r.json(); })
+              .then(function (d) {
+                if (d && d.ok) loadAll();
+                else { el.disabled = false; el.textContent = '删除失败'; }
+              })
+              .catch(function () { el.disabled = false; el.textContent = '删除失败'; });
+          });
+        });
 
         document.querySelectorAll('[data-copy]').forEach(function (el) {
           el.addEventListener('click', function () {
