@@ -17,8 +17,11 @@
  *   node scripts/push-urls.js --baidu    只推百度
  *   node scripts/push-urls.js --indexnow 只推 IndexNow
  *   node scripts/push-urls.js --dry      只列出要推的 URL,不发请求
- *   node scripts/push-urls.js --limit 10 百度只推 10 条,并记住推到哪儿,
- *                                        下次接着往后推(配额有限时每天跑一次)
+ *   node scripts/push-urls.js --limit 10 指定每批条数(默认 10,即百度免费额度)
+ *   node scripts/push-urls.js --all      一次推全部(配额涨上来之后再用)
+ *
+ * 百度免费额度是 10 条/天,超了整批拒绝而不是部分成功,所以默认分批,
+ * 用游标记住推到哪儿,每天跑一次逐步推完,不漏也不重。
  */
 const fs = require('fs');
 const path = require('path');
@@ -66,9 +69,12 @@ const urls = [
    必然 over quota。这里记住上次推到哪儿,每天跑一次就往后推一批,
    若干天把全站推完;推完一轮从头再来(内容更新后也需要重推)。 */
 const STATE = path.join(ROOT, 'data', 'push-state.json');
+/* 默认按 10 条一批 —— 百度免费额度就是 10 条/天,一次推 211 条会被整批拒绝
+   (不是部分成功,是全部不收)。--all 才推全部,配额涨上来之后再用。 */
 const LIMIT = (() => {
+  if (process.argv.includes('--all')) return 0;
   const i = process.argv.indexOf('--limit');
-  return i > 0 ? parseInt(process.argv[i + 1], 10) || 0 : 0;
+  return i > 0 ? parseInt(process.argv[i + 1], 10) || 10 : 10;
 })();
 
 function loadCursor() {
