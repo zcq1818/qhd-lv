@@ -118,8 +118,10 @@ export default async function handler(req) {
   }
 
   /* ---------------- 读取线索(需口令) ---------------- */
-  const adminKey = process.env.LEADS_ADMIN_KEY;
-  const key = url.searchParams.get('key');
+  // 环境变量在控制台里粘贴时很容易带上首尾空格或换行,严格比对会导致
+  // 口令明明是对的却永远进不去,所以两边都先去掉首尾空白再比。
+  const adminKey = (process.env.LEADS_ADMIN_KEY || '').trim();
+  const key = (url.searchParams.get('key') || '').trim();
   if (!adminKey) return json({ ok: false, error: 'ADMIN_KEY_NOT_SET', message: '请在 Vercel 环境变量中设置 LEADS_ADMIN_KEY' }, 200);
   if (!key || key !== adminKey) return json({ ok: false, error: '口令错误' }, 401);
 
