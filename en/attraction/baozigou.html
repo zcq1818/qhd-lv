@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Baozigou Grape Valley","alternateName":"鲍子沟景区","description":"Baozigou is a grape-growing village and scenic area in Hebo Town, Lulong County, surrounded by hills near the 40th parallel — good grape-growing latitude that has earned it the nickname \"Turpan by the Bohai Sea.\" Grapes have been cultivated here for over 300 years, and roughly 1,500 mu of farmland now grow Rose Honey and other varieties such as Sunshine Rose and Kyoho. Since 2002 the village has combined grape farming with rural tourism, offering fruit picking, rock formations, hilltop views, and lakeside fishing. It is a recognized national agri-tourism demonstration site, popular for family fruit-picking trips.","url":"https://www.divdu.com/en/attraction/baozigou","image":"https://www.divdu.com/images/cover/en/baozigou.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":39.7686,"longitude":119.0127},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.0","bestRating":"5","ratingCount":100}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Baozigou Grape Valley","item":"https://www.divdu.com/en/attraction/baozigou"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there an admission fee for Baozigou?","acceptedAnswer":{"@type":"Answer","text":"The scenic area itself is free to enter; grape picking is charged separately by weight on site."}},{"@type":"Question","name":"When is the best time to visit?","acceptedAnswer":{"@type":"Answer","text":"August to October, during peak grape season, when several varieties are available for picking."}},{"@type":"Question","name":"What else is nearby?","acceptedAnswer":{"@type":"Answer","text":"It's adjacent to Changli Grape Valley, so the two can be combined into a single day's itinerary."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -106,6 +106,15 @@
       <div class="ena-nearby"><a href="/en/attraction/qipanshan"><span>Qipanshan (Chessboard Mountain) Scenic Area</span><small>¥135 · 3–4 hours</small></a><a href="/en/attraction/liuhe_xigu"><span>Liuhe Valley</span><small>Free · 2–3 hours</small></a><a href="/en/attraction/liuhe_shanzhuang"><span>Liuhe Manor Winery</span><small>Free · 2–3 hours</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-baozigou"
+         data-service="Attraction enquiry: Baozigou Grape Valley"
+         data-title="Planning a visit to Baozigou Grape Valley?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Baozigou Grape Valley?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/baozigou" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -116,6 +125,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

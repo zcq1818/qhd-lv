@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Pigeon Nest Park","alternateName":"鸽子窝公园","description":"Pigeon Nest Park sits at the northeastern tip of Beidaihe beach and is the classic spot for watching sunrise over the Bohai Sea, ranked first among Beidaihe's traditional 24 scenic views. It takes its name from wild pigeons that once nested on its rocks. Mao Zedong wrote a famous poem here in 1954, commemorated by a stone tablet. The park's landmark is Eagle Rock, an eagle-shaped outcrop about 17 meters tall. Wooden boardwalks lead through wetlands good for birdwatching and beachcombing at low tide. It suits photographers, families, and early risers.","url":"https://www.divdu.com/en/attraction/geziwo","image":"https://www.divdu.com/images/cover/en/geziwo.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":39.8364,"longitude":119.5285},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","bestRating":"5","ratingCount":100}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Pigeon Nest Park","item":"https://www.divdu.com/en/attraction/geziwo"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the best time to see sunrise at Pigeon Nest Park?","acceptedAnswer":{"@type":"Answer","text":"Sunrise time varies by season — around 4:50-5:20am in summer — so arrive 30-40 minutes early to get a good spot."}},{"@type":"Question","name":"How much is admission to Pigeon Nest Park?","acceptedAnswer":{"@type":"Answer","text":"Prices vary a lot by channel — roughly ¥25 in peak season and ¥5 in the off-season — so it's worth checking online before you buy."}},{"@type":"Question","name":"When can I go mudflat foraging at low tide?","acceptedAnswer":{"@type":"Answer","text":"Low tide time changes daily, so check the day's tide table before you go; the activity usually happens on the flats below the boardwalk."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -106,6 +106,15 @@
       <div class="ena-nearby"><a href="/en/attraction/beidaihe"><span>Beidaihe Coastal Scenic Area</span><small>Free · A full day</small></a><a href="/en/attraction/laohushi"><span>Tiger Stone Sea Park</span><small>Free · 2–3 hours</small></a><a href="/en/attraction/dongwuyuan"><span>Qinhuangdao Wildlife Zoo</span><small>¥100 and up · 2–3 hours</small></a><a href="/en/attraction/liangfengshan"><span>Lianfeng Mountain Park</span><small>¥30 and up · 2–3 hours</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-geziwo"
+         data-service="Attraction enquiry: Pigeon Nest Park"
+         data-title="Planning a visit to Pigeon Nest Park?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Pigeon Nest Park?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/geziwo" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -116,6 +125,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

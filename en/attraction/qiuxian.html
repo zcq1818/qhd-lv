@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Site of Emperor Qin's Quest for Immortality","alternateName":"秦皇求仙入海处","description":"Located on the coast in Haigang District, this site is traditionally linked to Emperor Qin Shi Huang's legendary quest for the elixir of immortality — the story that gave Qinhuangdao its name. The park features a roughly 6-meter statue of the emperor, a shrine-style hall, a prayer plaza, and a Warring States-themed garden. It's a small, low-key seaside park good for a short history-themed visit or photos, and works well for families doing light historical sightseeing.","url":"https://www.divdu.com/en/attraction/qiuxian","image":"https://www.divdu.com/images/cover/en/qiuxian.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":39.9139,"longitude":119.622},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.2","bestRating":"5","ratingCount":100}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Site of Emperor Qin's Quest for Immortality","item":"https://www.divdu.com/en/attraction/qiuxian"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there still an admission fee?","acceptedAnswer":{"@type":"Answer","text":"According to available information, the general admission fee has been dropped and the site is free to enter, but confirm through official channels or on site in case individual facilities are charged separately."}},{"@type":"Question","name":"Is the name 'Qinhuangdao' connected to this site?","acceptedAnswer":{"@type":"Answer","text":"Yes — according to legend, Qin Shi Huang sent alchemists to sea from this spot in search of immortality, and the city's name, 'Qinhuangdao,' comes from that legend."}},{"@type":"Question","name":"Is it good to bring kids?","acceptedAnswer":{"@type":"Answer","text":"Yes, the site is small with a statue and themed installations, making it good for a light, low-effort history lesson and photos."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -106,6 +106,15 @@
       <div class="ena-nearby"><a href="/en/attraction/xinao"><span>Xin'ao Ocean World</span><small>¥55 and up · 2–3 hours</small></a><a href="/en/attraction/gangkou"><span>Qinhuangdao Port Museum</span><small>Free · 1–2 hours</small></a><a href="/en/attraction/laojunding"><span>Laojunding Scenic Area</span><small>¥90 and up · Half a day to a full day</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-qiuxian"
+         data-service="Attraction enquiry: Site of Emperor Qin's Quest for Immortality"
+         data-title="Planning a visit to Site of Emperor Qin's Quest for Immortality?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Site of Emperor Qin's Quest for Immortality?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/qiuxian" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -116,6 +125,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

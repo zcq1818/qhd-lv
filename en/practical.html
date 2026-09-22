@@ -14,8 +14,9 @@
 <meta property="og:image" content="https://www.divdu.com/images/qhd-panorama.webp">
 <meta property="og:locale" content="en_US">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/style.min.css?v=833094f6">
-<link rel="stylesheet" href="/css/page-common.min.css?v=c6c851a4">
+<link rel="stylesheet" href="/style.min.css">
+<link rel="stylesheet" href="/css/page-common.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <style>
 .en-nav .nav-links a{font-size:.9rem}
 .en-hero{background:linear-gradient(135deg,#0b1f3a 0%,#123c6e 55%,#1a73e8 100%);color:#fff;padding:calc(var(--nav-height,64px) + 72px) 24px 72px;text-align:center;position:relative;overflow:hidden}
@@ -58,7 +59,6 @@
 @media(max-width:768px){.en-section{padding:44px 0}.en-hero{padding-top:calc(var(--nav-height,64px) + 44px)}}
 </style>
 
-<script src="../js/analytics.min.js?v=f9c102d2" defer></script>
 </head>
 <body>
 <nav class="navbar en-nav" id="navbar" style="background:rgba(255,255,255,.96);backdrop-filter:blur(10px);box-shadow:var(--shadow-sm)">
@@ -115,11 +115,21 @@
   </div>
 </section>
 
+<!-- 咨询入口(由 js/lead-form.js 渲染) -->
+<div style="max-width:1100px;margin:0 auto;padding:0 24px">
+  <div class="lead-card" data-lead-form data-source="en-practical"
+       data-title="Still stuck on something practical?" data-sub="Paying without a Chinese bank card, booking a hotel that accepts foreign passports, getting a taxi when no one speaks English — ask and we will give you a straight answer.">
+    <h3>Still stuck on something practical?</h3>
+    <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+  </div>
+</div>
 <footer class="en-footer">
   <p>Qinhuangdao Travel Guide · independent, locally maintained · <a href="/en">Home</a><a href="/en/attractions">Attractions</a><a href="/en/practical">Practical info</a><a href="/" lang="zh-CN">中文版</a></p>
   <p style="margin-top:8px;opacity:.7">Ticket prices and opening hours change seasonally. Always check the venue's official notice on the day.</p>
 </footer>
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../js/view-counter.min.js?v=9ea8b461" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

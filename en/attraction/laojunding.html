@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Laojunding Scenic Area","alternateName":"老君顶景区","description":"Laojunding Scenic Area sits in Shimenzhai Township, Haigang District, Qinhuangdao, its main peak rising 493.7 meters and ringed by steep hills on three sides, opening south toward the Bohai Sea. Blending Taoist heritage with the local geology and river landscape, it is best known for summer whitewater and canyon rafting routes of roughly 2.5 km and 3.5 km, and for a winter ice-and-snow carnival with skiing, skating and curling. It draws families, young travelers and outdoor enthusiasts across both seasons.","url":"https://www.divdu.com/en/attraction/laojunding","image":"https://www.divdu.com/images/cover/en/laojunding.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":40.1526,"longitude":119.569},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.2","bestRating":"5","ratingCount":100},"telephone":"0335-6091001"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Laojunding Scenic Area","item":"https://www.divdu.com/en/attraction/laojunding"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to visit Laojunding?","acceptedAnswer":{"@type":"Answer","text":"There's no charge just for hiking the mountain. The main expense is the rafting activities — about ¥90 for alpine rafting and ¥130 for valley rafting — with lower promotional prices often available on third-party platforms."}},{"@type":"Question","name":"How do I get there by bus?","acceptedAnswer":{"@type":"Answer","text":"Take bus route 820 from the Haiyang Road bus station in Qinhuangdao directly to the scenic area. It departs roughly 7:20-9:00 AM and returns 2:20-4:00 PM; since service is infrequent, plan ahead."}},{"@type":"Question","name":"What can you do at Laojunding in winter?","acceptedAnswer":{"@type":"Answer","text":"The scenic area hosts an ice and snow carnival with skiing, skating, and curling — a sharp contrast to the summer rafting."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -106,6 +106,15 @@
       <div class="ena-nearby"><a href="/en/attraction/xinao"><span>Xin'ao Ocean World</span><small>¥55 and up · 2–3 hours</small></a><a href="/en/attraction/qiuxian"><span>Site of Emperor Qin's Quest for Immortality</span><small>Free · 1–1.5 hours</small></a><a href="/en/attraction/gangkou"><span>Qinhuangdao Port Museum</span><small>Free · 1–2 hours</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-laojunding"
+         data-service="Attraction enquiry: Laojunding Scenic Area"
+         data-title="Planning a visit to Laojunding Scenic Area?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Laojunding Scenic Area?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/laojunding" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -116,6 +125,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Weilan Coast (Blue Coast)","alternateName":"蔚蓝海岸","description":"Weilan Coast is a newer, low-key seaside community in Beidaihe New District, next to Nandaihe, known for the \"Bookstore of the Sky\" (Mao de Tiankong Zhicheng) concept bookstore, beach swings and surfing. There is no single ticketed entrance — it functions as an open coastal area with a quieter, less crowded beach than the traditional Beidaihe waterfront. The bookstore offers books, coffee, and a postcard-to-your-future-self service, and is popular for photos, especially at dusk near the beach swings. It suits couples, photography fans and travelers looking for a relaxed, artsy alternative to the busier beach resorts.","url":"https://www.divdu.com/en/attraction/weilanhaian","image":"https://www.divdu.com/images/cover/en/weilanhaian.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":39.7719,"longitude":119.4025},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","bestRating":"5","ratingCount":100}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Weilan Coast (Blue Coast)","item":"https://www.divdu.com/en/attraction/weilanhaian"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there an admission fee for Weilan Coast?","acceptedAnswer":{"@type":"Answer","text":"The public seafront area is free; individual attractions like the bookstore or surfing are charged separately."}},{"@type":"Question","name":"Is this the same place as Aranya?","acceptedAnswer":{"@type":"Answer","text":"No. Aranya is a separate, well-known lifestyle community on the Changli Gold Coast, while Weilan Coast is a different project in the new Beidaihe district — the two are easy to mix up, so double-check your destination name before heading out."}},{"@type":"Question","name":"Is it good for a visit with children?","acceptedAnswer":{"@type":"Answer","text":"The overall vibe is quiet and relaxed, and the beach is fine for a family stroll, but there aren't major rides or attractions — it suits families more interested in photos and a low-key visit."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -105,6 +105,15 @@
       <div class="ena-nearby"><a href="/en/attraction/aranya"><span>Aranya Gold Coast Community</span><small>Free · Half a day to a full day</small></a><a href="/en/attraction/yutian_qilihai"><span>Yutian Qilihai Resort</span><small>¥109 and up · Half a day to a full day</small></a><a href="/en/attraction/xianluodao"><span>Xianluo Island</span><small>¥80 and up · 2–3 hours</small></a><a href="/en/attraction/huangjin"><span>Nandaihe Gold Coast</span><small>Free · Half a day to a full day</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-weilanhaian"
+         data-service="Attraction enquiry: Weilan Coast (Blue Coast)"
+         data-title="Planning a visit to Weilan Coast (Blue Coast)?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Weilan Coast (Blue Coast)?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/weilanhaian" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -115,6 +124,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

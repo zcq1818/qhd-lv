@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Jiaoshan Great Wall","alternateName":"角山长城","description":"Jiaoshan Great Wall sits about 3 km north of Shanhaiguan's old town in Qinhuangdao, Hebei. At roughly 519 m, it is the first mountain the Ming-dynasty Great Wall climbs, earning it the nickname \"the first mountain of the Great Wall.\" The wall follows a steep ridge to the summit, Dapingding, which offers panoramic views over Shanhaiguan and Bohai Bay. Other sights include the historic Hanmen Pass and Qixian Temple. A cable car is available for visitors who prefer not to hike the steep sections. Maple foliage in autumn is a particular highlight. Best suited to travelers who enjoy hiking and Great Wall history; families and older visitors may prefer the cable car.","url":"https://www.divdu.com/en/attraction/jiaoshan","image":"https://www.divdu.com/images/real/jiaoshan.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":40.0376,"longitude":119.7403},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","bestRating":"5","ratingCount":100}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Jiaoshan Great Wall","item":"https://www.divdu.com/en/attraction/jiaoshan"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are Jiaoshan Great Wall and Shanhaiguan Old Town the same place?","acceptedAnswer":{"@type":"Answer","text":"No. Jiaoshan Great Wall is in the Jiaoshan scenic area about 3 km north of Shanhaiguan Old Town — it's the first mountain the Great Wall climbs. It's a separate attraction from the First Pass Under Heaven inside the old town, with its own ticket."}},{"@type":"Question","name":"Do I have to climb the whole way at Jiaoshan?","acceptedAnswer":{"@type":"Answer","text":"No, there's a cable car available, so visitors with limited stamina or traveling with elderly family or children can ride up instead of hiking."}},{"@type":"Question","name":"How much does admission cost?","acceptedAnswer":{"@type":"Answer","text":"Sources put the ticket price at around ¥30-40; check the price posted on site or on the booking platform on the day. The cable car is charged separately."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -106,6 +106,15 @@
       <div class="ena-nearby"><a href="/en/attraction/shanhaiguan"><span>Shanhaiguan – First Pass Under Heaven</span><small>¥50 and up · 2–3 hours</small></a><a href="/en/attraction/laolongtou"><span>Old Dragon's Head (Laolongtou)</span><small>¥50 and up · 2–3 hours</small></a><a href="/en/attraction/shanhaiguan_gucheng"><span>Shanhaiguan Old Town</span><small>Free · 2–3 hours</small></a><a href="/en/attraction/ledao"><span>Ledao Ocean Kingdom</span><small>¥160 · 5–8 hours</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-jiaoshan"
+         data-service="Attraction enquiry: Jiaoshan Great Wall"
+         data-title="Planning a visit to Jiaoshan Great Wall?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Jiaoshan Great Wall?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/jiaoshan" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -116,6 +125,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

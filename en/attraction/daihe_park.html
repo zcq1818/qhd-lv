@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Daihe Ecological Park","alternateName":"戴河生态园","description":"Daihe Ecological Park stretches along both banks of the Dai River in Beidaihe District, covering about 185 hectares. It blends southern Chinese garden design with the open layout typical of northern gardens, offering wooden boardwalks, a lotus pond, a fishing area, and a ring-shaped path for walking or cycling. Shaded and quiet, it's a favorite spot for locals' morning exercise and a relaxed half-day stop for visitors. Admission is free year-round.","url":"https://www.divdu.com/en/attraction/daihe_park","image":"https://www.divdu.com/images/cover/en/daihe_park.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":39.848,"longitude":119.455},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.1","bestRating":"5","ratingCount":100}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Daihe Ecological Park","item":"https://www.divdu.com/en/attraction/daihe_park"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there an admission fee?","acceptedAnswer":{"@type":"Answer","text":"No — the park is free to enter year-round."}},{"@type":"Question","name":"Is it suitable for children?","acceptedAnswer":{"@type":"Answer","text":"Yes. The park is flat and open, with boardwalks and lawns good for a family stroll, though there are few playground facilities — it's mainly about enjoying nature."}},{"@type":"Question","name":"When is the best time to visit?","acceptedAnswer":{"@type":"Answer","text":"Summer (June-August), when the lotus flowers are in full bloom, is the most scenic time. Spring and autumn are also pleasant for walking or cycling."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -105,6 +105,15 @@
       <div class="ena-nearby"><a href="/en/attraction/beidaihe"><span>Beidaihe Coastal Scenic Area</span><small>Free · A full day</small></a><a href="/en/attraction/geziwo"><span>Pigeon Nest Park</span><small>¥25 · 1.5–2 hours</small></a><a href="/en/attraction/laohushi"><span>Tiger Stone Sea Park</span><small>Free · 2–3 hours</small></a><a href="/en/attraction/dongwuyuan"><span>Qinhuangdao Wildlife Zoo</span><small>¥100 and up · 2–3 hours</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-daihe_park"
+         data-service="Attraction enquiry: Daihe Ecological Park"
+         data-title="Planning a visit to Daihe Ecological Park?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Daihe Ecological Park?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/daihe_park" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -115,6 +124,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

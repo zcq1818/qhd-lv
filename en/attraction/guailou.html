@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Strange House Garden","alternateName":"怪楼奇园","description":"Strange House Garden (Guailou Qiyuan) stands near Baihua Hill on Lianfeng Road in Beidaihe. It was rebuilt in 1991 based on a whimsical 1930s villa designed by an American landscape scholar who once lived in Beidaihe, with the park's name inscribed by cartoonist Hua Junwu. Covering about 999 square meters, the maze-like building is famous for its many doors and windows, hidden passages, tilted floors, and mirror rooms that create disorienting optical effects, each room built around a different fantastical theme. Because it's entirely indoors, it works well as a rainy-day option and is popular with families and children.","url":"https://www.divdu.com/en/attraction/guailou","image":"https://www.divdu.com/images/cover/en/guailou.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":39.8271,"longitude":119.4983},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.2","bestRating":"5","ratingCount":100},"telephone":"0335-7189559 / 0335-3159666 / 0335-3259666（来自第三方民宿网站整理，未逐一核实为当前有效号码）"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Strange House Garden","item":"https://www.divdu.com/en/attraction/guailou"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is it called the 'Strange House'?","acceptedAnswer":{"@type":"Answer","text":"The name comes from its maze of doors and windows, tangled layout, slanted floors, and mirror effects that create a disorienting sense of space."}},{"@type":"Question","name":"Can I visit the Strange House Garden on a rainy day?","acceptedAnswer":{"@type":"Answer","text":"Yes — the attraction is entirely indoors and unaffected by weather, making it a popular rainy-day option."}},{"@type":"Question","name":"What age is the Strange House Garden suitable for?","acceptedAnswer":{"@type":"Answer","text":"Suitable for most school-age children, though the interior is dim and complex, so parents should stay with kids throughout."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -106,6 +106,15 @@
       <div class="ena-nearby"><a href="/en/attraction/beidaihe"><span>Beidaihe Coastal Scenic Area</span><small>Free · A full day</small></a><a href="/en/attraction/geziwo"><span>Pigeon Nest Park</span><small>¥25 · 1.5–2 hours</small></a><a href="/en/attraction/laohushi"><span>Tiger Stone Sea Park</span><small>Free · 2–3 hours</small></a><a href="/en/attraction/dongwuyuan"><span>Qinhuangdao Wildlife Zoo</span><small>¥100 and up · 2–3 hours</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-guailou"
+         data-service="Attraction enquiry: Strange House Garden"
+         data-title="Planning a visit to Strange House Garden?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Strange House Garden?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/guailou" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -116,6 +125,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

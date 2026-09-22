@@ -44,7 +44,9 @@ const imgOf = (s) => {
   return '/' + (s.img || `images/cover/${s.id}.webp`).replace(/^\//, '');
 };
 
-function layout({ title, description, canonical, active, body, extraHead = '' }) {
+function layout({ title, description, canonical, active, body, extraHead = '',
+  leadSource = 'en', leadTitle = 'Planning a trip to Qinhuangdao?',
+  leadSub = 'Tell us your dates, group size and what you want to see. We will send back a concrete suggestion. No charge, and we will not pass your details on.' }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +65,7 @@ function layout({ title, description, canonical, active, body, extraHead = '' })
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <style>
 .en-nav .nav-links a{font-size:.9rem}
 .en-hero{background:linear-gradient(135deg,#0b1f3a 0%,#123c6e 55%,#1a73e8 100%);color:#fff;padding:calc(var(--nav-height,64px) + 72px) 24px 72px;text-align:center;position:relative;overflow:hidden}
@@ -126,11 +129,22 @@ ${extraHead}
   </div>
 </nav>
 ${body}
+<!-- 咨询入口(由 js/lead-form.js 渲染) -->
+<div style="max-width:1100px;margin:0 auto;padding:0 24px">
+  <div class="lead-card" data-lead-form data-source="${leadSource}"
+       data-title="${esc(leadTitle)}" data-sub="${esc(leadSub)}">
+    <h3>${esc(leadTitle)}</h3>
+    <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+  </div>
+</div>
 <footer class="en-footer">
   <p>Qinhuangdao Travel Guide · independent, locally maintained · <a href="/en">Home</a><a href="/en/attractions">Attractions</a><a href="/en/practical">Practical info</a><a href="/" lang="zh-CN">中文版</a></p>
   <p style="margin-top:8px;opacity:.7">Ticket prices and opening hours change seasonally. Always check the venue's official notice on the day.</p>
 </footer>
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>
 `;
@@ -157,6 +171,9 @@ const home = layout({
   title: 'Qinhuangdao Travel Guide | Beidaihe, Shanhaiguan & the Great Wall by the Sea',
   description: 'English guide to Qinhuangdao, China: Beidaihe beaches, Shanhaiguan and the Old Dragon\'s Head where the Great Wall meets the sea, Aranya, tickets, hours and how to get there from Beijing.',
   canonical: '/en', active: 'home',
+  leadSource: 'en-home',
+  leadTitle: 'Planning a trip to Qinhuangdao?',
+  leadSub: 'Most of this coast has very little English signage, and timings matter more than people expect. Tell us your dates, group size and what you want to see — we will send back a concrete plan. Free.',
   extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Qinhuangdao Travel Guide', url: SITE + '/en', inLanguage: 'en' })}</script>`,
   body: `
 <header class="en-hero" id="main-content">
@@ -217,6 +234,9 @@ const attractions = layout({
   title: `All ${spots.length} Qinhuangdao attractions by area | tickets, hours, maps`,
   description: 'Every major attraction in Qinhuangdao, Beidaihe, Shanhaiguan and Nandaihe with English descriptions, ticket prices, opening hours and map links.',
   canonical: '/en/attractions', active: 'attractions',
+  leadSource: 'en-attractions',
+  leadTitle: 'Not sure which of these are worth your time?',
+  leadSub: 'With two or three days you cannot do all of them, and the right shortlist depends on who you are travelling with. Tell us and we will narrow it down, grouped so you are not crossing the city twice.',
   extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: 'Qinhuangdao attractions', itemListElement: spots.slice(0, 20).map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: nameOf(s), url: `${SITE}/en/attractions#${s.id}` })) })}</script>`,
   body: `
 <header class="en-hero" id="main-content" style="padding-bottom:48px">
@@ -240,6 +260,9 @@ const practical = layout({
   title: 'Qinhuangdao practical information | transport, money, SIM, food, safety',
   description: 'Everything international visitors need for Qinhuangdao and Beidaihe: trains from Beijing, local buses and taxis, payments without a Chinese bank, internet access, food and safety.',
   canonical: '/en/practical', active: 'practical',
+  leadSource: 'en-practical',
+  leadTitle: 'Still stuck on something practical?',
+  leadSub: 'Paying without a Chinese bank card, booking a hotel that accepts foreign passports, getting a taxi when no one speaks English — ask and we will give you a straight answer.',
   body: `
 <header class="en-hero" id="main-content" style="padding-bottom:48px">
   <h1>Practical information</h1>

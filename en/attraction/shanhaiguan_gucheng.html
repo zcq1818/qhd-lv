@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Shanhaiguan Old Town","alternateName":"山海关古城","description":"Built in 1381 during the Ming dynasty, Shanhaiguan Old Town sits at the eastern end of the Great Wall and was a key military pass, known as the \"First Pass Under Heaven.\" The walled town keeps Ming-and-Qing-era streets and courtyards, with the East Gate watchtower, a bell-and-drum tower, and former military offices. Entry to the town is free; the watchtower and some historic buildings charge separate admission. It suits history and architecture fans, families, and photographers, and pairs well with Old Dragon Head and Jiaoshan Great Wall.","url":"https://www.divdu.com/en/attraction/shanhaiguan_gucheng","image":"https://www.divdu.com/images/real/shanhaiguan_gucheng.webp","address":{"@type":"PostalAddress","addressLocality":"Qinhuangdao","addressRegion":"Hebei","addressCountry":"CN"},"geo":{"@type":"GeoCoordinates","latitude":40.007,"longitude":119.752},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","bestRating":"5","ratingCount":100}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.divdu.com/en"},{"@type":"ListItem","position":2,"name":"Attractions","item":"https://www.divdu.com/en/attractions"},{"@type":"ListItem","position":3,"name":"Shanhaiguan Old Town","item":"https://www.divdu.com/en/attraction/shanhaiguan_gucheng"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need a ticket to enter the old town?","acceptedAnswer":{"@type":"Answer","text":"No, the old town itself is free to enter; you only need a ticket for specific sites like the First Pass Under Heaven gate tower."}},{"@type":"Question","name":"Are the old town and Old Dragon's Head the same place?","acceptedAnswer":{"@type":"Answer","text":"No, Old Dragon's Head is where the Great Wall meets the sea, about 5 km south of the old town, and requires a separate trip."}},{"@type":"Question","name":"How long does it take to see the old town?","acceptedAnswer":{"@type":"Answer","text":"Walking the streets alone takes about 1.5-2 hours; add the gate tower and various courtyards and it's closer to half a day."}}]}</script>
-<script src="../../js/analytics.min.js" defer></script>
 </head>
 <body>
 
@@ -106,6 +106,15 @@
       <div class="ena-nearby"><a href="/en/attraction/shanhaiguan"><span>Shanhaiguan – First Pass Under Heaven</span><small>¥50 and up · 2–3 hours</small></a><a href="/en/attraction/laolongtou"><span>Old Dragon's Head (Laolongtou)</span><small>¥50 and up · 2–3 hours</small></a><a href="/en/attraction/jiaoshan"><span>Jiaoshan Great Wall</span><small>¥30 and up · 2–3 hours</small></a><a href="/en/attraction/ledao"><span>Ledao Ocean Kingdom</span><small>¥160 · 5–8 hours</small></a></div>
     </section>
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-shanhaiguan_gucheng"
+         data-service="Attraction enquiry: Shanhaiguan Old Town"
+         data-title="Planning a visit to Shanhaiguan Old Town?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to Shanhaiguan Old Town?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/shanhaiguan_gucheng" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -116,6 +125,8 @@
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
-<script src="../../js/view-counter.min.js" defer></script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>

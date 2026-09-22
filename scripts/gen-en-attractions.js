@@ -127,6 +127,7 @@ function page(s) {
 <link rel="stylesheet" href="/style.min.css">
 <link rel="stylesheet" href="/css/page-common.min.css">
 <link rel="stylesheet" href="/css/en-attraction.min.css">
+<link rel="stylesheet" href="/css/lead-form.min.css">
 ${ld}
 </head>
 <body>
@@ -201,6 +202,15 @@ ${ld}
       <div class="ena-nearby">${nearby.map((n) => `<a href="/en/attraction/${n.id}"><span>${esc(nameOf(n))}</span><small>${esc(priceEn(n))} · ${esc(durationEn(n))}</small></a>`).join('')}</div>
     </section>` : ''}
 
+    <!-- 咨询入口(由 js/lead-form.js 渲染) -->
+    <div class="lead-card" data-lead-form data-source="en-spot-${s.id}"
+         data-service="Attraction enquiry: ${esc(nameOf(s))}"
+         data-title="Planning a visit to ${esc(nameOf(s))}?"
+         data-sub="Getting there without Chinese, the best time of day, whether it suits kids or older parents — tell us your dates and we will send back a concrete answer. Free.">
+      <h3>Planning a visit to ${esc(nameOf(s))}?</h3>
+      <p class="lead-card-sub">Leave a contact and we will reply with a concrete suggestion. You can also email <a href="mailto:zhaochenqi@163.com">zhaochenqi@163.com</a>.</p>
+    </div>
+
     <p class="ena-zhlink"><a href="/attraction/${s.id}" lang="zh-CN" hreflang="zh-CN">查看中文详情页 · Read this page in Chinese</a></p>
   </div>
 </main>
@@ -211,6 +221,9 @@ ${ld}
 </footer>
 
 <script>document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});</script>
+<script src="/js/analytics.min.js" defer></script>
+<script src="/js/view-counter.min.js" defer></script>
+<script src="/js/lead-form.min.js" defer></script>
 </body>
 </html>
 `;
