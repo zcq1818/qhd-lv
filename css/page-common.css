@@ -63,3 +63,28 @@
 .gh-callout a{display:inline-block;font-weight:700;color:#1a73e8;text-decoration:none;font-size:1.02rem}
 .gh-callout a:hover{text-decoration:underline}
 .gh-callout span{display:block;margin-top:6px;font-size:.85rem;color:#475569;line-height:1.7}
+
+/* ===== 日出实时增强(sunrise.html)===== */
+.sl-pick{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.sl-pick label{font-size:.92rem;font-weight:600;color:#475569}
+.sl-pick select{padding:9px 32px 9px 13px;border:1px solid #E2E8F0;border-radius:8px;background:#fff;
+  font-family:inherit;font-size:.95rem;color:#0F172A;-webkit-appearance:none;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,#94A3B8 50%),linear-gradient(135deg,#94A3B8 50%,transparent 50%);
+  background-position:calc(100% - 17px) calc(50% + 1px),calc(100% - 12px) calc(50% + 1px);
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+
+.sl-days{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.sl-day{border:1px solid #E2E8F0;border-radius:12px;padding:14px;background:#fff}
+.sl-day.is-today{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1)}
+.sl-date{font-size:.85rem;font-weight:700;color:#475569;margin-bottom:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.sl-date em{font-style:normal;color:#1a73e8;font-weight:800}
+.sl-vis{margin-left:auto;padding:1px 8px;border-radius:999px;font-size:.7rem;font-weight:700;cursor:help}
+.sl-vis.good{background:#dcfce7;color:#15803d}
+.sl-vis.maybe{background:#fef3c7;color:#a16207}
+.sl-vis.poor{background:#f1f5f9;color:#64748b}
+.sl-vis.no{background:#fee2e2;color:#b91c1c}
+.sl-time{font-size:1.5rem;font-weight:900;color:#0F172A;font-variant-numeric:tabular-nums;line-height:1.2}
+.sl-sub{margin-top:3px;font-size:.78rem;color:#64748B;line-height:1.6}
+.sl-wx{margin-top:6px;font-size:.78rem;color:#94A3B8}
+.sl-meta{margin-top:14px;font-size:.8rem;color:#64748B;line-height:1.7}
+@media(max-width:560px){.sl-days{grid-template-columns:1fr 1fr}.sl-time{font-size:1.3rem}}
