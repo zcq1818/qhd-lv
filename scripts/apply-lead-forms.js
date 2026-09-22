@@ -6,6 +6,7 @@
  * 不在那一页 —— 是在看完某个景点、排不明白行程、不知道住哪一片的时候。
  * 这里在三类页面的「读完了、正准备走」的位置放一个咨询卡片:
  *   景点详情页  相关推荐之前(FAQ 与周边都看完了)
+ *   博客文章    署名之前(读完正文顺势就看到)
  *   行程规划页  AI 行程之后、入群二维码之前
  *   住宿页      正文结尾
  *
@@ -63,7 +64,7 @@ function ensureAssets(html, depth) {
   return out;
 }
 
-const stat = { spots: 0, pages: 0, skipped: 0 };
+const stat = { spots: 0, blogs: 0, pages: 0, skipped: 0 };
 
 /* ---------------- 1. 景点详情页 ---------------- */
 const spotDir = path.join(ROOT, 'attraction');
@@ -95,7 +96,54 @@ for (const file of fs.readdirSync(spotDir).filter((f) => f.endsWith('.html'))) {
   stat.spots++;
 }
 
-/* ---------------- 2. 根目录高意向页 ---------------- */
+/* ---------------- 2. 博客文章 ----------------
+   博客是搜索流量最主要的落地页(攻略类长尾词),但此前一个转化入口都没有,
+   连二维码都没放 —— 人看完就走了。退役文章会 301 跳走,不处理。 */
+const blogDir = path.join(ROOT, 'blog');
+const retired = new Set(
+  (JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'retired-posts.json'), 'utf8')).posts || [])
+    .map((p) => p.slug)
+);
+
+for (const file of fs.readdirSync(blogDir).filter((f) => f.endsWith('.html'))) {
+  if (retired.has(file.replace(/\.html$/, ''))) { stat.skipped++; continue; }
+
+  const abs = path.join(blogDir, file);
+  const before = fs.readFileSync(abs, 'utf8');
+  let html = before;
+
+  if (!html.includes('data-lead-form')) {
+    // 多数文章的 h1 里带着「— 秦皇岛旅游博客」这类站点后缀,
+    // 原样塞进推送标题里全是噪音,去掉。
+    const title = ((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '')
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s*[—|]\s*秦皇岛旅游(博客|官网)/g, '')   // 个别文章的后缀跑到了标题中间
+      .trim();
+
+    // 优先放在署名之前,读完正文顺势就看到;没有署名块的就放在文章末尾。
+    // 署名块上面那行注释是描述署名的,要连注释一起让位,否则注释会飘到卡片头上。
+    const anchor = ['  <!-- 作者署名 + 最后更新 -->', '  <div class="article-footer">', '</article>']
+      .find((a) => html.includes(a));
+    if (!anchor) { stat.skipped++; continue; }
+
+    // source 统一用 blog:具体是哪一篇,提交时带的 page 字段已经记下了,
+    // 文件名做 source 会超长被截断,反而分不清。
+    html = html.replace(anchor, placeholder({
+      source: 'blog',
+      service: title ? `文章咨询:${title}`.slice(0, 80) : '文章咨询',
+      title: '看完还有拿不准的地方?',
+      sub: '攻略写得再细,也盖不住你自己的情况 —— 几号来、几个人、带不带老人小孩,合适的安排完全不同。说一下,我们给一份具体建议,不收费。',
+      indent: '  ',
+    }) + anchor);
+  }
+
+  html = ensureAssets(html, 1);
+  if (html === before) { stat.skipped++; continue; }
+  if (!DRY) fs.writeFileSync(abs, html, 'utf8');
+  stat.blogs++;
+}
+
+/* ---------------- 3. 根目录高意向页 ---------------- */
 const rootPages = [
   {
     file: 'itinerary.html',
@@ -138,4 +186,4 @@ for (const cfg of rootPages) {
   stat.pages++;
 }
 
-console.log(`${DRY ? '[dry-run] ' : ''}✅ 咨询入口:景点页 ${stat.spots} 个,栏目页 ${stat.pages} 个,跳过 ${stat.skipped} 个(已有或无插入位置)`);
+console.log(`${DRY ? '[dry-run] ' : ''}✅ 咨询入口:景点页 ${stat.spots},博客 ${stat.blogs},栏目页 ${stat.pages},跳过 ${stat.skipped}(已有、退役或无插入位置)`);

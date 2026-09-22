@@ -56,9 +56,12 @@ openTimeNotesEn / transportEn / tipsEn / faqEn 由 `scripts/merge-en-translation
 就让访客看到「提交失败」去重复提交。自测用 `/api/leads?testnotify=1`(需口令),
 它不会制造假线索。
 
+覆盖:47 个景点页、88 篇在线博客(退役的不铺)、行程规划页、住宿页。
+当地向导页有自己的表单,不走这个组件。英文页与其余栏目页暂未铺。
+
 咨询入口是一个复用组件:页面里只放占位 `<div class="lead-card" data-lead-form data-source="…">`,
 真正的表单由 `js/lead-form.js` 渲染,占位里那一行微信/邮箱是 JS 起不来时的兜底。
-**改文案只改 js/lead-form.js,不要回头改 49 个页面。** 铺到新页面用:
+**改文案只改 js/lead-form.js,不要回头改 137 个页面。** 铺到新页面用:
 
 ```bash
 npm run leads
