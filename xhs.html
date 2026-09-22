@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小红书出图 | 内部工具</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/xhs.min.css?v=b47ca4e5">
+</head>
+<body class="xhs-body">
+
+<div class="xhs-wrap">
+
+  <h1 class="xhs-h">今天发这条</h1>
+  <p class="xhs-sub">数据每天实时变,文案跟着变。截下面那张卡片,复制文案,发出去。</p>
+
+  <div class="xhs-tabs">
+    <button type="button" data-kind="ganhai">赶海</button>
+    <button type="button" data-kind="sunrise">日出</button>
+  </div>
+
+  <div id="loading">正在取今天的数据…</div>
+
+  <div id="main" hidden>
+    <p class="xhs-hint">↓ 截这一块(已按小红书 3:4 竖图排好)</p>
+    <div id="card"></div>
+
+    <div class="xhs-copy">
+      <h2>配套文案</h2>
+
+      <div class="xhs-field">
+        <label>标题</label>
+        <div id="cpTitle"></div>
+      </div>
+
+      <div class="xhs-field">
+        <label>正文</label>
+        <div id="cpBody"></div>
+      </div>
+
+      <div class="xhs-field">
+        <label>标签</label>
+        <div id="cpTags"></div>
+      </div>
+
+      <textarea id="cpAll" readonly aria-hidden="true" tabindex="-1"></textarea>
+      <button type="button" id="copyBtn">复制全部文案</button>
+    </div>
+
+    <div class="xhs-steps">
+      <b>发之前扫一眼</b>
+      <ol>
+        <li>数据对不对 —— 遇到台风、景区临时闭园这种,别照着发</li>
+        <li>笔记里<b>不要放网址</b>,小红书会限流。想让人找到你,放在主页简介里</li>
+        <li>发完守着私信,回复的语气就是成交的一半</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/xhs.min.js?v=070a690c" defer></script>
+</body>
+</html>

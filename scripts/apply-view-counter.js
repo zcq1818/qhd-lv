@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const DRY = process.argv.includes('--dry');
-const SKIP = new Set(['admin.html', '404.html', 'favorites.html', 'dashboard.html']);
+const SKIP = new Set(['admin.html', '404.html', 'favorites.html', 'dashboard.html', 'xhs.html']);
 
 // 退役博客不统计(它们会 301 跳走)
 const retired = new Set((JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'retired-posts.json'), 'utf8')).posts || []).map((p) => p.slug));

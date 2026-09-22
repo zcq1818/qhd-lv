@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const DRY = process.argv.includes('--dry');
-const SKIP = new Set(['admin.html', 'dashboard.html', 'favorites.html']);
+const SKIP = new Set(['admin.html', 'dashboard.html', 'favorites.html', 'xhs.html']);
 
 /* 原有的内嵌写法有好几个变体(带空格的、压缩成一行的),逐个摘干净 */
 const STRIP = [

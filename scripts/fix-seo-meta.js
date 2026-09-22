@@ -15,7 +15,7 @@ const { execFileSync } = require('child_process');
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://www.divdu.com';
 const DRY = process.argv.includes('--dry');
-const SKIP = new Set(['admin.html', '404.html', 'dashboard.html']);
+const SKIP = new Set(['admin.html', '404.html', 'dashboard.html', 'xhs.html']);
 
 /* 图片尺寸:一次性用 python 读出所有图片的宽高 */
 function imageSizes() {

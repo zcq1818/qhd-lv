@@ -25,7 +25,7 @@ const ATTRACTION_META = { priority: '0.7', changefreq: 'weekly' };
 const BLOG_META = { priority: '0.6', changefreq: 'weekly' };
 
 // 不收录的功能/系统页
-const EXCLUDE_ROOT = new Set(['index.html', '404.html', 'admin.html', 'favorites.html', 'dashboard.html']);
+const EXCLUDE_ROOT = new Set(['index.html', '404.html', 'admin.html', 'favorites.html', 'dashboard.html', 'xhs.html']);
 
 // 已合并/退役的博客（data/retired-posts.json），不再收录，避免重定向 URL 进入 sitemap
 let RETIRED = new Set();

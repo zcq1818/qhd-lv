@@ -78,7 +78,7 @@ function checkMinRefs(pages) {
 }
 
 /* ---------------- 3. 统计脚本覆盖 ---------------- */
-const NO_ANALYTICS = new Set(['admin.html', 'dashboard.html', 'favorites.html']);
+const NO_ANALYTICS = new Set(['admin.html', 'dashboard.html', 'favorites.html', 'xhs.html']);
 
 function checkAnalytics(pages) {
   const missing = [], inlined = [];
@@ -99,7 +99,7 @@ function checkAnalytics(pages) {
 }
 
 /* ---------------- 4. 浏览量统计覆盖 ---------------- */
-const NO_COUNTER = new Set(['admin.html', 'dashboard.html', '404.html', 'favorites.html']);
+const NO_COUNTER = new Set(['admin.html', 'dashboard.html', '404.html', 'favorites.html', 'xhs.html']);
 
 function checkViewCounter(pages, retired) {
   const missing = pages.filter((rel) => {
@@ -158,7 +158,7 @@ function checkSitemapRss(pages, retired) {
     const sm = fs.readFileSync(sitemapPath, 'utf8');
     const should = pages.filter((rel) => {
       const base = path.basename(rel);
-      if (['admin.html', 'dashboard.html', '404.html', 'favorites.html'].includes(base)) return false;
+      if (['admin.html', 'dashboard.html', '404.html', 'favorites.html', 'xhs.html'].includes(base)) return false;
       if (rel.startsWith('blog/') && retired.has(base.replace(/\.html$/, ''))) return false;
       return true;
     });
