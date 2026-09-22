@@ -164,6 +164,12 @@ const rootPages = [
     sub: '带老人孩子、想走路到海边、还是图便宜 —— 需求不一样,该住的区完全不同。说说情况,我们给几个具体建议。',
   },
   {
+    // 这页的占位已经写在模板里了,列在这里只是为了让 ensureAssets 把样式与脚本补上
+    file: 'ganhai-time.html', source: 'ganhai-time', service: '赶海咨询',
+    title: '想赶上好潮水,但拿不准哪天去?',
+    sub: '告诉我们你哪几天在秦皇岛、住在哪一片、带不带孩子,我们帮你挑出潮差最大、离你最近的那个时段。不收费。',
+  },
+  {
     file: 'attractions.html', source: 'attractions', service: '景点挑选',
     title: '47 个景点,不知道挑哪几个?',
     sub: '时间有限就得取舍。说说你有几天、和谁一起来,我们帮你圈出值得去的那几个,顺路的排在一起。',
