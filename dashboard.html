@@ -555,7 +555,9 @@ tr:hover td{background:#fafbfd}
   }
 
   function loadTrend() {
-    return fetch('/api/view-counter?trend=30')
+    // 带时间戳绕过接口那层缓存 —— 后台点刷新就该看到最新的,
+    // 缓存留着是为了挡匿名刷接口,不该让自己人看旧数据
+    return fetch('/api/view-counter?trend=30&_=' + Date.now())
       .then(function (r) { return r.json(); })
       .then(function (d) { trendCache = d; renderTrend(); return d; })
       .catch(function () {
@@ -567,7 +569,7 @@ tr:hover td{background:#fafbfd}
   /* ---------- 页面热度 ---------- */
   function loadViews() {
     // 累计走 list=1,按时间段走 trend —— 两边返回的 counts 结构一样
-    var url = range > 0 ? '/api/view-counter?trend=' + range : '/api/view-counter?list=1';
+    var url = (range > 0 ? '/api/view-counter?trend=' + range : '/api/view-counter?list=1') + '&_=' + Date.now();
     fetch(url)
       .then(function (r) { return r.json(); })
       .then(function (d) {
