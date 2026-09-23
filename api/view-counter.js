@@ -33,6 +33,29 @@ function getRedisConfig() {
   return null;
 }
 
+/** 北京日期 YYYY-MM-DD —— 运行时是 UTC,直接用本地日期会差一天 */
+function cnDate(offsetDays = 0) {
+  return new Date(Date.now() + 8 * 3600e3 + offsetDays * 86400e3).toISOString().slice(0, 10);
+}
+
+/** Upstash 的 pipeline:一次请求发多条命令 */
+async function pipeline(url, token, commands) {
+  const res = await fetch(`${url}/pipeline`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(commands),
+  });
+  if (!res.ok) throw new Error(`Redis HTTP ${res.status}`);
+  return res.json();
+}
+
+/** HGETALL 回来的是扁平数组 [字段, 值, 字段, 值…] */
+function toObj(arr) {
+  const o = {};
+  for (let i = 0; i + 1 < (arr || []).length; i += 2) o[arr[i]] = parseInt(arr[i + 1], 10) || 0;
+  return o;
+}
+
 export default async function handler(req) {
   if (req.method === 'OPTIONS') return new Response(null, { headers: CORS });
 
@@ -55,6 +78,35 @@ export default async function handler(req) {
   const { url: REDIS_URL, token: REDIS_TOKEN } = redis;
 
   try {
+    /* 按时间段读取:?trend=30 返回最近 N 天,每天的总量 + 这段时间内每页的量。
+       一次 pipeline 把 N 天的 hash 全取回来,不按页循环。 */
+    const trend = parseInt(url.searchParams.get('trend'), 10);
+    if (trend > 0) {
+      const n = Math.min(trend, 90);
+      const dates = [];
+      for (let i = n - 1; i >= 0; i--) dates.push(cnDate(-i));
+
+      const out = await pipeline(REDIS_URL, REDIS_TOKEN,
+        dates.map((d) => ['HGETALL', `views:d:${d}`]));
+
+      const days = [];
+      const counts = {};
+      dates.forEach((d, i) => {
+        const obj = toObj(out?.[i]?.result);
+        let sum = 0;
+        for (const k in obj) {
+          if (k.indexOf('event-') === 0) continue;     // 转化事件不算浏览量
+          sum += obj[k];
+          counts[k] = (counts[k] || 0) + obj[k];
+        }
+        days.push({ date: d, total: sum });
+      });
+
+      return new Response(JSON.stringify({
+        days, counts, total: days.reduce((t, x) => t + x.total, 0), since: dates[0],
+      }), { headers: { ...CORS, 'Cache-Control': 'public, max-age=120' } });
+    }
+
     // 批量读取所有页面计数（列表页与后台用）
     // 注意:统计范围已从博客扩到全站(约 250 个 slug),这里必须一次 MGET 取回,
     // 逐个 GET 会产生几百次串行请求,函数执行时间直接爆掉。
@@ -93,12 +145,16 @@ export default async function handler(req) {
     const key = 'views:' + slug;
 
     if (isIncrement) {
-      // 用 INCR 原子自增（更安全，避免并发问题）
-      const incrRes = await fetch(`${REDIS_URL}/incr/${encodeURIComponent(key)}`, {
-        headers: { Authorization: `Bearer ${REDIS_TOKEN}` },
-      });
-      const incrData = await incrRes.json();
-      const count = parseInt(incrData.result, 10) || 1;
+      // 累计值 + 当天的分页面计数,一次 pipeline 发出去。
+      // 按天的数据存成「一天一个 hash」:读 30 天只要 30 条 HGETALL,
+      // 换成一页一键的写法就是几千条,免费额度扛不住。
+      const day = cnDate();
+      const out = await pipeline(REDIS_URL, REDIS_TOKEN, [
+        ['INCR', key],
+        ['HINCRBY', `views:d:${day}`, slug, '1'],
+        ['EXPIRE', `views:d:${day}`, String(400 * 86400)],
+      ]);
+      const count = parseInt(out?.[0]?.result, 10) || 1;
       return new Response(JSON.stringify({ slug, count }), {
         headers: { ...CORS, 'Cache-Control': 'no-store' },
       });

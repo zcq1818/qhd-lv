@@ -79,6 +79,13 @@ tr:hover td{background:#fafbfd}
 #notifyTip{font-size:.85rem;line-height:1.5}
 #notifyTip.ok{color:#15803d}
 #notifyTip.bad{color:#b91c1c}
+/* 趋势条形图:一天一根,鼠标悬停看具体数 */
+.trend{display:flex;align-items:flex-end;gap:3px;height:120px;padding:4px 0}
+.trend-bar{flex:1;min-width:3px;background:var(--brand);border-radius:3px 3px 0 0;position:relative;transition:opacity .15s;min-height:2px}
+.trend-bar:hover{opacity:.75}
+.trend-bar.zero{background:var(--line)}
+.trend-x{display:flex;justify-content:space-between;margin-top:6px;font-size:.72rem;color:var(--muted)}
+.trend-empty{padding:26px 0;text-align:center;color:var(--muted);font-size:.88rem;line-height:1.8}
 .lead-del{float:right;border:0;background:none;color:#b91c1c;font-size:.8rem;cursor:pointer;padding:0 2px}
 .lead-del:hover{text-decoration:underline}
 .note{margin-top:18px;font-size:.85rem;color:var(--muted);line-height:1.8}
@@ -133,14 +140,23 @@ tr:hover td{background:#fafbfd}
   <section id="tabViews" hidden>
     <div class="cards" id="viewCards"></div>
     <div class="panel">
+      <h2>每日浏览</h2>
+      <div id="trend"><div class="empty">加载中…</div></div>
+    </div>
+    <div class="panel">
       <h2>转化漏斗</h2>
       <div id="funnel"><div class="empty">加载中…</div></div>
     </div>
     <div class="panel">
       <h2>页面热度排行</h2>
+      <div class="filters" id="rangePick">
+        <button data-range="7">近 7 天</button>
+        <button data-range="30">近 30 天</button>
+        <button data-range="0" class="on">累计</button>
+      </div>
       <div id="viewList"><div class="empty">加载中…</div></div>
     </div>
-    <p class="note">spot- 开头是景点页,en- 是英文页,page- 是栏目页,其余是博客。招商谈价时可以直接引用这里的单页数据。<br>漏斗按「同一次会话每种只记一次」统计,所以是人数不是次数。</p>
+    <p class="note">spot- 开头是景点页,en- 是英文页,page- 是栏目页,其余是博客。招商谈价时可以直接引用这里的单页数据。<br>漏斗按「同一次会话每种只记一次」统计,所以是人数不是次数。<br><b>按天的数据从 2026-09-23 开始记</b> —— 在那之前只存了累计值,没有日期,所以更早的分日数据补不出来。</p>
   </section>
 </div>
 
@@ -277,6 +293,14 @@ tr:hover td{background:#fafbfd}
       document.querySelectorAll('.filters button').forEach(function (x) { x.classList.toggle('on', x === btn); });
       filter = btn.dataset.filter;
       renderLeads();
+    });
+  });
+
+  document.querySelectorAll('#rangePick button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('#rangePick button').forEach(function (x) { x.classList.toggle('on', x === btn); });
+      range = parseInt(btn.dataset.range, 10) || 0;
+      loadViews();
     });
   });
 
@@ -495,9 +519,56 @@ tr:hover td{background:#fafbfd}
         (rate < 2 ? '这个比例偏低,通常是文案或位置的问题,不是流量不够。' : '') + '</p>' : '');
   }
 
+  /* ---------- 每日浏览 ----------
+     之前只有一个累计数字,看不出涨还是跌。按天的数据是新加的,
+     所以早期只有几根柱子,别当成流量掉了。 */
+  var trendCache = null;      // {days, counts}
+  var range = 0;              // 0=累计,7/30=最近 N 天
+
+  function renderTrend() {
+    var box = document.getElementById('trend');
+    if (!box) return;
+    var days = (trendCache && trendCache.days) || [];
+    var hasData = days.some(function (d) { return d.total > 0; });
+
+    if (!hasData) {
+      box.innerHTML = '<div class="trend-empty">还没有按天的数据。<br>' +
+        '统计从今天开始记,明天这里就会出现第一根柱子。</div>';
+      return;
+    }
+
+    var max = Math.max.apply(null, days.map(function (d) { return d.total; })) || 1;
+    var sum = days.reduce(function (t, d) { return t + d.total; }, 0);
+
+    box.innerHTML =
+      '<div class="trend">' +
+        days.map(function (d) {
+          return '<div class="trend-bar' + (d.total ? '' : ' zero') + '" ' +
+            'style="height:' + Math.max(2, Math.round(d.total / max * 100)) + '%" ' +
+            'title="' + d.date + ':' + d.total + ' 次"></div>';
+        }).join('') +
+      '</div>' +
+      '<div class="trend-x"><span>' + days[0].date.slice(5) + '</span>' +
+        '<span>' + days[days.length - 1].date.slice(5) + '</span></div>' +
+      '<p class="note" style="margin-top:10px">最近 ' + days.length + ' 天共 ' + sum +
+        ' 次,单日最高 ' + max + ' 次。</p>';
+  }
+
+  function loadTrend() {
+    return fetch('/api/view-counter?trend=30')
+      .then(function (r) { return r.json(); })
+      .then(function (d) { trendCache = d; renderTrend(); return d; })
+      .catch(function () {
+        var box = document.getElementById('trend');
+        if (box) box.innerHTML = '<div class="empty">读取失败</div>';
+      });
+  }
+
   /* ---------- 页面热度 ---------- */
   function loadViews() {
-    fetch('/api/view-counter?list=1')
+    // 累计走 list=1,按时间段走 trend —— 两边返回的 counts 结构一样
+    var url = range > 0 ? '/api/view-counter?trend=' + range : '/api/view-counter?list=1';
+    fetch(url)
       .then(function (r) { return r.json(); })
       .then(function (d) {
         var counts = (d && d.counts) || {};
@@ -511,11 +582,19 @@ tr:hover td{background:#fafbfd}
         renderFunnel();
         var total = rows.reduce(function (t, r) { return t + r[1]; }, 0);
         var spots = rows.filter(function (r) { return r[0].indexOf('spot-') === 0; }).length;
+        var t = trendCache || { days: [] };
+        var dayList = t.days || [];
+        var today = dayList.length ? dayList[dayList.length - 1].total : 0;
+        var last7 = dayList.slice(-7).reduce(function (a, x) { return a + x.total; }, 0);
+        var last30 = dayList.reduce(function (a, x) { return a + x.total; }, 0);
         document.getElementById('viewCards').innerHTML =
-          card(total, '累计浏览') + card(rows.length, '有数据的页面') + card(spots, '其中景点页');
+          card(today, '今天') + card(last7, '近 7 天') + card(last30, '近 30 天') +
+          card(total, range > 0 ? '该时段合计' : '累计浏览');
 
         if (!rows.length) {
-          document.getElementById('viewList').innerHTML = '<div class="empty">还没有数据</div>';
+          document.getElementById('viewList').innerHTML = '<div class="empty">' +
+            (range > 0 ? '这段时间还没有数据。按天的统计是新加的,更早的补不出来。' : '还没有数据') +
+            '</div>';
           return;
         }
         var max = rows[0][1] || 1;
@@ -545,7 +624,11 @@ tr:hover td{background:#fafbfd}
       });
   }
 
-  function loadAll() { loadLeads(); loadViews(); }
+  function loadAll() {
+    loadLeads();
+    // 热度卡片要用趋势数据算今日/7天/30天,所以等趋势回来再画
+    loadTrend().then(loadViews);
+  }
 
   /* ---------- 导出 ---------- */
   document.getElementById('exportBtn').addEventListener('click', function () {
