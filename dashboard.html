@@ -88,7 +88,7 @@ tr:hover td{background:#fafbfd}
 /* 窄屏收起进度条那一列 —— 它只是个相对刻度,数字才是关键 */
 @media(max-width:600px){
   #viewList th:nth-child(3),#viewList td:nth-child(3){display:none}
-  #viewList td:first-child{width:auto}
+  #viewList td:first-child{width:62%}  /* max-width:0 是表格里做省略号必需的,别去掉;只调 width */
   #funnel th:nth-child(2),#funnel td:nth-child(2){display:none}
 }
 .trend{display:flex;align-items:flex-end;gap:3px;height:120px;padding:4px 0}
