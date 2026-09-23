@@ -80,6 +80,17 @@ tr:hover td{background:#fafbfd}
 #notifyTip.ok{color:#15803d}
 #notifyTip.bad{color:#b91c1c}
 /* 趋势条形图:一天一根,鼠标悬停看具体数 */
+/* 页面名一行放不下就截断,完整的放 title 里悬停看 */
+.pg-name{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.pg-slug{display:block;margin-top:2px;font-size:.72rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#viewList td:first-child{max-width:0;width:52%}
+#viewList th:nth-child(2),#viewList td:nth-child(2){white-space:nowrap}
+/* 窄屏收起进度条那一列 —— 它只是个相对刻度,数字才是关键 */
+@media(max-width:600px){
+  #viewList th:nth-child(3),#viewList td:nth-child(3){display:none}
+  #viewList td:first-child{width:auto}
+  #funnel th:nth-child(2),#funnel td:nth-child(2){display:none}
+}
 .trend{display:flex;align-items:flex-end;gap:3px;height:120px;padding:4px 0}
 .trend-bar{flex:1;min-width:3px;background:var(--brand);border-radius:3px 3px 0 0;position:relative;transition:opacity .15s;min-height:2px}
 .trend-bar:hover{opacity:.75}
@@ -244,7 +255,12 @@ tr:hover td{background:#fafbfd}
             key = v;
             try { sessionStorage.setItem(KEY, v); } catch (e) { /* 无痕模式下存不了,不影响本次 */ }
             show();
-            loadAll();
+            // 标题表用来把 slug 换成人能看懂的名字,取不到也不影响主流程
+            fetch('data/page-titles.json')
+              .then(function (r) { return r.json(); })
+              .then(function (t) { titles = (t && t.titles) || {}; })
+              .catch(function () { /* 取不到就照旧显示 slug */ })
+              .then(loadAll);
             return;
           }
           done();
@@ -522,6 +538,7 @@ tr:hover td{background:#fafbfd}
   /* ---------- 每日浏览 ----------
      之前只有一个累计数字,看不出涨还是跌。按天的数据是新加的,
      所以早期只有几根柱子,别当成流量掉了。 */
+  var titles = {};            // slug → 可读标题
   var trendCache = null;      // {days, counts}
   var range = 0;              // 0=累计,7/30=最近 N 天
 
@@ -615,7 +632,12 @@ tr:hover td{background:#fafbfd}
               : k.indexOf('en-') === 0 ? '/en/' + k.slice(3)
               : k.indexOf('page-') === 0 ? '/' + k.slice(5)
               : '/blog/' + k;
-            return '<tr><td><a href="' + esc(href) + '" target="_blank">' + esc(k) + '</a></td>' +
+            var name = titles[k] || '';
+            return '<tr><td>' +
+                '<a href="' + esc(href) + '" target="_blank" title="' + esc(name || k) + '">' +
+                  '<span class="pg-name">' + esc(name || k) + '</span>' +
+                  (name ? '<span class="pg-slug">' + esc(k) + '</span>' : '') +
+                '</a></td>' +
               '<td>' + type + '</td>' +
               '<td><div class="bar" style="width:' + Math.round(v / max * 100) + '%"></div></td>' +
               '<td class="n">' + v + '</td></tr>';
