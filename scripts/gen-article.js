@@ -34,7 +34,7 @@ function build(a) {
       ? `\n      <div class="article-table-wrap"><table class="article-table">` +
         `<thead><tr>${s.table.head.map((h) => `<th>${inline(h)}</th>`).join('')}</tr></thead>` +
         `<tbody>${s.table.rows.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody>` +
-        `</table></div>`
+        `</table></div><p class="article-table-hint">← 左右滑动看完整表格 →</p>`
       : '';
     return `    <h2${s.id ? ` id="${s.id}"` : ''}>${esc(s.h2)}</h2>\n      ${paras}${table}${call}`;
   }).join('\n\n');
@@ -93,6 +93,8 @@ function build(a) {
 .article-table th{background:#f6f8fb;font-weight:700;color:#0f172a;font-size:.85rem}
 .article-table td{color:#334155}
 .article-table tr:last-child td{border-bottom:0}
+.article-table-hint{display:none;margin:-8px 0 16px;font-size:.78rem;color:#94a3b8;text-align:center}
+@media(max-width:640px){.article-table-hint{display:block}}
 .article-facts{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 20px;font-size:.88rem;color:#475569}
 .article-faq{margin-top:36px;padding-top:24px;border-top:2px solid #e5e7eb}
 .article-faq-item{border-bottom:1px solid #e5e7eb;padding:4px 0}
