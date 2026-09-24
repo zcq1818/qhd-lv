@@ -28,7 +28,15 @@ function build(a) {
     const call = s.callout
       ? `\n      <div class="article-callout ${s.callout.type === 'warn' ? 'warn' : 'tip'}"><strong>${s.callout.type === 'warn' ? '注意' : '提示'}</strong>${inline(s.callout.text)}</div>`
       : '';
-    return `    <h2${s.id ? ` id="${s.id}"` : ''}>${esc(s.h2)}</h2>\n      ${paras}${call}`;
+    // 有些内容天生是表格(比如按天列潮汐),拆成段落反而读不下去。
+    // 窄屏上外层可横向滚动,不会把版面撑破。
+    const table = s.table
+      ? `\n      <div class="article-table-wrap"><table class="article-table">` +
+        `<thead><tr>${s.table.head.map((h) => `<th>${inline(h)}</th>`).join('')}</tr></thead>` +
+        `<tbody>${s.table.rows.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody>` +
+        `</table></div>`
+      : '';
+    return `    <h2${s.id ? ` id="${s.id}"` : ''}>${esc(s.h2)}</h2>\n      ${paras}${table}${call}`;
   }).join('\n\n');
 
   const faqHtml = a.faq.map((f) => `<details class="article-faq-item"><summary>${esc(f.q)}</summary><p>${inline(f.a)}</p></details>`).join('\n      ');
@@ -50,14 +58,6 @@ function build(a) {
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QNGJC2KRK0"></script>
-<script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
- gtag('config', 'G-QNGJC2KRK0');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(a.titleFull)}</title>
@@ -87,6 +87,12 @@ function build(a) {
 .article-callout strong{display:block;margin-bottom:4px}
 .article-callout.tip{background:#f0fdf4;color:#166534}
 .article-callout.warn{background:#fffbeb;color:#92400e}
+.article-table-wrap{overflow-x:auto;margin:16px 0;-webkit-overflow-scrolling:touch}
+.article-table{width:100%;min-width:420px;border-collapse:collapse;font-size:.9rem}
+.article-table th,.article-table td{padding:9px 12px;text-align:left;border-bottom:1px solid #e5e7eb;white-space:nowrap}
+.article-table th{background:#f6f8fb;font-weight:700;color:#0f172a;font-size:.85rem}
+.article-table td{color:#334155}
+.article-table tr:last-child td{border-bottom:0}
 .article-facts{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 20px;font-size:.88rem;color:#475569}
 .article-faq{margin-top:36px;padding-top:24px;border-top:2px solid #e5e7eb}
 .article-faq-item{border-bottom:1px solid #e5e7eb;padding:4px 0}
@@ -163,9 +169,11 @@ ${bodyHtml}
 document.getElementById('hamburger').addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
 window.addEventListener('scroll', function(){ document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
 </script>
+<script src="../js/analytics.min.js" defer></script>
 <script src="../js/share.min.js" defer></script>
 <script src="../js/blog-related.min.js" defer></script>
 <script src="../js/trip.min.js" defer></script>
+<script src="../js/view-counter.min.js" defer></script>
 </body>
 </html>
 `;

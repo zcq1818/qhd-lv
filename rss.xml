@@ -6,7 +6,14 @@
   <atom:link href="https://www.divdu.com/rss.xml" rel="self" type="application/rss+xml"/>
   <description>秦皇岛、北戴河、山海关的旅游攻略与实用信息</description>
   <language>zh-CN</language>
-  <lastBuildDate>Wed, 23 Sep 2026 03:06:06 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 24 Sep 2026 06:25:05 GMT</lastBuildDate>
+  <item>
+    <title>2026国庆秦皇岛赶海时间表 | 8天潮汐+日出时刻，附避坑</title>
+    <link>https://www.divdu.com/blog/qhd-national-day-2026-ganhai-sunrise</link>
+    <guid isPermaLink="true">https://www.divdu.com/blog/qhd-national-day-2026-ganhai-sunrise</guid>
+    <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+    <description>2026国庆（10月1-8日）北戴河逐日潮汐实测数据：低潮时刻、赶海窗口、潮差大小，以及每天的日出日落时间。结论是八天里只有10月1日清晨能在天亮后赶海，其余低潮全在夜里，出发前先看这张表。</description>
+  </item>
   <item>
     <title>昌黎华夏庄园参观攻略 | 亚洲最大地下酒窖·门票·品酒</title>
     <link>https://www.divdu.com/blog/huaxia-manor-winery-guide</link>
@@ -279,13 +286,6 @@
     <guid isPermaLink="true">https://www.divdu.com/blog/zuoyou-valley-guide-2026</guid>
     <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
     <description>左右山谷怎么玩？本文详解2026最新左右山谷攻略：研学课程、草原露营、动力设备、住宿选择、2天1夜行程安排，附门票价格和避坑指南。秦皇岛新晋网红度假地深度体验。</description>
-  </item>
-  <item>
-    <title>赶海收获怎么吃？花蛤蛏子螃蟹做法大全 | 附吐沙去沙技巧</title>
-    <link>https://www.divdu.com/blog/ganhai-seafood-cooking</link>
-    <guid isPermaLink="true">https://www.divdu.com/blog/ganhai-seafood-cooking</guid>
-    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
-    <description>赶海带回来的花蛤、蛏子、小螃蟹怎么做才好吃？本文详解5种常见赶海海鲜的处理方法和做法：花蛤吐沙2小时法、蛏子焯水去沙、小螃蟹养半天再吃，附辣炒花蛤、葱姜蛏子、清蒸螃蟹等详细菜谱。</description>
   </item>
 </channel>
 </rss>
