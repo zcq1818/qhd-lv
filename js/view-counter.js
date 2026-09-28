@@ -9,7 +9,11 @@
   // 统计范围从「只有博客」扩到全站:博客、景点页、英文景点页与主要栏目页,
   // 都用一个可读的 slug 作为键,后台按这个排热度。
   function getSlug() {
-    var path = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+    // pathname 是百分号编码过的,中文文件名会变成 %E5%8C%97… —— 不解码的话
+    // 同一篇文章的统计键和博客列表、后台标题表都对不上
+    var path = window.location.pathname;
+    try { path = decodeURIComponent(path); } catch (e) { /* 编码残缺就按原样用 */ }
+    path = path.replace(/\.html$/, '').replace(/\/$/, '');
     if (!path) return 'home';
 
     var m = path.match(/\/blog\/([^\/\?]+)/);

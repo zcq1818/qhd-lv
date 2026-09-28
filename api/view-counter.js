@@ -49,6 +49,24 @@ async function pipeline(url, token, commands) {
   return res.json();
 }
 
+/**
+ * 把编码过的 slug 和正常 slug 合并成一个键。
+ * 历史上中文文件名的博客是按 %E5%8C%97… 记账的(见 js/view-counter.js),
+ * 写入端已经改了,但旧数据还在编码键下。在这里合并,不用做数据迁移,
+ * 后台和博客列表页读到的就都是对的。
+ */
+function mergeKeys(obj) {
+  const out = {};
+  for (const k in obj) {
+    let key = k;
+    if (k.indexOf('%') >= 0) {
+      try { key = decodeURIComponent(k); } catch (e) { /* 残缺编码保留原样 */ }
+    }
+    out[key] = (out[key] || 0) + obj[k];
+  }
+  return out;
+}
+
 /** HGETALL 回来的是扁平数组 [字段, 值, 字段, 值…] */
 function toObj(arr) {
   const o = {};
@@ -103,7 +121,7 @@ export default async function handler(req) {
       });
 
       return new Response(JSON.stringify({
-        days, counts, total: days.reduce((t, x) => t + x.total, 0), since: dates[0],
+        days, counts: mergeKeys(counts), total: days.reduce((t, x) => t + x.total, 0), since: dates[0],
       }), { headers: { ...CORS, 'Cache-Control': 'public, max-age=120' } });
     }
 
@@ -131,7 +149,8 @@ export default async function handler(req) {
         });
       }
 
-      return new Response(JSON.stringify({ counts, total: Object.keys(counts).length }), {
+      const merged = mergeKeys(counts);
+      return new Response(JSON.stringify({ counts: merged, total: Object.keys(merged).length }), {
         headers: { ...CORS, 'Cache-Control': 'public, max-age=300' },
       });
     }
