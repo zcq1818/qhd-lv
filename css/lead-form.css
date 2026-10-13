@@ -122,6 +122,64 @@
 .lead-card-btn:active:not(:disabled) { transform: translateY(1px); }
 .lead-card-btn:disabled { opacity: .6; cursor: default; }
 
+/* 联系方式下面那句承诺 —— 打消「留了会被推销骚扰」的顾虑 */
+.lead-assure {
+  grid-column: 1 / -1;
+  margin: -2px 0 2px;
+  font-size: var(--text-xs, .75rem);
+  line-height: 1.6;
+  color: var(--accent-green, #0F9D58);
+}
+
+/* 日期和人数收起来,点了才展开,表单不再像一张预订单 */
+.lead-more {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-size: var(--text-xs, .75rem);
+  color: var(--brand, #1a73e8);
+  cursor: pointer;
+}
+.lead-more:hover { text-decoration: underline; }
+
+.lead-extra {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+.lead-extra[hidden] { display: none; }
+
+/* 只有配了微信号才出现 */
+.lead-wx {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm, 8px);
+  background: #f0fdf4;
+  font-size: var(--text-sm, .875rem);
+  color: #166534;
+}
+.lead-wx b { margin-left: 4px; font-weight: 800; }
+.lead-wx-btn {
+  padding: 6px 12px;
+  border: 1px solid #86efac;
+  border-radius: var(--radius-full, 999px);
+  background: #fff;
+  color: #166534;
+  font-family: inherit;
+  font-size: var(--text-xs, .75rem);
+  font-weight: 700;
+  cursor: pointer;
+}
+
 /* 蜜罐:真人看不见,机器人会填 */
 .lead-hp {
   position: absolute;
@@ -182,6 +240,7 @@
 @media (max-width: 560px) {
   .lead-card { padding: 22px 18px; }
   .lead-card-form { grid-template-columns: 1fr; }
+  .lead-extra { grid-template-columns: 1fr; }
   .lead-card h3 { font-size: 1.08rem; }
 }
 

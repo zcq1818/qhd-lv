@@ -109,11 +109,15 @@ export default async function handler(req) {
 
       const days = [];
       const counts = {};
+      const events = {};                               // 同一时段的转化事件,用来比较改版前后
       dates.forEach((d, i) => {
         const obj = toObj(out?.[i]?.result);
         let sum = 0;
         for (const k in obj) {
-          if (k.indexOf('event-') === 0) continue;     // 转化事件不算浏览量
+          if (k.indexOf('event-') === 0) {             // 转化事件不算浏览量
+            events[k.slice(6)] = (events[k.slice(6)] || 0) + obj[k];
+            continue;
+          }
           sum += obj[k];
           counts[k] = (counts[k] || 0) + obj[k];
         }
@@ -121,7 +125,7 @@ export default async function handler(req) {
       });
 
       return new Response(JSON.stringify({
-        days, counts: mergeKeys(counts), total: days.reduce((t, x) => t + x.total, 0), since: dates[0],
+        days, counts: mergeKeys(counts), events, total: days.reduce((t, x) => t + x.total, 0), since: dates[0],
       }), { headers: { ...CORS, 'Cache-Control': 'public, max-age=120' } });
     }
 

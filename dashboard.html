@@ -507,12 +507,21 @@ tr:hover td{background:#fafbfd}
     var box = document.getElementById('funnel');
     if (!box) return;
 
+    // 选了「最近 N 天」时,线索也只数这段时间的,不然比例分子分母对不上
+    var leads = range > 0
+      ? leadsCache.filter(function (l) { return daysAgo(l.createdAt, range); }).length
+      : leadsTotal;
+
+    // 开始填写 / 复制微信号 是 2026-10-13 表单改版时加的,之前没有记录
     var steps = [
       ['看到微信二维码', events['qr-view'] || 0, '滚动到二维码位置的人数'],
       ['点了二维码', events['qr-tap'] || 0, '点击或长按二维码,多半是去保存/识别'],
       ['看到咨询表单', events['form-view'] || 0, '咨询卡片进入视野的人数'],
-      ['提交了咨询', leadsTotal, '真正留下联系方式的人数']
+      ['开始填写', events['form-start'] || 0, '点进了表单里的输入框(10/13 起统计)'],
+      ['提交了咨询', leads, '真正留下联系方式的人数'],
+      ['复制微信号', events['wx-copy'] || 0, '不填表,直接复制微信号去加(10/13 起统计)']
     ];
+    var failed = events['form-fail'] || 0;
 
     if (!steps.some(function (x) { return x[1] > 0; })) {
       box.innerHTML = '<div class="empty">还没有数据。访客访问带二维码或咨询表单的页面后,这里会出现。</div>';
@@ -521,7 +530,8 @@ tr:hover td{background:#fafbfd}
 
     var max = Math.max.apply(null, steps.map(function (x) { return x[1]; })) || 1;
     var seen = events['form-view'] || 0;
-    var rate = seen ? (leadsTotal / seen * 100) : 0;
+    var rate = seen ? (leads / seen * 100) : 0;
+    var started = events['form-start'] || 0;
 
     box.innerHTML =
       '<table><thead><tr><th>动作</th><th style="width:40%">相对人数</th><th class="n">人数</th></tr></thead><tbody>' +
@@ -532,7 +542,12 @@ tr:hover td{background:#fafbfd}
       }).join('') + '</tbody></table>' +
       (seen ? '<p class="note" style="margin-top:12px">看到咨询表单的人里,有 <strong>' +
         rate.toFixed(1) + '%</strong> 提交了。' +
-        (rate < 2 ? '这个比例偏低,通常是文案或位置的问题,不是流量不够。' : '') + '</p>' : '');
+        (rate < 2 ? '这个比例偏低,通常是文案或位置的问题,不是流量不够。' : '') +
+        // 开始填了却没交,问题在表单本身(字段多/怕被骚扰);没人开始填,问题在文案
+        (started ? ' 开始填写的人里 <strong>' + Math.min(100, leads / started * 100).toFixed(0) +
+          '%</strong> 交了。' : '') +
+        (failed ? ' <span style="color:#b91c1c">有 ' + failed + ' 次提交失败,去查一下 /api/leads。</span>' : '') +
+        '</p>' : '');
   }
 
   /* ---------- 每日浏览 ----------
@@ -592,7 +607,8 @@ tr:hover td{background:#fafbfd}
       .then(function (d) {
         var counts = (d && d.counts) || {};
         // event- 开头的是转化动作,不是页面,单独拿出来算漏斗
-        events = {};
+        // 按时间段时接口把事件单独放在 d.events 里;累计时混在 counts 里
+        events = (d && d.events) || {};
         var rows = Object.keys(counts).filter(function (k) {
           if (k.indexOf('event-') === 0) { events[k.slice(6)] = counts[k]; return false; }
           return true;
