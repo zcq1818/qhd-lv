@@ -54,6 +54,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.divdu.com/"},{"@type":"ListItem","position":2,"name":"🎫 秦皇岛景点门票价格总览","item":"https://www.divdu.com/tickets"}]}</script>
 <link rel="stylesheet" href="css/lead-form.min.css?v=abd12ce1">
 <script src="js/analytics.min.js?v=f9c102d2" defer></script>
+<style>.tk-summary{max-width:1100px;margin:22px auto 0;padding:0 24px;color:#475569;font-size:.92rem;line-height:1.85}.tk-summary p{margin:0 0 6px}.tk-summary b{color:#0f172a}</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#1a73e8;color:#fff;padding:8px 16px;text-decoration:none;z-index:9999;border-radius:0 0 4px 0;">跳到主要内容</a>
@@ -90,6 +91,11 @@
   <p>47 个景区门票 · 开放时间 · 星级，一键对比，规划预算</p>
 </section>
 
+<div class="tk-summary" id="tkSummary">
+  <p>共收录 <b>47</b> 个秦皇岛景区。其中标为免费的 <b>15</b> 个,如北戴河海滨风景区、老虎石海上公园、北戴河湿地公园、山海关古城等;收费景区里门票最高的是乐岛海洋王国(160 元)、渔岛海洋温泉景区(135 元)、棋盘山景区(135 元)。</p>
+  <p>表中价格为成人全价票,核对于 2026年9月。景区票价会随季节和政策调整,老人、学生、儿童多有优惠,出发前以景区当日公示为准。点景点名称可看开放时间、交通和避坑提醒。</p>
+</div>
+
 <div class="tk-tools">
   <input type="text" id="tkSearch" placeholder="🔍 搜索景点名称" autocomplete="off">
   <div id="tkAreaBtns"></div>
@@ -108,7 +114,55 @@
         <th>评分</th>
       </tr>
     </thead>
-    <tbody id="tkTbody"></tbody>
+    <tbody id="tkTbody">
+      <tr><td class="name"><a href="attraction/beidaihe">北戴河海滨风景区</a></td><td><span class="tk-cat" style="background:#0369a118;color:#0369a1;">海滨风光</span></td><td>北戴河区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price free">免费</td><td>全天开放</td><td class="tk-stars">★ 4.7</td></tr>
+      <tr><td class="name"><a href="attraction/geziwo">鸽子窝公园</a></td><td><span class="tk-cat" style="background:#0369a118;color:#0369a1;">海滨风光</span></td><td>北戴河区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">25元</td><td>旺季约3:00-18:00</td><td class="tk-stars">★ 4.6</td></tr>
+      <tr><td class="name"><a href="attraction/laohushi">老虎石海上公园</a></td><td><span class="tk-cat" style="background:#0369a118;color:#0369a1;">海滨风光</span></td><td>北戴河区</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price free">免费</td><td>夏令7:00-22:00</td><td class="tk-stars">★ 4.5</td></tr>
+      <tr><td class="name"><a href="attraction/liangfengshan">联峰山公园</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>北戴河区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">30元起</td><td>07:00-17:30</td><td class="tk-stars">★ 4.4</td></tr>
+      <tr><td class="name"><a href="attraction/biluota">碧螺塔海上酒吧公园</a></td><td><span class="tk-cat" style="background:#6b21a818;color:#6b21a8;">文艺打卡</span></td><td>北戴河区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">48元起</td><td>10:00-22:00，节假日9:30-22:30</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/guailou">怪楼奇园</a></td><td><span class="tk-cat" style="background:#9d174d18;color:#9d174d;">亲子娱乐</span></td><td>北戴河区</td><td><span class="tk-level ">2A</span></td><td class="tk-price ">20元起</td><td>5月1日-10月31日 08:00-22:00</td><td class="tk-stars">★ 4.2</td></tr>
+      <tr><td class="name"><a href="attraction/dongwuyuan">秦皇岛野生动物园</a></td><td><span class="tk-cat" style="background:#9d174d18;color:#9d174d;">亲子娱乐</span></td><td>北戴河区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">100元起</td><td>夏季8:30-17:30</td><td class="tk-stars">★ 4.5</td></tr>
+      <tr><td class="name"><a href="attraction/jifa">集发农业梦想王国</a></td><td><span class="tk-cat" style="background:#9d174d18;color:#9d174d;">亲子娱乐</span></td><td>北戴河区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">50元起</td><td>旺季8:30-17:00，16:00停止入园</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/shidi">北戴河湿地公园</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>北戴河区</td><td><span class="tk-level ">无</span></td><td class="tk-price free">免费</td><td>全天开放</td><td class="tk-stars">★ 4.4</td></tr>
+      <tr><td class="name"><a href="attraction/shanhaiguan">山海关·天下第一关</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>山海关区</td><td><span class="tk-level tk-level-5A">5A</span></td><td class="tk-price ">50元起</td><td>旺季07:00-18:00</td><td class="tk-stars">★ 4.8</td></tr>
+      <tr><td class="name"><a href="attraction/laolongtou">老龙头景区</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>山海关区</td><td><span class="tk-level tk-level-5A">5A</span></td><td class="tk-price ">50元起</td><td>全年 07:30-18:00</td><td class="tk-stars">★ 4.7</td></tr>
+      <tr><td class="name"><a href="attraction/jiaoshan">角山长城</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>山海关区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">30元起</td><td>07:30-17:30</td><td class="tk-stars">★ 4.5</td></tr>
+      <tr><td class="name"><a href="attraction/mengjiangnv">孟姜女庙</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>山海关区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">30元/人(成人票)</td><td>08:00-17:30</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/ledao">乐岛海洋王国</a></td><td><span class="tk-cat" style="background:#9d174d18;color:#9d174d;">亲子娱乐</span></td><td>山海关区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">160元</td><td>08:30-17:30</td><td class="tk-stars">★ 4.4</td></tr>
+      <tr><td class="name"><a href="attraction/changshoushan">长寿山景区</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>山海关区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">30元起</td><td>5月1日-12月31日 07:30-17:30</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/yansaihu">燕塞湖</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>山海关区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">90元起</td><td>旺季08:00-17:00</td><td class="tk-stars">★ 4.4</td></tr>
+      <tr><td class="name"><a href="attraction/shanhaiguan_gucheng">山海关古城</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>山海关区</td><td><span class="tk-level tk-level-5A">5A</span></td><td class="tk-price free">免费</td><td>全天开放</td><td class="tk-stars">★ 4.6</td></tr>
+      <tr><td class="name"><a href="attraction/qiuxian">秦皇求仙入海处</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>海港区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price free">免费</td><td>08:00-17:00</td><td class="tk-stars">★ 4.2</td></tr>
+      <tr><td class="name"><a href="attraction/xinao">新澳海底世界</a></td><td><span class="tk-cat" style="background:#9d174d18;color:#9d174d;">亲子娱乐</span></td><td>海港区</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">55元起</td><td>04/01-10/15 08:40-16:30</td><td class="tk-stars">★ 4.4</td></tr>
+      <tr><td class="name"><a href="attraction/gangkou">秦皇岛港口博物馆</a></td><td><span class="tk-cat" style="background:#6b21a818;color:#6b21a8;">文艺打卡</span></td><td>海港区</td><td><span class="tk-level ">无</span></td><td class="tk-price free">免费</td><td>周一至周五 09:00-11:30、14:30-17:30</td><td class="tk-stars">★ 4.2</td></tr>
+      <tr><td class="name"><a href="attraction/daihe_park">戴河生态园</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>北戴河区</td><td><span class="tk-level ">无</span></td><td class="tk-price free">免费</td><td>全年全天开放</td><td class="tk-stars">★ 4.1</td></tr>
+      <tr><td class="name"><a href="attraction/aranya">阿那亚·黄金海岸社区</a></td><td><span class="tk-cat" style="background:#6b21a818;color:#6b21a8;">文艺打卡</span></td><td>南戴河·昌黎</td><td><span class="tk-level ">无</span></td><td class="tk-price free">预约制</td><td>全天开放</td><td class="tk-stars">★ 4.8</td></tr>
+      <tr><td class="name"><a href="attraction/huangjin">南戴河·黄金海岸</a></td><td><span class="tk-cat" style="background:#0369a118;color:#0369a1;">海滨风光</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price free">免费</td><td>全天开放</td><td class="tk-stars">★ 4.5</td></tr>
+      <tr><td class="name"><a href="attraction/yudao">渔岛海洋温泉景区</a></td><td><span class="tk-cat" style="background:#0369a118;color:#0369a1;">海滨风光</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">135元起</td><td>暑期08:00-21:30</td><td class="tk-stars">★ 4.5</td></tr>
+      <tr><td class="name"><a href="attraction/shenglan">圣蓝海洋公园</a></td><td><span class="tk-cat" style="background:#9d174d18;color:#9d174d;">亲子娱乐</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">88元起</td><td>淡旺季不同：7月1日-8月31日 08:10-18:00</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/jieshishan">碣石山</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price ">20元起</td><td>5月1日-10月6日 07:30-17:30</td><td class="tk-stars">★ 4.2</td></tr>
+      <tr><td class="name"><a href="attraction/weilanhaian">蔚蓝海岸</a></td><td><span class="tk-cat" style="background:#6b21a818;color:#6b21a8;">文艺打卡</span></td><td>南戴河·昌黎</td><td><span class="tk-level ">无</span></td><td class="tk-price free">免费</td><td>全天开放</td><td class="tk-stars">★ 4.5</td></tr>
+      <tr><td class="name"><a href="attraction/xianluodao">仙螺岛</a></td><td><span class="tk-cat" style="background:#0369a118;color:#0369a1;">海滨风光</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">80元起</td><td>09:00-19:00</td><td class="tk-stars">★ 4.6</td></tr>
+      <tr><td class="name"><a href="attraction/nanent">南戴河国际娱乐中心</a></td><td><span class="tk-cat" style="background:#9d174d18;color:#9d174d;">亲子娱乐</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">29元起</td><td>5月1日-6月30日 08:30-17:30</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/zushan">祖山风景区</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>抚宁·青龙</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">80元</td><td>全年 08:00-17:00，15:00停止入园</td><td class="tk-stars">★ 4.6</td></tr>
+      <tr><td class="name"><a href="attraction/bingtangyu">冰塘峪大峡谷</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>抚宁·青龙</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">50元</td><td>4月1日-10月31日 08:00-18:00</td><td class="tk-stars">★ 4.4</td></tr>
+      <tr><td class="name"><a href="attraction/banchangyu">板厂峪长城景区</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>抚宁·青龙</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price ">50元起</td><td>全年 08:00-17:00</td><td class="tk-stars">★ 4.5</td></tr>
+      <tr><td class="name"><a href="attraction/tianmahu">天马湖景区</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>抚宁·青龙</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price free">暂停营业</td><td>暂停营业</td><td class="tk-stars">★ 4.0</td></tr>
+      <tr><td class="name"><a href="attraction/putagogou">葡萄沟</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price free">免费</td><td>全天开放</td><td class="tk-stars">★ 4.1</td></tr>
+      <tr><td class="name"><a href="attraction/huaxiazhuangyuan">华夏庄园景区</a></td><td><span class="tk-cat" style="background:#6b21a818;color:#6b21a8;">文艺打卡</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">80元起</td><td>08:30-17:30，节假日08:00-18:00</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/laojunding">老君顶景区</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>海港区</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price ">90元起</td><td>08:00-17:00</td><td class="tk-stars">★ 4.2</td></tr>
+      <tr><td class="name"><a href="attraction/jinshi_wine">金士国际葡萄酒庄</a></td><td><span class="tk-cat" style="background:#6b21a818;color:#6b21a8;">文艺打卡</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price free">免费入园</td><td>09:00-16:00（具体以景区当日公示为准）</td><td class="tk-stars">★ 4.2</td></tr>
+      <tr><td class="name"><a href="attraction/hongxing_industrial">魅力宏兴工业文化园</a></td><td><span class="tk-cat" style="background:#6b21a818;color:#6b21a8;">文艺打卡</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price free">免费(团队预约参观)</td><td>09:00-17:00</td><td class="tk-stars">★ 4.0</td></tr>
+      <tr><td class="name"><a href="attraction/longyungu">龙云谷景区</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>抚宁·青龙</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price ">50元起</td><td>全年08:00-16:30</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/qipanshan">棋盘山景区</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>卢龙县</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price ">135元</td><td>09:00-17:00（未能独立核实，建议出行前电话确认）</td><td class="tk-stars">★ 4.0</td></tr>
+      <tr><td class="name"><a href="attraction/wufengshan">五峰山景区</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>南戴河·昌黎</td><td><span class="tk-level ">2A</span></td><td class="tk-price ">13元起</td><td>全天开放</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/tianmashan">天马山旅游风景区</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>抚宁·青龙</td><td><span class="tk-level ">2A</span></td><td class="tk-price ">35元</td><td>08:00-17:00左右</td><td class="tk-stars">★ 4.2</td></tr>
+      <tr><td class="name"><a href="attraction/baozigou">鲍子沟景区</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>卢龙县</td><td><span class="tk-level ">2A</span></td><td class="tk-price free">免费</td><td>全天开放</td><td class="tk-stars">★ 4.0</td></tr>
+      <tr><td class="name"><a href="attraction/liuhe_xigu">柳河溪谷</a></td><td><span class="tk-cat" style="background:#16653418;color:#166534;">自然风光</span></td><td>卢龙县</td><td><span class="tk-level ">2A</span></td><td class="tk-price free">免费</td><td>全天开放</td><td class="tk-stars">★ 4.0</td></tr>
+      <tr><td class="name"><a href="attraction/liuhe_shanzhuang">柳河山庄</a></td><td><span class="tk-cat" style="background:#6b21a818;color:#6b21a8;">文艺打卡</span></td><td>卢龙县</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price free">免费（园区参观）</td><td>全天开放（具体参观/品酒项目时段建议提前咨询）</td><td class="tk-stars">★ 4.0</td></tr>
+      <tr><td class="name"><a href="attraction/wangjiadayuan">山海关古城民俗博物馆（王家大院）</a></td><td><span class="tk-cat" style="background:#92400e18;color:#92400e;">历史文化</span></td><td>山海关区</td><td><span class="tk-level tk-level-3A">3A</span></td><td class="tk-price ">30元</td><td>08:00-17:00</td><td class="tk-stars">★ 4.3</td></tr>
+      <tr><td class="name"><a href="attraction/yutian_qilihai">渔田·七里海度假区</a></td><td><span class="tk-cat" style="background:#9d174d18;color:#9d174d;">亲子娱乐</span></td><td>南戴河·昌黎</td><td><span class="tk-level tk-level-4A">4A</span></td><td class="tk-price ">109元起</td><td>10:00-22:00</td><td class="tk-stars">★ 4.8</td></tr>
+    </tbody>
   </table>
 </div>
 
@@ -205,6 +259,9 @@ document.getElementById('hamburger').addEventListener('click', function() {
 
   function renderTable() {
     var tbody = document.getElementById('tkTbody');
+    // 表格行在构建时已经写进 HTML(scripts/gen-tickets-table.js)。
+    // 数据没取到就保留那份,别清成「没有匹配的景点」。
+    if (!SPOTS.length) return;
     var kw = keyword.trim().toLowerCase();
     var list = SPOTS.filter(function(s) {
       var areaMatch = currentArea === 'all' || s.area === currentArea;
