@@ -39,8 +39,11 @@
   var MAIL = 'zhaochenqi@163.com';
 
   /* 微信号。填上之后卡片底部会出现「复制微信号」;留空就不提微信,
-     免得又写一句「可以加微信」却不给号。 */
-  var WX = '';
+     免得又写一句「可以加微信」却不给号。
+     手机上只给号 + 复制按钮(在手机上扫不了自己屏幕上的码);
+     电脑上再加一张二维码,掏出手机扫屏幕最顺手。显隐由 CSS 按设备决定。 */
+  var WX = 'cctvzcq';
+  var WX_QR = '/images/wechat-qr.jpg';
 
   /* 界面文字按语言分开。英文页有 50 个,不能为它们复制一份组件 ——
      那以后改一句话要改两个文件,迟早漏一个。 */
@@ -63,6 +66,8 @@
       wxLead: '不想填?加微信直接问:',
       wxCopy: '复制微信号',
       wxCopied: '已复制,去微信添加',
+      wxQrAlt: '微信二维码',
+      wxQrTip: '手机微信扫一扫',
       needContact: '留个手机号或微信号,我们才能把回答发给你。',
       needSomething: '写一下你想问什么,或者至少留个联系方式。',
       doneTitle: '收到了,我们会尽快回复你',
@@ -88,6 +93,8 @@
       wxLead: '',
       wxCopy: '',
       wxCopied: '',
+      wxQrAlt: '',
+      wxQrTip: '',
       needContact: 'Please leave an email or WhatsApp so we can send you the answer.',
       needSomething: 'Write your question, or at least leave a contact.',
       doneTitle: 'Got it — we will be in touch',
@@ -131,8 +138,14 @@
   function wxBlock(t) {
     if (!WX || !t.wxCopy) return '';
     return '<div class="lead-wx">' +
-      '<span>' + esc(t.wxLead) + '<b>' + esc(WX) + '</b></span>' +
-      '<button type="button" class="lead-wx-btn">' + esc(t.wxCopy) + '</button>' +
+      '<div class="lead-wx-main">' +
+        '<span>' + esc(t.wxLead) + '<b>' + esc(WX) + '</b></span>' +
+        '<button type="button" class="lead-wx-btn">' + esc(t.wxCopy) + '</button>' +
+      '</div>' +
+      (WX_QR ? '<figure class="lead-wx-qr">' +
+        '<img src="' + WX_QR + '" alt="' + esc(t.wxQrAlt) + '" width="88" height="88" loading="lazy">' +
+        '<figcaption>' + esc(t.wxQrTip) + '</figcaption>' +
+      '</figure>' : '') +
     '</div>';
   }
 

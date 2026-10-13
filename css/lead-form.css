@@ -168,6 +168,35 @@
   color: #166534;
 }
 .lead-wx b { margin-left: 4px; font-weight: 800; }
+.lead-wx-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 二维码只在电脑上出现:手机扫不了自己屏幕上的码,
+   显示出来只是占地方,还白白多下载 70KB */
+.lead-wx-qr { display: none; }
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  .lead-wx-qr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+  .lead-wx-qr img {
+    width: 88px;
+    height: 88px;
+    padding: 4px;
+    border-radius: 6px;
+    background: #fff;
+  }
+  .lead-wx-qr figcaption {
+    font-size: var(--text-xs, .75rem);
+    color: #166534;
+  }
+}
 .lead-wx-btn {
   padding: 6px 12px;
   border: 1px solid #86efac;
