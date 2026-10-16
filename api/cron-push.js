@@ -53,6 +53,30 @@ async function urlsFromSitemap() {
   return [...head.filter((u) => all.includes(u)), ...rest];
 }
 
+/* 新文章插队。
+   只按 sitemap 轮着推,新文章排进队里要等一整轮(两百多个 URL,三周)才轮到,
+   而新文章恰恰是最需要尽快被收录的。所以每天先推最近 21 天发布、还没推过的,
+   剩下的名额再接着轮。
+
+   「新文章」读 rss.xml:它的 pubDate 是文章第一次提交的日期。sitemap 的
+   lastmod 不能用 —— 每次打资源指纹都会改动上百个页面,lastmod 全是新的。 */
+const FRESH_KEY = 'push:baidu:fresh';
+const FRESH_DAYS = 21;
+
+async function freshFromRss() {
+  try {
+    const res = await fetch(`${SITE}/rss.xml`, { headers: { 'User-Agent': 'divdu-cron' } });
+    if (!res.ok) return [];
+    const xml = await res.text();
+    const since = Date.now() - FRESH_DAYS * 86400e3;
+    return [...xml.matchAll(/<item>[\s\S]*?<link>([^<]+)<\/link>[\s\S]*?<pubDate>([^<]+)<\/pubDate>/g)]
+      .filter((m) => Date.parse(m[2]) >= since)
+      .map((m) => m[1].trim());
+  } catch (e) {
+    return [];                                    // RSS 读不到就只走轮换,不影响主流程
+  }
+}
+
 export default async function handler(req, res) {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
 
@@ -77,11 +101,19 @@ export default async function handler(req, res) {
     const urls = await urlsFromSitemap();
     if (!urls.length) return res.status(200).json({ ok: false, error: 'sitemap 里没有 URL' });
 
-    const got = await redis(cfg, [['GET', CURSOR_KEY]]);
+    const recent = (await freshFromRss()).filter((u) => urls.includes(u));
+    const got = await redis(cfg, [
+      ['GET', CURSOR_KEY],
+      ...(recent.length ? [['SMISMEMBER', FRESH_KEY, ...recent]] : []),
+    ]);
     let cursor = parseInt(got?.[0]?.result, 10) || 0;
     if (cursor >= urls.length) cursor = 0;            // 推完一轮从头再来
 
-    const batch = urls.slice(cursor, cursor + BATCH);
+    const done = (recent.length && got?.[1]?.result) || [];
+    const fresh = recent.filter((u, i) => !done[i]).slice(0, BATCH);
+    // 轮换部分跳过今天已经插队推过的,免得同一批里重复
+    const rotation = urls.slice(cursor, cursor + BATCH - fresh.length).filter((u) => !fresh.includes(u));
+    const batch = [...fresh, ...rotation];
 
     const push = await fetch(`http://data.zz.baidu.com/urls?site=${SITE}&token=${token}`, {
       method: 'POST',
@@ -100,11 +132,16 @@ export default async function handler(req, res) {
       });
     }
 
-    const next = cursor + batch.length;
-    await redis(cfg, [['SET', CURSOR_KEY, String(next)]]);
+    // 游标只按轮换走过的长度前进;插队的记进集合,不会第二天再插一次
+    const next = cursor + (BATCH - fresh.length);
+    await redis(cfg, [
+      ['SET', CURSOR_KEY, String(next)],
+      ...(fresh.length ? [['SADD', FRESH_KEY, ...fresh], ['EXPIRE', FRESH_KEY, String(60 * 86400)]] : []),
+    ]);
 
     return res.status(200).json({
       ok: true,
+      fresh,
       pushed: d.success,
       remain: d.remain,
       progress: `${next}/${urls.length}`,

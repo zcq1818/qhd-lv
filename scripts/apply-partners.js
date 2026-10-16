@@ -31,6 +31,12 @@ const TARGETS = [
     anchors: ['  <!-- 作者署名 + 最后更新 -->', '  <div class="article-footer">', '</article>'],
   },
   {
+    // 看这篇的人正在决定住阿那亚里面还是外面,是全站住宿意向最强的一页
+    file: 'blog/aranya-where-to-stay.html', depth: 1, type: 'stay', area: 'aranya',
+    title: '阿那亚及周边的住宿合作商家',
+    anchors: ['  <!-- 咨询入口(由 js/lead-form.js 渲染) -->', '</article>'],
+  },
+  {
     file: 'seafood.html', depth: 0, type: 'food', area: '',
     title: '海鲜合作商家', anchors: ['</main>', '<footer class="footer">'],
   },

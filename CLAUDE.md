@@ -188,6 +188,14 @@ npm run sitemap
 ```
 
 sitemap 会自动扫描根目录、attraction/、blog/(跳过退役文章),lastmod 取 git 最近提交日期。
+这条命令也会重建 `data/blog-index.json`(相关阅读用的索引),`npm run all` 里同样包含。
+
+写新文章用 `node scripts/gen-article.js <稿件.json>`,稿件格式参照已有文章。
+
+百度推送由 Vercel Cron 每天北京时间 06:00 调 `/api/cron-push`,一次 10 条(免费额度)。
+**最近 21 天发布的文章会插队先推**(按 rss.xml 的 pubDate 判断,推过的记在 Redis
+集合 `push:baidu:fresh` 里不重复推),剩下的名额再按 sitemap 轮换。
+不能用 sitemap 的 lastmod 判断新旧 —— 打资源指纹会改动上百个页面,lastmod 全是新的。
 
 ## 本地预览
 
