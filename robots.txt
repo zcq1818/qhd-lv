@@ -20,15 +20,23 @@ User-agent: Claude-Web
 User-agent: anthropic-ai
 User-agent: Google-Extended
 User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot-Extended
 User-agent: Bytespider
 User-agent: Baiduspider
 User-agent: YisouSpider
 User-agent: 360Spider
+User-agent: PetalBot
 User-agent: Sogou web spider
 Allow: /
 Disallow: /admin.html
 Disallow: /dashboard.html
 Disallow: /dashboard
+# 爬虫只认最具体的那一组规则,上面 * 组里的屏蔽对这一组不生效,要重复写
+Disallow: /xhs.html
+Disallow: /xhs
 
 # 网站地图位置
 Sitemap: https://www.divdu.com/sitemap.xml
+
+# 给 AI 读的网站说明(全站页面清单与每页讲什么):https://www.divdu.com/llms.txt

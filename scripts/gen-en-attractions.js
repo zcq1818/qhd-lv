@@ -86,7 +86,7 @@ function page(s) {
       image: `${SITE}${img}`,
       address: { '@type': 'PostalAddress', addressLocality: 'Qinhuangdao', addressRegion: 'Hebei', addressCountry: 'CN' },
       geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng },
-      ...(s.rating ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: s.rating, bestRating: '5', ratingCount: 100 } } : {}),
+      // 不写 aggregateRating:没有真实评价数据,写死 ratingCount 是不实声明(见 apply-spot-sources.js)
       ...(s.phone ? { telephone: s.phone } : {}),
     },
     {

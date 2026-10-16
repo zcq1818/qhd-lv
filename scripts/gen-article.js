@@ -42,8 +42,28 @@ function build(a) {
   const faqHtml = a.faq.map((f) => `<details class="article-faq-item"><summary>${esc(f.q)}</summary><p>${inline(f.a)}</p></details>`).join('\n      ');
   const relatedHtml = (a.related || []).map((r) => `<a href="${esc(r.href)}">${esc(r.text)}</a>`).join('\n      ');
 
+  // 重新生成不能把发布日期改成今天 —— 那等于对搜索引擎谎报「新文章」
+  const published = a.published || today;
+  const checked = a.checked || today;
+
+  /* 要点速览:AI 搜索(豆包、Kimi、文心、ChatGPT 等)引用的往往就是开头那几句
+     能单独成立的结论。把答案放在最前面,人也受益。 */
+  const tldrHtml = (a.tldr || []).length
+    ? `<section class="article-tldr" aria-label="要点速览"><b>要点速览</b><ul>${a.tldr.map((t) => `<li>${inline(t)}</li>`).join('')}</ul></section>`
+    : '';
+
+  /* 资料来源:写明信息从哪来、哪天核对的。可核实的内容才会被当成可信来源引用 */
+  const sources = a.sources || [];
+  const sourcesHtml = sources.length
+    ? `<section class="article-sources">
+      <h2>资料来源</h2>
+      <p>本文信息核对于 ${esc(checked)}。门票、开放时间、价格会变动,以官方当天公布为准。</p>
+      <ol>${sources.map((s) => `<li><a href="${esc(s.url)}" rel="nofollow noopener" target="_blank">${esc(s.name)}</a></li>`).join('')}</ol>
+    </section>`
+    : '';
+
   const ld = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: a.title, description: a.desc, url, image: `${SITE}/${cover}`, datePublished: today, dateModified: today, author: { '@type': 'Organization', name: '秦皇岛旅游官网' }, publisher: { '@type': 'Organization', name: '秦皇岛旅游官网', url: `${SITE}/` }, mainEntityOfPage: { '@type': 'WebPage', '@id': url } },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: a.title, description: a.desc, url, image: `${SITE}/${cover}`, datePublished: published, dateModified: today, author: { '@type': 'Organization', name: '秦皇岛旅游官网' }, publisher: { '@type': 'Organization', name: '秦皇岛旅游官网', url: `${SITE}/` }, mainEntityOfPage: { '@type': 'WebPage', '@id': url }, ...(sources.length ? { citation: sources.map((s) => s.url) } : {}) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: '首页', item: `${SITE}/` }, { '@type': 'ListItem', position: 2, name: '旅游博客', item: `${SITE}/blog` }, { '@type': 'ListItem', position: 3, name: a.title, item: url }] },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: a.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
   ].map((x) => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join('\n');
@@ -105,6 +125,14 @@ function build(a) {
 .article-related{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 .article-related a{padding:12px 14px;background:#f6f8fb;border:1px solid #e5e7eb;border-radius:10px;text-decoration:none;color:#1E293B;font-weight:700;font-size:.9rem}
 .article-related a:hover{border-color:#8ab4f8;background:#fff}
+.article-tldr{margin:0 0 20px;padding:14px 18px;border-left:4px solid #1a73e8;background:#f0f6ff;border-radius:0 12px 12px 0}
+.article-tldr b{display:block;margin-bottom:6px;color:#0f172a;font-size:.95rem}
+.article-tldr ul{margin:0;padding-left:1.2em;display:grid;gap:4px;line-height:1.75;color:#1e293b;font-size:.94rem}
+.article-sources{margin-top:32px;padding-top:20px;border-top:1px solid #e5e7eb;font-size:.86rem;color:#64748b}
+.article-sources h2{font-size:1rem;margin:0 0 6px}
+.article-sources p{margin:0 0 6px}
+.article-sources ol{margin:0;padding-left:1.4em;line-height:1.8}
+.article-sources a{color:#64748b;word-break:break-all}
 </style>
 ${ld}
 </head>
@@ -135,10 +163,11 @@ ${ld}
 <main class="article-wrap" id="main-content">
   <h1>${esc(a.title)}</h1>
   <div class="article-meta">
-    <span>秦皇岛旅游官网</span> · <time datetime="${today}">${today}</time>
+    <span>秦皇岛旅游官网</span> · <time datetime="${published}">${published}</time>${today !== published ? ` · 更新于 <time datetime="${today}">${today}</time>` : ''}
   </div>
   <img class="article-cover" src="../${cover}" alt="${esc(a.coverAlt || a.title)}" loading="eager">
   ${meta ? `<div class="article-facts">${meta}</div>` : ''}
+  ${tldrHtml}
 
   <nav class="article-toc" aria-label="本文目录">
     <b>本文目录</b>
@@ -152,6 +181,7 @@ ${bodyHtml}
       <h2>常见问题</h2>
       ${faqHtml}
     </section>
+    ${sourcesHtml}
 
     <nav class="article-related" aria-label="相关内容">
       ${relatedHtml}

@@ -1,0 +1,179 @@
+# 秦皇岛旅游官网
+
+> 秦皇岛（含北戴河、山海关、南戴河、北戴河新区/阿那亚、昌黎）旅游攻略与实用工具。覆盖 47 个景点、95 篇攻略文章，以及基于实时数据的赶海时间、日出、潮汐查询。
+
+本站由本地团队维护。景点的门票、开放时间、交通信息逐条整理自景区公告、政府网站与媒体报道，每个景点页底部列出信息来源与核对月份（最近一次核对：2026-09）；攻略文章底部列出资料来源。价格与开放时间会变动，引用时请注明以景区当天公告为准。
+
+常被问到的事实：去北戴河坐高铁选北戴河站；阿那亚是封闭管理的社区，不住在里面要预约孤独图书馆、礼堂或买美术馆的票才能进；秋季 10 月中下旬是北戴河候鸟迁徙高峰；冻海一般在 1 月中旬到 2 月中旬。
+
+## 实用工具
+
+- [门票速查](https://www.divdu.com/tickets): 47 个景点的门票价格与开放时间对照表,标注免费景点与核对时间
+- [赶海时间查询](https://www.divdu.com/ganhai-time): 按真实潮汐数据算出每天适合赶海的时段,区分白天与夜间
+- [日出时间与能见度](https://www.divdu.com/sunrise): 鸽子窝、老龙头、阿那亚等地的日出时间,结合天气判断能不能看到
+- [潮汐表](https://www.divdu.com/tide): 秦皇岛沿海逐日潮汐
+- [天气](https://www.divdu.com/weather): 秦皇岛与北戴河天气
+- [行程规划](https://www.divdu.com/itinerary): 按天数、同行人生成行程
+- [景点地图](https://www.divdu.com/map): 全部景点的位置分布
+- [必玩景点](https://www.divdu.com/must-play): 第一次来秦皇岛最值得去的景点
+- [避坑指南](https://www.divdu.com/pitfall-guide): 常见的消费与出行陷阱
+- [住宿](https://www.divdu.com/accommodation): 各片区住宿怎么选
+- [美食](https://www.divdu.com/food): 本地美食与海鲜
+
+## 景点
+
+- [北戴河海滨风景区](https://www.divdu.com/attraction/beidaihe): 北戴河 · 门票免费。北戴河海滨风景区位于河北省秦皇岛市西部，是中国开发最早、知名度最高的海滨避暑胜地，与南戴河、山海关同属秦皇岛旅游核心区。
+- [鸽子窝公园](https://www.divdu.com/attraction/geziwo): 北戴河 · 门票25元。鸽子窝公园位于北戴河海滨东北角、鸽赤路与浴场交界处，是北戴河看日出最经典的地点，“鸽子窝日出”被列为北戴河二十四景之首。
+- [山海关·天下第一关](https://www.divdu.com/attraction/shanhaiguan): 山海关 · 门票50元起。天下第一关(山海关关城)是明长城东端的重要关隘,始建于明洪武十四年(1381年),由大将徐达督建,因其一面靠山、一面临海而得名「山海关」。
+- [老龙头景区](https://www.divdu.com/attraction/laolongtou): 山海关 · 门票50元起。老龙头位于河北省秦皇岛市山海关区,山海关古城以南约5-8公里处渤海之滨,是明长城最东端的起点,也是万里长城中唯一一段延伸入海的城墙,因城墙探…
+- [阿那亚·黄金海岸社区](https://www.divdu.com/attraction/aranya): 南戴河 · 门票预约制。阿那亚是位于秦皇岛市昌黎县黄金海岸中区的滨海生活方式社区，由封闭式住宅区与一系列公共文化建筑组成，2013年前后随"孤独图书馆"（三联海边公…
+- [老虎石海上公园](https://www.divdu.com/attraction/laohushi): 北戴河 · 门票免费。老虎石海上公园位于北戴河海滨中海滩，紧邻联峰山与鸽子窝之间，因海边一组形似群虎卧滩的礁石得名，占地约3.3万平方米，是北戴河沙滩游泳和日落观…
+- [联峰山公园](https://www.divdu.com/attraction/liangfengshan): 北戴河 · 门票30元起。联峰山公园位于北戴河区联峰路，是北戴河地势最高处，最高峰海拔约153米，林区面积约6068亩，常被称为中国第一座森林公园。
+- [碧螺塔海上酒吧公园](https://www.divdu.com/attraction/biluota): 北戴河 · 门票48元起。碧螺塔海上酒吧公园位于北戴河海滨小东山，三面环海，是北戴河东段的至高点，北邻鸽子窝公园和游船码头，南接金山嘴与老虎石公园，公园占地约106亩…
+- [怪楼奇园](https://www.divdu.com/attraction/guailou): 北戴河 · 门票20元起。怪楼奇园坐落于北戴河联峰路百花山一带，是北戴河风景名胜区内的经典室内奇趣景点。
+- [秦皇岛野生动物园](https://www.divdu.com/attraction/dongwuyuan): 北戴河 · 门票100元起。秦皇岛野生动物园位于北戴河区滨海大道，是华北地区规模较大的野生动物主题园区之一，占地约5000余亩。
+- [集发农业梦想王国](https://www.divdu.com/attraction/jifa): 北戴河 · 门票50元起。集发农业梦想王国位于北戴河区海北路，前身为集发生态农业观光园，2018年起按照更高等级景区标准启动升级改造，是集农业科技展示、农耕文化体验、…
+- [北戴河湿地公园](https://www.divdu.com/attraction/shidi): 北戴河 · 门票免费。北戴河湿地公园位于秦皇岛市北戴河区,是戴河、洋河等入海口一带形成的滨海湿地,由浅海水域、潮间滩涂、河口水域、坑塘洼地和芦苇沼泽组成,是中国城…
+- [角山长城](https://www.divdu.com/attraction/jiaoshan): 山海关 · 门票30元起。角山长城位于河北省秦皇岛市山海关区,在山海关古城以北约3公里处,是明长城翻越的第一座高山,海拔约519米,故有"万里长城第一山"之称。
+- [孟姜女庙](https://www.divdu.com/attraction/mengjiangnv): 山海关 · 门票30元/人。孟姜女庙又称贞女祠,位于秦皇岛市山海关区凤凰山上,山海关古城东约6公里处。
+- [乐岛海洋王国](https://www.divdu.com/attraction/ledao): 山海关 · 门票160元。乐岛海洋王国位于秦皇岛市山海关区龙海大道,是华北地区规模较大的海洋主题乐园之一,园区依海而建,分为海乐岛、水乐岛、迈阿密风情区、海洋嘉年华四…
+- [长寿山景区](https://www.divdu.com/attraction/changshoushan): 山海关 · 门票30元起。长寿山景区位于河北省秦皇岛市山海关区,地处山海关城东北约9公里处,背倚万里长城,是以“寿”文化为主题的自然山岳型风景区,国家4A级旅游景区。
+- [燕塞湖](https://www.divdu.com/attraction/yansaihu): 山海关 · 门票90元起。燕塞湖景区位于河北省秦皇岛市山海关区,地处山海关城西北约3.5公里处,是万里长城东端第一座人工湖。
+- [山海关古城](https://www.divdu.com/attraction/shanhaiguan_gucheng): 山海关 · 门票免费。山海关古城位于秦皇岛市山海关区，明洪武十四年（1381年）由徐达主持修建，是明长城东端的军事重镇，素有"天下第一关"之称。
+- [秦皇求仙入海处](https://www.divdu.com/attraction/qiuxian): 海港区 · 门票免费。秦皇求仙入海处位于秦皇岛市海港区东山一带，相传是秦始皇东巡时派方士出海求取长生不老药的地方，"秦皇岛"这一城市名称即由此传说而来。
+- [新澳海底世界](https://www.divdu.com/attraction/xinao): 海港区 · 门票55元起。新澳海底世界位于秦皇岛市海港区河滨路，是一座以海洋生物展示为主的室内水族馆，拥有当地知名的海底观光隧道，游客步行其间可看到鲨鱼、鳐鱼、海龟等…
+- [秦皇岛港口博物馆](https://www.divdu.com/attraction/gangkou): 海港区 · 门票免费。秦皇岛港口博物馆位于海港区南山街，依托秦皇岛港百年工业遗存改造而成，是国内为数不多的以港口发展史为主题的专题博物馆。
+- [戴河生态园](https://www.divdu.com/attraction/daihe_park): 北戴河 · 门票免费。戴河生态园（也称北戴河自然生态公园）沿戴河两岸而建，位于北戴河区宁海大道北侧，占地约185公顷，相当于颐和园面积的三分之二。
+- [南戴河·黄金海岸](https://www.divdu.com/attraction/huangjin): 南戴河 · 门票免费。黄金海岸位于秦皇岛市昌黎县，紧邻南戴河旅游度假区，是国内知名的天然优质沙质海岸之一，被称为"沙漠与大海的吻痕"，沙质细软、滩缓水清、潮汐平稳…
+- [渔岛海洋温泉景区](https://www.divdu.com/attraction/yudao): 南戴河 · 门票135元起。渔岛海洋温泉景区位于北戴河新区黄金海岸中部，是一处集海水温泉、水上乐园、沙滩游乐于一体的大型综合度假区。
+- [圣蓝海洋公园](https://www.divdu.com/attraction/shenglan): 南戴河 · 门票88元起。圣蓝海洋公园位于秦皇岛市昌黎县大蒲河镇昌海大道，是集海洋动物展演、海底观光、亲子游乐和沙滩戏水于一体的综合性海洋主题公园。
+- [碣石山](https://www.divdu.com/attraction/jieshishan): 南戴河 · 门票20元起。碣石山位于秦皇岛市昌黎县城北，主峰仙台顶海拔695米，是华北地区少有的濒海高山，也是中国古代帝王祭海巡狩的名山。
+- [蔚蓝海岸](https://www.divdu.com/attraction/weilanhaian): 南戴河 · 门票免费。蔚蓝海岸是秦皇岛北戴河新区一处近年兴起的文艺海滨社区，紧邻南戴河，以"猫的天空之城"概念书店、海边秋千和冲浪体验为主要打卡点。
+- [仙螺岛](https://www.divdu.com/attraction/xianluodao): 南戴河 · 门票80元起。仙螺岛是秦皇岛南戴河旅游度假区标志性的海岛景区，位于河北省秦皇岛市抚宁区南戴河环海路。
+- [南戴河国际娱乐中心](https://www.divdu.com/attraction/nanent): 南戴河 · 门票29元起。南戴河国际娱乐中心位于河北省秦皇岛市抚宁区南戴河旅游度假区，是南戴河片区历史较久、规模较大的综合性游乐场，以过山车、摩天轮、水上世界等大型机…
+- [祖山风景区](https://www.divdu.com/attraction/zushan): 抚宁 · 门票80元。祖山风景区位于河北省秦皇岛市青龙满族自治县，渤海北岸、燕山南麓，主峰天女峰海拔1428米，素有"塞北小黄山""北方群山之祖"之称，是国家级风…
+- [冰塘峪大峡谷](https://www.divdu.com/attraction/bingtangyu): 抚宁 · 门票50元。冰塘峪大峡谷（全名冰塘峪长城风情大峡谷）位于河北省秦皇岛市抚宁区大新寨镇梁家湾村，坐落在明长城脚下，因峡谷夏季三伏天仍有残冰不化而得名，是北…
+- [板厂峪长城景区](https://www.divdu.com/attraction/banchangyu): 抚宁 · 门票50元起。板厂峪长城景区（板厂峪长城文化公园）位于河北省秦皇岛市海港区驻操营镇板厂峪村，距秦皇岛市区约29公里，是明代修筑长城时的"后勤基地"，因发现…
+- [天马湖景区](https://www.divdu.com/attraction/tianmahu): 抚宁 · 门票暂停营业。天马湖景区位于秦皇岛市抚宁区县城以北约9公里处，以人工水库天马湖为核心，湖光山色相映，湖边立有天马雕塑，是当地居民周末休闲的去处。
+- [葡萄沟](https://www.divdu.com/attraction/putagogou): 南戴河 · 门票免费。昌黎葡萄沟位于昌黎县城西北偏北约7.2公里的十里铺乡西山场村，是国家3A级旅游景区、国家级农业旅游示范点。
+- [华夏庄园景区](https://www.divdu.com/attraction/huaxiazhuangyuan): 南戴河 · 门票80元起。华夏庄园隶属中粮集团旗下长城葡萄酒，始建于1988年，位于昌黎县城北昌抚公路西侧，占地约5.6万亩，是国家4A级旅游景区、全国首批工业旅游示…
+- [老君顶景区](https://www.divdu.com/attraction/laojunding): 海港区 · 门票90元起。老君顶景区位于秦皇岛市海港区石门寨镇房庄村，主峰海拔493.7米，是石门诸山之冠，北、东、南三面陡峭崇山环绕，向南朝渤海开口，融合道教文化、…
+- [金士国际葡萄酒庄](https://www.divdu.com/attraction/jinshi_wine): 南戴河 · 门票免费入园。金士国际葡萄酒庄由天士力控股集团投资建设，占地674亩，坐落在碣石山葡萄酒产区，距黄金海岸约18公里，是国家3A级旅游景区。
+- [魅力宏兴工业文化园](https://www.divdu.com/attraction/hongxing_industrial): 南戴河 · 门票免费。魅力宏兴工业文化园依托秦皇岛宏兴钢铁集团有限公司的生产基地打造，位于昌黎县西部经济开发区循环经济产业园内，占地约28.5万平方米，是国家3A…
+- [龙云谷景区](https://www.divdu.com/attraction/longyungu): 抚宁 · 门票50元起。龙云谷景区位于秦皇岛市抚宁区大新寨镇张各庄村，主峰海拔905米，是国家3A级旅游景区，以群峰竞秀、山泉飞瀑的自然峡谷景观为核心特色。
+- [棋盘山景区](https://www.divdu.com/attraction/qipanshan): 卢龙 · 门票135元。棋盘山景区位于秦皇岛市卢龙县刘田各庄镇前上庄村，总面积约1.2平方公里。
+- [五峰山景区](https://www.divdu.com/attraction/wufengshan): 南戴河 · 门票13元起。五峰山位于昌黎县城北两山乡五峰山村，距碣石山风景区约10公里，为古碣石十景之一"五峰屏开"。
+- [天马山旅游风景区](https://www.divdu.com/attraction/tianmashan): 抚宁 · 门票35元。天马山位于秦皇岛市抚宁区城北约10公里处，属燕山余脉，海拔约300米，因顶峰巨石远望似云中奔马而得名，原名"马头崖"，被称为抚宁第一名胜。
+- [鲍子沟景区](https://www.divdu.com/attraction/baozigou): 卢龙 · 门票免费。鲍子沟景区位于秦皇岛市卢龙县蛤泊镇鲍子沟村，三面环山，地处北纬40度附近的优良葡萄产地，被誉为"渤海之滨吐鲁番"。
+- [柳河溪谷](https://www.divdu.com/attraction/liuhe_xigu): 卢龙 · 门票免费。柳河溪谷位于秦皇岛市卢龙县刘田各庄镇柳河北山村北，毗邻冀东抗战纪念馆，当地素有"长寿北山、红色北山、绿色北山"之称。
+- [柳河山庄](https://www.divdu.com/attraction/liuhe_shanzhuang): 卢龙 · 门票免费。柳河山庄位于秦皇岛市卢龙县刘田各庄镇冯家山村，由秦皇岛柳河山庄葡萄酒业有限公司投资兴建，拥有一定规模的酿酒葡萄种植基地和葡萄酒加工厂，是集葡…
+- [山海关古城民俗博物馆（王家大院）](https://www.divdu.com/attraction/wangjiadayuan): 山海关 · 门票30元。王家大院又称山海关古城民俗博物馆，坐落于"天下第一关"城楼西侧，被称为"万里长城第一家"，始建于明末清初，鼎盛于清晚期。
+- [渔田·七里海度假区](https://www.divdu.com/attraction/yutian_qilihai): 南戴河 · 门票109元起。渔田·七里海度假区位于秦皇岛市北戴河新区七里海片区（侯里村与大韩庄村之间），是2025年新评的4A级景区，占地约8000亩，水域面积约500…
+
+## 攻略文章
+
+- [北戴河碧螺塔公园门票攻略](https://www.divdu.com/blog/2026%E5%8C%97%E6%88%B4%E6%B2%B3%E7%A2%A7%E8%9E%BA%E5%A1%94%E6%B5%B7%E4%B8%8A%E9%85%92%E5%90%A7%E5%85%AC%E5%9B%AD%E9%97%A8%E7%A5%A8-%E7%A7%A6%E7%9A%87%E5%B2%9B%E5%8C%97%E6%88%B4%E6%B2%B3%E7%A2%A7%E8%9E%BA%E5%A1%94%E6%B5%B7%E4%B8%8A%E9%85%92%E5%90%A7%E5%85%AC%E5%9B%AD%E6%B8%B8%E7%8E%A9%E6%94%BB%E7%95%A5-%E5%8C%97%E6%88%B4%E6%B2%B3%E7%A2%A7%E8%9E%BA%E5%A1%94%E6%B5%B7%E4%B8%8A%E9%85%92%E5%90%A7%E5%85%AC%E5%9B%AD%E6%B8%B8%E8%A7%88%E6%94%BB%E7%95%A5%E8%B7%AF%E7%BA%BF-%E5%9C%B0%E5%9D%80)
+- [2026北戴河旅游攻略](https://www.divdu.com/blog/2026%E5%B9%B4%E5%8C%97%E6%88%B4%E6%B2%B3%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5-2026%E5%B9%B4-%E5%8C%97%E6%88%B4%E6%B2%B3%E6%AC%A2%E8%BF%8E%E6%82%A8-%E6%99%AF%E5%8C%BA%E5%88%86%E5%B8%83%E5%92%8C%E7%AE%80%E4%BB%8B-%E7%A5%A8%E4%BB%B7)
+- [秦皇岛5日游攻略](https://www.divdu.com/blog/2026%E5%B9%B4%E7%A7%A6%E7%9A%87%E5%B2%9B%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5-%E5%8C%97%E6%88%B4%E6%B2%B3%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5%E4%BA%94%E5%A4%A9%E6%B8%B8)
+- [阿那亚全攻略](https://www.divdu.com/blog/aranya-complete-guide-2026)
+- [阿那亚活动全攻略](https://www.divdu.com/blog/aranya-events-guide)
+- [阿那亚怎么进去](https://www.divdu.com/blog/aranya-how-to-enter)
+- [北京去阿那亚周末两天一夜](https://www.divdu.com/blog/aranya-weekend-from-beijing)
+- [阿那亚住哪里](https://www.divdu.com/blog/aranya-where-to-stay)
+- [冬天去阿那亚值得吗](https://www.divdu.com/blog/aranya-winter-guide)
+- [北戴河2天1夜周末游攻略](https://www.divdu.com/blog/beidaihe-2days-weekend)
+- [北戴河不同艺术小镇全攻略](https://www.divdu.com/blog/beidaihe-art-town-guide)
+- [秦皇岛秋天旅游攻略](https://www.divdu.com/blog/beidaihe-autumn)
+- [北戴河观鸟攻略](https://www.divdu.com/blog/beidaihe-birdwatching-guide)
+- [北戴河免费景点大全](https://www.divdu.com/blog/beidaihe-free-attractions)
+- [北戴河赶海实地实录](https://www.divdu.com/blog/beidaihe-ganhai-experience)
+- [北戴河团建攻略](https://www.divdu.com/blog/beidaihe-group-travel)
+- [北戴河7月避坑指南](https://www.divdu.com/blog/beidaihe-july-tips)
+- [2026暑假北戴河亲子游全攻略](https://www.divdu.com/blog/beidaihe-summer-2026-guide)
+- [北戴河日出时间表](https://www.divdu.com/blog/beidaihe-sunrise-time)
+- [北戴河日落最佳地点](https://www.divdu.com/blog/beidaihe-sunset-spots)
+- [北戴河无障碍旅游](https://www.divdu.com/blog/beidaihe-wheelchair)
+- [北戴河住哪里最方便？各区域住宿优缺点对比（2026最新）](https://www.divdu.com/blog/beidaihe-where-to-stay)
+- [碧螺塔夜游攻略](https://www.divdu.com/blog/biluota-night-guide-2026)
+- [冰塘峪大峡谷全攻略](https://www.divdu.com/blog/bingtangyu-guide)
+- [昌黎国际沙滑中心全攻略](https://www.divdu.com/blog/changli-sand-slide-guide)
+- [秦皇岛野生动物园全攻略](https://www.divdu.com/blog/dongwuyuan-guide)
+- [赶海收获怎么吃？花蛤蛏子螃蟹做法大全](https://www.divdu.com/blog/ganhai-seafood-cooking)
+- [鸽子窝公园全攻略](https://www.divdu.com/blog/geziwo-park-guide)
+- [北戴河看日出全攻略](https://www.divdu.com/blog/geziwo-sunrise-guide)
+- [怪楼奇园全攻略](https://www.divdu.com/blog/guailou-guide)
+- [欢屿岛魔幻之旅全攻略](https://www.divdu.com/blog/huanyu-island-night-guide)
+- [昌黎华夏庄园参观攻略](https://www.divdu.com/blog/huaxia-manor-winery-guide)
+- [角山长城全攻略](https://www.divdu.com/blog/jiaoshan-guide)
+- [集发农业梦想王国全攻略](https://www.divdu.com/blog/jifa-guide)
+- [老虎石海上公园全攻略](https://www.divdu.com/blog/laohushi-guide)
+- [老龙头全攻略](https://www.divdu.com/blog/laolongtou-guide)
+- [乐岛海洋王国全攻略](https://www.divdu.com/blog/ledao-guide)
+- [孟姜女庙全攻略](https://www.divdu.com/blog/mengjiangnv-guide)
+- [南戴河和北戴河哪个好](https://www.divdu.com/blog/nandaihe-vs-beidaihe)
+- [南戴河国际娱乐中心全攻略](https://www.divdu.com/blog/nanent-guide)
+- [秦皇岛几月去最好](https://www.divdu.com/blog/qhd-best-time-to-visit)
+- [秦皇岛情侣游攻略](https://www.divdu.com/blog/qhd-couple-trip-guide)
+- [秦皇岛带老人旅游攻略](https://www.divdu.com/blog/qhd-elderly-travel)
+- [秦皇岛紧急电话](https://www.divdu.com/blog/qhd-emergency)
+- [秦皇岛亲子游攻略](https://www.divdu.com/blog/qhd-family-travel)
+- [秦皇岛美食攻略](https://www.divdu.com/blog/qhd-food-guide)
+- [2026秦皇岛赶海最佳时间表](https://www.divdu.com/blog/qhd-ganhai-schedule-2026)
+- [秦皇岛赶海工具清单详解](https://www.divdu.com/blog/qhd-ganhai-tools-list)
+- [秦皇岛爬山攻略](https://www.divdu.com/blog/qhd-hiking)
+- [秦皇岛五一端午假期攻略](https://www.divdu.com/blog/qhd-holiday-guide)
+- [秦皇岛泡温泉去哪](https://www.divdu.com/blog/qhd-hot-spring-guide)
+- [2026国庆秦皇岛赶海时间表](https://www.divdu.com/blog/qhd-national-day-2026-ganhai-sunrise)
+- [秦皇岛国庆旅游攻略](https://www.divdu.com/blog/qhd-national-day-guide-2026)
+- [元旦去秦皇岛怎么玩](https://www.divdu.com/blog/qhd-new-year-guide)
+- [秦皇岛夜游全攻略](https://www.divdu.com/blog/qhd-night-tour-guide)
+- [秦皇岛一日游最佳路线](https://www.divdu.com/blog/qhd-one-day-best)
+- [秦皇岛能带宠物吗](https://www.divdu.com/blog/qhd-pet-friendly)
+- [秦皇岛拍照攻略](https://www.divdu.com/blog/qhd-photography-guide)
+- [秦皇岛下雨天玩什么](https://www.divdu.com/blog/qhd-rainy-day)
+- [秦皇岛旅游真实避坑](https://www.divdu.com/blog/qhd-real-pitfalls)
+- [秦皇岛真实评价](https://www.divdu.com/blog/qhd-real-reviews)
+- [秦皇岛海上运动全攻略](https://www.divdu.com/blog/qhd-sea-sports-guide)
+- [秦皇岛自驾游攻略](https://www.divdu.com/blog/qhd-self-driving-guide)
+- [秦皇岛景区联票指南](https://www.divdu.com/blog/qhd-ticket-guide)
+- [秦皇岛交通攻略](https://www.divdu.com/blog/qhd-transport-guide-2026)
+- [秦皇岛旅游花多少钱](https://www.divdu.com/blog/qhd-travel-budget)
+- [秦皇岛vs青岛vs大连](https://www.divdu.com/blog/qhd-vs-qingdao-dalian)
+- [去秦皇岛带什么](https://www.divdu.com/blog/qhd-what-to-bring)
+- [秦皇岛哪里好玩？2026十大必去景点排行榜（路线·门票·住宿）](https://www.divdu.com/blog/qhd-where-to-go)
+- [秦皇岛冬季旅游](https://www.divdu.com/blog/qhd-winter-travel)
+- [如是海度假村攻略](https://www.divdu.com/blog/rushi-sea-guide-2026)
+- [山海关古城全攻略](https://www.divdu.com/blog/shanhaiguan-gucheng-guide)
+- [山海关一日游路线](https://www.divdu.com/blog/shanhaiguan-one-day)
+- [圣蓝海洋公园全攻略](https://www.divdu.com/blog/shenglan-guide)
+- [蔚蓝海岸全攻略](https://www.divdu.com/blog/weilanhaian-guide)
+- [仙螺岛跨海索道攻略](https://www.divdu.com/blog/xianluo-island-guide-2026)
+- [西港花园全攻略](https://www.divdu.com/blog/xigang-garden-guide-2026)
+- [新澳海底世界全攻略](https://www.divdu.com/blog/xinao-guide)
+- [燕塞湖全攻略](https://www.divdu.com/blog/yansaihu-guide)
+- [渔岛海洋温泉景区全攻略](https://www.divdu.com/blog/yudao-guide)
+- [渔渡一号海东青海上平台攻略](https://www.divdu.com/blog/yudu-1-fishing-platform-guide)
+- [渔田七里海度假区全攻略](https://www.divdu.com/blog/yutian-qilihai-guide-2026)
+- [渔田·七里海游玩攻略](https://www.divdu.com/blog/yutian-qilihai-guide)
+- [左右山谷全攻略](https://www.divdu.com/blog/zuoyou-valley-guide-2026)
+- [祖山风景区全攻略](https://www.divdu.com/blog/zushan-guide)
+- [北戴河海鲜店推荐](https://www.divdu.com/blog/%E5%8C%97%E6%88%B4%E6%B2%B3%E6%B5%B7%E9%B2%9C%E5%BA%97%E6%8E%A8%E8%8D%90-%E4%BA%94%E5%AE%B6%E5%8F%A3%E7%A2%91%E5%90%8D%E5%BA%97%E5%B8%A6%E6%82%A8%E5%B0%9D%E9%81%8D%E6%B8%A4%E6%B5%B7%E6%B9%BE%E9%B2%9C%E5%91%B3)
+- [国庆秦皇岛出游攻略](https://www.divdu.com/blog/%E5%9B%BD%E5%BA%86%E5%BF%85%E5%A4%87-%E7%A7%A6%E7%9A%87%E5%B2%9B%E5%87%BA%E6%B8%B8%E6%94%BB%E7%95%A5)
+- [秋天去北戴河看海](https://www.divdu.com/blog/%E5%AE%9D%E8%97%8F%E5%B0%8F%E5%9F%8E%E7%8E%AF%E6%B8%B8-%E5%86%80-%E8%BF%99%E4%B8%AA%E7%A7%8B%E5%A4%A9-%E4%B8%80%E8%B5%B7%E5%8E%BB%E5%8C%97%E6%88%B4%E6%B2%B3%E7%9C%8B%E6%B5%B7)
+- [探索山海关：一日游必玩景点全攻略](https://www.divdu.com/blog/%E6%8E%A2%E7%B4%A2%E5%B1%B1%E6%B5%B7%E5%85%B3-%E4%B8%80%E6%97%A5%E6%B8%B8%E5%BF%85%E7%8E%A9%E6%99%AF%E7%82%B9%E5%85%A8%E6%94%BB%E7%95%A5)
+- [秦皇岛赶海攻略](https://www.divdu.com/blog/%E6%98%8E%E5%A4%A9%E9%80%80%E6%BD%AE-%E7%A7%A6%E7%9A%87%E5%B2%9B-%E8%B5%B6%E6%B5%B7-%E6%94%BB%E7%95%A5%E5%BF%AB%E6%94%B6%E5%A5%BD)
+- [北戴河赶海攻略](https://www.divdu.com/blog/%E7%A7%A6%E7%9A%87%E5%B2%9B%E5%8C%97%E6%88%B4%E6%B2%B3%E8%B5%B6%E6%B5%B7%E6%94%BB%E7%95%A5-%E6%B8%A4%E6%B5%B7%E6%B9%BE%E8%B5%B6%E6%B5%B7%E7%82%B9%E4%B8%8E%E6%BD%AE%E6%B1%90%E6%97%B6%E9%97%B4)
+- [秦皇岛旅游攻略](https://www.divdu.com/blog/%E7%A7%A6%E7%9A%87%E5%B2%9B%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5-%E4%B8%80-%E9%87%8D%E7%A3%85%E6%9D%A5%E8%A2%AD)
+- [秦皇岛旅行攻略](https://www.divdu.com/blog/%E7%A7%A6%E7%9A%87%E5%B2%9B%E6%97%85%E8%A1%8C%E6%94%BB%E7%95%A5)
+- [秦皇岛赶海攻略](https://www.divdu.com/blog/%E7%A7%A6%E7%9A%87%E5%B2%9B%E8%B5%B6%E6%B5%B7%E6%94%BB%E7%95%A5-%E5%A5%BD%E7%8E%A9%E9%A1%B9%E7%9B%AE)
+- [阿那亚打卡攻略](https://www.divdu.com/blog/%E9%98%BF%E9%82%A3%E4%BA%9A%E8%B6%85%E5%85%A8%E6%89%93%E5%8D%A1%E6%B8%85%E5%8D%95-%E6%99%AF%E7%82%B9-%E7%BE%8E%E9%A3%9F-%E4%BD%8F%E5%AE%BF%E4%B8%80%E7%AB%99%E5%BC%8F%E6%94%BB%E7%95%A5-%E8%A7%A3%E9%94%81%E6%B5%B7%E8%BE%B9%E7%90%86%E6%83%B3%E7%94%9F%E6%B4%BB)
+
+## English
+
+- [Qinhuangdao travel guide in English](https://www.divdu.com/en): overview, 47 attraction pages with tickets, opening hours and transport
+
+## Optional
+
+- [网站地图](https://www.divdu.com/sitemap.xml)
+- [文章订阅 RSS](https://www.divdu.com/rss.xml)
+- [关于我们](https://www.divdu.com/about)

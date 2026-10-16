@@ -257,14 +257,9 @@ def generate_page(spot, all_spots):
             "@type": "GeoCoordinates",
             "latitude": spot.get("lat", 0),
             "longitude": spot.get("lng", 0)
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": rating,
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "100"
         }
+        # 不写 aggregateRating:站内没有真实的评价数据,写死 ratingCount 等于不实声明,
+        # 谷歌会当作违规标记。见 scripts/apply-spot-sources.js
     }
     if spot.get("priceNum", 0) > 0:
         json_ld["offers"] = {

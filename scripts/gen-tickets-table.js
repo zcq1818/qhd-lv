@@ -59,9 +59,41 @@ const summary = `<div class="tk-summary" id="tkSummary">
   `老人、学生、儿童多有优惠,出发前以景区当日公示为准。点景点名称可看开放时间、交通和避坑提醒。</p>
 </div>`;
 
+/* ---------- 结构化问答 ----------
+   「山海关门票多少钱」是 AI 搜索最常被问到的一类问题。表格要渲染才看得懂,
+   一问一答的 FAQPage 机器直接能读,每条都带上核对时间和「以当日公示为准」,
+   被引用时不会把过期价格说成定论。 */
+const note = `${asOfText ? `核对于 ${asOfText},` : ''}以景区当日公示为准。`;
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '秦皇岛哪些景点免费?',
+      acceptedAnswer: { '@type': 'Answer', text: `本站收录的 ${spots.length} 个景区里,标为免费的有 ${free.length} 个:${free.map((s) => s.name).join('、')}。${note}` },
+    },
+    ...spots.filter((s) => s.price).map((s) => ({
+      '@type': 'Question',
+      name: `${s.name}门票多少钱?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `${s.name}成人全价票:${s.price}${s.openTime ? `;开放时间:${s.openTime}` : ''}。${note}详见 https://www.divdu.com/attraction/${s.id}`,
+      },
+    })),
+  ],
+};
+const faqTag = `<script type="application/ld+json" id="tkFaq">${JSON.stringify(faq).replace(/</g, '\\u003c')}</script>`;
+
 /* ---------- 写回页面 ---------- */
 let html = fs.readFileSync(FILE, 'utf8');
 const before = html;
+
+if (/<script type="application\/ld\+json" id="tkFaq">[\s\S]*?<\/script>/.test(html)) {
+  html = html.replace(/<script type="application\/ld\+json" id="tkFaq">[\s\S]*?<\/script>/, faqTag);
+} else {
+  html = html.replace('</head>', faqTag + '\n</head>');
+}
 
 html = html.replace(/<tbody id="tkTbody">[\s\S]*?<\/tbody>/,
   `<tbody id="tkTbody">\n      ${rows}\n    </tbody>`);

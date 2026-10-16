@@ -181,6 +181,22 @@ npm run partners
 约定:广告必须标注,不伪装成攻略;不接弹窗与自动播放;不接与秦皇岛旅游无关的行业。
 第三方票务平台外链目前关闭,见「预订外链」一节。
 
+## GEO(让 AI 搜索引用本站)
+
+豆包、Kimi、文心、ChatGPT、Perplexity 这类 AI 搜索挑引用来源时,看的是「读得懂、信得过」。
+这几样都由 `npm run all` 自动维护,不要手改产物:
+
+- `/llms.txt`:给 AI 读的网站说明,列出工具页、47 个景点、全部在线文章。`scripts/gen-llms-txt.js` 生成
+- 景点页底部「信息来源」:来自主数据的 `sources` 与 `asOf`,`scripts/apply-spot-sources.js` 铺
+- 门票页的 FAQPage 结构化数据(每个景点一问一答,带核对时间),`scripts/gen-tickets-table.js` 生成
+- 文章稿件支持 `tldr`(要点速览,放在开头)、`sources`(资料来源)、`published`(发布日期,重新生成不会被改成今天)
+
+写新文章时,**`tldr` 每条都要能单独成立**(AI 往往只摘一句),`sources` 写真实可查的链接。
+稿件放在 `content/articles/<slug>.json`,别放临时目录 —— 丢了就没法重新生成。
+
+**不要在结构化数据里写 `aggregateRating`。** 站内没有真实评价数据,以前写死过
+「ratingCount 100」,那是不实声明,谷歌会当作违规,已经从 47 个景点页和两个生成脚本里去掉。
+
 ## 新增页面 / 博客后
 
 ```bash
@@ -190,7 +206,8 @@ npm run sitemap
 sitemap 会自动扫描根目录、attraction/、blog/(跳过退役文章),lastmod 取 git 最近提交日期。
 这条命令也会重建 `data/blog-index.json`(相关阅读用的索引),`npm run all` 里同样包含。
 
-写新文章用 `node scripts/gen-article.js <稿件.json>`,稿件格式参照已有文章。
+写新文章用 `node scripts/gen-article.js content/articles/<slug>.json`,稿件格式参照该目录里已有的稿件。
+重新生成会覆盖整页,之后再跑一次 `npm run all` 把咨询卡、商家位等组件铺回去。
 
 百度推送由 Vercel Cron 每天北京时间 06:00 调 `/api/cron-push`,一次 10 条(免费额度)。
 **最近 21 天发布的文章会插队先推**(按 rss.xml 的 pubDate 判断,推过的记在 Redis
