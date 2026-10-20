@@ -11,6 +11,14 @@ node_modules/
 .openclaw/
 data/notion-config.json
 
-# 其他 AI 工具的临时输出（非项目交付内容）
+# 其他 AI 工具的临时输出与编辑器配置（非项目交付内容）
 Claude outputs/
 .claude/
+.cursor/
+.trae/
+
+# 演示文稿与草稿(跟网站无关,别再进仓库)
+*.pptx
+ppt-temp/
+amap-skills
+秦皇岛旅游宣传文案.md

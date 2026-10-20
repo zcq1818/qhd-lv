@@ -4,7 +4,7 @@
  * (导航、样式、结构化数据、分享、相关攻略、统计脚本保持一致)。
  *
  * 用法: node scripts/gen-article.js <稿件.json> [...]
- * 稿件结构见 scripts/README 或已有稿件示例。
+ * 稿件放在 content/articles/<slug>.json,结构参照该目录里已有的稿件。
  */
 const fs = require('fs');
 const path = require('path');

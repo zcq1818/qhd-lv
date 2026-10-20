@@ -105,6 +105,51 @@ window.SEARCH_INDEX = [
     "type": "攻略"
   },
   {
+    "title": "阿那亚住哪里 | 社区内外·南岸北岸·酒店民宿·价格·订房避坑",
+    "url": "/blog/aranya-where-to-stay",
+    "type": "博客"
+  },
+  {
+    "title": "北戴河观鸟攻略 | 候鸟迁徙时间·观鸟点·看鹤·望远镜·注意事项",
+    "url": "/blog/beidaihe-birdwatching-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛泡温泉去哪 | 渔岛·山海间·市区温泉酒店·价格·冬季路线·注意事项",
+    "url": "/blog/qhd-hot-spring-guide",
+    "type": "博客"
+  },
+  {
+    "title": "北京去阿那亚周末两天一夜 | 高铁·自驾·行程安排·预约",
+    "url": "/blog/aranya-weekend-from-beijing",
+    "type": "博客"
+  },
+  {
+    "title": "冬天去阿那亚值得吗 | 淡季攻略·预约·日出·穿衣",
+    "url": "/blog/aranya-winter-guide",
+    "type": "博客"
+  },
+  {
+    "title": "元旦去秦皇岛怎么玩 | 跨年·新年日出时间·冻海·住宿避坑",
+    "url": "/blog/qhd-new-year-guide",
+    "type": "博客"
+  },
+  {
+    "title": "2026国庆秦皇岛赶海时间表 | 8天潮汐+日出时刻，附避坑",
+    "url": "/blog/qhd-national-day-2026-ganhai-sunrise",
+    "type": "博客"
+  },
+  {
+    "title": "昌黎华夏庄园参观攻略 | 亚洲最大地下酒窖·门票·品酒",
+    "url": "/blog/huaxia-manor-winery-guide",
+    "type": "博客"
+  },
+  {
+    "title": "渔田·七里海游玩攻略 | 夜场几点看·门票多少·怎么去",
+    "url": "/blog/yutian-qilihai-guide",
+    "type": "博客"
+  },
+  {
     "title": "阿那亚活动全攻略 | 戏剧节·音乐节·新店打卡（2026最新）",
     "url": "/blog/aranya-events-guide",
     "type": "博客"
@@ -482,6 +527,56 @@ window.SEARCH_INDEX = [
   {
     "title": "阿那亚打卡攻略 | 景点·美食·住宿",
     "url": "/blog/阿那亚超全打卡清单-景点-美食-住宿一站式攻略-解锁海边理想生活",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛真实评价 | 社交平台口碑汇总",
+    "url": "/blog/qhd-real-reviews",
+    "type": "博客"
+  },
+  {
+    "title": "北戴河日出时间表 | 2026鸽子窝看日出攻略",
+    "url": "/blog/beidaihe-sunrise-time",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛带老人旅游攻略 | 2026适合老人景点+行程",
+    "url": "/blog/qhd-elderly-travel",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛拍照攻略 | 2026网红打卡点+最佳机位",
+    "url": "/blog/qhd-photography-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛景区联票指南 | 2026怎么买票最划算",
+    "url": "/blog/qhd-ticket-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛旅游真实避坑 | 2026本地人告诉你哪些坑别踩",
+    "url": "/blog/qhd-real-pitfalls",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛情侣游攻略 | 2026浪漫约会指南",
+    "url": "/blog/qhd-couple-trip-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛一日游最佳路线 | 2026精华版攻略",
+    "url": "/blog/qhd-one-day-best",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛自驾游攻略 | 2026路线+停车+住宿指南",
+    "url": "/blog/qhd-self-driving-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛交通攻略 | 2026怎么去+市内交通",
+    "url": "/blog/qhd-transport-guide-2026",
     "type": "博客"
   }
 ];

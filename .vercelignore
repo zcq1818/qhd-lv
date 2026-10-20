@@ -9,6 +9,8 @@ Claude outputs
 ppt-temp
 docs
 scripts
+# 文章稿件只给 gen-article.js 用,不对外
+content
 amap-skills
 *.md
 *.pptx

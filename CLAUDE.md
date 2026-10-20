@@ -4,7 +4,8 @@
 
 ## 目录
 
-- `*.html` 根目录页面;`attraction/` 47 个景点页;`blog/` 博客(退役文章仍在磁盘,由 vercel.json 301 到合并后的文章)
+- `*.html` 根目录页面;`attraction/` 47 个景点页;`blog/` 在线博客(退役文章已删除,旧地址由 vercel.json 301 到合并后的文章,清单在 `data/retired-posts.json`)
+- `content/articles/` 文章稿件(JSON),`scripts/gen-article.js` 用它生成 `blog/` 下的页面;不部署
 - `data/attractions.json` 景点**主数据**(含英文简介、FAQ、贴士、交通、来源等),只给构建脚本用,不下发浏览器
 - `data/spots.json` 浏览器加载的**运行时数据**(约 42KB),由 `npm run data` 从主数据生成,景点大全/地图/画廊/行程/搜索都读它
 - `data/blog-index.json` 博客索引;`data/retired-posts.json` 退役博客
@@ -205,6 +206,10 @@ npm run sitemap
 
 sitemap 会自动扫描根目录、attraction/、blog/(跳过退役文章),lastmod 取 git 最近提交日期。
 这条命令也会重建 `data/blog-index.json`(相关阅读用的索引),`npm run all` 里同样包含。
+
+`npm run all` 还会把新文章补进博客列表页 `blog.html`(`scripts/sync-blog-list.js`,
+30 天内的置顶),再重建站内搜索索引(`scripts/gen-search-index.js`,它从 blog.html 抓标题)。
+这两步以前不在流程里,2026-10 发现有 19 篇在线文章不在列表上、站内也搜不到。
 
 写新文章用 `node scripts/gen-article.js content/articles/<slug>.json`,稿件格式参照该目录里已有的稿件。
 重新生成会覆盖整页,之后再跑一次 `npm run all` 把咨询卡、商家位等组件铺回去。
