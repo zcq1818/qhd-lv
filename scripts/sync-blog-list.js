@@ -97,5 +97,20 @@ if (old.length) {
   else console.warn('⚠️ 没找到列表末尾,较早的文章没有补上');
 }
 
-if (missing.length && !DRY) fs.writeFileSync(FILE, html, 'utf8');
-console.log(`✅ 博客列表:补上 ${missing.length} 篇(新文章置顶 ${fresh.length},较早的补到末尾 ${old.length})${DRY ? ' --dry 未写入' : ''}`);
+/* 早期手写的卡片里,有的摘要是从别的网站抓来的残留(「您现在的位置是:首页>…」),
+   换成文章自己的 description */
+const JUNK = /您现在的位置|当前位置[:：]|admin\d{4}年/;
+let cleaned = 0;
+html = html.replace(/(<a class="card blog-card[^"]*" href="blog\/([^"]+)">[\s\S]*?<p class="blog-card-excerpt">)([\s\S]*?)(<\/p>)/g, (m, a, slug, ex, b) => {
+  if (!JUNK.test(ex)) return m;
+  const f = path.join(ROOT, 'blog', `${decodeURIComponent(slug)}.html`);
+  if (!fs.existsSync(f)) return m;
+  const d = (fs.readFileSync(f, 'utf8').match(/<meta name="description" content="([^"]*)"/) || [])[1];
+  if (!d || JUNK.test(d)) return m;
+  cleaned++;
+  return a + d + b;
+});
+
+if ((missing.length || cleaned) && !DRY) fs.writeFileSync(FILE, html, 'utf8');
+console.log(`✅ 博客列表:补上 ${missing.length} 篇(新文章置顶 ${fresh.length},较早的补到末尾 ${old.length})` +
+  `${cleaned ? `,清理残留摘要 ${cleaned} 张` : ''}${DRY ? ' --dry 未写入' : ''}`);

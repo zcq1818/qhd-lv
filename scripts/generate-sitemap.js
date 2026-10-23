@@ -54,7 +54,9 @@ const rootPages = fs.readdirSync(root)
 const attractions = readSlugs('attraction');
 const enPages = fs.existsSync(path.join(root, 'en')) ? readSlugs('en') : [];
 const enAttractions = fs.existsSync(path.join(root, 'en', 'attraction')) ? readSlugs('en/attraction') : [];
-const blogs = readSlugs('blog').filter((s) => !RETIRED.has(s));
+// 设了 noindex 的(内容太薄、暂不想被收录的)不进 sitemap —— 一边说「别收录」一边推给搜索引擎,两个信号互相矛盾
+const isNoindex = (rel) => /<meta[^>]+name=["']robots["'][^>]+noindex/i.test(fs.readFileSync(path.join(root, rel), 'utf8'));
+const blogs = readSlugs('blog').filter((s) => !RETIRED.has(s) && !isNoindex(`blog/${s}.html`));
 
 // 页面最后修改时间:优先取 git 最近一次提交时间,没有则取文件 mtime
 const { execSync } = require('child_process');

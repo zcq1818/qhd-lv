@@ -105,6 +105,21 @@ window.SEARCH_INDEX = [
     "type": "攻略"
   },
   {
+    "title": "天津去秦皇岛周末两天怎么玩 | 高铁车次·到哪个站·自驾·行程",
+    "url": "/blog/tianjin-to-qinhuangdao-weekend",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛冬天带孩子去哪 | 海底世界·博物馆·温泉·滑雪·冻海",
+    "url": "/blog/qhd-winter-kids-guide",
+    "type": "博客"
+  },
+  {
+    "title": "秦皇岛11月旅游攻略 | 天气·闭园景区·候鸟·海鲜·行程",
+    "url": "/blog/qhd-november-guide",
+    "type": "博客"
+  },
+  {
     "title": "阿那亚住哪里 | 社区内外·南岸北岸·酒店民宿·价格·订房避坑",
     "url": "/blog/aranya-where-to-stay",
     "type": "博客"

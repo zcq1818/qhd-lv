@@ -1,0 +1,64 @@
+{
+  "_说明": "强页面 → 新文章的「接着看」链接。scripts/apply-see-also.js 按这里插入,已有的不重复加。发新文章后在这里加一行,npm run all 生效。",
+  "links": {
+    "blog/aranya-complete-guide-2026.html": [
+      ["/blog/aranya-winter-guide", "冬天去阿那亚值得吗？淡季攻略"],
+      ["/blog/aranya-weekend-from-beijing", "北京去阿那亚周末两天一夜怎么排"],
+      ["/blog/aranya-where-to-stay", "阿那亚住哪里？社区内外·南岸北岸·酒店民宿"]
+    ],
+    "blog/aranya-how-to-enter.html": [
+      ["/blog/aranya-weekend-from-beijing", "北京去阿那亚周末两天一夜怎么排"],
+      ["/blog/aranya-winter-guide", "冬天去阿那亚值得吗？淡季攻略"],
+      ["/blog/aranya-where-to-stay", "阿那亚住哪里？社区内外·南岸北岸·酒店民宿"]
+    ],
+    "blog/aranya-weekend-from-beijing.html": [
+      ["/blog/aranya-where-to-stay", "阿那亚住哪里？社区内外·南岸北岸·酒店民宿"],
+      ["/blog/tianjin-to-qinhuangdao-weekend", "天津去秦皇岛过周末：哪个站上车、两天怎么排"]
+    ],
+    "blog/aranya-winter-guide.html": [
+      ["/blog/qhd-hot-spring-guide", "秦皇岛泡温泉去哪？冬天配冻海和日出"],
+      ["/blog/aranya-where-to-stay", "阿那亚住哪里？社区内外·南岸北岸·酒店民宿"]
+    ],
+    "blog/beidaihe-where-to-stay.html": [
+      ["/blog/aranya-where-to-stay", "阿那亚住哪里？社区内外·南岸北岸·酒店民宿"]
+    ],
+    "blog/geziwo-park-guide.html": [
+      ["/blog/beidaihe-birdwatching-guide", "北戴河观鸟攻略：秋天几月去、去哪看"]
+    ],
+    "blog/beidaihe-autumn.html": [
+      ["/blog/beidaihe-birdwatching-guide", "北戴河观鸟攻略：秋天几月去、去哪看"],
+      ["/blog/qhd-november-guide", "11 月去秦皇岛值得吗？哪些关了、还能看什么"]
+    ],
+    "blog/qhd-winter-travel.html": [
+      ["/blog/qhd-new-year-guide", "元旦去秦皇岛怎么玩：跨年·新年日出·冻海"],
+      ["/blog/aranya-winter-guide", "冬天去阿那亚值得吗？淡季攻略"],
+      ["/blog/qhd-hot-spring-guide", "秦皇岛泡温泉去哪？冬天配冻海和日出"],
+      ["/blog/qhd-november-guide", "11 月去秦皇岛值得吗？哪些关了、还能看什么"],
+      ["/blog/qhd-winter-kids-guide", "冬天带孩子去秦皇岛玩什么？还开着的地方"]
+    ],
+    "blog/yudao-guide.html": [
+      ["/blog/qhd-hot-spring-guide", "秦皇岛泡温泉去哪？冬天配冻海和日出"]
+    ],
+    "blog/qhd-new-year-guide.html": [
+      ["/blog/qhd-hot-spring-guide", "秦皇岛泡温泉去哪？冬天配冻海和日出"],
+      ["/blog/qhd-winter-kids-guide", "冬天带孩子去秦皇岛玩什么？还开着的地方"]
+    ],
+    "blog/qhd-best-time-to-visit.html": [
+      ["/blog/qhd-november-guide", "11 月去秦皇岛值得吗？哪些关了、还能看什么"]
+    ],
+    "blog/qhd-transport-guide-2026.html": [
+      ["/blog/tianjin-to-qinhuangdao-weekend", "天津去秦皇岛过周末：哪个站上车、两天怎么排"]
+    ],
+    "blog/qhd-self-driving-guide.html": [
+      ["/blog/tianjin-to-qinhuangdao-weekend", "天津去秦皇岛过周末：哪个站上车、两天怎么排"]
+    ],
+    "blog/qhd-hot-spring-guide.html": [
+      ["/blog/qhd-winter-kids-guide", "冬天带孩子去秦皇岛玩什么？还开着的地方"],
+      ["/blog/qhd-november-guide", "11 月去秦皇岛值得吗？哪些关了、还能看什么"]
+    ],
+    "blog/yutian-qilihai-guide-2026.html": [
+      ["/blog/qhd-winter-kids-guide", "冬天带孩子去秦皇岛玩什么？还开着的地方"],
+      ["/blog/qhd-november-guide", "11 月去秦皇岛值得吗？哪些关了、还能看什么"]
+    ]
+  }
+}

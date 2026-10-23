@@ -195,6 +195,12 @@ npm run partners
 写新文章时,**`tldr` 每条都要能单独成立**(AI 往往只摘一句),`sources` 写真实可查的链接。
 稿件放在 `content/articles/<slug>.json`,别放临时目录 —— 丢了就没法重新生成。
 
+`scripts/fix-seo-geo.js`(也在 `npm run all` 里)统一兜底:og:image 和结构化数据里的地址改成绝对地址、
+Article 缺 dateModified 补上、清掉抓取来的残留(「网络整理」「您现在的位置是…」)、description 为空/过短/
+半句话时从正文或句号处修正、canonical 与实际地址不符时改正。新页面不用操心这些。
+
+设了 `noindex` 的薄内容页(目前 3 篇)**不进 sitemap 和 llms.txt**,自检也按这个规则查。
+
 **不要在结构化数据里写 `aggregateRating`。** 站内没有真实评价数据,以前写死过
 「ratingCount 100」,那是不实声明,谷歌会当作违规,已经从 47 个景点页和两个生成脚本里去掉。
 
@@ -212,6 +218,8 @@ sitemap 会自动扫描根目录、attraction/、blog/(跳过退役文章),lastm
 这两步以前不在流程里,2026-10 发现有 19 篇在线文章不在列表上、站内也搜不到。
 
 写新文章用 `node scripts/gen-article.js content/articles/<slug>.json`,稿件格式参照该目录里已有的稿件。
+发完新文章,在 `data/see-also.json` 里给相关的强页面加一行「接着看」链接,`npm run all` 会插进去
+(`scripts/apply-see-also.js`,已有的不重复加;文章重新生成后也会自动补回)。
 重新生成会覆盖整页,之后再跑一次 `npm run all` 把咨询卡、商家位等组件铺回去。
 
 百度推送由 Vercel Cron 每天北京时间 06:00 调 `/api/cron-push`,一次 10 条(免费额度)。

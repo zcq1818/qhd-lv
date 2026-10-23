@@ -2,7 +2,7 @@
 
 > 秦皇岛（含北戴河、山海关、南戴河、北戴河新区/阿那亚、昌黎）旅游攻略与实用工具。覆盖 47 个景点、95 篇攻略文章，以及基于实时数据的赶海时间、日出、潮汐查询。
 
-本站由本地团队维护。景点的门票、开放时间、交通信息逐条整理自景区公告、政府网站与媒体报道，每个景点页底部列出信息来源与核对月份（最近一次核对：2026-09）；攻略文章底部列出资料来源。价格与开放时间会变动，引用时请注明以景区当天公告为准。
+本站由本地团队维护。景点的门票、开放时间、交通信息逐条整理自景区公告、政府网站与媒体报道，每个景点页底部列出信息来源与核对月份（最近一次核对：2026-10）；攻略文章底部列出资料来源。价格与开放时间会变动，引用时请注明以景区当天公告为准。
 
 常被问到的事实：去北戴河坐高铁选北戴河站；阿那亚是封闭管理的社区，不住在里面要预约孤独图书馆、礼堂或买美术馆的票才能进；秋季 10 月中下旬是北戴河候鸟迁徙高峰；冻海一般在 1 月中旬到 2 月中旬。
 
@@ -87,12 +87,10 @@
 - [北戴河观鸟攻略](https://www.divdu.com/blog/beidaihe-birdwatching-guide)
 - [北戴河免费景点大全](https://www.divdu.com/blog/beidaihe-free-attractions)
 - [北戴河赶海实地实录](https://www.divdu.com/blog/beidaihe-ganhai-experience)
-- [北戴河团建攻略](https://www.divdu.com/blog/beidaihe-group-travel)
 - [北戴河7月避坑指南](https://www.divdu.com/blog/beidaihe-july-tips)
 - [2026暑假北戴河亲子游全攻略](https://www.divdu.com/blog/beidaihe-summer-2026-guide)
 - [北戴河日出时间表](https://www.divdu.com/blog/beidaihe-sunrise-time)
 - [北戴河日落最佳地点](https://www.divdu.com/blog/beidaihe-sunset-spots)
-- [北戴河无障碍旅游](https://www.divdu.com/blog/beidaihe-wheelchair)
 - [北戴河住哪里最方便？各区域住宿优缺点对比（2026最新）](https://www.divdu.com/blog/beidaihe-where-to-stay)
 - [碧螺塔夜游攻略](https://www.divdu.com/blog/biluota-night-guide-2026)
 - [冰塘峪大峡谷全攻略](https://www.divdu.com/blog/bingtangyu-guide)
@@ -127,8 +125,8 @@
 - [秦皇岛国庆旅游攻略](https://www.divdu.com/blog/qhd-national-day-guide-2026)
 - [元旦去秦皇岛怎么玩](https://www.divdu.com/blog/qhd-new-year-guide)
 - [秦皇岛夜游全攻略](https://www.divdu.com/blog/qhd-night-tour-guide)
+- [秦皇岛11月旅游攻略](https://www.divdu.com/blog/qhd-november-guide)
 - [秦皇岛一日游最佳路线](https://www.divdu.com/blog/qhd-one-day-best)
-- [秦皇岛能带宠物吗](https://www.divdu.com/blog/qhd-pet-friendly)
 - [秦皇岛拍照攻略](https://www.divdu.com/blog/qhd-photography-guide)
 - [秦皇岛下雨天玩什么](https://www.divdu.com/blog/qhd-rainy-day)
 - [秦皇岛旅游真实避坑](https://www.divdu.com/blog/qhd-real-pitfalls)
@@ -141,11 +139,13 @@
 - [秦皇岛vs青岛vs大连](https://www.divdu.com/blog/qhd-vs-qingdao-dalian)
 - [去秦皇岛带什么](https://www.divdu.com/blog/qhd-what-to-bring)
 - [秦皇岛哪里好玩？2026十大必去景点排行榜（路线·门票·住宿）](https://www.divdu.com/blog/qhd-where-to-go)
+- [秦皇岛冬天带孩子去哪](https://www.divdu.com/blog/qhd-winter-kids-guide)
 - [秦皇岛冬季旅游](https://www.divdu.com/blog/qhd-winter-travel)
 - [如是海度假村攻略](https://www.divdu.com/blog/rushi-sea-guide-2026)
 - [山海关古城全攻略](https://www.divdu.com/blog/shanhaiguan-gucheng-guide)
 - [山海关一日游路线](https://www.divdu.com/blog/shanhaiguan-one-day)
 - [圣蓝海洋公园全攻略](https://www.divdu.com/blog/shenglan-guide)
+- [天津去秦皇岛周末两天怎么玩](https://www.divdu.com/blog/tianjin-to-qinhuangdao-weekend)
 - [蔚蓝海岸全攻略](https://www.divdu.com/blog/weilanhaian-guide)
 - [仙螺岛跨海索道攻略](https://www.divdu.com/blog/xianluo-island-guide-2026)
 - [西港花园全攻略](https://www.divdu.com/blog/xigang-garden-guide-2026)

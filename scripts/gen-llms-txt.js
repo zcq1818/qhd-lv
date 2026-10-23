@@ -19,7 +19,11 @@ const SITE = 'https://www.divdu.com';
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 
 const spots = read('data/attractions.json').spots.filter((s) => s.visible !== false);
-const posts = read('data/blog-index.json').posts || [];
+// 设了 noindex 的薄内容不推荐给 AI
+const posts = (read('data/blog-index.json').posts || []).filter((p) => {
+  const f = path.join(ROOT, 'blog', `${p.slug}.html`);
+  return fs.existsSync(f) && !/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(fs.readFileSync(f, 'utf8'));
+});
 
 const AREA = { beidaihe: '北戴河', shanhaiguan: '山海关', haigang: '海港区', changli: '昌黎', funing: '抚宁', qinglong: '青龙', lulong: '卢龙', nandaihe: '南戴河', xinqu: '北戴河新区' };
 

@@ -1927,7 +1927,7 @@
       "rating": "4.4",
       "price": "160元",
       "priceNum": 160,
-      "openTime": "08:30-17:30",
+      "openTime": "冬季闭园",
       "address": "河北省秦皇岛市山海关区龙海大道148号",
       "lat": 39.935,
       "lng": 119.775,
@@ -1961,7 +1961,7 @@
       "topRank": 0,
       "visible": true,
       "ticketNotes": "全票160元/人(儿童、学生、老人、军人、残疾人等有相应减免政策)；1.2米以下儿童免费(需成人陪同);16周岁以下儿童半价;60-69周岁老人半价、70周岁以上免票;全日制在校学生凭证半价;残疾人、现役及残疾军人凭有效证件免票。门票为园区通票,涵盖海乐岛、迈阿密风情区、海洋嘉年华及夏季开放的水乐岛。景区为季节性开园,建议出行前通过官方渠道或第三方票务平台(携程/去哪儿等)核实当日是否开放及具体价格,门票和优惠政策每年可能调整。",
-      "openTimeNotes": "季节性开放,以2026年为例:04/28-06/07 08:30-17:30;06/08-10/31 08:00-18:00;每年约10月底至次年4月下旬冬季闭园(以景区当年公告为准)",
+      "openTimeNotes": "2026 年 10 月 8 日起闭园，结束本年度营业；一般次年 4 月下旬重新开放，以景区公告为准。2026 年开放期参考：04/28-06/07 08:30-17:30，06/08-10/07 08:00-18:00。",
       "durationNotes": "建议5-8小时(可安排一整天)",
       "bestSeasonNotes": "6-8月暑期,此时气温适宜、水乐岛水上项目全面开放,海洋动物表演场次也相对更丰富;春秋淡季部分设施可能不开放,冬季景区闭园",
       "transportDetail": {
@@ -2005,9 +2005,11 @@
         "https://gs.ctrip.com/html5/you/travels/120556/4019633.html",
         "http://m.qhd.bendibao.com/jingdian/ledaohaiyangwangguo/",
         "https://baike.baidu.com/item/%E4%B9%90%E5%B2%9B%E6%B5%B7%E6%B4%8B%E7%8E%8B%E5%9B%BD/23367046",
-        "https://www.qianggen.net/2009/tuan84737/"
+        "https://www.qianggen.net/2009/tuan84737/",
+        "https://www.sohu.com/a/1085708617_122014422",
+        "https://k.sina.com.cn/article_5953740931_162dee083067041f06.html"
       ],
-      "asOf": "2026-09",
+      "asOf": "2026-10",
       "mentions": 6,
       "inlinks": 2,
       "tier": 2,
@@ -3087,7 +3089,7 @@
       "topRank": 0,
       "visible": true,
       "ticketNotes": "沙滩免费；国际滑沙中心等项目单独售票，成人票约80元（部分渠道电子优惠价约35元，团购价约60元），儿童/老人票约50元（优惠价约35元）；海岸本身免费进入，滑沙、滑草、卡丁车等游乐项目通常含在滑沙中心门票内、一般仅可体验一次，线上购票通常比现场窗口更划算，建议提前在旅游平台比价购买。",
-      "openTimeNotes": "沙滩区域全天开放；国际滑沙中心等收费项目按季节运营，参考4月初至10月初 08:50-16:30（16:00停止检票），具体以当季公告为准",
+      "openTimeNotes": "沙滩区域全天开放；国际滑沙中心 2026 年 10 月 8 日起闭园，一般 4 月初至 10 月初运营，08:50-16:30（16:00 停止检票），以当季公告为准。",
       "transportDetail": {
         "publicTransit": "可在秦皇岛长途汽车站乘直达班车前往黄金海岸；也可从秦皇岛海阳路长途汽车站或北戴河乘车至昌黎后转中巴前往；市内公交22路可达部分路段",
         "driving": "自驾距北戴河约30公里、车程约40-50分钟；距秦皇岛站约50公里；距北京约300公里、车程约3.5-4小时",
@@ -3127,7 +3129,9 @@
       "sources": [
         "https://gs.ctrip.com/html5/you/sight/changli1835/140358.html",
         "https://baike.baidu.com/item/%E6%98%8C%E9%BB%8E%E5%8E%BF%E6%97%85%E6%B8%B8%E6%BB%91%E6%B2%99%E6%B4%BB%E5%8A%A8%E4%B8%AD%E5%BF%83/64099105",
-        "https://qinhuangdao.cncn.com/jingdian/nandaihe/"
+        "https://qinhuangdao.cncn.com/jingdian/nandaihe/",
+        "https://www.sohu.com/a/1085708617_122014422",
+        "https://k.sina.com.cn/article_5953740931_162dee083067041f06.html"
       ],
       "photoCandidates": [
         {
@@ -3149,7 +3153,7 @@
           "height": 2304
         }
       ],
-      "asOf": "2026-09",
+      "asOf": "2026-10",
       "photoCredit": {
         "title": "File:Golden Beach in Changli Hebei China.jpg",
         "author": "Charlie fong",
@@ -3233,7 +3237,7 @@
       "visible": true,
       "ticketNotes": "基础成人套票线上约135元起（含入园、沙滩、滑沙滑草、水寨等基础项目）；温泉+夜演全套联票约198元；菲奢尔海景温泉单独门票约188元；线上购票通常比现场窗口便宜约20-30元，建议提前1天在旅游平台预订；票种较多（基础套票、温泉联票、夜演联票等），出行前根据需求选择合适套票。",
       "phone": "0335-7189559 / 0335-3159666 / 0335-3259666",
-      "openTimeNotes": "暑期（7-8月）08:00-21:30（21:00停止入场，含夜场）；旺季（4-6月、9-10月）09:00-17:30，温泉区延长至21:00；春节、国庆等节假日开放时间延长至18:30左右，具体以当日公告为准",
+      "openTimeNotes": "2026 年 10 月 8 日起游乐、萌宠等季节性项目关闭，菲奢尔海景温泉、酒店、餐饮照常营业（温泉约 09:00-21:00）。旺季参考：暑期 08:00-21:30，4-6 月和 9-10 月 09:00-17:30，以当日公告为准。",
       "transportDetail": {
         "publicTransit": "北戴河站打车约40分钟可达，暂未查到直达公交线路信息",
         "driving": "自驾距北戴河站约30公里、车程约40分钟；距秦皇岛站约50公里；距北京约300公里、车程约3.5-4小时",
@@ -3273,9 +3277,11 @@
         "https://www.meet99.com/jingdian-yudaohaiyang-129209.html",
         "https://youletour.com/qinhuangdao/yu-dao-hai-yang-wen-quan/goupiao",
         "https://www.zhunaqu.com/nandaihe/article/16534",
-        "https://gs.ctrip.com/html5/you/sight/changli1835/123678.html"
+        "https://gs.ctrip.com/html5/you/sight/changli1835/123678.html",
+        "https://www.sohu.com/a/1085708617_122014422",
+        "https://k.sina.com.cn/article_5953740931_162dee083067041f06.html"
       ],
-      "asOf": "2026-09",
+      "asOf": "2026-10",
       "mentions": 4,
       "inlinks": 5,
       "tier": 1,
@@ -3319,7 +3325,7 @@
       "rating": "4.3",
       "price": "88元起",
       "priceNum": 88,
-      "openTime": "淡旺季不同：7月1日-8月31日 08:10-18:00",
+      "openTime": "冬季闭园",
       "address": "河北省秦皇岛市昌黎县大蒲河镇昌海大道3号",
       "lat": 39.6684,
       "lng": 119.3245,
@@ -3353,7 +3359,7 @@
       "topRank": 0,
       "visible": true,
       "ticketNotes": "成人票在不同平台价格不同，官方标价约88元起，网络平台常见折扣票58元起；70周岁以上老人免费；60-69周岁老人享优惠；身高1.2米以下或6周岁以下儿童免费；残疾人、军人、学生等另有优惠政策，具体以景区当日公示及购票平台说明为准。",
-      "openTimeNotes": "淡旺季不同：7月1日-8月31日 08:10-18:00；9月1日-9月30日 08:40-17:30；园内游乐设备及场馆17:00停止运营，沙滩开放09:30-17:00（出口17:20关闭）。其余月份开放时间未查到确切数据，建议出行前在官方平台确认。",
+      "openTimeNotes": "2026 年 10 月 8 日起闭园，结束本年度营业；次年开园时间以景区公告为准。旺季参考：7 月 1 日-8 月 31 日 08:10-18:00，9 月 08:40-17:30。",
       "transportDetail": {
         "publicTransit": "暂未查到明确的公交线路信息，建议从北戴河或昌黎县城乘出租车/网约车前往。",
         "driving": "从北戴河新区打车约30分钟可达；从秦皇岛市区自驾约1小时。",
@@ -3391,9 +3397,11 @@
       "sources": [
         "https://www.dahepiao.com/lvyounews1/20220708282664.html",
         "https://www.qianggen.net/2009/tuan84941/",
-        "https://gs.ctrip.com/html5/you/sight/changli1835/1696904.html"
+        "https://gs.ctrip.com/html5/you/sight/changli1835/1696904.html",
+        "https://www.sohu.com/a/1085708617_122014422",
+        "https://k.sina.com.cn/article_5953740931_162dee083067041f06.html"
       ],
-      "asOf": "2026-09",
+      "asOf": "2026-10",
       "mentions": 7,
       "inlinks": 0,
       "tier": 2,
@@ -3783,7 +3791,7 @@
       "rating": "4.3",
       "price": "29元起",
       "priceNum": 29,
-      "openTime": "5月1日-6月30日 08:30-17:30",
+      "openTime": "冬季闭园",
       "address": "河北省秦皇岛市抚宁区南戴河旅游度假区沿海路999号",
       "lat": 39.7355,
       "lng": 119.3546,
@@ -3817,7 +3825,7 @@
       "topRank": 0,
       "visible": true,
       "ticketNotes": "门票价格随季节和项目组合浮动，团购渠道优惠价格低至29元起，具体以购票平台当日显示为准；免费：6周岁以下或身高1.2米以下儿童、70周岁以上老人、现役军人、残疾人、消防救援人员及\"英才A卡\"持有人；半价：6-18周岁儿童、全日制本科及以下学历学生、60-69周岁老人、残疾人。具体票种及是否含全部游乐项目建议购票前核实。",
-      "openTimeNotes": "2025年公示时间：5月1日-6月30日 08:30-17:30；7月1日-8月25日 08:00-18:00；8月26日-8月31日 08:30-18:00；9月1日-10月7日 09:00-17:30；劳动节/端午节/中秋节/国庆节等假期 08:00-18:00。11月-次年4月是否开放及具体时间未查到确切数据。",
+      "openTimeNotes": "2026 年 10 月 8 日起闭园，结束本年度营业；次年开园时间以景区公告为准。2025 年公示：5 月 1 日-6 月 30 日 08:30-17:30，7 月 1 日-8 月 25 日 08:00-18:00，9 月 1 日-10 月 7 日 09:00-17:30。",
       "transportDetail": {
         "publicTransit": "暂未查到直达公交线路信息，建议从南戴河片区乘出租车/网约车前往。",
         "driving": "从南戴河景区内打车即可到达；从秦皇岛市区自驾约1小时。",
@@ -3855,9 +3863,11 @@
       "sources": [
         "https://www.dahepiao.com/lvyounews1/20240606468860.html",
         "https://www.dahepiao.com/lvyounews1/20240606468914.html",
-        "https://baike.baidu.com/item/%E5%8D%97%E6%88%B4%E6%B2%B3%E5%9B%BD%E9%99%85%E5%A8%B1%E4%B9%90%E4%B8%AD%E5%BF%83/9495685"
+        "https://baike.baidu.com/item/%E5%8D%97%E6%88%B4%E6%B2%B3%E5%9B%BD%E9%99%85%E5%A8%B1%E4%B9%90%E4%B8%AD%E5%BF%83/9495685",
+        "https://www.sohu.com/a/1085708617_122014422",
+        "https://k.sina.com.cn/article_5953740931_162dee083067041f06.html"
       ],
-      "asOf": "2026-09",
+      "asOf": "2026-10",
       "mentions": 9,
       "inlinks": 1,
       "tier": 2,
@@ -5832,7 +5842,7 @@
       "rating": "4.8",
       "price": "109元起",
       "priceNum": 109,
-      "openTime": "10:00-22:00",
+      "openTime": "暂停开放(预计2027年4月重开)",
       "address": "河北省秦皇岛市北戴河新区七里海片区侯里村与大韩庄村之间",
       "lat": 39.58,
       "lng": 119.28,
@@ -5866,7 +5876,7 @@
       "topRank": 0,
       "visible": true,
       "ticketNotes": "成人票109元起（日场+夜场通玩，具体以购票平台当日价格为准）；票价按人群分级：成人109元起、学生/老人90元起、儿童（1.2米以上）79元起，1.2米以下儿童及符合条件的老人等可免票；部分特殊活动期（如国际烟花节）票价会上浮，曾出现238元的活动票价，建议通过官方渠道或携程/美团在出行前确认当日实时价格。景区+住宿套餐通常比单独购票更划算。",
-      "openTimeNotes": "季节性运营，约每年4月30日-10月7日，每日10:00-22:00（21:30停止入园及售票）",
+      "openTimeNotes": "2026 年 10 月起暂停开放、升级改造，预计 2027 年 4 月重新开放（以景区公告为准）。此前为季节性运营，约每年 4 月 30 日至 10 月 7 日，每日 10:00-22:00。",
       "durationNotes": "半天到一天（建议留到夜场结束）",
       "transportDetail": {
         "publicTransit": "乘高铁至北戴河站后打车约40分钟可达；也可乘808路公交至\"大韩庄\"站，下车后步行约10分钟。",
@@ -5907,9 +5917,11 @@
         "https://www.divdu.com/blog/yutian-qilihai-guide-2026",
         "https://gs.ctrip.com/html5/you/sight/changli1835/134077258.html",
         "https://www.beidaihe186.com/scenic_yutian.html",
-        "https://touch.piao.qunar.com/touch/detail.htm?id=516944"
+        "https://touch.piao.qunar.com/touch/detail.htm?id=516944",
+        "https://www.sohu.com/a/1085708617_122014422",
+        "https://k.sina.com.cn/article_5953740931_162dee083067041f06.html"
       ],
-      "asOf": "2026-09",
+      "asOf": "2026-10",
       "mentions": 1,
       "inlinks": 1,
       "tier": 1,

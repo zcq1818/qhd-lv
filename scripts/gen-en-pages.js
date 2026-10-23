@@ -260,6 +260,7 @@ const practical = layout({
   title: 'Qinhuangdao practical information | transport, money, SIM, food, safety',
   description: 'Everything international visitors need for Qinhuangdao and Beidaihe: trains from Beijing, local buses and taxis, payments without a Chinese bank, internet access, food and safety.',
   canonical: '/en/practical', active: 'practical',
+  extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Qinhuangdao practical information', url: 'https://www.divdu.com/en/practical', inLanguage: 'en', about: { '@type': 'City', name: 'Qinhuangdao' }, breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.divdu.com/en' }, { '@type': 'ListItem', position: 2, name: 'Practical information', item: 'https://www.divdu.com/en/practical' }] } })}</script>`,
   leadSource: 'en-practical',
   leadTitle: 'Still stuck on something practical?',
   leadSub: 'Paying without a Chinese bank card, booking a hotel that accepts foreign passports, getting a taxi when no one speaks English — ask and we will give you a straight answer.',

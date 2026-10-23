@@ -160,6 +160,8 @@ function checkSitemapRss(pages, retired) {
       const base = path.basename(rel);
       if (['admin.html', 'dashboard.html', '404.html', 'favorites.html', 'xhs.html'].includes(base)) return false;
       if (rel.startsWith('blog/') && retired.has(base.replace(/\.html$/, ''))) return false;
+      // noindex 的页面刻意不进 sitemap(见 generate-sitemap.js)
+      if (/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(fs.readFileSync(path.join(ROOT, rel), 'utf8'))) return false;
       return true;
     });
     const missing = should.filter((rel) => {
