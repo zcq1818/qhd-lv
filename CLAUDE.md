@@ -222,6 +222,11 @@ sitemap 会自动扫描根目录、attraction/、blog/(跳过退役文章),lastm
 (`scripts/apply-see-also.js`,已有的不重复加;文章重新生成后也会自动补回)。
 重新生成会覆盖整页,之后再跑一次 `npm run all` 把咨询卡、商家位等组件铺回去。
 
+老文章(不是由稿件生成的)要加**时效提示**(闭园、暂停开放)或**要点速览**,写在 `data/article-notes.json`,
+`scripts/apply-article-notes.js` 每次构建整块重写。**景区重新开放时记得回来删提示** —— 删掉条目,
+下次构建页面上的提示就没了。直接改老文章正文适合改错(比如过时的价格),时效性的东西走清单。
+核对正文可以用 `node scripts/article-text.js <slug>` 把文章抽成纯文本。
+
 百度推送由 Vercel Cron 每天北京时间 06:00 调 `/api/cron-push`,一次 10 条(免费额度)。
 **最近 21 天发布的文章会插队先推**(按 rss.xml 的 pubDate 判断,推过的记在 Redis
 集合 `push:baidu:fresh` 里不重复推),剩下的名额再按 sitemap 轮换。

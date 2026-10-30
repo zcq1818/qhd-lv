@@ -105,6 +105,16 @@ window.SEARCH_INDEX = [
     "type": "攻略"
   },
   {
+    "title": "秦皇岛12月旅游攻略 | 天气·海鸥·滑雪·跨年·冻海时间",
+    "url": "/blog/qhd-december-guide",
+    "type": "博客"
+  },
+  {
+    "title": "北戴河看海鸥攻略 | 时间·地点·喂食·拍照·注意事项",
+    "url": "/blog/beidaihe-seagull-guide",
+    "type": "博客"
+  },
+  {
     "title": "天津去秦皇岛周末两天怎么玩 | 高铁车次·到哪个站·自驾·行程",
     "url": "/blog/tianjin-to-qinhuangdao-weekend",
     "type": "博客"

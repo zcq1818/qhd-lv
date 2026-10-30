@@ -6,7 +6,21 @@
   <atom:link href="https://www.divdu.com/rss.xml" rel="self" type="application/rss+xml"/>
   <description>秦皇岛、北戴河、山海关的旅游攻略与实用信息</description>
   <language>zh-CN</language>
-  <lastBuildDate>Fri, 23 Oct 2026 15:12:07 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 30 Oct 2026 05:48:40 GMT</lastBuildDate>
+  <item>
+    <title>北戴河看海鸥攻略 | 时间·地点·喂食·拍照·注意事项</title>
+    <link>https://www.divdu.com/blog/beidaihe-seagull-guide</link>
+    <guid isPermaLink="true">https://www.divdu.com/blog/beidaihe-seagull-guide</guid>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
+    <description>每年初冬，数以万计的海鸥来秦皇岛过冬，12 月到次年 4 月聚集最多。这篇讲清去哪看（老虎石、鸽子窝、东山浴场、老龙头等）、几点去、能喂什么、怎么拍，以及冬天海边的安全和保护规定。</description>
+  </item>
+  <item>
+    <title>秦皇岛12月旅游攻略 | 天气·海鸥·滑雪·跨年·冻海时间</title>
+    <link>https://www.divdu.com/blog/qhd-december-guide</link>
+    <guid isPermaLink="true">https://www.divdu.com/blog/qhd-december-guide</guid>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
+    <description>12 月去秦皇岛：平均最高约 2℃、最低约 -8℃，晴天多、雪少。冻海一般要到 1 月中旬才有，12 月主打看海鸥、滑雪场开板（往年 12 月 20 日前后）、阿那亚跨年和泡温泉。附开放景区、当季吃的和日出日落时间。</description>
+  </item>
   <item>
     <title>秦皇岛11月旅游攻略 | 天气·闭园景区·候鸟·海鲜·行程</title>
     <link>https://www.divdu.com/blog/qhd-november-guide</link>
@@ -272,20 +286,6 @@
     <guid isPermaLink="true">https://www.divdu.com/blog/weilanhaian-guide</guid>
     <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
     <description>蔚蓝海岸是秦皇岛新兴文艺海岸社区，猫的天空之城书店+海边秋千+冲浪，人少沙滩净，比北戴河更安静。本文详解蔚蓝海岸免费玩法、猫空书店、海边秋千、冲浪、交通和避坑提醒。</description>
-  </item>
-  <item>
-    <title>新澳海底世界全攻略 | 门票·海底隧道·表演·开放时间（2026最新）</title>
-    <link>https://www.divdu.com/blog/xinao-guide</link>
-    <guid isPermaLink="true">https://www.divdu.com/blog/xinao-guide</guid>
-    <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-    <description>新澳海底世界拥有亚洲最长海底观光隧道之一（80米），鲨鱼鳐鱼海龟从头顶游过，还有美人鱼和海狮表演。本文详解新澳海底世界门票、海底隧道、表演时间、开放时间、交通和避坑提醒。</description>
-  </item>
-  <item>
-    <title>燕塞湖全攻略 | 门票·游船·鸟语林·开放时间（2026最新）</title>
-    <link>https://www.divdu.com/blog/yansaihu-guide</link>
-    <guid isPermaLink="true">https://www.divdu.com/blog/yansaihu-guide</guid>
-    <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-    <description>在遍地都是长城和海的山海关，燕塞湖是一抹难得的山水绿意。这座被誉为&amp;quot;北方小桂林&amp;quot;的湖，青山环抱、碧水如镜，还能乘船游湖、看珍禽，是山海关行程里最&amp;quot;松弛&amp;quot;的一站。这篇攻略把门票、游船、鸟语林一次讲透。</description>
   </item>
 </channel>
 </rss>

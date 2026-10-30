@@ -1,6 +1,6 @@
 # 秦皇岛旅游官网
 
-> 秦皇岛（含北戴河、山海关、南戴河、北戴河新区/阿那亚、昌黎）旅游攻略与实用工具。覆盖 47 个景点、95 篇攻略文章，以及基于实时数据的赶海时间、日出、潮汐查询。
+> 秦皇岛（含北戴河、山海关、南戴河、北戴河新区/阿那亚、昌黎）旅游攻略与实用工具。覆盖 47 个景点、97 篇攻略文章，以及基于实时数据的赶海时间、日出、潮汐查询。
 
 本站由本地团队维护。景点的门票、开放时间、交通信息逐条整理自景区公告、政府网站与媒体报道，每个景点页底部列出信息来源与核对月份（最近一次核对：2026-10）；攻略文章底部列出资料来源。价格与开放时间会变动，引用时请注明以景区当天公告为准。
 
@@ -88,6 +88,7 @@
 - [北戴河免费景点大全](https://www.divdu.com/blog/beidaihe-free-attractions)
 - [北戴河赶海实地实录](https://www.divdu.com/blog/beidaihe-ganhai-experience)
 - [北戴河7月避坑指南](https://www.divdu.com/blog/beidaihe-july-tips)
+- [北戴河看海鸥攻略](https://www.divdu.com/blog/beidaihe-seagull-guide)
 - [2026暑假北戴河亲子游全攻略](https://www.divdu.com/blog/beidaihe-summer-2026-guide)
 - [北戴河日出时间表](https://www.divdu.com/blog/beidaihe-sunrise-time)
 - [北戴河日落最佳地点](https://www.divdu.com/blog/beidaihe-sunset-spots)
@@ -112,6 +113,7 @@
 - [南戴河国际娱乐中心全攻略](https://www.divdu.com/blog/nanent-guide)
 - [秦皇岛几月去最好](https://www.divdu.com/blog/qhd-best-time-to-visit)
 - [秦皇岛情侣游攻略](https://www.divdu.com/blog/qhd-couple-trip-guide)
+- [秦皇岛12月旅游攻略](https://www.divdu.com/blog/qhd-december-guide)
 - [秦皇岛带老人旅游攻略](https://www.divdu.com/blog/qhd-elderly-travel)
 - [秦皇岛紧急电话](https://www.divdu.com/blog/qhd-emergency)
 - [秦皇岛亲子游攻略](https://www.divdu.com/blog/qhd-family-travel)
