@@ -105,6 +105,21 @@ window.SEARCH_INDEX = [
     "type": "攻略"
   },
   {
+    "title": "2027山海关旅游攻略 | 天下第一关·老龙头·古城·长城博物馆·门票路线",
+    "url": "/blog/shanhaiguan-travel-guide-2027",
+    "type": "博客"
+  },
+  {
+    "title": "2027秦皇岛旅游路线 | 2天1夜·3天2晚·5天4晚行程·北戴河山海关阿那亚",
+    "url": "/blog/qhd-itinerary-2027",
+    "type": "博客"
+  },
+  {
+    "title": "2027北戴河旅游攻略 | 必去景点·门票·最佳时间·住宿·行程",
+    "url": "/blog/beidaihe-travel-guide-2027",
+    "type": "博客"
+  },
+  {
     "title": "2027年秦皇岛旅游攻略 | 每月玩什么·节日日期·新变化·最佳时间",
     "url": "/blog/qhd-travel-guide-2027",
     "type": "博客"

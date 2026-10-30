@@ -1,6 +1,6 @@
 # 秦皇岛旅游官网
 
-> 秦皇岛（含北戴河、山海关、南戴河、北戴河新区/阿那亚、昌黎）旅游攻略与实用工具。覆盖 47 个景点、100 篇攻略文章，以及基于实时数据的赶海时间、日出、潮汐查询。
+> 秦皇岛（含北戴河、山海关、南戴河、北戴河新区/阿那亚、昌黎）旅游攻略与实用工具。覆盖 47 个景点、103 篇攻略文章，以及基于实时数据的赶海时间、日出、潮汐查询。
 
 本站由本地团队维护。景点的门票、开放时间、交通信息逐条整理自景区公告、政府网站与媒体报道，每个景点页底部列出信息来源与核对月份（最近一次核对：2026-10）；攻略文章底部列出资料来源。价格与开放时间会变动，引用时请注明以景区当天公告为准。
 
@@ -93,6 +93,7 @@
 - [2027年北戴河日出时间表](https://www.divdu.com/blog/beidaihe-sunrise-2027)
 - [北戴河日出时间表](https://www.divdu.com/blog/beidaihe-sunrise-time)
 - [北戴河日落最佳地点](https://www.divdu.com/blog/beidaihe-sunset-spots)
+- [2027北戴河旅游攻略](https://www.divdu.com/blog/beidaihe-travel-guide-2027)
 - [北戴河住哪里最方便？各区域住宿优缺点对比（2026最新）](https://www.divdu.com/blog/beidaihe-where-to-stay)
 - [碧螺塔夜游攻略](https://www.divdu.com/blog/biluota-night-guide-2026)
 - [冰塘峪大峡谷全攻略](https://www.divdu.com/blog/bingtangyu-guide)
@@ -125,6 +126,7 @@
 - [秦皇岛五一端午假期攻略](https://www.divdu.com/blog/qhd-holiday-guide)
 - [2027年节假日去秦皇岛](https://www.divdu.com/blog/qhd-holidays-2027)
 - [秦皇岛泡温泉去哪](https://www.divdu.com/blog/qhd-hot-spring-guide)
+- [2027秦皇岛旅游路线](https://www.divdu.com/blog/qhd-itinerary-2027)
 - [2026国庆秦皇岛赶海时间表](https://www.divdu.com/blog/qhd-national-day-2026-ganhai-sunrise)
 - [秦皇岛国庆旅游攻略](https://www.divdu.com/blog/qhd-national-day-guide-2026)
 - [元旦去秦皇岛怎么玩](https://www.divdu.com/blog/qhd-new-year-guide)
@@ -149,6 +151,7 @@
 - [如是海度假村攻略](https://www.divdu.com/blog/rushi-sea-guide-2026)
 - [山海关古城全攻略](https://www.divdu.com/blog/shanhaiguan-gucheng-guide)
 - [山海关一日游路线](https://www.divdu.com/blog/shanhaiguan-one-day)
+- [2027山海关旅游攻略](https://www.divdu.com/blog/shanhaiguan-travel-guide-2027)
 - [圣蓝海洋公园全攻略](https://www.divdu.com/blog/shenglan-guide)
 - [天津去秦皇岛周末两天怎么玩](https://www.divdu.com/blog/tianjin-to-qinhuangdao-weekend)
 - [蔚蓝海岸全攻略](https://www.divdu.com/blog/weilanhaian-guide)
