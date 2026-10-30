@@ -13,6 +13,10 @@
       [
         "/blog/aranya-where-to-stay",
         "阿那亚住哪里？社区内外·南岸北岸·酒店民宿"
+      ],
+      [
+        "/blog/qhd-travel-guide-2027",
+        "2027 年秦皇岛旅游攻略：每个月去玩什么、明年有哪些变化"
       ]
     ],
     "blog/aranya-how-to-enter.html": [
@@ -63,6 +67,10 @@
       [
         "/blog/beidaihe-seagull-guide",
         "北戴河冬天看海鸥：几月来、去哪看、能不能喂"
+      ],
+      [
+        "/blog/beidaihe-sunrise-2027",
+        "2027 年北戴河日出时间表：鸽子窝、老龙头、阿那亚"
       ]
     ],
     "blog/beidaihe-autumn.html": [
@@ -123,12 +131,28 @@
       [
         "/blog/qhd-december-guide",
         "12 月去秦皇岛玩什么？看海鸥、滑雪、跨年"
+      ],
+      [
+        "/blog/beidaihe-sunrise-2027",
+        "2027 年北戴河日出时间表：鸽子窝、老龙头、阿那亚"
+      ],
+      [
+        "/blog/qhd-holidays-2027",
+        "2027 年节假日去秦皇岛：春节、五一、国庆分别怎么玩"
       ]
     ],
     "blog/qhd-best-time-to-visit.html": [
       [
         "/blog/qhd-november-guide",
         "11 月去秦皇岛值得吗？哪些关了、还能看什么"
+      ],
+      [
+        "/blog/qhd-travel-guide-2027",
+        "2027 年秦皇岛旅游攻略：每个月去玩什么、明年有哪些变化"
+      ],
+      [
+        "/blog/qhd-holidays-2027",
+        "2027 年节假日去秦皇岛：春节、五一、国庆分别怎么玩"
       ]
     ],
     "blog/qhd-transport-guide-2026.html": [
@@ -165,6 +189,10 @@
       [
         "/blog/qhd-november-guide",
         "11 月去秦皇岛值得吗？哪些关了、还能看什么"
+      ],
+      [
+        "/blog/qhd-travel-guide-2027",
+        "2027 年秦皇岛旅游攻略：每个月去玩什么、明年有哪些变化"
       ]
     ],
     "blog/qhd-november-guide.html": [
@@ -175,6 +203,10 @@
       [
         "/blog/beidaihe-seagull-guide",
         "北戴河冬天看海鸥：几月来、去哪看、能不能喂"
+      ],
+      [
+        "/blog/qhd-travel-guide-2027",
+        "2027 年秦皇岛旅游攻略：每个月去玩什么、明年有哪些变化"
       ]
     ],
     "blog/beidaihe-birdwatching-guide.html": [
@@ -187,12 +219,42 @@
       [
         "/blog/beidaihe-seagull-guide",
         "北戴河冬天看海鸥：几月来、去哪看、能不能喂"
+      ],
+      [
+        "/blog/beidaihe-sunrise-2027",
+        "2027 年北戴河日出时间表：鸽子窝、老龙头、阿那亚"
       ]
     ],
     "attraction/laohushi.html": [
       [
         "/blog/beidaihe-seagull-guide",
         "北戴河冬天看海鸥：几月来、去哪看、能不能喂"
+      ]
+    ],
+    "blog/qhd-national-day-guide-2026.html": [
+      [
+        "/blog/qhd-holidays-2027",
+        "2027 年节假日去秦皇岛：春节、五一、国庆分别怎么玩"
+      ],
+      [
+        "/blog/qhd-travel-guide-2027",
+        "2027 年秦皇岛旅游攻略：每个月去玩什么、明年有哪些变化"
+      ]
+    ],
+    "blog/qhd-holiday-guide.html": [
+      [
+        "/blog/qhd-holidays-2027",
+        "2027 年节假日去秦皇岛：春节、五一、国庆分别怎么玩"
+      ]
+    ],
+    "blog/qhd-december-guide.html": [
+      [
+        "/blog/qhd-travel-guide-2027",
+        "2027 年秦皇岛旅游攻略：每个月去玩什么、明年有哪些变化"
+      ],
+      [
+        "/blog/beidaihe-sunrise-2027",
+        "2027 年北戴河日出时间表：鸽子窝、老龙头、阿那亚"
       ]
     ]
   }

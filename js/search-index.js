@@ -105,6 +105,21 @@ window.SEARCH_INDEX = [
     "type": "攻略"
   },
   {
+    "title": "2027年秦皇岛旅游攻略 | 每月玩什么·节日日期·新变化·最佳时间",
+    "url": "/blog/qhd-travel-guide-2027",
+    "type": "博客"
+  },
+  {
+    "title": "2027年节假日去秦皇岛 | 春节·五一·端午·暑假·中秋·国庆攻略",
+    "url": "/blog/qhd-holidays-2027",
+    "type": "博客"
+  },
+  {
+    "title": "2027年北戴河日出时间表 | 鸽子窝·老龙头·阿那亚全年日出日落",
+    "url": "/blog/beidaihe-sunrise-2027",
+    "type": "博客"
+  },
+  {
     "title": "秦皇岛12月旅游攻略 | 天气·海鸥·滑雪·跨年·冻海时间",
     "url": "/blog/qhd-december-guide",
     "type": "博客"
